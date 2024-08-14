@@ -7,7 +7,7 @@
 			"ESOTERIC KILL ",
 			"WINGED STRIKE",
 			"NEVER STATIONARY",
-			"RAIDER TACTICS",
+			"RAIDER'S TACTICS",
 			"FIRE AND FADE",
 			"ECSTATIC CARNAGE",
 			"STUDIES IN AGONY",
@@ -17,7 +17,7 @@
 			"MALICIOUS FRENZY"
 		],
 		"general": [
-			"Either gain 1 [B] or spend 1 of your dice to rally 1 of your units. ",
+			"Either gain 1 [B] or spend 1 die of your choice to rally 1 of your units. ",
 			"Gain 1 [S]. *newpara* If you have at least 1 unrouted ship in the active system, gain 1 reinforcement token and force your opponent to discard 1 of his reinforcement tokens.",
 			"Gain either 2 (B) or 1 (S).",
 			"Gain 1 (B). *newpara*  Convert 1 of your [M] into [B].",
@@ -26,10 +26,10 @@
 			"If you are attacking, gain 2 (B). When your unit is destroyed during this execution round, you may retreat that unit instead. *newpara* If you are defending, gain 2 (S). When an enemy unit is routed during this execution round, it is destroyed unless your opponent spends 1 [M].",
 			"Gain either 1 [B] or 1 [S].",
 			"If you are attacking, your opponent cannot gain (B) during this execution round. *newpara* If you are defending, gain 1 [S] and your opponent loses 2 (B).",
-			"During the next execution round, your opponent chooses and plays all of his combat cards at random.",
+			"During the next execution round, force your opponent to play all combat cards randomly.",
 			"Your opponent chooses and routs 1 of his units unless he spends 1 [B].",
 			"Your opponent chooses and routs 1 of his units unless he spends 1 [S].",
-			"Gain 2 (B), 2 (S), or spend 1 of your dice to gain 2 (B) and 2 (S).",
+			"Gain 2 (B), 2 (S), or spend 1 die of your choice to gain 2 (B) and 2 (S).",
 			""
 		],
 		"unit": [
@@ -38,12 +38,12 @@
 			"Kabalite Warrior/Frigate: If you have more unrouted units than your opponent, your opponent chooses and routs 1 of his units unless he spends 1 [M].",
 			"Kabalite Warrior/Wych/Frigate: Gain 1 (S). *newpara* Your opponent rerolls 1 [B], 1 [S], or 1 [M].",
 			"Wych/Frigate: Either gain 2 (S) or play 1 combat card from your hand. Do not resolve its abilities, but gain its combat icons during this combat.",
-			"Wych/Frigate: Spend 1 of your dice to gain either 1 [B] or 1 [S].",
+			"Wych/Frigate: Spend 1 die of your choice to gain either 1 [B] or 1 [S].",
 			"",
 			"Kabalite Warrior/Frigate: Your opponent may retreat 1 of his units. Then you may move 1 of your units to an adjacent friendly or uncontrolled area. If you do, gain either 1 [M] or 2 (B).",
 			"Wych/Frigate: Place 1 free reinforcement token in this area.",
 			"",
-			"Ravager/Dying Sun: If you are attacking, gain 2 (S). *newpara* If you are defending, force your opponent to lose 5 (B).",
+			"Ravager/Dying Sun: If you are attacking, gain 2 (S). If you are defending, force your opponent to lose 5 (B).",
 			"Ravager/Dying Sun: Gain 2 (B) unless your opponent chooses and destroys 1 of his units.",
 			"Ravager/Dying Sun: Force your opponent to lose 1 [B], 1 [S] and 1 [M]. ",
 			"Ravager/Dying Sun: Gain 3 (B). *newpara* At the end of the assess damage step of this execution round, if your opponent did not suffer any damage during this execution round, he chooses and routs 1 of his units. "
@@ -60,7 +60,7 @@
 		"general": [
 			"If you rolled at least 2 [B] during this orbital strike, gain 1 reinforcement token. *newline* LIMIT ONCE PER ROUND.",
 			"After you resolve this order, you may either spend 1 reinforcement token to place 1 free Kabalite Warrior on any friendly world or replace 1 Kabalite Warrior in the active system with 1 free Wych. *newline* LIMIT ONCE PER ROUND.",
-			"When resolving this order you may move units from up to 2 different adjecent systems to the active system. *newline* LIMIT ONCE PER ROUND.",
+			"When resolving this order you may move units from up to 2 different adjacent systems to the active system. *newline* LIMIT ONCE PER ROUND.",
 			"While resolving this order, increase your command level by 1. *newline* LIMIT ONCE PER ROUND.",
 			"Enemy bastions do not prevent this orbital strike. During this orbital strike, you may spend 1 [B] to move 1 of your ships in the active system to another void in the active system. This can start a new combat after resolving this orbital strike. *newline* LIMIT ONCE PER ROUND."
 		]
@@ -77,11 +77,11 @@
 			"BLACK HEART SPONSORING"
 		],
 		"general": [
-			"Instead of revealing an order during the Operations Phase, you may discard this card to choose an uncontrolled world. Gain assets from this world and gain materiel equal to its materiel value.",
-			"At the end of the reinforce step of combat, you may discard this card to force your opponent to choose and rout 1 of his units unless he spends dice equal to the chosen unit's combat value.",
-			"At the start of an execution round of combat, you may discard this card and destroy 1 of your command level 1 or command level 2 units to move any number of your units to an adjacent area. This can start a new combat after resolving this combat. ",
-			"Instead of placing an order during the Planning Phase, you may discard this card.",
-			"Either spend up to 2 materiel to gain 1 asset token of your choice for each materiel you spend or spend up to 2 asset tokens to gain 2 materiel for each asset token you spend.",
+			"Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to choose an uncontrolled world. Gain assets from this world and gain materiel equal to its materiel value.",
+			"Place this card in your play area and discard all of your other schemes. *newpara* At the end of the reinforce step of combat, you may discard this card to force your opponent to choose and rout 1 of his units unless he spends dice equal to the chosen unit's combat value.",
+			"Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, you may discard this card and destroy 1 of your command level 1 or command level 2 units to move any number of your units to an adjacent area. This can start a new combat after resolving this combat. ",
+			"Place this card in your play area and discard all of your other schemes. *newpara* Instead of placing an order during the Planning Phase, you may discard this card.",
+			"Either spend up to 2 materiel to gain 1 asset of your choice for each materiel you spend or spend up to 2 assets to gain 2 materiel for each asset you spend.",
 			"Destroy 1 of your units on any world. Gain materiel equal to its materiel cost and gain reinforcement tokens equal to its morale value.",
 			"Purchase 1 combat upgrade. You may spend reinforcement tokens to reduce its materiel cost by 2 for each token you spend.",
 			"Either place 1 free Frigate in any friendly void or spend 2 materiel and 1 forge token to replace 1 Frigate with 1 free Dying Sun Battleship."
