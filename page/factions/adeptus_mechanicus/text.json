@@ -1,100 +1,138 @@
 {
-	"combatText": {
-		"title": [
-			"VENERATE THE MACHINE SPIRIT",
-			"TECH-PRIEST ENGINEER",
-			"SKITARII VANGUARD",
-			"SKITARII INFILTRATORS",
-			"SKITARII RUSTSTALKERS",
-			"TRANSCENDENT COGITATION",
-			"ENHANCED BIONICS",
-			"AGGRESSION OVERRIDE",
-			"SIPHONED VIGOUR",
-			"MACHINE SUPERIORITY",
-			"MANOEUVRABLE CRAFT",
-			"ELIMINATION VOLLEY",
-			"MACHINE SPIRIT'S REVENGE",
-			"RAGE OF THE MACHINE"
-		],
-		"general": [
-			"Resolve the general ability of your faceup combat card played in the previous execution round.",
-			"Either rally 1 of your units or gain 1 (B) and 1 (S).",
-			"Gain 2 (S).",
-			"If you are attacking, look at your opponent's facedown combat card. *newpara* Gain either 1 [B] or 1 [S].",
-			"Gain 1 [B]. ",
-			"",
-			"Gain either 1 [B] or 1 (B).",
-			"Gain either 1 [S] or 1 (S).",
-			"Either gain 1 [D] or convert 1 of your dice into [M]. *newpara* Resolve the unit ability of your faceup combat card played in the previous execution round.",
-			"Spend 1 [M] to rally 1 of your units. *newpara* Either gain 1 [D] or 2 (B).",
-			"Convert up to 2 of your [B] to [M]. *newpara* Gain 2 (S).",
-			"",
-			"Gain either 1 [S] or 1 (S). *newline* Convert up to 2 [B] into [S].",
-			"Gain 3 (B)."
-		],
-		"unit": [
-			"Skitarii/Light Cruiser: Gain 1 (S).",
-			"Skitarii/Light Cruiser: Gain 1 [D].",
-			"Skitarii/Light Cruiser: During the assess damage step of this execution round, you may assign damage to your routed units as if they were unrouted.",
-			"Skitarii/Light Cruiser: Gain 1 [M], 2 (B), or 2 (S).",
-			"Skitarii/Light Cruiser:  Either gain 1 [M] or choose 1 of your unrouted units to gain (B) equal to the chosen unit's command level. ",
-			"Skitarii/Light Cruiser: Force your opponent to lose 1 [B], 1 [S], or 1 [M]. Then gain 1 [B], 1 [S], or 1 [M], whichever your opponent spent.",
-			"Kataphron/Light Cruiser: Gain 2 (S) unless your opponent spends 1 [S].",
-			"Kataphron/Light Cruiser: Gain 2 (B) unless your opponent spends 1 [B].",
-			"",
-			"Onager/Ark Mechanicus: Convert up to 2 of your [S] to [B]. *newpara* Choose [B], [S] or [M]. Force your opponent to convert up to 2 of the chosen dice to a different icon of his choice.",
-			"Onager/Ark Mechanicus: Spend 1 [M]. If you do, do not discard your (S) at the end of this execution round.",
-			"Skitarii/Kataphron/Onager: Rout 1 of your opponent's units. This unit's command level cannot exceed the command level of your unrouted unit with the highest command level.",
-			"Titan/Ark Mechanicus: For each [D] you have in excess of your opponent's [B], gain 1 (B), to a maximum of 4.",
-			"Titan/Ark Mechanicus: Spend 1 [M]. If you do, do not discard your (B) at the end of this execution round."
-		]
-	},
-	"ordersText": {
-		"title": [
-			"INFOSLAVE SKULLs",
-			"Master of the Machines",
-			"Sacred  oils",
-			"Panegyric Procession",
-			"Flesh is weak"
-		],
-		"general": [
-			"After drawing cards during the preparation step of a combat you start with this order you may reroll up to 1 of your dice for each of your units in the contested area. *newline* LIMIT ONCE PER ROUND.",
-			"While resolving this order, you may either increase your deploy limit by 1 or reduce the total materiel cost of purchased units and structures by 1.  *newline* LIMIT ONCE PER ROUND.",
-			"After drawing cards during the preparation step of a combat you start with this order you may draw 2 combat cards and then discard 2 combat cards. *newline* LIMIT ONCE PER ROUND.",
-			"After you resolve this order, you may purchase 1 unit and place it on the world with the factory you moved.  *newline* LIMIT ONCE PER ROUND. *newline* REQUIRES MASTER OF MACHINES.",
-			"Enemy bastions do not prevent this orbital strike. During this orbital strike, you may spend 2 [S]. If you do and there are no enemy units or bastions on this world after resolving this orbital strike, take control of all structures on this world. *newline* LIMIT ONCE PER ROUND."
-		]
-	},
-	"eventsText": {
-		"title": [
-			"THE QUEST FOR KNOWLEDGE",
-			"BATTLE FORGES",
-			"NECROMECHANIC",
-			"RAD-BOMBARDMENT",
-			"LINGUA-TECHNIS",
-			"THE CRIMSON GUARD",
-			"BLESSING OF THE MACHINE GOD",
-			"MECHAMORPHOSIS"
-		],
-		"general": [
-			"Place this card in your play area and discard all of your other schemes. At the end of the Planning Phase, you may discard this card to take 1 of your order tokens from the top of a stack and place it on the top of a stack in an adjacent system you can place an order token in.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* When you reveal an order during the Operations Phase, you may discard this card to purchase a factory and place it on a friendly world in the active system.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* If you cannot resolve an order during your turn during the Operations Phase, you may discard this card to draw and resolve the abilities of 2 cards from the top of your event deck.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* Before you perform an orbital strike, you may discard this card to reduce the health value of enemy units on the world by 1 during this orbital strike. Units with their health value reduced to 0 are destroyed immediately.",
-			"Purchase 1 order upgrade, reducing its materiel cost by 1 for each friendly world containing a factory.",
-			"Either spend 2 materiel to place 2 free Skitarii on a friendly world containing a factory or place 1 free Skitarii on any friendly world.",
-			"Gain 2 materiel and 1 forge token.",
-			"Replace 1 Skitarii with 1 free Kataphron, replace 1 Kataphron with 1 free Onager Dunecrawler, or spend 1 forge token to replace 1 Onager Dunecrawler with 1 free Warlord Titan."
-		],
-		"type": [
-			"SCHEME",
-			"SCHEME",
-			"SCHEME",
-			"SCHEME",
-			"TACTIC",
-			"TACTIC",
-			"TACTIC",
-			"TACTIC"
-		]
-	}
+    "ordersText":  [
+                       {
+                           "title":  "INFOSLAVE SKULLs",
+                           "general":  "After drawing cards during the preparation step of a combat you start with this order you may reroll 1 die for each of your units in the contested area. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "Master of the Machines",
+                           "general":  "While resolving this order, you may either increase your deploy limit by 1 or reduce the total materiel cost of purchased units and structures by 1.  *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "Sacred  oils",
+                           "general":  "After drawing cards during the preparation step of a combat you start with this order you may draw 2 combat cards and then discard 2 combat cards. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "Panegyric Procession",
+                           "general":  "After you resolve this order, you may purchase 1 unit and place it on the world with the factory you moved.  *newline* LIMIT ONCE PER ROUND. *newline* REQUIRES MASTER OF MACHINES."
+                       },
+                       {
+                           "title":  "Flesh is weak",
+                           "general":  "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may spend 2 [S]. If you do and there are no enemy units or bastions on this world after resolving this orbital strike, take control of all structures on this world. *newline* LIMIT ONCE PER ROUND."
+                       }
+                   ],
+    "eventsText":  [
+                       {
+                           "title":  "THE QUEST FOR KNOWLEDGE",
+                           "general":  "Place this card in your play area and discard all of your other schemes. At the end of the Planning Phase, you may discard this card to take 1 of your order tokens from the top of a stack and place it on the top of a stack in an adjacent system you are allowed to place order tokens in.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "BATTLE FORGES",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* When you reveal an order during the Operations Phase, you may discard this card to purchase a factory and place it on a friendly world in the active system.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "NECROMECHANIC",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* If you must skip your turn during the Operations Phase,  you may discard this card to draw 2 cards from the top of your event deck and resolve their abilities.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "RAD-BOMBARDMENT",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Before you perform an orbital strike, you may discard this card to reduce the health value of enemy units on the world by 1 during this orbital strike. Units with their health value reduced to 0 are destroyed immediately.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "LINGUA-TECHNIS",
+                           "general":  "Purchase 1 order upgrade, reducing its materiel cost by 1 for each friendly world containing a factory.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "THE CRIMSON GUARD",
+                           "general":  "Either spend 2 materiel to place 2 free Skitarii on a friendly world containing a factory or place 1 free Skitarii on any friendly world.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "BLESSING OF THE MACHINE GOD",
+                           "general":  "Gain 2 materiel and 1 forge token.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "MECHAMORPHOSIS",
+                           "general":  "Either replace 1 Skitarii with 1 free Kataphron, replace 1 Kataphron with 1 free Inager Dunecrawler, or spend 1 forge token to replace 1 Onager Dunecrawler with 1 free Warlord Titan",
+                           "type":  "TACTIC"
+                       }
+                   ],
+    "combatText":  [
+                       {
+                           "title":  "VENERATE THE MACHINE SPIRIT",
+                           "general":  "Resolve the general ability of your faceup combat card played in the previous execution round.",
+                           "unit":  "Skitarii/Light Cruiser: Gain 1 (S)."
+                       },
+                       {
+                           "title":  "TECH-PRIEST ENGINEER",
+                           "general":  "Either rally 1 of your units or gain 1 (B) and 1 (S).",
+                           "unit":  "Skitarii/Light Cruiser: Gain 1 [D]."
+                       },
+                       {
+                           "title":  "SKITARII VANGUARD",
+                           "general":  "Gain 2 (S).",
+                           "unit":  "Skitarii/Light Cruiser: During the assess damage step of this execution round, you may assign damage to your routed units."
+                       },
+                       {
+                           "title":  "SKITARII INFILTRATORS",
+                           "general":  "If you are attacking, look at your opponent's facedown combat card. *newpara* Gain either 1 [B] or 1 [S].",
+                           "unit":  "Skitarii/Light Cruiser: Gain 1 [M], 2 (B), or 2 (S)."
+                       },
+                       {
+                           "title":  "SKITARII RUSTSTALKERS",
+                           "general":  "Gain 1 [B]. ",
+                           "unit":  "Skitarii/Light Cruiser:  Either gain 1 [M] or choose 1 of your unrouted units to gain (B) equal to the chosen unit's command level. "
+                       },
+                       {
+                           "title":  "TRANSCENDENT COGITATION",
+                           "general":  "",
+                           "unit":  "Skitarii/Light Cruiser: Force your opponent to lose 1 [B], 1 [S], or 1 [M]. Then gain 1 [B], 1 [S], or 1 [M], whichever your opponent spent."
+                       },
+                       {
+                           "title":  "ENHANCED BIONICS",
+                           "general":  "Gain either 1 [B] or 1 (B).",
+                           "unit":  "Kataphron/Light Cruiser: Gain 2 (S) unless your opponent spends 1 [S]."
+                       },
+                       {
+                           "title":  "AGGRESSION OVERRIDE",
+                           "general":  "Gain either 1 [S] or 1 (S).",
+                           "unit":  "Kataphron/Light Cruiser: Gain 2 (B) unless your opponent spends 1 [B]."
+                       },
+                       {
+                           "title":  "SIPHONED VIGOUR",
+                           "general":  "Either gain 1 [D] or convert 1 of your dice into [M]. *newpara* Resolve the unit ability of your faceup combat card played in the previous execution round.",
+                           "unit":  ""
+                       },
+                       {
+                           "title":  "MACHINE SUPERIORITY",
+                           "general":  "Spend 1 [M] to rally 1 of your units. *newpara* Either gain 1 [D] or 2 (B).",
+                           "unit":  "Onager/Ark Mechanicus: Convert up to 2 of your [S] into [B]. *newpara* Choose [B], [S] or [M]. Force your opponent to convert up to 2 of the chosen dice to a different icon of his choice."
+                       },
+                       {
+                           "title":  "MANOEUVRABLE CRAFT",
+                           "general":  "Convert up to 2 of your [B] to [M]. *newpara* Gain 2 (S).",
+                           "unit":  "Onager/Ark Mechanicus: Spend 1 [M]. If you do, do not discard your (S) at the end of this execution round."
+                       },
+                       {
+                           "title":  "ELIMINATION VOLLEY",
+                           "general":  "",
+                           "unit":  "Skitarii/Kataphron/Onager: Rout 1 of your opponent's units. This unit's command level cannot exceed the command level of your unrouted unit with the highest command level."
+                       },
+                       {
+                           "title":  "MACHINE SPIRIT'S REVENGE",
+                           "general":  "Gain either 1 [S] or 1 (S). *newline* Convert up to 2 [B] into [S].",
+                           "unit":  "Titan/Ark Mechanicus: For each [S] you have in excess of your opponent's [B], gain 1 (B), to a maximum of 4."
+                       },
+                       {
+                           "title":  "RAGE OF THE MACHINE",
+                           "general":  "Gain 3 (B).",
+                           "unit":  "Titan/Ark Mechanicus: Spend 1 [M]. If you do, do not discard your (B) at the end of this execution round."
+                       }
+                   ]
 }

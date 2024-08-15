@@ -1,100 +1,138 @@
 {
-	"combatText": {
-		"title": [
-			"STRATEGIC EXCRUCIATION",
-			"SHADOW ASSIGNMENT",
-			"PSYKER SHIELD",
-			"UNQUESTIONABLE WISDOM",
-			"FRENZON IMPLANTS",
-			"SANCTIONED PSYKER",
-			"CRUSADERS DEFENSE",
-			"INCONCEIVABLE CUSTOMISATION",
-			"FAITH GUIDANCE",
-			"READER OF THE TAROT",
-			"DEFENSIVE BARRAGE",
-			"HELLSTRIKE MISSILES",
-			"TRUESILVER ARMOUR",
-			"TELEPORT STRIKE"
-		],
-		"general": [
-			"Any Unrouted Unit: Your opponent cannot use Primary effect from his next reveled card.",
-			"Rally 1 of your units. *newpara* Gain 1 [M].",
-			"Gain 2 (S).",
-			"If you are attacking, look at your opponent's facedown combat card. *newpara* Gain 1 [B], 1 [S] or 1 [M].",
-			"Gain 2 (B).",
-			"Your opponent may spend 1 [B] to gain 1 (B). If he does not, force your opponent to lose 1 [S].",
-			"",
-			"Gain 2 (S).",
-			"",
-			"If you are defending, opponent looses 3 (B). *newpara* If you are attacking, your opponent cannnot gain (S) during this execution round.",
-			"Gain 1 [D]. *newpara* You may spend 1 [M] to move 1 Command level 0 or 2 [M] to move 1 Command level 1 unit to adjacent area. This can start a new combat after resolving this combat.",
-			"You MUST reroll 1 [S] or 1 [M].",
-			"Either gain 1 [S] or 2 (S).",
-			"Choose 1 of your opponents units. That unit suffers damage first during this execution round."
-		],
-		"unit": [
-			"",
-			"Stormtrooper/Rogue Trader: If you have more [M] than your opponent, force your opponent to either rout 1 unit or discard a die of your choice.",
-			"Deathwatch/Rogue Trader: You may spend 2 (S) to gain 1 reinforcement token in this area.",
-			"Stormtrooper/Rogue Trader: Play 1 combat card from your hand. Do not resolve it's abilities, but gain it's combat icons until the end of this execution round.",
-			"Stormtrooper/Rogue Trader: You may spend 2 (B) to convert all of your [M] to [B].",
-			"Stormtrooper/Rogue Trader: Your opponent rerolls 2 dies of your choice.",
-			"Stromtrooper/Deathwatch/Cruiser: Rally 1 of your units. *newpara* Gain 1 (S) for each [S] you have, to a maximum of 4.",
-			"Deathwatch/Rogue Trader: Gain 1 (B) for each [B] you have, to a maximum of 3. Your opponent gains 1 (B) for each [B] he has, to a maximum of 3.",
-			"Deathwatch/Rogue Trader: Choose your opponent's unit up to command level 2. Force your opponent to rout that unit, unless he spends dice equal to that units morale value.",
-			"Valkyrie/Black Ship: Gain up to 3 (S) for each unrouted unit and bastion.",
-			"Valkyrie/Black Ship: Gain 1 free reinforcement token in this area.",
-			"Valkyrie/Black Ship: Choose 1 of your opponent's routed units and destroy that unit.",
-			"Grey Knight/Black Ship: During this combat, health value of your units is increased by 1.",
-			"Grey Knights/Black Ships: During this execution round, if your opponent has to assign any damage, he assigns 3 additional damage. "
-		]
-	},
-	"ordersText": {
-		"title": [
-			"INEVITABLE EXCAVATION",
-			"DREAD JUDGEMENT",
-			"ADEPTUS ARBITES",
-			"PSYCHIC MASTERY",
-			"TERROR STRIKE"
-		],
-		"general": [
-			"During an orbital strike gain 1 [D], and you may spend 1 [M] to gain 1 asset from the world the strike was on. *newline* LIMIT ONCE PER ROUND.",
-			"In resolution step of a won combat while resolving this order, you may force your opponent to choose 1 routed unit before the retreat phase and destroy it. *newline* LIMIT ONCE PER ROUND.",
-			"When resolving this order, you may gain 1 free Stormtrooper on planet with City in active system. *newline* LIMIT ONCE PER ROUND.",
-			"When you reveal this order token, draw 3 Event cards. Choose 1 of drawn cards and discard the others. Put the chosen card aside and take it during Event Phase. *newline* LIMIT ONCE PER ROUND.",
-			"Bastions do not prevent this strike. You may either  spend 1 [M] to force your enemy to rout 1 unit or spent 2 [M] to force your enemy to retreat 1 unit. *newline* LIMIT ONCE PER ROUND."
-		]
-	},
-	"eventsText": {
-		"title": [
-			"BURNER OF WORLDS",
-			"PSIONIC WARFARE",
-			"CUTTHROATS FOR HIRE",
-			"THEOSOPMOMY",
-			"RADICALS AND PURITANS",
-			"RORMIDABLE RESOLVE",
-			"AUTOSAVANT SAGE ANALYZE",
-			"TOTAL AUTHORITY"
-		],
-		"general": [
-			"When you are defending a world with at least 2 of your units, you may discard this card at reinforce step of combat, to destroy all units and structures on this world.",
-			"When you reveal an order during Operations Phase, you may discard this card, to choose your opponents order upgrade and turn it face down, making is unusable this round.",
-			"At the end of reinforce step of combat, you may discard this card to force your opponent to either  choose and rout 1 of his units if you are attacking or force your opponent to choose and retreat 1 unit if you are defending.",
-			"Disruption in the warp allows it to move in all directions.",
-			"Purchase 1 structure reducing it's materiel cost by 1 or destroy 1 structure on a friendly world to gain destroyed structure materiel cost increased by 1.",
-			"Place 1 Stormtrooper on any friendly world and 1 Inquisitorial Cruisers on any friendly  or uncontrolled void in system with a City or 1 Stormtrooper on any friendly world.",
-			"Get 1 combat upgrade reducing its cost by 1 for each planet with city in a system with no enemy units.",
-			"Discard this card during first turn in Planning Phase. If you do, you may place additional order token (5 in total)."
-		],
-		"type": [
-			"SCHEME",
-			"SCHEME",
-			"SCHEME",
-			"SCHEME",
-			"TACTIC",
-			"TACTIC",
-			"TACTIC",
-			"TACTIC"
-		]
-	}
+    "ordersText":  [
+                       {
+                           "title":  "INEVITABLE EXCAVATION",
+                           "general":  "During an orbital strike gain 1 [D], and you may spend 1 [M] to gain 1 asset from the world the strike was on. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "DREAD JUDGEMENT",
+                           "general":  "In resolution step of a won combat while resolving this order, you may force your opponent to choose 1 routed unit before the retreat phase and destroy it. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "ADEPTUS ARBITES",
+                           "general":  "When resolving this order, you may gain 1 free Stormtrooper on planet with City in active system. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "PSYCHIC MASTERY",
+                           "general":  "When you reveal this order token, draw 3 Event cards. Choose 1 of drawn cards and discard the others. Put the chosen card aside and take it during Event Phase. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "TERROR STRIKE",
+                           "general":  "Bastions do not prevent this strike. You may either  spend 1 [M] to force your enemy to rout 1 unit or spent 2 [M] to force your enemy to retreat 1 unit. *newline* LIMIT ONCE PER ROUND."
+                       }
+                   ],
+    "eventsText":  [
+                       {
+                           "title":  "BURNER OF WORLDS",
+                           "general":  "When you are defending a world with at least 2 of your units, you may discard this card at reinforce step of combat, to destroy all units and structures on this world.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "PSIONIC WARFARE",
+                           "general":  "When you reveal an order during Operations Phase, you may discard this card, to choose your opponents order upgrade and turn it face down, making is unusable this round.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "CUTTHROATS FOR HIRE",
+                           "general":  "At the end of reinforce step of combat, you may discard this card to force your opponent to either  choose and rout 1 of his units if you are attacking or force your opponent to choose and retreat 1 unit if you are defending.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "THEOSOPMOMY",
+                           "general":  "Disruption in the warp allows it to move in all directions.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "RADICALS AND PURITANS",
+                           "general":  "Purchase 1 structure reducing it's materiel cost by 1 or destroy 1 structure on a friendly world to gain destroyed structure materiel cost increased by 1.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "RORMIDABLE RESOLVE",
+                           "general":  "Place 1 Stormtrooper on any friendly world and 1 Inquisitorial Cruisers on any friendly  or uncontrolled void in system with a City or 1 Stormtrooper on any friendly world.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "AUTOSAVANT SAGE ANALYZE",
+                           "general":  "Get 1 combat upgrade reducing its cost by 1 for each planet with city in a system with no enemy units.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "TOTAL AUTHORITY",
+                           "general":  "Discard this card during first turn in Planning Phase. If you do, you may place additional order token (5 in total).",
+                           "type":  "TACTIC"
+                       }
+                   ],
+    "combatText":  [
+                       {
+                           "title":  "STRATEGIC EXCRUCIATION",
+                           "general":  "Any Unrouted Unit: Your opponent cannot use Primary effect from his next reveled card.",
+                           "unit":  ""
+                       },
+                       {
+                           "title":  "SHADOW ASSIGNMENT",
+                           "general":  "Rally 1 of your units. *newpara* Gain 1 [M].",
+                           "unit":  "Stormtrooper/Rogue Trader: If you have more [M] than your opponent, force your opponent to either rout 1 unit or discard a die of your choice."
+                       },
+                       {
+                           "title":  "PSYKER SHIELD",
+                           "general":  "Gain 2 (S).",
+                           "unit":  "Deathwatch/Rogue Trader: You may spend 2 (S) to gain 1 reinforcement token in this area."
+                       },
+                       {
+                           "title":  "UNQUESTIONABLE WISDOM",
+                           "general":  "If you are attacking, look at your opponent's facedown combat card. *newpara* Gain 1 [B], 1 [S] or 1 [M].",
+                           "unit":  "Stormtrooper/Rogue Trader: Play 1 combat card from your hand. Do not resolve it's abilities, but gain it's combat icons until the end of this execution round."
+                       },
+                       {
+                           "title":  "FRENZON IMPLANTS",
+                           "general":  "Gain 2 (B).",
+                           "unit":  "Stormtrooper/Rogue Trader: You may spend 2 (B) to convert all of your [M] to [B]."
+                       },
+                       {
+                           "title":  "SANCTIONED PSYKER",
+                           "general":  "Your opponent may spend 1 [B] to gain 1 (B). If he does not, force your opponent to lose 1 [S].",
+                           "unit":  "Stormtrooper/Rogue Trader: Your opponent rerolls 2 dies of your choice."
+                       },
+                       {
+                           "title":  "CRUSADERS DEFENSE",
+                           "general":  "",
+                           "unit":  "Stromtrooper/Deathwatch/Cruiser: Rally 1 of your units. *newpara* Gain 1 (S) for each [S] you have, to a maximum of 4."
+                       },
+                       {
+                           "title":  "INCONCEIVABLE CUSTOMISATION",
+                           "general":  "Gain 2 (S).",
+                           "unit":  "Deathwatch/Rogue Trader: Gain 1 (B) for each [B] you have, to a maximum of 3. Your opponent gains 1 (B) for each [B] he has, to a maximum of 3."
+                       },
+                       {
+                           "title":  "FAITH GUIDANCE",
+                           "general":  "",
+                           "unit":  "Deathwatch/Rogue Trader: Choose your opponent's unit up to command level 2. Force your opponent to rout that unit, unless he spends dice equal to that units morale value."
+                       },
+                       {
+                           "title":  "READER OF THE TAROT",
+                           "general":  "If you are defending, opponent looses 3 (B). *newpara* If you are attacking, your opponent cannnot gain (S) during this execution round.",
+                           "unit":  "Valkyrie/Black Ship: Gain up to 3 (S) for each unrouted unit and bastion."
+                       },
+                       {
+                           "title":  "DEFENSIVE BARRAGE",
+                           "general":  "Gain 1 [D]. *newpara* You may spend 1 [M] to move 1 Command level 0 or 2 [M] to move 1 Command level 1 unit to adjacent area. This can start a new combat after resolving this combat.",
+                           "unit":  "Valkyrie/Black Ship: Gain 1 free reinforcement token in this area."
+                       },
+                       {
+                           "title":  "HELLSTRIKE MISSILES",
+                           "general":  "You MUST reroll 1 [S] or 1 [M].",
+                           "unit":  "Valkyrie/Black Ship: Choose 1 of your opponent's routed units and destroy that unit."
+                       },
+                       {
+                           "title":  "TRUESILVER ARMOUR",
+                           "general":  "Either gain 1 [S] or 2 (S).",
+                           "unit":  "Grey Knight/Black Ship: During this combat, health value of your units is increased by 1."
+                       },
+                       {
+                           "title":  "TELEPORT STRIKE",
+                           "general":  "Choose 1 of your opponents units. That unit suffers damage first during this execution round.",
+                           "unit":  "Grey Knights/Black Ships: During this execution round, if your opponent has to assign any damage, he assigns 3 additional damage. "
+                       }
+                   ]
 }

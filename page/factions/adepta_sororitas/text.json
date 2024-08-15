@@ -1,100 +1,138 @@
 {
-	"combatText": {
-		"title": [
-			"DRIVEN ONWARDS",
-			"BEACON OF FAITH",
-			"GUIDED RETRIBUTION",
-			"HOLY TRINITY",
-			"SANCTIFIED  CHARGE",
-			"ZEALOT'S PASSION",
-			"MARTYRDOM",
-			"SPIRITUAL FORTITUDE",
-			"ANGELIC DESCENT",
-			"MARTYR'S IMMOLATION",
-			"ARMOURED IN FAITH",
-			"DEVASTATING REFRAIN",
-			"DIVINE BLESSING",
-			"DIVINE SMITING"
-		],
-		"general": [
-			"Force your opponent to reroll 2 dice of his choice.",
-			"",
-			"",
-			"If this card gets discarded gain 2 (B). *newpara* Gain 2 [B].",
-			"Gain 2 [D]. *newpara* Reroll 1 die of your choice.",
-			"Force your opponent to lose 1 [M]. *newpara* Gain 1 (B) or discard 1 card from your hand.",
-			"Convert up to 2 of your [B] into [M].",
-			"If you are defending, force your opponent to lose 2 (B). *newpara* Force your oppononent to spend either 1 [B] or 1 [M].",
-			"Gain 1 (S) for each of your unrouted units, up to 3.",
-			"Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M] instead.",
-			"Gain 1 [M] and 1 (S).",
-			"If this card gets discarded you may resolve its ability. *newpara* Spend up to 3 of your dice. For each die you spend, gain either 1 [B] or 1 [S]. Gain 1 (B) for each [M] spent.",
-			"Spend any number of [S] and [M]. For each die you spent, force your opponent to lose 1 [B].",
-			"Your opponent chooses and discards 1 of his faceup combat cards."
-		],
-		"unit": [
-			"Bastion/Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card.",
-			"Sister Repentia: Replace 1 of your Sisters Repentia on this world with 1 free Battle Sister and gain 2 [D]. *newline* - or - *newline* Bastion/Light Cruiser: Gain 1 [M] and 2 (S).",
-			"Bastion/Sister Repentia/Light Cruisers: Gain 1 (B) or 1 (S). *newpara* Play 1 combat card from your hand. Then discard this card.",
-			"Battle Sister/Bastion: Gain 2 (B). During the assess damage step of this execution round, force your opponent to assign damage to his units 1 at a time.",
-			"Sister Repentia/Light Cruiser: Gain 1 (B) for every [B], 1 (S) for every [S] and 1 [D] for every [M] rolled while resolving the general ability of this card.",
-			"Battle Sister/Light Cruiser: If you are attacking, your opponent cannot place reinforcement tokens in this area or rally units this execution round. *newline* If you are defending, rally 1 of your units.",
-			"Battle Sister/Light Cruiser: Choose 1 of your unrouted units. That unit suffers damage first during this execution round. Damage in excess of the chosen unit health value is lost.",
-			"Battle Sister/Light Cruiser: Gain 2 [D].",
-			"Battle Sister/Light Cruiser: After the assess damage step of combat your opponent chooses and destroys 1 of his routed units unless he spends 1 [B].",
-			"Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: You may choose an Exorcist Tank or a Vengeance Grand Cruiser in this area to suffer damage first during this execution round to gain 3 (B). If the chosen unit is destroyed gain 2 % at the start of the next execution round.",
-			"Battle Sister/Light Cruiser: Rally 1 of your units. *newline* - or - *newline* Exorcist/Grand Cruiser: If you have more [M] than your opponent, force your opponent to rout 1 unit unless he spends [M].",
-			"",
-			"Living Saint/Grand Cruiser: Gain 4 [D].",
-			"Living Saint/Grand Cruiser: Play the top card of your combat deck. Do not resolve its abilities, but gain its combat icons during this combat."
-		]
-	},
-	"ordersText": {
-		"title": [
-			"FAITHFUL ADVANCE",
-			"DIVINE DELIVERANCE",
-			"LEAD THE RIGHTEOUS",
-			"WAR HYMNS",
-			"BRAZIER OF HOLY FIRE"
-		],
-		"general": [
-			"While resolving this order, you may move up to 2 of your units trough uncontrolled planets as if it were a friendly area. *newline* LIMIT ONCE PER ROUND.",
-			"When you start combat with this order, gain 1 [D] for each unrouted Sister Repentia at the reinforcement phase. *newline* LIMIT ONCE PER ROUND.",
-			"After you resolve this this order you may rally all of your units in the active system or in an adjacent system. *newline* LIMIT ONCE PER ROUND.",
-			"If the combined morale value of all of your ships participating in the orbital strike is higher than combined morale value of all unrouted units and structures on the enemy world, force your opponent to rout 1 unit. Then you may spend 1 [S] to force your opponent to retreat that unit. *newline* LIMIT ONCE PER ROUND.",
-			"Bastions do not prevent this strike. During this orbital strike, you may rout any number of participating ships. For each ship routed, convert 2 dice into [B]. *newline* LIMIT ONCE PER ROUND."
-		]
-	},
-	"eventsText": {
-		"title": [
-			"UNDIVIDED FAITH",
-			"HEROINE IN THE MAKING",
-			"INDOMITABLE BELIEF",
-			"FAIT ACCOMPLI",
-			"INVASION CATHEDRUM DEPLOYMENT",
-			"CRUSADE INTO DARKNESS",
-			"INSPIRING ORATOR",
-			"ULTIMATE DEVOTION"
-		],
-		"general": [
-			"Place this card in your play area and discard all of your other schemes. *newpara* At the begining of the last execution round of combat, you may discard this card to add half of routed units morale value, rounded up, at the combat resolution.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to resolve an Advance Order which must start a combat using 1 Sister Repentia or 1 Battle Sister. This combat lasts 1 execution round. Treat your chosen unit as Living Saint. Destroy this unit after combat resolution.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* At the beginning of an execution round of combat, you may discard this card. If you do, your units cannot become routed during this execution round.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to take 1 Sister Repentina or 1 Battle Sister from any world and place it on a friendly world.",
-			"Either place 1 free Battle Sister on a friendly world containing at least 1 friendly unit or place 1 free Sister Repentia on any friendly world.",
-			"Purchase 1 combat upgrade, reducing its materiel cost up to 3 for each system containing both your and opponent's units.",
-			"Gain 1 reinforcement token for each friendly world containing a City.",
-			"Either place 1 free city on a friendly world not containing a structure or spend 3 materiel to place 1 free city on a friendly world not containing a city."
-		],
-		"type": [
-			"SCHEME",
-			"SCHEME",
-			"SCHEME",
-			"SCHEME",
-			"TACTIC",
-			"TACTIC",
-			"TACTIC",
-			"TACTIC"
-		]
-	}
+    "ordersText":  [
+                       {
+                           "title":  "FAITHFUL ADVANCE",
+                           "general":  "While resolving this order, you may move up to 2 of your units trough uncontrolled planets as if it were a friendly area. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "DIVINE DELIVERANCE",
+                           "general":  "When you start combat with this order, gain 1 [D] for each unrouted Sister Repentia at the reinforcement phase. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "LEAD THE RIGHTEOUS",
+                           "general":  "After you resolve this this order you may rally all of your units in the active system or in an adjacent system. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "WAR HYMNS",
+                           "general":  "If the combined morale value of all of your ships participating in the orbital strike is higher than combined morale value of all unrouted units and structures on the enemy world, force your opponent to rout 1 unit. Then you may spend 1 [S] to force your opponent to retreat that unit. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                           "title":  "BRAZIER OF HOLY FIRE",
+                           "general":  "Bastions do not prevent this strike. During this orbital strike, you may rout any number of participating ships. For each ship routed, convert 2 dice into [B]. *newline* LIMIT ONCE PER ROUND."
+                       }
+                   ],
+    "eventsText":  [
+                       {
+                           "title":  "UNDIVIDED FAITH",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the begining of the last execution round of combat, you may discard this card to add half of routed units morale value, rounded up, at the combat resolution.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "HEROINE IN THE MAKING",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to resolve an Advance Order which must start a combat using 1 Sister Repentia or 1 Battle Sister. This combat lasts 1 execution round. Treat your chosen unit as Living Saint. Destroy this unit after combat resolution.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "INDOMITABLE BELIEF",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the beginning of an execution round of combat, you may discard this card. If you do, your units cannot become routed during this execution round.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "FAIT ACCOMPLI",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to take 1 Sister Repentina or 1 Battle Sister from any world and place it on a friendly world.",
+                           "type":  "SCHEME"
+                       },
+                       {
+                           "title":  "INVASION CATHEDRUM DEPLOYMENT",
+                           "general":  "Either place 1 free Battle Sister on a friendly world containing at least 1 friendly unit or place 1 free Sister Repentia on any friendly world.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "CRUSADE INTO DARKNESS",
+                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost up to 3 for each system containing both your and opponent's units.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "INSPIRING ORATOR",
+                           "general":  "Gain 1 reinforcement token for each friendly world containing a City.",
+                           "type":  "TACTIC"
+                       },
+                       {
+                           "title":  "ULTIMATE DEVOTION",
+                           "general":  "Either place 1 free city on a friendly world not containing a structure or spend 3 materiel to place 1 free city on a friendly world not containing a city.",
+                           "type":  "TACTIC"
+                       }
+                   ],
+    "combatText":  [
+                       {
+                           "title":  "DRIVEN ONWARDS",
+                           "general":  "Force your opponent to reroll 2 dice of his choice.",
+                           "unit":  "Bastion/Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card."
+                       },
+                       {
+                           "title":  "BEACON OF FAITH",
+                           "general":  "",
+                           "unit":  "Sister Repentia: Replace 1 of your Sisters Repentia on this world with 1 free Battle Sister and gain 2 [D]. *newline* - or - *newline* Bastion/Light Cruiser: Gain 1 [M] and 2 (S)."
+                       },
+                       {
+                           "title":  "GUIDED RETRIBUTION",
+                           "general":  "",
+                           "unit":  "Bastion/Sister Repentia/Light Cruisers: Gain 1 (B) or 1 (S). *newpara* Play 1 combat card from your hand. Then discard this card."
+                       },
+                       {
+                           "title":  "HOLY TRINITY",
+                           "general":  "If this card gets discarded gain 2 (B). *newpara* Gain 2 [B].",
+                           "unit":  "Battle Sister/Bastion: Gain 2 (B). During the assess damage step of this execution round, force your opponent to assign damage to his units 1 at a time."
+                       },
+                       {
+                           "title":  "SANCTIFIED  CHARGE",
+                           "general":  "Gain 2 [D]. *newpara* Reroll 1 die of your choice.",
+                           "unit":  "Sister Repentia/Light Cruiser: Gain 1 (B) for every [B], 1 (S) for every [S] and 1 [D] for every [M] rolled while resolving the general ability of this card."
+                       },
+                       {
+                           "title":  "ZEALOTS PASSION",
+                           "general":  "Force your opponent to lose 1 [M]. *newpara* Gain 1 (B) or discard 1 card from your hand.",
+                           "unit":  "Battle Sister/Light Cruiser: If you are attacking, your opponent cannot place reinforcement tokens in this area or rally units this execution round. *newline* If you are defending, rally 1 of your units."
+                       },
+                       {
+                           "title":  "MARTYRDOM",
+                           "general":  "Convert up to 2 of your [B] into [M].",
+                           "unit":  "Battle Sister/Light Cruiser: Choose 1 of your unrouted units. That unit suffers damage first during this execution round. Damage in excess of the chosen unit health value is lost."
+                       },
+                       {
+                           "title":  "SPIRITUAL FORTITUDE",
+                           "general":  "If you are defending, force your opponent to lose 2 (B). *newpara* Force your oppononent to spend either 1 [B] or 1 [M].",
+                           "unit":  "Battle Sister/Light Cruiser: Gain 2 [D]."
+                       },
+                       {
+                           "title":  "ANGELIC DESCENT",
+                           "general":  "Gain 1 (S) for each of your unrouted units, up to 3.",
+                           "unit":  "Battle Sister/Light Cruiser: After the assess damage step of combat your opponent chooses and destroys 1 of his routed units unless he spends 1 [B]."
+                       },
+                       {
+                           "title":  "MARTYR'S IMMOLATION",
+                           "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M] instead.",
+                           "unit":  "Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: You may choose an Exorcist Tank or a Vengeance Grand Cruiser in this area to suffer damage first during this execution round to gain 3 (B). If the chosen unit is destroyed gain 2 % at the start of the next execution round."
+                       },
+                       {
+                           "title":  "ARMOURED IN FAITH",
+                           "general":  "Gain 1 [M] and 1 (S).",
+                           "unit":  "Battle Sister/Light Cruiser: Rally 1 of your units. *newline* - or - *newline* Exorcist/Grand Cruiser: If you have more [M] than your opponent, force your opponent to rout 1 unit unless he spends [M]."
+                       },
+                       {
+                           "title":  "DEVASTATING REFRAIN",
+                           "general":  "If this card gets discarded you may resolve its ability. *newpara* Spend up to 3 of your dice. For each die you spend, gain either 1 [B] or 1 [S]. Gain 1 (B) for each [M] spent.",
+                           "unit":  ""
+                       },
+                       {
+                           "title":  "DIVINE BLESSING",
+                           "general":  "Spend any number of [S] and [M]. For each die you spent, force your opponent to lose 1 [B].",
+                           "unit":  "Living Saint/Grand Cruiser: Gain 4 [D]."
+                       },
+                       {
+                           "title":  "DIVINE SMITING",
+                           "general":  "Your opponent chooses and discards 1 of his faceup combat cards.",
+                           "unit":  "Living Saint/Grand Cruiser: Play the top card of your combat deck. Do not resolve its abilities, but gain its combat icons during this combat."
+                       }
+                   ]
 }
