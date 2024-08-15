@@ -53,31 +53,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
 				const subTabContents = document.createElement('div');
 				subTabContents.classList.add('sub-tab-contents');
-
-				['combat', 'orders', 'events'].forEach((category, catIndex) => {
-					const subTabContent = document.createElement('div');
-					subTabContent.id = `sub-tab-${faction}-${category}`;
-					subTabContent.classList.add('sub-tab-content');
-					if (catIndex === 0) subTabContent.classList.add('active');
-					subTabContents.appendChild(subTabContent);
-
-					// Load faction text and images
-					fetch(`factions/${faction}/text.json`)
-						.then(response => response.json())
-						.then(textData => {
-							if (category === 'combat') {
-								createCombatContent(subTabContent, faction, files, textData);
-							} else if (category === 'orders') {
-								createOrdersContent(subTabContent, faction, files, textData);
-							} else {
-								createEventContent(subTabContent, faction, files, textData);
-							}
-
+				fetch(`factions/${faction}/text.json`)
+					.then(response => response.json())
+					.then(textData => {
+						console.log(textData);
+						['combat', 'orders', 'events'].forEach((category, catIndex) => {
+							const subTabContent = document.createElement('div');
+							subTabContent.id = `sub-tab-${faction}-${category}`;
+							subTabContent.classList.add('sub-tab-content');
+							if (catIndex === 0) subTabContent.classList.add('active');
+							subTabContents.appendChild(subTabContent);
+									if (category === 'combat') {
+										createCombatContent(subTabContent, faction, files, textData);
+									} else if (category === 'orders') {
+										createOrdersContent(subTabContent, faction, files, textData);
+									} else {
+										createEventContent(subTabContent, faction, files, textData);
+									}
 						})
-						.catch(error => console.error(`Error loading text data for ${faction}:`, error));
-				});
+					})	
+					.catch(error => console.error(`Error loading text data for ${faction}:`, error));
 				factionTabContent.appendChild(subTabContents);
 			});
+
 			// Add click event listener to faction tabs
 			document.querySelectorAll('.tab-header').forEach(header => {
 				header.addEventListener('click', function () {
@@ -113,22 +111,22 @@ document.addEventListener('DOMContentLoaded', function () {
 			't3-section': files.combat.slice(12, 14)
 		};
 		const titles = {
-			's-section': textData.combatText.title.slice(0, 5),
-			't1-section': textData.combatText.title.slice(5, 9),
-			't2-section': textData.combatText.title.slice(9, 12),
-			't3-section': textData.combatText.title.slice(12, 14)
+			's-section': textData.combatText.slice(0, 5).title,
+			't1-section': textData.combatText.slice(5, 9).title,
+			't2-section': textData.combatText.slice(9, 12).title,
+			't3-section': textData.combatText.slice(12, 14).title
 		};
 		const generalText = {
-			's-section': textData.combatText.general.slice(0, 5),
-			't1-section': textData.combatText.general.slice(5, 9),
-			't2-section': textData.combatText.general.slice(9, 12),
-			't3-section': textData.combatText.general.slice(12, 14)
+			's-section': textData.combatText.slice(0, 5).general,
+			't1-section': textData.combatText.slice(5, 9).general,
+			't2-section': textData.combatText.slice(9, 12).general,
+			't3-section': textData.combatText.slice(12, 14).general
 		};
 		const unitText = {
-			's-section': textData.combatText.unit.slice(0, 5),
-			't1-section': textData.combatText.unit.slice(5, 9),
-			't2-section': textData.combatText.unit.slice(9, 12),
-			't3-section': textData.combatText.unit.slice(12, 14)
+			's-section': textData.combatText.slice(0, 5).unit,
+			't1-section': textData.combatText.slice(5, 9).unit,
+			't2-section': textData.combatText.slice(9, 12).unit,
+			't3-section': textData.combatText.slice(12, 14).unit
 		};
 		Object.keys(sections).forEach(section => {
 			const sectionContainer = document.createElement('div');
