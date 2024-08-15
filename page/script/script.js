@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			't2-section': files.combat.slice(9, 12),
 			't3-section': files.combat.slice(12, 14)
 		};
+
 		const titles = {
 			's-section': textData.combatText.slice(0, 5).title,
 			't1-section': textData.combatText.slice(5, 9).title,
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			't3-section': textData.combatText.slice(12, 14).title
 		};
 		console.log(titles);
+		console.log(textData.combatText);
 		const generalText = {
 			's-section': textData.combatText.slice(0, 5).general,
 			't1-section': textData.combatText.slice(5, 9).general,
