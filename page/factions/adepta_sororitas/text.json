@@ -29,20 +29,20 @@
 			"Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M] instead.",
 			"Gain 1 [M] and 1 (S).",
 			"If this card gets discarded you may resolve its ability. *newpara* Spend up to 3 of your dice. For each die you spend, gain either 1 [B] or 1 [S]. Gain 1 (B) for each [M] spent.",
-			"Spend any number of [S] and [M]. For each die spent, force your opponent to lose 1 [B].",
+			"Spend any number of [S] and [M]. For each die you spent, force your opponent to lose 1 [B].",
 			"Your opponent chooses and discards 1 of his faceup combat cards."
 		],
 		"unit": [
-			"Bastion/Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled while resolving the general ability of this card.",
+			"Bastion/Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card.",
 			"Sister Repentia: Replace 1 of your Sisters Repentia on this world with 1 free Battle Sister and gain 2 [D]. *newline* - or - *newline* Bastion/Light Cruiser: Gain 1 [M] and 2 (S).",
 			"Bastion/Sister Repentia/Light Cruisers: Gain 1 (B) or 1 (S). *newpara* Play 1 combat card from your hand. Then discard this card.",
 			"Battle Sister/Bastion: Gain 2 (B). During the assess damage step of this execution round, force your opponent to assign damage to his units 1 at a time.",
 			"Sister Repentia/Light Cruiser: Gain 1 (B) for every [B], 1 (S) for every [S] and 1 [D] for every [M] rolled while resolving the general ability of this card.",
-			"Battle Sister/Light Cruiser: If you are attacking your opponent may not place reinforcement tokens in this area or rally units this execution round. *newline* If you are defending, rally 1 of your units.",
+			"Battle Sister/Light Cruiser: If you are attacking, your opponent cannot place reinforcement tokens in this area or rally units this execution round. *newline* If you are defending, rally 1 of your units.",
 			"Battle Sister/Light Cruiser: Choose 1 of your unrouted units. That unit suffers damage first during this execution round. Damage in excess of the chosen unit health value is lost.",
 			"Battle Sister/Light Cruiser: Gain 2 [D].",
 			"Battle Sister/Light Cruiser: After the assess damage step of combat your opponent chooses and destroys 1 of his routed units unless he spends 1 [B].",
-			"Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: You may choose an Exorcist Tank or a Vengeance Grand Cruiser in this area to suffer damage first during this execution round to gain 3 (B). When the chosen unit is destroyed start next execution round with 2 (B).",
+			"Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: You may choose an Exorcist Tank or a Vengeance Grand Cruiser in this area to suffer damage first during this execution round to gain 3 (B). If the chosen unit is destroyed gain 2 % at the start of the next execution round.",
 			"Battle Sister/Light Cruiser: Rally 1 of your units. *newline* - or - *newline* Exorcist/Grand Cruiser: If you have more [M] than your opponent, force your opponent to rout 1 unit unless he spends [M].",
 			"",
 			"Living Saint/Grand Cruiser: Gain 4 [D].",
@@ -59,10 +59,10 @@
 		],
 		"general": [
 			"While resolving this order, you may move up to 2 of your units trough uncontrolled planets as if it were a friendly area. *newline* LIMIT ONCE PER ROUND.",
-			"If a world is contested as a result of this order, gain 1 [D] for each unrouted Sister Repentia at the reinforcement phase. *newline* LIMIT ONCE PER ROUND.",
+			"When you start combat with this order, gain 1 [D] for each unrouted Sister Repentia at the reinforcement phase. *newline* LIMIT ONCE PER ROUND.",
 			"After you resolve this this order you may rally all of your units in the active system or in an adjacent system. *newline* LIMIT ONCE PER ROUND.",
-			"If the combined morale value of all of your units participating in the orbital strike is higher than combined morale value of all unrouted units and structures on the enemy world, force your opponent to rout 1 unit. Then you may spend 1 [S] to force that unit to retreat. *newline* LIMIT ONCE PER ROUND.",
-			"Bastions do not prevent this strike. During this orbital strike you may rout any number of participating ships. For each ship routed, convert 2 dice into [B]. *newline* LIMIT ONCE PER ROUND."
+			"If the combined morale value of all of your ships participating in the orbital strike is higher than combined morale value of all unrouted units and structures on the enemy world, force your opponent to rout 1 unit. Then you may spend 1 [S] to force your opponent to retreat that unit. *newline* LIMIT ONCE PER ROUND.",
+			"Bastions do not prevent this strike. During this orbital strike, you may rout any number of participating ships. For each ship routed, convert 2 dice into [B]. *newline* LIMIT ONCE PER ROUND."
 		]
 	},
 	"eventsText": {
@@ -77,9 +77,9 @@
 			"ULTIMATE DEVOTION"
 		],
 		"general": [
-			"Place this card in your play area and discard all of your other schemes. *newpara* At the begining of the last execution round of combat you may discard this card to add half of routed units morale value, rounded up, at the combat resolution.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to resolve an advance order which must start a combat using 1 Sister Repentia or 1 Battle Sister. This combat lasts 1 execution round. Treat your unit as Living Saint. Destroy this unit after combat resolution.",
-			"Place this card in your play area and discard all of your other schemes. *newpara* At the beginning of an execution round of combat, you may discard this card. If you do your units cannot become routed during this execution round.",
+			"Place this card in your play area and discard all of your other schemes. *newpara* At the begining of the last execution round of combat, you may discard this card to add half of routed units morale value, rounded up, at the combat resolution.",
+			"Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to resolve an Advance Order which must start a combat using 1 Sister Repentia or 1 Battle Sister. This combat lasts 1 execution round. Treat your chosen unit as Living Saint. Destroy this unit after combat resolution.",
+			"Place this card in your play area and discard all of your other schemes. *newpara* At the beginning of an execution round of combat, you may discard this card. If you do, your units cannot become routed during this execution round.",
 			"Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to take 1 Sister Repentina or 1 Battle Sister from any world and place it on a friendly world.",
 			"Either place 1 free Battle Sister on a friendly world containing at least 1 friendly unit or place 1 free Sister Repentia on any friendly world.",
 			"Purchase 1 combat upgrade, reducing its materiel cost up to 3 for each system containing both your and opponent's units.",
