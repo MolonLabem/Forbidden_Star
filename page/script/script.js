@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				fetch(`factions/${faction}/text.json`)
 					.then(response => response.json())
 					.then(textData => {
-						console.log(textData);
+						//console.log(textData);
 						['combat', 'orders', 'events'].forEach((category, catIndex) => {
 							const subTabContent = document.createElement('div');
 							subTabContent.id = `sub-tab-${faction}-${category}`;
@@ -111,28 +111,25 @@ document.addEventListener('DOMContentLoaded', function () {
 			't3-section': files.combat.slice(12, 14)
 		};
 
-		const titles = {
-			's-section': textData.combatText.slice(0, 5).title,
-			't1-section': textData.combatText.slice(5, 9).title,
-			't2-section': textData.combatText.slice(9, 12).title,
-			't3-section': textData.combatText.slice(12, 14).title
+		const combatText = {
+			's-section': textData.combatText.slice(0, 5),
+			't1-section': textData.combatText.slice(5, 9),
+			't2-section': textData.combatText.slice(9, 12),
+			't3-section': textData.combatText.slice(12, 14)
 		};
-		console.log(titles);
-		console.log(textData.combatText);
 		const generalText = {
-			's-section': textData.combatText.slice(0, 5).general,
-			't1-section': textData.combatText.slice(5, 9).general,
-			't2-section': textData.combatText.slice(9, 12).general,
-			't3-section': textData.combatText.slice(12, 14).general
+			's-section': textData.combatText.slice(0, 5),
+			't1-section': textData.combatText.slice(5, 9),
+			't2-section': textData.combatText.slice(9, 12),
+			't3-section': textData.combatText.slice(12, 14)
 		};
-		console.log(generalText);
 		const unitText = {
-			's-section': textData.combatText.slice(0, 5).unit,
-			't1-section': textData.combatText.slice(5, 9).unit,
-			't2-section': textData.combatText.slice(9, 12).unit,
-			't3-section': textData.combatText.slice(12, 14).unit
+			's-section': textData.combatText.slice(0, 5),
+			't1-section': textData.combatText.slice(5, 9),
+			't2-section': textData.combatText.slice(9, 12),
+			't3-section': textData.combatText.slice(12, 14)
 		};
-		console.log(generalText);
+
 		Object.keys(sections).forEach(section => {
 			const sectionContainer = document.createElement('div');
 			sectionContainer.classList.add('grid', 'combat', section);
@@ -141,9 +138,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			sections[section].forEach((file, idx) => {
 				const jsonData = {};
 				jsonData["picture"] = `factions/${faction}/combat/${file}`;
-				jsonData["title"] = `${titles[section][idx]}`;
-				jsonData["background"] = `${generalText[section][idx]}`;
-				jsonData["foreground"] = `${unitText[section][idx]}`;
+				jsonData["title"] = `${combatText[section][idx].title}`;
+				jsonData["background"] = `${combatText[section][idx].generalText}`;
+				jsonData["foreground"] = `${combatText[section][idx].unitText}`;
 				const canvas = document.createElement('canvas');
 				canvas.width = maxWidth;
 				canvas.height = maxHeight;
@@ -164,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			const jsonData = {};
 			jsonData["picture"] = `factions/${faction}/orders/${file}`;
-			jsonData["title"] = `${textData.ordersText.title[idx]}`;
-			jsonData["general"] = `${textData.ordersText.general[idx]}`;
+			jsonData["title"] = `${textData.ordersText[idx].title}`;
+			jsonData["general"] = `${textData.ordersText[idx].general}`;
 			const canvas = document.createElement('canvas');
 			canvas.width = maxWidth;
 			canvas.height = maxHeight;
@@ -182,9 +179,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		files['events'].forEach((file, idx) => {
 			const jsonData = {};
 			jsonData["picture"] = `factions/${faction}/events/${file}`;
-			jsonData["title"] = `${textData.eventsText.title[idx]}`;
-			jsonData["general"] = `${textData.eventsText.general[idx]}`;
-			jsonData["type"] = `${textData.eventsText.type[idx]}`;
+			jsonData["title"] = `${textData.eventsText[idx].title}`;
+			jsonData["general"] = `${textData.eventsText[idx].general}`;
+			jsonData["type"] = `${textData.eventsText[idx].type}`;
 
 			const canvas = document.createElement('canvas');
 			canvas.width = maxWidth;
