@@ -116,21 +116,25 @@ document.addEventListener('DOMContentLoaded', function () {
 			't2-section': textData.combatText.slice(9, 12).title,
 			't3-section': textData.combatText.slice(12, 14).title
 		};
+		console.log(titles);
 		const generalText = {
 			's-section': textData.combatText.slice(0, 5).general,
 			't1-section': textData.combatText.slice(5, 9).general,
 			't2-section': textData.combatText.slice(9, 12).general,
 			't3-section': textData.combatText.slice(12, 14).general
 		};
+		console.log(generalText);
 		const unitText = {
 			's-section': textData.combatText.slice(0, 5).unit,
 			't1-section': textData.combatText.slice(5, 9).unit,
 			't2-section': textData.combatText.slice(9, 12).unit,
 			't3-section': textData.combatText.slice(12, 14).unit
 		};
+		console.log(generalText);
 		Object.keys(sections).forEach(section => {
 			const sectionContainer = document.createElement('div');
 			sectionContainer.classList.add('grid', 'combat', section);
+
 
 			sections[section].forEach((file, idx) => {
 				const jsonData = {};
