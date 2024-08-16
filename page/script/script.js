@@ -111,12 +111,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			't3-section': files.combat.slice(12, 14)
 		};
 
+		console.log(textData);
 		const combatText = {
 			's-section': textData.combatText.slice(0, 5),
 			't1-section': textData.combatText.slice(5, 9),
 			't2-section': textData.combatText.slice(9, 12),
 			't3-section': textData.combatText.slice(12, 14)
 		};
+		console.log(combatText);
 		const generalText = {
 			's-section': textData.combatText.slice(0, 5),
 			't1-section': textData.combatText.slice(5, 9),
@@ -139,21 +141,19 @@ document.addEventListener('DOMContentLoaded', function () {
 				const jsonData = {};
 				jsonData["picture"] = `factions/${faction}/combat/${file}`;
 				jsonData["title"] = `${combatText[section][idx].title}`;
-				jsonData["background"] = `${combatText[section][idx].generalText}`;
-				jsonData["foreground"] = `${combatText[section][idx].unitText}`;
+				jsonData["background"] = `${combatText[section][idx].general}`;
+				jsonData["foreground"] = `${combatText[section][idx].unit}`;
 				const canvas = document.createElement('canvas');
 				canvas.width = maxWidth;
 				canvas.height = maxHeight;
 				const context = canvas.getContext('2d');
 				sectionContainer.appendChild(canvas);
 				drawCombatCard(jsonData, context);
-
 			});
 			container.appendChild(sectionContainer);
-
 		});
 	}
-
+	
 	function createOrdersContent(container, faction, files, textData) {
 		const categoryContainer = document.createElement('div');
 		categoryContainer.classList.add('grid', 'orders');
