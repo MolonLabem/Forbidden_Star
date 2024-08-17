@@ -6,7 +6,7 @@
                        },
                        {
                            "title":  "DIVINE DELIVERANCE",
-                           "general":  "When you start combat with this order, gain 1 [D] for each unrouted Sister Repentia at the reinforcement phase. *newline* LIMIT ONCE PER ROUND."
+                           "general":  "When you start combat with this order, gain 1 [D] for each unrouted Sister Repentia at the reinforcement step. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
                            "title":  "LEAD THE RIGHTEOUS",
@@ -18,7 +18,7 @@
                        },
                        {
                            "title":  "BRAZIER OF HOLY FIRE",
-                           "general":  "Bastions do not prevent this strike. During this orbital strike, you may rout any number of participating ships. For each ship routed, convert 2 dice into [B]. *newline* LIMIT ONCE PER ROUND."
+                           "general":  "Bastions do not prevent this orbital strike. During this orbital strike, you may rout any number of participating ships. For each ship routed, convert 2 dice into [B]. *newline* LIMIT ONCE PER ROUND."
                        }
                    ],
     "eventsText":  [
@@ -34,7 +34,7 @@
                        },
                        {
                            "title":  "INDOMITABLE BELIEF",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the beginning of an execution round of combat, you may discard this card. If you do, your units cannot become routed during this execution round.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the begiing of an execution round of combat, you may discard this card. If you do, your units cannot become routed during this execution round.",
                            "type":  "SCHEME"
                        },
                        {
