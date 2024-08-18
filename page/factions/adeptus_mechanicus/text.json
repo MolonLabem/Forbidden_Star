@@ -59,7 +59,7 @@
                        },
                        {
                            "title":  "MECHAMORPHOSIS",
-                           "general":  "Either replace 1 Skitarii with 1 free Kataphron, replace 1 Kataphron with 1 free Inager Dunecrawler, or spend 1 forge token to replace 1 Onager Dunecrawler with 1 free Warlord Titan",
+                           "general":  "Either replace 1 Skitarii with 1 free Kataphron, replace 1 Kataphron with 1 free Onager, or spend 1 forge token to replace 1 Onager with 1 free Warlord Titan.",
                            "type":  "TACTIC"
                        }
                    ],
