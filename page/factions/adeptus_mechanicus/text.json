@@ -14,7 +14,7 @@
                        },
                        {
                            "title":  "Panegyric Procession",
-                           "general":  "After you resolve this order, you may purchase 1 unit and place it on the world with the factory you moved.  *newline* LIMIT ONCE PER ROUND. *newline* REQUIRES MASTER OF MACHINES."
+                           "general":  "After you resolve this order, you may purchase 1 unit and place it on the world with the factory you moved.  *newline* LIMIT ONCE PER ROUND. *newline* REQUIRES MASTER OF THE MACHINES."
                        },
                        {
                            "title":  "Flesh is weak",
@@ -54,7 +54,7 @@
                        },
                        {
                            "title":  "BLESSING OF THE MACHINE GOD",
-                           "general":  "Gain 1 cache and 1 forge token.",
+                           "general":  "Gain 1 cache token and 1 forge token.",
                            "type":  "TACTIC"
                        },
                        {
