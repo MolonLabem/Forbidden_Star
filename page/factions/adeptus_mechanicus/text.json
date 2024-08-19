@@ -34,7 +34,7 @@
                        },
                        {
                            "title":  "NECROMECHANIC",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* If you must skip your turn during the Operations Phase,  you may discard this card to draw 2 cards from the top of your event deck and resolve their abilities.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* When you skip your turn during the Operations Phase, you may discard this card to draw 2 cards from the top of your event deck and resolve their abilities.",
                            "type":  "SCHEME"
                        },
                        {
@@ -54,7 +54,7 @@
                        },
                        {
                            "title":  "BLESSING OF THE MACHINE GOD",
-                           "general":  "Gain 2 materiel and 1 forge token.",
+                           "general":  "Gain 1 cache and 1 forge token.",
                            "type":  "TACTIC"
                        },
                        {
