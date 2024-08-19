@@ -1,10 +1,6 @@
 {
     "ordersText":  [
                        {
-                           "title":  "INEVITABLE EXCAVATION",
-                           "general":  "During an orbital strike gain 1 [D], and you may spend 1 [M] to gain 1 asset from the world the strike was on. *newline* LIMIT ONCE PER ROUND."
-                       },
-                       {
                            "title":  "DREAD JUDGEMENT",
                            "general":  "In resolution step of a won combat while resolving this order, you may force your opponent to choose 1 routed unit before the retreat phase and destroy it. *newline* LIMIT ONCE PER ROUND."
                        },
@@ -15,6 +11,10 @@
                        {
                            "title":  "PSYCHIC MASTERY",
                            "general":  "When you reveal this order token, draw 3 Event cards. Choose 1 of drawn cards and discard the others. Put the chosen card aside and take it during Event Phase. *newline* LIMIT ONCE PER ROUND."
+                       },
+                       {
+                        "title":  "INEVITABLE EXCAVATION",
+                        "general":  "During an orbital strike gain 1 [D], and you may spend 1 [M] to gain 1 asset from the world the strike was on. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
                            "title":  "TERROR STRIKE",
