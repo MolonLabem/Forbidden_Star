@@ -82,7 +82,7 @@
                        {
                            "title":  "ESOTERIC KILL",
                            "general":  "Gain 1 (B). *newpara*  Convert 1 of your [M] into [B].",
-                           "unit":  "Kabalite Warrior/Wych/Frigate: Gain 1 (S). *newpara* Your opponent to reroll 1 die of your choice."
+                           "unit":  "Kabalite Warrior/Wych/Frigate: Gain 1 (S). *newpara* Your opponent rerolls 1 die of your choice."
                        },
                        {
                            "title":  "WINGED STRIKE",
@@ -111,7 +111,7 @@
                        },
                        {
                            "title":  "STUDIES IN AGONY",
-                           "general":  "During the next execution round, force your opponent to play random combat cards from hand.",
+                           "general":  "During the next execution round, your opponent plays random combat cards from his hand.",
                            "unit":  ""
                        },
                        {
@@ -126,8 +126,8 @@
                        },
                        {
                            "title":  "FUELED BY HATRED",
-                           "general":  "Either Gain 2 (B), gain 2 (S), or spend 1 die of your choice to gain 2 (B) and 2 (S).",
-                           "unit":  "Ravager/Dying Sun: Force your opponent to lose 1 [B], 1 [S] and 1 [M]. "
+                           "general":  "Gain either 2 (B), 2 (S), or spend 1 die of your choice to gain 2 (B) and 2 (S).",
+                           "unit":  "Ravager/Dying Sun: Force your opponent to lose 1 [B], 1 [S], and 1 [M]. "
                        },
                        {
                            "title":  "MALICIOUS FRENZY",
