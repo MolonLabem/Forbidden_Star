@@ -34,7 +34,7 @@
                        },
                        {
                            "title":  "INDOMITABLE BELIEF",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the begiing of an execution round of combat, you may discard this card. If you do, your units cannot become routed during this execution round.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the begining of an execution round of combat, you may discard this card. If you do, your units cannot become routed during this execution round.",
                            "type":  "SCHEME"
                        },
                        {
@@ -112,12 +112,12 @@
                        {
                            "title":  "MARTYR'S IMMOLATION",
                            "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M] instead.",
-                           "unit":  "Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: You may choose an Exorcist Tank or a Vengeance Grand Cruiser in this area to suffer damage first during this execution round to gain 3 (B). If the chosen unit is destroyed gain 2 % at the start of the next execution round."
+                           "unit":  "Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: You may choose an Exorcist Tank or a Vengeance Grand Cruiser in this area to suffer damage first during this execution round to gain 3 (B). If the chosen unit is destroyed gain 2 (B) at the start of the next execution round."
                        },
                        {
                            "title":  "ARMOURED IN FAITH",
                            "general":  "Gain 1 [M] and 1 (S).",
-                           "unit":  "Battle Sister/Light Cruiser: Rally 1 of your units. *newline* - or - *newline* Exorcist/Grand Cruiser: If you have more [M] than your opponent, force your opponent to rout 1 unit unless he spends [M]."
+                           "unit":  "Battle Sister/Light Cruiser: Rally 1 of your units. *newline* - or - *newline* Exorcist/Grand Cruiser: If you have more [M] than your opponent, your opponent chooses and routs 1 of his units."
                        },
                        {
                            "title":  "DEVASTATING REFRAIN",
