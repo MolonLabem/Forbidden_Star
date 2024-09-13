@@ -2,11 +2,11 @@
     "ordersText":  [
                        {
                            "title":  "FAITHFUL ADVANCE",
-                           "general":  "While resolving this order, you may move up to 2 of your units trough uncontrolled planets as if it were a friendly area. *newline* LIMIT ONCE PER ROUND."
+                           "general":  "While resolving this order, you may move up to 2 of your units trough uncontrolled world as if it were a friendly area. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
                            "title":  "DIVINE DELIVERANCE",
-                           "general":  "When you start combat with this order, gain 1 [D] for each unrouted Sister Repentia at the reinforcement step. *newline* LIMIT ONCE PER ROUND."
+                           "general":  "When you start combat with this order, gain 1 [D] for each unrouted Sister Repentia in the reinforcement step. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
                            "title":  "LEAD THE RIGHTEOUS",
@@ -24,12 +24,12 @@
     "eventsText":  [
                        {
                            "title":  "UNDIVIDED FAITH",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the begining of the last execution round of combat, you may discard this card to add half of routed units morale value, rounded up, at the combat resolution.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the begining of the last execution round of combat, you may discard this card to add half of routed units' morale value, rounded up, at the resolution step of the combat.",
                            "type":  "SCHEME"
                        },
                        {
                            "title":  "HEROINE IN THE MAKING",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to resolve an Advance Order which must start a combat using 1 Sister Repentia or 1 Battle Sister. This combat lasts 1 execution round. Treat your chosen unit as Living Saint. Destroy this unit after combat resolution.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to resolve an Advance Order which must start a combat using 1 Sister Repentia or 1 Battle Sister. This combat lasts 1 execution round. Treat your chosen unit as Living Saint. Destroy this unit after resolution step of the combat.",
                            "type":  "SCHEME"
                        },
                        {
@@ -39,7 +39,7 @@
                        },
                        {
                            "title":  "FAIT ACCOMPLI",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to take 1 Sister Repentina or 1 Battle Sister from any world and place it on a friendly world.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to take 1 Sister Repentia or 1 Battle Sister from any world and place it on a friendly world.",
                            "type":  "SCHEME"
                        },
                        {
@@ -49,12 +49,12 @@
                        },
                        {
                            "title":  "CRUSADE INTO DARKNESS",
-                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost up to 3 for each system containing both your and opponent's units.",
+                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost by up to 3 for each system containing both your and opponent's units.",
                            "type":  "TACTIC"
                        },
                        {
                            "title":  "INSPIRING ORATOR",
-                           "general":  "Gain 1 reinforcement token for each friendly world containing a City.",
+                           "general":  "Gain 1 reinforcement token for each friendly world containing a city.",
                            "type":  "TACTIC"
                        },
                        {
@@ -101,7 +101,7 @@
                        },
                        {
                            "title":  "SPIRITUAL FORTITUDE",
-                           "general":  "If you are defending, force your opponent to lose 2 (B). *newpara* Force your oppononent to spend either 1 [B] or 1 [M].",
+                           "general":  "If you are defending, force your opponent to lose 2 (B). *newpara* Force your oppononent to lose either 1 [B] or 1 [M].",
                            "unit":  "Battle Sister/Light Cruiser: Gain 2 [D]."
                        },
                        {
@@ -112,7 +112,7 @@
                        {
                            "title":  "MARTYR'S IMMOLATION",
                            "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M] instead.",
-                           "unit":  "Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: You may choose an Exorcist Tank or a Vengeance Grand Cruiser in this area to suffer damage first during this execution round to gain 3 (B). If the chosen unit is destroyed gain 2 (B) at the start of the next execution round."
+                           "unit":  "Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: Gain 3 (B). Choose 1 command level 2 unit to suffer damage first during this execution round. If the chosen unit is destroyed gain 2 (B) at the start of the next execution round."
                        },
                        {
                            "title":  "ARMOURED IN FAITH",
