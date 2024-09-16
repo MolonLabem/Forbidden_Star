@@ -111,12 +111,12 @@
                        },
                        {
                            "title":  "MACHINE SUPERIORITY",
-                           "general":  "Spend 1 [M] to rally 1 of your units. *newpara* Either gain 1 [D] or 2 (B).",
+                           "general":  "Spend 1 [M] to rally 1 of your units. *newpara* Gain either 1 [D] or 2 (B).",
                            "unit":  "Onager/Ark Mechanicus: Convert up to 2 of your [S] into [B]. *newpara* Choose [B], [S] or [M]. Force your opponent to convert up to 2 of the chosen dice to a different icon of his choice."
                        },
                        {
                            "title":  "MANOEUVRABLE CRAFT",
-                           "general":  "Convert up to 2 of your [B] to [M]. *newpara* Gain 2 (S).",
+                           "general":  "Convert up to 2 of your [B] into [M]. *newpara* Gain 2 (S).",
                            "unit":  "Onager/Ark Mechanicus: Spend 1 [M]. If you do, do not discard your (S) at the end of this execution round."
                        },
                        {

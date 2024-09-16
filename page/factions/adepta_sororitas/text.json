@@ -54,7 +54,7 @@
                        },
                        {
                            "title":  "INSPIRING ORATOR",
-                           "general":  "Gain 1 reinforcement token for each friendly world containing a city.",
+                           "general":  "Gain 1 reinforcement token for each friendly world containing a ity.",
                            "type":  "TACTIC"
                        },
                        {
@@ -77,7 +77,7 @@
                        {
                            "title":  "GUIDED RETRIBUTION",
                            "general":  "",
-                           "unit":  "Bastion/Sister Repentia/Light Cruisers: Gain 1 (B) or 1 (S). *newpara* Play 1 combat card from your hand. Then discard this card."
+                           "unit":  "Bastion/Sister Repentia/Light Cruiser: Gain 1 (B) or 1 (S). *newpara* Play 1 combat card from your hand. Then discard this card."
                        },
                        {
                            "title":  "HOLY TRINITY",
