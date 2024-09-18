@@ -66,8 +66,8 @@
     "combatText":  [
                        {
                            "title":  "STRATEGIC EXCRUCIATION",
-                           "general":  "Any Unrouted Unit: Your opponent cannot resolve the general ability of his next revealed combat card.",
-                           "unit":  ""
+                           "general":  "",
+                           "unit":  "Any Unrouted Unit: Your opponent cannot resolve the general ability of his next revealed combat card."
                        },
                        {
                            "title":  "SHADOW ASSIGNMENT",
@@ -81,7 +81,7 @@
                        },
                        {
                            "title":  "UNQUESTIONABLE WISDOM",
-                           "general":  "If you are attacking, look at your opponent's facedown combat card. *newpara* Gain 1 [B], 1 [S] or 1 [M].",
+                           "general":  "Gain 2 (B) or 1 [S].",
                            "unit":  "Stormtrooper/Rogue Trader: Play 1 combat card from your hand. Do not resolve it's abilities, but gain it's combat icons until the end of this execution round."
                        },
                        {
@@ -92,7 +92,7 @@
                        {
                            "title":  "SANCTIONED PSYKER",
                            "general":  "Your opponent may spend 1 [B] to gain 1 (B). If he does not, force your opponent to lose 1 [S].",
-                           "unit":  "Stormtrooper/Rogue Trader: If you opponent lost 1 [B] by the general ability gain 2 (S). Otherwise gain 1 [B]. "
+                           "unit":  "Stormtrooper/Rogue Trader: If your opponent has any (B) gain 2 (S). Otherwise gain 1 [B]. "
                        },
                        {
                            "title":  "CRUSADERS' DEFENSE",
