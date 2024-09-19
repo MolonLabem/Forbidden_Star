@@ -5,26 +5,26 @@
                             "general":  "After you resolve a won combat while resolving this order, you may force your opponent to choose 1 routed unit before the retreat phase and destroy it. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
-                            "title":  "ADEPTUS ARBITES",
-                            "general":  "While resolving this order, you may place 1 free Stormtrooper on a friendly world  containing a City in the active system. *newline* LIMIT ONCE PER ROUND."
+                            "title":  "PURGING BANNERS",
+                            "general":  "When you reveal this order token, rally all of your units in the active system. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
-                            "title":  "PSYCHIC MASTERY",
-                            "general":  "When you reveal this order, draw 3 cards from the top of your event deck. Put aside 1 of those cards and discard the others. Add this card to your hand after drawing event cards during the Cleanup Phase. *newline* LIMIT ONCE PER ROUND."
+                            "title":  "SIGILS OF REVELATION",
+                            "general":  "When you reveal this order token, you may look at all order tokens of any stack. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
-                            "title":  "INEVITABLE EXCAVATION",
+                            "title":  "TERROR STRIKE",
+                           "general":  "Enemy bastions do not prevent this orbital strike. During this orbital strike you may either spend 1 [D] to force your opponent to rout 1 unit, or 2 [D] to force your opponent to retreat 1 unit. *newline* LIMIT ONCE PER ROUND."   
+                       },
+                       {
+                           "title":  "INEVITABLE EXCAVATION",
                             "general":  "During this orbital strike, gain 1 [D], and you may spend 1 [M] to gain an asset token from this world. *newline* LIMIT ONCE PER ROUND."
-                       },
-                       {
-                           "title":  "TERROR STRIKE",
-                           "general":  "Enemy bastions do not prevent this orbital strike. During this orbital strike you may either spend 1 [D] to force your opponent to rout 1 unit, or 2 [D] to force your opponent to retreat 1 unit. *newline* LIMIT ONCE PER ROUND."
                        }
                    ],
     "eventsText":  [
                        {
-                           "title":  "BURNER OF WORLDS",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* When you are defending a world with at least 2 of your units, you may discard this card at the reinforce step of combat to destroy all units and structures on this world.",
+                           "title":  "TRIUMPHAL WITHDRAW",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* After you resolve an Advance Order, you may discard this card to collect an Inquisition objective token that is on a friendly world in the active system.",
                            "type":  "SCHEME"
                        },
                        {
@@ -44,12 +44,12 @@
                        },
                        {
                            "title":  "RADICALS AND PURITANS",
-                           "general":  "Either purchase 1 structure reducing its materiel cost by 1 or destroy 1 of your structures in any system to gain that structure’s materiel cost increased by 1.",
+                           "general":  "Either purchase 1 structure reducing its materiel cost by 1 or destroy 1 of your structures in any system to gain that structure's materiel cost increased by 1.",
                            "type":  "TACTIC"
                        },
                        {
-                           "title":  "RORMIDABLE RESOLVE",
-                           "general":  "Place 1 Stormtrooper on any friendly world and 1 Inquisitorial Cruisers on any friendly  or uncontrolled void in system with a City or 1 Stormtrooper on any friendly world.",
+                           "title":  "ELYSIAN DROP TROOPS",
+                           "general":  "Place 1 free Stormtrooper on uncontrolled wrold in a system containing at least 1 of your ships or 1 free Stormtrooper on any friendly world.",
                            "type":  "TACTIC"
                        },
                        {
@@ -107,7 +107,7 @@
                        {
                            "title":  "FAITH GUIDANCE",
                            "general":  "",
-                           "unit":  "Deathwatch/Rogue Trader: Deathwatch/Rogue Trader: Choose your opponent's unit up with command level 2 or lower. Force your opponent to rout that unit, unless he spends dice equal to chosen unit's morale value."
+                           "unit":  "Deathwatch/Rogue Trader: Choose your opponent's unit up with command level 2 or lower. Force your opponent to rout that unit, unless he spends dice equal to chosen unit's morale value."
                        },
                        {
                            "title":  "THE LIDLESS STARE",

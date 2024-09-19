@@ -92,7 +92,7 @@
                        {
                            "title":  "ZEALOTS PASSION",
                            "general":  "Force your opponent to lose 1 [M]. *newpara* Gain 1 (B) or discard 1 card from your hand.",
-                           "unit":  "Battle Sister/Light Cruiser: If you are attacking, your opponent cannot place reinforcement tokens in this area or rally units this execution round. *newline* If you are defending, rally 1 of your units."
+                           "unit":  "Battle Sister/Light Cruiser: If you are attacking, your opponent cannot place reinforcement tokens in this area or rally units during this execution round. *newline* If you are defending, rally 1 of your units."
                        },
                        {
                            "title":  "MARTYRDOM",
