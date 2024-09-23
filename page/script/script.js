@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// Draw the Title
 		ctx.font = `${titleFontSize}px HeadlinerNo45`;
-		ctx.fillText(data.title, maxWidth * 0.25, maxHeight * 0.077);
+		ctx.fillText(data.title, maxWidth * 0.27, maxHeight * 0.077);
 
 		if (data.background.length > 0) {
 			const backgroundY = maxHeight - (backgroundTextHeight + foregroundTextHeight);
@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		const generalTextWithFbElements = replaceForbiddenStarsElements(data.general);
 
 		const recalculateTextHeight = () => {
-			generalTextHeight = calculateTextHeight(ctx, generalTextWithFbElements, 0, 0, interline, fontSize);
+			generalTextHeight = calculateTextHeight(ctx, generalTextWithFbElements, 20, 0, interline, fontSize);
 		};
 
 		const resizeAllShit = () => {

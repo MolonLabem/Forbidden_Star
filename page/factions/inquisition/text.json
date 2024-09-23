@@ -75,13 +75,13 @@
                            "unit":  "Stormtrooper/Rogue Trader: If you have more [M] than your opponent, your opponent either routs 1 of his units or loses a die of your choice."
                        },
                        {
-                           "title":  "PSYKER'S SHIELD",
+                           "title":  "PSYKER SHIELD",
                            "general":  "Gain 2 (S).",
                            "unit":  "Deathwatch/Rogue Trader: Spend 2 (S) to gain 1 free reinforcement token in this area."
                        },
                        {
                            "title":  "UNQUESTIONABLE WISDOM",
-                           "general":  "Gain 2 (B) or 1 [S].",
+                           "general":  "Gain 1 [B] or 1 [S].",
                            "unit":  "Stormtrooper/Rogue Trader: Play 1 combat card from your hand. Do not resolve it's abilities, but gain it's combat icons until the end of this execution round."
                        },
                        {
@@ -95,9 +95,9 @@
                            "unit":  "Stormtrooper/Rogue Trader: If your opponent has any (B) gain 2 (S). Otherwise gain 1 [B]. "
                        },
                        {
-                           "title":  "CRUSADERS' DEFENSE",
-                           "general":  "Gain 1 (S) for each of your [S], up to 3",
-                           "unit":  "Deathwatch/Rogue Trader: If you are defending gain 1 [S]. *newline* If you are attacking gain 2 (B)."
+                           "title":  "CRUSADERS DEFENSE",
+                           "general":  "Gain either 1 [S] or 2 (S)",
+                           "unit":  "Deathwatch/Rogue Trader: Either gain 2 (B) or rally 1 of your units."
                        },
                        {
                            "title":  "INCONCEIVABLE CUSTOMISATION",
@@ -116,7 +116,7 @@
                        },
                        {
                            "title":  "DEFENSIVE BARRAGE",
-                           "general":  "Gain 1 [D]. *newpara* You may spend 1 [M] to move 1 Command level 0 or 2 [M] to move 1 Command level 1 unit to adjacent area. This can start a new combat after resolving this combat.",
+                           "general":  "Take 1 Stormtrooper from any world and place it on this world. *newpara* If you are defending gain 2 [D].",
                            "unit":  "Valkyrie/Black Ship: Gain 1 free reinforcement token in this area."
                        },
                        {
@@ -126,7 +126,7 @@
                        },
                        {
                            "title":  "TRUESILVER ARMOUR",
-                           "general":  "Either gain 1 [S] or 2 (S).",
+                           "general":  "Gain either 1 [S] or 2 (S).",
                            "unit":  "Grey Knight/Black Ship: During this combat health value of your units is increased by 1."
                        },
                        {
