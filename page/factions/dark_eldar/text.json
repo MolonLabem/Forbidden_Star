@@ -125,14 +125,15 @@
                            "unit":  "Ravager/Dying Sun: Gain 2 (B) unless your opponent chooses and destroys 1 of his units."
                        },
                        {
+                        "title":  "MALICIOUS FRENZY",
+                        "general":  "",
+                        "unit":  "Ravager/Dying Sun: Gain 3 (B). *newpara* At the end of the assess damage step of this execution round, if your opponent did not suffer any damage during this execution round, he chooses and routs 1 of his units. "
+                       },
+                       {
                            "title":  "FUELED BY HATRED",
                            "general":  "Gain either 2 (B), 2 (S), or spend 1 die of your choice to gain 2 (B) and 2 (S).",
                            "unit":  "Ravager/Dying Sun: Force your opponent to lose 1 [B], 1 [S], and 1 [M]. "
-                       },
-                       {
-                           "title":  "MALICIOUS FRENZY",
-                           "general":  "",
-                           "unit":  "Ravager/Dying Sun: Gain 3 (B). *newpara* At the end of the assess damage step of this execution round, if your opponent did not suffer any damage during this execution round, he chooses and routs 1 of his units. "
                        }
+
                    ]
 }
