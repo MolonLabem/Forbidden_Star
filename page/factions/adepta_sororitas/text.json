@@ -112,7 +112,7 @@
                        {
                            "title":  "MARTYR'S IMMOLATION",
                            "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M] instead.",
-                           "unit":  "Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: Gain 3 (B). Choose 1 command level 2 unit to suffer damage first during this execution round. If the chosen unit is destroyed gain 2 (B) at the start of the next execution round."
+                           "unit":  "Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* - or - *newline* Exorcist/Grand Cruiser: Gain 3 (B). Choose 1 of your command level 2 units to suffer damage first during this execution round. If the chosen unit is destroyed gain 2 (B) at the start of the next execution round."
                        },
                        {
                            "title":  "ARMOURED IN FAITH",

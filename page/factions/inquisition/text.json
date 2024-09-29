@@ -49,12 +49,12 @@
                        },
                        {
                            "title":  "ELYSIAN DROP TROOPS",
-                           "general":  "Place 1 free Stormtrooper on uncontrolled wrold in a system containing at least 1 of your ships or 1 free Stormtrooper on any friendly world.",
+                           "general":  "Place 1 free Stormtrooper on an uncontrolled world in a system containing at least 1 of your ships or 1 free Stormtrooper on any friendly world.",
                            "type":  "TACTIC"
                        },
                        {
                            "title":  "MINISTORUM'S DOGMA",
-                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each friendly world containing a City in a system with no enemy units",
+                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system with no enemy units",
                            "type":  "TACTIC"
                        },
                        {
@@ -106,8 +106,8 @@
                        },
                        {
                            "title":  "FAITH GUIDANCE",
-                           "general":  "",
-                           "unit":  "Deathwatch/Rogue Trader: Choose your opponent's unit up with command level 2 or lower. Force your opponent to rout that unit, unless he spends dice equal to chosen unit's morale value."
+                           "general":  "If you are attacking, your opponent cannot resolve the unit ability of his next revealed combat card. *newpara* If you are defending, you retreat 1 of your units.",
+                           "unit":  ""
                        },
                        {
                            "title":  "THE LIDLESS STARE",
@@ -117,7 +117,7 @@
                        {
                            "title":  "DEFENSIVE BARRAGE",
                            "general":  "Take 1 Stormtrooper from any world and place it on this world. *newpara* If you are defending gain 2 [D].",
-                           "unit":  "Valkyrie/Black Ship: Gain 1 free reinforcement token in this area."
+                           "unit":  "Valkyrie/Black Ship: Spend either 1 [S] or 1 [M] to force your opponent to lose 2 [B]."
                        },
                        {
                            "title":  "HELLSTRIKE MISSILES",
