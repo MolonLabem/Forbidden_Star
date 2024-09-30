@@ -96,32 +96,32 @@
                        },
                        {
                            "title":  "CRUSADERS DEFENSE",
-                           "general":  "Gain either 1 [S] or 2 (S)",
-                           "unit":  "Deathwatch/Rogue Trader: Either gain 2 (B) or rally 1 of your units."
+                           "general":  "Gain either 2 (B) or rally 1 of your units.",
+                           "unit":  "Deathwatch/Rogue Trader: Your oponent may allow you to gain 1 [S], if he does not, gain 3 (S)."
                        },
                        {
                            "title":  "INCONCEIVABLE CUSTOMISATION",
-                           "general":  "Gain 2 (S).",
-                           "unit":  "Deathwatch/Rogue Trader: Gain 1 (B) for each of your [B], up to 3. Your opponent gains 1 (B) for of his [B], up to 3."
+                           "general":  "Gain either 2 (S) or spend 1 [M] to force your opponent to rout 1 of his units.",
+                           "unit":  "Deathwatch/Rogue Trader: Your oponent may allow you to gain 1 [B], if he does not, gain 3 (B)."
                        },
                        {
                            "title":  "FAITH GUIDANCE",
-                           "general":  "If you are attacking, your opponent cannot resolve the unit ability of his next revealed combat card. *newpara* If you are defending, you retreat 1 of your units.",
+                           "general":  "If you are attacking, your opponent cannot resolve the unit ability of his next revealed combat card. *newpara* If you are defending, retreat 1 of your units.",
                            "unit":  ""
                        },
                        {
                            "title":  "THE LIDLESS STARE",
                            "general":  "Force your opponent to reroll 2 dice. For each rolled [B] gain 1 (B) and 1 (S), for each [S]  rolled 1 (B).",
-                           "unit":  "Deathwatch/ Black Ship: Force your opponent to lose 1 [B] or 1 [S] unless he routs 1 of his units."
+                           "unit":  "Deathwatch/ Black Ship: Force your opponent to lose either 1 [B] or 1 [S] unless he routs 1 of his units."
                        },
                        {
                            "title":  "DEFENSIVE BARRAGE",
-                           "general":  "Take 1 Stormtrooper from any world and place it on this world. *newpara* If you are defending gain 2 [D].",
-                           "unit":  "Valkyrie/Black Ship: Spend either 1 [S] or 1 [M] to force your opponent to lose 2 [B]."
+                           "general":  "You reroll either 1 [B] or 1 [M] to force opponent to lose 1 [B].",
+                           "unit":  "Valkyrie/Black Ship: Take 1 Stormtrooper from any world and place it on this world."
                        },
                        {
                            "title":  "HELLSTRIKE MISSILES",
-                           "general":  "You must reroll either 1 [S] or 1 [M].",
+                           "general":  "You reroll either 1 [S] or 1 [M] to force opponent to lose 1 [S].",
                            "unit":  "Valkyrie/Black Ship: Destroy 1 of your opponent's routed units."
                        },
                        {
