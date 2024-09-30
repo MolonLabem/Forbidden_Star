@@ -96,13 +96,13 @@
                        },
                        {
                            "title":  "CRUSADERS DEFENSE",
-                           "general":  "Gain either 2 (B) or rally 1 of your units.",
-                           "unit":  "Deathwatch/Rogue Trader: Your oponent may allow you to gain 1 [S], if he does not, gain 3 (S)."
+                           "general":  "Gain either 1 [S] or 1 [M].",
+                           "unit":  "Deathwatch/Rogue Trader: If you are defending, rally 1 of your units. *newpara* Your oponent may allow you to gain 1 [S], if he does not, gain 3 (S)."
                        },
                        {
                            "title":  "INCONCEIVABLE CUSTOMISATION",
-                           "general":  "Gain either 2 (S) or spend 1 [M] to force your opponent to rout 1 of his units.",
-                           "unit":  "Deathwatch/Rogue Trader: Your oponent may allow you to gain 1 [B], if he does not, gain 3 (B)."
+                           "general":  "Force your opponent to lose either 1 [S] or 1 [M].",
+                           "unit":  "Deathwatch/Rogue Trader: If you are attacking, rally 1 of your units. *newpara* Your oponent may allow you to gain 1 [B], if he does not, gain 3 (B)."
                        },
                        {
                            "title":  "FAITH GUIDANCE",
