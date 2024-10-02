@@ -2,7 +2,7 @@
     "ordersText":  [
                        {
                             "title":  "DREAD JUDGEMENT",
-                            "general":  "After you resolve a won combat while resolving this order, you may force your opponent to choose 1 routed unit before the retreat phase and destroy it. *newline* LIMIT ONCE PER ROUND."
+                            "general":  "During the resolution step of the combat that was started while resolving this order, you may force your opponent to choose 1 of his routed units and destroy it. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
                             "title":  "PURGING BANNERS",
@@ -14,7 +14,7 @@
                        },
                        {
                             "title":  "TERROR STRIKE",
-                           "general":  "Enemy bastions do not prevent this orbital strike. During this orbital strike you may either spend 1 [D] to force your opponent to rout 1 unit, or 2 [D] to force your opponent to retreat 1 unit. *newline* LIMIT ONCE PER ROUND."   
+                           "general":  "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may either spend 1 [S] to force your opponent to choose and rout 1 unit, or 2 [S] to force your opponent to choose and retreat 1 of his units. *newline* LIMIT ONCE PER ROUND."   
                        },
                        {
                            "title":  "INEVITABLE EXCAVATION",
@@ -29,12 +29,12 @@
                        },
                        {
                            "title":  "PSIONIC WARFARE",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* When you reveal an order during Operations phase, you may discard this card, to choose your opponents order upgrade and turn it face down, making it unusable this round.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* When you reveal an order during Operations phase, you may discard this card, to choose your opponent's order upgrade and turn it face down, making it unusable this round.",
                            "type":  "SCHEME"
                        },
                        {
                            "title":  "CUTTHROATS FOR HIRE",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the end of reinforce step of combat, you may discard this card to force your opponent to either rout 1 of his units if you are attacking or to retreat 1 unit if you are defending.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the end of reinforce step of combat, you may discard this card to force your opponent to choose and either rout 1 of his units if you are attacking or to retreat 1 of his units if you are defending.",
                            "type":  "SCHEME"
                        },
                        {
@@ -72,16 +72,16 @@
                        {
                            "title":  "SHADOW ASSIGNMENT",
                            "general":  "Rally 1 of your units. *newpara* Gain 1 [M].",
-                           "unit":  "Stormtrooper/Rogue Trader: If you have more [M] than your opponent, your opponent either routs 1 of his units or loses a die of your choice."
+                           "unit":  "Stormtrooper/Rogue Trader: If you have more [M] than your opponent, force your opponent to either choose and rout 1 of his units or to spend a die of your choice."
                        },
                        {
                            "title":  "PSYKER SHIELD",
                            "general":  "Gain 2 (S).",
-                           "unit":  "Deathwatch/Rogue Trader: Spend 2 (S) to gain 1 free reinforcement token in this area."
+                           "unit":  "Deathwatch/Rogue Trader: Spend 2 (S) to place 1 free reinforcement token in this area."
                        },
                        {
                            "title":  "UNQUESTIONABLE WISDOM",
-                           "general":  "Gain 1 [B] or 1 [S].",
+                           "general":  "Gain either 1 [B] or 1 [S].",
                            "unit":  "Stormtrooper/Rogue Trader: Play 1 combat card from your hand. Do not resolve it's abilities, but gain it's combat icons until the end of this execution round."
                        },
                        {
@@ -92,7 +92,7 @@
                        {
                            "title":  "SANCTIONED PSYKER",
                            "general":  "Your opponent may spend 1 [B] to gain 1 (B). If he does not, force your opponent to lose 1 [S].",
-                           "unit":  "Stormtrooper/Rogue Trader: If your opponent has any (B) gain 2 (S). Otherwise gain 1 [B]. "
+                           "unit":  "Stormtrooper/Rogue Trader: If your opponent has any (B), gain 2 (S). Otherwise gain 1 [B]. "
                        },
                        {
                            "title":  "CRUSADERS DEFENSE",
@@ -111,23 +111,23 @@
                        },
                        {
                            "title":  "THE LIDLESS STARE",
-                           "general":  "Force your opponent to reroll 2 dice. For each rolled [B] gain 1 (B) and 1 (S), for each [S] rolled 1 (B).",
-                           "unit":  "Deathwatch/ Black Ship: Force your opponent to lose either 1 [B] or 1 [S] unless he routs 1 of his units."
+                           "general":  "Force your opponent to reroll 2 dice. For each rolled [B], gain 1 (B) and 1 (S), for each [S] rolled, 1 (B).",
+                           "unit":  "Deathwatch/ Black Ship: Force your opponent to lose either 1 [B] or 1 [S] unless he chooses and routs 1 of his units."
                        },
                        {
                            "title":  "DEFENSIVE BARRAGE",
-                           "general":  "Reroll either 1 [B] or 1 [M] to force opponent to lose 1 [B].",
+                           "general":  "Reroll either 1 [B] or 1 [M] to force your opponent to lose 1 [B].",
                            "unit":  "Valkyrie/Black Ship: Take 1 Stormtrooper from any world and place it on this world."
                        },
                        {
                            "title":  "HELLSTRIKE MISSILES",
-                           "general":  "Reroll either 1 [S] or 1 [M] to force opponent to lose 1 [S].",
+                           "general":  "Reroll either 1 [S] or 1 [M] to force your opponent to lose 1 [S].",
                            "unit":  "Valkyrie/Black Ship: Destroy 1 of your opponent's routed units."
                        },
                        {
                            "title":  "TRUESILVER ARMOUR",
                            "general":  "Gain either 1 [S] or 2 (S).",
-                           "unit":  "Grey Knight/Black Ship: During this combat health value of your units is increased by 1."
+                           "unit":  "Grey Knight/Black Ship: During this combat, health value of your units is increased by 1."
                        },
                        {
                            "title":  "TELEPORT STRIKE",

@@ -34,7 +34,7 @@
                        },
                        {
                            "title":  "REVEL IN BLOODSHED",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, you may discard this card and destroy 1 of your command level 1 or command level 2 units to move any number of your units to an adjacent area. This can start a new combat after resolving this combat. ",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* At the end of an execution round of combat, you may discard this card and destroy 1 of your command level 1 or command level 2 units to move any number of your units to an adjacent area. This can start a new combat after resolving this combat. ",
                            "type":  "SCHEME"
                        },
                        {
@@ -66,7 +66,7 @@
     "combatText":  [
                        {
                            "title":  "PREY ON THE WEAK",
-                           "general":  "Either gain 1 [B] or spend 1 die of your choice to rally 1 of your units. ",
+                           "general":  "Either gain 1 [B] or spend 1 of your dice to rally 1 of your units. ",
                            "unit":  "Kabalite Warrior/Frigate: Gain 1 [D]."
                        },
                        {
@@ -92,7 +92,7 @@
                        {
                            "title":  "NEVER STATIONARY",
                            "general":  "Gain 2 (B) unless your opponent spends 1 [S].",
-                           "unit":  "Wych/Frigate: Spend 1 die of your choice to gain either 1 [B] or 1 [S]."
+                           "unit":  "Wych/Frigate: Spend 1 of your dice to gain either 1 [B] and 1 (S) or 1 [S] and 1 (B)."
                        },
                        {
                            "title":  "RAIDER TACTICS",
@@ -127,11 +127,11 @@
                        {
                         "title":  "MALICIOUS FRENZY",
                         "general":  "",
-                        "unit":  "Ravager/Dying Sun: Gain 3 (B). *newpara* At the end of the assess damage step of this execution round, if your opponent did not suffer any damage during this execution round, he chooses and routs 1 of his units. "
+                        "unit":  "Ravager/Dying Sun: Gain 3 (B). *newpara* At the end of the assess damage step of this execution round, if your opponent did not suffer any damage during this execution round, rout 1 of his units."
                        },
                        {
                            "title":  "FUELED BY HATRED",
-                           "general":  "Gain 2 (B), 2 (S), or spend 1 die of your choice to gain 2 (B) and 2 (S).",
+                           "general":  "Gain 2 (B), 2 (S), or spend 1 of your dice to gain 2 (B) and 2 (S).",
                            "unit":  "Ravager/Dying Sun: Force your opponent to lose 1 [B], 1 [S], and 1 [M]. "
                        }
 
