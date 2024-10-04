@@ -14,7 +14,7 @@
                        },
                        {
                             "title":  "TERROR STRIKE",
-                           "general":  "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may either spend 1 [S] to force your opponent to choose and rout 1 unit, or 2 [S] to force your opponent to choose and retreat 1 of his units. *newline* LIMIT ONCE PER ROUND."   
+                           "general":  "Enemy bastions do not prevent this orbital strike. During this orbital strike consider the your ships as the attacker. You may spend 2 [S] to force your opponent to choose and retreat 1 of his units. *newline* LIMIT ONCE PER ROUND."   
                        },
                        {
                            "title":  "INEVITABLE EXCAVATION",
@@ -49,7 +49,7 @@
                        },
                        {
                            "title":  "ELYSIAN DROP TROOPS",
-                           "general":  "Place 1 free Stormtrooper on an uncontrolled world in a system containing at least 1 of your ships or place 1 free Stormtrooper on any friendly world.",
+                           "general":  "Either place 1 free Stormtrooper on an uncontrolled world in a system containing at least 1 of your ships or place 1 free Stormtrooper on any friendly world.",
                            "type":  "TACTIC"
                        },
                        {
@@ -59,8 +59,8 @@
                        },
                        {
                            "title":  "TOTAL AUTHORITY",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Discard this card during the first turn of the Planning Phase to place an additional order token. During this Planning Phase you will place five order tokens.",
-                           "type":  "Scheme"
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Discard this card during the first turn of the Planning Phase to place an additional order token this turn. During this Planning Phase you will place five order tokens.",
+                           "type":  "SCHEME"
                        }
                    ],
     "combatText":  [
