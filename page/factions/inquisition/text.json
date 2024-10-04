@@ -66,8 +66,8 @@
     "combatText":  [
                        {
                            "title":  "STRATEGIC EXCRUCIATION",
-                           "general":  "",
-                           "unit":  "Any Unrouted Unit: Your opponent cannot resolve the general ability of his next revealed combat card."
+                           "general":  "If you are attacking, your opponent cannot resolve the general ability of his next revealed combat card. *newpara*  If you are defending, gain 1 [D].",
+                           "unit":  ""
                        },
                        {
                            "title":  "SHADOW ASSIGNMENT",
@@ -97,12 +97,12 @@
                        {
                            "title":  "CRUSADERS DEFENSE",
                            "general":  "Gain either 1 [M] or 2 (B).",
-                           "unit":  "Deathwatch/Rogue Trader: If you are defending, rally 1 of your units. *newpara* Gain 3 (S) unless your opponent spends 1 [S]."
+                           "unit":  "Deathwatch/Rogue Trader: If you are defending, rally 1 of your units. *newpara* Gain 2 (S) unless your opponent spends 1 [S]."
                        },
                        {
                            "title":  "INCONCEIVABLE CUSTOMISATION",
                            "general":  "Either gain 2 (S) or force your opponent to lose 1 [M].",
-                           "unit":  "Deathwatch/Rogue Trader: If you are attacking, rally 1 of your units. *newpara* Spend 1 [S] to gain 3 (B)."
+                           "unit":  "Deathwatch/Rogue Trader: If you are attacking, rally 1 of your units. *newpara* Spend 1 [S] to gain 2 (B)."
                        },
                        {
                            "title":  "FAITH GUIDANCE",
