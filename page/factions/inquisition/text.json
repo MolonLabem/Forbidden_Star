@@ -54,18 +54,18 @@
                        },
                        {
                            "title":  "MINISTORUM'S DOGMA",
-                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system with no enemy units",
+                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system with no enemy units.",
                            "type":  "TACTIC"
                        },
                        {
                            "title":  "TOTAL AUTHORITY",
-                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* Discard this card during the first turn of the Planning Phase to place an additional order token this turn. During this Planning Phase you will place five order tokens.",
+                           "general":  "Place this card in your play area and discard all of your other schemes. *newpara* During the first turn of the Planning Phase, you may distard this card to place an additional order token this turn. During this Planning Phase you will place five order tokens.",
                            "type":  "SCHEME"
                        }
                    ],
     "combatText":  [
                        {
-                           "title":  "STRATEGIC EXCRUCIATION",
+                           "title":  "BLINDING SALVO",
                            "general":  "If you are attacking, your opponent cannot resolve the general ability of his next revealed combat card. *newpara*  If you are defending, gain 1 [D].",
                            "unit":  ""
                        },
@@ -95,29 +95,29 @@
                            "unit":  "Stormtrooper/Rogue Trader: If your opponent has any (B), gain 2 (S). Otherwise gain 1 [B]. "
                        },
                        {
-                           "title":  "CRUSADERS DEFENSE",
+                           "title":  "UNFLINCHING CRUSADERS",
                            "general":  "Gain either 1 [M] or 2 (B).",
                            "unit":  "Deathwatch/Rogue Trader: If you are defending, rally 1 of your units. *newpara* Gain 2 (S) unless your opponent spends 1 [S]."
                        },
                        {
-                           "title":  "INCONCEIVABLE CUSTOMISATION",
+                           "title":  "RELENTLESS ASSAULT",
                            "general":  "Either gain 2 (S) or force your opponent to lose 1 [M].",
                            "unit":  "Deathwatch/Rogue Trader: If you are attacking, rally 1 of your units. *newpara* Spend 1 [S] to gain 2 (B)."
                        },
                        {
                            "title":  "FAITH GUIDANCE",
-                           "general":  "If you are attacking, your opponent cannot resolve the unit ability of his next revealed combat card. *newpara* If you are defending, retreat 1 of your units.",
+                           "general":  "If you are attacking, your opponent cannot resolve the unit ability of his next revealed combat card. *newpara* If you are defending, either gain 1 | or retreat 1 of your units.",
                            "unit":  ""
                        },
                        {
-                           "title":  "THE LIDLESS STARE",
+                           "title":  "LIDLESS STARE",
                            "general":  "Force your opponent to reroll 2 dice. For each rolled [B], gain 1 (B) and 1 (S), for each [S] rolled, 1 (B).",
-                           "unit":  "Deathwatch/ Black Ship: Force your opponent to lose either 1 [B] or 1 [S] unless he chooses and routs 1 of his units."
+                           "unit":  "Deathwatch/Black Ship: Force your opponent to lose either 1 [B] or 1 [S] unless he chooses and routs 1 of his units."
                        },
                        {
                            "title":  "DEFENSIVE BARRAGE",
                            "general":  "Reroll either 1 [B] or 1 [M] to force your opponent to lose 1 [B].",
-                           "unit":  "Valkyrie/Black Ship: Take 1 Stormtrooper from any world and place it on this world."
+                           "unit":  "Valkyrie: Take 1 Stormtrooper from any world and place it on this world. *newpara* Black Ship: Take 1 Stormtrooper and place it on friendly or uncontrolled world in this system."
                        },
                        {
                            "title":  "HELLSTRIKE MISSILES",
