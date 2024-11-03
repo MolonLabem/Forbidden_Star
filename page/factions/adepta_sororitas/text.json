@@ -66,7 +66,7 @@
     "combatText":  [
                        {
                            "title":  "DRIVEN ONWARDS",
-                           "general":  "Force your opponent to reroll 2 dice of his choice.",
+                           "general":  "Your opponent rerolls 2 dice of his choice.",
                            "unit":  "Bastion/Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card."
                        },
                        {
@@ -82,22 +82,22 @@
                        {
                            "title":  "HOLY TRINITY",
                            "general":  "Gain 2 [B].",
-                           "unit":  "Battle Sister/Bastion: Gain 2 (B). During the assess damage step of this execution round, your opponent assigns damage to his units 1 at a time."
+                           "unit":  "Battle Sister/Bastion: Gain 2 (B). During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
                        },
                        {
                            "title":  "SANCTIFIED  CHARGE",
                            "general":  "Gain 2 [D]. *newpara* Reroll 1 of your dice.",
-                           "unit":  "Sister Repentia/Light Cruiser: For each [B], [S], and [M] rolled while resolving the general ability, gain 1 (B), 1 (S), or 1 [D], respectively."
+                           "unit":  "Sister Repentia/Light Cruiser: For each [B], [S], and [M] rolled while resolving the general abilities, gain 1 (B), 1 (S), or 1 [D], respectively."
                        },
                        {
-                           "title":  "ZEALOTS PASSION",
+                           "title":  "ZEALOT'S PASSION",
                            "general":  "Gain 1 (B). *newpara* Force your opponent to lose 1 [M].",
-                           "unit":  "Battle Sister/Light Cruiser: Your opponent cannot place reinforcement tokens in this area or rally units during this execution round. *newline* If you are defending, rally 1 of your units."
+                           "unit":  "Battle Sister/Light Cruiser: During this execution round, your opponent cannot rally his units or place reinforcement tokens in this area. *newline* If you are defending, rally 1 of your units."
                        },
                        {
                            "title":  "MARTYRDOM",
                            "general":  "Convert up to 2 of your [B] into [M].",
-                           "unit":  "Battle Sister/Light Cruiser: Choose 1 of your unrouted units. That unit suffers damage first during this execution round. Damage in excess of the chosen unit health value is lost."
+                           "unit":  "During this execution round, any damage in excess of your first unit's health value is lost. If this unit is destroyed gain 1 [S]."
                        },
                        {
                            "title":  "SPIRITUAL FORTITUDE",
@@ -111,8 +111,8 @@
                        },
                        {
                            "title":  "MARTYR'S IMMOLATION",
-                           "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M] instead.",
-                           "unit":  "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newpara* Exorcist/Grand Cruiser: Gain 3 (B). Choose 1 command level 2 unit to suffer damage first during this execution round. If the chosen unit is destroyed do not discard your (B) at the end of this execution round."
+                           "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M].",
+                           "unit":  "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newpara* Exorcist/Grand Cruiser: Gain 3 (B). When assigning damage this execution round, if possible assign it to a command level 2 unit. If that unit is destroyed do not discard your (B) at the end of this execution round."
                        },
                        {
                            "title":  "ARMOURED IN FAITH",
@@ -121,8 +121,8 @@
                        },
                        {
                            "title":  "DEVASTATING REFRAIN",
-                           "general":  "If this card gets discarded you may resolve its ability. *newpara* Spend up to 3 of your dice. For each die you spend, gain either 1 [B] or 1 [S]. Gain 1 (B) for each [M] spent.",
-                           "unit":  ""
+                           "general":  "Gain 1 (B) for every enemy unit in this combat area.",
+                           "unit":  "Battle Sister/Grand Cruiser: If your opponent's unit with highest command level is higher or equal to your unit's highest command level gain a 2 [S]. Otherwise gain [B] instead."
                        },
                        {
                            "title":  "DIVINE BLESSING",
