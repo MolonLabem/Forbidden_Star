@@ -77,7 +77,7 @@
                        {
                            "title":  "GUIDED RETRIBUTION",
                            "general":  "",
-                           "unit":  "Bastion/Sister Repentia/Light Cruiser: Gain either 1 (B) or 1 (S). *newpara* Play 1 combat card from your hand. Then discard this card."
+                           "unit":  "Bastion/Sister Repentia/Light Cruiser: Gain either 1 (B) or 1 (S). *newline* Play 1 combat card from your hand. Then discard this card."
                        },
                        {
                            "title":  "HOLY TRINITY",
@@ -112,7 +112,7 @@
                        {
                            "title":  "MARTYR'S IMMOLATION",
                            "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M].",
-                           "unit":  "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newpara* Exorcist/Grand Cruiser: Gain 3 (B). When assigning damage this execution round, if possible assign it to a command level 2 unit. If that unit is destroyed do not discard your (B) at the end of this execution round."
+                           "unit":  "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newpara* Exorcist/Grand Cruiser: Gain 3 (B). When assigning damage this execution round, if possible, assign it to a command level 2 unit. If that unit is destroyed do not discard your (B) at the end of this execution round."
                        },
                        {
                            "title":  "ARMOURED IN FAITH",
@@ -122,7 +122,7 @@
                        {
                            "title":  "DEVASTATING REFRAIN",
                            "general":  "Gain 1 (B) for every enemy unit in this combat area.",
-                           "unit":  "Battle Sister/Grand Cruiser: If your opponent's unit with highest command level is higher or equal to your unit's highest command level gain a 2 [S]. Otherwise gain [B] instead."
+                           "unit":  "Battle Sister/Grand Cruiser: If your opponent's unit with highest command level is higher or equal to your unit's highest command level gain a 2 [S]. Otherwise gain [D] instead."
                        },
                        {
                            "title":  "DIVINE BLESSING",
@@ -132,7 +132,7 @@
                        {
                            "title":  "DIVINE SMITING",
                            "general":  "Your opponent chooses and discards 1 of his faceup combat cards.",
-                           "unit":  "Living Saint/Grand Cruiser: Play the top card of your combat deck. Do not resolve its abilities, but gain its combat icons during this combat."
+                           "unit":  "Living Saint/Grand Cruiser: Gain your opponents discarded ."
                        }
                    ]
 }
