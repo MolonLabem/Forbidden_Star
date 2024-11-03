@@ -1,7 +1,7 @@
 {
   "factions": {
-    "folder" : ["adepta_sororitas", "adeptus_mechanicus", "dark_eldar", "inquisition", "empty"],
-    "name" : ["Adepta Sororitas", "Adeptus Mechanicus", "Dark Eldar", "Inquisition", "Example"]
+    "folder" : ["adepta_sororitas", "adeptus_mechanicus", "dark_eldar", "inquisition","space_marines", "chaos", "ork", "eldar", "empty"],
+    "name" : ["Adepta Sororitas", "Adeptus Mechanicus", "Dark Eldar", "Inquisition", "Space Marines", "Chaos", "Ork", "Eldar", "Example"]
   } ,
 
   "files": {
