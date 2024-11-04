@@ -67,7 +67,7 @@
                        {
                            "title":  "DRIVEN ONWARDS",
                            "general":  "Your opponent rerolls 2 dice of his choice.",
-                           "unit":  "Bastion/Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card."
+                           "unit":  "Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card."
                        },
                        {
                            "title":  "BEACON OF FAITH",
@@ -97,7 +97,7 @@
                        {
                            "title":  "MARTYRDOM",
                            "general":  "Convert up to 2 of your [B] into [M].",
-                           "unit":  "During this execution round, any damage in excess of your first unit's health value is lost. If this unit is destroyed gain 1 [S]."
+                           "unit":  "Battle Sister/Light Cruiser: During this execution round, any damage in excess of your first unit's health value is lost. If this unit is destroyed gain 1 [S]."
                        },
                        {
                            "title":  "SPIRITUAL FORTITUDE",
@@ -106,7 +106,7 @@
                        },
                        {
                            "title":  "ANGELIC DESCENT",
-                           "general":  "Gain 1 (S) for each of your unrouted units, up to 3.",
+                           "general":  "Gain 1 (S) for each of your unrouted units, to a maximum of 3.",
                            "unit":  "Battle Sister/Light Cruiser: At the end of the assess damage step of this execution round, your opponent chooses and destroys 1 of his routed units unless he spends 1 [B]."
                        },
                        {
@@ -122,17 +122,17 @@
                        {
                            "title":  "DEVASTATING REFRAIN",
                            "general":  "Gain 1 (B) for every enemy unit in this combat area.",
-                           "unit":  "Battle Sister/Grand Cruiser: If your opponent's unit with highest command level is higher or equal to your unit's highest command level gain a 2 [S]. Otherwise gain [D] instead."
+                           "unit":  "Battle Sister/Grand Cruiser: If your opponent's unit with highest command level is higher or equal to your unit's highest command level, gain a 2 [S]. Otherwise gain 1 [D] instead."
                        },
                        {
                            "title":  "DIVINE BLESSING",
-                           "general":  "Spend any number of [S] and [M]. For each die you spent, force your opponent to lose 1 [B].",
+                           "general":  "Spend any number of [S] or [M]. For each [S] or [M] you spend, force your opponent to lose 1 [B].",
                            "unit":  "Living Saint/Grand Cruiser: Gain 4 [D]."
                        },
                        {
                            "title":  "DIVINE SMITING",
                            "general":  "Your opponent chooses and discards 1 of his faceup combat cards.",
-                           "unit":  "Living Saint/Grand Cruiser: Gain your opponents discarded ."
+                           "unit":  "Living Saint/Grand Cruiser: You gain that card's combat icons until end of this combat."
                        }
                    ]
 }
