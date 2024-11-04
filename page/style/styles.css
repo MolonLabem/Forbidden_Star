@@ -14,62 +14,82 @@
 }
 
 body {
+	top: 0;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    font-family: 'HeadlinerNo45';
+    width: 100%;
+    gap: 5px; 
+}
+
+#expansion-tabs {
+    font-size: 30px;
+    width: 100%;
 }
 
 #faction-tabs {
+    font-size: 28px;
     width: 100%;
-    position: fixed;
-	top: 0;
-    background-color: white;
-    padding: 10px;
-    z-index: 1000;
-    display: flex;
-    justify-content: left;
-
 }
 
-#tab-contents {
-    margin-top: 60px;  /* Adjust this value based on your header height */
-    width: 1420px;
+#cards-tabs {
+    font-size: 26px;
+    width: 100%;
 }
 
-.tab-header, .sub-tab-header {
-    font-family: 'HeadlinerNo45';
-    font-size: 30px;
-    cursor: pointer;
+.expansion-header, .faction-header, .card-header {
     display: inline-block;
-	padding: 5px;
-    background-color: #ddd;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color:  #bbb;
+    z-index: 1000;
+    cursor: grab;
 }
 
-.sub-tab-header
-{
-	margin-left: 10px;
-    margin-bottom: 30px;
-}
-.tab-header.active, .sub-tab-header.active {
+.expansion-header.active, .faction-header.active  {
     background-color: #fff;
     box-shadow: 0 0 30px #f80;
+    cursor:default;
 }
-.tab-content, .sub-tab-content {
+
+.card-header.active{
+    background-color: #111;
+    box-shadow: 0 0 10px #090;
+    color: #fff;
+    cursor:default;
+}
+
+.card-container {
     display: none;
 }
-.tab-content.active, .sub-tab-content.active {
+
+.card-container.active {
     display: block;
 }
+
 .grid {
 	display: grid;
 	gap: 20px 20px;
     grid-template-columns: repeat(3, 1fr);
     padding: 10px;
+    width: 1420px;
 }
+
 .grid.events {
 	grid-template-columns: repeat(4, 1fr);
     background-color: rgb(163, 163, 163);
     gap: 5px 5px;
+    width: 1835px;
+}
+
+.grid.cardBack {
+	grid-template-columns: repeat(3, 1fr);
+    background-color: rgb(163, 163, 163);
+    gap: 5px 5px;
+}
+
+.grid.factionCard {
     width: 1835px;
 }
 
@@ -93,3 +113,41 @@ body {
     background-color: #900;
 }
 
+.faction-header.active[data-faction="space_marines"]{
+    background-color: #66f;
+    box-shadow: 0 0 5px #66f; 
+  
+}
+.faction-header.active[data-faction="chaos"]{
+    background-color: #f11;
+    box-shadow: 0 0 5px #f11; 
+}
+.faction-header.active[data-faction="ork"]{
+    background-color: #2f3;
+    box-shadow: 0 0 5px #2f4; 
+}
+
+.faction-header.active[data-faction="eldar"]{
+    background-color: #ff1;
+    box-shadow: 0 0 5px #ff1; 
+}
+
+.faction-header.active[data-faction="adeptus_mechanicus"]{
+    background-color: #b52;
+    box-shadow: 0 0 5px #b52; 
+  
+}
+.faction-header.active[data-faction="adepta_sororitas"]{
+    background-color: #fff;
+    box-shadow: 0 0 5px #fff; 
+}
+.faction-header.active[data-faction="dark_eldar"]{
+    background-color: #1ed;
+    box-shadow: 0 0 5px #1ed; 
+}
+
+.faction-header.active[data-faction="inquisition"]{
+    background-color: #80f;
+    box-shadow: 0 0 5px #80f; 
+    color: #fff
+}

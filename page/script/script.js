@@ -1,11 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
+	const expansionTabsContainer = document.getElementById('expansion-tabs');
 	const factionTabsContainer = document.getElementById('faction-tabs');
-	const tabContentsContainer = document.getElementById('tab-contents');
+	const cardsContentsContainer = document.getElementById('cards-tabs');
+	const cardsContainer = document.getElementById('cards-container');
+
 	// Size of cards - rest is calculated just based on this.
 	const maxWidth = 450;
 	const maxHeight = 650;
 
-	//Size of boxes for combat cards.
+	// Size of boxes for combat cards.
 	const textBackgroundSize = 759;
 	const textBottomBarHeight = 18;
 	const textBottomBarWidth = 454;
@@ -14,152 +17,158 @@ document.addEventListener('DOMContentLoaded', function () {
 	const marginWidth = maxWidth * 0.0578;
 	const maxTextWidth = maxWidth - 2 * marginWidth;
 
+
 	// MENU SECTION 
 	fetch('factions/file_names.json')
 		.then(response => response.json())
 		.then(data => {
-			const { expansion, faction_folder, faction_name, files } = data;
+			const { expansion, faction, cards } = data;
+			var firstRun = true;
+			// Clear existing content to avoid duplication issues
+			expansionTabsContainer.innerHTML = '';
 
-			
-			expansion.folder.forEach((expansionFolder, expansionIndex) => {
+			// Create expansion tabs
+			expansion.folder.forEach((expansionType, expansionIndex) => {
 				// Create expansion tab header
 				const expansionTabHeader = document.createElement('div');
 				expansionTabHeader.textContent = expansion.name[expansionIndex];
-				expansionTabHeader.classList.add('expansion-tab-header');
+				expansionTabHeader.classList.add('expansion-header');
+				expansionTabHeader.dataset.expansion = expansionType;
 				if (expansionIndex === 0) expansionTabHeader.classList.add('active');
-				expansionTabHeader.dataset.expansion = expansionFolder;
 				expansionTabsContainer.appendChild(expansionTabHeader);
-			  
-				// Create expansion tab content container
-				const expansionTabContent = document.createElement('div');
-				expansionTabContent.id = `expansion-tab-${expansionFolder}`;
-				expansionTabContent.classList.add('expansion-tab-content');
-				if (expansionIndex === 0) expansionTabContent.classList.add('active');
-				expansionTabContentsContainer.appendChild(expansionTabContent);
-			  
-	
-				const factionsInExpansion = faction_folder[expansionFolder];
-				const factionNamesInExpansion = faction_name[expansionFolder];
-			  
-				factionsInExpansion.forEach((faction, factionIndex) => {
-				  // Create faction tab header
-				  const factionTabHeader = document.createElement('div');
-				  factionTabHeader.textContent = factionNamesInExpansion[factionIndex];
-				  factionTabHeader.classList.add('faction-tab-header');
-				  if (factionIndex === 0) factionTabHeader.classList.add('active');
-				  factionTabHeader.dataset.faction = faction;
-				  factionTabHeader.dataset.expansion = expansionFolder;
-				  // Append to the expansion tab content
-				  expansionTabContent.appendChild(factionTabHeader);
-			  
-				  // Create faction tab content container
-				  const factionTabContent = document.createElement('div');
-				  factionTabContent.id = `faction-tab-${expansionFolder}-${faction}`;
-				  factionTabContent.classList.add('faction-tab-content');
-				  if (factionIndex === 0) factionTabContent.classList.add('active');
-				  expansionTabContent.appendChild(factionTabContent);
-			  
-				  // Create sub-tabs for combat, orders, events, faction_card
-				  const subTabs = document.createElement('div');
-				  subTabs.classList.add('sub-tabs');
-				  ['combat', 'orders', 'events', 'faction_card'].forEach((category, catIndex) => {
-					const subTabHeader = document.createElement('div');
-					subTabHeader.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-					subTabHeader.classList.add('sub-tab-header');
-					subTabHeader.dataset.category = category;
-					subTabHeader.dataset.faction = faction;
-					subTabHeader.dataset.expansion = expansionFolder;
-					if (catIndex === 0) subTabHeader.classList.add('active');
-					subTabs.appendChild(subTabHeader);
-				  });
-				  factionTabContent.appendChild(subTabs);
-			  
-				  const subTabContents = document.createElement('div');
-				  subTabContents.classList.add('sub-tab-contents');
-			  
-				  // Fetch text data for the faction within the expansion
-				  fetch(`factions/${expansionFolder}/${faction}/text.json`)
-					.then(response => response.json())
-					.then(textData => {
-					  ['combat', 'orders', 'events', 'faction_card'].forEach((category, catIndex) => {
-						const subTabContent = document.createElement('div');
-						subTabContent.id = `sub-tab-${expansionFolder}-${faction}-${category}`;
-						subTabContent.classList.add('sub-tab-content');
-						if (catIndex === 0) subTabContent.classList.add('active');
-						subTabContents.appendChild(subTabContent);
-			  
-						if (category === 'combat') {
-						  createCombatContent(subTabContent, expansionFolder, faction, files, textData);
-						} else if (category === 'orders') {
-						  createOrdersContent(subTabContent, expansionFolder, faction, files, textData);
-						} else if (category === 'events') {
-						  createEventContent(subTabContent, expansionFolder, faction, files, textData);
-						} else if (category === 'faction_card') {
-						  createFactioncardContent(subTabContent, expansionFolder, faction, files);
-						}
-					  });
-					})
-					.catch(error => console.error(`Error loading text data for ${faction} in ${expansionFolder}:`, error));
-				  factionTabContent.appendChild(subTabContents);
-				});
-			  });
-			  
-
-			// Add click event listener to faction tabs
-			document.querySelectorAll('.tab-header').forEach(header => {
-				header.addEventListener('click', function () {
-					const faction = this.dataset.faction;
-					document.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
-					document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-					this.classList.add('active');
-					document.getElementById(`tab-${faction}`).classList.add('active');
-				});
 			});
 
-			// Add click event listener to sub-tabs
-			document.addEventListener('click', function (e) {
-				if (e.target.classList.contains('sub-tab-header')) {
-					const faction = e.target.dataset.faction;
-					const category = e.target.dataset.category;
-					document.querySelectorAll(`#tab-${faction} .sub-tab-header`).forEach(h => h.classList.remove('active'));
-					document.querySelectorAll(`#tab-${faction} .sub-tab-content`).forEach(tab => tab.classList.remove('active'));
-
+			// Add click event listener to expansion tabs
+			expansionTabsContainer.addEventListener('click', function (e) {
+				if (e.target.classList.contains('expansion-header')) {
+					const buttonExp = e.target.dataset.expansion;
+					document.querySelectorAll('.expansion-header').forEach(h => h.classList.remove('active'));
 					e.target.classList.add('active');
-					document.getElementById(`sub-tab-${faction}-${category}`).classList.add('active');
+					loadFactions(buttonExp);
 				}
 			});
+
+			if (firstRun === true) {
+				loadFactions(expansion.folder[0]);
+			}
+
+
+			// Function to load factions based on selected expansion
+			function loadFactions(expansionSet) {
+				factionTabsContainer.innerHTML = '';
+
+				const factionsInExpansion = faction[expansionSet].folder;
+				const factionNamesInExpansion = faction[expansionSet].name;
+
+				factionsInExpansion.forEach((factionType, factionIndex) => {
+					// Create faction tab header
+					const factionTabHeader = document.createElement('div');
+					factionTabHeader.textContent = factionNamesInExpansion[factionIndex];
+					factionTabHeader.classList.add('faction-header');
+					factionTabHeader.dataset.faction = factionType;
+					factionTabHeader.dataset.expansion = expansionSet;
+					if (factionIndex === 0) factionTabHeader.classList.add('active');
+					factionTabsContainer.appendChild(factionTabHeader);
+				});
+
+				// Add click event listener to faction tabs
+				factionTabsContainer.addEventListener('click', function (e) {
+					if (e.target.classList.contains('faction-header')) {
+						const buttonExp = e.target.dataset.expansion;
+						const buttonFac = e.target.dataset.faction;
+						document.querySelectorAll('.faction-header').forEach(h => h.classList.remove('active'));
+						e.target.classList.add('active');
+						loadCardsMenu(buttonExp, buttonFac);
+					}
+				});
+
+				if (firstRun) {
+					loadCardsMenu(expansionSet, factionsInExpansion[0]);
+				}
+
+				// Function to load cards based on selected faction
+				function loadCardsMenu(expansionSet, factionSet) {
+					cardsContentsContainer.innerHTML = '';
+					Object.keys(cards).forEach((cardType, cardIndex) => {
+						// Create faction tab header
+						const cardTabHeader = document.createElement('div');
+						cardTabHeader.textContent = cardType;
+						cardTabHeader.classList.add('card-header');
+						cardTabHeader.dataset.faction = factionSet;
+						cardTabHeader.dataset.expansion = expansionSet;
+						cardTabHeader.dataset.cardType = cardType;
+						if (cardIndex === 0) cardTabHeader.classList.add('active');
+						cardsContentsContainer.appendChild(cardTabHeader);
+					});
+
+					// Add click event listener to faction tabs
+					cardsContentsContainer.addEventListener('click', function (e) {
+						if (e.target.classList.contains('card-header')) {
+							const buttonExp = e.target.dataset.expansion;
+							const buttonFac = e.target.dataset.faction;
+							const buttonCard = e.target.dataset.cardType;
+							document.querySelectorAll('.card-header').forEach(h => h.classList.remove('active'));
+							e.target.classList.add('active');
+							loadCards(buttonExp, buttonFac, buttonCard);
+						}
+					});
+
+					if (firstRun) {
+						loadCards(expansionSet, factionSet, Object.keys(cards)[0]);
+					}
+
+					function loadCards(expansionFolder, factionFolder, cardType) {
+						cardsContainer.innerHTML = '';
+
+						const subTabContents = document.createElement('div');
+						subTabContents.classList.add('card-contents');
+						subTabContents.id = `cards-${expansionFolder}-${factionFolder}-${cardType}`;
+						cardsContainer.appendChild(subTabContents);
+
+						fetch(`factions/${expansionFolder}/${factionFolder}/text.json`)
+                        .then(response => response.json())
+                        .then(textData => {
+							console.log(textData)
+								if (cardType === Object.keys(cards)[0]) {
+									createCombatContent(subTabContents, expansionFolder, factionFolder, cards[cardType], textData.combatText);
+								} else if (cardType === Object.keys(cards)[1]) {
+									createOrdersContent(subTabContents, expansionFolder, factionFolder, cards[cardType], textData.ordersText);
+								} else if (cardType === Object.keys(cards)[2]) {
+									createEventContent(subTabContents, expansionFolder, factionFolder, cards[cardType],  textData.eventsText);
+								} else if (cardType === Object.keys(cards)[3]) {
+									createFactioncardContent(subTabContents, expansionFolder, factionFolder, cards[cardType]);
+								} else if (cardType === Object.keys(cards)[4]) {
+									backCardContent(subTabContents, expansionFolder, factionFolder, cards[cardType]);
+								}
+							})
+                        .catch(error => console.error(`Error loading text data for ${faction} in ${expansionFolder}:`, error));
+					}
+
+				};
+			};
 		})
 		.catch(error => console.error('Error loading file_names.json:', error));
+		firstRun = false;
 
-	// CREATING CONTENT FOR CANVAS
-	function createCombatContent(container, expansionFolder, faction, files, textData) {
+
+
+	//   CREATING CONTENT FOR CANVAS
+	function createCombatContent(container, expansionFolder, factionfolder, files, textData) {
 		const sections = {
-			's-section': files.combat.slice(0, 5),
-			't1-section': files.combat.slice(5, 9),
-			't2-section': files.combat.slice(9, 12),
-			't3-section': files.combat.slice(12, 14)
+			's-section': files.slice(0, 5),
+			't1-section': files.slice(5, 9),
+			't2-section': files.slice(9, 12),
+			't3-section': files.slice(12, 14)
 		};
 
 		console.log(textData);
 		const combatText = {
-			's-section': textData.combatText.slice(0, 5),
-			't1-section': textData.combatText.slice(5, 9),
-			't2-section': textData.combatText.slice(9, 12),
-			't3-section': textData.combatText.slice(12, 14)
+			's-section': textData.slice(0, 5),
+			't1-section': textData.slice(5, 9),
+			't2-section': textData.slice(9, 12),
+			't3-section': textData.slice(12, 14)
 		};
 		console.log(combatText);
-		const generalText = {
-			's-section': textData.combatText.slice(0, 5),
-			't1-section': textData.combatText.slice(5, 9),
-			't2-section': textData.combatText.slice(9, 12),
-			't3-section': textData.combatText.slice(12, 14)
-		};
-		const unitText = {
-			's-section': textData.combatText.slice(0, 5),
-			't1-section': textData.combatText.slice(5, 9),
-			't2-section': textData.combatText.slice(9, 12),
-			't3-section': textData.combatText.slice(12, 14)
-		};
 
 		Object.keys(sections).forEach(section => {
 			const sectionContainer = document.createElement('div');
@@ -168,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			sections[section].forEach((file, idx) => {
 				const jsonData = {};
-				jsonData["picture"] = `factions/${expansionFolder}/${faction}/combat/${file}`;
+				jsonData["picture"] = `factions/${expansionFolder}/${factionfolder}/combat/${file}`;
 				jsonData["title"] = `${combatText[section][idx].title}`;
 				jsonData["background"] = `${combatText[section][idx].general}`;
 				jsonData["foreground"] = `${combatText[section][idx].unit}`;
@@ -182,16 +191,16 @@ document.addEventListener('DOMContentLoaded', function () {
 			container.appendChild(sectionContainer);
 		});
 	}
-	
-	function createOrdersContent(container, expansionFolder, faction, files, textData) {
+
+	function createOrdersContent(container, expansionFolder, factionfolder, files, textData) {
 		const categoryContainer = document.createElement('div');
 		categoryContainer.classList.add('grid', 'orders');
-		files['orders'].forEach((file, idx) => {
+		files.forEach((file, idx) => {
 
 			const jsonData = {};
-			jsonData["picture"] = `factions/${expansionFolder}/${faction}/orders/${file}`;
-			jsonData["title"] = `${textData.ordersText[idx].title}`;
-			jsonData["general"] = `${textData.ordersText[idx].general}`;
+			jsonData["picture"] = `factions/${expansionFolder}/${factionfolder}/orders/${file}`;
+			jsonData["title"] = `${textData[idx].title}`;
+			jsonData["general"] = `${textData[idx].general}`;
 			const canvas = document.createElement('canvas');
 			canvas.width = maxWidth;
 			canvas.height = maxHeight;
@@ -202,15 +211,15 @@ document.addEventListener('DOMContentLoaded', function () {
 		container.appendChild(categoryContainer);
 	}
 
-	function createEventContent(container, expansionFolder, faction, files, textData) {
+	function createEventContent(container, expansionFolder, factionfolder, files, textData) {
 		const categoryContainer = document.createElement('div');
 		categoryContainer.classList.add('grid', 'events');
-		files['events'].forEach((file, idx) => {
+		files.forEach((file, idx) => {
 			const jsonData = {};
-			jsonData["picture"] = `factions/${expansionFolder}/${faction}/events/${file}`;
-			jsonData["title"] = `${textData.eventsText[idx].title}`;
-			jsonData["general"] = `${textData.eventsText[idx].general}`;
-			jsonData["type"] = `${textData.eventsText[idx].type}`;
+			jsonData["picture"] = `factions/${expansionFolder}/${factionfolder}/events/${file}`;
+			jsonData["title"] = `${textData[idx].title}`;
+			jsonData["general"] = `${textData[idx].general}`;
+			jsonData["type"] = `${textData[idx].type}`;
 
 			const canvas = document.createElement('canvas');
 			canvas.width = maxWidth;
@@ -221,21 +230,32 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 		container.appendChild(categoryContainer);
 	}
-	
-	function createFactioncardContent(container, expansionFolder, faction, files) {
+
+	function createFactioncardContent(container, expansionFolder, factionfolder, files) {
 		const categoryContainer = document.createElement('div');
-		categoryContainer.classList.add('grid', 'factionCard');
-	
-		const jsonData = {};
-		files['faction_card'].forEach((file, idx) => {
-			const jsonData = {};
-			jsonData["picture"] = `factions/${expansionFolder}/${faction}/${file}`;
+		categoryContainer.classList.add('factionCard');
+		files.forEach((file, _) => {
 			const img = document.createElement('img');
-			img.src = jsonData["picture"];
+			img.src = `factions/${expansionFolder}/${factionfolder}/faction_card/${file}`;
 			categoryContainer.appendChild(img);
 		});
 		container.appendChild(categoryContainer);
 	}
+
+	function backCardContent(container, expansionFolder, factionfolder, files) {
+		const categoryContainer = document.createElement('div');
+		categoryContainer.classList.add('grid', 'cardBack');
+		files.forEach((file, _) => {
+			const img = document.createElement('img');
+			img.src = `factions/${expansionFolder}/${factionfolder}/backs/${file}`;
+			img.width = maxWidth;
+			img.height = maxHeight;
+			categoryContainer.appendChild(img);
+		});
+		container.appendChild(categoryContainer);
+	}
+
+
 	// CANVAS TOOLS
 	function replaceForbiddenStarsElements(str) {
 		str = str.replace(/\[B\]/g, "}");
@@ -546,7 +566,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			ctx.fillText(data.type, maxWidth * 0.5, maxHeight * 0.573);
 			ctx.font = `${titleFontSize}px HeadlinerNo45`;
 			ctx.textAlign = "left";
-			ctx.fillText(data.title, maxWidth  * 0.05, maxHeight * 0.0735);
+			ctx.fillText(data.title, maxWidth * 0.05, maxHeight * 0.0735);
 
 			drawText(generalTextWithFbElements, textPosition);
 		};
