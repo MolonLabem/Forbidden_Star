@@ -1,12 +1,28 @@
 {
-  "factions": {
-    "folder" : ["adepta_sororitas", "adeptus_mechanicus", "dark_eldar", "inquisition","space_marines", "chaos", "ork", "eldar", "empty"],
-    "name" : ["Adepta Sororitas", "Adeptus Mechanicus", "Dark Eldar", "Inquisition", "Space Marines", "Chaos", "Ork", "Eldar", "Example"]
+  "expansion": {
+    "folder" : ["base", "gif", "sow", "dd", "empty"],
+    "name" : ["Base Game", "Galaxy in Flames", "Symphony of War", "Darkest Dawn", "Example"]
   } ,
-
+  "faction_folder": {
+    "base" : ["space_marines", "chaos", "ork", "eldar"],
+    "gif" : ["empty"],
+    "sow" : ["adepta_sororitas", "adeptus_mechanicus", "dark_eldar", "inquisition"],
+    "dd" : ["empty"],
+    "empty" : ["empty"],
+    "name" : ["Example"]
+  } ,
+  "faction_name": {
+    "base" : ["Space Marines", "Chaos", "Ork", "Eldar"],
+    "gif" : ["Example"],
+    "sow" : ["Adepta Sororitas", "Adeptus Mechanicus", "Dark Eldar", "Inquisition"],
+    "dd" : ["Example"],
+    "empty" : ["Example"]
+  }, 
   "files": {
     "combat": ["s1.jpg", "s2.jpg", "s3.jpg", "s4.jpg", "s5.jpg", "t0_1.jpg", "t0_2.jpg", "t0_3.jpg", "t0_4.jpg", "t2_1.jpg", "t2_2.jpg", "t2_3.jpg", "t3_1.jpg", "t3_2.jpg"],
     "orders": ["o_1.jpg", "o_2.jpg", "o_3.jpg", "o_4.jpg", "o_5.jpg"],
-    "events": ["e_1.jpg", "e_2.jpg", "e_3.jpg", "e_4.jpg", "e_5.jpg", "e_6.jpg" , "e_7.jpg", "e_8.jpg"]
+    "events": ["e_1.jpg", "e_2.jpg", "e_3.jpg", "e_4.jpg", "e_5.jpg", "e_6.jpg" , "e_7.jpg", "e_8.jpg"],
+    "faction_card": ["card.jpg"],
+    "backs": ["combat.jpg", "orders.jpg", "event.jpg"]
   }
 }
