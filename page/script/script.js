@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+	document.getElementById('loading-spinner').style.display = 'block';
 	const expansionTabsContainer = document.getElementById('expansion-tabs');
 	const factionTabsContainer = document.getElementById('faction-tabs');
 	const cardsContentsContainer = document.getElementById('cards-tabs');
@@ -126,29 +127,29 @@ document.addEventListener('DOMContentLoaded', function () {
 						cardsContainer.appendChild(subTabContents);
 
 						fetch(`factions/${expansionFolder}/${factionFolder}/text.json`)
-                        .then(response => response.json())
-                        .then(textData => {
-							console.log(textData)
+							.then(response => response.json())
+							.then(textData => {
+								console.log(textData)
 								if (cardType === Object.keys(cards)[0]) {
 									createCombatContent(subTabContents, expansionFolder, factionFolder, cards[cardType], textData.combatText);
 								} else if (cardType === Object.keys(cards)[1]) {
 									createOrdersContent(subTabContents, expansionFolder, factionFolder, cards[cardType], textData.ordersText);
 								} else if (cardType === Object.keys(cards)[2]) {
-									createEventContent(subTabContents, expansionFolder, factionFolder, cards[cardType],  textData.eventsText);
+									createEventContent(subTabContents, expansionFolder, factionFolder, cards[cardType], textData.eventsText);
 								} else if (cardType === Object.keys(cards)[3]) {
 									createFactioncardContent(subTabContents, expansionFolder, factionFolder, cards[cardType]);
 								} else if (cardType === Object.keys(cards)[4]) {
 									backCardContent(subTabContents, expansionFolder, factionFolder, cards[cardType]);
 								}
 							})
-                        .catch(error => console.error(`Error loading text data for ${faction} in ${expansionFolder}:`, error));
+							.catch(error => console.error(`Error loading text data for ${faction} in ${expansionFolder}:`, error));
 					}
 
 				};
 			};
 		})
 		.catch(error => console.error('Error loading file_names.json:', error));
-		firstRun = false;
+	firstRun = false;
 
 
 
@@ -571,4 +572,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			drawText(generalTextWithFbElements, textPosition);
 		};
 	};
+	document.getElementById('loading-spinner').style.display = 'none';
+
 });
