@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 				// Function to load cards based on selected faction
 				function loadCardsMenu(expansionSet, factionSet) {
+					document.getElementById('loading-spinner').style.display = 'block';
 					cardsContentsContainer.innerHTML = '';
 					Object.keys(cards).forEach((cardType, cardIndex) => {
 						// Create faction tab header
@@ -144,7 +145,8 @@ document.addEventListener('DOMContentLoaded', function () {
 							})
 							.catch(error => console.error(`Error loading text data for ${faction} in ${expansionFolder}:`, error));
 					}
-
+					
+					document.getElementById('loading-spinner').style.display = 'none';
 				};
 			};
 		})
