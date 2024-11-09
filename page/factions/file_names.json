@@ -9,16 +9,16 @@
         "name": ["Space Marines", "Chaos", "Ork", "Eldar"]
       },
       "gif": {
-        "folder": ["ig, tyranid, necron, tau"],
-        "name": ["Imerpial Guard, Tyranid, Necron, Tau"]
+        "folder": ["ig", "tyranid", "necron", "tau"],
+        "name": ["Imerpial Guard", "Tyranid", "Necron", "Tau"]
       },
       "sow": {
         "folder": ["adepta_sororitas", "adeptus_mechanicus", "dark_eldar", "inquisition"],
         "name": ["Adepta Sororitas", "Adeptus Mechanicus", "Dark Eldar", "Inquisition"]
       },
       "dd": {
-        "folder": ["worldeaters, emperorschildren, thousandsons, deathguard"],
-        "name": ["World Eaters, Emperor's Children, Thousand Sons, Death Guard"]
+        "folder": ["worldeaters", "emperorschildren", "thousandsons", "deathguard"],
+        "name": ["World Eaters", "Emperor's Children", "Thousand Sons", "Death Guard"]
       },
       "empty": {
         "folder": ["empty"],
