@@ -143,8 +143,8 @@ body {
 }
 
 .faction-header.active[data-faction="chaos"] {
-    background-color: #f11;
-    box-shadow: 0 0 5px #f11;
+    background-color: #e11;
+    box-shadow: 0 0 5px #f55;
 }
 
 .faction-header.active[data-faction="ork"] {
@@ -201,12 +201,13 @@ body {
 }
 
 .faction-header.active[data-faction="worldeaters"] {
-    background-color: #a22;
-    box-shadow: 0 0 5px #a22;
+    background-color: #f33;
+    box-shadow: 0 0 5px #f55;
 }
 
 .faction-header.active[data-faction="thousandsons"] {
     background-color: #22f;
+    color: #88f
     box-shadow: 0 0 5px #22f;
 }
 
@@ -217,5 +218,6 @@ body {
 
 .faction-header.active[data-faction="deathguard"] {
     background-color: #351;
+    color: #aa0;
     box-shadow: 0 0 5px #351;
 }
