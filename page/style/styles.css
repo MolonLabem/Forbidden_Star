@@ -140,7 +140,6 @@ body {
 .faction-header.active[data-faction="space_marines"] {
     background-color: #66f;
     box-shadow: 0 0 5px #66f;
-
 }
 
 .faction-header.active[data-faction="chaos"] {
@@ -158,10 +157,31 @@ body {
     box-shadow: 0 0 5px #ff1;
 }
 
-.faction-header.active[data-faction="adeptus_mechanicus"] {
-    background-color: #b52;
-    box-shadow: 0 0 5px #b52;
+.faction-header.active[data-faction="ig"] {
+    background-color: #bbb;
+    color: #050;
+    box-shadow: 0 0 5px #ccc;
+}
 
+.faction-header.active[data-faction="tyranid"] {
+    background-color: #b3f;
+    box-shadow: 0 0 5px #c4f;
+}
+
+.faction-header.active[data-faction="necron"] {
+    background-color: #000;
+    color: #2f1;
+    box-shadow: 0 0 5px #2f1;
+}
+
+.faction-header.active[data-faction="tau"] {
+    background-color: #fa1;
+    box-shadow: 0 0 5px #fa1;
+}
+
+.faction-header.active[data-faction="adeptus_mechanicus"] {
+    background-color: #a52;
+    box-shadow: 0 0 5px #a52;
 }
 
 .faction-header.active[data-faction="adepta_sororitas"] {
@@ -178,4 +198,24 @@ body {
     background-color: #80f;
     box-shadow: 0 0 5px #80f;
     color: #fff
+}
+
+.faction-header.active[data-faction="worldeaters"] {
+    background-color: #a22;
+    box-shadow: 0 0 5px #a22;
+}
+
+.faction-header.active[data-faction="thousandsons"] {
+    background-color: #22f;
+    box-shadow: 0 0 5px #22f;
+}
+
+.faction-header.active[data-faction="emperorschildren"] {
+    background-color: #d2a;
+    box-shadow: 0 0 5px #d2a;
+}
+
+.faction-header.active[data-faction="deathguard"] {
+    background-color: #351;
+    box-shadow: 0 0 5px #351;
 }
