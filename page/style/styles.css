@@ -207,7 +207,7 @@ body {
 
 .faction-header.active[data-faction="thousandsons"] {
     background-color: #22f;
-    color: #88f
+    color: #cc2;
     box-shadow: 0 0 5px #22f;
 }
 
