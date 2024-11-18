@@ -18,7 +18,7 @@
                        },
                        {
                            "title":  "INEVITABLE EXCAVATION",
-                            "general":  "During this orbital strike, gain 1 [D], and you may spend 1 [M] to gain an asset token from this world. *newline* LIMIT ONCE PER ROUND."
+                            "general":  "During this orbital strike, gain 1 [D]. While resolving this orbital strike you may perform it against any world in the active system. *newline* LIMIT ONCE PER ROUND."
                        }
                    ],
     "eventsText":  [
@@ -44,7 +44,7 @@
                        },
                        {
                            "title":  "RADICALS AND PURITANS",
-                           "general":  "Either purchase 1 structure in any system and reducing its materiel cost by 1 or destroy 1 of your structures in any system to gain that structure's materiel cost increased by 1.",
+                           "general":  "Either purchase 1 structure in any system reducing its materiel cost by 1 or destroy 1 of your structures in any system to gain that structure's materiel cost increased by 1.",
                            "type":  "TACTIC"
                        },
                        {

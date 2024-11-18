@@ -14,7 +14,7 @@
                        },
                        {
                            "title":  "WAR HYMNS",
-                           "general":  "While resolving this orbital strike you may perform it against any world in the active system. After you resolve this orbital strike the combined morale value of all of your ships participating in the orbital strike is higher than combined morale value of unrouted units and bastions on the enemy world, force your opponent to choose and rout 1 unit. *newline* LIMIT ONCE PER ROUND."
+                           "general":  "During this orbital strike, gain 1 [D]. After you resolve this orbital strike, if the combined morale value of all of your ships participating in the orbital strike is higher than combined morale value of unrouted units and bastions on the enemy world, force your opponent to choose and rout 1 unit. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
                            "title":  "BRAZIER OF HOLY FIRE",
@@ -82,7 +82,7 @@
                        {
                            "title":  "HOLY TRINITY",
                            "general":  "Gain 2 [B].",
-                           "unit":  "Battle Sister/Bastion: Gain 2 (B). During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
+                           "unit":  "Bastion/Battle Sister: Gain 2 (B). During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
                        },
                        {
                            "title":  "SANCTIFIED  CHARGE",
@@ -97,7 +97,7 @@
                        {
                            "title":  "MARTYRDOM",
                            "general":  "Convert up to 2 of your [B] into [M].",
-                           "unit":  "Battle Sister/Light Cruiser: During this execution round, any damage in excess of your first unit's health value is lost. If this unit is destroyed gain 1 [S]."
+                           "unit":  "Battle Sister/Light Cruiser: When 1 of your units is destroyed during the assess damage step of this execution round, gain 1 [S]. Damage in excess of that unit's health value is lost."
                        },
                        {
                            "title":  "SPIRITUAL FORTITUDE",
