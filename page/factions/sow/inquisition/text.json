@@ -54,7 +54,7 @@
                        },
                        {
                            "title":  "MINISTORUM'S DOGMA",
-                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system with no enemy units.",
+                           "general":  "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system with no enemy units, to a minimum of 1.",
                            "type":  "TACTIC"
                        },
                        {
