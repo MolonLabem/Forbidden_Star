@@ -6,15 +6,15 @@
         },
         {
             "title": "MASTER OF THE MACHINES",
-            "general": "While resolving this order, you may either increase your deploy limit by 1 or reduce the total materiel cost of purchased units and structures by 1.  *newline* LIMIT ONCE PER ROUND."
+            "general": "While resolving this order, you may either increase your deploy limit by 1 or reduce the total materiel cost of purchased units and structures by 1. *newline* LIMIT ONCE PER ROUND."
         },
         {
-            "title": "SACRED  OILS",
+            "title": "SACRED OILS",
             "general": "After drawing cards during the preparation step of a combat you start with this order, you may draw 2 combat cards and then discard 2 combat cards. *newline* LIMIT ONCE PER ROUND."
         },
         {
             "title": "BLESSED CONDUITS",
-            "general": "After you resolve this order, you may purchase 1 unit and place it on the world with the factory you moved.  *newline* LIMIT ONCE PER ROUND. *newline* REQUIRES MASTER OF THE MACHINES."
+            "general": "After you resolve this order, you may purchase 1 unit and place it on the world with the factory you moved. *newline* LIMIT ONCE PER ROUND. *newline* REQUIRES MASTER OF THE MACHINES."
         },
         {
             "title": "FLESH IS WEAK",
@@ -87,7 +87,7 @@
         {
             "title": "SICARIAN RUSTSTALKERS",
             "general": "Gain 1 [B].",
-            "unit": "Skitarii/Light Cruiser:  Either gain 1 [M] or choose 1 of your unrouted units to gain (B) equal to the chosen unit's command level. "
+            "unit": "Skitarii/Light Cruiser: Either gain 1 [M] or choose 1 of your unrouted units to gain (B) equal to the chosen unit's command level. "
         },
         {
             "title": "TRANSCENDENT COGITATION",
