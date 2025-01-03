@@ -14,7 +14,7 @@
                        },
                        {
                            "title":  "WAR HYMNS",
-                           "general":  "Before you resolve this orbital strike, if the combined morale value of all of your ships participating in the orbital strike is higher than combined morale value of unrouted units and bastions on the enemy world, force your opponent to choose and rout 1 unit. During this orbital strike, gain 1 [D]. *newline* LIMIT ONCE PER ROUND."
+                           "general":  "During this orbital strike, gain 1 [D]. Before you resolve this orbital strike, if the combined morale of your ships participating in this orbital strike is higher than the combined morale of unrouted units and bastions on the world, force your opponent to rout any unit that suffers damage during this orbital strike. *newline* LIMIT ONCE PER ROUND."
                        },
                        {
                            "title":  "BRAZIER OF HOLY FIRE",
@@ -112,7 +112,7 @@
                        {
                            "title":  "MARTYR'S IMMOLATION",
                            "general":  "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M].",
-                           "unit":  "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newpara* Exorcist/Grand Cruiser: Gain 3 (B). When assigning damage this execution round, if possible, assign it to a command level 2 unit. If that unit is destroyed do not discard your (B) at the end of this execution round."
+                           "unit":  "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* Exorcist/Grand Cruiser: Gain 3 (B). During the assess damage step of this execution round, assign damage to a command level 2 unit first if able. If that unit is destroyed, do not discard your (B) at the end of this execution round."
                        },
                        {
                            "title":  "ARMOURED IN FAITH",
@@ -121,8 +121,8 @@
                        },
                        {
                            "title":  "DEVASTATING REFRAIN",
-                           "general":  "Gain 1 (B) for every enemy unit in this combat area.",
-                           "unit":  "Battle Sister/Grand Cruiser: If your opponent's unit with highest command level is higher or equal to your unit's highest command level, gain a 2 [S]. Otherwise gain 1 [D] instead."
+                           "general":  "Gain 1 (B) for each of your opponent's units.",
+                           "unit":  "Resolve one of the following: *newline* Bastion: Gain 1 (S) for each [M] you have. *newline* Sister Repentia/Battle Sister/Light Cruiser: Gain 1 [D]."
                        },
                        {
                            "title":  "DIVINE BLESSING",
@@ -131,8 +131,8 @@
                        },
                        {
                            "title":  "DIVINE SMITING",
-                           "general":  "Your opponent chooses and discards 1 of his faceup combat cards.",
-                           "unit":  "Living Saint/Grand Cruiser: You gain that card's combat icons until end of this combat."
+                           "general":  "Either gain 1 [M] or convert up to 2 of your dice into [M].",
+                           "unit":  "Living Saint/Grand Cruiser: Gain 1 (B) for each [M] you have. *newline* During this execution round, none of the [B] are added to offence values."
                        }
                    ]
 }
