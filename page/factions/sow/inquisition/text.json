@@ -117,7 +117,7 @@
         {
             "title": "DEFENSIVE BARRAGE",
             "general": "Reroll either 1 [B] or 1 [M] to force your opponent to lose 1 [B].",
-            "unit": "Valkyrie: Take 1 Stormtrooper from any world and place it on this world. *newpara* Black Ship: Take 1 Stormtrooper and place it on friendly or uncontrolled world in this system."
+            "unit": "Valkyrie: Take 1 Stormtrooper from any world and place it on this world. *newpara* Black Ship: Take 1 Stormtrooper and place it on a friendly or uncontrolled world in this system."
         },
         {
             "title": "HELLSTRIKE MISSILES",
