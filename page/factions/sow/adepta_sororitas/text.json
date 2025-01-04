@@ -14,7 +14,7 @@
         },
         {
             "title": "WAR HYMNS",
-            "general": "During this orbital strike, gain 1 [D]. Before you resolve this orbital strike, if the combined morale of your ships participating in this orbital strike is higher than the combined morale of unrouted units and bastions on the world, force your opponent to rout any unit that suffers damage during this orbital strike. *newline* LIMIT ONCE PER ROUND."
+            "general": "During this orbital strike, gain 1 [D]. Before you resolve this orbital strike, if the combined morale of your ships participating in this orbital strike is higher than the combined morale of unrouted units and bastions on the world, force your opponent to rout 1 of his units. *newline* LIMIT ONCE PER ROUND."
         },
         {
             "title": "BRAZIER OF HOLY FIRE",
@@ -44,12 +44,12 @@
         },
         {
             "title": "INVASION CATHEDRUM DEPLOYMENT",
-            "general": "Either place 1 free Battle Sister on a friendly world containing a unit or place 1 free Sister Repentia on any friendly world.",
+            "general": "Either place 1 free city on a friendly world not containing a structure or spend 3 materiel to place 1 free city on a friendly world not containing a city.",
             "type": "TACTIC"
         },
         {
             "title": "CRUSADE INTO DARKNESS",
-            "general": "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system containing both friendly and enemy areas, to a maximum of 3.",
+            "general": "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system containing both friendly and enemy areas. The reduction cannot exceed 3 materiel.",
             "type": "TACTIC"
         },
         {
@@ -59,7 +59,7 @@
         },
         {
             "title": "ULTIMATE DEVOTION",
-            "general": "Either place 1 free city on a friendly world not containing a structure or spend 3 materiel to place 1 free city on a friendly world not containing a city.",
+            "general": "Either place 1 free Battle Sister on a friendly world containing a unit or place 1 free Sister Repentia on any friendly world.",
             "type": "TACTIC"
         }
     ],
