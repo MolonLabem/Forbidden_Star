@@ -17,8 +17,8 @@
             "general": "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may spend 2 [S] to force your opponent to choose and retreat 1 of his units on this world, as if it was a defender. *newline* LIMIT ONCE PER ROUND."
         },
         {
-            "title": "INEVITABLE EXCAVATION",
-            "general": "During this orbital strike, gain 1 [D]. While resolving this orbital strike you may perform it against any world in the active system. *newline* LIMIT ONCE PER ROUND."
+            "title": "INEVITABLE EXECUTION",
+            "general": "During this orbital strike, gain 1 [D]. You may resolve this orbital strike against any world in the active system. *newline* LIMIT ONCE PER ROUND."
         }
     ],
     "eventsText": [
