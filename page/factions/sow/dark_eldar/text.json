@@ -110,8 +110,8 @@
             "unit": "Wych/Frigate: Spend 1 [M] to place 1 free reinforcement token in this area."
         },
         {
-            "title": "STUDIES IN AGONY",
-            "general": "During this combat, your opponent chooses and plays combat cards at random.",
+            "title": "CRUCIBLE OF MALEDICTION",
+            "general": "Force your opponent to lose 1 [M]. *newpara* During this combat, your opponent cannot gain or spend [M].",
             "unit": ""
         },
         {
