@@ -9,8 +9,8 @@
             "general": "After you resolve this order, you may either spend 1 reinforcement token to place 1 free Kabalite Warrior on any friendly world or replace 1 Kabalite Warrior in the active system with 1 free Wych. *newline* LIMIT ONCE PER ROUND."
         },
         {
-            "title": "SHADOWFIELD PROJECTION",
-            "general": "While resolving this order you may move units from up to 2 different adjacent systems to the active system. *newline* LIMIT ONCE PER ROUND."
+            "title": "WEB OF TORMENT",
+            "general": "While resolving this order, you may move your units from any number of systems adjacent to the active system. *newline* LIMIT ONCE PER ROUND."
         },
         {
             "title": "POWER FROM PAIN",
@@ -28,8 +28,8 @@
             "type": "SCHEME"
         },
         {
-            "title": "MURDEROUS PROWESS",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the end of the reinforce step of combat, you may discard this card to force your opponent to choose and rout 1 of his units unless he spends dice equal to the chosen unit's combat value.",
+            "title": "SHADOWFIELD PROJECTION",
+            "general": "Place this card in your play area and discard all of your other schemes. *newpara* While resolving an Advance Order, you may discard this card to perform its steps in any order.",
             "type": "SCHEME"
         },
         {

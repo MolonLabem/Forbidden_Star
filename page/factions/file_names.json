@@ -10,7 +10,7 @@
       },
       "gif": {
         "folder": ["ig", "tyranid", "necron", "tau"],
-        "name": ["Imerpial Guard", "Tyranid", "Necron", "Tau"]
+        "name": ["Imperial Guard", "Tyranid", "Necron", "Tau"]
       },
       "sow": {
         "folder": ["adepta_sororitas", "adeptus_mechanicus", "dark_eldar", "inquisition"],
