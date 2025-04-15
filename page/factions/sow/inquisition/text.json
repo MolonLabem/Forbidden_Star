@@ -23,7 +23,7 @@
     ],
     "eventsText": [
         {
-            "title": "TRIUMPHAL WITHDRAW",
+            "title": "VIOLENT ACQUISITION",
             "general": "Place this card in your play area and discard all of your other schemes. *newpara* After you resolve an Advance Order, you may discard this card to collect an Inquisition objective token that is on a friendly world in the active system.",
             "type": "SCHEME"
         },
@@ -33,18 +33,18 @@
             "type": "SCHEME"
         },
         {
-            "title": "CUTTHROATS FOR HIRE",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the end of reinforce step of combat, you may discard this card to force your opponent to choose and either rout 1 of his units if you are attacking or to retreat 1 of his units if you are defending.",
+            "title": "STRATEGIC EXCRUCIATION",
+            "general": "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to discard a scheme from another player's play area.",
             "type": "SCHEME"
         },
         {
-            "title": "THEOSOPMOMY",
+            "title": "THEOSOPHAMY",
             "general": "Discard this card.",
             "type": "TACTIC"
         },
         {
             "title": "RADICALS AND PURITANS",
-            "general": "Either purchase 1 structure in any system reducing its materiel cost by 1 or destroy 1 of your structures in any system to gain that structure's materiel cost increased by 1.",
+            "general": "Either purchase 1 structure, reducing its cost by 1, and place it on a friendly world not containing a structure, or destroy 1 of your structures on any world to gain materiel equal to its materiel cost increased by 1.",
             "type": "TACTIC"
         },
         {
@@ -58,7 +58,7 @@
             "type": "TACTIC"
         },
         {
-            "title": "TOTAL AUTHORITY",
+            "title": "IMPERIAL MANDATE",
             "general": "Place this card in your play area and discard all of your other schemes. *newpara* After placing your first order token during the Planning Phase, you may discard this card to place 1 additional order token. If you do, you place 5 order tokens during this Planning Phase.",
             "type": "SCHEME"
         }
@@ -115,7 +115,7 @@
             "unit": "Deathwatch/Black Ship: Your opponent loses 3 dice of his choice. Then you spend 3 of your dice."
         },
         {
-            "title": "DEFENSIVE BARRAGE",
+            "title": "STORM ENVOY",
             "general": "Reroll either 1 [B] or 1 [M] to force your opponent to lose 1 [B].",
             "unit": "Valkyrie: Take 1 Stormtrooper from any world and place it on this world. *newpara* Black Ship: Take 1 Stormtrooper from any world and place it on a friendly or uncontrolled world in this system."
         },
