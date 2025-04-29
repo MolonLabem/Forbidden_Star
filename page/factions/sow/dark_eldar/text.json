@@ -115,7 +115,7 @@
             "unit": ""
         },
         {
-            "title": "FEAST OF TORMENT",
+            "title": "HARROWING EMBRACE",
             "general": "Your opponent may retreat 1 of his units. If he does not, force your opponent to lose either 1 [B] or 1 [M].",
             "unit": "Ravager/Dying Sun: If you have fewer [M] than your opponent, your opponent loses 1 [M]. Otherwise, gain 2 (B) and 1 (S)."
         },
@@ -125,12 +125,12 @@
             "unit": "Ravager/Dying Sun: Gain 1 (B) and 2 (S) unless your opponent chooses and destroys 1 of his units."
         },
         {
-            "title": "MALICIOUS FRENZY",
-            "general": "",
-            "unit": "Ravager/Dying Sun: Gain 3 (B). *newpara* At the end of the assess damage step of this execution round, if your opponent did not suffer any damage during this execution round, rout 1 of his units."
+            "title": "Dread from the Skies",
+            "general": "Move 1 Ravager or 1 of your ships from an area in this or adjecent system to this area, and gain 2 [D].",
+            "unit": "Ravager: Place 1 free reinforcement token in this area. *newline* Force your opponent to lose 1 [S]. *newpara* Dying Sun: Gain 2 (B)."
         },
         {
-            "title": "FUELED BY HATRED",
+            "title": "MALICIOUS FRENZY",
             "general": "Gain 2 (B), 2 (S), or spend 1 of your dice to gain 2 (B) and 2 (S).",
             "unit": "Ravager/Dying Sun: Force your opponent to lose 1 [B], 1 [S], and 1 [M]. "
         }

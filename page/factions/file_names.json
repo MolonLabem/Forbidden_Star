@@ -14,7 +14,7 @@
       },
       "sow": {
         "folder": ["adepta_sororitas", "adeptus_mechanicus", "dark_eldar", "inquisition"],
-        "name": ["Adepta Sororitas", "Adeptus Mechanicus", "Dark Eldar", "Inquisition"]
+        "name": ["Sisters of Battle", "Adeptus Mechanicus", "Dark Eldar", "Inquisition"]
       },
       "dd": {
         "folder": ["worldeaters", "emperorschildren", "thousandsons", "deathguard"],
