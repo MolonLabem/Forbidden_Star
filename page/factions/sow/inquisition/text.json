@@ -10,7 +10,7 @@
         },
         {
             "title": "SIGILS OF REVELATION",
-            "general": "When you reveal this order token, you may look at all order tokens in any stack. You may discard 1 of your order tokens from the stack to place 2 of your order tokens from your play area onto the top of your event deck. *newline* LIMIT ONCE PER ROUND."
+            "general": "When you reveal this order token, you may look at all order tokens in any stack. Then you may discard 1 of your order tokens from that stack to place 2 of your order tokens from your play area onto the top of your event deck. *newline* LIMIT ONCE PER ROUND."
         },
         {
             "title": "TERROR STRIKE",
@@ -44,7 +44,7 @@
         },
         {
             "title": "RADICALS AND PURITANS",
-            "general": "Either purchase 1 structure, reducing its cost by 1, and place it on a friendly world not containing a structure, or destroy 1 of your structures on any world to gain materiel equal to its materiel cost increased by 1.",
+            "general": "Either purchase 1 structure, reducing its cost materiel by 1, and place it on a friendly world not containing a structure, or destroy 1 of your structures on any world to gain materiel equal to its materiel cost increased by 1.",
             "type": "TACTIC"
         },
         {

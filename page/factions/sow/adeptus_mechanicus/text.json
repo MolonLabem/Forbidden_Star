@@ -24,7 +24,7 @@
     "eventsText": [
         {
             "title": "THE QUEST FOR KNOWLEDGE",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the end of the Planning Phase, you may discard this card to take 1 of your order tokens from the top of a stack and place it on the top of a stack in an adjacent system you are allowed to place order tokens in.",
+            "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the end of the Planning Phase, you may discard this card to take 1 of your order tokens from the top of a stack and place it on the top of a stack in an adjacent system you are allowed to place order tokens in, either on the top of a stack or beginning a new one.",
             "type": "SCHEME"
         },
         {
