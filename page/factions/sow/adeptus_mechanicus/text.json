@@ -111,8 +111,8 @@
         },
         {
             "title": "MACHINE SUPERIORITY",
-            "general": "Gain either 1 [D] or 2 (B). *newpara* Spend 1 [M] to rally 1 of your units.",
-            "unit": "Onager/Ark Mechanicus: Convert up to 2 of your [S] into [B]. *newpara* Choose [B], [S] or [M]. Force your opponent to convert up to 2 of the chosen dice to a different icon of his choice."
+            "general": "Gain either 1 [D] or 2 (B) or 2 (S). *newpara* Spend 1 [M] to rally 1 of your units.",
+            "unit": "Onager/Ark Mechanicus: Choose [B], [S] or [M]. Force your opponent to convert up to 2 of the chosen dice to a different icon of your choice."
         },
         {
             "title": "MANOEUVRABLE CRAFT",
@@ -127,12 +127,12 @@
         {
             "title": "MACHINE SPIRIT'S REVENGE",
             "general": "Gain either 1 [S] or 1 (S). *newline* Convert up to 2 of your [B] into [S].",
-            "unit": "Titan/Ark Mechanicus: For each [S] you have in excess of your opponent's [B], gain 1 (B), to a maximum of 4."
+            "unit": "Titan/Ark Mechanicus: If your units or bastions suffer no damage during this execution round, rout 1 of your opponent's units. *newpara* Spend 2 of your dice to destroy 1 structure on this world."
         },
         {
             "title": "RAGE OF THE MACHINE",
             "general": "Gain 3 (B).",
-            "unit": "Titan/Ark Mechanicus: Spend 1 [M]. If you do, do not discard your (B) at the end of this execution round."
+            "unit": "Titan/Ark Mechanicus: Do not discard your (B) at the end of this execution round."
         }
     ]
 }
