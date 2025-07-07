@@ -111,7 +111,7 @@
         },
         {
             "title": "MACHINE SUPERIORITY",
-            "general": "Gain either 1 [D] or 2 (B) or 2 (S). *newpara* Spend 1 [M] to rally 1 of your units.",
+            "general": "Gain 1 [D], 2 (B) or 2 (S). *newpara* Spend 1 [M] to rally 1 of your units.",
             "unit": "Onager/Ark Mechanicus: Choose [B], [S] or [M]. Force your opponent to convert up to 2 of the chosen dice to a different icon of your choice."
         },
         {
@@ -127,7 +127,7 @@
         {
             "title": "MACHINE SPIRIT'S REVENGE",
             "general": "Gain either 1 [S] or 1 (S). *newline* Convert up to 2 of your [B] into [S].",
-            "unit": "Titan/Ark Mechanicus: If your units or bastions suffer no damage during this execution round, rout 1 of your opponent's units. *newpara* Spend 2 of your dice to destroy 1 structure on this world."
+            "unit": "Titan/Ark Mechanicus: If your units or bastions suffer no damage during this execution round, rout 1 of your opponent's units. *newpara* Spend 2 of your dice to destroy either 1 command level 0 unit or 1 structure in the contested area."
         },
         {
             "title": "RAGE OF THE MACHINE",
