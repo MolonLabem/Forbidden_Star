@@ -10,7 +10,7 @@
         },
         {
             "title": "LEAD THE RIGHTEOUS",
-            "general": "After you resolve this order, you may place 1 reinforcement token on a friendly world in the active system that contains a bastion and no reinforcement token. When this world becomes contested, this reinforcement token participates in combat, but is not treated as a unit during the reinforce step. If the bastion is destroyed outside of combat, return the reinforcement token to the supply. *newline* LIMIT ONCE PER ROUND."
+            "general": "After you resolve this order, you may place 1 free reinforcement token on a friendly world in the active system that contains a bastion and no reinforcement token. When this world becomes contested, this reinforcement token participates in combat, but is not treated as a unit during the reinforce step. If the bastion is destroyed outside of combat, return the reinforcement token to the supply. *newline* LIMIT ONCE PER ROUND."
         },
         {
             "title": "WAR HYMNS",
@@ -66,8 +66,8 @@
     "combatText": [
         {
             "title": "DRIVEN ONWARDS",
-            "general": "Your opponent rerolls 2 dice of his choice.",
-            "unit": "Sister Repentia/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card."
+            "general": "Gain 2 [B].",
+            "unit": "Sister Repentia/Light Cruiser: If 1 of your Sister Repentia or Light Cruiser is destroyed during this assess damage step of this execution round, destroy 1 command 0 level unit."
         },
         {
             "title": "BEACON OF FAITH",
@@ -81,12 +81,12 @@
         },
         {
             "title": "HOLY TRINITY",
-            "general": "Gain 2 [B].",
-            "unit": "Bastion/Battle Sister: Gain 2 (B). During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
+            "general": "Your opponent rerolls 3 dice of his choice.",
+            "unit": "Bastion/Battle Sister/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card."
         },
         {
             "title": "SANCTIFIED CHARGE",
-            "general": "Gain 2 [D]. *newpara* Reroll 1 of your dice.",
+            "general": "Reroll 1 of your dice. *newpara* Gain 2 [D].",
             "unit": "Sister Repentia/Light Cruiser: For each [B], [S], and [M] rolled while resolving the general abilities of this card, gain 1 (B), 1 (S), or 1 [D], respectively."
         },
         {
@@ -107,7 +107,7 @@
         {
             "title": "ANGELIC DESCENT",
             "general": "Gain 1 (S) for each of your unrouted units, to a maximum of 3.",
-            "unit": "Battle Sister/Light Cruiser: At the end of the assess damage step of this execution round, your opponent chooses and destroys 1 of his routed units unless he spends 1 [B]."
+            "unit": "Battle Sister/Light Cruiser:  Gain 2 (B). During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
         },
         {
             "title": "MARTYR'S IMMOLATION",
