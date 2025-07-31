@@ -67,7 +67,7 @@
         {
             "title": "DRIVEN ONWARDS",
             "general": "Gain 2 [B].",
-            "unit": "Sister Repentia/Light Cruiser: If 1 of your Sister Repentia or Light Cruiser is destroyed during this assess damage step of this execution round, destroy 1 command 0 level unit."
+            "unit": "Sister Repentia/Light Cruiser: If 1 of your Sisters Repentia or Light Cruisers is destroyed during the assess damage step of this execution round, destroy 1 command 0 level unit."
         },
         {
             "title": "BEACON OF FAITH",
@@ -107,7 +107,7 @@
         {
             "title": "ANGELIC DESCENT",
             "general": "Gain 1 (S) for each of your unrouted units, to a maximum of 3.",
-            "unit": "Battle Sister/Light Cruiser:  Gain 2 (B). During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
+            "unit": "Battle Sister/Light Cruiser:  Gain 2 (B). *newpara* During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
         },
         {
             "title": "MARTYR'S IMMOLATION",
