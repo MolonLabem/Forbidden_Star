@@ -1,138 +1,138 @@
 {
-    "ordersText": [
-        {
-            "title": "FAITHFUL ADVANCE",
-            "general": "While resolving this order, you may move up to 2 of your units through 1 uncontrolled world as if it were a friendly area. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "DIVINE DELIVERANCE",
-            "general": "When rolling dice during the preparation step of a combat you start with this order, roll 1 additional die for each Sister Repentia on the contested world. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "LEAD THE RIGHTEOUS",
-            "general": "After you resolve this order, you may place 1 free reinforcement token on a friendly world in the active system that contains a bastion and no reinforcement token. When this world becomes contested, this reinforcement token participates in combat, but is not treated as a unit during the reinforce step. If the bastion is destroyed outside of combat, return the reinforcement token to the supply. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "WAR HYMNS",
-            "general": "During this orbital strike, gain 1 [D]. Before you resolve this orbital strike, if the combined morale of your ships participating in this orbital strike is higher than the combined morale of unrouted units and bastions on the world, force your opponent to rout 1 of his units. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "BRAZIER OF HOLY FIRE",
-            "general": "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may rout any number of participating ships. For each ship you rout, convert up to 2 of your dice into [B]. *newline* LIMIT ONCE PER ROUND."
-        }
-    ],
-    "eventsText": [
-        {
-            "title": "UNDIVIDED FAITH",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* You may discard this card at the start of an execution round of combat. If you do, your routed units contribute half of their morale value, rounded up, to your total morale during the resolution step of this combat.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "HEROINE IN THE MAKING",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to move 1 Sister Repentia or 1 Battle Sister to an enemy world and start combat. While resolving this combat, resolve 1 execution round only and treat the chosen unit as a Living Saint. Destroy it after you resolve the combat.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "INDOMITABLE BELIEF",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* You may discard this card at the start of an execution round of combat. If you do, your units cannot become routed during this execution round.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "FAIT ACCOMPLI",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* Before revealing an order during the Operations Phase, you may discard this card to take either 1 Sister Repentia or 1 Battle Sister from any world and place it on any friendly world.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "INVASION CATHEDRUM DEPLOYMENT",
-            "general": "Either place 1 free city on a friendly world not containing a structure or spend 3 materiel to place 1 free city on a friendly world not containing a city.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "CRUSADE INTO DARKNESS",
-            "general": "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system containing both friendly and enemy areas. The reduction cannot exceed 3 materiel.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "INSPIRING ORATOR",
-            "general": "Either gain 1 reinforcement token or gain 1 reinforcement token for each friendly world containing a city.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "ULTIMATE DEVOTION",
-            "general": "Either place 1 free Battle Sister on a friendly world containing a unit or place 1 free Sister Repentia on any friendly world.",
-            "type": "TACTIC"
-        }
-    ],
-    "combatText": [
-        {
-            "title": "DRIVEN ONWARDS",
-            "general": "Gain 2 [B] and 1 (B).",
-            "unit": "Sister Repentia/Light Cruiser: When 1 of your Sisters Repentia or Light Cruisers is destroyed during the assess damage step of this execution round, destroy 1 of your opponent's command level 0 units."
-        },
-        {
-            "title": "BEACON OF FAITH",
-            "general": "",
-            "unit": "Resolve one of the following: *newline* Sister Repentia: Replace 1 of your Sisters Repentia on this world with 1 free Battle Sister and gain 2 [D]. *newpara* Bastion/Light Cruiser: Gain 1 [M] and 2 (S)."
-        },
-        {
-            "title": "GUIDED RETRIBUTION",
-            "general": "",
-            "unit": "Bastion/Sister Repentia/Light Cruiser: Gain either 1 (B) or 1 (S). *newline* Play 1 combat card from your hand. Then discard this card."
-        },
-        {
-            "title": "HOLY TRINITY",
-            "general": "Your opponent rerolls 3 dice of his choice.",
-            "unit": "Bastion/Battle Sister/Light Cruiser: Gain 1 (S) for each [B] rolled by your opponent while resolving the general ability of this card."
-        },
-        {
-            "title": "SANCTIFIED CHARGE",
-            "general": "Reroll 1 of your dice. *newpara* Gain 2 [D].",
-            "unit": "Sister Repentia/Light Cruiser: For each [B], [S], and [M] rolled while resolving the general abilities of this card, gain 1 (B), 1 (S), or 1 [D], respectively."
-        },
-        {
-            "title": "ZEALOT'S PASSION",
-            "general": "Gain 1 (B). *newpara* Force your opponent to lose 1 [M].",
-            "unit": "Battle Sister/Light Cruiser: During this execution round, your opponent cannot rally his units or place reinforcement tokens in this area. *newline* If you are defending, rally 1 of your units."
-        },
-        {
-            "title": "MARTYRDOM",
-            "general": "Convert up to 2 of your [B] into [M].",
-            "unit": "Battle Sister/Light Cruiser: When 1 of your units is destroyed during the assess damage step of this execution round, gain 1 [S]. Damage in excess of that unit's health value is lost."
-        },
-        {
-            "title": "SPIRITUAL FORTITUDE",
-            "general": "Force your oppononent to lose either 1 [B] or 1 [M]. *newpara* If you are defending, your opponent loses 2 (B).",
-            "unit": "Battle Sister/Light Cruiser: Gain 2 [D]."
-        },
-        {
-            "title": "ANGELIC DESCENT",
-            "general": "Gain 1 (S) for each of your unrouted units, to a maximum of 3.",
-            "unit": "Battle Sister/Light Cruiser:  Gain 2 (B). *newpara* During the assess damage step of this execution round, your opponent assigns damage 1 at a time."
-        },
-        {
-            "title": "MARTYR'S IMMOLATION",
-            "general": "Gain 3 (S) unless your opponent spends 1 die of his choice. If he does, gain 1 [M].",
-            "unit": "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Spend 1 [S] to gain 2 (B). *newline* Exorcist/Grand Cruiser: Gain 3 (B). During the assess damage step of this execution round, assign damage to a command level 2 unit first if able. If that unit is destroyed, do not discard your (B) at the end of this execution round."
-        },
-        {
-            "title": "ARMOURED IN FAITH",
-            "general": "Gain 1 [M] and 1 (S).",
-            "unit": "Resolve one of the following: *newline* Battle Sister/Light Cruiser: Rally 1 of your units. *newpara* Exorcist/Grand Cruiser: If you have more [M] than your opponent, your opponent chooses and routs 1 of his units."
-        },
-        {
-            "title": "DEVASTATING REFRAIN",
-            "general": "Gain 1 (B) for each of your opponent's units.",
-            "unit": "Resolve one of the following: *newline* Bastion: Gain 1 (S) for each [M] you have. *newline* Sister Repentia/Battle Sister/Light Cruiser: Gain 1 [D]."
-        },
-        {
-            "title": "DIVINE BLESSING",
-            "general": "Spend any number of [S] or [M]. For each [S] or [M] you spend, force your opponent to lose 1 [B].",
-            "unit": "Living Saint/Grand Cruiser: Gain 4 [D]."
-        },
-        {
-            "title": "DIVINE SMITING",
-            "general": "Either gain 1 [M] or convert up to 2 of your dice into [M].",
-            "unit": "Living Saint/Grand Cruiser: Gain 1 (B) for each [M] you have. *newline* During this execution round, none of the [B] are added to offence values."
-        }
-    ]
+  "ordersText": [
+    {
+      "title": "ВЕРНОЕ НАСТУПЛЕНИЕ",
+      "general": "При разрешении этого приказа вы можете переместить до 2 своих отрядов через 1 неконтролируемый мир так, как если бы это была дружественная область. *newline* ОГРАНИЧЕНИЕ: ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "БОЖЕСТВЕННОЕ ИЗБАВЛЕНИЕ",
+      "general": "Когда вы бросаете кубики на шаге подготовки боя, начатого этим приказом, бросьте 1 дополнительный кубик за каждую Сестру Репентии на оспариваемом мире. *newline* ОГРАНИЧЕНИЕ: ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "ВЕДИ ПРАВЕДНЫХ",
+      "general": "После того как вы разрешите этот приказ, вы можете разместить 1 бесплатный жетон подкрепления на дружественном мире в активной системе, если там есть бастион и нет жетона подкрепления. Когда этот мир становится оспариваемым, этот жетон участвует в бою, но не считается отрядом на шаге подкрепления. Если бастион уничтожен вне боя, верните жетон подкрепления в резерв. *newline* ОГРАНИЧЕНИЕ: ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "БОЕВЫЕ ГИМНЫ",
+      "general": "Во время этого орбитального удара получите 1 [D]. Перед разрешением этого удара, если суммарный моральный показатель ваших кораблей выше суммарной морали недеморализованных отрядов и бастионов на мире, заставьте противника деморализовать 1 свой отряд. *newline* ОГРАНИЧЕНИЕ: ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "ЖЕРТВЕННИК СВЯТОГО ОГНЯ",
+      "general": "Вражеские бастионы не препятствуют этому орбитальному удару. Во время этого удара вы можете деморализовать любое количество участвующих кораблей. За каждый деморализованный корабль преобразуйте до 2 своих кубиков в [B]. *newline* ОГРАНИЧЕНИЕ: ОДИН РАЗ ЗА РАУНД."
+    }
+  ],
+  "eventsText": [
+    {
+      "title": "НЕПОКОЛЕБИМАЯ ВЕРА",
+      "general": "Положите эту карту в свою игровую область и сбросьте все остальные ваши Планы. *newpara* Вы можете сбросить эту карту в начале фазы разрешения боя. Если сделаете это, ваши деморализованные отряды вносят половину своего значения морали (округляя вверх) в общий моральный показатель на шаге разрешения боя.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "ГЕРОИНЯ В СОЗДАНИИ",
+      "general": "Положите эту карту в свою игровую область и сбросьте все остальные ваши Планы. *newpara* Вместо того чтобы раскрывать приказ на Фазе Действий, вы можете сбросить эту карту, чтобы переместить 1 Сестру Репентии или 1 Сестру Битвы на вражеский мир и начать бой. При разрешении этого боя разыграйте только 1 фазу разрешения боя и рассматривайте выбранный отряд как Живую Святую. Уничтожьте его после боя.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "НЕСЛОМЛЕННОЕ УБЕЖДЕНИЕ",
+      "general": "Положите эту карту в свою игровую область и сбросьте все остальные ваши Планы. *newpara* Вы можете сбросить эту карту в начале фазы разрешения боя. Если сделаете это, ваши отряды не могут быть деморализованы в этой фазе разрешения боя.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "СОВЕРШИВШЕЕСЯ",
+      "general": "Положите эту карту в свою игровую область и сбросьте все остальные ваши Планы. *newpara* До раскрытия приказа на Фазе Действий вы можете сбросить эту карту, чтобы взять 1 Сестру Репентии или 1 Сестру Битвы с любого мира и поместить её на любой дружественный мир.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "РАЗВЁРТЫВАНИЕ СОБОРНОЙ ИНВАЗИИ",
+      "general": "Либо постройте 1 бесплатный город на дружественном мире без строений, либо потратьте 3 материала, чтобы построить 1 бесплатный город на дружественном мире без города.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "КРЕСТОВЫЙ ПОХОД ВО ТЬМУ",
+      "general": "Приобретите 1 боевое улучшение, уменьшая его стоимость в материалах на 1 за каждую систему, где есть как дружественные, так и вражеские области. Снижение не может превышать 3 материала.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "ВДОХНОВЛЯЮЩИЙ ОРАТОР",
+      "general": "Либо получите 1 жетон подкрепления, либо получите 1 жетон подкрепления за каждый дружественный мир с городом.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "ПРЕДЕЛЬНАЯ ПРЕДАННОСТЬ",
+      "general": "Либо разместите 1 бесплатную Сестру Битвы на дружественном мире, где есть отряд, либо разместите 1 бесплатную Сестру Репентии на любом дружественном мире.",
+      "type": "ТАКТИКА"
+    }
+  ],
+  "combatText": [
+    {
+      "title": "ВПЕРЁД, БЕЗ ОСТАНОВКИ",
+      "general": "Получите 2 [B] и 1 (B).",
+      "unit": "Сёстры Репентии/Лёгкий крейсер: Когда одна из ваших Сестёр Репентии или Лёгких крейсеров уничтожена во время фазы разрешения боя, уничтожьте 1 отряд противника уровня командования 0."
+    },
+    {
+      "title": "МАЯК ВЕРЫ",
+      "general": "",
+      "unit": "Разрешите одно из следующего: *newline* Сёстры Репентии: Замените 1 из ваших Сестёр Репентии в этом мире на 1 бесплатную Сестру Битвы и получите 2 [D]. *newpara* Бастион/Лёгкий крейсер: Получите 1 [M] и 2 (S)."
+    },
+    {
+      "title": "НАПРАВЛЕННОЕ ВОЗМЕЗДИЕ",
+      "general": "",
+      "unit": "Бастион/Сёстры Репентии/Лёгкий крейсер: Получите либо 1 (B), либо 1 (S). *newline* Сыграйте 1 боевую карту из руки. Затем сбросьте эту карту."
+    },
+    {
+      "title": "СВЯТАЯ ТРОИЦА",
+      "general": "Ваш противник перебрасывает 3 кубика по своему выбору.",
+      "unit": "Бастион/Сестра Битвы/Лёгкий крейсер: Получите 1 (S) за каждый [B], переброшенный противником при разрешении общего умения этой карты."
+    },
+    {
+      "title": "ОСВЯЩЁННЫЙ НАТИСК",
+      "general": "Перебросьте 1 свой кубик. *newpara* Получите 2 [D].",
+      "unit": "Сёстры Репентии/Лёгкий крейсер: За каждый [B], [S] и [M], выпавший при разрешении общих умений этой карты, получите соответственно 1 (B), 1 (S) или 1 [D]."
+    },
+    {
+      "title": "РВЕНИЕ ФАНАТИКА",
+      "general": "Получите 1 (B). *newpara* Заставьте противника потерять 1 [M].",
+      "unit": "Сестра Битвы/Лёгкий крейсер: В эту фазу разрешения боя ваш противник не может сплачивать отряды или размещать жетоны подкреплений в этой области. *newline* Если вы защищаетесь, сплочите 1 свой отряд."
+    },
+    {
+      "title": "МУЧЕНИЧЕСТВО",
+      "general": "Преобразуйте до 2 своих [B] в [M].",
+      "unit": "Сестра Битвы/Лёгкий крейсер: Когда 1 из ваших отрядов уничтожен во время фазы разрешения боя, получите 1 [S]. Избыточный урон сверх здоровья отряда теряется."
+    },
+    {
+      "title": "ДУХОВНАЯ СТОЙКОСТЬ",
+      "general": "Заставьте противника потерять либо 1 [B], либо 1 [M]. *newpara* Если вы обороняетесь, ваш противник теряет 2 (B).",
+      "unit": "Сестра Битвы/Лёгкий крейсер: Получите 2 [D]."
+    },
+    {
+      "title": "АНГЕЛЬСКОЕ СОШЕСТВИЕ",
+      "general": "Получите 1 (S) за каждую вашу недеморализованную единицу, максимум 3.",
+      "unit": "Сестра Битвы/Лёгкий крейсер: Получите 2 (B). *newpara* Во время фазы разрешения боя ваш противник назначает урон по 1 за раз."
+    },
+    {
+      "title": "САМОСОЖЖЕНИЕ МУЧЕНИКА",
+      "general": "Получите 3 (S), если только ваш противник не потратит 1 кубик по своему выбору. Если потратит, получите 1 [M].",
+      "unit": "Разрешите одно из следующего: *newline* Сестра Битвы/Лёгкий крейсер: Потратьте 1 [S], чтобы получить 2 (B). *newline* Экзорцист/Тяжёлый крейсер: Получите 3 (B). Во время фазы разрешения боя назначьте урон сначала отряду уровня командования 2, если возможно. Если этот отряд уничтожен, не сбрасывайте свои (B) в конце этой фазы."
+    },
+    {
+      "title": "БРОНЯ ВЕРЫ",
+      "general": "Получите 1 [M] и 1 (S).",
+      "unit": "Разрешите одно из следующего: *newline* Сестра Битвы/Лёгкий крейсер: Сплочите 1 свой отряд. *newpara* Экзорцист/Тяжёлый крейсер: Если у вас больше [M], чем у противника, противник выбирает и деморализует 1 свой отряд."
+    },
+    {
+      "title": "СОКРУШИТЕЛЬНЫЙ ПРИПЕВ",
+      "general": "Получите 1 (B) за каждый отряд противника.",
+      "unit": "Разрешите одно из следующего: *newline* Бастион: Получите 1 (S) за каждый ваш [M]. *newline* Сёстры Репентии/Сестра Битвы/Лёгкий крейсер: Получите 1 [D]."
+    },
+    {
+      "title": "БОЖЬЕ БЛАГОСЛОВЕНИЕ",
+      "general": "Потратьте любое количество [S] или [M]. За каждый потраченный [S] или [M] заставьте противника потерять 1 [B].",
+      "unit": "Живая Святая/Тяжёлый крейсер: Получите 4 [D]."
+    },
+    {
+      "title": "БОЖЕСТВЕННОЕ ПОРАЖЕНИЕ",
+      "general": "Либо получите 1 [M], либо преобразуйте до 2 своих кубиков в [M].",
+      "unit": "Живая Святая/Тяжёлый крейсер: Получите 1 (B) за каждый ваш [M]. *newline* В эту фазу разрешения боя [B] не добавляются к значениям атаки."
+    }
+  ]
 }
