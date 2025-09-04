@@ -1,7 +1,7 @@
 {
   "expansion": {
-    "folder": [ "base", "gif", "sow"],
-    "name": [ "Base Game", "Galaxy in Flames", "Symphony of War" ]
+    "folder": ["sow"],
+    "name": ["Symphony of War" ]
   },
   "faction": {
     "base": {
