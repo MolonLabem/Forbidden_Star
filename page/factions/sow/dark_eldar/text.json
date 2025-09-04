@@ -1,138 +1,138 @@
 {
-    "ordersText": [
-        {
-            "title": "SLAVE RAID",
-            "general": "If you rolled at least 2 [B] during this orbital strike, gain 1 reinforcement token. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "MALEVOLENCE MADE FLESH",
-            "general": "After you resolve this order, you may either spend 1 reinforcement token to place 1 free Kabalite Warrior on any friendly world or replace 1 Kabalite Warrior in the active system with 1 free Wych. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "WEB OF TORMENT",
-            "general": "While resolving this order, you may move your units from any number of systems adjacent to the active system. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "POWER FROM PAIN",
-            "general": "While resolving this order, increase your command level by 1. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "ECLIPSING DESCENT",
-            "general": "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may spend 1 [B] to move 1 of your ships in the active system to another void in the active system. This can start a new combat after resolving this orbital strike. *newline* LIMIT ONCE PER ROUND."
-        }
-    ],
-    "eventsText": [
-        {
-            "title": "REALSPACE RAID",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to choose an uncontrolled world. Gain assets from this world and gain materiel equal to its materiel value.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "SHADOWFIELD PROJECTION",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* While resolving an Advance Order, you may discard this card to perform its steps in any order.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "REVEL IN BLOODSHED",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the end of an execution round of combat, you may discard this card and destroy 1 of your command level 1 or command level 2 units to move any number of your units to an adjacent area. This can start a new combat after resolving this combat. ",
-            "type": "SCHEME"
-        },
-        {
-            "title": "VISIONS OF COMMORRAGH",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* Instead of placing an order during the Planning Phase, you may discard this card.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "SLAVE TRADE",
-            "general": "Either spend up to 2 materiel to gain 1 asset of your choice for each materiel you spend or spend up to 2 assets to gain 2 materiel for each asset you spend.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "GRISLY TROPHIES",
-            "general": "Destroy 1 of your units on any world. Gain materiel equal to its materiel cost and gain reinforcement tokens equal to its morale value.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "SPECTACLE OF MURDER",
-            "general": "Purchase 1 combat upgrade. You may spend reinforcement tokens to reduce its materiel cost by 2 for each token you spend.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "BLACK HEART SPONSORING",
-            "general": "Either place 1 free Frigate on a friendly void or spend 2 materiel and 1 forge token to replace 1 Frigate with 1 free Dying Sun Battleship.",
-            "type": "TACTIC"
-        }
-    ],
-    "combatText": [
-        {
-            "title": "PREY ON THE WEAK",
-            "general": "Either gain 1 [B] or spend 1 of your dice to rally 1 of your units. ",
-            "unit": "Kabalite Warrior/Frigate: Gain 1 [D]."
-        },
-        {
-            "title": "AGENTS OF VECT",
-            "general": "Gain 1 [S]. *newpara* If you have at least 1 unrouted ship in the active system, gain 1 reinforcement token and force your opponent to discard 1 of his reinforcement tokens.",
-            "unit": "Kabalite Warrior: Place 1 of your reinforcement tokens in this area."
-        },
-        {
-            "title": "HUNT FROM THE SHADOWS",
-            "general": "",
-            "unit": "Kabalite Warrior/Frigate: Your opponent may retreat 1 of his units. If he does not, gain 1 (B) for each unrouted Kabalite Warrior or Frigate. *newpara* Discard this card to retreat 1 of your units."
-        },
-        {
-            "title": "FUELED BY HATRED",
-            "general": "Gain 1 (B). *newpara* Convert 1 of your [M] into [B].",
-            "unit": "Kabalite Warrior/Wych/Frigate: Gain 1 (S). *newpara* Your opponent rerolls 1 die of your choice."
-        },
-        {
-            "title": "WINGED STRIKE",
-            "general": "Either gain 1 (B) or draw 1 combat card.",
-            "unit": "Wych/Frigate: Either gain 2 (S) or play 1 combat card from your hand. Do not resolve its abilities, but gain its combat icons during this combat."
-        },
-        {
-            "title": "ECSTATIC CARNAGE",
-            "general": "Gain 2 (B) unless your opponent spends 1 [S].",
-            "unit": "Wych/Frigate: Spend 1 of your dice to gain either 1 [B] and 1 (S) or 1 [S] and 1 (B)."
-        },
-        {
-            "title": "RAIDER TACTICS",
-            "general": "If you are attacking, gain 2 (B). When your unit is destroyed during this execution round, you may retreat that unit instead. *newpara* If you are defending, gain 2 (S). When an enemy unit is routed during this execution round, it is destroyed unless your opponent spends 1 [M].",
-            "unit": ""
-        },
-        {
-            "title": "FIRE AND FADE",
-            "general": "Gain either 1 [B] or 1 [S].",
-            "unit": "Kabalite Warrior/Frigate: Your opponent may retreat 1 of his units. Then you may move 1 of your units to an adjacent friendly or uncontrolled area. If you do, gain either 1 [M] or 2 (B)."
-        },
-        {
-            "title": "NEVER STATIONARY",
-            "general": "If you are attacking, your opponent cannot gain (B) during this execution round. *newpara* If you are defending, gain 1 [S] and your opponent loses 2 (B).",
-            "unit": "Wych/Frigate: Spend 1 [M] to place 1 free reinforcement token in this area."
-        },
-        {
-            "title": "CRUCIBLE OF MALEDICTION",
-            "general": "Force your opponent to lose 1 [M]. *newpara* During this combat, your opponent cannot gain or spend [M].",
-            "unit": ""
-        },
-        {
-            "title": "HARROWING EMBRACE",
-            "general": "Your opponent may retreat 1 of his units. If he does not, force your opponent to lose either 1 [B] or 1 [M].",
-            "unit": "Ravager/Dying Sun: If you have fewer [M] than your opponent, your opponent loses 1 [M]. Otherwise, gain 2 (B) and 1 (S)."
-        },
-        {
-            "title": "PICK THEM APART",
-            "general": "Your opponent may retreat 1 of his units. If he does not, force your opponent to lose either 1 [S] or 1 [M].",
-            "unit": "Ravager/Dying Sun: Gain 1 (B) and 2 (S) unless your opponent chooses and destroys 1 of his units."
-        },
-        {
-            "title": "DREAD FROM THE SKIES",
-            "general": "Move either 1 Ravager or 1 of your ships from an area in either the active system or an adjacent system to this area. If you do, gain 2 [D].",
-            "unit": "Ravager: Place 1 free reinforcement token in this area. *newline* Force your opponent to lose 1 [S]. *newpara* Dying Sun: Gain 2 (B)."
-        },
-        {
-            "title": "MALICIOUS FRENZY",
-            "general": "Gain 2 (B), 2 (S), or spend 1 of your dice to gain 2 (B) and 2 (S).",
-            "unit": "Ravager/Dying Sun: Force your opponent to lose 1 [B], 1 [S], and 1 [M]. "
-        }
-    ]
+  "ordersText": [
+    {
+      "title": "ОХОТА ЗА РАБАМИ",
+      "general": "Если вы выбросили хотя бы 2 [B] Во время выполнения этого орбитального удара, то получите 1 жетон подкрепления. *newline* ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "ВОПЛОЩЕННАЯ ЗЛОБА",
+      "general": "После выполнения этого приказа Вы можете либо потратить 1 жетон подкрепления, чтобы бесплатно разместить 1 Кабалита Воина в любом дружественном мире, либо бесплатно заменить 1 Кабалита Воина на 1 Ведьму в активной системе. *newline* ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "ПАУТИНА СТРАДАНИЙ",
+      "general": "Во время выполнения этого приказа вы можете переместить отряды в активную систему из любых соседних с ней систем. *newline* ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "СИЛА В БОЛИ",
+      "general": "После раскрытия этого приказа ваш командный уровень увеличивается на 1 во время выполнения этого приказа. *newline* ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "ЗАТМЕВАЮЩИЙ СПУСК",
+      "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара вы можете потратить 1 [B], чтобы переместить 1 из ваших кораблей в активной системе в другую пустоту в активной системе. Это может привести к новой битве по завершении текущего орбитального удара. *newline* ОДИН РАЗ ЗА РАУНД."
+    }
+  ],
+  "eventsText": [
+    {
+      "title": "РЕЙД ИЗ ПАУТИНЫ",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Вместо раскрытия одного из ваших приказов в фазу Действий, вы можете сбросить эту карту, чтобы выбрать неконтролируемый мир. Получите ценные ресурсы этого мира и материалы, равные производственному значению этого мира.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "ГЕНЕРАТОР ТЕНЕВОГО ПОЛЯ",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время выполнения Приказа Продвижения вы можете сбросить эту карту, чтобы выполнить его шаги в любом порядке.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "ПРАЗДНИК КРОВОПРОЛИТИЯ",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага вызова подкреплений вы можете сбросить эту карту, чтобы вынудить вашего противника выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит количество кубов, равное боевой мощи выбранного отряда.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "ВИДЕНИЯ КОММОРЫ",
+      "general": "Вместо размещения жетона приказа во время Фазы Планирования вы можете сбросить эту карту.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "ТОРГОВЛЯ РАБАМИ",
+      "general": "Либо потратьте до 2 материалов, чтобы получить 1 ценный ресурс на ваш выбор за каждый потраченный материал, либо потратьте до 2 ценных ресурсов, чтобы получить по 2 материала за каждый потраченный ценный ресурс.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "ЖУТКИЕ ТРОФЕИ",
+      "general": "Уничтожьте 1 ваш отряд в любом мире. Получите материалы, равные его материальной стоимости, и жетоны подкрепления в количестве, равном его значению боевого духа.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "УБИЙСТВЕННОЕ ПРЕДСТАВЛЕНИЕ",
+      "general": "Купите 1 боевое улучшение. Вы можете тратить жетоны подкрепления, чтобы уменьшить его стоимость на 2 за каждый жетон.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "ПОДДЕРЖКА ЧЕРНОГО СЕРДЦА",
+      "general": "Либо бесплатно разместите 1 Крейсер в любой дружественной пустоте, либо потратьте 2 материала и 1 жетон кузницы, чтобы бесплатно заменить 1 Крейсер на 1 Гаснущее Солнце.",
+      "type": "ТАКТИКА"
+    }
+  ],
+  "combatText": [
+    {
+      "title": "ОХОТА НА СЛАБЫХ",
+      "general": "Получите 1 [B] или потратьте 1 куб, чтобы восстановить 1 ваш отряд.",
+      "unit": "Кабалит Воин/Крейсер: Получите 1 [D]."
+    },
+    {
+      "title": "ПОСЛАННИКИ ВЕКТА",
+      "general": "Получите 1 [S]. *newpara* Если у вас есть хотя бы 1 недеморализованный корабль в активной системе, то получите 1 жетон подкрепления и вынудите вашего противника сбросить 1 свой жетон подкрепления.",
+      "unit": "Кабалит Воин: Разместите 1 ваш жетон подкрепления в эту область."
+    },
+    {
+      "title": "НАПАДЕНИЕ ИЗ ТЕНИ",
+      "general": "",
+      "unit": "Кабалит Воин/Крейсер: Ваш противник может отступить 1 отрядом. Если он этого не сделал, получите 1 (B) за каждого недеморализованного Кабалита-воина или Крейсер. *newpara* Сбросьте эту карту, чтобы отступить 1 отрядом."
+    },
+    {
+      "title": "СКРЫТНОЕ УБИЙСТВО",
+      "general": "Получите 1 (B). *newpara* Переверните 1 ваш [M] на [B].",
+      "unit": "Кабалит Воин/Ведьма/Крейсер: Получите 1 (S). *newpara* Вынудите вашего противника перебросить 1 куб на ваш выбор."
+    },
+    {
+      "title": "КРЫЛАТЫЙ УДАР",
+      "general": "Получите 1 (B) или возьмите 1 боевую карту.",
+      "unit": "Ведьма/Крейсер: Получите 2 (S) или разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы."
+    },
+    {
+      "title": "УПОЕНИЕ РЕЗНЕЙ",
+      "general": "Получите 2 (B). Ваш противник может избежать этого эффекта, если потеряет 1 [S].",
+      "unit": "Ведьма/Крейсер: Потратьте 1 свой куб, чтобы получить 1 [B] и 1 (S) или 1 [S] и 1 (B)."
+    },
+    {
+      "title": "ТАКТИКА РЕЙДЕРОВ",
+      "general": "Если вы атакуете, то получите (B). Если ваш отряд будет уничтожен в этом раунде битвы, то вы можете отступить им вместо этого. *newpara* Если вы защищаетесь, то получите 2 (S). Любой отряд противника, деморализованный в этом раунде битвы, уничтожается. Ваш противник может избежать этого уничтожения, если потратит 1 [M].",
+      "unit": ""
+    },
+    {
+      "title": "ВЫСТРЕЛИТЬ И ИСЧЕЗНУТЬ",
+      "general": "Gain either 1 [B] or 1 [S].",
+      "unit": "Кабалит Воин/Крейсер: Your opponent may retreat 1 of his units. Then you may move 1 of your units to an adjacent friendly or uncontrolled area. If you do, gain either 1 [M] or 2 (B)."
+    },
+    {
+      "title": "ВСЕГДА В ДВИЖЕНИИ",
+      "general": "Если вы атакуете ваш противник не может получать (B) в этом раунде битвы. *newpara* Если вы защищаетесь, получите 1 [S]. Ваш противник теряет 2 (B).",
+      "unit": "Ведьма/Крейсер: Потратьте 1 [M], чтобы бесплатно разместить 1 жетон подкрепления в этой области."
+    },
+    {
+      "title": "ПОЗНАНИЕ АГОНИИ",
+      "general": "Вынудите вашего противника потерять 1 [M]. *newpara* Во время этого боя, ваш противник не может получать или тратить [M].",
+      "unit": ""
+    },
+    {
+      "title": "МУЧИТЕЛЬНЫЕ ОБЪЯТИЯ",
+      "general": "Ваш противник может выбрать и отступить 1 своим отрядом. Если он этого не сделал, вынудите вашего противника потратить 1 [B] или 1 [M].",
+      "unit": "Опустошитель/Гаснущее Солнце: Если у вас меньше [M], чем у вашего противника, ваш противник теряет 1 [M]. В противном случае, получите 2 (B) и 1 (S)."
+    },
+    {
+      "title": "ДОБИТЬ ПООДИНОЧКЕ",
+      "general": "Ваш противник может выбрать и отступить 1 своим отрядом. Если он этого не сделал, вынудите вашего противника потратить 1 [S] или 1 [M].",
+      "unit": "Опустошитель/Гаснущее Солнце: Получите 1 (B) и 2 (S). Ваш противник может избежать этого эффекта, если уничтожит 1 свой отряд."
+    },
+    {
+      "title": "УЖАС С НЕБЕС",
+      "general": "Передвиньте 1 Опустошителя или 1 Крейсер из области в активной или соседней системы в эту область. Если вы сделали это, получите 2 [D]",
+      "unit": "Опустошитель: Бесплатно разместите 1 жетон подкрепления в эту область. *newline* Вынудите вашего противника потерять 1 [D] *newpara* Гаснущее Солнце: Получите 2 (B)."
+    },
+    {
+      "title": "ДВИЖИМЫЕ НЕНАВИСТЬЮ",
+      "general": "Получите 2 (B), 2 (S) или потратьте 1 из своих кубов, чтобы получить 2 (B) и 2 (S).",
+      "unit": "Опустошитель/Гаснущее Солнце: Вынудите вашего противника потерять 1 [B], 1 [S] и 1 [M]."
+    }
+  ]
 }

@@ -1,138 +1,138 @@
 {
-    "ordersText": [
-        {
-            "title": "DREAD JUDGEMENT",
-            "general": "At the start of the resolution step of a combat you start with this order, you may force your opponent to choose and destroy 1 of his routed units in the contested area. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "PURGING BANNERS",
-            "general": "When you reveal this order token, rally all of your units in the active system. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "SIGILS OF REVELATION",
-            "general": "When you reveal this order token, you may look at all order tokens in any stack. Then you may discard 1 of your order tokens from that stack to place 2 of your order tokens from your play area onto the top of your event deck. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "TERROR STRIKE",
-            "general": "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may spend 2 [S] to force your opponent to choose and retreat 1 of his units on this world, as if it was a defender. *newline* LIMIT ONCE PER ROUND."
-        },
-        {
-            "title": "INEVITABLE EXECUTION",
-            "general": "During this orbital strike, gain 1 [D]. You may resolve this orbital strike against any world in the active system. *newline* LIMIT ONCE PER ROUND."
-        }
-    ],
-    "eventsText": [
-        {
-            "title": "VIOLENT ACQUISITION",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* After you resolve an Advance Order, you may discard this card to collect an Inquisition objective token that is on a friendly world in the active system.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "PSIONIC WARFARE",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* When you reveal an order during the Operations Phase, you may discard this card to choose an order upgrade card in any player's play area. That order upgrade card is considered used during this round.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "STRATEGIC EXCRUCIATION",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to discard a scheme from another player's play area.",
-            "type": "SCHEME"
-        },
-        {
-            "title": "THEOSOPHAMY",
-            "general": "Discard this card.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "RADICALS AND PURITANS",
-            "general": "Either purchase 1 structure, reducing its cost materiel by 1, and place it on a friendly world not containing a structure, or destroy 1 of your structures on any world to gain materiel equal to its materiel cost increased by 1.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "ELYSIAN DROP TROOPS",
-            "general": "Either place 1 free Stormtrooper on an uncontrolled world in a system containing at least 1 of your ships or place 1 free Stormtrooper on any friendly world.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "MINISTORUM'S DOGMA",
-            "general": "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each system with no enemy units, to a minimum of 1.",
-            "type": "TACTIC"
-        },
-        {
-            "title": "IMPERIAL MANDATE",
-            "general": "Place this card in your play area and discard all of your other schemes. *newpara* After placing your first order token during the Planning Phase, you may discard this card to place 1 additional order token. If you do, you place 5 order tokens during this Planning Phase.",
-            "type": "SCHEME"
-        }
-    ],
-    "combatText": [
-        {
-            "title": "BLINDING SALVO",
-            "general": "If you are attacking, your opponent cannot resolve the general abilities of his next revealed combat card. *newpara* If you are defending, gain 1 [D].",
-            "unit": ""
-        },
-        {
-            "title": "SHADOW ASSIGNMENT",
-            "general": "Gain 1 [M]. *newpara* Rally 1 of your units.",
-            "unit": "Stormtrooper/Rogue Trader: If you have more [M] than your opponent, force your opponent to either choose and rout 1 of his units or to spend a die of your choice."
-        },
-        {
-            "title": "PSYKER SHIELD",
-            "general": "Gain 2 (S).",
-            "unit": "Deathwatch/Rogue Trader: Spend 2 (S) to place 1 free reinforcement token in this area."
-        },
-        {
-            "title": "UNQUESTIONABLE WISDOM",
-            "general": "Gain either 1 [B] or 1 [S].",
-            "unit": "Stormtrooper/Rogue Trader: Discard 1 combat card from your hand. Gain that card's combat icons until the end of this execution round."
-        },
-        {
-            "title": "FRENZON IMPLANTS",
-            "general": "Gain 2 (B).",
-            "unit": "Stormtrooper/Rogue Trader: Spend 2 (B) to convert all of your [M] into [B]."
-        },
-        {
-            "title": "SANCTIONED PSYKER",
-            "general": "Your opponent may spend 1 [B] to gain 1 (B). If he does not, force your opponent to lose 1 [S].",
-            "unit": "Stormtrooper/Rogue Trader: Your opponent rerolls 2 dice of his choice. For each [B] rolled, gain 1 (B) and 1 (S). For each [S] rolled, gain 1 (S)."
-        },
-        {
-            "title": "UNFLINCHING CRUSADERS",
-            "general": "Gain 2 (B).",
-            "unit": "Deathwatch/Rogue Trader: If you are defending, rally 1 of your units. *newpara* Force your opponent to lose either 1 [S] or 2 (B)."
-        },
-        {
-            "title": "RELENTLESS ASSAULT",
-            "general": "Gain 2 (S).",
-            "unit": "Deathwatch/Rogue Trader: If you are attacking, rally 1 of your units. *newpara* Spend 1 [S] to gain 2 (B)."
-        },
-        {
-            "title": "FAITH GUIDANCE",
-            "general": "If you are attacking, your opponent cannot resolve the unit abilities of his next revealed combat card. *newpara* If you are defending, either gain 1 | or retreat 1 of your units.",
-            "unit": ""
-        },
-        {
-            "title": "LIDLESS STARE",
-            "general": "Gain 1 [D].",
-            "unit": "Deathwatch/Black Ship: Your opponent loses 3 dice of his choice. Then you spend 3 of your dice."
-        },
-        {
-            "title": "STORM ENVOY",
-            "general": "Reroll either 1 [B] or 1 [M] to force your opponent to lose 1 [B].",
-            "unit": "Valkyrie: Take 1 Stormtrooper from any world and place it on this world. *newpara* Black Ship: Take 1 Stormtrooper from any world and place it on a friendly or uncontrolled world in this system."
-        },
-        {
-            "title": "HELLSTRIKE MISSILES",
-            "general": "Reroll either 1 [S] or 1 [M] to force your opponent to lose 1 [S].",
-            "unit": "Valkyrie/Black Ship: Destroy 1 of your opponent's routed units."
-        },
-        {
-            "title": "TRUESILVER ARMOUR",
-            "general": "Gain either 1 [S] or 2 (S).",
-            "unit": "Grey Knight/Black Ship: During this combat, the health value of your units is increased by 1."
-        },
-        {
-            "title": "DEEP STRIKE",
-            "general": "Either gain 1 (B) or convert up to 3 of your dice into [B].",
-            "unit": "Grey Knight: When an enemy unit suffers damage during this execution round, it is destroyed. *newpara* Black Ship: Rout 1 of your opponent's units."
-        }
-    ]
+  "ordersText": [
+    {
+      "title": "СТРАШНЫЙ ПРИГОВОР",
+      "general": "Во время шага разрешения в битве, которую вы начали с помощью этого приказа, если вы победитель, то вынудите вашего противника Выбрать и уничтожить 1 деморализованный отряд до отступления. *newline* ОДИН РАЗ ЗА РАУНД."
+    },
+    {
+      "title": "ОЧИСТИТЬ СТЯГИ",
+      "general": "После раскрытия этого приказа вы можете восстановить все свои отряды в активной системе. *newline* ОДИН РАЗ В РАУНД."
+    },
+    {
+      "title": "ЗНАКИ ОТКРОВЕНИЙ",
+      "general": "После раскрытия этого приказа вы можете просмотреть все жетоны приказов в любом стеке. Затем вы можете сбросить 1 из своих жетонов приказов из этого стека, чтобы положить 2 жетона приказа из своего запаса на свою колоду событий. *newline* ОДИН РАЗ В РАУНД."
+    },
+    {
+      "title": "УЖАСНЫЙ УДАР",
+      "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара вы можете потратить 2 [S], чтобы вынудить вашего противника выбрать и отступить одним своим отрядом в этом мире по правилам защищающегося. *newline* ОДИН РАЗ В РАУНД."
+    },
+    {
+      "title": "НЕИЗБЕЖНАЯ КАЗНЬ",
+      "general": "Во время выполнения этого орбитального удара получите 1 [D]. Вы можете выполнить этот орбитальный удар по любому миру в активной системе. *newline* ОДИН РАЗ В РАУНД."
+    }
+  ],
+  "eventsText": [
+    {
+      "title": "ТРИУМФАЛЬНЫЙ ОТХОД",
+      "general": "Разместите эту карту в своей игровой Зоне и сбросьте все ваши прочие планы. *newpara* После выполнения Приказа Продвижения Вы можете сбросить эту карту, чтобы собрать маркер цели Инквизиции в дружественном мире в активной системе.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "ПСИОНИЧЕСКАЯ ВОЙНА",
+      "general": "Разместите эту карту в своей игровой Зоне и сбросьте все ваши прочие планы. *newpara* Во время раскрытия приказа в фазу Действий вы можете сбросить эту карту, чтобы выбрать и перевернуть улучшение приказа вашего противника, сделав его непригодным к использованию в этом раунде.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "НАЕМНЫЕ ГОЛОВОРЕЗЫ",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все свои прочие планы. *newpara* Вместо раскрытия приказа во время Фазы Действий вы можете сбросить эту карту, чтобы вынудить любого противника сбросить план со своей игровой зоны.",
+      "type": "ПЛАН"
+    },
+    {
+      "title": "ТЕОСОФОМИЯ",
+      "general": "Сбросьте эту карту.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "РАДИКАЛЫ И ПУРИТАНЕ",
+      "general": "Либо купите 1 постройку, уменьшив её стоимость на 1, либо уничтожьте 1 постройку в дружественном мире, чтобы получить материалы, равные её материальной стоимости, увеличенной на 1.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "ЭЛИЗИАНСКИЕ ВОЙСКА",
+      "general": "Либо бесплатно разместите 1 Штурмовика в неконтролируемом мире в системе, которая содержит хотя бы 1 ваш корабль, либо бесплатно разместите 1 Штурмовика в любом дружественном мире.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "ДОГМА МИНИСТОРУМА",
+      "general": "Купите 1 боевое улучшение. Уменьшите его стоимость на 1 за каждую систему, не содержащую вражеские войска, но не меньше 1.",
+      "type": "ТАКТИКА"
+    },
+    {
+      "title": "АБСОЛЮТНЫЕ ПОЛНОМОЧИЯ",
+      "general": "Разместите эту карту в своей игровой Зоне и сбросьте все ваши прочие планы. *newpara* Вы можете сбросить эту карту, перед тем как положить свой первый жетон приказа в фазу Планирования, чтобы положить дополнительный жетон приказа. В этой Фазе Планирования вы положите 5 жетонов приказов.",
+      "type": "ПЛАН"
+    }
+  ],
+  "combatText": [
+    {
+      "title": "ОСЛЕПЛЯЮЩИЙ ЗАЛП",
+      "general": "Если вы атакуете, то ваш противник не может разыграть общие способности на следующей открытой боевой карте. Если вы защищаетесь, то получите 1 [D].",
+      "unit": ""
+    },
+    {
+      "title": "ТЕНЕВАЯ МИССИЯ",
+      "general": "Получите 1 [M]. *newpara* Восстановите 1 ваш отряд.",
+      "unit": "Штурмовик/Крейсер: Если у вас больше [M], чем у вашего противника, то он должен Выбрать и деморализовать 1 свой отряд или потерять 1 куб на свой выбор."
+    },
+    {
+      "title": "ЩИТ ПСАЙКЕРА",
+      "general": "Получите 2 (S).",
+      "unit": "Караул Смерти/Крейсер: Потратьте 2 (S), чтобы бесплатно разместить 1 жетон подкрепления в эту область."
+    },
+    {
+      "title": "БЕССПОРНАЯ МУДРОСТЬ",
+      "general": "Получите 1 [B] или 1 [S].",
+      "unit": "Штурмовик/Крейсер: Разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этого раунда битвы."
+    },
+    {
+      "title": "ФРЕНЗОНОВЫЕ ИМПЛАНТЫ",
+      "general": "Получите 2 (B).",
+      "unit": "Штурмовик/Крейсер: Потратьте 2 (B), чтобы перевернуть все ваши [M] на [B]."
+    },
+    {
+      "title": "ОДОБРЕННЫЙ ПСАЙКЕР",
+      "general": "Ваш противник может потратить 1 [B], чтобы получить 1 (B). Если он этого не сделал, вынудите его потерять 1 [S].",
+      "unit": "Штурмовик/Крейсер: Вынудите вашего противника перебросить 2 куба на свой выбор. Получите 1 (B) и 1 (S) за каждый [B] и 1 (S) за каждый [S], выброшенные при разрешении общей способности этой карты."
+    },
+    {
+      "title": "НЕПРЕКЛОННЫЕ КРЕСТОНОСЦЫ",
+      "general": "Получите 2 (B).",
+      "unit": "Караул Смерти/Крейсер: Если вы защищаетесь, восстановите 1 свой отряд. *newpara* Вынудите вашего противника потерять 1 [S] или 2 (B)."
+    },
+    {
+      "title": "БЕСПОЩАДНАЯ АТАКА",
+      "general": "Получите 2 (S).",
+      "unit": "Караул Смерти/Крейсер: Если вы атакуете, восстановите 1 свой отряд. *newpara* Потратьте 1 [S], чтобы получить 2 (B)."
+    },
+    {
+      "title": "РУКОВОДСТВО ПО ВЕРЕ",
+      "general": "Если вы атакуете, ваш противник не может разыграть способности отрядов на следующей открытой боевой карте. *newpara* Если вы защищаетесь, получите 1 [D] или отступите одним своим отрядом.",
+      "unit": ""
+    },
+    {
+      "title": "ВЗГЛЯД БЕЗ ГЛАЗ",
+      "general": "Получите 1 [D].",
+      "unit": "Караул Смерти/Чёрный Корабль: Вынудите вашего противника потерять 3 куба на свой выбор. Затем потратьте 3 своих куба."
+    },
+    {
+      "title": "ЗАЩИТНЫЙ БАРЬЕР",
+      "general": "Перебросьте 1 [B] или 1 [M], чтобы вынудить Вашего противника потерять 1 [B].",
+      "unit": "Валькирия: Заберите 1 Штурмовика из любого мира и разместите его в этом мире. Чёрный Корабль: Заберите 1 Штурмовика из любого мира и разместите его в дружественном или неконтролируемом мире в этой системе."
+    },
+    {
+      "title": "РАКЕТЫ ХЕЛЛСТРАЙК",
+      "general": "Перебросьте 1 [S] или 1 [M], чтобы вынудить вашего противника потерять 1 [S].",
+      "unit": "Валькирия/Чёрный Корабль: Выберите и уничтожьте 1 деморализованный отряд вашего противника."
+    },
+    {
+      "title": "СЕРЕБРЯНАЯ БРОНЯ",
+      "general": "Получите 1 [S] или 2 (S).",
+      "unit": "Рыцарь Немезиды/Чёрный Корабль: Значение здоровья всех ваших отрядов повышается на 1 во время этой битвы."
+    },
+    {
+      "title": "ГЛУБОКИЙ УДАР",
+      "general": "Получите 1 (B) или переверните до 3 своих кубов на [B].",
+      "unit": "Рыцарь Немезиды: В течение этого раунда битвы отряды противника, получающие какой-либо урон, уничтожаются. *newpara* Чёрный Корабль: Деморализуйте 1 отряд вашего противника."
+    }
+  ]
 }
