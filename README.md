@@ -11,7 +11,7 @@ This repository contains the code for a webpage dedicated to displaying the expa
 ## Usage
 
 * To set up the project locally it's either use xampp or different local server.
-* Use this link: <a href='https://frytkownica.github.io/Forbidden_Star/page/'>Forbidden Star Page</a>
+* Use this link: <a href='https://molonlabem.github.io/Forbidden_Star/page/'>Forbidden Star Page</a>
 
 ## Usage
 Start your local server to serve the project files.
