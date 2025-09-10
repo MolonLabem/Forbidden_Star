@@ -427,6 +427,124 @@ document.addEventListener('DOMContentLoaded', () => {
         c.height = h;
         return c;
     }
+    // === Rich/styled text: italics before colon, and "-или-" special ===
+    // Replace your existing drawWrappedText with this enhanced version
+    function drawStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align = 'left') {
+        // ---- Fonts & metrics
+        const baseFont = `${fontSize}px ForbiddenStars`;
+        const italicFont = `italic ${fontSize}px ForbiddenStars`;
+        const getLH = () => parseInt(ctx.font.match(/\d+/), 10);
+
+        // ---- Normalize control tokens to paragraphs/lines
+        const normalize = (s) =>
+            String(s)
+                .replace(/\s*\*newpara\*\s*/g, '\n\n')
+                .replace(/\s*\*newline\*\s*/g, '\n')
+                .replace(/[ \t]+/g, ' ')
+                .replace(/ *\n */g, '\n')
+                .trim();
+
+        const paragraphs = normalize(text).split('\n'); // empty string => paragraph gap
+
+        // ---- Build styled tokens per paragraph based on your rules
+        // Each paragraph becomes an array of {text, italic, glue}
+        const buildTokens = (p) => {
+            if (p.trim() === '') return []; // blank paragraph separator
+            if (p.trim() === '-или-') return [{ text: '-или-', italic: true, glue: true }];
+
+            if (p.includes(':')) {
+                const i = p.indexOf(':');
+                const before = p.slice(0, i).trimEnd();
+                const after = p.slice(i + 1).trimStart();
+                const tokens = [];
+                if (before) tokens.push({ text: before, italic: true, glue: true });
+                tokens.push({ text: ':', italic: false, glue: true }); // stick to label
+                if (after) tokens.push({ text: ' ' + after, italic: false, glue: true });
+                return tokens;
+            }
+            return [{ text: p, italic: false, glue: true }];
+        };
+
+        // ---- Measurement with style
+        const measure = (txt, italic) => {
+            ctx.font = italic ? italicFont : baseFont;
+            return ctx.measureText(txt).width;
+        };
+
+        // ---- Render a fully composed line (array of segments) honoring alignment
+        const renderLine = (segments, yy) => {
+            // Compute the total width of this line
+            let totalW = 0;
+            for (const s of segments) totalW += measure(s.text, s.italic);
+
+            // Alignment (left/center like the original)
+            let startX = x;
+            if (align === 'center') startX = x - totalW / 2;
+
+            // Draw
+            let cursorX = startX;
+            for (const s of segments) {
+                ctx.font = s.italic ? italicFont : baseFont;
+                ctx.textAlign = 'left';
+                ctx.fillText(s.text, cursorX, yy);
+                cursorX += measure(s.text, s.italic);
+            }
+        };
+
+        // ---- Wrapping logic (kept conceptually identical: accumulate, measure, break)
+        ctx.font = baseFont;
+        ctx.textAlign = align;
+        const lineHeight = getLH();
+        let yy = y + lineHeight;
+
+        for (let p of paragraphs) {
+            // Paragraph gap (from *newpara*): add extra vertical space
+            if (p === '') { yy += lineHeight; continue; }
+
+            const tokens = buildTokens(p);
+            let line = [];         // [{text, italic}]
+            let lineWidth = 0;
+
+            const pushWord = (word, italic, glue) => {
+                const segText = (line.length === 0 || glue) ? word : (' ' + word);
+                const w = measure(segText, italic);
+
+                if (lineWidth + w > maxW && line.length > 0) {
+                    renderLine(line, yy);
+                    yy += lineHeight + interline;
+                    line = [];
+                    lineWidth = 0;
+
+                    // first on a new line: no leading space
+                    const w2 = measure(word, italic);
+                    line.push({ text: word, italic });
+                    lineWidth += w2;
+                } else {
+                    line.push({ text: segText, italic });
+                    lineWidth += w;
+                }
+            };
+
+            for (const t of tokens) {
+                if (t.text === ':') { // special glued colon
+                    pushWord(':', false, true);
+                    continue;
+                }
+                const words = t.text.split(' ');
+                for (let i = 0; i < words.length; i++) {
+                    const w = words[i];
+                    if (!w) continue;
+                    const glue = (line.length === 0) || (t.glue && i === 0);
+                    pushWord(w, t.italic, glue);
+                }
+            }
+
+            if (line.length) {
+                renderLine(line, yy);
+                yy += lineHeight + interline;
+            }
+        }
+    }
 
     // ===== Drawing: Combat =====
     async function drawCombatCard(data, ctx) {
@@ -484,17 +602,38 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.textAlign = 'left';
         ctx.fillText(data.title || '', maxWidth * 0.27, maxHeight * 0.077);
 
+        // Background text (left-aligned)
         if (bgText) {
             const y = maxHeight - (bgH + fgH);
             cropPaint(backgroundImg, y);
-            drawWrappedText(ctx, bgText, marginWidth, y + marginHeight + extraBackgroundBorder, maxWidth - 2 * marginWidth, interline, fontSize, 'left');
+            drawStyledWrappedText(
+                ctx,
+                bgText,
+                marginWidth,
+                y + marginHeight + extraBackgroundBorder,
+                maxWidth - 2 * marginWidth,
+                interline,
+                fontSize,
+                'left'
+            );
         }
 
+        // Foreground text (left-aligned)
         if (fgText) {
             const y = maxHeight - (fgH + extraForegroundTriangle * 0.35);
             cropPaint(foregroundImg, y);
-            drawWrappedText(ctx, fgText, marginWidth, y + marginHeight + extraForegroundTriangle, maxWidth - 2 * marginWidth, interline, fontSize, 'left');
+            drawStyledWrappedText(
+                ctx,
+                fgText,
+                marginWidth,
+                y + marginHeight + extraForegroundTriangle,
+                maxWidth - 2 * marginWidth,
+                interline,
+                fontSize,
+                'left'
+            );
         }
+
 
         ctx.drawImage(bottomImg, 0, 0, textBottomBarWidth, textBottomBarHeight, 0, maxHeight - bottomImageHeight, maxWidth, bottomImageHeight);
     }
