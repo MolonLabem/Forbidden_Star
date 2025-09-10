@@ -1,4 +1,4 @@
-﻿// cards-app.js (with italics feature)
+﻿// cards-app.js
 document.addEventListener('DOMContentLoaded', () => {
     // ===== DOM =====
     const spinner = mustGet('#loading-spinner');
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== App State =====
     const state = {
-        data: null,
-        expansionKey: null,
-        factionKey: null,
-        cardTypeKey: null
+        data: null,             // file_names.json content
+        expansionKey: null,     // e.g., "core"
+        factionKey: null,       // e.g., "space-marines"
+        cardTypeKey: null       // e.g., "Combat" | "Orders" | "Events" | "FactionCard" | "Backs"
     };
 
     // ===== Bootstrap =====
@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showSpinner();
             renderFactionTabs(state.expansionKey);
 
+            // Reset faction + cards to defaults for new expansion
             const firstFaction = state.data.faction[state.expansionKey].folder?.[0];
             state.factionKey = firstFaction;
 
@@ -92,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             showSpinner();
+            // Keep current card type
             await renderCards(state.expansionKey, state.factionKey, state.cardTypeKey);
         } catch (err) {
             console.error(err);
@@ -190,22 +192,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const cardOrder = Object.keys(state.data.cards);
-
         switch (cardTypeKey) {
-            case cardOrder[0]: // Combat
+            case Object.keys(state.data.cards)[0]: // Combat
                 await createCombatContent(subTab, expansionKey, factionKey, files, textData.combatText);
                 break;
-            case cardOrder[1]: // Orders
+            case Object.keys(state.data.cards)[1]: // Orders
                 await createOrdersContent(subTab, expansionKey, factionKey, files, textData.ordersText);
                 break;
-            case cardOrder[2]: // Events
+            case Object.keys(state.data.cards)[2]: // Events
                 await createEventContent(subTab, expansionKey, factionKey, files, textData.eventsText);
                 break;
-            case cardOrder[3]: // FactionCard
+            case Object.keys(state.data.cards)[3]: // FactionCard
                 createFactionCardContent(subTab, expansionKey, factionKey, files);
                 break;
-            case cardOrder[4]: // Backs
+            case Object.keys(state.data.cards)[4]: // Backs
                 createBackCardContent(subTab, expansionKey, factionKey, files);
                 break;
             default:
@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // sections split
         const sections = {
             's-section': files.slice(0, 5),
             't1-section': files.slice(5, 9),
@@ -338,142 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== Canvas Text Styling (Italics rules) =====
-
-    // Check rule #1: exact dash-или-dash token
-    function isDashIliToken(tok) {
-        const t = tok.trim();
-        return t === '-или-' || t === '—или—' || t === '–или–';
-    }
-
-    // Tokenize by spaces while preserving control markers; we mark line/paragraph boundaries.
-    function tokenize(text) {
-        const raw = String(text).split(' ');
-        return raw.map(w => {
-            if (w === '*newline*') return { type: 'newline' };
-            if (w === '*newpara*') return { type: 'newpara' };
-            return { type: 'word', text: w };
-        });
-    }
-
-    // Compute lines with inline italics + wrapping; returns an array of lines, each line is [{text, italic}]
-    function layoutStyledLines(ctx, text, maxW, interline, fontSize, align) {
-        const tokens = tokenize(text);
-        const lines = [];
-        let line = [];
-        let lineWidth = 0;
-        let atParagraphStart = true;
-        let colonSeenInPara = false;
-
-        const flushLine = () => {
-            lines.push(line.length ? line : []);
-            line = [];
-            lineWidth = 0;
-        };
-
-        const splitOnFirstColon = (word) => {
-            const i = word.indexOf(':');
-            if (i === -1) return [{ text: word, kind: 'word' }];
-            const head = word.slice(0, i);
-            const tail = word.slice(i + 1);
-            const segs = [];
-            if (head) segs.push({ text: head, kind: 'word' });
-            segs.push({ text: ':', kind: 'colon' });
-            if (tail) segs.push({ text: tail, kind: 'word' }); // rare case, e.g. "Крейсер:что-то"
-            return segs;
-        };
-
-        const pushSeg = (segText, italic) => {
-            ctx.font = `${italic ? 'italic ' : ''}${fontSize}px ForbiddenStars`;
-            const w = ctx.measureText(segText + ' ').width;
-            if (lineWidth + w > maxW && line.length > 0) {
-                flushLine();
-            }
-            line.push({ text: segText, italic });
-            lineWidth += w;
-        };
-
-        for (let i = 0; i < tokens.length; i++) {
-            const tok = tokens[i];
-
-            if (tok.type === 'newline' || tok.type === 'newpara') {
-                flushLine();
-                atParagraphStart = true;
-                colonSeenInPara = false;
-                continue;
-            }
-
-            // word token -> split around the first colon (if any)
-            const segs = splitOnFirstColon(tok.text);
-
-            for (const seg of segs) {
-                if (seg.kind === 'colon') {
-                    // Colon itself: never italic, and marks end of the "before colon" zone
-                    pushSeg(':', /*italic*/ false);
-                    colonSeenInPara = true;
-                    atParagraphStart = false;
-                    continue;
-                }
-
-                const word = seg.text;
-                const italicByRule1 = isDashIliToken(word);
-                const italicByRule2 = atParagraphStart && !colonSeenInPara; // before first colon in this paragraph
-                const italic = italicByRule1 || italicByRule2;
-
-                pushSeg(word, italic);
-
-                if (word.trim().length > 0) atParagraphStart = false;
-            }
-        }
-        flushLine();
-        return lines;
-    }
-
-
-    // Styled height calc to match layoutStyledLines (adds top/bottom padding like original)
-    function calculateTextHeightStyled(ctx, text, extraHeight, marginHeight, interline, fontSize, maxW) {
-        const lines = layoutStyledLines(ctx, text, maxW, interline, fontSize, 'left');
-        ctx.font = `${fontSize}px ForbiddenStars`;
-        const lineHeight = parseInt(ctx.font.match(/\d+/), 10);
-        // number of non-empty visual lines; even empty lines get baseline height for consistency
-        const visualLines = Math.max(1, lines.length);
-        // Each line contributes lineHeight; between lines we add interline (lines-1 times)
-        const bodyHeight = visualLines * lineHeight + Math.max(0, visualLines - 1) * interline;
-        return bodyHeight + lineHeight + extraHeight + marginHeight * 2; // +one extra line like the original method
-    }
-
-    // Draw styled text with italics and wrapping
-    function drawWrappedTextStyled(ctx, text, x, y, maxW, interline, fontSize, align = 'left') {
-        const lines = layoutStyledLines(ctx, text, maxW, interline, fontSize, align);
-        ctx.font = `${fontSize}px ForbiddenStars`;
-        const lineHeight = parseInt(ctx.font.match(/\d+/), 10);
-
-        let cursorY = y + lineHeight;
-
-        for (const line of lines) {
-            // compute total width for alignment if needed
-            let totalW = 0;
-            for (const seg of line) {
-                ctx.font = `${seg.italic ? 'italic ' : ''}${fontSize}px ForbiddenStars`;
-                totalW += ctx.measureText(seg.text + ' ').width;
-            }
-
-            let startX = x;
-            if (align === 'center') startX = x - totalW / 2;
-            else if (align === 'right') startX = x - totalW;
-
-            // draw segments
-            let cursorX = startX;
-            for (const seg of line) {
-                ctx.font = `${seg.italic ? 'italic ' : ''}${fontSize}px ForbiddenStars`;
-                ctx.fillText(seg.text, cursorX, cursorY);
-                cursorX += ctx.measureText(seg.text + ' ').width;
-            }
-
-            cursorY += lineHeight + interline;
-        }
-    }
-
     // ===== Canvas Helpers =====
     function replaceForbiddenStarsElements(str = '') {
         return String(str)
@@ -483,6 +348,68 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/\[D\]/g, '|')
             .replace(/\(B\)/g, '#')
             .replace(/\(S\)/g, '@');
+    }
+
+    function calculateTextHeight(context, text, extraHeight, marginHeight, interline, fontSize) {
+        context.font = `${fontSize}px ForbiddenStars`;
+        const words = String(text).split(' ');
+        let line = '';
+        const lineHeight = parseInt(context.font.match(/\d+/), 10);
+        let h = 0;
+
+        for (let n = 0; n < words.length; n++) {
+            const w = words[n];
+            if (w === '*newline*') {
+                h += lineHeight + interline;
+                line = '';
+            } else if (w === '*newpara*') {
+                h += 2 * lineHeight;
+                line = '';
+            } else {
+                const test = `${line}${w} `;
+                if (context.measureText(test).width > maxTextWidth && n > 0) {
+                    h += lineHeight + interline;
+                    line = `${w} `;
+                } else {
+                    line = test;
+                }
+            }
+        }
+        // last line + padding
+        h += lineHeight * 2 + extraHeight + marginHeight * 2;
+        return h;
+    }
+
+    function drawWrappedText(ctx, text, x, y, maxW, interline, fontSize, align = 'left') {
+        ctx.font = `${fontSize}px ForbiddenStars`;
+        ctx.textAlign = align;
+        const words = String(text).split(' ');
+        let line = '';
+        const lineHeight = parseInt(ctx.font.match(/\d+/), 10);
+        let yy = y + lineHeight;
+
+        for (let n = 0; n < words.length; n++) {
+            const w = words[n];
+            if (w === '*newline*') {
+                ctx.fillText(line, x, yy);
+                yy += lineHeight + interline;
+                line = '';
+            } else if (w === '*newpara*') {
+                ctx.fillText(line, x, yy);
+                yy += 2 * lineHeight;
+                line = '';
+            } else {
+                const test = `${line}${w} `;
+                if (ctx.measureText(test).width > maxW && n > 0) {
+                    ctx.fillText(line, x, yy);
+                    yy += lineHeight + interline;
+                    line = `${w} `;
+                } else {
+                    line = test;
+                }
+            }
+        }
+        ctx.fillText(line, x, yy);
     }
 
     async function loadImage(url) {
@@ -519,35 +446,15 @@ document.addEventListener('DOMContentLoaded', () => {
             loadImage('pictures/bottom.png')
         ]);
 
-        const bgTextRaw = replaceForbiddenStarsElements(data.background || '');
-        const fgTextRaw = replaceForbiddenStarsElements(data.foreground || '');
+        const bgText = replaceForbiddenStarsElements(data.background || '');
+        const fgText = replaceForbiddenStarsElements(data.foreground || '');
 
         let bgH = 0;
         let fgH = 0;
 
         const recalc = () => {
-            if (bgTextRaw.length) {
-                bgH = calculateTextHeightStyled(
-                    ctx,
-                    bgTextRaw,
-                    extraBackgroundBorder,
-                    marginHeight,
-                    interline,
-                    fontSize,
-                    maxTextWidth
-                );
-            }
-            if (fgTextRaw.length) {
-                fgH = calculateTextHeightStyled(
-                    ctx,
-                    fgTextRaw,
-                    extraForegroundTriangle,
-                    marginHeight,
-                    interline,
-                    fontSize,
-                    maxTextWidth
-                );
-            }
+            if (bgText.length) bgH = calculateTextHeight(ctx, bgText, extraBackgroundBorder, marginHeight, interline, fontSize);
+            if (fgText.length) fgH = calculateTextHeight(ctx, fgText, extraForegroundTriangle, marginHeight, interline, fontSize);
         };
 
         const shrinkTextToFit = () => {
@@ -559,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         recalc();
 
-        if (bgTextRaw && fgTextRaw) {
+        if (bgText && fgText) {
             while (bgH + fgH > maxFieldsHeight) shrinkTextToFit();
         } else {
             while (Math.max(bgH, fgH) > maxFieldsHeight) shrinkTextToFit();
@@ -569,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.drawImage(img, 0, 0, textBackgroundSize, maxHeight - y, 0, y, maxWidth, maxHeight - y);
         };
 
-        // Base
+        // Paint base image
         ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
         // Title
@@ -577,41 +484,19 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.textAlign = 'left';
         ctx.fillText(data.title || '', maxWidth * 0.27, maxHeight * 0.077);
 
-        if (bgTextRaw) {
+        if (bgText) {
             const y = maxHeight - (bgH + fgH);
             cropPaint(backgroundImg, y);
-            drawWrappedTextStyled(
-                ctx,
-                bgTextRaw,
-                marginWidth,
-                y + marginHeight + extraBackgroundBorder,
-                maxTextWidth,
-                interline,
-                fontSize,
-                'left'
-            );
+            drawWrappedText(ctx, bgText, marginWidth, y + marginHeight + extraBackgroundBorder, maxWidth - 2 * marginWidth, interline, fontSize, 'left');
         }
 
-        if (fgTextRaw) {
+        if (fgText) {
             const y = maxHeight - (fgH + extraForegroundTriangle * 0.35);
             cropPaint(foregroundImg, y);
-            drawWrappedTextStyled(
-                ctx,
-                fgTextRaw,
-                marginWidth,
-                y + marginHeight + extraForegroundTriangle,
-                maxTextWidth,
-                interline,
-                fontSize,
-                'left'
-            );
+            drawWrappedText(ctx, fgText, marginWidth, y + marginHeight + extraForegroundTriangle, maxWidth - 2 * marginWidth, interline, fontSize, 'left');
         }
 
-        ctx.drawImage(
-            bottomImg,
-            0, 0, textBottomBarWidth, textBottomBarHeight,
-            0, maxHeight - bottomImageHeight, maxWidth, bottomImageHeight
-        );
+        ctx.drawImage(bottomImg, 0, 0, textBottomBarWidth, textBottomBarHeight, 0, maxHeight - bottomImageHeight, maxWidth, bottomImageHeight);
     }
 
     // ===== Drawing: Orders =====
@@ -624,20 +509,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let fontSize = maxHeight * 0.03;
 
         const picture = await loadImage(data.picture);
-        const textRaw = replaceForbiddenStarsElements(data.general || '');
-        const maxW = maxWidth - 2 * marginOrderWidth;
+        const text = replaceForbiddenStarsElements(data.general || '');
 
         let generalH = 0;
         const recalc = () => {
-            generalH = calculateTextHeightStyled(
-                ctx,
-                textRaw,
-                0,
-                marginOrderWidth,
-                interline,
-                fontSize,
-                maxW
-            );
+            generalH = calculateTextHeight(ctx, text, 0, marginOrderWidth, interline, fontSize);
         };
 
         const shrinkTextToFit = () => {
@@ -657,13 +533,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.textAlign = 'center';
         ctx.fillText(data.title || '', maxWidth * 0.5, maxHeight * 0.2325);
 
-        // Body (centered)
-        drawWrappedTextStyled(
+        // Body
+        drawWrappedText(
             ctx,
-            textRaw,
-            maxWidth * 0.5, // center anchor
+            text,
+            maxWidth * 0.5,
             textPositionY,
-            maxW,
+            maxWidth - 2 * marginOrderWidth,
             interline,
             fontSize,
             'center'
@@ -679,19 +555,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let fontSize = maxHeight * 0.03;
 
         const picture = await loadImage(data.picture);
-        const textRaw = replaceForbiddenStarsElements(data.general || '');
+        const text = replaceForbiddenStarsElements(data.general || '');
 
         let generalH = 0;
         const recalc = () => {
-            generalH = calculateTextHeightStyled(
-                ctx,
-                textRaw,
-                20,
-                0,
-                interline,
-                fontSize,
-                maxTextWidth
-            );
+            generalH = calculateTextHeight(ctx, text, 20, 0, interline, fontSize);
         };
 
         const shrinkTextToFit = () => {
@@ -707,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
         // Type
-        ctx.font = `${titleFontSize * 0.8}px FrizQuadrataStd`;
+        ctx.font = `bold ${titleFontSize * 0.8}px FrizQuadrataStd`;
         ctx.textAlign = 'center';
         ctx.fillText(data.type || '', maxWidth * 0.5, maxHeight * 0.573);
 
@@ -716,13 +584,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.textAlign = 'left';
         ctx.fillText(data.title || '', maxWidth * 0.05, maxHeight * 0.0735);
 
-        // Body (left)
-        drawWrappedTextStyled(
+        // Body
+        drawWrappedText(
             ctx,
-            textRaw,
+            text,
             marginWidth,
             textPositionY,
-            maxTextWidth,
+            maxWidth - 2 * marginWidth,
             interline,
             fontSize,
             'left'
