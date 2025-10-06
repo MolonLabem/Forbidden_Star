@@ -55,6 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })();
 
+    // === PATCH: RU labels while keeping original keys in data-* ===
+        const CARD_TYPE_LABELS_RU = {
+            combat: 'Боевые',
+            orders: 'Приказы',
+            events: 'События',
+            faction_card: 'Фракция',
+            backs: 'Задники'
+        };
+
+
+
     // ===== Event Delegation (one-time) =====
     expansionTabs.addEventListener('click', async (e) => {
         const el = e.target.closest('.expansion-header');
@@ -159,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardTypes.forEach((type, i) => {
             const tab = el('div', {
                 class: ['card-header', i === 0 ? 'active' : ''],
-                text: type,
+                text: CARD_TYPE_LABELS_RU[type] ?? type, // RU label
                 dataset: { cardType: type, faction: state.factionKey, expansion: state.expansionKey }
             });
             cardTypeTabs.appendChild(tab);
@@ -220,28 +231,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // sections split
         const sections = {
-            's-section': files.slice(0, 5),
-            't1-section': files.slice(5, 9),
-            't2-section': files.slice(9, 12),
-            't3-section': files.slice(12, 14)
+            's-section': { files: files.slice(0, 5), texts: textData.slice(0, 5) },
+            't1-section': { files: files.slice(5, 9), texts: textData.slice(5, 9) },
+            't2-section': { files: files.slice(9, 12), texts: textData.slice(9, 12) },
+            't3-section': { files: files.slice(12, 14), texts: textData.slice(12, 14) }
         };
 
-        const textSections = {
-            's-section': textData.slice(0, 5),
-            't1-section': textData.slice(5, 9),
-            't2-section': textData.slice(9, 12),
-            't3-section': textData.slice(12, 14)
-        };
-
+        const tasks = [];
         for (const key of Object.keys(sections)) {
             const sectionEl = el('div', { class: ['grid', 'combat', key] });
             container.appendChild(sectionEl);
 
-            for (let i = 0; i < sections[key].length; i++) {
-                const file = sections[key][i];
-                const text = textSections[key]?.[i];
+            const { files: f, texts: t } = sections[key];
+            for (let i = 0; i < f.length; i++) {
+                const file = f[i];
+                const text = t?.[i];
                 if (!text) continue;
 
                 const jsonData = {
@@ -254,11 +259,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const canvas = makeCanvas(maxWidth, maxHeight);
                 sectionEl.appendChild(canvas);
                 const ctx = canvas.getContext('2d');
-                await drawCombatCard(jsonData, ctx);
+
+                // enqueue without awaiting (parallel)
+                tasks.push(drawCombatCard(jsonData, ctx).catch(err => console.error('[combat draw]', err)));
             }
         }
+        await Promise.allSettled(tasks);
     }
 
+    // === PATCH: parallelize Orders drawing ===
     async function createOrdersContent(container, expansion, faction, files, textData) {
         if (!Array.isArray(files) || !Array.isArray(textData)) {
             errorBanner(container, 'Orders data malformed.');
@@ -267,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const wrap = el('div', { class: ['grid', 'orders'] });
         container.appendChild(wrap);
 
+        const tasks = [];
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
             const text = textData[i];
@@ -281,10 +291,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const canvas = makeCanvas(maxWidth, maxHeight);
             wrap.appendChild(canvas);
             const ctx = canvas.getContext('2d');
-            await drawOrderCard(jsonData, ctx);
+
+            tasks.push(drawOrderCard(jsonData, ctx).catch(err => console.error('[orders draw]', err)));
         }
+        await Promise.allSettled(tasks);
     }
 
+    // === PATCH: parallelize Events drawing ===
     async function createEventContent(container, expansion, faction, files, textData) {
         if (!Array.isArray(files) || !Array.isArray(textData)) {
             errorBanner(container, 'Events data malformed.');
@@ -294,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const wrap = el('div', { class: ['grid', 'events'] });
         container.appendChild(wrap);
 
+        const tasks = [];
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
             const text = textData[i];
@@ -309,8 +323,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const canvas = makeCanvas(maxWidth, maxHeight);
             wrap.appendChild(canvas);
             const ctx = canvas.getContext('2d');
-            await drawEventCard(jsonData, ctx);
+
+            tasks.push(drawEventCard(jsonData, ctx).catch(err => console.error('[events draw]', err)));
         }
+        await Promise.allSettled(tasks);
     }
 
     function createFactionCardContent(container, expansion, faction, files) {
@@ -412,14 +428,19 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillText(line, x, yy);
     }
 
+    // === PATCH: concurrency-friendly image loader ===
     async function loadImage(url) {
         return new Promise((resolve, reject) => {
             const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.decoding = 'async';
+            img.loading = 'eager';
             img.onload = () => resolve(img);
             img.onerror = () => reject(new Error(`Failed to load image: ${url}`));
             img.src = url;
         });
     }
+
 
     function makeCanvas(w, h) {
         const c = document.createElement('canvas');

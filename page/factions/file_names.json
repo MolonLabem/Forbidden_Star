@@ -1,7 +1,7 @@
 {
   "expansion": {
-    "folder": ["base","sow"],
-    "name": ["База","Forsaken Voids" ]
+    "folder": ["base","gif","sow"],
+    "name": ["База","Forgotten Worlds","Forsaken Voids" ]
   },
   "faction": {
     "base": {
