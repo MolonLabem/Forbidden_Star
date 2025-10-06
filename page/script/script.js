@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardTypes.forEach((type, i) => {
             const tab = el('div', {
                 class: ['card-header', i === 0 ? 'active' : ''],
-                text: CARD_TYPE_LABELS_RU[type] ?? type, // RU label
+                text: CARD_TYPE_LABELS_RU[type], // RU label
                 dataset: { cardType: type, faction: state.factionKey, expansion: state.expansionKey }
             });
             cardTypeTabs.appendChild(tab);
