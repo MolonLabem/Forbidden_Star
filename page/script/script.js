@@ -3,7 +3,7 @@
         return;
     }
 
-    const families = ['ForbiddenStars', 'HeadlinerNo45', 'FrizQuadrataStd'];
+    const families = ['ForbiddenStars', 'Headline', 'EventFont'];
     const fontLoads = families.map((family) => document.fonts.load(`1em ${family}`));
 
     try {
@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     let faqOriginalData = [];
     let faqLoaded = false;
     let faqLoadingPromise = null;
+
+    let activeExpansionTab = null;
+    let activeFactionTab = null;
+    let activeCardTab = null;
 
     /* =========================
        CONSTANTS
@@ -93,7 +97,47 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     /* =========================
-       GENERIC HELPERS
+       CACHES
+    ========================= */
+
+    const jsonCache = new Map();
+    const imageCache = new Map();
+
+    async function fetchJsonCached(path) {
+        if (jsonCache.has(path)) {
+            return jsonCache.get(path);
+        }
+
+        const promise = fetch(path, { cache: 'no-store' })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Failed to load JSON: ${path} (${response.status})`);
+                }
+                return response.json();
+            });
+
+        jsonCache.set(path, promise);
+        return promise;
+    }
+
+    async function loadImage(url) {
+        if (imageCache.has(url)) {
+            return imageCache.get(url);
+        }
+
+        const promise = new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => reject(new Error(`Failed to load image: ${url}`));
+            img.src = url;
+        });
+
+        imageCache.set(url, promise);
+        return promise;
+    }
+
+    /* =========================
+       GENERAL HELPERS
     ========================= */
 
     function withArray(value) {
@@ -124,9 +168,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function getPicture(node) {
-        return node && typeof node === 'object'
-            ? node.picture || ''
-            : '';
+        return node && typeof node === 'object' ? node.picture || '' : '';
     }
 
     function createPlaceholderWithSpinner() {
@@ -138,15 +180,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         placeholder.appendChild(spinner);
         return placeholder;
-    }
-
-    function loadImage(url) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve(img);
-            img.onerror = () => reject(new Error('Failed to load image'));
-            img.src = url;
-        });
     }
 
     function replaceForbiddenStarsElements(str) {
@@ -520,6 +553,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    function debounce(fn, delay = 200) {
+        let timer = null;
+        return (...args) => {
+            window.clearTimeout(timer);
+            timer = window.setTimeout(() => fn(...args), delay);
+        };
+    }
+
     async function loadFaq() {
         if (faqLoaded) {
             return faqOriginalData;
@@ -529,13 +570,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return faqLoadingPromise;
         }
 
-        faqLoadingPromise = fetch(FAQ_JSON_PATH, { cache: 'no-store' })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`Failed to load FAQ JSON: ${response.status}`);
-                }
-                return response.json();
-            })
+        faqLoadingPromise = fetchJsonCached(FAQ_JSON_PATH)
             .then((data) => {
                 faqOriginalData = Array.isArray(data) ? data : [];
                 faqLoaded = true;
@@ -571,17 +606,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (cardTypeTabs) cardTypeTabs.style.display = 'none';
         if (cardsContainer) cardsContainer.style.display = 'none';
         if (faqContainer) faqContainer.classList.add('active');
-        loadFaq().catch(() => {});
+        loadFaq().catch(() => { });
     }
 
     if (faqSearchInput) {
-        faqSearchInput.addEventListener('input', (event) => {
-            updateFaqSearchResults(event.target.value);
-        });
+        faqSearchInput.addEventListener(
+            'input',
+            debounce((event) => {
+                updateFaqSearchResults(event.target.value);
+            }, 150)
+        );
     }
 
     /* =========================
-       CARD RENDERING
+       CARD RENDERERS
     ========================= */
 
     async function drawCombatCard(data, ctx) {
@@ -602,7 +640,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
-        ctx.font = `${titleFontSize}px HeadlinerNo45`;
+        ctx.font = `${titleFontSize}px Headline`;
         ctx.textAlign = 'left';
         ctx.fillText(data.title || '', maxWidth * 0.27, maxHeight * 0.077);
 
@@ -717,13 +755,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (data.icons && data.icons.length) {
+            const iconPromises = [...data.icons].map((ch) => {
+                const key = ch.toUpperCase();
+                return iconMap[key] ? loadImage(iconMap[key]) : null;
+            }).filter(Boolean);
+
+            const icons = await Promise.all(iconPromises);
             let currentY = startY;
 
-            for (const ch of data.icons) {
-                const key = ch.toUpperCase();
-                if (!iconMap[key]) continue;
-
-                const iconImg = await loadImage(iconMap[key]);
+            for (const iconImg of icons) {
                 ctx.drawImage(iconImg, iconX, currentY, iconSize, iconSize);
                 currentY += iconSize + iconSpacing;
             }
@@ -757,7 +797,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const finishDraw = () => {
                 ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
-                ctx.font = `${titleFontSize}px HeadlinerNo45`;
+                ctx.font = `${titleFontSize}px Headline`;
                 ctx.textAlign = 'center';
                 ctx.fillText(data.title || '', maxWidth * 0.5, maxHeight * 0.2325);
 
@@ -827,11 +867,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const finishDraw = () => {
                 ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
-                ctx.font = `bold ${titleFontSize * 0.8}px FrizQuadrataStd`;
+                ctx.font = `bold ${titleFontSize * 0.8}px EventFont`;
                 ctx.textAlign = 'center';
                 ctx.fillText(data.type || '', maxWidth * 0.5, maxHeight * 0.573);
 
-                ctx.font = `${titleFontSize}px HeadlinerNo45`;
+                ctx.font = `${titleFontSize}px Headline`;
                 ctx.textAlign = 'left';
                 ctx.fillText(data.title || '', maxWidth * 0.05, maxHeight * 0.0735);
 
@@ -888,7 +928,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     /* =========================
-       CARD CONTENT BUILDERS
+       CARD BUILDERS
     ========================= */
 
     function createCombatContent(container, expansionFolder, factionFolder, files, textData) {
@@ -1036,6 +1076,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function createFactioncardContent(container, expansionFolder, factionFolder, files) {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'factionCardImage');
+
         imageLoaderUniversal(
             files,
             maxWidth * 3,
@@ -1049,6 +1090,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function backCardContent(container, expansionFolder, factionFolder, files) {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'cardBackImages');
+
         imageLoaderUniversal(
             files,
             maxWidth,
@@ -1062,6 +1104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function mapCardContent(container, expansionFolder, factionFolder, files) {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'mapImages');
+
         imageLoaderUniversal(
             files,
             maxWidth * 2,
@@ -1073,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     /* =========================
-       TAB RENDERING
+       UI RENDERING
     ========================= */
 
     function renderCardTypeTabs(cardTypes) {
@@ -1085,12 +1128,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             tab.textContent = CARD_TYPE_LABELS_RU[type] ?? type;
             tab.dataset.cardType = type;
             cardTypeTabs.appendChild(tab);
+
+            if (i === 0) {
+                activeCardTab = tab;
+            }
         });
 
         state.cardType = cardTypes[0] ?? null;
     }
 
-    function loadCards(expansionFolder, factionFolder, cardTypeReference) {
+    async function loadCards(expansionFolder, factionFolder, cardTypeReference) {
+        if (!generalData) {
+            return;
+        }
+
         cardsContainer.innerHTML = '';
 
         const subTabContents = document.createElement('div');
@@ -1098,38 +1149,45 @@ document.addEventListener('DOMContentLoaded', async () => {
         subTabContents.id = `cards-${expansionFolder}-${factionFolder}-${cardTypeReference}`;
         cardsContainer.appendChild(subTabContents);
 
-        fetch(`factions/${expansionFolder}/${factionFolder}/text.json`)
-            .then((response) => response.ok ? response.json() : {})
-            .then((textData) => {
-                const cardsFilenameCombatList = textData?.filenames?.combat ?? generalData?.filenames?.combat ?? [];
-                const cardsFilenameOrderList = textData?.filenames?.orders ?? generalData?.filenames?.orders ?? [];
-                const cardsFilenameEventList = textData?.filenames?.events ?? generalData?.filenames?.events ?? [];
-                const cardsFilenameFactioncardList = textData?.filenames?.faction_card ?? generalData?.filenames?.faction_card ?? [];
-                const cardsFilenameBacksList = textData?.filenames?.backs ?? generalData?.filenames?.backs ?? [];
-                const cardsFilenameMapList = textData?.filenames?.map ?? generalData?.filenames?.map ?? [];
+        const textPath = `factions/${expansionFolder}/${factionFolder}/text.json`;
 
-                const cardsOrdersText = textData?.ordersText ?? false;
-                const cardsEventsText = textData?.eventsText ?? false;
-                const cardsCombatText = textData?.combatText ?? false;
+        try {
+            const textData = await fetchJsonCached(textPath);
 
-                if (cardTypeReference === 'combat') {
-                    createCombatContent(subTabContents, expansionFolder, factionFolder, cardsFilenameCombatList, cardsCombatText);
-                } else if (cardTypeReference === 'orders') {
-                    createOrdersContent(subTabContents, expansionFolder, factionFolder, cardsFilenameOrderList, cardsOrdersText);
-                } else if (cardTypeReference === 'events') {
-                    createEventContent(subTabContents, expansionFolder, factionFolder, cardsFilenameEventList, cardsEventsText);
-                } else if (cardTypeReference === 'faction_card') {
-                    createFactioncardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameFactioncardList);
-                } else if (cardTypeReference === 'backs') {
-                    backCardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameBacksList);
-                } else if (cardTypeReference === 'map') {
-                    mapCardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameMapList);
-                }
-            })
-            .catch((error) => console.error('Ошибка загрузки text.json:', error));
+            const cardsFilenameCombatList = textData?.filenames?.combat ?? generalData?.filenames?.combat ?? [];
+            const cardsFilenameOrderList = textData?.filenames?.orders ?? generalData?.filenames?.orders ?? [];
+            const cardsFilenameEventList = textData?.filenames?.events ?? generalData?.filenames?.events ?? [];
+            const cardsFilenameFactioncardList = textData?.filenames?.faction_card ?? generalData?.filenames?.faction_card ?? [];
+            const cardsFilenameBacksList = textData?.filenames?.backs ?? generalData?.filenames?.backs ?? [];
+            const cardsFilenameMapList = textData?.filenames?.map ?? generalData?.filenames?.map ?? [];
+
+            const cardsOrdersText = textData?.ordersText ?? false;
+            const cardsEventsText = textData?.eventsText ?? false;
+            const cardsCombatText = textData?.combatText ?? false;
+
+            if (cardTypeReference === 'combat') {
+                createCombatContent(subTabContents, expansionFolder, factionFolder, cardsFilenameCombatList, cardsCombatText);
+            } else if (cardTypeReference === 'orders') {
+                createOrdersContent(subTabContents, expansionFolder, factionFolder, cardsFilenameOrderList, cardsOrdersText);
+            } else if (cardTypeReference === 'events') {
+                createEventContent(subTabContents, expansionFolder, factionFolder, cardsFilenameEventList, cardsEventsText);
+            } else if (cardTypeReference === 'faction_card') {
+                createFactioncardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameFactioncardList);
+            } else if (cardTypeReference === 'backs') {
+                backCardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameBacksList);
+            } else if (cardTypeReference === 'map') {
+                mapCardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameMapList);
+            }
+        } catch (error) {
+            console.error('Ошибка загрузки text.json:', error);
+        }
     }
 
     function loadCardsMenu(expansionFolder, factionFolder) {
+        if (!generalData) {
+            return;
+        }
+
         const cardsDefaultName = generalData.cardsDefault.name;
         const cardsDefaultReference = generalData.cardsDefault.reference;
 
@@ -1143,12 +1201,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             cardTabHeader.dataset.expansion = expansionFolder;
             cardTabHeader.dataset.cardType = reference;
 
-            if (referenceIndex === 0) cardTabHeader.classList.add('active');
+            if (referenceIndex === 0) {
+                cardTabHeader.classList.add('active');
+                activeCardTab = cardTabHeader;
+            }
 
             cardTypeTabs.appendChild(cardTabHeader);
         });
 
         state.cardType = cardsDefaultReference[0] ?? null;
+
         if (state.cardType) {
             loadCards(expansionFolder, factionFolder, state.cardType);
         }
@@ -1158,8 +1220,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         state.expansionKey = expansionFolder;
         factionTabsContainer.innerHTML = '';
 
-        fetch(`factions/${expansionFolder}/faction.json`)
-            .then((response) => response.json())
+        const factionPath = `factions/${expansionFolder}/faction.json`;
+
+        fetchJsonCached(factionPath)
             .then((expansionData) => {
                 const factionFolderList = expansionData.folder;
                 const factionNameList = expansionData.name;
@@ -1171,12 +1234,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                     factionTabHeader.dataset.faction = factionFolder;
                     factionTabHeader.dataset.expansion = expansionFolder;
 
-                    if (factionFolderIndex === 0) factionTabHeader.classList.add('active');
+                    if (factionFolderIndex === 0) {
+                        factionTabHeader.classList.add('active');
+                        activeFactionTab = factionTabHeader;
+                    }
 
                     factionTabsContainer.appendChild(factionTabHeader);
                 });
 
                 state.factionKey = factionFolderList[0] ?? null;
+
                 if (state.factionKey) {
                     loadCardsMenu(expansionFolder, state.factionKey);
                 }
@@ -1184,8 +1251,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             .catch((error) => console.error('Ошибка загрузки faction.json:', error));
     }
 
+    function showCardsView() {
+        if (factionTabsContainer) factionTabsContainer.style.display = '';
+        if (cardTypeTabs) cardTypeTabs.style.display = '';
+        if (cardsContainer) cardsContainer.style.display = '';
+        if (faqContainer) faqContainer.classList.remove('active');
+    }
+
+    function showFaqView() {
+        if (factionTabsContainer) factionTabsContainer.style.display = 'none';
+        if (cardTypeTabs) cardTypeTabs.style.display = 'none';
+        if (cardsContainer) cardsContainer.style.display = 'none';
+        if (faqContainer) faqContainer.classList.add('active');
+        loadFaq().catch(() => { });
+    }
+
     /* =========================
-       EVENTS
+       EVENT DELEGATION
     ========================= */
 
     expansionTabsContainer.addEventListener('click', (e) => {
@@ -1195,8 +1277,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const isFaqTab = tab.dataset.special === 'faq';
         const buttonExp = tab.dataset.expansion;
 
-        document.querySelectorAll('.expansion-header').forEach((h) => h.classList.remove('active'));
+        if (activeExpansionTab) {
+            activeExpansionTab.classList.remove('active');
+        }
         tab.classList.add('active');
+        activeExpansionTab = tab;
 
         if (isFaqTab) {
             showFaqView();
@@ -1210,11 +1295,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const tab = e.target.closest('.faction-header');
         if (!tab) return;
 
-        document.querySelectorAll('.faction-header').forEach((h) => h.classList.remove('active'));
+        if (activeFactionTab) {
+            activeFactionTab.classList.remove('active');
+        }
         tab.classList.add('active');
+        activeFactionTab = tab;
 
         state.expansionKey = tab.dataset.expansion;
         state.factionKey = tab.dataset.faction;
+
         loadCardsMenu(state.expansionKey, state.factionKey);
     });
 
@@ -1222,10 +1311,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const tab = e.target.closest('.card-header');
         if (!tab) return;
 
-        document.querySelectorAll('.card-header').forEach((h) => h.classList.remove('active'));
+        if (activeCardTab) {
+            activeCardTab.classList.remove('active');
+        }
         tab.classList.add('active');
+        activeCardTab = tab;
 
         state.cardType = tab.dataset.cardType;
+
         if (state.expansionKey && state.factionKey && state.cardType) {
             loadCards(state.expansionKey, state.factionKey, state.cardType);
         }
@@ -1235,37 +1328,40 @@ document.addEventListener('DOMContentLoaded', async () => {
        INIT
     ========================= */
 
-    fetch('factions/general.json')
-        .then((response) => response.json())
-        .then((data) => {
-            generalData = data;
+    try {
+        generalData = await fetchJsonCached('factions/general.json');
 
-            const expansionFolderList = data.expansion.folder;
-            const expansionNameList = data.expansion.name;
+        const expansionFolderList = generalData.expansion.folder;
+        const expansionNameList = generalData.expansion.name;
 
-            expansionTabsContainer.innerHTML = '';
+        expansionTabsContainer.innerHTML = '';
 
-            expansionFolderList.forEach((key, i) => {
-                const el = document.createElement('div');
-                el.className = `expansion-header${i === 0 ? ' active' : ''}`;
-                el.textContent = expansionNameList[i];
-                el.dataset.expansion = key;
-                expansionTabsContainer.appendChild(el);
-            });
+        expansionFolderList.forEach((key, i) => {
+            const el = document.createElement('div');
+            el.className = `expansion-header${i === 0 ? ' active' : ''}`;
+            el.textContent = expansionNameList[i];
+            el.dataset.expansion = key;
+            expansionTabsContainer.appendChild(el);
 
-            const faqTabHeader = document.createElement('div');
-            faqTabHeader.textContent = 'FAQ';
-            faqTabHeader.classList.add('expansion-header');
-            faqTabHeader.dataset.expansion = 'faq';
-            faqTabHeader.dataset.special = 'faq';
-            expansionTabsContainer.appendChild(faqTabHeader);
-
-            state.expansionKey = expansionFolderList[0] ?? null;
-
-            showCardsView();
-            if (state.expansionKey) {
-                loadFactions(state.expansionKey);
+            if (i === 0) {
+                activeExpansionTab = el;
             }
-        })
-        .catch((error) => console.error('Ошибка загрузки general.json:', error));
+        });
+
+        const faqTabHeader = document.createElement('div');
+        faqTabHeader.textContent = 'FAQ';
+        faqTabHeader.classList.add('expansion-header');
+        faqTabHeader.dataset.expansion = 'faq';
+        faqTabHeader.dataset.special = 'faq';
+        expansionTabsContainer.appendChild(faqTabHeader);
+
+        state.expansionKey = expansionFolderList[0] ?? null;
+
+        showCardsView();
+        if (state.expansionKey) {
+            loadFactions(state.expansionKey);
+        }
+    } catch (error) {
+        console.error('Ошибка загрузки general.json:', error);
+    }
 });
