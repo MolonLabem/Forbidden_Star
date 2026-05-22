@@ -17,24 +17,538 @@
     --text: #bbb;
     --text-strong: #222;
     --text-dark: #000;
+
     --background: #999;
     --background-dark: #222;
     --background-mid: #777;
+
     --highlight: #aa6;
     --spinner-color: #36f;
-    --blue: rgba(47, 95, 255, 0.5);
-    --border: 1px solid rgba(0, 0, 100, 0.5);
-    --max-width: 1040px;
-    --content-width: 940px;
-    --card-width: 450px;
-    --card-height: 650px;
-    --radius-pill: 999px;
-    --radius-card: 14px;
-    --radius-panel: 18px;
-    --radius-large: 24px;
+    --blue: rgba(47,95,255,.5);
+
+    --border:1px solid rgba(0,0,100,.35);
+
+    --max-width:1040px;
+    --content-width:940px;
+
+    --card-width:450px;
+    --card-height:650px;
+
+    --radius-pill:999px;
+    --radius-card:14px;
+    --radius-panel:18px;
+    --radius-large:24px;
 }
 
-* {
+*{
+    box-sizing:border-box;
+}
+
+html{
+    min-height:100%;
+}
+
+body{
+    margin:0;
+    padding:8px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+
+    font-family:'Headline',sans-serif;
+
+    background:var(--background);
+    color:var(--text);
+
+    min-width:1420px;
+    min-height:100vh;
+
+    overflow-x:auto;
+}
+
+@keyframes spin{
+    0%{
+        transform:rotate(0deg);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+.card-placeholder{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:var(--card-width);
+    height:var(--card-height);
+
+    background:var(--background-dark);
+
+    border-radius:var(--radius-card);
+    border:var(--border);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.18);
+}
+
+.card-placeholder .card-spinner{
+    width:40px;
+    height:40px;
+
+    border:4px solid rgba(255,255,255,.25);
+    border-top:4px solid var(--spinner-color);
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+}
+
+#expansion-tabs,
+#faction-tabs,
+#cards-tabs{
+    width:100%;
+
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+
+    gap:2px;
+    margin:0;
+    padding:0;
+}
+
+#expansion-tabs{
+    font-size:30px;
+}
+
+#faction-tabs{
+    font-size:28px;
+}
+
+#cards-tabs{
+    font-size:26px;
+}
+
+.expansion-header,
+.faction-header,
+.card-header{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:6px 12px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--background-dark);
+
+    border:var(--border);
+
+    color:var(--text);
+
+    cursor:pointer;
+    user-select:none;
+
+    line-height:1;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 2px 4px rgba(0,0,0,.18);
+
+    transition:
+        transform .15s ease,
+        filter .15s ease,
+        box-shadow .15s ease,
+        background .15s ease;
+}
+
+.expansion-header:hover,
+.faction-header:hover,
+.card-header:hover{
+    transform:translateY(-1px);
+    filter:brightness(1.08);
+}
+
+.expansion-header.active,
+.faction-header.active,
+.card-header.active{
+    transform:translateY(-1px);
+    cursor:default;
+}
+
+.expansion-header.active,
+.faction-header.active{
+    background:var(--background-mid);
+    color:var(--text-strong);
+
+    box-shadow:
+        0 0 20px rgba(255,136,0,.5);
+}
+
+.card-header.active{
+    background:#111;
+
+    color:#fff;
+
+    box-shadow:
+        0 0 12px rgba(0,255,0,.35);
+}
+
+.card-contents{
+    width:100%;
+}
+
+.grid{
+    display:grid;
+
+    gap:5px;
+
+    padding:8px;
+
+    border-radius:var(--radius-large);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.14);
+}
+
+.grid.combat{
+    width:1835px;
+}
+
+.grid.combat.s-section{
+    grid-template-columns:repeat(5,1fr);
+    background:#090;
+}
+
+.grid.combat.t1-section{
+    grid-template-columns:repeat(4,1fr);
+    background:#990;
+}
+
+.grid.combat.t2-section{
+    grid-template-columns:repeat(3,1fr);
+    background:#950;
+}
+
+.grid.combat.t3-section{
+    grid-template-columns:repeat(2,1fr);
+    background:#900;
+}
+
+.grid.orders{
+    grid-template-columns:repeat(5,1fr);
+    background:#888;
+}
+
+.grid.events{
+    width:1835px;
+
+    grid-template-columns:repeat(4,1fr);
+
+    background:#888;
+}
+
+.grid.cardBackImages{
+    width:1835px;
+
+    grid-template-columns:repeat(3,1fr);
+
+    background:#888;
+}
+
+.grid.mapImages{
+    width:1835px;
+
+    grid-template-columns:repeat(2,1fr);
+
+    background:#888;
+}
+
+.grid.factionCardImage{
+    width:1835px;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(450px,1fr));
+
+    justify-items:center;
+}
+
+.card-image{
+    display:block;
+
+    width:100%;
+    max-width:var(--card-width);
+
+    height:auto;
+
+    border-radius:var(--radius-card);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.22);
+
+    transition:
+        transform .18s ease,
+        filter .18s ease,
+        box-shadow .18s ease;
+}
+
+.card-image:hover{
+    transform:
+        translateY(-2px)
+        scale(1.01);
+
+    filter:brightness(1.03);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.28);
+}
+
+#faq-container{
+    display:none;
+    width:100%;
+}
+
+#faq-container.active{
+    display:flex;
+    flex-direction:column;
+}
+
+.faq-page-shell{
+    width:100%;
+    min-height:100vh;
+}
+
+.faq-header-panel{
+    position:sticky;
+
+    top:8px;
+
+    z-index:20;
+
+    max-width:var(--max-width);
+
+    margin:0 auto 20px;
+
+    padding:12px;
+
+    background:rgba(34,34,34,.92);
+
+    border:var(--border);
+
+    border-radius:var(--radius-panel);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    backdrop-filter:blur(5px);
+}
+
+.faq-search-wrap{
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+}
+
+.faq-search-box{
+    flex:1;
+
+    min-width:260px;
+
+    padding:12px 16px;
+
+    border-radius:12px;
+
+    border:var(--border);
+
+    font-size:16px;
+
+    background:var(--background);
+
+    font-family:'ForbiddenStars';
+
+    outline:none;
+}
+
+.faq-search-meta{
+    font-size:14px;
+    font-family:'ForbiddenStars';
+}
+
+.faq-content{
+    max-width:var(--content-width);
+
+    margin:auto;
+
+    padding:
+        40px
+        25px
+        200px
+        15px;
+}
+
+.faq-level-row{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(180px,280px);
+
+    gap:18px;
+}
+
+.faq-level-row.no-picture{
+    grid-template-columns:1fr;
+}
+
+.faq-level-image{
+    max-width:120px;
+    max-height:140px;
+
+    border-radius:10px;
+
+    border:var(--border);
+
+    justify-self:end;
+}
+
+.faq-phrase-block{
+    margin:14px 0;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    background:var(--background);
+
+    border:var(--border);
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.1);
+}
+
+.faq-phrase-title{
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:18px;
+
+    font-family:'ForbiddenStars';
+
+    font-weight:700;
+
+    color:var(--text-dark);
+}
+
+.faq-main-text{
+    white-space:pre-wrap;
+
+    line-height:1.7;
+
+    font-size:17px;
+
+    font-family:'ForbiddenStars';
+}
+
+.faq-content mark{
+    background:var(--highlight);
+}
+
+.faction-header.active[data-faction="space_marines"]{
+    background:#66f;
+    box-shadow:0 0 6px #66f;
+}
+
+.faction-header.active[data-faction="chaos"]{
+    background:#e11;
+    box-shadow:0 0 6px #f55;
+}
+
+.faction-header.active[data-faction="ork"]{
+    background:#2f3;
+    box-shadow:0 0 6px #2f4;
+}
+
+.faction-header.active[data-faction="eldar"]{
+    background:#ff1;
+    color:#000;
+    box-shadow:0 0 6px #ff1;
+}
+
+.faction-header.active[data-faction="ig"]{
+    background:#999;
+    color:#050;
+    box-shadow:0 0 6px #ccc;
+}
+
+.faction-header.active[data-faction="tyranid"]{
+    background:#b3f;
+    box-shadow:0 0 6px #c4f;
+}
+
+.faction-header.active[data-faction="necron"]{
+    background:#000;
+    color:#2f1;
+    box-shadow:0 0 6px #2f1;
+}
+
+.faction-header.active[data-faction="tau"]{
+    background:#fa1;
+    color:#000;
+    box-shadow:0 0 6px #fa1;
+}
+
+.faction-header.active[data-faction="adeptus_mechanicus"]{
+    background:#a52;
+    box-shadow:0 0 6px #a52;
+}
+
+.faction-header.active[data-faction="adepta_sororitas"]{
+    background:#fff;
+    color:#000;
+    box-shadow:0 0 6px #fff;
+}
+
+.faction-header.active[data-faction="dark_eldar"]{
+    background:#1ed;
+    color:#000;
+    box-shadow:0 0 6px #1ed;
+}
+
+.faction-header.active[data-faction="inquisition"]{
+    background:#80f;
+    color:#fff;
+    box-shadow:0 0 6px #80f;
+}
+
+.faction-header.active[data-faction="worldeaters"]{
+    background:#f33;
+    box-shadow:0 0 6px #f55;
+}
+
+.faction-header.active[data-faction="thousandsons"]{
+    background:#22f;
+    color:#cc2;
+    box-shadow:0 0 6px #22f;
+}
+
+.faction-header.active[data-faction="emperorschildren"]{
+    background:#d2a;
+    box-shadow:0 0 6px #d2a;
+}
+
+.faction-header.active[data-faction="deathguard"]{
+    background:#351;
+    color:#aa0;
+    box-shadow:0 0 6px #351;
+}* {
     box-sizing: border-box;
 }
 
