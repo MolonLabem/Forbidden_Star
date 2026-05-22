@@ -3,7 +3,7 @@
         return;
     }
 
-    const families = ['ForbiddenStars', 'Headline', 'EventFont'];
+    const families = ['ForbiddenStars', 'HeadlinerNo45', 'FrizQuadrataStd'];
     const fontLoads = families.map((family) => document.fonts.load(`1em ${family}`));
 
     try {
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const factionTabsContainer = document.getElementById('faction-tabs');
     const cardTypeTabs = document.getElementById('cards-tabs');
     const cardsContainer = document.getElementById('cards-container');
+
     const faqContainer = document.getElementById('faq-container');
     const faqContent = document.getElementById('faq-content');
     const faqSearchInput = document.getElementById('faq-search-input');
@@ -42,6 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     let generalData = null;
+
     let faqOriginalData = [];
     let faqLoaded = false;
     let faqLoadingPromise = null;
@@ -76,8 +78,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         combat: 'Боевые',
         orders: 'Приказы',
         events: 'События',
-        faction_card: 'Фракция',
         backs: 'Задники',
+        faction_card: 'Фракция',
         map: 'Домашка'
     };
 
@@ -91,6 +93,214 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     /* =========================
+       GENERIC HELPERS
+    ========================= */
+
+    function withArray(value) {
+        return Array.isArray(value) ? value : [];
+    }
+
+    function normalize(value) {
+        return String(value ?? '').toLowerCase();
+    }
+
+    function matches(value, query) {
+        return normalize(value).includes(query);
+    }
+
+    function escapeHtml(str) {
+        return String(str ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    function normalizeMainText(value) {
+        return String(value ?? '')
+            .replace(/\\r\\n/g, '\n')
+            .replace(/\\n/g, '\n');
+    }
+
+    function getPicture(node) {
+        return node && typeof node === 'object'
+            ? node.picture || ''
+            : '';
+    }
+
+    function createPlaceholderWithSpinner() {
+        const placeholder = document.createElement('div');
+        placeholder.classList.add('card-placeholder');
+
+        const spinner = document.createElement('div');
+        spinner.classList.add('card-spinner');
+
+        placeholder.appendChild(spinner);
+        return placeholder;
+    }
+
+    function loadImage(url) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => reject(new Error('Failed to load image'));
+            img.src = url;
+        });
+    }
+
+    function replaceForbiddenStarsElements(str) {
+        str = String(str ?? '');
+        str = str.replace(/\[B\]/g, "}");
+        str = str.replace(/\[S\]/g, "{");
+        str = str.replace(/\[M\]/g, "<");
+        str = str.replace(/\[D\]/g, "|");
+        str = str.replace(/\(B\)/g, "#");
+        str = str.replace(/\(S\)/g, "@");
+        return str;
+    }
+
+    function calculateTextHeight(context, text, extraHeight, marginHeight, interline, fontSize) {
+        context.font = `${fontSize}px ForbiddenStars`;
+        const words = text.split(' ');
+        let line = '';
+        const lineHeight = parseInt(context.font.match(/\d+/), 10);
+        let returnHeight = 0;
+
+        for (let n = 0; n < words.length; n++) {
+            if (words[n] === '*newline*') {
+                returnHeight += lineHeight + interline;
+                line = '';
+            }
+            else if (words[n] === '*newpara*') {
+                returnHeight += 2 * lineHeight;
+                line = '';
+            }
+            else {
+                const testLine = line + words[n] + ' ';
+                const metrics = context.measureText(testLine);
+                if (metrics.width > maxTextWidth && n > 0) {
+                    returnHeight += lineHeight + interline;
+                    line = words[n] + ' ';
+                } else {
+                    line = testLine;
+                }
+            }
+        }
+
+        returnHeight += lineHeight * 2 + extraHeight + marginHeight * 2;
+        return returnHeight;
+    }
+
+    function drawStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align = 'left') {
+        const baseFont = `${fontSize}px ForbiddenStars`;
+        const italicFont = `italic ${fontSize}px ForbiddenStars`;
+        const getLH = () => parseInt(ctx.font.match(/\d+/), 10);
+
+        const normalize = (s) =>
+            String(s)
+                .replace(/\s*\*newpara\*\s*/g, '\n\n')
+                .replace(/\s*\*newline\*\s*/g, '\n')
+                .replace(/[ \t]+/g, ' ')
+                .replace(/ *\n */g, '\n')
+                .trim();
+
+        const paragraphs = normalize(text).split('\n');
+
+        const buildTokens = (p) => {
+            if (p.trim() === '') return [];
+            if (p.trim() === '-или-') return [{ text: '-или-', italic: true, glue: true }];
+
+            if (p.includes(':')) {
+                const i = p.indexOf(':');
+                const before = p.slice(0, i).trimEnd();
+                const after = p.slice(i + 1).trimStart();
+                const tokens = [];
+                if (before) tokens.push({ text: before, italic: true, glue: true });
+                tokens.push({ text: ':', italic: false, glue: true });
+                if (after) tokens.push({ text: ' ' + after, italic: false, glue: true });
+                return tokens;
+            }
+
+            return [{ text: p, italic: false, glue: true }];
+        };
+
+        const measure = (txt, italic) => {
+            ctx.font = italic ? italicFont : baseFont;
+            return ctx.measureText(txt).width;
+        };
+
+        const renderLine = (segments, yy) => {
+            let totalW = 0;
+            for (const s of segments) totalW += measure(s.text, s.italic);
+
+            let startX = x;
+            if (align === 'center') startX = x - totalW / 2;
+
+            let cx = startX;
+            for (const s of segments) {
+                ctx.font = s.italic ? italicFont : baseFont;
+                ctx.textAlign = 'left';
+                ctx.fillText(s.text, cx, yy);
+                cx += measure(s.text, s.italic);
+            }
+        };
+
+        ctx.font = baseFont;
+        ctx.textAlign = align;
+        const lineHeight = getLH();
+        let yy = y + lineHeight;
+
+        for (let p of paragraphs) {
+            if (p === '') {
+                yy += lineHeight;
+                continue;
+            }
+
+            const tokens = buildTokens(p);
+            let line = [];
+            let lineWidth = 0;
+
+            const pushWord = (word, italic, glue) => {
+                const segText = (line.length === 0 || glue) ? word : (' ' + word);
+                const w = measure(segText, italic);
+
+                if (lineWidth + w > maxW && line.length > 0) {
+                    renderLine(line, yy);
+                    yy += lineHeight + interline;
+                    line = [];
+                    lineWidth = 0;
+
+                    line.push({ text: word, italic });
+                    lineWidth += measure(word, italic);
+                } else {
+                    line.push({ text: segText, italic });
+                    lineWidth += w;
+                }
+            };
+
+            for (const t of tokens) {
+                if (t.text === ':') {
+                    pushWord(':', false, true);
+                    continue;
+                }
+
+                const words = t.text.split(' ');
+                for (let i = 0; i < words.length; i++) {
+                    if (!words[i]) continue;
+                    const glue = line.length === 0 || (t.glue && i === 0);
+                    pushWord(words[i], t.italic, glue);
+                }
+            }
+
+            if (line.length) {
+                renderLine(line, yy);
+                yy += lineHeight + interline;
+            }
+        }
+    }
+
+    /* =========================
        FAQ HELPERS
     ========================= */
 
@@ -99,12 +309,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     const faqWithArray = (value) => Array.isArray(value) ? value : [];
     const getFaqPicture = (node) => node && typeof node === 'object' ? node.picture || '' : '';
 
-    const faqEscapeHtml = (str) => String(str ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/\"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+    function faqEscapeHtml(str) {
+        return String(str ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
 
     function normalizeFaqMainText(value) {
         return String(value ?? '')
@@ -322,7 +534,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (!response.ok) {
                     throw new Error(`Failed to load FAQ JSON: ${response.status}`);
                 }
-
                 return response.json();
             })
             .then((data) => {
@@ -360,7 +571,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (cardTypeTabs) cardTypeTabs.style.display = 'none';
         if (cardsContainer) cardsContainer.style.display = 'none';
         if (faqContainer) faqContainer.classList.add('active');
-        loadFaq().catch(() => { });
+        loadFaq().catch(() => {});
     }
 
     if (faqSearchInput) {
@@ -370,228 +581,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     /* =========================
-       UTILS
-    ========================= */
-
-    function createPlaceholderWithSpinner() {
-        const placeholder = document.createElement('div');
-        placeholder.classList.add('card-placeholder');
-        const spinner = document.createElement('div');
-        spinner.classList.add('card-spinner');
-        placeholder.appendChild(spinner);
-        return placeholder;
-    }
-
-    function withArray(value) {
-        return Array.isArray(value) ? value : [];
-    }
-
-    function normalizeMainText(value) {
-        return String(value ?? '')
-            .replace(/\\r\\n/g, '\n')
-            .replace(/\\n/g, '\n');
-    }
-
-    function normalize(value) {
-        return String(value ?? '').toLowerCase();
-    }
-
-    function matches(value, query) {
-        return normalize(value).includes(query);
-    }
-
-    function escapeHtml(str) {
-        return String(str ?? '')
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/\"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-    }
-
-    function highlightText(text, query) {
-        const raw = String(text ?? '');
-        if (!query) {
-            return escapeHtml(raw);
-        }
-
-        const escaped = escapeHtml(raw);
-        const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`(${safeQuery})`, 'ig');
-        return escaped.replace(regex, '<mark>$1</mark>');
-    }
-
-    function getPicture(node) {
-        return node && typeof node === 'object' ? node.picture || '' : '';
-    }
-
-    function loadImage(url) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.src = url;
-            img.onload = () => resolve(img);
-            img.onerror = () => reject(new Error('Failed to load image'));
-        });
-    }
-
-    function calculateTextHeight(context, text, extraHeight, marginHeight, interline, fontSize) {
-        context.font = `${fontSize}px ForbiddenStars`;
-        const words = text.split(' ');
-        let line = '';
-        const lineHeight = parseInt(context.font.match(/\d+/), 10);
-        let returnHeight = 0;
-
-        for (let n = 0; n < words.length; n++) {
-            if (words[n] === '*newline*') {
-                returnHeight += lineHeight + interline;
-                line = '';
-            }
-            else if (words[n] === '*newpara*') {
-                returnHeight += 2 * lineHeight;
-                line = '';
-            }
-            else {
-                const testLine = line + words[n] + ' ';
-                const metrics = context.measureText(testLine);
-                if (metrics.width > maxTextWidth && n > 0) {
-                    returnHeight += lineHeight + interline;
-                    line = words[n] + ' ';
-                } else {
-                    line = testLine;
-                }
-            }
-        }
-
-        returnHeight += lineHeight * 2 + extraHeight + marginHeight * 2;
-        return returnHeight;
-    }
-
-    function replaceForbiddenStarsElements(str) {
-        str = String(str ?? '');
-        str = str.replace(/\[B\]/g, "}");
-        str = str.replace(/\[S\]/g, "{");
-        str = str.replace(/\[M\]/g, "<");
-        str = str.replace(/\[D\]/g, "|");
-        str = str.replace(/\(B\)/g, "#");
-        str = str.replace(/\(S\)/g, "@");
-        return str;
-    }
-
-    function drawStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align = 'left') {
-        const baseFont = `${fontSize}px ForbiddenStars`;
-        const italicFont = `italic ${fontSize}px ForbiddenStars`;
-        const getLH = () => parseInt(ctx.font.match(/\d+/), 10);
-
-        const normalize = (s) =>
-            String(s)
-                .replace(/\s*\*newpara\*\s*/g, '\n\n')
-                .replace(/\s*\*newline\*\s*/g, '\n')
-                .replace(/[ \t]+/g, ' ')
-                .replace(/ *\n */g, '\n')
-                .trim();
-
-        const paragraphs = normalize(text).split('\n');
-
-        const buildTokens = (p) => {
-            if (p.trim() === '') return [];
-            if (p.trim() === '-или-') return [{ text: '-или-', italic: true, glue: true }];
-
-            if (p.includes(':')) {
-                const i = p.indexOf(':');
-                const before = p.slice(0, i).trimEnd();
-                const after = p.slice(i + 1).trimStart();
-                const tokens = [];
-                if (before) tokens.push({ text: before, italic: true, glue: true });
-                tokens.push({ text: ':', italic: false, glue: true });
-                if (after) tokens.push({ text: ' ' + after, italic: false, glue: true });
-                return tokens;
-            }
-
-            return [{ text: p, italic: false, glue: true }];
-        };
-
-        const measure = (txt, italic) => {
-            ctx.font = italic ? italicFont : baseFont;
-            return ctx.measureText(txt).width;
-        };
-
-        const renderLine = (segments, yy) => {
-            let totalW = 0;
-            for (const s of segments) totalW += measure(s.text, s.italic);
-
-            let startX = x;
-            if (align === 'center') startX = x - totalW / 2;
-
-            let cx = startX;
-            for (const s of segments) {
-                ctx.font = s.italic ? italicFont : baseFont;
-                ctx.textAlign = 'left';
-                ctx.fillText(s.text, cx, yy);
-                cx += measure(s.text, s.italic);
-            }
-        };
-
-        ctx.font = baseFont;
-        ctx.textAlign = align;
-        const lineHeight = getLH();
-        let yy = y + lineHeight;
-
-        for (let p of paragraphs) {
-            if (p === '') {
-                yy += lineHeight;
-                continue;
-            }
-
-            const tokens = buildTokens(p);
-            let line = [];
-            let lineWidth = 0;
-
-            const pushWord = (word, italic, glue) => {
-                const segText = (line.length === 0 || glue) ? word : (' ' + word);
-                const w = measure(segText, italic);
-
-                if (lineWidth + w > maxW && line.length > 0) {
-                    renderLine(line, yy);
-                    yy += lineHeight + interline;
-                    line = [];
-                    lineWidth = 0;
-
-                    line.push({ text: word, italic });
-                    lineWidth += measure(word, italic);
-                } else {
-                    line.push({ text: segText, italic });
-                    lineWidth += w;
-                }
-            };
-
-            for (const t of tokens) {
-                if (t.text === ':') {
-                    pushWord(':', false, true);
-                    continue;
-                }
-
-                const words = t.text.split(' ');
-                for (let i = 0; i < words.length; i++) {
-                    if (!words[i]) continue;
-                    const glue = line.length === 0 || (t.glue && i === 0);
-                    pushWord(words[i], t.italic, glue);
-                }
-            }
-
-            if (line.length) {
-                renderLine(line, yy);
-                yy += lineHeight + interline;
-            }
-        }
-    }
-
-    /* =========================
-       CARD RENDERERS
+       CARD RENDERING
     ========================= */
 
     async function drawCombatCard(data, ctx) {
         const bottomImageHeight = maxHeight * 0.025;
         const maxFieldsHeight = maxHeight * 0.4;
+
         const extraForegroundTriangle = maxHeight * 0.0455;
         const extraBackgroundBorder = maxHeight * 0.0385;
 
@@ -604,8 +600,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         const foregroundImg = await loadImage('pictures/foreground.png');
         const bottomImg = await loadImage('pictures/bottom.png');
 
+        ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
+
+        ctx.font = `${titleFontSize}px HeadlinerNo45`;
+        ctx.textAlign = 'left';
+        ctx.fillText(data.title || '', maxWidth * 0.27, maxHeight * 0.077);
+
         if (!data.hasText) {
-            ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
+            ctx.drawImage(
+                bottomImg,
+                0,
+                0,
+                textBottomBarWidth,
+                textBottomBarHeight,
+                0,
+                maxHeight - bottomImageHeight,
+                maxWidth,
+                bottomImageHeight
+            );
             return;
         }
 
@@ -626,6 +638,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     fontSize
                 );
             }
+
             if (foregroundText) {
                 foregroundTextHeight = calculateTextHeight(
                     ctx,
@@ -671,15 +684,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             );
         };
 
-        ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-
-        ctx.font = `${titleFontSize}px Headline`;
-        ctx.textAlign = 'left';
-        ctx.fillText(data.title || '', maxWidth * 0.27, maxHeight * 0.077);
-
         if (backgroundText) {
             const backgroundY = maxHeight - (backgroundTextHeight + foregroundTextHeight);
             drawImageCropped(backgroundImg, backgroundY);
+
             drawStyledWrappedText(
                 ctx,
                 backgroundText,
@@ -695,6 +703,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (foregroundText) {
             const foregroundY = maxHeight - (foregroundTextHeight + extraForegroundTriangle * 0.35);
             drawImageCropped(foregroundImg, foregroundY);
+
             drawStyledWrappedText(
                 ctx,
                 foregroundText,
@@ -709,6 +718,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (data.icons && data.icons.length) {
             let currentY = startY;
+
             for (const ch of data.icons) {
                 const key = ch.toUpperCase();
                 if (!iconMap[key]) continue;
@@ -744,17 +754,37 @@ document.addEventListener('DOMContentLoaded', async () => {
             const picture = new Image();
             picture.src = data.picture;
 
+            const finishDraw = () => {
+                ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
+
+                ctx.font = `${titleFontSize}px HeadlinerNo45`;
+                ctx.textAlign = 'center';
+                ctx.fillText(data.title || '', maxWidth * 0.5, maxHeight * 0.2325);
+
+                if (data.hasText) {
+                    drawStyledWrappedText(
+                        ctx,
+                        replaceForbiddenStarsElements(data.general || ''),
+                        maxWidth * 0.5,
+                        textPosition,
+                        maxWidth - 2 * marginOrderWidth,
+                        interline,
+                        fontSize,
+                        'center'
+                    );
+                }
+
+                resolve();
+            };
+
             if (!data.hasText) {
-                picture.onload = () => {
-                    ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-                    resolve();
-                };
+                picture.onload = finishDraw;
                 picture.onerror = () => reject(new Error('Failed to load order card image'));
                 return;
             }
 
-            const generalText = replaceForbiddenStarsElements(data.general || '');
             let generalTextHeight = 0;
+            const generalText = replaceForbiddenStarsElements(data.general || '');
 
             const recalcTextHeight = () => {
                 generalTextHeight = calculateTextHeight(
@@ -778,27 +808,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 shrinkTextToFit();
             }
 
-            picture.onload = () => {
-                ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-
-                ctx.font = `${titleFontSize}px Headline`;
-                ctx.textAlign = 'center';
-                ctx.fillText(data.title || '', maxWidth * 0.5, maxHeight * 0.2325);
-
-                drawStyledWrappedText(
-                    ctx,
-                    generalText,
-                    maxWidth * 0.5,
-                    textPosition,
-                    maxWidth - 2 * marginOrderWidth,
-                    interline,
-                    fontSize,
-                    'center'
-                );
-
-                resolve();
-            };
-
+            picture.onload = finishDraw;
             picture.onerror = () => reject(new Error('Failed to load order card image'));
         });
     }
@@ -814,17 +824,41 @@ document.addEventListener('DOMContentLoaded', async () => {
             const picture = new Image();
             picture.src = data.picture;
 
+            const finishDraw = () => {
+                ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
+
+                ctx.font = `bold ${titleFontSize * 0.8}px FrizQuadrataStd`;
+                ctx.textAlign = 'center';
+                ctx.fillText(data.type || '', maxWidth * 0.5, maxHeight * 0.573);
+
+                ctx.font = `${titleFontSize}px HeadlinerNo45`;
+                ctx.textAlign = 'left';
+                ctx.fillText(data.title || '', maxWidth * 0.05, maxHeight * 0.0735);
+
+                if (data.hasText) {
+                    drawStyledWrappedText(
+                        ctx,
+                        replaceForbiddenStarsElements(data.general || ''),
+                        marginWidth,
+                        textPosition,
+                        maxWidth - 2 * marginWidth,
+                        interline,
+                        fontSize,
+                        'left'
+                    );
+                }
+
+                resolve();
+            };
+
             if (!data.hasText) {
-                picture.onload = () => {
-                    ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-                    resolve();
-                };
+                picture.onload = finishDraw;
                 picture.onerror = () => reject(new Error('Failed to load event card image'));
                 return;
             }
 
-            const generalText = replaceForbiddenStarsElements(data.general || '');
             let generalTextHeight = 0;
+            const generalText = replaceForbiddenStarsElements(data.general || '');
 
             const recalcTextHeight = () => {
                 generalTextHeight = calculateTextHeight(
@@ -848,52 +882,31 @@ document.addEventListener('DOMContentLoaded', async () => {
                 shrinkTextToFit();
             }
 
-            picture.onload = () => {
-                ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-
-                ctx.font = `bold ${titleFontSize * 0.8}px EventFont`;
-                ctx.textAlign = 'center';
-                ctx.fillText(data.type || '', maxWidth * 0.5, maxHeight * 0.573);
-
-                ctx.font = `${titleFontSize}px Headline`;
-                ctx.textAlign = 'left';
-                ctx.fillText(data.title || '', maxWidth * 0.05, maxHeight * 0.0735);
-
-                drawStyledWrappedText(
-                    ctx,
-                    generalText,
-                    marginWidth,
-                    textPosition,
-                    maxWidth - 2 * marginWidth,
-                    interline,
-                    fontSize,
-                    'left'
-                );
-
-                resolve();
-            };
-
+            picture.onload = finishDraw;
             picture.onerror = () => reject(new Error('Failed to load event card image'));
         });
     }
 
+    /* =========================
+       CARD CONTENT BUILDERS
+    ========================= */
+
     function createCombatContent(container, expansionFolder, factionFolder, files, textData) {
-        const fileList = withArray(files);
-        const textList = withArray(textData);
-
         const sections = {
-            's-section': fileList.slice(0, 5),
-            't1-section': fileList.slice(5, 9),
-            't2-section': fileList.slice(9, 12),
-            't3-section': fileList.slice(12, 14)
+            's-section': withArray(files?.[0]),
+            't1-section': withArray(files?.[1]),
+            't2-section': withArray(files?.[2]),
+            't3-section': withArray(files?.[3])
         };
 
-        const combatText = {
-            's-section': textList.slice(0, 5),
-            't1-section': textList.slice(5, 9),
-            't2-section': textList.slice(9, 12),
-            't3-section': textList.slice(12, 14)
-        };
+        const combatText = textData
+            ? {
+                's-section': withArray(textData?.[0]),
+                't1-section': withArray(textData?.[1]),
+                't2-section': withArray(textData?.[2]),
+                't3-section': withArray(textData?.[3])
+            }
+            : false;
 
         Object.keys(sections).forEach((section) => {
             const sectionContainer = document.createElement('div');
@@ -905,11 +918,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 const jsonData = {
                     picture: `factions/${expansionFolder}/${factionFolder}/combat/${file}`,
-                    hasText: !!combatText[section][idx],
-                    title: combatText[section][idx]?.title || '',
-                    background: combatText[section][idx]?.general || '',
-                    foreground: combatText[section][idx]?.unit || '',
-                    icons: combatText[section][idx]?.icons || ''
+                    hasText: !!combatText,
+                    title: combatText ? (combatText[section][idx]?.title || '') : '',
+                    background: combatText ? (combatText[section][idx]?.general || '') : '',
+                    foreground: combatText ? (combatText[section][idx]?.unit || '') : '',
+                    icons: combatText ? (combatText[section][idx]?.icons || '') : ''
                 };
 
                 const canvas = document.createElement('canvas');
@@ -917,12 +930,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 canvas.height = maxHeight;
                 const context = canvas.getContext('2d');
 
-                drawCombatCard(jsonData, context).then(() => {
-                    placeholder.replaceWith(canvas);
-                }).catch((err) => {
-                    console.error('Error drawing combat card:', err);
-                    placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
-                });
+                drawCombatCard(jsonData, context)
+                    .then(() => {
+                        placeholder.replaceWith(canvas);
+                    })
+                    .catch((err) => {
+                        console.error('Error drawing combat card:', err);
+                        placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
+                    });
             });
 
             container.appendChild(sectionContainer);
@@ -933,18 +948,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'orders');
 
-        const fileList = withArray(files);
-        const textList = withArray(textData);
-
-        fileList.forEach((file, idx) => {
+        withArray(files).forEach((file, idx) => {
             const placeholder = createPlaceholderWithSpinner();
             categoryContainer.appendChild(placeholder);
 
             const jsonData = {
                 picture: `factions/${expansionFolder}/${factionFolder}/orders/${file}`,
-                hasText: !!textList[idx],
-                title: textList[idx]?.title || '',
-                general: textList[idx]?.general || ''
+                hasText: !!textData,
+                title: textData ? (textData[idx]?.title || '') : '',
+                general: textData ? (textData[idx]?.general || '') : ''
             };
 
             const canvas = document.createElement('canvas');
@@ -952,12 +964,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             canvas.height = maxHeight;
             const context = canvas.getContext('2d');
 
-            drawOrderCard(jsonData, context).then(() => {
-                placeholder.replaceWith(canvas);
-            }).catch((err) => {
-                console.error('Error drawing order card:', err);
-                placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
-            });
+            drawOrderCard(jsonData, context)
+                .then(() => {
+                    placeholder.replaceWith(canvas);
+                })
+                .catch((err) => {
+                    console.error('Error drawing order card:', err);
+                    placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
+                });
         });
 
         container.appendChild(categoryContainer);
@@ -967,19 +981,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'events');
 
-        const fileList = withArray(files);
-        const textList = withArray(textData);
-
-        fileList.forEach((file, idx) => {
+        withArray(files).forEach((file, idx) => {
             const placeholder = createPlaceholderWithSpinner();
             categoryContainer.appendChild(placeholder);
 
             const jsonData = {
                 picture: `factions/${expansionFolder}/${factionFolder}/events/${file}`,
-                hasText: !!textList[idx],
-                title: textList[idx]?.title || '',
-                general: textList[idx]?.general || '',
-                type: textList[idx]?.type || ''
+                hasText: !!textData,
+                title: textData ? (textData[idx]?.title || '') : '',
+                general: textData ? (textData[idx]?.general || '') : '',
+                type: textData ? (textData[idx]?.type || '') : ''
             };
 
             const canvas = document.createElement('canvas');
@@ -987,12 +998,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             canvas.height = maxHeight;
             const context = canvas.getContext('2d');
 
-            drawEventCard(jsonData, context).then(() => {
-                placeholder.replaceWith(canvas);
-            }).catch((err) => {
-                console.error('Error drawing event card:', err);
-                placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
-            });
+            drawEventCard(jsonData, context)
+                .then(() => {
+                    placeholder.replaceWith(canvas);
+                })
+                .catch((err) => {
+                    console.error('Error drawing event card:', err);
+                    placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
+                });
         });
 
         container.appendChild(categoryContainer);
@@ -1011,6 +1024,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             img.onload = () => {
                 placeholder.replaceWith(img);
             };
+
             img.onerror = () => {
                 placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки изображения</span>';
             };
@@ -1022,23 +1036,44 @@ document.addEventListener('DOMContentLoaded', async () => {
     function createFactioncardContent(container, expansionFolder, factionFolder, files) {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'factionCardImage');
-        imageLoaderUniversal(files, maxWidth * 3, false, `factions/${expansionFolder}/${factionFolder}/faction_card/`, container, categoryContainer);
+        imageLoaderUniversal(
+            files,
+            maxWidth * 3,
+            false,
+            `factions/${expansionFolder}/${factionFolder}/faction_card/`,
+            container,
+            categoryContainer
+        );
     }
 
     function backCardContent(container, expansionFolder, factionFolder, files) {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'cardBackImages');
-        imageLoaderUniversal(files, maxWidth, maxHeight, `factions/${expansionFolder}/${factionFolder}/backs/`, container, categoryContainer);
+        imageLoaderUniversal(
+            files,
+            maxWidth,
+            maxHeight,
+            `factions/${expansionFolder}/${factionFolder}/backs/`,
+            container,
+            categoryContainer
+        );
     }
 
     function mapCardContent(container, expansionFolder, factionFolder, files) {
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('grid', 'mapImages');
-        imageLoaderUniversal(files, maxWidth * 2, false, `factions/${expansionFolder}/${factionFolder}/maps/`, container, categoryContainer);
+        imageLoaderUniversal(
+            files,
+            maxWidth * 2,
+            false,
+            `factions/${expansionFolder}/${factionFolder}/maps/`,
+            container,
+            categoryContainer
+        );
     }
 
     /* =========================
-       UI BUILDERS
+       TAB RENDERING
     ========================= */
 
     function renderCardTypeTabs(cardTypes) {
@@ -1095,40 +1130,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function loadCardsMenu(expansionFolder, factionFolder) {
-
         const cardsDefaultName = generalData.cardsDefault.name;
         const cardsDefaultReference = generalData.cardsDefault.reference;
 
         cardTypeTabs.innerHTML = '';
 
-        cardsDefaultReference.forEach((reference, index) => {
-
+        cardsDefaultReference.forEach((reference, referenceIndex) => {
             const cardTabHeader = document.createElement('div');
-
-            cardTabHeader.textContent =
-                cardsDefaultName[index] ??
-                CARD_TYPE_LABELS_RU[reference] ??
-                reference;
-
+            cardTabHeader.textContent = cardsDefaultName[referenceIndex] ?? CARD_TYPE_LABELS_RU[reference] ?? reference;
             cardTabHeader.classList.add('card-header');
-
             cardTabHeader.dataset.faction = factionFolder;
             cardTabHeader.dataset.expansion = expansionFolder;
             cardTabHeader.dataset.cardType = reference;
 
-            if (index === 0)
-                cardTabHeader.classList.add('active');
+            if (referenceIndex === 0) cardTabHeader.classList.add('active');
 
             cardTypeTabs.appendChild(cardTabHeader);
         });
 
-        state.cardType = cardsDefaultReference[0];
-
-        loadCards(
-            expansionFolder,
-            factionFolder,
-            state.cardType
-        );
+        state.cardType = cardsDefaultReference[0] ?? null;
+        if (state.cardType) {
+            loadCards(expansionFolder, factionFolder, state.cardType);
+        }
     }
 
     function loadFactions(expansionFolder) {
@@ -1147,102 +1170,102 @@ document.addEventListener('DOMContentLoaded', async () => {
                     factionTabHeader.classList.add('faction-header');
                     factionTabHeader.dataset.faction = factionFolder;
                     factionTabHeader.dataset.expansion = expansionFolder;
+
                     if (factionFolderIndex === 0) factionTabHeader.classList.add('active');
+
                     factionTabsContainer.appendChild(factionTabHeader);
                 });
 
                 state.factionKey = factionFolderList[0] ?? null;
                 if (state.factionKey) {
-                    loadCardsMenu(expansionFolder, state.factionKey, expansionData);
+                    loadCardsMenu(expansionFolder, state.factionKey);
                 }
             })
             .catch((error) => console.error('Ошибка загрузки faction.json:', error));
     }
 
     /* =========================
-       INIT GENERAL
+       EVENTS
     ========================= */
 
-    function initUI(data) {
-        generalData = data;
+    expansionTabsContainer.addEventListener('click', (e) => {
+        const tab = e.target.closest('.expansion-header');
+        if (!tab) return;
 
-        const { expansion } = data;
-        const expansionFolderList = expansion.folder;
-        const expansionNameList = expansion.name;
+        const isFaqTab = tab.dataset.special === 'faq';
+        const buttonExp = tab.dataset.expansion;
 
-        expansionTabsContainer.innerHTML = '';
+        document.querySelectorAll('.expansion-header').forEach((h) => h.classList.remove('active'));
+        tab.classList.add('active');
 
-        expansionFolderList.forEach((key, i) => {
-            const el = document.createElement('div');
-            el.className = `expansion-header${i === 0 ? ' active' : ''}`;
-            el.textContent = expansionNameList[i];
-            el.dataset.expansion = key;
-            expansionTabsContainer.appendChild(el);
-        });
-
-        const faqTabHeader = document.createElement('div');
-        faqTabHeader.textContent = 'FAQ';
-        faqTabHeader.classList.add('expansion-header');
-        faqTabHeader.dataset.expansion = 'faq';
-        faqTabHeader.dataset.special = 'faq';
-        expansionTabsContainer.appendChild(faqTabHeader);
-
-        state.expansionKey = expansionFolderList[0] ?? null;
-        if (state.expansionKey) {
+        if (isFaqTab) {
+            showFaqView();
+        } else {
             showCardsView();
-            loadFactions(state.expansionKey);
+            loadFactions(buttonExp);
         }
+    });
 
-        expansionTabsContainer.addEventListener('click', (e) => {
-            const tab = e.target.closest('.expansion-header');
-            if (!tab) return;
+    factionTabsContainer.addEventListener('click', (e) => {
+        const tab = e.target.closest('.faction-header');
+        if (!tab) return;
 
-            const isFaqTab = tab.dataset.special === 'faq';
-            const buttonExp = tab.dataset.expansion;
+        document.querySelectorAll('.faction-header').forEach((h) => h.classList.remove('active'));
+        tab.classList.add('active');
 
-            document.querySelectorAll('.expansion-header').forEach((h) => h.classList.remove('active'));
-            tab.classList.add('active');
+        state.expansionKey = tab.dataset.expansion;
+        state.factionKey = tab.dataset.faction;
+        loadCardsMenu(state.expansionKey, state.factionKey);
+    });
 
-            if (isFaqTab) {
-                showFaqView();
-            } else {
-                showCardsView();
-                loadFactions(buttonExp);
-            }
-        });
+    cardTypeTabs.addEventListener('click', (e) => {
+        const tab = e.target.closest('.card-header');
+        if (!tab) return;
 
-        factionTabsContainer.addEventListener('click', (e) => {
-            const tab = e.target.closest('.faction-header');
-            if (!tab) return;
+        document.querySelectorAll('.card-header').forEach((h) => h.classList.remove('active'));
+        tab.classList.add('active');
 
-            document.querySelectorAll('.faction-header').forEach((h) => h.classList.remove('active'));
-            tab.classList.add('active');
-
-            state.factionKey = tab.dataset.faction;
-            state.expansionKey = tab.dataset.expansion;
-            loadCardsMenu(state.expansionKey, state.factionKey);
-        });
-
-        cardTypeTabs.addEventListener('click', (e) => {
-            const tab = e.target.closest('.card-header');
-            if (!tab) return;
-
-            document.querySelectorAll('.card-header').forEach((h) => h.classList.remove('active'));
-            tab.classList.add('active');
-
-            state.cardType = tab.dataset.cardType;
-            if (state.expansionKey && state.factionKey && state.cardType) {
-                loadCards(state.expansionKey, state.factionKey, state.cardType);
-            }
-        });
-    }
+        state.cardType = tab.dataset.cardType;
+        if (state.expansionKey && state.factionKey && state.cardType) {
+            loadCards(state.expansionKey, state.factionKey, state.cardType);
+        }
+    });
 
     /* =========================
-       BOOT
+       INIT
     ========================= */
 
     fetch('factions/general.json')
         .then((response) => response.json())
-        .then(initUI)
+        .then((data) => {
+            generalData = data;
+
+            const expansionFolderList = data.expansion.folder;
+            const expansionNameList = data.expansion.name;
+
+            expansionTabsContainer.innerHTML = '';
+
+            expansionFolderList.forEach((key, i) => {
+                const el = document.createElement('div');
+                el.className = `expansion-header${i === 0 ? ' active' : ''}`;
+                el.textContent = expansionNameList[i];
+                el.dataset.expansion = key;
+                expansionTabsContainer.appendChild(el);
+            });
+
+            const faqTabHeader = document.createElement('div');
+            faqTabHeader.textContent = 'FAQ';
+            faqTabHeader.classList.add('expansion-header');
+            faqTabHeader.dataset.expansion = 'faq';
+            faqTabHeader.dataset.special = 'faq';
+            expansionTabsContainer.appendChild(faqTabHeader);
+
+            state.expansionKey = expansionFolderList[0] ?? null;
+
+            showCardsView();
+            if (state.expansionKey) {
+                loadFactions(state.expansionKey);
+            }
+        })
         .catch((error) => console.error('Ошибка загрузки general.json:', error));
 });

@@ -15,12 +15,12 @@
     },
     "cardsDefault": {
         "name": [
-            "Combat Cards",
-            "Order Upgrades",
-            "Event Cards",
-            "Card Backs",
-            "Faction Card",
-            "Map"
+            "Боевые",
+            "Приказы",
+            "События",
+            "Задники",
+            "Фракция",
+            "Домашка"
         ],
         "reference": [
             "combat",

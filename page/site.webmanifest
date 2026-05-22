@@ -1,1 +1,12 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+    "name": "Forbidden Stars",
+    "short_name": "Forbidden Stars",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "16x16 32x32 128x128",
+            "type": "image/x-icon"
+        }
+    ],
+    "display": "standalone"
+}
