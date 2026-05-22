@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Headline';
-    src: url('../fonts/Headline.otf') format('opentype');
+    src: url('../fonts/Headline.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'ForbiddenStars';
-    src: url('../fonts/forbiddenstars.ttf') format('truetype');
+    src: url('../fonts/forbiddenstars.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'EventFont';
-    src: url('../fonts/EventFont.otf') format('opentype');
+    src: url('../fonts/EventFont.woff2') format('woff2');
 }
 
 :root {
