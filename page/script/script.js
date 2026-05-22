@@ -1138,6 +1138,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function loadCards(expansionFolder, factionFolder, cardTypeReference) {
+
         if (!generalData) {
             return;
         }
@@ -1145,44 +1146,141 @@ document.addEventListener('DOMContentLoaded', async () => {
         cardsContainer.innerHTML = '';
 
         const subTabContents = document.createElement('div');
+
         subTabContents.classList.add('card-contents');
-        subTabContents.id = `cards-${expansionFolder}-${factionFolder}-${cardTypeReference}`;
+
+        subTabContents.id =
+            `cards-${expansionFolder}-${factionFolder}-${cardTypeReference}`;
+
         cardsContainer.appendChild(subTabContents);
 
-        const textPath = `factions/${expansionFolder}/${factionFolder}/text.json`;
+        let textData = null;
 
         try {
-            const textData = await fetchJsonCached(textPath);
 
-            const cardsFilenameCombatList = textData?.filenames?.combat ?? generalData?.filenames?.combat ?? [];
-            const cardsFilenameOrderList = textData?.filenames?.orders ?? generalData?.filenames?.orders ?? [];
-            const cardsFilenameEventList = textData?.filenames?.events ?? generalData?.filenames?.events ?? [];
-            const cardsFilenameFactioncardList = textData?.filenames?.faction_card ?? generalData?.filenames?.faction_card ?? [];
-            const cardsFilenameBacksList = textData?.filenames?.backs ?? generalData?.filenames?.backs ?? [];
-            const cardsFilenameMapList = textData?.filenames?.map ?? generalData?.filenames?.map ?? [];
+            const textPath =
+                `factions/${expansionFolder}/${factionFolder}/text.json`;
 
-            const cardsOrdersText = textData?.ordersText ?? false;
-            const cardsEventsText = textData?.eventsText ?? false;
-            const cardsCombatText = textData?.combatText ?? false;
+            try {
 
-            if (cardTypeReference === 'combat') {
-                createCombatContent(subTabContents, expansionFolder, factionFolder, cardsFilenameCombatList, cardsCombatText);
-            } else if (cardTypeReference === 'orders') {
-                createOrdersContent(subTabContents, expansionFolder, factionFolder, cardsFilenameOrderList, cardsOrdersText);
-            } else if (cardTypeReference === 'events') {
-                createEventContent(subTabContents, expansionFolder, factionFolder, cardsFilenameEventList, cardsEventsText);
-            } else if (cardTypeReference === 'faction_card') {
-                createFactioncardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameFactioncardList);
-            } else if (cardTypeReference === 'backs') {
-                backCardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameBacksList);
-            } else if (cardTypeReference === 'map') {
-                mapCardContent(subTabContents, expansionFolder, factionFolder, cardsFilenameMapList);
+                textData =
+                    await fetchJsonCached(textPath);
+
             }
-        } catch (error) {
-            console.error('Ошибка загрузки text.json:', error);
+            catch {
+
+                textData = null;
+
+            }
+
+            const cardsFilenameCombatList =
+                generalData.filenames.combat;
+
+            const cardsFilenameOrderList =
+                generalData.filenames.orders;
+
+            const cardsFilenameEventList =
+                generalData.filenames.events;
+
+            const cardsFilenameFactioncardList =
+                generalData.filenames.faction_card;
+
+            const cardsFilenameBacksList =
+                generalData.filenames.backs;
+
+            const cardsFilenameMapList =
+                generalData.filenames.map;
+
+            const cardsOrdersText =
+                textData?.ordersText ?? false;
+
+            const cardsEventsText =
+                textData?.eventsText ?? false;
+
+            const cardsCombatText =
+                textData?.combatText ?? false;
+
+            switch (cardTypeReference) {
+
+                case 'combat':
+
+                    createCombatContent(
+                        subTabContents,
+                        expansionFolder,
+                        factionFolder,
+                        cardsFilenameCombatList,
+                        cardsCombatText
+                    );
+
+                    break;
+
+                case 'orders':
+
+                    createOrdersContent(
+                        subTabContents,
+                        expansionFolder,
+                        factionFolder,
+                        cardsFilenameOrderList,
+                        cardsOrdersText
+                    );
+
+                    break;
+
+                case 'events':
+
+                    createEventContent(
+                        subTabContents,
+                        expansionFolder,
+                        factionFolder,
+                        cardsFilenameEventList,
+                        cardsEventsText
+                    );
+
+                    break;
+
+                case 'faction_card':
+
+                    createFactioncardContent(
+                        subTabContents,
+                        expansionFolder,
+                        factionFolder,
+                        cardsFilenameFactioncardList
+                    );
+
+                    break;
+
+                case 'backs':
+
+                    backCardContent(
+                        subTabContents,
+                        expansionFolder,
+                        factionFolder,
+                        cardsFilenameBacksList
+                    );
+
+                    break;
+
+                case 'map':
+
+                    mapCardContent(
+                        subTabContents,
+                        expansionFolder,
+                        factionFolder,
+                        cardsFilenameMapList
+                    );
+
+                    break;
+            }
+
+        }
+        catch (error) {
+
+            console.error(
+                'Ошибка загрузки карт:',
+                error
+            );
         }
     }
-
     function loadCardsMenu(expansionFolder, factionFolder) {
         if (!generalData) {
             return;
