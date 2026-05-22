@@ -1,35 +1,49 @@
 @font-face {
-    font-family: 'HeadlinerNo45';
-    src: url('../fonts/headlinerno45.otf') format('opentype');
+    font-family: 'Headline';
+    src: url('../fonts/Headline.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'ForbiddenStars';
-    src: url('../fonts/forbiddenstars.ttf') format('truetype');
+    src: url('../fonts/ForbiddenStars.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'FrizQuadrataStd';
-    src: url('../fonts/frizquadratastd.otf') format('opentype');
+    font-family: 'EventFont';
+    src: url('../fonts/EventFont.woff2') format('woff2');
 }
 
-
-
+:root {
+    --text: #bbb;
+    --text_2: #222;
+    --text_3: #000;
+    --background: #999;
+    --background_2: #222;
+    --background_3: #777;
+    --highlight: #aa6;
+    --spinnerColor: #36f;
+    --blue: rgba(47,95,255,.5);
+    --border: 1px solid rgba(0,0,100,.5);
+    --max-width: 1040px;
+    --content-width: 940px;
+}
 
 body {
     top: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'HeadlinerNo45';
-    width: 100%;
-    gap: 5px;
+    font-family: 'Headline';
     width: 1420px;
+    min-height: 100vh;
+    gap: 5px;
+    color: var(--text);
+    background: var(--background);
 }
 
 .spinner {
     display: none;
     border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
+    border-top: 8px solid var(--spinnerColor);
     border-radius: 50%;
     width: 80px;
     height: 80px;
@@ -46,6 +60,30 @@ body {
         transform: rotate(360deg);
     }
 }
+
+/* new loading placeholders from EN */
+
+.card-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EventFont';
+    width: 450px;
+    height: 650px;
+    color: var(--text);
+    font-size: 25px;
+    background-color: var(--background_2);
+    border-radius: 8px;
+}
+
+    .card-placeholder .card-spinner {
+        border: var(--border);
+        border-top: 4px solid var(--spinnerColor);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+    }
 
 #expansion-tabs {
     font-size: 30px;
@@ -66,83 +104,209 @@ body {
 .faction-header,
 .card-header {
     display: inline-block;
-    padding: 5px;
-    padding-left: 8px;
-    padding-right: 8px;
-    background-color: #bbb;
+    padding: 5px 8px 8px 8px;
+    border-radius: 12px;
+    background-color: var(--background_2);
     z-index: 1000;
     cursor: grab;
+    letter-spacing: .01em;
+    margin: 1px;
 }
 
-.expansion-header.active,
-.faction-header.active {
-    background-color: #fff;
-    box-shadow: 0 0 30px #f80;
-    cursor: default;
-}
+    .expansion-header.active,
+    .faction-header.active {
+        background-color: var(--background_3);
+        color: var(--text_2);
+        box-shadow: 0 0 30px #f80;
+        cursor: default;
+    }
 
-.card-header.active {
-    background-color: #111;
-    box-shadow: 0 0 10px #090;
-    color: #fff;
-    cursor: default;
-}
+    .card-header.active {
+        background-color: var(--background_3);
+        box-shadow: 0 0 10px #090;
+        color: var(--text_2);
+        cursor: default;
+    }
 
 .card-container {
     display: none;
 }
 
-.card-container.active {
-    display: block;
+    .card-container.active {
+        display: block;
+    }
+
+/* FAQ */
+
+#faq-container {
+    display: none;
+    width: 100%;
+    position: relative;
+    flex: 1;
 }
+
+    #faq-container.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+.faq-page-shell {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    color: var(--text_2);
+}
+
+.faq-header-panel {
+    position: sticky;
+    top: 12px;
+    z-index: 20;
+    max-width: var(--max-width);
+    margin: 0 auto 24px;
+    padding: 14px;
+    background-color: var(--background_2);
+    color: var(--text);
+    border-radius: 18px;
+    opacity: .85;
+}
+
+.faq-search-wrap {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.faq-search-box {
+    flex: 1 1 340px;
+    min-width: 260px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: var(--border);
+    background-color: var(--background);
+    font-size: 16px;
+    font-family: 'ForbiddenStars';
+    outline: none;
+}
+
+.faq-search-meta {
+    font-size: 14px;
+    border-radius: 12px;
+    font-family: 'ForbiddenStars';
+}
+
+.faq-content {
+    position: relative;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 50px 30px 200px 15px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.faq-empty-state {
+    padding: 24px 0;
+    font-size: 18px;
+    text-align: center;
+    opacity: .8;
+}
+
+.faq-level-row {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(180px,280px);
+    gap: 18px;
+}
+
+    .faq-level-row.no-picture {
+        grid-template-columns: 1fr;
+    }
+
+.faq-level-image {
+    max-width: 100px;
+    border-radius: 10px;
+    border: var(--border);
+    justify-self: end;
+}
+
+.faq-content h1,
+.faq-content h2,
+.faq-content h3 {
+    margin: 0;
+    line-height: 1.15;
+    font-family: 'EventFont';
+}
+
+.faq-phrase-title,
+.faq-main-text {
+    font-family: 'ForbiddenStars';
+}
+
+.faq-content mark {
+    background: var(--highlight);
+}
+
+/* grids */
 
 .grid {
     display: grid;
-    gap: 20px 20px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px;
     padding: 10px;
+    background-color: var(--background_3);
 }
 
-.grid.events {
-    grid-template-columns: repeat(4, 1fr);
-    background-color: rgb(163, 163, 163);
-    gap: 5px 5px;
-    width: 1835px;
-}
+    .grid.events {
+        grid-template-columns: repeat(4,1fr);
+        width: 1835px;
+    }
 
-.grid.cardBack {
-    grid-template-columns: repeat(3, 1fr);
-    background-color: rgb(163, 163, 163);
-    gap: 5px 5px;
-}
+    .grid.cardBack {
+        grid-template-columns: repeat(3,1fr);
+    }
 
+    .grid.cardBackImages {
+        grid-template-columns: repeat(3,1fr);
+    }
 
+    .grid.factionCard {
+        width: 1835px;
+    }
 
-.grid.factionCard {
-    width: 1835px;
-}
+    .grid.factionCardImage {
+        grid-template-columns: repeat(1,1fr);
+        width: 1835px;
+    }
 
-.grid.orders {
-    background-color: #aaa;
-}
+    .grid.mapImages {
+        grid-template-columns: repeat(2,1fr);
+        width: 1835px;
+    }
 
-.grid.combat.s-section {
-    background-color: #090;
-}
+    .grid.orders {
+        grid-template-columns: repeat(3,1fr);
+    }
 
-.grid.combat.t1-section {
-    background-color: #990;
-}
+    /* combat */
 
-.grid.combat.t2-section {
-    background-color: #950;
-}
+    .grid.combat.s-section {
+        background-color: #090;
+    }
 
-.grid.combat.t3-section {
-    background-color: #900;
-}
+    .grid.combat.t1-section {
+        background-color: #990;
+    }
 
-.faction-header.active[data-faction="space_marines"] {
+    .grid.combat.t2-section {
+        background-color: #950;
+    }
+
+    .grid.combat.t3-section {
+        background-color: #900;
+    }
+
+/* faction colors */
+
+.faction-header.active[data-faction="spacemarines"] {
     background-color: #66f;
     box-shadow: 0 0 5px #66f;
 }
@@ -184,25 +348,27 @@ body {
     box-shadow: 0 0 5px #fa1;
 }
 
-.faction-header.active[data-faction="adeptus_mechanicus"] {
+.faction-header.active[data-faction="adeptusmechanicus"] {
     background-color: #a52;
     box-shadow: 0 0 5px #a52;
 }
 
-.faction-header.active[data-faction="adepta_sororitas"] {
+.faction-header.active[data-faction="adeptasororitas"] {
     background-color: #fff;
+    color: #000;
     box-shadow: 0 0 5px #fff;
 }
 
-.faction-header.active[data-faction="dark_eldar"] {
+.faction-header.active[data-faction="darkeldar"] {
     background-color: #1ed;
+    color: #000;
     box-shadow: 0 0 5px #1ed;
 }
 
 .faction-header.active[data-faction="inquisition"] {
     background-color: #80f;
+    color: #fff;
     box-shadow: 0 0 5px #80f;
-    color: #fff
 }
 
 .faction-header.active[data-faction="worldeaters"] {

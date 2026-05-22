@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style\styles.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --text: #bbb;
+      --text_2: #222;
+      --text_3: #000;
+      --background: #999;
+      --background_2: #222;
+      --background_3: #777;
+      --highlight: #aa6;
+      --spinnerColor: #36f;
+      --blue: rgba(47, 95, 255, 0.5);
+      --border: 1px solid rgba(0, 0, 100, 0.5);
+      --max-width: 1040px;
+      --content-width: 940px;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      color: var(--text_2);
+      background: var(--background);
+      font-family: 'ForbiddenStars', normal;
+    }
+
+    body::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    .page-shell {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .header-panel {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      max-width: var(--max-width);
+      margin: 0 auto 24px;
+      padding: 14px;
+      border: 0px;
+      background-color: var(--background_2);
+      color: var(--text);
+      border-radius: 18px;
+      opacity: .85
+    }
+
+    .content {
+      position: relative;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 50px 30px 200px 15px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .search-wrap {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1 1 340px;
+      min-width: 260px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: var(--border);
+      background-color: var(--background);
+      font-size: 16px;
+      font-family: 'ForbiddenStars', normal;
+      outline: none;
+    }
+
+    .search-meta {
+      font-size: 14px;
+      border-radius: 12px;
+      font-family: 'ForbiddenStars', normal;
+    }
+
+    .empty-state {
+      padding: 24px 0;
+      font-size: 18px;
+      text-align: center;
+      opacity: .8;
+    }
+
+    .level-block {
+      margin: 0 0 28px;
+    }
+
+    .level-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .level-row.no-picture {
+      grid-template-columns: 1fr;
+    }
+
+    .level-image {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 14px;
+      border: var(--border);
+      display: block;
+      justify-self: end;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.15;
+      font-family: 'EventFont', normal;
+      letter-spacing: .01em;
+    }
+
+    .phrase-title,
+    .main-text {
+      font-family: 'ForbiddenStars', normal;
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 44px);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: clamp(22px, 2.8vw, 30px);
+      margin-bottom: 8px;
+    }
+
+    .separator {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--blue), transparent);
+      margin: 0 0 16px;
+    }
+
+    .category-block {
+      margin-bottom: 42px;
+    }
+
+    .subcategory-block {
+      margin: 22px 0 28px;
+      padding-left: 10px;
+    }
+
+    .faction-block {
+      margin: 18px 0 24px;
+      padding-left: 12px;
+    }
+
+    .phrase-block {
+      margin: 14px 0 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--background);
+      border: var(--border);
+    }
+
+    .phrase-title {
+      display: block;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--text3);
+    }
+
+    .main-text {
+      font-size: 17px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    mark {
+      background: var(--highlight);
+      color: inherit;
+      padding: 0 .1em;
+      border-radius: .15em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-shell">
+    <div class="header-panel">
+      <div class="search-wrap">
+        <input
+          id="searchInput"
+          class="search-box"
+          type="text"
+          placeholder="Поиск по FAQ..." />
+
+        <div id="searchMeta" class="search-meta">
+          Показан полный FAQ
+        </div>
+      </div>
+    </div>
+
+    <main id="content" class="content" aria-live="polite"></main>
+  </div>
+
+  <script>
+    const FAQ_JSON_PATH = './data/FAQ.json';
+
+    let originalData = [];
+
+    const contentEl = document.getElementById('content');
+    const searchInput = document.getElementById('searchInput');
+    const searchMeta = document.getElementById('searchMeta');
+
+    const notifyParentHeight = () => {
+      if (!window.parent || window.parent === window) return;
+
+      const height = document.documentElement.scrollHeight;
+      window.parent.postMessage(
+        { type: 'faq-height', height },
+        '*'
+      );
+    };
+
+    const observeHeight = () => {
+      notifyParentHeight();
+
+      if ('ResizeObserver' in window) {
+        const ro = new ResizeObserver(notifyParentHeight);
+        ro.observe(document.body);
+        ro.observe(document.documentElement);
+      }
+      else {
+        window.addEventListener('resize', notifyParentHeight);
+        window.addEventListener('load', notifyParentHeight);
+      }
+    };
+
+    const normalize = (value) =>
+      String(value ?? '').toLowerCase();
+
+    const matches = (value, query) =>
+      normalize(value).includes(query);
+
+    const escapeHtml = (str) =>
+      String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+    function normalizeMainText(value) {
+      return String(value ?? '')
+        .replace(/\\r\\n/g, '\n')
+        .replace(/\\n/g, '\n');
+    }
+
+    function highlightText(text, query) {
+      const raw = String(text ?? '');
+
+      if (!query)
+        return escapeHtml(raw);
+
+      const escaped = escapeHtml(raw);
+
+      const safeQuery = query.replace(
+        /[.*+?^${}()|[\]\\]/g,
+        '\\$&'
+      );
+
+      const regex = new RegExp(`(${safeQuery})`, 'ig');
+
+      return escaped.replace(
+        regex,
+        '<mark>$1</mark>'
+      );
+    }
+
+    function withArray(value) {
+      return Array.isArray(value)
+        ? value
+        : [];
+    }
+
+    function getPicture(node) {
+      return node && typeof node === 'object'
+        ? node.picture || ''
+        : '';
+    }
+
+    function render(data, query = '') {
+      contentEl.innerHTML = '';
+
+      if (!data.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+
+        empty.textContent = query
+          ? 'Ничего не найдено.'
+          : 'FAQ пока пуст.';
+
+        contentEl.appendChild(empty);
+
+        notifyParentHeight();
+
+        return;
+      }
+
+      notifyParentHeight();
+    }
+
+    async function loadFaq() {
+      try {
+        const response = await fetch(
+          FAQ_JSON_PATH,
+          { cache: 'no-store' }
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to load FAQ JSON: ${response.status}`
+          );
+        }
+
+        const data = await response.json();
+
+        originalData = Array.isArray(data)
+          ? data
+          : [];
+
+        render(originalData);
+      }
+      catch (error) {
+        console.error(error);
+
+        contentEl.innerHTML =
+          '<div class="empty-state">Не удалось загрузить данные FAQ.</div>';
+
+        notifyParentHeight();
+      }
+    }
+
+    searchInput.addEventListener(
+      'input',
+      (event) => {
+
+        const query = event.target.value;
+
+        render([], query.trim());
+
+        searchMeta.textContent =
+          query.trim()
+            ? `Поиск: «${query.trim()}»`
+            : 'Показан полный FAQ';
+
+        notifyParentHeight();
+      });
+
+    observeHeight();
+    loadFaq();
+
+  </script>
+</body>
+
+</html>
