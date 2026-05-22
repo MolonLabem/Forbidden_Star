@@ -3,7 +3,7 @@
         return;
     }
 
-    const families = ['ForbiddenStars', 'HeadlinerNo45', 'FrizQuadrataStd'];
+    const families = ['ForbiddenStars', 'Headline', 'EventFont'];
     const fontLoads = families.map((family) => document.fonts.load(`1em ${family}`));
 
     try {
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         events: 'События',
         faction_card: 'Фракция',
         backs: 'Задники',
-        map: 'Карта'
+        map: 'Домашка'
     };
 
     const CARD_TYPE_CONFIG = {
@@ -673,7 +673,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
-        ctx.font = `${titleFontSize}px HeadlinerNo45`;
+        ctx.font = `${titleFontSize}px Headline`;
         ctx.textAlign = 'left';
         ctx.fillText(data.title || '', maxWidth * 0.27, maxHeight * 0.077);
 
@@ -781,7 +781,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             picture.onload = () => {
                 ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
-                ctx.font = `${titleFontSize}px HeadlinerNo45`;
+                ctx.font = `${titleFontSize}px Headline`;
                 ctx.textAlign = 'center';
                 ctx.fillText(data.title || '', maxWidth * 0.5, maxHeight * 0.2325);
 
@@ -851,11 +851,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             picture.onload = () => {
                 ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
 
-                ctx.font = `bold ${titleFontSize * 0.8}px FrizQuadrataStd`;
+                ctx.font = `bold ${titleFontSize * 0.8}px EventFont`;
                 ctx.textAlign = 'center';
                 ctx.fillText(data.type || '', maxWidth * 0.5, maxHeight * 0.573);
 
-                ctx.font = `${titleFontSize}px HeadlinerNo45`;
+                ctx.font = `${titleFontSize}px Headline`;
                 ctx.textAlign = 'left';
                 ctx.fillText(data.title || '', maxWidth * 0.05, maxHeight * 0.0735);
 
@@ -1098,7 +1098,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const cardsDefaultName = generalData.cardsDefault.name;
         const cardsDefaultReference = generalData.cardsDefault.reference;
 
-        cardsContentsContainer.innerHTML = '';
+        cardTypeTabs.innerHTML = '';
 
         cardsDefaultReference.forEach((reference, referenceIndex) => {
             const cardTabHeader = document.createElement('div');
@@ -1108,7 +1108,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             cardTabHeader.dataset.expansion = expansionFolder;
             cardTabHeader.dataset.cardType = reference;
             if (referenceIndex === 0) cardTabHeader.classList.add('active');
-            cardsContentsContainer.appendChild(cardTabHeader);
+            cardTypeTabs.appendChild(cardTabHeader);
         });
 
         state.cardType = cardsDefaultReference[0] ?? null;
@@ -1209,7 +1209,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadCardsMenu(state.expansionKey, state.factionKey);
         });
 
-        cardsContentsContainer.addEventListener('click', (e) => {
+        cardTypeTabs.addEventListener('click', (e) => {
             const tab = e.target.closest('.card-header');
             if (!tab) return;
 
