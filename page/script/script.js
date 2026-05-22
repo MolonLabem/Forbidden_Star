@@ -1094,27 +1094,41 @@ document.addEventListener('DOMContentLoaded', async () => {
             .catch((error) => console.error('Ошибка загрузки text.json:', error));
     }
 
-    function loadCardsMenu(expansionFolder, factionFolder, factionData) {
+    function loadCardsMenu(expansionFolder, factionFolder) {
+
         const cardsDefaultName = generalData.cardsDefault.name;
         const cardsDefaultReference = generalData.cardsDefault.reference;
 
         cardTypeTabs.innerHTML = '';
 
-        cardsDefaultReference.forEach((reference, referenceIndex) => {
+        cardsDefaultReference.forEach((reference, index) => {
+
             const cardTabHeader = document.createElement('div');
-            cardTabHeader.textContent = cardsDefaultName[referenceIndex] ?? CARD_TYPE_LABELS_RU[reference] ?? reference;
+
+            cardTabHeader.textContent =
+                cardsDefaultName[index] ??
+                CARD_TYPE_LABELS_RU[reference] ??
+                reference;
+
             cardTabHeader.classList.add('card-header');
+
             cardTabHeader.dataset.faction = factionFolder;
             cardTabHeader.dataset.expansion = expansionFolder;
             cardTabHeader.dataset.cardType = reference;
-            if (referenceIndex === 0) cardTabHeader.classList.add('active');
+
+            if (index === 0)
+                cardTabHeader.classList.add('active');
+
             cardTypeTabs.appendChild(cardTabHeader);
         });
 
-        state.cardType = cardsDefaultReference[0] ?? null;
-        if (state.cardType) {
-            loadCards(expansionFolder, factionFolder, state.cardType);
-        }
+        state.cardType = cardsDefaultReference[0];
+
+        loadCards(
+            expansionFolder,
+            factionFolder,
+            state.cardType
+        );
     }
 
     function loadFactions(expansionFolder) {
