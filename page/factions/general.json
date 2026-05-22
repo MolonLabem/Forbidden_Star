@@ -4,13 +4,13 @@
             "base",
             "gif",
             "sow",
-            "dd"
+            "tdl"
         ],
         "name": [
             "База",
             "Galaxy in Flames",
             "Symphony of War",
-            "Darkest Dawn"
+            "The Dying Light"
         ]
     },
     "cardsDefault": {
@@ -87,4 +87,3 @@
         ]
     }
 }
-
