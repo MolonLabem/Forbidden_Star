@@ -74,7 +74,9 @@
             "e_8.jpg"
         ],
         "faction_card": [
-            "card.jpg"
+            "card.jpg",
+            "sheet_front_1.jpg",
+            "sheet_back_1.jpg"
         ],
         "backs": [
             "combat.jpg",

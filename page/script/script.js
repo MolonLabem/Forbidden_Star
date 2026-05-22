@@ -1073,18 +1073,40 @@ document.addEventListener('DOMContentLoaded', async () => {
         container.appendChild(categoryContainer);
     }
 
-    function createFactioncardContent(container, expansionFolder, factionFolder, files) {
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('grid', 'factionCardImage');
+    function createFactioncardContent(
+        container,
+        expansionFolder,
+        factionFolder,
+        imageFiles
+    ) {
 
-        imageLoaderUniversal(
-            files,
-            maxWidth * 3,
-            false,
-            `factions/${expansionFolder}/${factionFolder}/faction_card/`,
-            container,
-            categoryContainer
-        );
+        const grid = document.createElement('div');
+
+        grid.className =
+            'grid factionCardImage';
+
+        container.appendChild(grid);
+
+        imageFiles.forEach(file => {
+
+            const img = document.createElement('img');
+
+            img.loading = 'lazy';
+
+            img.src =
+                `factions/${expansionFolder}/${factionFolder}/faction_card/${file}`;
+
+            img.className = 'card-image';
+
+            img.onerror = () => {
+
+                img.style.display = 'none';
+
+            };
+
+            grid.appendChild(img);
+
+        });
     }
 
     function backCardContent(container, expansionFolder, factionFolder, files) {

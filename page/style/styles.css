@@ -14,8 +14,32 @@
 }
 
 :root {
-    --cardGap: 20px;
-    --spinnerSize: 40px;
+    --text: #bbb;
+    --text-strong: #222;
+    --text-dark: #000;
+    --background: #999;
+    --background-dark: #222;
+    --background-mid: #777;
+    --highlight: #aa6;
+    --spinner-color: #36f;
+    --blue: rgba(47, 95, 255, 0.5);
+    --border: 1px solid rgba(0, 0, 100, 0.5);
+    --max-width: 1040px;
+    --content-width: 940px;
+    --card-width: 450px;
+    --card-height: 650px;
+    --radius-pill: 999px;
+    --radius-card: 14px;
+    --radius-panel: 18px;
+    --radius-large: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
 }
 
 body {
@@ -23,20 +47,17 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    font-family: 'Headline';
-    gap: 5px;
-    width: fit-content;
-    min-width: 100%;
+    align-items: flex-start;
+    gap: 6px;
+    font-family: 'Headline', sans-serif;
+    color: var(--text);
+    background: var(--background);
+    min-width: 1420px;
+    min-height: 100vh;
     overflow-x: auto;
-    background: #222;
 }
 
-/* =========================
-   Shared spinner
-========================= */
-
 @keyframes spin {
-
     0% {
         transform: rotate(0deg);
     }
@@ -47,225 +68,359 @@ body {
 }
 
 .card-placeholder {
-    width: 450px;
-    height: 650px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #111;
-    border: 1px solid #444;
+    width: var(--card-width);
+    height: var(--card-height);
+    font-family: 'EventFont';
+    font-size: 25px;
+    color: var(--text);
+    background-color: var(--background-dark);
+    border-radius: var(--radius-card);
+    border: var(--border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-.card-spinner {
-    width: var(--spinnerSize);
-    height: var(--spinnerSize);
-    border: 5px solid #444;
-    border-top: 5px solid #aaa;
-    border-radius: 50%;
-    animation: spin .9s linear infinite;
-}
+    .card-placeholder .card-spinner {
+        width: 40px;
+        height: 40px;
+        border: var(--border);
+        border-top: 4px solid var(--spinner-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
 
-/* =========================
-   Tabs
-========================= */
+#expansion-tabs,
+#faction-tabs,
+#cards-tabs {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
 
 #expansion-tabs {
     font-size: 30px;
-    width: 100%;
 }
 
 #faction-tabs {
     font-size: 28px;
-    width: 100%;
 }
 
 #cards-tabs {
     font-size: 26px;
-    width: 100%;
 }
 
 .expansion-header,
 .faction-header,
 .card-header {
-    display: inline-block;
-    padding: 5px 8px;
-    background-color: #bbb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px 9px;
+    margin: 1px;
+    border-radius: var(--radius-pill);
+    border: var(--border);
+    background-color: var(--background-dark);
+    color: var(--text);
+    z-index: 1000;
     cursor: pointer;
     user-select: none;
-    transition: background-color .2s, box-shadow .2s;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 2px 4px rgba(0, 0, 0, 0.18);
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
+
+    .expansion-header:hover,
+    .faction-header:hover,
+    .card-header:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.08);
+    }
+
+    .expansion-header.active,
+    .faction-header.active,
+    .card-header.active {
+        cursor: default;
+        transform: translateY(-1px);
+    }
 
     .expansion-header.active,
     .faction-header.active {
-        background-color: #fff;
-        box-shadow: 0 0 20px #f80;
+        background-color: var(--background-mid);
+        color: var(--text-strong);
+        box-shadow: 0 0 24px rgba(255, 136, 0, 0.55);
     }
 
     .card-header.active {
-        background-color: #111;
-        box-shadow: 0 0 10px #090;
-        color: white;
+        background-color: var(--background-mid);
+        color: var(--text-strong);
+        box-shadow: 0 0 14px rgba(0, 255, 0, 0.35);
     }
 
-/* =========================
-   Grids
-========================= */
-
-.card-container {
-    display: none;
+.card-contents {
+    width: 100%;
+    display: block;
 }
-
-    .card-container.active {
-        display: block;
-    }
 
 .grid {
     display: grid;
-    gap: var(--cardGap);
+    gap: 5px;
     padding: 10px;
-    grid-template-columns: repeat(3,1fr);
+    background-color: var(--background-mid);
+    border-radius: var(--radius-large);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
 }
 
+    .grid.orders {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .grid.events {
-        grid-template-columns: repeat(4,1fr);
-        background: #a3a3a3;
-        gap: 5px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         width: 1835px;
     }
 
-    .grid.cardBack {
-        background: #a3a3a3;
-        gap: 5px;
+    .grid.cardBackImages {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 1835px;
     }
 
     .grid.factionCardImage {
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
+        justify-items: center;
+        align-items: start;
         width: 1835px;
     }
 
-    .grid.orders {
-        background: #aaa;
+    .grid.mapImages {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 1835px;
     }
 
     .grid.combat.s-section {
-        background: #090;
+        background-color: #090;
     }
 
     .grid.combat.t1-section {
-        background: #990;
+        background-color: #990;
     }
 
     .grid.combat.t2-section {
-        background: #950;
+        background-color: #950;
     }
 
     .grid.combat.t3-section {
-        background: #900;
+        background-color: #900;
     }
 
-/* =========================
-   Image defaults
-========================= */
-
-img,
-canvas {
+.card-image {
     display: block;
-    max-width: 100%;
+    width: 100%;
+    max-width: var(--card-width);
     height: auto;
+    border-radius: var(--radius-card);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
-/* =========================
-   FAQ
-========================= */
+    .card-image:hover {
+        transform: translateY(-2px) scale(1.01);
+        filter: brightness(1.04);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    }
 
-.faq-container {
+#faq-container {
     display: none;
+    width: 100%;
+    position: relative;
+    flex: 1;
 }
 
-    .faq-container.active {
-        display: block;
+    #faq-container.active {
+        display: flex;
+        flex-direction: column;
     }
 
 .faq-page-shell {
-    width: 1400px;
-    background: #f4f4f4;
-    padding: 20px;
-    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    color: var(--text-strong);
 }
 
 .faq-header-panel {
-    margin-bottom: 20px;
+    position: sticky;
+    top: 12px;
+    z-index: 20;
+    max-width: var(--max-width);
+    margin: 0 auto 24px;
+    padding: 14px;
+    background-color: var(--background-dark);
+    color: var(--text);
+    border: var(--border);
+    border-radius: var(--radius-panel);
+    opacity: 0.92;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(4px);
 }
 
 .faq-search-wrap {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .faq-search-box {
-    font-size: 18px;
-    padding: 12px;
-    border: 1px solid #bbb;
+    flex: 1 1 340px;
+    min-width: 260px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: var(--border);
+    background-color: var(--background);
+    color: var(--text-dark);
+    font-size: 16px;
+    font-family: 'ForbiddenStars';
     outline: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
 }
+
+    .faq-search-box::placeholder {
+        color: rgba(0, 0, 0, 0.55);
+    }
 
 .faq-search-meta {
     font-size: 14px;
-    color: #666;
-    font-family: Arial;
+    border-radius: 12px;
+    font-family: 'ForbiddenStars';
 }
 
 .faq-content {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.faq-level-block {
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.2);
-}
-
-.faq-level-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-    .faq-level-row.no-picture {
-        display: block;
-    }
-
-.faq-level-image {
-    max-width: 300px;
-    object-fit: contain;
-}
-
-.faq-main-text {
-    white-space: pre-wrap;
-    font-family: Arial;
-}
-
-.faq-separator {
-    height: 1px;
-    background: #ccc;
-    margin: 10px 0;
+    position: relative;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 50px 30px 200px 15px;
+    border-radius: var(--radius-large);
+    overflow: hidden;
 }
 
 .faq-empty-state {
-    font-size: 20px;
-    color: #555;
+    padding: 24px 0;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0.8;
 }
 
-mark {
-    background: #ffe97a;
+.faq-level-block {
+    margin: 0 0 28px;
 }
 
-/* =========================
-   Faction colors
-========================= */
+.faq-level-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+    gap: 18px;
+    align-items: start;
+}
+
+    .faq-level-row.no-picture {
+        grid-template-columns: 1fr;
+    }
+
+.faq-level-image {
+    max-width: 120px;
+    max-height: 140px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: var(--border);
+    display: block;
+    justify-self: end;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.faq-content h1,
+.faq-content h2,
+.faq-content h3 {
+    margin: 0;
+    line-height: 1.15;
+    font-family: 'EventFont';
+    letter-spacing: 0.01em;
+}
+
+.faq-phrase-title,
+.faq-main-text {
+    font-family: 'ForbiddenStars';
+}
+
+.faq-content h1 {
+    font-size: clamp(30px, 4vw, 44px);
+    margin-bottom: 10px;
+}
+
+.faq-content h2 {
+    font-size: clamp(24px, 3vw, 34px);
+    margin-bottom: 8px;
+}
+
+.faq-content h3 {
+    font-size: clamp(22px, 2.8vw, 30px);
+    margin-bottom: 8px;
+}
+
+.faq-separator {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--blue), transparent);
+    margin: 0 0 16px;
+}
+
+.faq-category-block {
+    margin-bottom: 42px;
+}
+
+.faq-subcategory-block {
+    margin: 22px 0 28px;
+    padding-left: 10px;
+}
+
+.faq-faction-block {
+    margin: 18px 0 24px;
+    padding-left: 12px;
+}
+
+.faq-phrase-block {
+    margin: 14px 0 16px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--background);
+    border: var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.faq-phrase-title {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.faq-main-text {
+    font-size: 17px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.faq-content mark {
+    background: var(--highlight);
+    color: inherit;
+    padding: 0 0.1em;
+    border-radius: 0.15em;
+}
 
 .faction-header.active[data-faction="space_marines"] {
     background-color: #66f;
@@ -288,54 +443,68 @@ mark {
 }
 
 .faction-header.active[data-faction="ig"] {
-    background: #999;
+    background-color: #999;
     color: #050;
+    box-shadow: 0 0 5px #ccc;
 }
 
 .faction-header.active[data-faction="tyranid"] {
-    background: #b3f;
+    background-color: #b3f;
+    box-shadow: 0 0 5px #c4f;
 }
 
 .faction-header.active[data-faction="necron"] {
-    background: black;
+    background-color: #000;
     color: #2f1;
+    box-shadow: 0 0 5px #2f1;
 }
 
 .faction-header.active[data-faction="tau"] {
-    background: #fa1;
+    background-color: #fa1;
+    box-shadow: 0 0 5px #fa1;
 }
 
 .faction-header.active[data-faction="adeptus_mechanicus"] {
-    background: #a52;
+    background-color: #a52;
+    box-shadow: 0 0 5px #a52;
 }
 
 .faction-header.active[data-faction="adepta_sororitas"] {
-    background: white;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 5px #fff;
 }
 
 .faction-header.active[data-faction="dark_eldar"] {
-    background: #1ed;
+    background-color: #1ed;
+    color: #000;
+    box-shadow: 0 0 5px #1ed;
 }
 
 .faction-header.active[data-faction="inquisition"] {
-    background: #80f;
-    color: white;
+    background-color: #80f;
+    color: #fff;
+    box-shadow: 0 0 5px #80f;
 }
 
 .faction-header.active[data-faction="worldeaters"] {
-    background: #f33;
+    background-color: #f33;
+    box-shadow: 0 0 5px #f55;
 }
 
 .faction-header.active[data-faction="thousandsons"] {
-    background: #22f;
+    background-color: #22f;
     color: #cc2;
+    box-shadow: 0 0 5px #22f;
 }
 
 .faction-header.active[data-faction="emperorschildren"] {
-    background: #d2a;
+    background-color: #d2a;
+    box-shadow: 0 0 5px #d2a;
 }
 
 .faction-header.active[data-faction="deathguard"] {
-    background: #351;
+    background-color: #351;
     color: #aa0;
+    box-shadow: 0 0 5px #351;
 }
