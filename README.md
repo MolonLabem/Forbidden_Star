@@ -1,10 +1,10 @@
 # Forbidden Stars — Русская версия сайта с картами и FAQ
 
-Сайт для просмотра карт, дополнений и FAQ по Forbidden Stars и фанатским дополнениям. Проект основан на оригинальной версии и адаптирован для русскоязычных игроков.
+Сайт для просмотра карт, дополнений и FAQ по Forbidden Stars и фанатским дополнениям. Проект основан на оригинальной версии.
 
-# Сайт
+## Сайт
 
-# ➜ [molonlabem.github.io](https://molonlabem.github.io/Forbidden_Star/page/)
+➜ [molonlabem.github.io](https://molonlabem.github.io/Forbidden_Star/page/)
 
 Оригинальная английская версия:
 
@@ -49,7 +49,7 @@
 
 Оригинальный репозиторий:
 
-[github.com](https://reference-url-citation.invalid/2)
+[github.com/frytkownica/Forbidden_Star](https://github.com/frytkownica/Forbidden_Star)
 
 ---
 
