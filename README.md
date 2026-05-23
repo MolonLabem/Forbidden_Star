@@ -1,47 +1,60 @@
-# Forbidden Stars Expansion Cards Webpage
+# Forbidden Stars — Русская версия сайта с картами и FAQ
 
-This repository contains the code for a webpage dedicated to displaying the expansion cards for the Forbidden Stars game. The webpage allows users to browse through different factions and view their respective combat, orders, and events cards in an organized manner.
+Сайт для просмотра карт, дополнений и FAQ по Forbidden Stars и фанатским дополнениям. Проект основан на оригинальной версии и адаптирован для русскоязычных игроков.
 
-## Features
-* Dynamic loading of faction data and card images
-* Interactive tab interface to switch between factions and card categories
-* Custom fonts for card text rendering
-* Responsive design for optimal viewing
+# Сайт
 
-## Usage
+# ➜ [molonlabem.github.io](https://molonlabem.github.io/Forbidden_Star/page/)
 
-* To set up the project locally it's either use xampp or different local server.
-* Use this link: <a href='https://molonlabem.github.io/Forbidden_Star/page/'>Forbidden Star Page</a>
+Оригинальная английская версия:
 
-## Usage
-Start your local server to serve the project files.
-Open localhost in your web browser.
+[frytkownica.github.io](https://frytkownica.github.io/Forbidden_Star/page/)
 
-## Project Structure
-* index.html: Main HTML file for the webpage.
-* styles.css: CSS file for styling the webpage. Not much there.
-* script.js: JavaScript file containing the main logic for loading and displaying the cards. It's terrbile since i'm not a front-end guy.
-* fonts/: Directory containing custom font files.
-* factions/: Directory containing JSON files and images for each faction.
+---
 
-### JSON File Structure
+## Возможности
 
-#### fileNames.json
-This file contains an array of factions and their corresponding files. It's pre-fixed so keep that structure.
-To add afaction, just add factions directory to the faction directory and add the same name to fileNames.json
-ie. "factions": ["Faction1", "Faction2", "Faction3"],
+* Просмотр всех доступных фракций
+* Просмотр:
+  * боевых карт
+  * приказов
+  * событий
+  * карт фракций
+  * домашних миров
+* FAQ с поиском
+* Поддержка дополнительных страниц карт фракций
 
-#### text.json
-Each faction has a text.json file containing the text data for their cards. 
-Based on the empty one prepare your faction accordingly :) 
+---
 
+## Доступные дополнения
 
-### JavaScript Overview
-The main JavaScript logic is encapsulated in the script.js file, which handles the whole page.
-It can easly done better but this works. 
+* Базовая игра
+* Galaxy in Flames (Forgotten Worlds в версии Тролля)
+* Symphony of War (Forsaken Voids в версии Тролля)
+* The Dying Light
 
-## Contributing
-Contributions are welcome! Feel free to submit a pull request or open an issue.
+---
 
-## License
-I do not own anything realted to GamesWorkshop, i do not owne the illustrations, it's a fan passion project.
+## О проекте
+
+Я не являюсь автором оригинального проекта.
+
+Моя работа:
+
+* русский перевод
+* синхронизация с английской версией
+* перенос нового контента
+* исправление ошибок
+* адаптация интерфейса
+
+Оригинальный репозиторий:
+
+[github.com](https://reference-url-citation.invalid/2)
+
+---
+
+## Дисклеймер
+
+Forbidden Stars, Games Workshop и все связанные изображения, иллюстрации и материалы принадлежат их правообладателям.
+
+Проект создан фанатами и распространяется исключительно в некоммерческих целях.
