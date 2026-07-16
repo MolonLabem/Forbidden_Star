@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const factionTabsContainer = document.getElementById('faction-tabs');
     const cardTypeTabs = document.getElementById('cards-tabs');
     const cardsContainer = document.getElementById('cards-container');
+    const cardResolutionToggle = document.getElementById('card-resolution-toggle');
 
     const faqContainer = document.getElementById('faq-container');
     const faqContent = document.getElementById('faq-content');
@@ -56,21 +57,62 @@ document.addEventListener('DOMContentLoaded', async () => {
        CONSTANTS
     ========================= */
 
-    const maxWidth = 450;
-    const maxHeight = 650;
+    const CARD_RESOLUTION_STORAGE_KEY = 'forbidden-stars.high-resolution-cards';
+    const CARD_RESOLUTIONS = {
+        standard: { width: 450, height: 650 },
+        high: { width: 630, height: 880 }
+    };
 
-    const textBackgroundSize = 759;
-    const textBottomBarHeight = 18;
-    const textBottomBarWidth = 454;
+    let maxWidth;
+    let maxHeight;
+    let titleFontSize;
+    let marginWidth;
+    let maxTextWidth;
 
-    const titleFontSize = maxHeight * 0.05;
-    const marginWidth = maxWidth * 0.0578;
-    const maxTextWidth = maxWidth - 2 * marginWidth;
+    function applyCardResolution(useHighResolution) {
+        const resolution = useHighResolution ? CARD_RESOLUTIONS.high : CARD_RESOLUTIONS.standard;
 
-    const iconSize = maxWidth * 0.097;
-    const iconSpacing = maxWidth * 0.011;
-    const iconX = maxWidth * 0.0632;
-    const startY = maxHeight * 0.242;
+        maxWidth = resolution.width;
+        maxHeight = resolution.height;
+        titleFontSize = maxHeight * 0.05;
+        marginWidth = maxWidth * 0.0578;
+        maxTextWidth = maxWidth - 2 * marginWidth;
+
+        document.documentElement.style.setProperty('--card-width', `${maxWidth}px`);
+        document.documentElement.style.setProperty('--card-height', `${maxHeight}px`);
+    }
+
+    function getSavedResolutionPreference() {
+        try {
+            return localStorage.getItem(CARD_RESOLUTION_STORAGE_KEY) === 'true';
+        } catch {
+            return false;
+        }
+    }
+
+    function saveResolutionPreference(useHighResolution) {
+        try {
+            localStorage.setItem(CARD_RESOLUTION_STORAGE_KEY, String(useHighResolution));
+        } catch {
+            // Rendering remains available when browser storage is unavailable.
+        }
+    }
+
+    const useHighResolution = getSavedResolutionPreference();
+    applyCardResolution(useHighResolution);
+
+    if (cardResolutionToggle) {
+        cardResolutionToggle.checked = useHighResolution;
+        cardResolutionToggle.addEventListener('change', () => {
+            const selectedHighResolution = cardResolutionToggle.checked;
+            applyCardResolution(selectedHighResolution);
+            saveResolutionPreference(selectedHighResolution);
+
+            if (state.expansionKey && state.factionKey && state.cardType) {
+                loadCards(state.expansionKey, state.factionKey, state.cardType);
+            }
+        });
+    }
 
     const iconMap = {
         B: 'pictures/bolter.png',
@@ -193,7 +235,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return str;
     }
 
-    function calculateTextHeight(context, text, extraHeight, marginHeight, interline, fontSize) {
+    function calculateTextHeight(context, text, extraHeight, marginHeight, interline, fontSize, maxLineWidth = maxTextWidth) {
         context.font = `${fontSize}px ForbiddenStars`;
         const words = text.split(' ');
         let line = '';
@@ -212,7 +254,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             else {
                 const testLine = line + words[n] + ' ';
                 const metrics = context.measureText(testLine);
-                if (metrics.width > maxTextWidth && n > 0) {
+                if (metrics.width > maxLineWidth && n > 0) {
                     returnHeight += lineHeight + interline;
                     line = words[n] + ' ';
                 } else {
@@ -622,164 +664,186 @@ document.addEventListener('DOMContentLoaded', async () => {
        CARD RENDERERS
     ========================= */
 
-    async function drawCombatCard(data, ctx) {
-        const bottomImageHeight = maxHeight * 0.025;
-        const maxFieldsHeight = maxHeight * 0.4;
+    // These ratios preserve the existing combat-card artwork proportions at any canvas size.
+    const COMBAT_LAYOUT = {
+        maxTextAreaHeight: 0.4,
+        titleX: 0.27,
+        titleY: 0.077,
+        titleFontSize: 0.05,
+        textMarginX: 0.0578,
+        textMarginY: 0.05,
+        lineSpacing: 0.0077,
+        fontSize: 0.03,
+        backgroundTextTopInset: 0.0385,
+        foregroundTextTopInset: 0.0455,
+        marginShrinkFactor: 0.8,
+        fontShrinkFactor: 0.99,
+        lineSpacingShrinkFactor: 0.95,
+        // The source ratios identify the fixed decorative sections in the supplied artwork.
+        backgroundDecorativeTop: { sourceHeightRatio: 12 / 379, canvasHeightRatio: 12 / 880 },
+        foregroundDecorativeTop: { sourceHeightRatio: 28 / 300, canvasHeightRatio: 28 / 880 },
+        bottomStripHeight: 18 / 880,
+        iconSize: 0.097,
+        iconSpacing: 0.011,
+        iconX: 0.0632,
+        iconStartY: 0.242
+    };
 
-        const extraForegroundTriangle = maxHeight * 0.0455;
-        const extraBackgroundBorder = maxHeight * 0.0385;
-
-        let interline = maxHeight * 0.0077;
-        let marginHeight = maxWidth * 0.05;
-        let fontSize = maxHeight * 0.03;
-
-        const picture = await loadImage(data.picture);
-        const backgroundImg = await loadImage('pictures/background.png');
-        const foregroundImg = await loadImage('pictures/foreground.png');
-        const bottomImg = await loadImage('pictures/bottom.png');
-
-        ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-
-        ctx.font = `${titleFontSize}px Headline`;
-        ctx.textAlign = 'left';
-        ctx.fillText(data.title || '', maxWidth * 0.27, maxHeight * 0.077);
-
-        if (!data.hasText) {
-            ctx.drawImage(
-                bottomImg,
-                0,
-                0,
-                textBottomBarWidth,
-                textBottomBarHeight,
-                0,
-                maxHeight - bottomImageHeight,
-                maxWidth,
-                bottomImageHeight
-            );
+    function drawStretchPanel(ctx, image, y, height, decorativeTop) {
+        if (height <= 0) {
             return;
         }
 
-        const backgroundText = replaceForbiddenStarsElements(data.background || '');
-        const foregroundText = replaceForbiddenStarsElements(data.foreground || '');
+        const canvasWidth = ctx.canvas.width;
+        const topHeight = Math.min(height, ctx.canvas.height * decorativeTop.canvasHeightRatio);
+        const sourceTopHeight = Math.min(image.height, image.height * decorativeTop.sourceHeightRatio);
 
-        let backgroundTextHeight = 0;
-        let foregroundTextHeight = 0;
+        ctx.drawImage(image, 0, 0, image.width, sourceTopHeight, 0, y, canvasWidth, topHeight);
 
-        const recalcTextHeights = () => {
-            if (backgroundText) {
-                backgroundTextHeight = calculateTextHeight(
-                    ctx,
-                    backgroundText,
-                    extraBackgroundBorder,
-                    marginHeight,
-                    interline,
-                    fontSize
-                );
-            }
+        const parchmentHeight = height - topHeight;
+        if (parchmentHeight > 0 && sourceTopHeight < image.height) {
+            ctx.drawImage(
+                image,
+                0,
+                sourceTopHeight,
+                image.width,
+                image.height - sourceTopHeight,
+                0,
+                y + topHeight,
+                canvasWidth,
+                parchmentHeight
+            );
+        }
+    }
 
-            if (foregroundText) {
-                foregroundTextHeight = calculateTextHeight(
-                    ctx,
-                    foregroundText,
-                    extraForegroundTriangle,
-                    marginHeight,
-                    interline,
-                    fontSize
-                );
-            }
+    function drawCombatIcons(ctx, icons, layout) {
+        let y = layout.iconStartY;
+
+        icons.forEach((icon) => {
+            ctx.drawImage(icon, layout.iconX, y, layout.iconSize, layout.iconSize);
+            y += layout.iconSize + layout.iconSpacing;
+        });
+    }
+
+    async function drawCombatCard(data, ctx) {
+        const canvasWidth = ctx.canvas.width;
+        const canvasHeight = ctx.canvas.height;
+        const textMarginX = canvasWidth * COMBAT_LAYOUT.textMarginX;
+        const textWidth = canvasWidth - textMarginX * 2;
+        const layout = {
+            maxTextHeight: canvasHeight * COMBAT_LAYOUT.maxTextAreaHeight,
+            titleX: canvasWidth * COMBAT_LAYOUT.titleX,
+            titleY: canvasHeight * COMBAT_LAYOUT.titleY,
+            bottomStripHeight: canvasHeight * COMBAT_LAYOUT.bottomStripHeight,
+            iconSize: canvasWidth * COMBAT_LAYOUT.iconSize,
+            iconSpacing: canvasWidth * COMBAT_LAYOUT.iconSpacing,
+            iconX: canvasWidth * COMBAT_LAYOUT.iconX,
+            iconStartY: canvasHeight * COMBAT_LAYOUT.iconStartY
         };
 
-        recalcTextHeights();
+        // Load resources.
+        const [picture, backgroundImage, foregroundImage, bottomImage, ...icons] = await Promise.all([
+            loadImage(data.picture),
+            loadImage('pictures/background.png'),
+            loadImage('pictures/foreground.png'),
+            loadImage('pictures/bottom.png'),
+            ...[...String(data.icons || '')]
+                .map((character) => iconMap[character.toUpperCase()])
+                .filter(Boolean)
+                .map(loadImage)
+        ]);
 
-        const shrinkTextToFit = () => {
-            marginHeight *= 0.8;
-            fontSize *= 0.99;
-            interline *= 0.95;
-            recalcTextHeights();
-        };
+        ctx.drawImage(picture, 0, 0, canvasWidth, canvasHeight);
 
-        if (backgroundText && foregroundText) {
-            while (backgroundTextHeight + foregroundTextHeight > maxFieldsHeight) {
-                shrinkTextToFit();
-            }
-        } else {
-            while (Math.max(backgroundTextHeight, foregroundTextHeight) > maxFieldsHeight) {
-                shrinkTextToFit();
-            }
+        ctx.font = `${canvasHeight * COMBAT_LAYOUT.titleFontSize}px Headline`;
+        ctx.textAlign = 'left';
+        ctx.fillText(data.title || '', layout.titleX, layout.titleY);
+
+        const backgroundText = data.hasText ? replaceForbiddenStarsElements(data.background || '') : '';
+        const foregroundText = data.hasText ? replaceForbiddenStarsElements(data.foreground || '') : '';
+        const hasPanelText = Boolean(backgroundText || foregroundText);
+
+        // Measure text and shrink it until both panels fit their shared area.
+        let fontSize = canvasHeight * COMBAT_LAYOUT.fontSize;
+        let interline = canvasHeight * COMBAT_LAYOUT.lineSpacing;
+        let marginHeight = canvasWidth * COMBAT_LAYOUT.textMarginY;
+        const backgroundInset = canvasHeight * COMBAT_LAYOUT.backgroundTextTopInset;
+        const foregroundInset = canvasHeight * COMBAT_LAYOUT.foregroundTextTopInset;
+
+        const measurePanels = () => ({
+            background: backgroundText
+                ? calculateTextHeight(ctx, backgroundText, backgroundInset, marginHeight, interline, fontSize, textWidth)
+                : 0,
+            foreground: foregroundText
+                ? calculateTextHeight(ctx, foregroundText, foregroundInset, marginHeight, interline, fontSize, textWidth)
+                : 0
+        });
+
+        let panelHeights = measurePanels();
+        while (hasPanelText && panelHeights.background + panelHeights.foreground > layout.maxTextHeight) {
+            marginHeight *= COMBAT_LAYOUT.marginShrinkFactor;
+            fontSize *= COMBAT_LAYOUT.fontShrinkFactor;
+            interline *= COMBAT_LAYOUT.lineSpacingShrinkFactor;
+            panelHeights = measurePanels();
         }
 
-        const drawImageCropped = (img, y) => {
-            ctx.drawImage(
-                img,
-                0,
-                0,
-                textBackgroundSize,
-                maxHeight - y,
-                0,
-                y,
-                maxWidth,
-                maxHeight - y
-            );
-        };
+        // Calculate layout. calculateTextHeight already includes margins and decorative insets.
+        const foregroundPanel = foregroundText
+            ? {
+                height: panelHeights.foreground,
+                y: canvasHeight - panelHeights.foreground,
+                textY: canvasHeight - panelHeights.foreground + marginHeight + foregroundInset
+            }
+            : null;
+        const backgroundPanel = backgroundText
+            ? {
+                height: panelHeights.background,
+                y: canvasHeight - panelHeights.background - panelHeights.foreground,
+                visualHeight: panelHeights.background + panelHeights.foreground,
+                textY: canvasHeight - panelHeights.background - panelHeights.foreground + marginHeight + backgroundInset
+            }
+            : null;
 
-        if (backgroundText) {
-            const backgroundY = maxHeight - (backgroundTextHeight + foregroundTextHeight);
-            drawImageCropped(backgroundImg, backgroundY);
+        // Draw panels.
+        if (backgroundPanel) {
+            // The foreground decoration has transparent pixels, so the background remains beneath it.
+            drawStretchPanel(ctx, backgroundImage, backgroundPanel.y, backgroundPanel.visualHeight, COMBAT_LAYOUT.backgroundDecorativeTop);
+        }
+        if (foregroundPanel) {
+            drawStretchPanel(ctx, foregroundImage, foregroundPanel.y, foregroundPanel.height, COMBAT_LAYOUT.foregroundDecorativeTop);
+        }
 
+        // Draw text.
+        if (backgroundPanel) {
             drawStyledWrappedText(
                 ctx,
                 backgroundText,
-                marginWidth,
-                backgroundY + marginHeight + extraBackgroundBorder,
-                maxTextWidth,
+                textMarginX,
+                backgroundPanel.textY,
+                textWidth,
                 interline,
                 fontSize,
                 'left'
             );
         }
-
-        if (foregroundText) {
-            const foregroundY = maxHeight - (foregroundTextHeight + extraForegroundTriangle * 0.35);
-            drawImageCropped(foregroundImg, foregroundY);
-
+        if (foregroundPanel) {
             drawStyledWrappedText(
                 ctx,
                 foregroundText,
-                marginWidth,
-                foregroundY + marginHeight + extraForegroundTriangle,
-                maxTextWidth,
+                textMarginX,
+                foregroundPanel.textY,
+                textWidth,
                 interline,
                 fontSize,
                 'left'
             );
         }
 
-        if (data.icons && data.icons.length) {
-            const iconPromises = [...data.icons].map((ch) => {
-                const key = ch.toUpperCase();
-                return iconMap[key] ? loadImage(iconMap[key]) : null;
-            }).filter(Boolean);
+        // Draw icons.
+        drawCombatIcons(ctx, icons, layout);
 
-            const icons = await Promise.all(iconPromises);
-            let currentY = startY;
-
-            for (const iconImg of icons) {
-                ctx.drawImage(iconImg, iconX, currentY, iconSize, iconSize);
-                currentY += iconSize + iconSpacing;
-            }
-        }
-
-        ctx.drawImage(
-            bottomImg,
-            0,
-            0,
-            textBottomBarWidth,
-            textBottomBarHeight,
-            0,
-            maxHeight - bottomImageHeight,
-            maxWidth,
-            bottomImageHeight
-        );
+        // Draw the bottom strip last so it remains above the panels.
+        ctx.drawImage(bottomImage, 0, 0, bottomImage.width, bottomImage.height, 0, canvasHeight - layout.bottomStripHeight, canvasWidth, layout.bottomStripHeight);
     }
 
     function drawOrderCard(data, ctx) {
@@ -1087,7 +1151,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         container.appendChild(grid);
 
-        imageFiles.forEach(file => {
+        withArray(imageFiles).forEach(file => {
 
             const img = document.createElement('img');
 
