@@ -8,9 +8,15 @@
         ],
         "name": [
             "База",
-            "Galaxy in Flames",
-            "Symphony of War",
+            "Galaxy in Flames (FW)",
+            "Symphony of War (FV)",
             "The Dying Light"
+        ],
+        "color": [
+            "#4161a6",
+            "#3d8c2e",
+            "#a83248",
+            "#FFD700"
         ]
     },
     "cardsDefault": {
@@ -30,6 +36,22 @@
             "faction_card",
             "map"
         ]
+    },
+    "labels": {
+        "material": "Фигурки",
+        "tiers": [
+            "Стартовые",
+            "Уровень 1",
+            "Уровень 2",
+            "Уровень 3",
+            "Уровень 4",
+            "Уровень 5"
+        ],
+        "backs": {
+            "combat": "Задник боевой колоды",
+            "order": "Задник колоды приказов",
+            "event": "Задник колоды событий"
+        }
     },
     "filenames": {
         "combat": [

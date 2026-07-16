@@ -4,12 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style\styles.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     :root {
       --text: #bbb;
@@ -19,196 +16,88 @@
       --background_2: #222;
       --background_3: #777;
       --highlight: #aa6;
-      --spinnerColor: #36f;
       --blue: rgba(47, 95, 255, 0.5);
       --border: 1px solid rgba(0, 0, 100, 0.5);
       --max-width: 1040px;
       --content-width: 940px;
     }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      color: var(--text_2);
-      background: var(--background);
+    @font-face { font-family: 'Headline';       src: url('fonts/Headline.woff2')       format('woff2'); }
+    @font-face { font-family: 'ForbiddenStars'; src: url('fonts/ForbiddenStars.woff2') format('woff2'); }
+    @font-face { font-family: 'EventFont';      src: url('fonts/EventFont.woff2')      format('woff2'); }
+
+    html, body {
+      margin: 0; padding: 0; min-height: 100%;
+      color: var(--text_2); background: var(--background);
       font-family: 'ForbiddenStars', normal;
     }
+    body::-webkit-scrollbar { width: 20px; }
 
-    body::-webkit-scrollbar {
-      width: 20px;
-    }
-
-    .page-shell {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-    }
+    .page-shell { position: relative; width: 100%; min-height: 100vh; }
 
     .header-panel {
-      position: sticky;
-      top: 12px;
-      z-index: 20;
-      max-width: var(--max-width);
-      margin: 0 auto 24px;
-      padding: 14px;
-      border: 0px;
-      background-color: var(--background_2);
-      color: var(--text);
-      border-radius: 18px;
-      opacity: .85
+      position: sticky; top: 12px; z-index: 20;
+      max-width: var(--max-width); margin: 0 auto 24px; padding: 14px;
+      background-color: var(--background_2); color: var(--text);
+      border-radius: 18px; opacity: .85; border: 0px;
     }
+    .search-wrap { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .search-box {
+      flex: 1 1 340px; min-width: 260px; padding: 14px 18px; border-radius: 12px;
+      border: var(--border); background-color: var(--background);
+      font-size: 16px; font-family: 'ForbiddenStars', normal; outline: none;
+    }
+    .search-meta { font-size: 14px; border-radius: 12px; font-family: 'ForbiddenStars', normal; }
 
     .content {
-      position: relative;
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 50px 30px 200px 15px;
-      border-radius: 24px;
-      overflow: hidden;
+      position: relative; max-width: var(--content-width); margin: 0 auto;
+      padding: 50px 30px 200px 15px; border-radius: 24px; overflow: hidden;
     }
 
-    .search-wrap {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .empty-state { padding: 24px 0; font-size: 18px; text-align: center; opacity: .8; }
 
-    .search-box {
-      flex: 1 1 340px;
-      min-width: 260px;
-      padding: 14px 18px;
-      border-radius: 12px;
-      border: var(--border);
-      background-color: var(--background);
-      font-size: 16px;
-      font-family: 'ForbiddenStars', normal;
-      outline: none;
-    }
-
-    .search-meta {
-      font-size: 14px;
-      border-radius: 12px;
-      font-family: 'ForbiddenStars', normal;
-    }
-
-    .empty-state {
-      padding: 24px 0;
-      font-size: 18px;
-      text-align: center;
-      opacity: .8;
-    }
-
-    .level-block {
-      margin: 0 0 28px;
-    }
-
+    .level-block { margin: 0 0 28px; }
     .level-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
-      gap: 18px;
-      align-items: start;
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+      gap: 18px; align-items: start;
     }
-
-    .level-row.no-picture {
-      grid-template-columns: 1fr;
-    }
-
+    .level-row.no-picture { grid-template-columns: 1fr; }
     .level-image {
-      width: 100%;
-      max-width: 280px;
-      border-radius: 14px;
-      border: var(--border);
-      display: block;
-      justify-self: end;
+      width: 100%; max-width: 280px; border-radius: 14px; border: var(--border);
+      display: block; justify-self: end;
     }
 
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.15;
-      font-family: 'EventFont', normal;
-      letter-spacing: .01em;
-    }
-
-    .phrase-title,
-    .main-text {
-      font-family: 'ForbiddenStars', normal;
-    }
-
-    h1 {
-      font-size: clamp(30px, 4vw, 44px);
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: clamp(24px, 3vw, 34px);
-      margin-bottom: 8px;
-    }
-
-    h3 {
-      font-size: clamp(22px, 2.8vw, 30px);
-      margin-bottom: 8px;
-    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; font-family: 'EventFont', normal; letter-spacing: .01em; }
+    .phrase-title, .main-text { font-family: 'ForbiddenStars', normal; }
+    h1 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 10px; }
+    h2 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 8px; }
+    h3 { font-size: clamp(22px, 2.8vw, 30px); margin-bottom: 8px; }
 
     .separator {
-      width: 100%;
-      height: 3px;
+      width: 100%; height: 3px;
       background: linear-gradient(to right, transparent, var(--blue), transparent);
       margin: 0 0 16px;
     }
 
-    .category-block {
-      margin-bottom: 42px;
-    }
-
-    .subcategory-block {
-      margin: 22px 0 28px;
-      padding-left: 10px;
-    }
-
-    .faction-block {
-      margin: 18px 0 24px;
-      padding-left: 12px;
-    }
+    .category-block { margin-bottom: 42px; }
+    .subcategory-block { margin: 22px 0 28px; padding-left: 10px; }
+    .faction-block { margin: 18px 0 24px; padding-left: 12px; }
 
     .phrase-block {
-      margin: 14px 0 16px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: var(--background);
-      border: var(--border);
+      margin: 14px 0 16px; padding: 14px 16px; border-radius: 14px;
+      background: var(--background); border: var(--border);
     }
-
-    .phrase-title {
-      display: block;
-      font-weight: 700;
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: var(--text3);
-    }
-
-    .main-text {
-      font-size: 17px;
-      line-height: 1.7;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
+    .phrase-title { display: block; font-weight: 700; font-size: 18px; margin-bottom: 8px; color: var(--text_3); }
+    .main-text { font-size: 17px; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
 
     mark {
-      background: var(--highlight);
-      color: inherit;
-      padding: 0 .1em;
-      border-radius: .15em;
+      background: var(--highlight); color: inherit;
+      padding: 0 .1em; border-radius: .15em;
     }
   </style>
 </head>
 
 <body>
-
   <div class="page-shell">
     <div class="header-panel">
       <div class="search-wrap">
@@ -217,13 +106,9 @@
           class="search-box"
           type="text"
           placeholder="Поиск по FAQ..." />
-
-        <div id="searchMeta" class="search-meta">
-          Показан полный FAQ
-        </div>
+        <div id="searchMeta" class="search-meta">Показан полный FAQ</div>
       </div>
     </div>
-
     <main id="content" class="content" aria-live="polite"></main>
   </div>
 
@@ -232,158 +117,176 @@
 
     let originalData = [];
 
-    const contentEl = document.getElementById('content');
+    const contentEl  = document.getElementById('content');
     const searchInput = document.getElementById('searchInput');
-    const searchMeta = document.getElementById('searchMeta');
+    const searchMeta  = document.getElementById('searchMeta');
 
     const notifyParentHeight = () => {
       if (!window.parent || window.parent === window) return;
-
       const height = document.documentElement.scrollHeight;
-      window.parent.postMessage(
-        { type: 'faq-height', height },
-        '*'
-      );
+      window.parent.postMessage({ type: 'faq-height', height }, '*');
     };
 
     const observeHeight = () => {
       notifyParentHeight();
-
       if ('ResizeObserver' in window) {
         const ro = new ResizeObserver(notifyParentHeight);
         ro.observe(document.body);
         ro.observe(document.documentElement);
-      }
-      else {
+      } else {
         window.addEventListener('resize', notifyParentHeight);
         window.addEventListener('load', notifyParentHeight);
       }
     };
 
-    const normalize = (value) =>
-      String(value ?? '').toLowerCase();
+    const normalize  = (value) => String(value ?? '').toLowerCase();
+    const matches    = (value, query) => normalize(value).includes(query);
+    const withArray  = (value) => Array.isArray(value) ? value : [];
+    const getPicture = (node) => node && typeof node === 'object' ? node.picture || '' : '';
 
-    const matches = (value, query) =>
-      normalize(value).includes(query);
-
-    const escapeHtml = (str) =>
-      String(str ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/\"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+    const escapeHtml = (str) => String(str ?? '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/\"/g, '&quot;').replace(/'/g, '&#039;');
 
     function normalizeMainText(value) {
-      return String(value ?? '')
-        .replace(/\\r\\n/g, '\n')
-        .replace(/\\n/g, '\n');
+      return String(value ?? '').replace(/\\r\\n/g, '\n').replace(/\\n/g, '\n');
     }
 
     function highlightText(text, query) {
       const raw = String(text ?? '');
-
-      if (!query)
-        return escapeHtml(raw);
-
+      if (!query) return escapeHtml(raw);
       const escaped = escapeHtml(raw);
-
-      const safeQuery = query.replace(
-        /[.*+?^${}()|[\]\\]/g,
-        '\\$&'
-      );
-
-      const regex = new RegExp(`(${safeQuery})`, 'ig');
-
-      return escaped.replace(
-        regex,
-        '<mark>$1</mark>'
-      );
+      const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return escaped.replace(new RegExp(`(${safeQuery})`, 'ig'), '<mark>$1</mark>');
     }
 
-    function withArray(value) {
-      return Array.isArray(value)
-        ? value
-        : [];
+    function createLevelRow(textHtml, picture) {
+      const row = document.createElement('div');
+      row.className = `level-row ${picture ? '' : 'no-picture'}`.trim();
+      const textWrap = document.createElement('div');
+      textWrap.innerHTML = textHtml;
+      row.appendChild(textWrap);
+      if (picture) {
+        const img = document.createElement('img');
+        img.className = 'level-image'; img.src = picture; img.alt = ''; img.loading = 'lazy';
+        row.appendChild(img);
+      }
+      return row;
     }
 
-    function getPicture(node) {
-      return node && typeof node === 'object'
-        ? node.picture || ''
-        : '';
+    function renderPhraseBlock(phraseObj, query) {
+      const block = document.createElement('section');
+      block.className = 'phrase-block level-block';
+      const phraseText = phraseObj.Phrase ?? '';
+      const mainText = normalizeMainText(phraseObj.Main ?? '');
+      const picture = getPicture(phraseObj);
+      block.appendChild(createLevelRow(
+        `<div class="phrase-title"><strong>${highlightText(phraseText, query)}</strong></div>
+         <div class="main-text">${highlightText(mainText, query)}</div>`,
+        picture
+      ));
+      return block;
+    }
+
+    function renderFactionBlock(factionObj, query) {
+      const block = document.createElement('section');
+      block.className = 'faction-block level-block';
+      const title = factionObj.Faction ?? '';
+      block.appendChild(createLevelRow(
+        `<h3>${highlightText(title, query)}</h3><div class="separator"></div>`,
+        getPicture(factionObj)
+      ));
+      withArray(factionObj.items).forEach(phraseObj => block.appendChild(renderPhraseBlock(phraseObj, query)));
+      return block;
+    }
+
+    function renderSubCategoryBlock(subObj, query) {
+      const block = document.createElement('section');
+      block.className = 'subcategory-block level-block';
+      const title = subObj.SubCategory ?? '';
+      block.appendChild(createLevelRow(
+        `<h2>${highlightText(title, query)}</h2><div class="separator"></div>`,
+        getPicture(subObj)
+      ));
+      withArray(subObj.items).forEach(factionObj => block.appendChild(renderFactionBlock(factionObj, query)));
+      return block;
+    }
+
+    function renderCategoryBlock(categoryObj, query) {
+      const block = document.createElement('section');
+      block.className = 'category-block level-block';
+      const title = categoryObj.Category ?? '';
+      block.appendChild(createLevelRow(
+        `<h1>${highlightText(title, query)}</h1><div class="separator"></div>`,
+        getPicture(categoryObj)
+      ));
+      withArray(categoryObj.items).forEach(subObj => block.appendChild(renderSubCategoryBlock(subObj, query)));
+      return block;
     }
 
     function render(data, query = '') {
       contentEl.innerHTML = '';
-
       if (!data.length) {
         const empty = document.createElement('div');
         empty.className = 'empty-state';
-
-        empty.textContent = query
-          ? 'Ничего не найдено.'
-          : 'FAQ пока пуст.';
-
+        empty.textContent = query ? 'Ничего не найдено.' : 'FAQ пока пуст.';
         contentEl.appendChild(empty);
-
         notifyParentHeight();
-
         return;
       }
-
+      data.forEach(categoryObj => contentEl.appendChild(renderCategoryBlock(categoryObj, query)));
       notifyParentHeight();
+    }
+
+    function filterData(data, rawQuery) {
+      const query = normalize(rawQuery).trim();
+      if (!query) return data;
+      return withArray(data).flatMap(categoryObj => {
+        const filteredSubs = withArray(categoryObj.items).flatMap(subObj => {
+          if (matches(subObj.SubCategory, query)) return [subObj];
+          const filteredFactions = withArray(subObj.items).flatMap(factionObj => {
+            if (matches(factionObj.Faction, query)) return [factionObj];
+            const filteredPhrases = withArray(factionObj.items).filter(p =>
+              matches(p.Phrase, query) || matches(p.Main, query)
+            );
+            return filteredPhrases.length ? [{ ...factionObj, items: filteredPhrases }] : [];
+          });
+          return filteredFactions.length ? [{ ...subObj, items: filteredFactions }] : [];
+        });
+        return filteredSubs.length ? [{ ...categoryObj, items: filteredSubs }] : [];
+      });
     }
 
     async function loadFaq() {
       try {
-        const response = await fetch(
-          FAQ_JSON_PATH,
-          { cache: 'no-store' }
-        );
-
-        if (!response.ok) {
-          throw new Error(
-            `Failed to load FAQ JSON: ${response.status}`
-          );
-        }
-
+        const response = await fetch(FAQ_JSON_PATH, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`Ошибка загрузки FAQ: ${response.status}`);
         const data = await response.json();
-
-        originalData = Array.isArray(data)
-          ? data
-          : [];
-
+        originalData = Array.isArray(data) ? data : [];
         render(originalData);
-      }
-      catch (error) {
+      } catch (error) {
         console.error(error);
-
-        contentEl.innerHTML =
-          '<div class="empty-state">Не удалось загрузить данные FAQ.</div>';
-
+        contentEl.innerHTML = '<div class="empty-state">Не удалось загрузить данные FAQ.</div>';
         notifyParentHeight();
       }
     }
 
-    searchInput.addEventListener(
-      'input',
-      (event) => {
+    function debounce(fn, delay = 150) {
+      let t = null;
+      return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); };
+    }
 
-        const query = event.target.value;
-
-        render([], query.trim());
-
-        searchMeta.textContent =
-          query.trim()
-            ? `Поиск: «${query.trim()}»`
-            : 'Показан полный FAQ';
-
-        notifyParentHeight();
-      });
+    searchInput.addEventListener('input', debounce((event) => {
+      const query = event.target.value;
+      const filtered = filterData(originalData, query);
+      render(filtered, query.trim());
+      searchMeta.textContent = query.trim()
+        ? `Поиск: «${query.trim()}»`
+        : 'Показан полный FAQ';
+    }));
 
     observeHeight();
     loadFaq();
-
   </script>
 </body>
 

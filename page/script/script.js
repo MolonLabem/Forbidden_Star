@@ -1,1551 +1,1098 @@
-﻿async function preloadCanvasFonts() {
-    if (!document.fonts) {
-        return;
+﻿/* Forbidden Stars — Картотека карточек
+ * Ванильный, управляемый данными браузер карточек. Без фреймворков и сборки.
+ *
+ * Структура данных (в page/factions/):
+ *   general.json                       — дополнения (+color), категории, labels, filenames
+ *   <expansion>/faction.json           — фракции (+color), имена
+ *   <expansion>/<faction>/text.json    — необязательное переопределение filenames и текст карточек
+ *   <expansion>/<faction>/<folder>/<file>  — изображения карточек
+ *
+ * Отсутствующие изображения (например, дополнение без карт) обрабатываются
+ * корректно: карточка с 404 убирается из сетки.
+ */
+(function () {
+  'use strict';
+
+  var ACCENT = 'amber'; // amber | steel | crimson
+  var DENSITY = 5;
+
+  function density() {
+    var w = window.innerWidth || 1200;
+    if (w <= 480) return 2;
+    if (w <= 720) return 3;
+    if (w <= 1024) return 4;
+    if (w <= 1440) return DENSITY;
+    return DENSITY + 1;
+  }
+
+  // ключ категории → папка на диске
+  var FOLDER = {
+    combat: 'combat', orders: 'orders', events: 'events',
+    backs: 'backs', faction_card: 'faction_card', map: 'maps',
+  };
+
+  var DOT_FALLBACK = '#857f74';
+  var ACCENT_FALLBACK = '#d8a657';
+
+  var ACC = {
+    amber:   { a: 'oklch(0.80 0.12 80)',  fg: '#1c1810' },
+    steel:   { a: 'oklch(0.72 0.10 232)', fg: '#0b1019' },
+    crimson: { a: 'oklch(0.62 0.185 25)', fg: '#1c0d0c' },
+  };
+
+  /* ---- Высокое разрешение карточек ---- */
+
+  var CARD_RESOLUTION_KEY = 'forbidden-stars.high-resolution-cards';
+  var useHighRes = (function () {
+    try { return localStorage.getItem(CARD_RESOLUTION_KEY) === 'true'; } catch (e) { return false; }
+  })();
+  // Кэш растров обычных карточек (очищается при смене разрешения)
+  var _raster = {};
+
+  function applyResolution(hi) {
+    useHighRes = hi;
+    var w = hi ? 630 : 450, h = hi ? 880 : 650;
+    if (window.FSCardRender) window.FSCardRender.setResolution(w, h);
+    _raster = {};
+    try { localStorage.setItem(CARD_RESOLUTION_KEY, String(hi)); } catch (e) {}
+  }
+
+  // Применяем сохранённое значение при запуске
+  applyResolution(useHighRes);
+
+  /* ---- Хранилище данных ---- */
+
+  var DATA = {
+    general:   null,
+    expansions: [],
+    categories: [],
+    defaults:  null,
+    factions:  {},
+    manifest:  {},
+    text:      {},
+    faq:       null,
+    cardnames: {},
+    loading:   {},
+  };
+
+  // Напечатанное название карточки (из cardnames.json) или запасной вариант
+  function cardName(exp, fac, cat, file, fallback) {
+    var n = DATA.cardnames[exp + '/' + fac + '/' + cat + '/' + file];
+    return n || fallback;
+  }
+
+  function ensureFaq() {
+    if (DATA.faq || DATA.loading.faq || !window.FS_FAQ) return;
+    DATA.loading.faq = true;
+    fetchJSON(window.FS_FAQ.src).then(function (raw) {
+      if (DATA.expansions.length) {
+        window.FS_FAQ.dots = [ACCENT_FALLBACK].concat(DATA.expansions.map(function (e) { return e.color; }));
+      }
+      DATA.faq = window.FS_FAQ.flatten(raw);
+      render();
+    }).catch(function (e) {
+      console.error('Ошибка загрузки FAQ', e);
+      DATA.faq = { navTopics: [{ key: 'all', name: 'Все вопросы', dot: ACCENT_FALLBACK }], cats: [], count: {} };
+      render();
+    });
+  }
+
+  var state = {
+    expansion: null, faction: null, category: 'combat',
+    lb: null, lbFull: false, lbMag: false, lbZoom: 2, lbLensSize: 204,
+    view: 'codex',
+    faqTopic: 'all', faqQuery: '', faqOpen: {},
+    expOpen: null,
+    cardQuery: '',
+  };
+  var flat = [];
+
+  function setState(patch) {
+    for (var k in patch) { if (patch.hasOwnProperty(k)) state[k] = patch[k]; }
+    render();
+  }
+
+  // Монтирует дерево в #app, сохраняя фокус поля поиска при перерисовке
+  function mountApp(app) {
+    var root = document.getElementById('app');
+    var ae = document.activeElement, sel = null;
+    if (ae && ae.classList && ae.classList.contains('fs-faq-search')) {
+      sel = { s: ae.selectionStart, e: ae.selectionEnd };
     }
-
-    const families = ['ForbiddenStars', 'Headline', 'EventFont'];
-    const fontLoads = families.map((family) => document.fonts.load(`1em ${family}`));
-
-    try {
-        await Promise.all([...fontLoads, document.fonts.ready]);
-    } catch (error) {
-        console.warn('Некоторые шрифты не успели загрузиться до первой отрисовки.', error);
+    root.innerHTML = '';
+    root.appendChild(app);
+    if (sel) {
+      var inp = root.querySelector('.fs-faq-search');
+      if (inp) { inp.focus(); try { inp.setSelectionRange(sel.s, sel.e); } catch (e) {} }
     }
-}
+  }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    await preloadCanvasFonts();
+  function fetchJSON(url) {
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' — ' + url);
+      return r.json();
+    });
+  }
 
-    /* =========================
-       DOM
-    ========================= */
+  /* ---- Вспомогательные функции ---- */
 
-    const expansionTabsContainer = document.getElementById('expansion-tabs');
-    const factionTabsContainer = document.getElementById('faction-tabs');
-    const cardTypeTabs = document.getElementById('cards-tabs');
-    const cardsContainer = document.getElementById('cards-container');
-    const cardResolutionToggle = document.getElementById('card-resolution-toggle');
+  // Склонение числительных в русском языке
+  function ruPlural(n, one, few, many) {
+    var m10 = n % 10, m100 = n % 100;
+    if (m10 === 1 && m100 !== 11) return one;
+    if (m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20)) return few;
+    return many;
+  }
 
-    const faqContainer = document.getElementById('faq-container');
-    const faqContent = document.getElementById('faq-content');
-    const faqSearchInput = document.getElementById('faq-search-input');
-    const faqSearchMeta = document.getElementById('faq-search-meta');
+  function factionDot(fj, index) {
+    var c = fj.color && fj.color[index];
+    if (typeof c === 'string') return c;
+    if (c && c.accent) return c.accent;
+    return DOT_FALLBACK;
+  }
 
-    const FAQ_JSON_PATH = './data/FAQ.json';
+  function tierLabel(ti) {
+    var tiers = (DATA.general && DATA.general.labels && DATA.general.labels.tiers) || [];
+    return tiers[ti] || ('Набор ' + (ti + 1));
+  }
 
-    /* =========================
-       STATE
-    ========================= */
+  function backLabel(file) {
+    var key = file.replace(/\.[a-z]+$/i, '');
+    var backs = (DATA.general && DATA.general.labels && DATA.general.labels.backs) || {};
+    return backs[key] || 'Задник';
+  }
 
-    const state = {
-        expansionKey: null,
-        factionKey: null,
-        cardType: null
+  function expColor(key) {
+    var e = findKey(DATA.expansions, key);
+    return (e && e.color) || DOT_FALLBACK;
+  }
+
+  function ensureFactions(exp) {
+    if (DATA.factions[exp] || DATA.loading['fac:' + exp]) return;
+    DATA.loading['fac:' + exp] = true;
+    fetchJSON('factions/' + exp + '/faction.json').then(function (fj) {
+      var list = (fj.folder || []).map(function (key, i) {
+        return { key: key, name: (fj.name && fj.name[i]) || key, dot: factionDot(fj, i) };
+      });
+      DATA.factions[exp] = list;
+      list.forEach(function (f) { ensureManifest(exp, f.key); });
+      if (state.expansion === exp && !state.faction && list[0]) state.faction = list[0].key;
+      render();
+    }).catch(function (e) {
+      DATA.factions[exp] = [];
+      console.error(e);
+      render();
+    });
+  }
+
+  // Загружает манифест имён файлов фракции (text.json или умолчания)
+  function ensureManifest(exp, fac) {
+    var id = exp + '/' + fac;
+    if (DATA.manifest[id] || DATA.loading['man:' + id]) return;
+    DATA.loading['man:' + id] = true;
+    fetchJSON('factions/' + exp + '/' + fac + '/text.json').then(function (t) {
+      DATA.manifest[id] = mergeFilenames(t && t.filenames);
+      DATA.text[id] = {
+        combat:    (t && t.combatText)    || null,
+        orders:    (t && t.ordersText)    || null,
+        events:    (t && t.eventsText)    || null,
+        materials: (t && t.materialsText) || null,
+      };
+      render();
+    }).catch(function () {
+      DATA.manifest[id] = mergeFilenames(null);
+      DATA.text[id] = { combat: null, orders: null, events: null, materials: null };
+      render();
+    });
+  }
+
+  function mergeFilenames(over) {
+    var d = DATA.defaults || {};
+    over = over || {};
+    return {
+      combat:       over.combat       || d.combat       || [],
+      orders:       over.orders       || d.orders       || [],
+      events:       over.events       || d.events       || [],
+      backs:        over.backs        || d.backs        || [],
+      faction_card: over.faction_card || d.faction_card || [],
+      map:          over.map          || d.map          || [],
     };
+  }
 
-    let generalData = null;
+  function manifestCount(man) {
+    if (!man) return null;
+    var n = 0;
+    (man.combat || []).forEach(function (tier) { n += tier.length; });
+    ['orders', 'events', 'backs', 'faction_card', 'map'].forEach(function (k) { n += (man[k] || []).length; });
+    return n;
+  }
 
-    let faqOriginalData = [];
-    let faqLoaded = false;
-    let faqLoadingPromise = null;
+  /* ---- Справочные функции ---- */
 
-    let activeExpansionTab = null;
-    let activeFactionTab = null;
-    let activeCardTab = null;
+  function facList() { return DATA.factions[state.expansion] || []; }
+  function facName(k) { var f = findKey(facList(), k); return f ? f.name : ''; }
+  function catName(k) {
+    var labels = (DATA.general && DATA.general.labels) || {};
+    if (k === 'material' && labels.material) return labels.material;
+    var c = findKey(DATA.categories, k);
+    return c ? c.name : '';
+  }
+  function expName(k) { var e = findKey(DATA.expansions, k); return e ? e.name : ''; }
+  function findKey(list, key) {
+    for (var i = 0; i < list.length; i++) { if (list[i].key === key) return list[i]; }
+    return null;
+  }
 
-    /* =========================
-       CONSTANTS
-    ========================= */
+  /* ---- Строитель элементов DOM ---- */
 
-    const CARD_RESOLUTION_STORAGE_KEY = 'forbidden-stars.high-resolution-cards';
-    const CARD_RESOLUTIONS = {
-        standard: { width: 450, height: 650 },
-        high: { width: 630, height: 880 }
-    };
+  function el(tag, props, children) {
+    var node = document.createElement(tag);
+    props = props || {};
+    for (var key in props) {
+      if (!props.hasOwnProperty(key)) continue;
+      var val = props[key];
+      if (val == null) continue;
+      if (key === 'class') node.className = val;
+      else if (key === 'html') node.innerHTML = val;
+      else if (key === 'text') node.textContent = val;
+      else if (key.indexOf('on') === 0 && typeof val === 'function') {
+        node.addEventListener(key.slice(2).toLowerCase(), val);
+      } else {
+        node.setAttribute(key, val);
+      }
+    }
+    if (children) {
+      if (!Array.isArray(children)) children = [children];
+      for (var i = 0; i < children.length; i++) {
+        var c = children[i];
+        if (c == null || c === false) continue;
+        node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+      }
+    }
+    return node;
+  }
 
-    let maxWidth;
-    let maxHeight;
-    let titleFontSize;
-    let marginWidth;
-    let maxTextWidth;
+  /* ---- Композитинг / растрирование карточек ---- */
 
-    function applyCardResolution(useHighResolution) {
-        const resolution = useHighResolution ? CARD_RESOLUTIONS.high : CARD_RESOLUTIONS.standard;
+  function cardPixelSize() {
+    return useHighRes ? { w: 630, h: 880 } : { w: 450, h: 650 };
+  }
 
-        maxWidth = resolution.width;
-        maxHeight = resolution.height;
-        titleFontSize = maxHeight * 0.05;
-        marginWidth = maxWidth * 0.0578;
-        maxTextWidth = maxWidth - 2 * marginWidth;
+  // Масштабирует исходное изображение до выбранного разрешения (для скачивания).
+  // Отображение по-прежнему задаётся CSS и не зависит от пиксельного размера.
+  function rasterizeCard(src) {
+    var sz = cardPixelSize();
+    var key = src + '@' + sz.w + 'x' + sz.h;
+    if (_raster[key]) return _raster[key];
+    _raster[key] = new Promise(function (resolve) {
+      var img = new Image();
+      img.onload = function () {
+        var c = document.createElement('canvas');
+        c.width = sz.w;
+        c.height = sz.h;
+        c.getContext('2d').drawImage(img, 0, 0, sz.w, sz.h);
+        resolve(c.toDataURL('image/png'));
+      };
+      img.onerror = function () { resolve(src); };
+      img.src = src;
+    });
+    return _raster[key];
+  }
 
-        document.documentElement.style.setProperty('--card-width', `${maxWidth}px`);
-        document.documentElement.style.setProperty('--card-height', `${maxHeight}px`);
+  function isCardShaped(card) {
+    if (card.kind) return true;
+    return /\/(combat|orders|events|backs)\//.test(card.src || '');
+  }
+
+  // SoW (с текстом) — canvas-композиция; остальные карточные типы —
+  // растр в 450×650 / 630×880, чтобы «Сохранить изображение» отдавало нужный размер.
+  function applyComposite(imgEl, card) {
+    if (card.text && card.kind && window.FSCardRender) {
+      window.FSCardRender.compose(card).then(function (url) {
+        if (url) imgEl.src = url;
+      });
+      return;
+    }
+    if (isCardShaped(card)) {
+      rasterizeCard(card.src).then(function (url) {
+        if (url) imgEl.src = url;
+      });
+    }
+  }
+
+  function lbImg(card) {
+    var img = el('img', { src: card.src, alt: card.label });
+    applyComposite(img, card);
+    return img;
+  }
+
+  /* ---- Лупа в лайтбоксе ---- */
+
+  function attachMagnifier(wrap, img) {
+    var lens = el('div', { class: 'fs-lb-lens' });
+    wrap.appendChild(lens);
+    var ex = null, ey = null;
+    function draw() {
+      var L = state.lbLensSize;
+      lens.style.width = L + 'px'; lens.style.height = L + 'px';
+      if (!state.lbMag || ex == null) { lens.style.display = 'none'; return; }
+      var r = img.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      var x = ex - r.left, y = ey - r.top;
+      if (x < 0 || y < 0 || x > r.width || y > r.height) { lens.style.display = 'none'; return; }
+      var z = state.lbZoom;
+      lens.style.display = 'block';
+      lens.style.backgroundImage = 'url("' + (img.currentSrc || img.src) + '")';
+      lens.style.backgroundSize = (r.width * z) + 'px ' + (r.height * z) + 'px';
+      lens.style.backgroundPosition = (-(x * z - L / 2)) + 'px ' + (-(y * z - L / 2)) + 'px';
+      lens.style.left = (ex - wr.left - L / 2) + 'px';
+      lens.style.top  = (ey - wr.top  - L / 2) + 'px';
+    }
+    img.addEventListener('mousemove', function (ev) { ex = ev.clientX; ey = ev.clientY; draw(); });
+    img.addEventListener('mouseleave', function () { lens.style.display = 'none'; });
+    // Прокрутка — масштаб; Shift+прокрутка — размер лупы
+    img.addEventListener('wheel', function (ev) {
+      if (!state.lbMag) return;
+      ev.preventDefault();
+      var delta = ev.deltaY !== 0 ? ev.deltaY : ev.deltaX;
+      var up = delta < 0;
+      if (ev.shiftKey) {
+        state.lbLensSize = Math.max(120, Math.min(520, state.lbLensSize + (up ? 20 : -20)));
+      } else {
+        state.lbZoom = Math.max(1.4, Math.min(6, state.lbZoom + (up ? 0.3 : -0.3)));
+      }
+      draw();
+    }, { passive: false });
+  }
+
+  /* ---- Карточка «Состав фракции» (таблица) ---- */
+
+  function renderMaterial(materials) {
+    var body;
+    if (materials && materials.length) {
+      body = el('div', { class: 'fs-material-body' }, materials.map(function (item) {
+        if (typeof item === 'string') return el('div', { class: 'fs-material-line', text: item });
+        return el('div', { class: 'fs-material-line' }, [
+          el('span', { class: 'fs-material-label', text: (item && item.label) || '' }),
+          el('span', { class: 'fs-material-value', text: (item && item.value != null) ? String(item.value) : '' }),
+        ]);
+      }));
+    } else {
+      body = el('div', { class: 'fs-material-body' }, [
+        el('p', { class: 'fs-note', text: 'Данные о составе недоступны для этой фракции.' }),
+      ]);
+    }
+    return el('div', { class: 'fs-material-card' }, [
+      el('div', { class: 'fs-material-heading', text: 'Фигурки' }),
+      body,
+    ]);
+  }
+
+  function maybeEmptyNote(scrollarea) {
+    if (!scrollarea || scrollarea.querySelector('.fs-note')) return;
+    var cards = scrollarea.querySelectorAll('.fs-card');
+    for (var i = 0; i < cards.length; i++) {
+      if (cards[i].style.display !== 'none') return;
+    }
+    if (cards.length) scrollarea.appendChild(el('div', { class: 'fs-note', text: 'Нет изображений для этого набора.' }));
+  }
+
+  /* ---- Модель карточек ---- */
+
+  function build() {
+    var fac = state.faction, cat = state.category;
+    var id = state.expansion + '/' + fac;
+    var man = DATA.manifest[id];
+    var txt = DATA.text[id];
+    var groups = [];
+    flat = [];
+    if (!man || !fac) return { groups: groups, ready: false };
+
+    if (cat === 'material') {
+      return { groups: groups, ready: true, material: (txt && txt.materials) || null };
     }
 
-    function getSavedResolutionPreference() {
-        try {
-            return localStorage.getItem(CARD_RESOLUTION_STORAGE_KEY) === 'true';
-        } catch {
-            return false;
-        }
+    var base = 'factions/' + state.expansion + '/' + fac + '/' + FOLDER[cat] + '/';
+    function push(file, label, kind, text) {
+      var idx = flat.length;
+      var c = { src: base + file, label: label, index: idx, kind: kind || null, text: text || null };
+      flat.push(c);
+      return c;
     }
 
-    function saveResolutionPreference(useHighResolution) {
-        try {
-            localStorage.setItem(CARD_RESOLUTION_STORAGE_KEY, String(useHighResolution));
-        } catch {
-            // Rendering remains available when browser storage is unavailable.
-        }
-    }
-
-    const useHighResolution = getSavedResolutionPreference();
-    applyCardResolution(useHighResolution);
-
-    if (cardResolutionToggle) {
-        cardResolutionToggle.checked = useHighResolution;
-        cardResolutionToggle.addEventListener('change', () => {
-            const selectedHighResolution = cardResolutionToggle.checked;
-            applyCardResolution(selectedHighResolution);
-            saveResolutionPreference(selectedHighResolution);
-
-            if (state.expansionKey && state.factionKey && state.cardType) {
-                loadCards(state.expansionKey, state.factionKey, state.cardType);
-            }
+    if (cat === 'combat') {
+      (man.combat || []).forEach(function (files, ti) {
+        var label = tierLabel(ti);
+        var tierTxt = txt && txt.combat ? txt.combat[ti] : null;
+        var cards = files.map(function (f, i) {
+          var t = tierTxt && tierTxt[i]
+            ? { title: tierTxt[i].title, background: tierTxt[i].general, foreground: tierTxt[i].unit, icons: tierTxt[i].icons }
+            : null;
+          return push(f, facName(fac) + ' · ' + label + ' ' + (i + 1), 'combat', t);
         });
+        if (cards.length) groups.push({ label: label, sub: cards.length + ' ' + ruPlural(cards.length, 'карточка', 'карточки', 'карточек'), cards: cards });
+      });
+    } else {
+      var files = man[cat] || [];
+      var labels, kind = null, textList = null;
+      if (cat === 'backs') {
+        labels = files.map(function (f) { return backLabel(f); });
+      } else if (cat === 'faction_card') {
+        labels = files.map(function (_, i) { return facName(fac) + ' Справочник' + (files.length > 1 ? ' ' + (i + 1) : ''); });
+      } else if (cat === 'map') {
+        labels = files.map(function (_, i) { return 'Карта ' + String.fromCharCode(65 + i); });
+      } else if (cat === 'orders') {
+        labels = files.map(function (_, i) { return 'Приказ ' + (i + 1); });
+        kind = 'orders'; textList = txt ? txt.orders : null;
+      } else {
+        labels = files.map(function (_, i) { return 'Событие ' + (i + 1); });
+        kind = 'events'; textList = txt ? txt.events : null;
+      }
+      var cards = files.map(function (f, i) {
+        var t = (kind && textList && textList[i]) ? textList[i] : null;
+        return push(f, labels[i], kind, t);
+      });
+      if (cards.length) groups.push({ label: null, sub: '', cards: cards });
     }
+    return { groups: groups, ready: true };
+  }
 
-    const iconMap = {
-        B: 'pictures/bolter.png',
-        S: 'pictures/shield.png',
-        M: 'pictures/moral.png'
-    };
+  function facNameOf(exp, fac) { var f = findKey(DATA.factions[exp] || [], fac); return f ? f.name : fac; }
 
-    const CARD_TYPE_LABELS_RU = {
-        combat: 'Боевые',
-        orders: 'Приказы',
-        events: 'События',
-        backs: 'Задники',
-        faction_card: 'Фракция',
-        map: 'Домашка'
-    };
-
-    const CARD_TYPE_CONFIG = {
-        combat: { render: createCombatContent, textKey: 'combatText' },
-        orders: { render: createOrdersContent, textKey: 'ordersText' },
-        events: { render: createEventContent, textKey: 'eventsText' },
-        faction_card: { render: createFactioncardContent },
-        backs: { render: backCardContent },
-        map: { render: mapCardContent }
-    };
-
-    /* =========================
-       CACHES
-    ========================= */
-
-    const jsonCache = new Map();
-    const imageCache = new Map();
-
-    async function fetchJsonCached(path) {
-        if (jsonCache.has(path)) {
-            return jsonCache.get(path);
-        }
-
-        const promise = fetch(path, { cache: 'no-store' })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`Failed to load JSON: ${path} (${response.status})`);
-                }
-                return response.json();
-            });
-
-        jsonCache.set(path, promise);
-        return promise;
-    }
-
-    async function loadImage(url) {
-        if (imageCache.has(url)) {
-            return imageCache.get(url);
-        }
-
-        const promise = new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve(img);
-            img.onerror = () => reject(new Error(`Failed to load image: ${url}`));
-            img.src = url;
+  // Все карточки одной фракции по всем категориям — для глобального поиска
+  function collectFaction(exp, fac) {
+    var id = exp + '/' + fac;
+    var man = DATA.manifest[id], txt = DATA.text[id];
+    var out = [];
+    if (!man) return out;
+    var fn = facNameOf(exp, fac), en = expName(exp);
+    DATA.categories.forEach(function (c) {
+      var cat = c.key;
+      if (cat === 'material' || !FOLDER[cat]) return;
+      var base = 'factions/' + exp + '/' + fac + '/' + FOLDER[cat] + '/';
+      function add(file, label, kind, text) {
+        out.push({ src: base + file, kind: kind || null, text: text || null,
+          label: cardName(exp, fac, cat, file, label),
+          catName: catName(cat), exp: exp, expName: en, fac: fac, facName: fn });
+      }
+      if (cat === 'combat') {
+        (man.combat || []).forEach(function (files, ti) {
+          var tierTxt = txt && txt.combat ? txt.combat[ti] : null;
+          var tierName = tierLabel(ti);
+          files.forEach(function (f, i) {
+            var tt = tierTxt && tierTxt[i];
+            var t = tt ? { title: tt.title, background: tt.general, foreground: tt.unit, icons: tt.icons } : null;
+            add(f, (tt && tt.title) ? tt.title : (fn + ' · ' + tierName + ' ' + (i + 1)), 'combat', t);
+          });
         });
+      } else {
+        var files = man[cat] || [];
+        files.forEach(function (f, i) {
+          var label, kind = null, t = null;
+          if (cat === 'backs') label = backLabel(f);
+          else if (cat === 'faction_card') label = fn + ' Справочник' + (files.length > 1 ? ' ' + (i + 1) : '');
+          else if (cat === 'map') label = 'Карта ' + String.fromCharCode(65 + i);
+          else if (cat === 'orders') { kind = 'orders'; t = txt && txt.orders ? txt.orders[i] : null; label = (t && t.title) || ('Приказ ' + (i + 1)); }
+          else { kind = 'events'; t = txt && txt.events ? txt.events[i] : null; label = (t && t.title) || ('Событие ' + (i + 1)); }
+          add(f, label, kind, t);
+        });
+      }
+    });
+    return out;
+  }
 
-        imageCache.set(url, promise);
-        return promise;
-    }
+  /* ---- Лайтбокс ---- */
 
-    /* =========================
-       GENERAL HELPERS
-    ========================= */
+  function showLightbox() {
+    var appEl = document.querySelector('.fs-app');
+    if (!appEl) { render(); return; }
+    var old = appEl.querySelector('.fs-lb'); if (old) old.remove();
+    appendLightbox(appEl);
+  }
+  function hideLightbox() { var lb = document.querySelector('.fs-lb'); if (lb) lb.remove(); }
 
-    function withArray(value) {
-        return Array.isArray(value) ? value : [];
-    }
+  function openLb(idx) { state.lb = idx; state.lbFull = true; state.lbMag = false; showLightbox(); }
+  function closeLb() { state.lb = null; hideLightbox(); }
+  function step(d) {
+    if (!flat.length || state.lb === null) return;
+    state.lb = (state.lb + d + flat.length) % flat.length;
+    showLightbox();
+  }
 
-    function normalize(value) {
-        return String(value ?? '').toLowerCase();
-    }
+  document.addEventListener('keydown', function (e) {
+    if (state.lb === null) return;
+    if (e.key === 'Escape') closeLb();
+    else if (e.key === 'ArrowRight') step(1);
+    else if (e.key === 'ArrowLeft') step(-1);
+  });
 
-    function matches(value, query) {
-        return normalize(value).includes(query);
-    }
+  /* ---- Вид FAQ (Полевой устав) ---- */
 
-    function escapeHtml(str) {
-        return String(str ?? '')
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/\"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-    }
+  function faqTopicName(k) {
+    var ts = (DATA.faq && DATA.faq.navTopics) || [];
+    var t = findKey(ts, k);
+    return t ? t.name : 'Все вопросы';
+  }
 
-    function normalizeMainText(value) {
-        return String(value ?? '')
-            .replace(/\\r\\n/g, '\n')
-            .replace(/\\n/g, '\n');
-    }
+  // Одна строка аккордеона — ответ скрыт/показан через CSS без перерисовки
+  function faqItemNode(it) {
+    var open = !!state.faqOpen[it.id];
+    var icon = el('span', { class: 'fs-faq-icon' + (open ? ' is-open' : '') });
+    var head = el('button', { class: 'fs-faq-qbtn', onclick: function (e) {
+      var o = !state.faqOpen[it.id];
+      state.faqOpen[it.id] = o;
+      e.currentTarget.parentNode.classList.toggle('is-open', o);
+      icon.classList.toggle('is-open', o);
+    } }, [
+      el('span', { class: 'fs-faq-q', text: it.q }),
+      icon,
+    ]);
+    var answer = el('div', { class: 'fs-faq-answer' }, [el('p', { class: 'fs-faq-atext', text: it.a })]);
+    return el('div', { class: 'fs-faq-item' + (open ? ' is-open' : '') }, [head, answer]);
+  }
 
-    function getPicture(node) {
-        return node && typeof node === 'object' ? node.picture || '' : '';
-    }
+  function renderFaqView() {
+    ensureFaq();
+    var hero = (window.FS_FAQ && window.FS_FAQ.hero) || {};
+    var FAQ = DATA.faq || { navTopics: [], cats: [], count: {} };
+    var ready = !!DATA.faq;
+    var topic = state.faqTopic;
+    var q = (state.faqQuery || '').trim().toLowerCase();
+    var matches = function (it) { return !q || (it.q + ' ' + it.a).toLowerCase().indexOf(q) >= 0; };
 
-    function createPlaceholderWithSpinner() {
-        const placeholder = document.createElement('div');
-        placeholder.classList.add('card-placeholder');
+    var app = el('div', { class: 'fs-app', 'data-accent': ACCENT });
 
-        const spinner = document.createElement('div');
-        spinner.classList.add('card-spinner');
+    var search = el('input', {
+      class: 'fs-faq-search', type: 'text', value: state.faqQuery,
+      placeholder: 'Поиск по вопросам…', spellcheck: 'false',
+      oninput: function (e) { setState({ faqQuery: e.target.value }); },
+    });
+    var header = el('header', { class: 'fs-header fs-faq-header' }, [
+      el('div', { class: 'fs-brand fs-brand-link', title: 'На главную', onclick: goHome }, [
+        el('div', { class: 'fs-logo' }, [el('div', { class: 'fs-logo-ring' }), el('div', { class: 'fs-logo-core' })]),
+        el('div', { class: 'fs-brand-text' }, [
+          el('span', { class: 'fs-brand-title', text: 'FORBIDDEN STARS' }),
+          el('span', { class: 'fs-brand-sub', text: 'FAQ' }),
+        ]),
+      ]),
+      el('div', { class: 'fs-header-spacer' }),
+      el('div', { class: 'fs-faq-searchwrap' }, [
+        el('span', { class: 'fs-faq-searchicon', html: '&#9906;' }),
+        search,
+      ]),
+      el('div', { class: 'fs-header-spacer' }),
+    ]);
 
-        placeholder.appendChild(spinner);
-        return placeholder;
-    }
+    var topicsNav = el('nav', { class: 'fs-nav' },
+      FAQ.navTopics.map(function (t) {
+        var active = topic === t.key;
+        var cls = (t.kind === 'sub') ? ('fs-faq-subnav' + (active ? ' is-active' : ''))
+          : ('fs-fac' + (t.kind === 'cat' ? ' fs-faq-catnav' : '') + (active ? ' is-active' : ''));
+        var kids = [];
+        if (t.kind !== 'sub') kids.push(el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:' + (t.dot || 'var(--fs-accent)') + ';' }));
+        kids.push(el('span', { class: 'fs-fac-name', text: t.name }));
+        kids.push(el('span', { class: 'fs-fac-count', text: String(FAQ.count[t.key] || 0) }));
+        return el('button', { class: cls, onclick: (function (key) { return function () { setState({ faqTopic: key }); }; })(t.key) }, kids);
+      })
+    );
+    var sidebar = el('aside', { class: 'fs-sidebar fs-scroll' }, [
+      el('div', { class: 'fs-sidebar-label', text: 'Темы' }),
+      topicsNav,
+      el('div', { class: 'fs-sidebar-foot' }, [
+        el('button', { class: 'fs-faq-link fs-faq-back', html: '&larr; Назад в картотеку',
+          onclick: function () { setState({ view: 'codex', cardQuery: '' }); } }),
+        el('p', { html: 'FAN PROJECT &middot; NON&#8209;COMMERCIAL<br>Artwork &copy; Games Workshop' }),
+      ]),
+    ]);
 
-    function replaceForbiddenStarsElements(str) {
-        str = String(str ?? '');
-        str = str.replace(/\[B\]/g, "}");
-        str = str.replace(/\[S\]/g, "{");
-        str = str.replace(/\[M\]/g, "<");
-        str = str.replace(/\[D\]/g, "|");
-        str = str.replace(/\(B\)/g, "#");
-        str = str.replace(/\(S\)/g, "@");
-        return str;
-    }
-
-    function calculateTextHeight(context, text, extraHeight, marginHeight, interline, fontSize, maxLineWidth = maxTextWidth) {
-        context.font = `${fontSize}px ForbiddenStars`;
-        const words = text.split(' ');
-        let line = '';
-        const lineHeight = parseInt(context.font.match(/\d+/), 10);
-        let returnHeight = 0;
-
-        for (let n = 0; n < words.length; n++) {
-            if (words[n] === '*newline*') {
-                returnHeight += lineHeight + interline;
-                line = '';
-            }
-            else if (words[n] === '*newpara*') {
-                returnHeight += 2 * lineHeight;
-                line = '';
-            }
-            else {
-                const testLine = line + words[n] + ' ';
-                const metrics = context.measureText(testLine);
-                if (metrics.width > maxLineWidth && n > 0) {
-                    returnHeight += lineHeight + interline;
-                    line = words[n] + ' ';
-                } else {
-                    line = testLine;
-                }
-            }
+    var showAll = topic === 'all';
+    var sections = [];
+    var shown = 0;
+    FAQ.cats.forEach(function (cat) {
+      var catSelected = showAll || topic === cat.key || topic.indexOf(cat.key + '_') === 0;
+      if (!catSelected) return;
+      var subNodes = [];
+      cat.subs.forEach(function (sub) {
+        if (!showAll && topic !== cat.key && topic !== sub.key) return;
+        var facNodes = [];
+        sub.factions.forEach(function (fac) {
+          var its = fac.items.filter(matches);
+          if (!its.length) return;
+          shown += its.length;
+          facNodes.push(el('div', { class: 'fs-faq-facgroup' }, [
+            el('div', { class: 'fs-faq-fachead' }, [
+              el('span', { class: 'fs-faq-facname', text: fac.faction || sub.name }),
+              el('span', { class: 'fs-faq-faccount', text: String(its.length) }),
+              fac.picture ? el('img', { class: 'fs-faq-facicon', src: fac.picture, alt: '', loading: 'lazy' }) : null,
+            ]),
+            el('div', { class: 'fs-faq-list' }, its.map(faqItemNode)),
+          ]));
+        });
+        if (facNodes.length) {
+          var subKids = (topic === sub.key) ? [] : [el('div', { class: 'fs-faq-sublabel', text: sub.name })];
+          subNodes.push(el('div', { class: 'fs-faq-subsection' }, subKids.concat(facNodes)));
         }
+      });
+      if (subNodes.length) {
+        var catChildren = [];
+        if (showAll) catChildren.push(el('h2', { class: 'fs-faq-cathead' }, [
+          el('span', { class: 'fs-faq-catdot', style: 'background:' + cat.dot + ';' }),
+          cat.name,
+        ]));
+        sections.push(el('div', { class: 'fs-faq-catblock' }, catChildren.concat(subNodes)));
+      }
+    });
 
-        returnHeight += lineHeight * 2 + extraHeight + marginHeight * 2;
-        return returnHeight;
+    var contentInner;
+    if (!ready) {
+      contentInner = el('div', { class: 'fs-note', text: 'Загрузка…' });
+    } else if (shown) {
+      contentInner = el('div', { class: 'fs-faq-sections' }, sections);
+    } else {
+      contentInner = el('div', { class: 'fs-faq-empty' }, [
+        el('div', { class: 'fs-faq-empty-glyph' }, [el('div', { class: 'ring' })]),
+        el('p', { class: 'fs-note', text: q
+          ? ('Нет вопросов по запросу «' + state.faqQuery + '». Попробуйте другой запрос или очистите строку поиска.')
+          : 'Нет вопросов в этом разделе.' }),
+      ]);
     }
 
-    function drawStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align = 'left') {
-        const baseFont = `${fontSize}px ForbiddenStars`;
-        const italicFont = `italic ${fontSize}px ForbiddenStars`;
-        const getLH = () => parseInt(ctx.font.match(/\d+/), 10);
+    var body = [
+      el('div', { class: 'fs-faq-hero' }, [
+        el('span', { class: 'fs-faq-kicker', text: hero.kicker || '' }),
+        el('h1', { class: 'fs-faq-title', text: hero.title || '' }),
+        el('p', { class: 'fs-faq-blurb', text: hero.blurb || '' }),
+      ]),
+      el('div', { class: 'fs-faq-content' }, [
+        el('div', { class: 'fs-faq-sectionrow' }, [
+          el('span', { class: 'fs-faq-sectionlabel', text: faqTopicName(topic) }),
+          el('span', { class: 'fs-faq-countlabel', text: shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') }),
+        ]),
+        contentInner,
+      ]),
+    ];
+    var main = el('main', { class: 'fs-main fs-scroll fs-faq-main' }, body);
 
-        const normalize = (s) =>
-            String(s)
-                .replace(/\s*\*newpara\*\s*/g, '\n\n')
-                .replace(/\s*\*newline\*\s*/g, '\n')
-                .replace(/[ \t]+/g, ' ')
-                .replace(/ *\n */g, '\n')
-                .trim();
+    app.appendChild(header);
+    app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
+    mountApp(app);
+  }
 
-        const paragraphs = normalize(text).split('\n');
+  /* ---- Главная отрисовка ---- */
 
-        const buildTokens = (p) => {
-            if (p.trim() === '') return [];
-            if (p.trim() === '-или-') return [{ text: '-или-', italic: true, glue: true }];
+  function render() {
+    if (state.view === 'faq') { renderFaqView(); return; }
+    var cols = Math.max(2, Math.min(8, density()));
+    var cat = state.category;
 
-            if (p.includes(':')) {
-                const i = p.indexOf(':');
-                const before = p.slice(0, i).trimEnd();
-                const after = p.slice(i + 1).trimStart();
-                const tokens = [];
-                if (before) tokens.push({ text: before, italic: true, glue: true });
-                tokens.push({ text: ':', italic: false, glue: true });
-                if (after) tokens.push({ text: ' ' + after, italic: false, glue: true });
-                return tokens;
-            }
+    var built = build();
+    var groups = built.groups;
 
-            return [{ text: p, italic: false, glue: true }];
-        };
+    // Faction Card и Maps — без принудительного соотношения сторон
+    // Events: 2×4; Orders: 2 ряда (3 колонки); остальные — адаптивная сетка
+    var naturalCard = (cat === 'faction_card' || cat === 'map');
+    var gridCols, gridJustify, cardAspect;
+    if (cat === 'faction_card') {
+      gridCols = 'repeat(1, minmax(0, 920px))'; gridJustify = 'center'; cardAspect = '';
+    } else if (cat === 'map') {
+      gridCols = 'repeat(1, minmax(0, 920px))'; gridJustify = 'center'; cardAspect = '';
+    } else if (cat === 'events') {
+      gridCols = 'repeat(4, minmax(0, 1fr))'; gridJustify = 'start'; cardAspect = '450 / 650';
+    } else if (cat === 'orders') {
+      gridCols = 'repeat(4, minmax(0, 1fr))'; gridJustify = 'start'; cardAspect = '450 / 650';
+    } else {
+      gridCols = 'repeat(' + cols + ', minmax(0, 1fr))'; gridJustify = 'start'; cardAspect = '450 / 650';
+    }
 
-        const measure = (txt, italic) => {
-            ctx.font = italic ? italicFont : baseFont;
-            return ctx.measureText(txt).width;
-        };
+    var app = el('div', { class: 'fs-app', 'data-accent': ACCENT });
 
-        const renderLine = (segments, yy) => {
-            let totalW = 0;
-            for (const s of segments) totalW += measure(s.text, s.italic);
+    /* ---- Заголовок ---- */
+    var header = el('header', { class: 'fs-header fs-faq-header' }, [
+      el('div', { class: 'fs-brand fs-brand-link', title: 'На главную', onclick: goHome }, [
+        el('div', { class: 'fs-logo' }, [
+          el('div', { class: 'fs-logo-ring' }),
+          el('div', { class: 'fs-logo-core' }),
+        ]),
+        el('div', { class: 'fs-brand-text' }, [
+          el('span', { class: 'fs-brand-title', text: 'FORBIDDEN STARS' }),
+          el('span', { class: 'fs-brand-sub', text: 'Картотека' }),
+        ]),
+      ]),
+      el('div', { class: 'fs-header-spacer' }),
+      el('div', { class: 'fs-faq-searchwrap' }, [
+        el('span', { class: 'fs-faq-searchicon', html: '&#9906;' }),
+        el('input', {
+          class: 'fs-faq-search', type: 'text', value: state.cardQuery,
+          placeholder: 'Поиск по всем карточкам…', spellcheck: 'false',
+          oninput: function (e) { setState({ cardQuery: e.target.value, lb: null }); },
+        }),
+      ]),
+      el('div', { class: 'fs-header-spacer' }),
+    ]);
 
-            let startX = x;
-            if (align === 'center') startX = x - totalW / 2;
+    /* ---- Боковая панель: навигация Игра › Дополнение › Фракция ---- */
+    var libNav = el('nav', { class: 'fs-nav' },
+      DATA.expansions.map(function (e) {
+        ensureFactions(e.key);
+        var facs = DATA.factions[e.key] || [];
+        var expActive = state.expansion === e.key;
+        var open = state.expOpen === e.key;
 
-            let cx = startX;
-            for (const s of segments) {
-                ctx.font = s.italic ? italicFont : baseFont;
-                ctx.textAlign = 'left';
-                ctx.fillText(s.text, cx, yy);
-                cx += measure(s.text, s.italic);
-            }
-        };
-
-        ctx.font = baseFont;
-        ctx.textAlign = align;
-        const lineHeight = getLH();
-        let yy = y + lineHeight;
-
-        for (let p of paragraphs) {
-            if (p === '') {
-                yy += lineHeight;
-                continue;
-            }
-
-            const tokens = buildTokens(p);
-            let line = [];
-            let lineWidth = 0;
-
-            const pushWord = (word, italic, glue) => {
-                const segText = (line.length === 0 || glue) ? word : (' ' + word);
-                const w = measure(segText, italic);
-
-                if (lineWidth + w > maxW && line.length > 0) {
-                    renderLine(line, yy);
-                    yy += lineHeight + interline;
-                    line = [];
-                    lineWidth = 0;
-
-                    line.push({ text: word, italic });
-                    lineWidth += measure(word, italic);
-                } else {
-                    line.push({ text: segText, italic });
-                    lineWidth += w;
-                }
+        var chevron = el('span', { class: 'fs-exp-chevron' + (open ? ' open' : ''), html: '&rsaquo;' });
+        var expHeader = el('button', {
+          class: 'fs-fac fs-faq-catnav fs-exp-head' + (expActive ? ' is-active' : ''),
+          onclick: (function (key) {
+            return function (ev) {
+              state.expOpen = (state.expOpen === key) ? null : key;
+              var nav = ev.currentTarget.closest('.fs-nav');
+              [].forEach.call(nav.querySelectorAll('.fs-nav-group'), function (g) {
+                var isOpen = g.getAttribute('data-exp') === state.expOpen;
+                var s = g.querySelector('.fs-nav-subs'); if (s) s.classList.toggle('collapsed', !isOpen);
+                var c = g.querySelector('.fs-exp-chevron'); if (c) c.classList.toggle('open', isOpen);
+              });
             };
-
-            for (const t of tokens) {
-                if (t.text === ':') {
-                    pushWord(':', false, true);
-                    continue;
-                }
-
-                const words = t.text.split(' ');
-                for (let i = 0; i < words.length; i++) {
-                    if (!words[i]) continue;
-                    const glue = line.length === 0 || (t.glue && i === 0);
-                    pushWord(words[i], t.italic, glue);
-                }
-            }
-
-            if (line.length) {
-                renderLine(line, yy);
-                yy += lineHeight + interline;
-            }
-        }
-    }
-
-    /* =========================
-       FAQ HELPERS
-    ========================= */
-
-    const normalizeFaqValue = (value) => String(value ?? '').toLowerCase();
-    const faqMatches = (value, query) => normalizeFaqValue(value).includes(query);
-    const faqWithArray = (value) => Array.isArray(value) ? value : [];
-    const getFaqPicture = (node) => node && typeof node === 'object' ? node.picture || '' : '';
-
-    function faqEscapeHtml(str) {
-        return String(str ?? '')
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/\"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-    }
-
-    function normalizeFaqMainText(value) {
-        return String(value ?? '')
-            .replace(/\\r\\n/g, '\n')
-            .replace(/\\n/g, '\n');
-    }
-
-    function highlightFaqText(text, query) {
-        const raw = String(text ?? '');
-        if (!query) {
-            return faqEscapeHtml(raw);
-        }
-
-        const escaped = faqEscapeHtml(raw);
-        const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`(${safeQuery})`, 'ig');
-        return escaped.replace(regex, '<mark>$1</mark>');
-    }
-
-    function createFaqLevelRow(textHtml, picture) {
-        const row = document.createElement('div');
-        row.className = `faq-level-row ${picture ? '' : 'no-picture'}`.trim();
-
-        const textWrap = document.createElement('div');
-        textWrap.innerHTML = textHtml;
-        row.appendChild(textWrap);
-
-        if (picture) {
-            const img = document.createElement('img');
-            img.className = 'faq-level-image';
-            img.src = picture;
-            img.alt = '';
-            img.loading = 'lazy';
-            row.appendChild(img);
-        }
-
-        return row;
-    }
-
-    function renderFaqPhraseBlock(phraseObj, query) {
-        const phraseBlock = document.createElement('section');
-        phraseBlock.className = 'faq-phrase-block faq-level-block';
-
-        const phraseText = phraseObj.Phrase ?? '';
-        const mainText = normalizeFaqMainText(phraseObj.Main ?? '');
-        const picture = getFaqPicture(phraseObj);
-
-        const textHtml = `
-            <div class="faq-phrase-title"><strong>${highlightFaqText(phraseText, query)}</strong></div>
-            <div class="faq-main-text">${highlightFaqText(mainText, query)}</div>
-        `;
-
-        phraseBlock.appendChild(createFaqLevelRow(textHtml, picture));
-        return phraseBlock;
-    }
-
-    function renderFaqFactionBlock(factionObj, query) {
-        const block = document.createElement('section');
-        block.className = 'faq-faction-block faq-level-block';
-
-        const title = factionObj.Faction ?? '';
-        const picture = getFaqPicture(factionObj);
-
-        const headerHtml = `
-            <h3>${highlightFaqText(title, query)}</h3>
-            <div class="faq-separator"></div>
-        `;
-
-        block.appendChild(createFaqLevelRow(headerHtml, picture));
-
-        faqWithArray(factionObj.items).forEach((phraseObj) => {
-            block.appendChild(renderFaqPhraseBlock(phraseObj, query));
-        });
-
-        return block;
-    }
-
-    function renderFaqSubCategoryBlock(subObj, query) {
-        const block = document.createElement('section');
-        block.className = 'faq-subcategory-block faq-level-block';
-
-        const title = subObj.SubCategory ?? '';
-        const picture = getFaqPicture(subObj);
-
-        const headerHtml = `
-            <h2>${highlightFaqText(title, query)}</h2>
-            <div class="faq-separator"></div>
-        `;
-
-        block.appendChild(createFaqLevelRow(headerHtml, picture));
-
-        faqWithArray(subObj.items).forEach((factionObj) => {
-            block.appendChild(renderFaqFactionBlock(factionObj, query));
-        });
-
-        return block;
-    }
-
-    function renderFaqCategoryBlock(categoryObj, query) {
-        const block = document.createElement('section');
-        block.className = 'faq-category-block faq-level-block';
-
-        const title = categoryObj.Category ?? '';
-        const picture = getFaqPicture(categoryObj);
-
-        const headerHtml = `
-            <h1>${highlightFaqText(title, query)}</h1>
-            <div class="faq-separator"></div>
-        `;
-
-        block.appendChild(createFaqLevelRow(headerHtml, picture));
-
-        faqWithArray(categoryObj.items).forEach((subObj) => {
-            block.appendChild(renderFaqSubCategoryBlock(subObj, query));
-        });
-
-        return block;
-    }
-
-    function renderFaq(data, query = '') {
-        if (!faqContent) {
-            return;
-        }
-
-        faqContent.innerHTML = '';
-
-        if (!data.length) {
-            const empty = document.createElement('div');
-            empty.className = 'faq-empty-state';
-            empty.textContent = query ? 'Ничего не найдено.' : 'FAQ пока пуст.';
-            faqContent.appendChild(empty);
-            return;
-        }
-
-        data.forEach((categoryObj) => {
-            faqContent.appendChild(renderFaqCategoryBlock(categoryObj, query));
-        });
-    }
-
-    function filterFaqData(data, rawQuery) {
-        const query = normalizeFaqValue(rawQuery).trim();
-        if (!query) {
-            return data;
-        }
-
-        return faqWithArray(data).flatMap((categoryObj) => {
-            const filteredSubCategories = faqWithArray(categoryObj.items).flatMap((subObj) => {
-                if (faqMatches(subObj.SubCategory, query)) {
-                    return [subObj];
-                }
-
-                const filteredFactions = faqWithArray(subObj.items).flatMap((factionObj) => {
-                    if (faqMatches(factionObj.Faction, query)) {
-                        return [factionObj];
-                    }
-
-                    const filteredPhrases = faqWithArray(factionObj.items).filter((phraseObj) => {
-                        return faqMatches(phraseObj.Phrase, query) || faqMatches(phraseObj.Main, query);
-                    });
-
-                    if (filteredPhrases.length) {
-                        return [{
-                            ...factionObj,
-                            items: filteredPhrases
-                        }];
-                    }
-
-                    return [];
-                });
-
-                if (filteredFactions.length) {
-                    return [{
-                        ...subObj,
-                        items: filteredFactions
-                    }];
-                }
-
-                return [];
-            });
-
-            if (filteredSubCategories.length) {
-                return [{
-                    ...categoryObj,
-                    items: filteredSubCategories
-                }];
-            }
-
-            return [];
-        });
-    }
-
-    function updateFaqSearchResults(rawQuery) {
-        const query = rawQuery.trim();
-        const filtered = filterFaqData(faqOriginalData, rawQuery);
-        renderFaq(filtered, query);
-
-        if (faqSearchMeta) {
-            faqSearchMeta.textContent = query
-                ? `Поиск: «${query}»`
-                : 'Показан полный FAQ';
-        }
-    }
-
-    function debounce(fn, delay = 200) {
-        let timer = null;
-        return (...args) => {
-            window.clearTimeout(timer);
-            timer = window.setTimeout(() => fn(...args), delay);
-        };
-    }
-
-    async function loadFaq() {
-        if (faqLoaded) {
-            return faqOriginalData;
-        }
-
-        if (faqLoadingPromise) {
-            return faqLoadingPromise;
-        }
-
-        faqLoadingPromise = fetchJsonCached(FAQ_JSON_PATH)
-            .then((data) => {
-                faqOriginalData = Array.isArray(data) ? data : [];
-                faqLoaded = true;
-                updateFaqSearchResults(faqSearchInput?.value ?? '');
-                return faqOriginalData;
-            })
-            .catch((error) => {
-                console.error(error);
-                faqLoaded = false;
-
-                if (faqContent) {
-                    faqContent.innerHTML = '<div class="faq-empty-state">Не удалось загрузить данные FAQ.</div>';
-                }
-
-                throw error;
-            })
-            .finally(() => {
-                faqLoadingPromise = null;
-            });
-
-        return faqLoadingPromise;
-    }
-
-    function showCardsView() {
-        if (factionTabsContainer) factionTabsContainer.style.display = '';
-        if (cardTypeTabs) cardTypeTabs.style.display = '';
-        if (cardsContainer) cardsContainer.style.display = '';
-        if (faqContainer) faqContainer.classList.remove('active');
-    }
-
-    function showFaqView() {
-        if (factionTabsContainer) factionTabsContainer.style.display = 'none';
-        if (cardTypeTabs) cardTypeTabs.style.display = 'none';
-        if (cardsContainer) cardsContainer.style.display = 'none';
-        if (faqContainer) faqContainer.classList.add('active');
-        loadFaq().catch(() => { });
-    }
-
-    if (faqSearchInput) {
-        faqSearchInput.addEventListener(
-            'input',
-            debounce((event) => {
-                updateFaqSearchResults(event.target.value);
-            }, 150)
-        );
-    }
-
-    /* =========================
-       CARD RENDERERS
-    ========================= */
-
-    // These ratios preserve the existing combat-card artwork proportions at any canvas size.
-    const COMBAT_LAYOUT = {
-        maxTextAreaHeight: 0.4,
-        titleX: 0.27,
-        titleY: 0.077,
-        titleFontSize: 0.05,
-        textMarginX: 0.0578,
-        textMarginY: 0.05,
-        lineSpacing: 0.0077,
-        fontSize: 0.03,
-        backgroundTextTopInset: 0.0385,
-        foregroundTextTopInset: 0.0455,
-        marginShrinkFactor: 0.8,
-        fontShrinkFactor: 0.99,
-        lineSpacingShrinkFactor: 0.95,
-        // The source ratios identify the fixed decorative sections in the supplied artwork.
-        backgroundDecorativeTop: { sourceHeightRatio: 12 / 379, canvasHeightRatio: 12 / 880 },
-        foregroundDecorativeTop: { sourceHeightRatio: 28 / 300, canvasHeightRatio: 28 / 880 },
-        bottomStripHeight: 18 / 880,
-        iconSize: 0.097,
-        iconSpacing: 0.011,
-        iconX: 0.0632,
-        iconStartY: 0.242
-    };
-
-    function drawStretchPanel(ctx, image, y, height, decorativeTop) {
-        if (height <= 0) {
-            return;
-        }
-
-        const canvasWidth = ctx.canvas.width;
-        const topHeight = Math.min(height, ctx.canvas.height * decorativeTop.canvasHeightRatio);
-        const sourceTopHeight = Math.min(image.height, image.height * decorativeTop.sourceHeightRatio);
-
-        ctx.drawImage(image, 0, 0, image.width, sourceTopHeight, 0, y, canvasWidth, topHeight);
-
-        const parchmentHeight = height - topHeight;
-        if (parchmentHeight > 0 && sourceTopHeight < image.height) {
-            ctx.drawImage(
-                image,
-                0,
-                sourceTopHeight,
-                image.width,
-                image.height - sourceTopHeight,
-                0,
-                y + topHeight,
-                canvasWidth,
-                parchmentHeight
-            );
-        }
-    }
-
-    function drawCombatIcons(ctx, icons, layout) {
-        let y = layout.iconStartY;
-
-        icons.forEach((icon) => {
-            ctx.drawImage(icon, layout.iconX, y, layout.iconSize, layout.iconSize);
-            y += layout.iconSize + layout.iconSpacing;
-        });
-    }
-
-    async function drawCombatCard(data, ctx) {
-        const canvasWidth = ctx.canvas.width;
-        const canvasHeight = ctx.canvas.height;
-        const textMarginX = canvasWidth * COMBAT_LAYOUT.textMarginX;
-        const textWidth = canvasWidth - textMarginX * 2;
-        const layout = {
-            maxTextHeight: canvasHeight * COMBAT_LAYOUT.maxTextAreaHeight,
-            titleX: canvasWidth * COMBAT_LAYOUT.titleX,
-            titleY: canvasHeight * COMBAT_LAYOUT.titleY,
-            bottomStripHeight: canvasHeight * COMBAT_LAYOUT.bottomStripHeight,
-            iconSize: canvasWidth * COMBAT_LAYOUT.iconSize,
-            iconSpacing: canvasWidth * COMBAT_LAYOUT.iconSpacing,
-            iconX: canvasWidth * COMBAT_LAYOUT.iconX,
-            iconStartY: canvasHeight * COMBAT_LAYOUT.iconStartY
-        };
-
-        // Load resources.
-        const [picture, backgroundImage, foregroundImage, bottomImage, ...icons] = await Promise.all([
-            loadImage(data.picture),
-            loadImage('pictures/background.png'),
-            loadImage('pictures/foreground.png'),
-            loadImage('pictures/bottom.png'),
-            ...[...String(data.icons || '')]
-                .map((character) => iconMap[character.toUpperCase()])
-                .filter(Boolean)
-                .map(loadImage)
+          })(e.key),
+        }, [
+          el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:' + expColor(e.key) + ';' }),
+          el('span', { class: 'fs-fac-name', text: e.name }),
+          chevron,
         ]);
 
-        ctx.drawImage(picture, 0, 0, canvasWidth, canvasHeight);
+        var subs = el('div', { class: 'fs-nav-subs' + (open ? '' : ' collapsed') },
+          facs.map(function (f) {
+            var cnt = manifestCount(DATA.manifest[e.key + '/' + f.key]);
+            var facActive = expActive && state.faction === f.key;
+            return el('button', {
+              class: 'fs-faq-subnav fs-fac-sub' + (facActive ? ' is-active' : ''),
+              onclick: (function (ek, fk) { return function () { setState({ expansion: ek, faction: fk, lb: null, expOpen: ek, cardQuery: '' }); }; })(e.key, f.key),
+            }, [
+              el('span', { class: 'fs-fac-dot fs-fac-subdot', style: 'background:' + f.dot + ';' }),
+              el('span', { class: 'fs-fac-name', text: f.name }),
+              el('span', { class: 'fs-fac-count', text: cnt == null ? '' : String(cnt) }),
+            ]);
+          })
+        );
 
-        ctx.font = `${canvasHeight * COMBAT_LAYOUT.titleFontSize}px Headline`;
-        ctx.textAlign = 'left';
-        ctx.fillText(data.title || '', layout.titleX, layout.titleY);
+        return el('div', { class: 'fs-nav-group', 'data-exp': e.key }, [expHeader, subs]);
+      })
+    );
 
-        const backgroundText = data.hasText ? replaceForbiddenStarsElements(data.background || '') : '';
-        const foregroundText = data.hasText ? replaceForbiddenStarsElements(data.foreground || '') : '';
-        const hasPanelText = Boolean(backgroundText || foregroundText);
+    // Переключатель разрешения (чекбокс-тоггл)
+    var resInput = el('input', {
+      type: 'checkbox', id: 'fs-res-toggle', class: 'fs-res-input',
+      checked: useHighRes ? 'checked' : null,
+      onchange: function (e) { applyResolution(e.target.checked); render(); },
+    });
+    var resLabel = el('label', { class: 'fs-res-label', for: 'fs-res-toggle' }, [
+      el('span', { class: 'fs-res-track' }, [el('span', { class: 'fs-res-thumb' })]),
+      el('span', { class: 'fs-res-text', text: useHighRes ? 'Высокое (630×880)' : 'Стандарт (450×650)' }),
+    ]);
+    var resBtn = el('div', { class: 'fs-res-wrap' }, [resInput, resLabel]);
 
-        // Measure text and shrink it until both panels fit their shared area.
-        let fontSize = canvasHeight * COMBAT_LAYOUT.fontSize;
-        let interline = canvasHeight * COMBAT_LAYOUT.lineSpacing;
-        let marginHeight = canvasWidth * COMBAT_LAYOUT.textMarginY;
-        const backgroundInset = canvasHeight * COMBAT_LAYOUT.backgroundTextTopInset;
-        const foregroundInset = canvasHeight * COMBAT_LAYOUT.foregroundTextTopInset;
+    var sidebar = el('aside', { class: 'fs-sidebar fs-scroll' }, [
+      el('div', { class: 'fs-sidebar-label', text: 'База и дополнения' }),
+      libNav,
+      el('div', { class: 'fs-sidebar-section' }, [
+        el('div', { class: 'fs-sidebar-label', text: 'Справочник' }),
+        el('button', { class: 'fs-fac fs-faq-entry', onclick: function () { setState({ view: 'faq', cardQuery: '' }); } }, [
+          el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:var(--fs-accent);' }),
+          el('span', { class: 'fs-fac-name', text: 'FAQ' }),
+          el('span', { class: 'fs-fac-count', html: '&rsaquo;' }),
+        ]),
+      ]),
+      el('div', { class: 'fs-sidebar-section' }, [
+        el('div', { class: 'fs-sidebar-label', text: 'Разрешение' }),
+        resBtn,
+      ]),
+      el('div', { class: 'fs-sidebar-foot' }, [
+        el('p', { html: 'FAN PROJECT &middot; NON&#8209;COMMERCIAL<br>Artwork &copy; Games Workshop' }),
+      ]),
+    ]);
 
-        const measurePanels = () => ({
-            background: backgroundText
-                ? calculateTextHeight(ctx, backgroundText, backgroundInset, marginHeight, interline, fontSize, textWidth)
-                : 0,
-            foreground: foregroundText
-                ? calculateTextHeight(ctx, foregroundText, foregroundInset, marginHeight, interline, fontSize, textWidth)
-                : 0
+    /* ---- Основная область ---- */
+    var main = el('main', { class: 'fs-main' });
+
+    // ---- Глобальный поиск по карточкам, сгруппированный по дополнению → фракции ----
+    if (state.cardQuery.trim()) {
+      var q = state.cardQuery.trim().toLowerCase();
+      flat = [];
+      var match = function (c) {
+        return (c.label + ' ' + (c.text && c.text.title ? c.text.title : '')).toLowerCase().indexOf(q) >= 0;
+      };
+      var sres = el('div', { class: 'fs-scrollarea fs-scroll' });
+      DATA.expansions.forEach(function (e) {
+        var facs = DATA.factions[e.key] || [];
+        var facBlocks = [];
+        var expCount = 0;
+        facs.forEach(function (f) {
+          var hits = collectFaction(e.key, f.key).filter(match);
+          if (!hits.length) return;
+          expCount += hits.length;
+          var grid = el('div', {
+            class: 'fs-grid',
+            style: 'grid-template-columns:repeat(' + cols + ', minmax(0, 1fr));justify-content:start;',
+          }, hits.map(function (card) {
+            card.index = flat.length; flat.push(card);
+            var btn = el('button', {
+              class: 'fs-card fs-card--search', title: card.label,
+              onclick: (function (idx) { return function () { openLb(idx); }; })(card.index),
+            }, [el('img', { src: card.src, alt: card.label, loading: 'lazy' })]);
+            var imgEl = btn.querySelector('img');
+            imgEl.addEventListener('error', function () { btn.style.display = 'none'; });
+            applyComposite(imgEl, card);
+            return el('div', { class: 'fs-search-item' }, [
+              btn,
+              el('div', { class: 'fs-search-cap' }, [
+                el('span', { class: 'fs-search-cat', text: card.catName }),
+                el('span', { class: 'fs-search-name', text: card.label }),
+              ]),
+            ]);
+          }));
+          facBlocks.push(el('div', { class: 'fs-faq-subsection' }, [
+            el('div', { class: 'fs-faq-sublabel', text: facNameOf(e.key, f.key) }),
+            grid,
+          ]));
         });
-
-        let panelHeights = measurePanels();
-        while (hasPanelText && panelHeights.background + panelHeights.foreground > layout.maxTextHeight) {
-            marginHeight *= COMBAT_LAYOUT.marginShrinkFactor;
-            fontSize *= COMBAT_LAYOUT.fontShrinkFactor;
-            interline *= COMBAT_LAYOUT.lineSpacingShrinkFactor;
-            panelHeights = measurePanels();
+        if (facBlocks.length) {
+          sres.appendChild(el('div', { class: 'fs-faq-catblock' }, [
+            el('h2', { class: 'fs-faq-cathead' }, [
+              el('span', { class: 'fs-faq-catdot', style: 'background:' + expColor(e.key) + ';' }),
+              e.name,
+              el('span', { class: 'fs-search-expcount', text: String(expCount) }),
+            ]),
+          ].concat(facBlocks)));
         }
-
-        // Calculate layout. calculateTextHeight already includes margins and decorative insets.
-        const foregroundPanel = foregroundText
-            ? {
-                height: panelHeights.foreground,
-                y: canvasHeight - panelHeights.foreground,
-                textY: canvasHeight - panelHeights.foreground + marginHeight + foregroundInset
-            }
-            : null;
-        const backgroundPanel = backgroundText
-            ? {
-                height: panelHeights.background,
-                y: canvasHeight - panelHeights.background - panelHeights.foreground,
-                visualHeight: panelHeights.background + panelHeights.foreground,
-                textY: canvasHeight - panelHeights.background - panelHeights.foreground + marginHeight + backgroundInset
-            }
-            : null;
-
-        // Draw panels.
-        if (backgroundPanel) {
-            // The foreground decoration has transparent pixels, so the background remains beneath it.
-            drawStretchPanel(ctx, backgroundImage, backgroundPanel.y, backgroundPanel.visualHeight, COMBAT_LAYOUT.backgroundDecorativeTop);
-        }
-        if (foregroundPanel) {
-            drawStretchPanel(ctx, foregroundImage, foregroundPanel.y, foregroundPanel.height, COMBAT_LAYOUT.foregroundDecorativeTop);
-        }
-
-        // Draw text.
-        if (backgroundPanel) {
-            drawStyledWrappedText(
-                ctx,
-                backgroundText,
-                textMarginX,
-                backgroundPanel.textY,
-                textWidth,
-                interline,
-                fontSize,
-                'left'
-            );
-        }
-        if (foregroundPanel) {
-            drawStyledWrappedText(
-                ctx,
-                foregroundText,
-                textMarginX,
-                foregroundPanel.textY,
-                textWidth,
-                interline,
-                fontSize,
-                'left'
-            );
-        }
-
-        // Draw icons.
-        drawCombatIcons(ctx, icons, layout);
-
-        // Draw the bottom strip last so it remains above the panels.
-        ctx.drawImage(bottomImage, 0, 0, bottomImage.width, bottomImage.height, 0, canvasHeight - layout.bottomStripHeight, canvasWidth, layout.bottomStripHeight);
+      });
+      main.appendChild(el('div', { class: 'fs-breadcrumb' }, [
+        el('div', { class: 'fs-bc-left' }, [
+          el('span', { class: 'fs-bc-exp', text: 'Все карточки' }),
+          el('span', { class: 'fs-bc-sep', text: '/' }),
+          el('h1', { class: 'fs-bc-title', text: 'Поиск: «' + state.cardQuery + '»' }),
+        ]),
+        el('span', { class: 'fs-bc-total', text: flat.length + ' ' + ruPlural(flat.length, 'результат', 'результата', 'результатов') }),
+      ]));
+      if (!flat.length) {
+        sres.appendChild(el('div', { class: 'fs-note', text: 'Нет карточек по запросу «' + state.cardQuery + '».' }));
+      }
+      main.appendChild(sres);
+      app.appendChild(header);
+      app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
+      appendLightbox(app);
+      mountApp(app);
+      return;
     }
 
-    function drawOrderCard(data, ctx) {
-        return new Promise((resolve, reject) => {
-            const maxFieldsHeight = maxHeight * 0.455;
-            const textPosition = maxHeight * 0.54;
-            const marginOrderWidth = maxHeight * 0.1;
-
-            let interline = maxHeight * 0.0077;
-            let fontSize = maxHeight * 0.03;
-
-            const picture = new Image();
-            picture.src = data.picture;
-
-            const finishDraw = () => {
-                ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-
-                ctx.font = `${titleFontSize}px Headline`;
-                ctx.textAlign = 'center';
-                ctx.fillText(data.title || '', maxWidth * 0.5, maxHeight * 0.2325);
-
-                if (data.hasText) {
-                    drawStyledWrappedText(
-                        ctx,
-                        replaceForbiddenStarsElements(data.general || ''),
-                        maxWidth * 0.5,
-                        textPosition,
-                        maxWidth - 2 * marginOrderWidth,
-                        interline,
-                        fontSize,
-                        'center'
-                    );
-                }
-
-                resolve();
-            };
-
-            if (!data.hasText) {
-                picture.onload = finishDraw;
-                picture.onerror = () => reject(new Error('Failed to load order card image'));
-                return;
-            }
-
-            let generalTextHeight = 0;
-            const generalText = replaceForbiddenStarsElements(data.general || '');
-
-            const recalcTextHeight = () => {
-                generalTextHeight = calculateTextHeight(
-                    ctx,
-                    generalText,
-                    0,
-                    marginOrderWidth,
-                    interline,
-                    fontSize
-                );
-            };
-
-            const shrinkTextToFit = () => {
-                fontSize *= 0.95;
-                interline *= 0.97;
-                recalcTextHeight();
-            };
-
-            recalcTextHeight();
-            while (generalTextHeight > maxFieldsHeight) {
-                shrinkTextToFit();
-            }
-
-            picture.onload = finishDraw;
-            picture.onerror = () => reject(new Error('Failed to load order card image'));
-        });
+    if (!state.expansion || !state.faction) {
+      main.appendChild(el('div', { class: 'fs-empty' }, [
+        el('div', { class: 'fs-empty-glyph' }, [el('div', { class: 'ring' }), el('div', { class: 'core' })]),
+        el('div', { class: 'fs-empty-stack' }, [
+          el('h2', { text: 'Forbidden Stars — Картотека' }),
+          el('p', { html: 'Выберите игру и фракцию слева, чтобы просмотреть карточки &mdash; или воспользуйтесь поиском.' }),
+        ]),
+      ]));
+      app.appendChild(header);
+      app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
+      mountApp(app);
+      return;
     }
 
-    function drawEventCard(data, ctx) {
-        return new Promise((resolve, reject) => {
-            const maxFieldsHeight = maxHeight * 0.278;
-            const textPosition = maxHeight * 0.685;
-
-            let interline = maxHeight * 0.0077;
-            let fontSize = maxHeight * 0.03;
-
-            const picture = new Image();
-            picture.src = data.picture;
-
-            const finishDraw = () => {
-                ctx.drawImage(picture, 0, 0, maxWidth, maxHeight);
-
-                ctx.font = `bold ${titleFontSize * 0.8}px EventFont`;
-                ctx.textAlign = 'center';
-                ctx.fillText(data.type || '', maxWidth * 0.5, maxHeight * 0.573);
-
-                ctx.font = `${titleFontSize}px Headline`;
-                ctx.textAlign = 'left';
-                ctx.fillText(data.title || '', maxWidth * 0.05, maxHeight * 0.0735);
-
-                if (data.hasText) {
-                    drawStyledWrappedText(
-                        ctx,
-                        replaceForbiddenStarsElements(data.general || ''),
-                        marginWidth,
-                        textPosition,
-                        maxWidth - 2 * marginWidth,
-                        interline,
-                        fontSize,
-                        'left'
-                    );
-                }
-
-                resolve();
-            };
-
-            if (!data.hasText) {
-                picture.onload = finishDraw;
-                picture.onerror = () => reject(new Error('Failed to load event card image'));
-                return;
-            }
-
-            let generalTextHeight = 0;
-            const generalText = replaceForbiddenStarsElements(data.general || '');
-
-            const recalcTextHeight = () => {
-                generalTextHeight = calculateTextHeight(
-                    ctx,
-                    generalText,
-                    20,
-                    0,
-                    interline,
-                    fontSize
-                );
-            };
-
-            const shrinkTextToFit = () => {
-                fontSize *= 0.95;
-                interline *= 0.97;
-                recalcTextHeight();
-            };
-
-            recalcTextHeight();
-            while (generalTextHeight > maxFieldsHeight) {
-                shrinkTextToFit();
-            }
-
-            picture.onload = finishDraw;
-            picture.onerror = () => reject(new Error('Failed to load event card image'));
-        });
+    var facId = state.expansion + '/' + state.faction;
+    var hasMaterials = !!(DATA.text[facId] && DATA.text[facId].materials && DATA.text[facId].materials.length);
+    if (cat === 'material' && !hasMaterials && DATA.categories.length) {
+      setState({ category: DATA.categories[0].key });
+      return;
     }
+    var cattabs = el('div', { class: 'fs-cattabs fs-scroll' },
+      DATA.categories.map(function (c) {
+        return el('button', {
+          class: 'fs-cat' + (cat === c.key ? ' is-active' : ''),
+          onclick: (function (key) { return function () { setState({ category: key, lb: null, cardQuery: '' }); }; })(c.key),
+          text: catName(c.key),
+        });
+      }).concat(hasMaterials ? [el('button', {
+        class: 'fs-cat' + (cat === 'material' ? ' is-active' : ''),
+        onclick: function () { setState({ category: 'material', lb: null, cardQuery: '' }); },
+        text: catName('material'),
+      })] : [])
+    );
+    main.appendChild(el('div', { class: 'fs-cattabs-wrap' }, [cattabs]));
 
-    /* =========================
-       CARD BUILDERS
-    ========================= */
+    main.appendChild(el('div', { class: 'fs-breadcrumb' }, [
+      el('div', { class: 'fs-bc-left' }, [
+        el('span', { class: 'fs-bc-exp', text: expName(state.expansion) }),
+        el('span', { class: 'fs-bc-sep', text: '/' }),
+        el('h1', { class: 'fs-bc-title', text: (facName(state.faction) || '…') + ' — ' + catName(cat) }),
+      ]),
+      el('span', {
+        class: 'fs-bc-total',
+        text: cat === 'material'
+          ? (built.material && built.material.length ? built.material.length + ' ' + ruPlural(built.material.length, 'единица', 'единицы', 'единиц') : '')
+          : (flat.length + ' ' + ruPlural(flat.length, 'карточка', 'карточки', 'карточек')),
+      }),
+    ]));
 
-    function createCombatContent(container, expansionFolder, factionFolder, files, textData) {
-        const sections = {
-            's-section': withArray(files?.[0]),
-            't1-section': withArray(files?.[1]),
-            't2-section': withArray(files?.[2]),
-            't3-section': withArray(files?.[3])
+    var scrollarea = el('div', { class: 'fs-scrollarea fs-scroll' });
+    if (!built.ready) {
+      scrollarea.appendChild(el('div', { class: 'fs-note', text: 'Загрузка…' }));
+    } else if (cat === 'material') {
+      scrollarea.appendChild(renderMaterial(built.material));
+    } else if (!groups.length) {
+      scrollarea.appendChild(el('div', { class: 'fs-note', text: 'Нет карточек этого типа.' }));
+    } else {
+      groups.forEach(function (group) {
+        if (group.label) {
+          scrollarea.appendChild(el('div', { class: 'fs-group-head' }, [
+            el('span', { class: 'fs-group-label', text: group.label }),
+            el('span', { class: 'fs-group-rule' }),
+            el('span', { class: 'fs-group-sub', text: group.sub }),
+          ]));
+        }
+        var grid = el('div', {
+          class: 'fs-grid' + (cat === 'events' ? ' fs-grid--events' : ''),
+          style: 'grid-template-columns:' + gridCols + ';justify-content:' + gridJustify + ';',
+        }, group.cards.map(function (card) {
+          var btn = el('button', {
+            class: 'fs-card' + (naturalCard ? ' fs-card--natural' : ''),
+            title: card.label,
+            style: cardAspect ? ('aspect-ratio:' + cardAspect + ';') : '',
+            onclick: (function (idx) { return function () { openLb(idx); }; })(card.index),
+          }, [
+            el('img', { src: card.src, alt: card.label, loading: 'lazy' }),
+          ]);
+          var imgEl = btn.querySelector('img');
+          imgEl.addEventListener('error', function () {
+            btn.style.display = 'none';
+            maybeEmptyNote(scrollarea);
+          });
+          applyComposite(imgEl, card);
+          return btn;
+        }));
+        scrollarea.appendChild(grid);
+      });
+    }
+    main.appendChild(scrollarea);
+
+    app.appendChild(header);
+    app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
+    appendLightbox(app);
+    mountApp(app);
+  }
+
+  // Встраивает оверлей лайтбокса в `app` при открытой карточке
+  function appendLightbox(app) {
+    if (state.lb === null) return;
+    var c = flat[state.lb];
+    if (!c) return;
+    var full = state.lbFull;
+    var mag = state.lbMag;
+
+    var imgEl = lbImg(c);
+    var imgWrap = el('div', { class: 'fs-lb-imgwrap' + (mag ? ' mag-on' : '') }, [imgEl]);
+    attachMagnifier(imgWrap, imgEl);
+
+    var children = [
+      el('button', {
+        class: 'fs-lb-nav', 'aria-label': 'Предыдущая карточка', html: '&lsaquo;',
+        onclick: function (e) { e.stopPropagation(); step(-1); },
+      }),
+      el('figure', { class: 'fs-lb-fig' + (full ? ' is-full' : ''), onclick: function (e) { e.stopPropagation(); } }, [
+        imgWrap,
+        el('figcaption', { class: 'fs-lb-cap' }, [
+          el('span', { class: 'fs-lb-label', text: c.label }),
+          el('span', {
+            class: 'fs-lb-meta',
+            text: (c.catName || catName(state.category)) + ' · ' + facName(state.faction) + ' · ' + (state.lb + 1) + ' / ' + flat.length,
+          }),
+        ]),
+      ]),
+      el('button', {
+        class: 'fs-lb-nav', 'aria-label': 'Следующая карточка', html: '&rsaquo;',
+        onclick: function (e) { e.stopPropagation(); step(1); },
+      }),
+      el('div', { class: 'fs-lb-maghint' + (mag ? '' : ' hidden') }, [
+        'Прокрутка = масштаб · Shift+прокрутка = размер лупы',
+      ]),
+      el('button', {
+        class: 'fs-lb-tool fs-lb-mag' + (mag ? ' is-active' : ''),
+        'aria-label': 'Лупа',
+        'data-tip': 'Лупа · прокрутка: масштаб · Shift+прокрутка: размер',
+        html: '&#9906;',
+        onclick: function (e) {
+          e.stopPropagation();
+          state.lbMag = !state.lbMag;
+          var ov = e.currentTarget.closest('.fs-lb');
+          var wrap = ov.querySelector('.fs-lb-imgwrap');
+          wrap.classList.toggle('mag-on', state.lbMag);
+          e.currentTarget.classList.toggle('is-active', state.lbMag);
+          var hint = ov.querySelector('.fs-lb-maghint');
+          if (hint) hint.classList.toggle('hidden', !state.lbMag);
+          if (!state.lbMag) { var l = wrap.querySelector('.fs-lb-lens'); if (l) l.style.display = 'none'; }
+        },
+      }),
+      el('button', {
+        class: 'fs-lb-tool fs-lb-full', 'aria-label': 'Полноэкранный режим',
+        'data-tip': full ? 'По размеру окна' : 'На весь экран',
+        html: full ? '&#10532;' : '&#10530;',
+        onclick: function (e) {
+          e.stopPropagation();
+          state.lbFull = !state.lbFull;
+          var ov = e.currentTarget.closest('.fs-lb');
+          ov.querySelector('.fs-lb-fig').classList.toggle('is-full', state.lbFull);
+          e.currentTarget.innerHTML = state.lbFull ? '&#10532;' : '&#10530;';
+          e.currentTarget.setAttribute('data-tip', state.lbFull ? 'По размеру окна' : 'На весь экран');
+        },
+      }),
+      el('button', {
+        class: 'fs-lb-tool fs-lb-close', 'aria-label': 'Закрыть', 'data-tip': 'Закрыть (Esc)', html: '&#10005;',
+        onclick: function (e) { e.stopPropagation(); closeLb(); },
+      }),
+    ];
+    app.appendChild(el('div', { class: 'fs-lb', onclick: closeLb }, children));
+  }
+
+  function goHome() {
+    setState({ view: 'codex', expansion: null, faction: null, category: 'combat', lb: null, expOpen: null, cardQuery: '' });
+  }
+
+  // Перерисовка при изменении размера окна (дебаунс)
+  var _rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(_rt);
+    _rt = setTimeout(render, 120);
+  });
+
+  /* ---- Инициализация ---- */
+
+  function boot() {
+    fetchJSON('factions/general.json').then(function (g) {
+      DATA.general = g;
+      DATA.defaults = g.filenames;
+      DATA.expansions = (g.expansion.folder || []).map(function (key, i) {
+        return {
+          key: key,
+          name: (g.expansion.name && g.expansion.name[i]) || key,
+          color: (g.expansion.color && g.expansion.color[i]) || DOT_FALLBACK,
         };
-
-        const combatText = textData
-            ? {
-                's-section': withArray(textData?.[0]),
-                't1-section': withArray(textData?.[1]),
-                't2-section': withArray(textData?.[2]),
-                't3-section': withArray(textData?.[3])
-            }
-            : false;
-
-        Object.keys(sections).forEach((section) => {
-            const sectionContainer = document.createElement('div');
-            sectionContainer.classList.add('grid', 'combat', section);
-
-            sections[section].forEach((file, idx) => {
-                const placeholder = createPlaceholderWithSpinner();
-                sectionContainer.appendChild(placeholder);
-
-                const jsonData = {
-                    picture: `factions/${expansionFolder}/${factionFolder}/combat/${file}`,
-                    hasText: !!combatText,
-                    title: combatText ? (combatText[section][idx]?.title || '') : '',
-                    background: combatText ? (combatText[section][idx]?.general || '') : '',
-                    foreground: combatText ? (combatText[section][idx]?.unit || '') : '',
-                    icons: combatText ? (combatText[section][idx]?.icons || '') : ''
-                };
-
-                const canvas = document.createElement('canvas');
-                canvas.width = maxWidth;
-                canvas.height = maxHeight;
-                const context = canvas.getContext('2d');
-
-                drawCombatCard(jsonData, context)
-                    .then(() => {
-                        placeholder.replaceWith(canvas);
-                    })
-                    .catch((err) => {
-                        console.error('Error drawing combat card:', err);
-                        placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
-                    });
-            });
-
-            container.appendChild(sectionContainer);
-        });
-    }
-
-    function createOrdersContent(container, expansionFolder, factionFolder, files, textData) {
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('grid', 'orders');
-
-        withArray(files).forEach((file, idx) => {
-            const placeholder = createPlaceholderWithSpinner();
-            categoryContainer.appendChild(placeholder);
-
-            const jsonData = {
-                picture: `factions/${expansionFolder}/${factionFolder}/orders/${file}`,
-                hasText: !!textData,
-                title: textData ? (textData[idx]?.title || '') : '',
-                general: textData ? (textData[idx]?.general || '') : ''
-            };
-
-            const canvas = document.createElement('canvas');
-            canvas.width = maxWidth;
-            canvas.height = maxHeight;
-            const context = canvas.getContext('2d');
-
-            drawOrderCard(jsonData, context)
-                .then(() => {
-                    placeholder.replaceWith(canvas);
-                })
-                .catch((err) => {
-                    console.error('Error drawing order card:', err);
-                    placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
-                });
-        });
-
-        container.appendChild(categoryContainer);
-    }
-
-    function createEventContent(container, expansionFolder, factionFolder, files, textData) {
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('grid', 'events');
-
-        withArray(files).forEach((file, idx) => {
-            const placeholder = createPlaceholderWithSpinner();
-            categoryContainer.appendChild(placeholder);
-
-            const jsonData = {
-                picture: `factions/${expansionFolder}/${factionFolder}/events/${file}`,
-                hasText: !!textData,
-                title: textData ? (textData[idx]?.title || '') : '',
-                general: textData ? (textData[idx]?.general || '') : '',
-                type: textData ? (textData[idx]?.type || '') : ''
-            };
-
-            const canvas = document.createElement('canvas');
-            canvas.width = maxWidth;
-            canvas.height = maxHeight;
-            const context = canvas.getContext('2d');
-
-            drawEventCard(jsonData, context)
-                .then(() => {
-                    placeholder.replaceWith(canvas);
-                })
-                .catch((err) => {
-                    console.error('Error drawing event card:', err);
-                    placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки карты</span>';
-                });
-        });
-
-        container.appendChild(categoryContainer);
-    }
-
-    function imageLoaderUniversal(files, maxW, maxH, pathToImage, container, categoryContainer) {
-        withArray(files).forEach((file) => {
-            const placeholder = createPlaceholderWithSpinner();
-            categoryContainer.appendChild(placeholder);
-
-            const img = document.createElement('img');
-            img.src = `${pathToImage}${file}`;
-            if (maxW) img.width = maxW;
-            if (maxH) img.height = maxH;
-
-            img.onload = () => {
-                placeholder.replaceWith(img);
-            };
-
-            img.onerror = () => {
-                placeholder.innerHTML = '<span style="color:red;">Ошибка загрузки изображения</span>';
-            };
-        });
-
-        container.appendChild(categoryContainer);
-    }
-
-    function createFactioncardContent(
-        container,
-        expansionFolder,
-        factionFolder,
-        imageFiles
-    ) {
-
-        const grid = document.createElement('div');
-
-        grid.className =
-            'grid factionCardImage';
-
-        container.appendChild(grid);
-
-        withArray(imageFiles).forEach(file => {
-
-            const img = document.createElement('img');
-
-            img.loading = 'lazy';
-
-            img.src =
-                `factions/${expansionFolder}/${factionFolder}/faction_card/${file}`;
-
-            img.className = 'card-image';
-
-            img.onerror = () => {
-
-                img.style.display = 'none';
-
-            };
-
-            grid.appendChild(img);
-
-        });
-    }
-
-    function backCardContent(container, expansionFolder, factionFolder, files) {
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('grid', 'cardBackImages');
-
-        imageLoaderUniversal(
-            files,
-            maxWidth,
-            maxHeight,
-            `factions/${expansionFolder}/${factionFolder}/backs/`,
-            container,
-            categoryContainer
-        );
-    }
-
-    function mapCardContent(container, expansionFolder, factionFolder, files) {
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('grid', 'mapImages');
-
-        imageLoaderUniversal(
-            files,
-            maxWidth * 2,
-            false,
-            `factions/${expansionFolder}/${factionFolder}/maps/`,
-            container,
-            categoryContainer
-        );
-    }
-
-    /* =========================
-       UI RENDERING
-    ========================= */
-
-    function renderCardTypeTabs(cardTypes) {
-        cardTypeTabs.innerHTML = '';
-
-        cardTypes.forEach((type, i) => {
-            const tab = document.createElement('div');
-            tab.className = `card-header${i === 0 ? ' active' : ''}`;
-            tab.textContent = CARD_TYPE_LABELS_RU[type] ?? type;
-            tab.dataset.cardType = type;
-            cardTypeTabs.appendChild(tab);
-
-            if (i === 0) {
-                activeCardTab = tab;
-            }
-        });
-
-        state.cardType = cardTypes[0] ?? null;
-    }
-
-    async function loadCards(expansionFolder, factionFolder, cardTypeReference) {
-
-        if (!generalData) {
-            return;
-        }
-
-        cardsContainer.innerHTML = '';
-
-        const subTabContents = document.createElement('div');
-
-        subTabContents.classList.add('card-contents');
-
-        subTabContents.id =
-            `cards-${expansionFolder}-${factionFolder}-${cardTypeReference}`;
-
-        cardsContainer.appendChild(subTabContents);
-
-        let textData = null;
-
-        try {
-
-            const textPath =
-                `factions/${expansionFolder}/${factionFolder}/text.json`;
-
-            try {
-
-                textData =
-                    await fetchJsonCached(textPath);
-
-            }
-            catch {
-
-                textData = null;
-
-            }
-
-            const cardsFilenameCombatList =
-                generalData.filenames.combat;
-
-            const cardsFilenameOrderList =
-                generalData.filenames.orders;
-
-            const cardsFilenameEventList =
-                generalData.filenames.events;
-
-            const cardsFilenameFactioncardList =
-                generalData.filenames.faction_card;
-
-            const cardsFilenameBacksList =
-                generalData.filenames.backs;
-
-            const cardsFilenameMapList =
-                generalData.filenames.map;
-
-            const cardsOrdersText =
-                textData?.ordersText ?? false;
-
-            const cardsEventsText =
-                textData?.eventsText ?? false;
-
-            const cardsCombatText =
-                textData?.combatText ?? false;
-
-            switch (cardTypeReference) {
-
-                case 'combat':
-
-                    createCombatContent(
-                        subTabContents,
-                        expansionFolder,
-                        factionFolder,
-                        cardsFilenameCombatList,
-                        cardsCombatText
-                    );
-
-                    break;
-
-                case 'orders':
-
-                    createOrdersContent(
-                        subTabContents,
-                        expansionFolder,
-                        factionFolder,
-                        cardsFilenameOrderList,
-                        cardsOrdersText
-                    );
-
-                    break;
-
-                case 'events':
-
-                    createEventContent(
-                        subTabContents,
-                        expansionFolder,
-                        factionFolder,
-                        cardsFilenameEventList,
-                        cardsEventsText
-                    );
-
-                    break;
-
-                case 'faction_card':
-
-                    createFactioncardContent(
-                        subTabContents,
-                        expansionFolder,
-                        factionFolder,
-                        cardsFilenameFactioncardList
-                    );
-
-                    break;
-
-                case 'backs':
-
-                    backCardContent(
-                        subTabContents,
-                        expansionFolder,
-                        factionFolder,
-                        cardsFilenameBacksList
-                    );
-
-                    break;
-
-                case 'map':
-
-                    mapCardContent(
-                        subTabContents,
-                        expansionFolder,
-                        factionFolder,
-                        cardsFilenameMapList
-                    );
-
-                    break;
-            }
-
-        }
-        catch (error) {
-
-            console.error(
-                'Ошибка загрузки карт:',
-                error
-            );
-        }
-    }
-    function loadCardsMenu(expansionFolder, factionFolder) {
-        if (!generalData) {
-            return;
-        }
-
-        const cardsDefaultName = generalData.cardsDefault.name;
-        const cardsDefaultReference = generalData.cardsDefault.reference;
-
-        cardTypeTabs.innerHTML = '';
-
-        cardsDefaultReference.forEach((reference, referenceIndex) => {
-            const cardTabHeader = document.createElement('div');
-            cardTabHeader.textContent = cardsDefaultName[referenceIndex] ?? CARD_TYPE_LABELS_RU[reference] ?? reference;
-            cardTabHeader.classList.add('card-header');
-            cardTabHeader.dataset.faction = factionFolder;
-            cardTabHeader.dataset.expansion = expansionFolder;
-            cardTabHeader.dataset.cardType = reference;
-
-            if (referenceIndex === 0) {
-                cardTabHeader.classList.add('active');
-                activeCardTab = cardTabHeader;
-            }
-
-            cardTypeTabs.appendChild(cardTabHeader);
-        });
-
-        state.cardType = cardsDefaultReference[0] ?? null;
-
-        if (state.cardType) {
-            loadCards(expansionFolder, factionFolder, state.cardType);
-        }
-    }
-
-    function loadFactions(expansionFolder) {
-        state.expansionKey = expansionFolder;
-        factionTabsContainer.innerHTML = '';
-
-        const factionPath = `factions/${expansionFolder}/faction.json`;
-
-        fetchJsonCached(factionPath)
-            .then((expansionData) => {
-                const factionFolderList = expansionData.folder;
-                const factionNameList = expansionData.name;
-
-                factionFolderList.forEach((factionFolder, factionFolderIndex) => {
-                    const factionTabHeader = document.createElement('div');
-                    factionTabHeader.textContent = factionNameList[factionFolderIndex];
-                    factionTabHeader.classList.add('faction-header');
-                    factionTabHeader.dataset.faction = factionFolder;
-                    factionTabHeader.dataset.expansion = expansionFolder;
-
-                    if (factionFolderIndex === 0) {
-                        factionTabHeader.classList.add('active');
-                        activeFactionTab = factionTabHeader;
-                    }
-
-                    factionTabsContainer.appendChild(factionTabHeader);
-                });
-
-                state.factionKey = factionFolderList[0] ?? null;
-
-                if (state.factionKey) {
-                    loadCardsMenu(expansionFolder, state.factionKey);
-                }
-            })
-            .catch((error) => console.error('Ошибка загрузки faction.json:', error));
-    }
-
-    function showCardsView() {
-        if (factionTabsContainer) factionTabsContainer.style.display = '';
-        if (cardTypeTabs) cardTypeTabs.style.display = '';
-        if (cardsContainer) cardsContainer.style.display = '';
-        if (faqContainer) faqContainer.classList.remove('active');
-    }
-
-    function showFaqView() {
-        if (factionTabsContainer) factionTabsContainer.style.display = 'none';
-        if (cardTypeTabs) cardTypeTabs.style.display = 'none';
-        if (cardsContainer) cardsContainer.style.display = 'none';
-        if (faqContainer) faqContainer.classList.add('active');
-        loadFaq().catch(() => { });
-    }
-
-    /* =========================
-       EVENT DELEGATION
-    ========================= */
-
-    expansionTabsContainer.addEventListener('click', (e) => {
-        const tab = e.target.closest('.expansion-header');
-        if (!tab) return;
-
-        const isFaqTab = tab.dataset.special === 'faq';
-        const buttonExp = tab.dataset.expansion;
-
-        if (activeExpansionTab) {
-            activeExpansionTab.classList.remove('active');
-        }
-        tab.classList.add('active');
-        activeExpansionTab = tab;
-
-        if (isFaqTab) {
-            showFaqView();
-        } else {
-            showCardsView();
-            loadFactions(buttonExp);
-        }
+      });
+      DATA.categories = (g.cardsDefault.reference || []).map(function (key, i) {
+        return { key: key, name: (g.cardsDefault.name && g.cardsDefault.name[i]) || key };
+      });
+      // FAQ section dots follow expansion colors from general.json
+      if (window.FS_FAQ) {
+        window.FS_FAQ.dots = [ACCENT_FALLBACK].concat(DATA.expansions.map(function (e) { return e.color; }));
+      }
+      render();
+      DATA.expansions.forEach(function (e) { ensureFactions(e.key); });
+      fetchJSON('data/cardnames.json').then(function (names) { DATA.cardnames = names || {}; render(); }).catch(function () {});
+    }).catch(function (e) {
+      console.error(e);
+      var root = document.getElementById('app');
+      if (root) root.textContent = 'Ошибка загрузки данных.';
     });
+  }
 
-    factionTabsContainer.addEventListener('click', (e) => {
-        const tab = e.target.closest('.faction-header');
-        if (!tab) return;
-
-        if (activeFactionTab) {
-            activeFactionTab.classList.remove('active');
-        }
-        tab.classList.add('active');
-        activeFactionTab = tab;
-
-        state.expansionKey = tab.dataset.expansion;
-        state.factionKey = tab.dataset.faction;
-
-        loadCardsMenu(state.expansionKey, state.factionKey);
-    });
-
-    cardTypeTabs.addEventListener('click', (e) => {
-        const tab = e.target.closest('.card-header');
-        if (!tab) return;
-
-        if (activeCardTab) {
-            activeCardTab.classList.remove('active');
-        }
-        tab.classList.add('active');
-        activeCardTab = tab;
-
-        state.cardType = tab.dataset.cardType;
-
-        if (state.expansionKey && state.factionKey && state.cardType) {
-            loadCards(state.expansionKey, state.factionKey, state.cardType);
-        }
-    });
-
-    /* =========================
-       INIT
-    ========================= */
-
-    try {
-        generalData = await fetchJsonCached('factions/general.json');
-
-        const expansionFolderList = generalData.expansion.folder;
-        const expansionNameList = generalData.expansion.name;
-
-        expansionTabsContainer.innerHTML = '';
-
-        expansionFolderList.forEach((key, i) => {
-            const el = document.createElement('div');
-            el.className = `expansion-header${i === 0 ? ' active' : ''}`;
-            el.textContent = expansionNameList[i];
-            el.dataset.expansion = key;
-            expansionTabsContainer.appendChild(el);
-
-            if (i === 0) {
-                activeExpansionTab = el;
-            }
-        });
-
-        const faqTabHeader = document.createElement('div');
-        faqTabHeader.textContent = 'FAQ';
-        faqTabHeader.classList.add('expansion-header');
-        faqTabHeader.dataset.expansion = 'faq';
-        faqTabHeader.dataset.special = 'faq';
-        expansionTabsContainer.appendChild(faqTabHeader);
-
-        state.expansionKey = expansionFolderList[0] ?? null;
-
-        showCardsView();
-        if (state.expansionKey) {
-            loadFactions(state.expansionKey);
-        }
-    } catch (error) {
-        console.error('Ошибка загрузки general.json:', error);
-    }
-});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();
