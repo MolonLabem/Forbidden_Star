@@ -791,7 +791,7 @@
     var sidebar = el('aside', { class: 'fs-sidebar fs-scroll' }, [
       el('div', { class: 'fs-sidebar-label', text: 'База и дополнения' }),
       libNav,
-      el('div', { class: 'fs-sidebar-section' }, [
+      el('div', { class: 'fs-sidebar-section fs-faq-section' }, [
         el('div', { class: 'fs-sidebar-label', text: 'Справочник' }),
         el('button', { class: 'fs-fac fs-faq-entry', onclick: function () { setState({ view: 'faq', cardQuery: '' }); } }, [
           el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:var(--fs-accent);' }),
