@@ -560,6 +560,7 @@ body {
   .fs-fac-count { display: none; }
   .fs-sidebar-foot { display: none; }
   .fs-sidebar-section { display: none; }
+  .fs-sidebar-section.fs-faq-section { display: block; margin-top: 0; }
   .fs-scrollarea { overflow-y: visible; }
   .fs-header { gap: 14px; padding: 0 14px; }
   .fs-grid { gap: 12px; }
