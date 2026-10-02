@@ -2,11 +2,11 @@
     "filenames": {
         "combat": [
             [
-                "s_1.jpg",
-                "s_2.jpg",
-                "s_3.jpg",
-                "s_4.jpg",
-                "s_5.jpg"
+                "s1.jpg",
+                "s2.jpg",
+                "s3.jpg",
+                "s4.jpg",
+                "s5.jpg"
             ],
             [
                 "t0_1.jpg",
@@ -50,13 +50,13 @@
             "sheet_back_1.jpg"
         ],
         "backs": [
-            "back_1.jpg",
-            "back_2.jpg",
-            "back_3.jpg"
+            "combat.jpg",
+            "order.jpg",
+            "event.jpg"
         ],
         "map": [
-            "system_tile_front_1.jpg",
-            "system_tile_back_1.jpg"
+            "map_B.jpg",
+            "map_A.jpg"
         ]
     }
 }

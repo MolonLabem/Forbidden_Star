@@ -185,6 +185,14 @@
          <div class="main-text">${highlightText(mainText, query)}</div>`,
         picture
       ));
+      if (/^https:\/\/fixed-crane-287\.notion\.site\/[a-f0-9]{32}$/.test(phraseObj.Source)) {
+        const source = document.createElement('a');
+        source.href = phraseObj.Source;
+        source.target = '_blank';
+        source.rel = 'noopener noreferrer';
+        source.textContent = 'Источник: FS League — Note';
+        block.appendChild(source);
+      }
       return block;
     }
 

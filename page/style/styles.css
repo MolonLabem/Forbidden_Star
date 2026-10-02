@@ -340,6 +340,8 @@ body {
   transition: opacity .15s;
 }
 .fs-empty-btn:hover { opacity: 0.9; }
+.fs-load-error { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 36px 20px; text-align: center; }
+.fs-load-error .fs-note { margin: 0; padding: 0; }
 
 /* ---- лайтбокс ---- */
 .fs-lb {
@@ -357,10 +359,11 @@ body {
 .fs-lb-nav:hover { border-color: var(--fs-accent); color: var(--fs-accent); }
 .fs-lb-fig {
   margin: 0; display: flex; flex-direction: column; align-items: center; gap: 16px;
+  min-width: 0; max-width: min(1100px, calc(100% - 128px));
   animation: fspop .2s ease;
 }
 .fs-lb-fig img {
-  max-height: 90vh; max-width: min(1100px, 92vw); border-radius: 14px;
+  max-height: calc(100dvh - 150px); max-width: 100%; border-radius: 14px;
   border: 1px solid #38332c; box-shadow: 0 40px 90px -25px #000; display: block;
 }
 .fs-lb-cap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
@@ -394,11 +397,12 @@ body {
 
 /* полноэкранный режим */
 .fs-lb-fig.is-full { gap: 0; }
-.fs-lb-fig.is-full img { height: 96vh; width: auto; max-width: 94vw; max-height: 96vh; border-radius: 8px; }
+.fs-lb-fig.is-full .fs-lb-imgwrap { width: calc((100dvh - 96px) * var(--fs-lb-ratio, 1)); }
+.fs-lb-fig.is-full img { width: 100%; height: auto; max-width: 100%; max-height: calc(100dvh - 96px); border-radius: 8px; }
 .fs-lb-fig.is-full .fs-lb-cap { display: none; }
 
 /* лупа */
-.fs-lb-imgwrap { position: relative; display: inline-block; line-height: 0; }
+.fs-lb-imgwrap { position: relative; display: inline-block; line-height: 0; max-width: 100%; }
 .fs-lb-imgwrap.mag-on { cursor: crosshair; }
 .fs-lb-lens {
   position: absolute; display: none; width: 204px; height: 204px; border-radius: 50%;
@@ -500,6 +504,7 @@ body {
 .fs-faq-answer { display: none; padding: 0 19px 18px; }
 .fs-faq-item.is-open .fs-faq-answer { display: block; animation: fsexpand .2s ease; }
 .fs-faq-atext { font-size: 15px; line-height: 1.72; color: #c4bfb5; margin: 0; white-space: pre-wrap; }
+.fs-faq-source { display: inline-block; margin-top: 12px; font-size: 12px; color: var(--fs-accent); }
 
 /* ---- боковая навигация ЧаВо ---- */
 .fs-faq-catnav { margin-top: 8px; }
@@ -562,7 +567,21 @@ body {
   .fs-sidebar-section { display: none; }
   .fs-sidebar-section.fs-faq-section { display: block; margin-top: 0; }
   .fs-scrollarea { overflow-y: visible; }
-  .fs-header { gap: 14px; padding: 0 14px; }
+  .fs-header { flex-wrap: wrap; height: auto; gap: 12px; padding: 14px; }
+  .fs-header-spacer { display: none; }
+  .fs-faq-header .fs-faq-searchwrap { width: 100%; max-width: none; min-width: 0; }
+  .fs-faq-content { padding: 22px 20px 40px; }
+  .fs-faq-hero { padding: 28px 20px 22px; }
+  .fs-lb { padding: 64px 12px 72px; }
+  .fs-lb-nav { position: absolute; bottom: 14px; z-index: 3; }
+  .fs-lb-nav:first-child { left: 20px; }
+  .fs-lb-nav:nth-of-type(2) { right: 20px; }
+  .fs-lb-fig { max-width: 100%; }
+  .fs-lb-fig img, .fs-lb-fig.is-full img { max-width: 100%; max-height: calc(100dvh - 168px); }
+  .fs-lb-fig.is-full .fs-lb-imgwrap { width: calc((100dvh - 136px) * var(--fs-lb-ratio, 1)); }
+  .fs-lb-fig.is-full img { max-height: calc(100dvh - 136px); }
+  .fs-lb-cap { max-width: calc(100vw - 24px); text-align: center; }
+  .fs-lb-maghint { white-space: normal; text-align: center; max-width: calc(100vw - 144px); bottom: 14px; }
   .fs-grid { gap: 12px; }
 }
 

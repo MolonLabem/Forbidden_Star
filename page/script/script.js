@@ -4,7 +4,7 @@
  * Структура данных (в page/factions/):
  *   general.json                       — дополнения (+color), категории, labels, filenames
  *   <expansion>/faction.json           — фракции (+color), имена
- *   <expansion>/<faction>/text.json    — необязательное переопределение filenames и текст карточек
+ *   <expansion>/<faction>/text.json    — метаданные: необязательные filenames и текст карточек
  *   <expansion>/<faction>/<folder>/<file>  — изображения карточек
  *
  * Отсутствующие изображения (например, дополнение без карт) обрабатываются
@@ -73,6 +73,7 @@
     faq:       null,
     cardnames: {},
     loading:   {},
+    errors:    {},
   };
 
   // Напечатанное название карточки (из cardnames.json) или запасной вариант
@@ -82,17 +83,19 @@
   }
 
   function ensureFaq() {
-    if (DATA.faq || DATA.loading.faq || !window.FS_FAQ) return;
+    if (DATA.faq || DATA.loading.faq || DATA.errors.faq || !window.FS_FAQ) return;
     DATA.loading.faq = true;
     fetchJSON(window.FS_FAQ.src).then(function (raw) {
       if (DATA.expansions.length) {
         window.FS_FAQ.dots = [ACCENT_FALLBACK].concat(DATA.expansions.map(function (e) { return e.color; }));
       }
       DATA.faq = window.FS_FAQ.flatten(raw);
+      DATA.loading.faq = false;
       render();
     }).catch(function (e) {
       console.error('Ошибка загрузки FAQ', e);
-      DATA.faq = { navTopics: [{ key: 'all', name: 'Все вопросы', dot: ACCENT_FALLBACK }], cats: [], count: {} };
+      DATA.loading.faq = false;
+      DATA.errors.faq = true;
       render();
     });
   }
@@ -185,10 +188,10 @@
     });
   }
 
-  // Загружает манифест имён файлов фракции (text.json или умолчания)
+  // Манифест нужен до показа карточек: часть изображений содержит только шаблон.
   function ensureManifest(exp, fac) {
     var id = exp + '/' + fac;
-    if (DATA.manifest[id] || DATA.loading['man:' + id]) return;
+    if (DATA.manifest[id] || DATA.loading['man:' + id] || DATA.errors['man:' + id]) return;
     DATA.loading['man:' + id] = true;
     fetchJSON('factions/' + exp + '/' + fac + '/text.json').then(function (t) {
       DATA.manifest[id] = mergeFilenames(t && t.filenames);
@@ -198,10 +201,12 @@
         events:    (t && t.eventsText)    || null,
         materials: (t && t.materialsText) || null,
       };
+      DATA.loading['man:' + id] = false;
       render();
-    }).catch(function () {
-      DATA.manifest[id] = mergeFilenames(null);
-      DATA.text[id] = { combat: null, orders: null, events: null, materials: null };
+    }).catch(function (e) {
+      console.error('Ошибка загрузки карточек', e);
+      DATA.loading['man:' + id] = false;
+      DATA.errors['man:' + id] = true;
       render();
     });
   }
@@ -272,6 +277,18 @@
     return node;
   }
 
+  function loadError(message, retry) {
+    return el('div', { class: 'fs-load-error', role: 'alert' }, [
+      el('p', { class: 'fs-note', text: message }),
+      el('button', { class: 'fs-empty-btn', text: 'Повторить загрузку', onclick: retry }),
+    ]);
+  }
+
+  function openFaq() {
+    delete DATA.errors.faq;
+    setState({ view: 'faq', cardQuery: '' });
+  }
+
   /* ---- Композитинг / растрирование карточек ---- */
 
   function cardPixelSize() {
@@ -322,6 +339,11 @@
 
   function lbImg(card) {
     var img = el('img', { src: card.src, alt: card.label });
+    img.addEventListener('load', function () {
+      if (img.parentNode && img.naturalHeight) {
+        img.parentNode.style.setProperty('--fs-lb-ratio', img.naturalWidth / img.naturalHeight);
+      }
+    });
     applyComposite(img, card);
     return img;
   }
@@ -547,6 +569,12 @@
       icon,
     ]);
     var answer = el('div', { class: 'fs-faq-answer' }, [el('p', { class: 'fs-faq-atext', text: it.a })]);
+    if (/^https:\/\/fixed-crane-287\.notion\.site\/[a-f0-9]{32}$/.test(it.source)) {
+      answer.appendChild(el('a', {
+        class: 'fs-faq-source', href: it.source, target: '_blank', rel: 'noopener noreferrer',
+        text: 'Источник: FS League — Note',
+      }));
+    }
     return el('div', { class: 'fs-faq-item' + (open ? ' is-open' : '') }, [head, answer]);
   }
 
@@ -643,7 +671,9 @@
     });
 
     var contentInner;
-    if (!ready) {
+    if (DATA.errors.faq) {
+      contentInner = loadError('Не удалось загрузить FAQ. Проверьте соединение и попробуйте снова.', openFaq);
+    } else if (!ready) {
       contentInner = el('div', { class: 'fs-note', text: 'Загрузка…' });
     } else if (shown) {
       contentInner = el('div', { class: 'fs-faq-sections' }, sections);
@@ -763,7 +793,11 @@
             var facActive = expActive && state.faction === f.key;
             return el('button', {
               class: 'fs-faq-subnav fs-fac-sub' + (facActive ? ' is-active' : ''),
-              onclick: (function (ek, fk) { return function () { setState({ expansion: ek, faction: fk, lb: null, expOpen: ek, cardQuery: '' }); }; })(e.key, f.key),
+              onclick: (function (ek, fk) { return function () {
+                delete DATA.errors['man:' + ek + '/' + fk];
+                ensureManifest(ek, fk);
+                setState({ expansion: ek, faction: fk, lb: null, expOpen: ek, cardQuery: '' });
+              }; })(e.key, f.key),
             }, [
               el('span', { class: 'fs-fac-dot fs-fac-subdot', style: 'background:' + f.dot + ';' }),
               el('span', { class: 'fs-fac-name', text: f.name }),
@@ -793,7 +827,7 @@
       libNav,
       el('div', { class: 'fs-sidebar-section fs-faq-section' }, [
         el('div', { class: 'fs-sidebar-label', text: 'Справочник' }),
-        el('button', { class: 'fs-fac fs-faq-entry', onclick: function () { setState({ view: 'faq', cardQuery: '' }); } }, [
+        el('button', { class: 'fs-fac fs-faq-entry', onclick: openFaq }, [
           el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:var(--fs-accent);' }),
           el('span', { class: 'fs-fac-name', text: 'FAQ' }),
           el('span', { class: 'fs-fac-count', html: '&rsaquo;' }),
@@ -819,11 +853,17 @@
         return (c.label + ' ' + (c.text && c.text.title ? c.text.title : '')).toLowerCase().indexOf(q) >= 0;
       };
       var sres = el('div', { class: 'fs-scrollarea fs-scroll' });
+      var failed = [];
+      var pending = false;
       DATA.expansions.forEach(function (e) {
+        if (DATA.loading['fac:' + e.key] && !DATA.factions[e.key]) pending = true;
         var facs = DATA.factions[e.key] || [];
         var facBlocks = [];
         var expCount = 0;
         facs.forEach(function (f) {
+          var id = e.key + '/' + f.key;
+          if (DATA.errors['man:' + id]) failed.push({ exp: e.key, fac: f.key });
+          if (DATA.loading['man:' + id]) pending = true;
           var hits = collectFaction(e.key, f.key).filter(match);
           if (!hits.length) return;
           expCount += hits.length;
@@ -870,7 +910,17 @@
         ]),
         el('span', { class: 'fs-bc-total', text: flat.length + ' ' + ruPlural(flat.length, 'результат', 'результата', 'результатов') }),
       ]));
-      if (!flat.length) {
+      if (failed.length) {
+        sres.appendChild(loadError('Не все данные карточек загружены. Результаты поиска могут быть неполными.', function () {
+          failed.forEach(function (f) {
+            delete DATA.errors['man:' + f.exp + '/' + f.fac];
+            ensureManifest(f.exp, f.fac);
+          });
+          render();
+        }));
+      }
+      if (pending) sres.appendChild(el('div', { class: 'fs-note', text: 'Загрузка карточек…' }));
+      if (!flat.length && !failed.length && !pending) {
         sres.appendChild(el('div', { class: 'fs-note', text: 'Нет карточек по запросу «' + state.cardQuery + '».' }));
       }
       main.appendChild(sres);
@@ -931,7 +981,13 @@
     ]));
 
     var scrollarea = el('div', { class: 'fs-scrollarea fs-scroll' });
-    if (!built.ready) {
+    if (DATA.errors['man:' + facId]) {
+      scrollarea.appendChild(loadError('Не удалось загрузить данные карточек. Проверьте соединение и попробуйте снова.', function () {
+        delete DATA.errors['man:' + facId];
+        ensureManifest(state.expansion, state.faction);
+        render();
+      }));
+    } else if (!built.ready) {
       scrollarea.appendChild(el('div', { class: 'fs-note', text: 'Загрузка…' }));
     } else if (cat === 'material') {
       scrollarea.appendChild(renderMaterial(built.material));

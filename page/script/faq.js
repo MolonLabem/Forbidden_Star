@@ -3,7 +3,7 @@
  * Цвета разделов подставляет script.js из general.json (expansion.color).
  *
  * Формат FAQ.json:  [ {Category, items:[ {SubCategory, items:[ {Faction, picture,
- *   items:[ {Phrase, Main} ] } ] } ] } ]
+ *   items:[ {Phrase, Main, Source?} ] } ] } ] } ]
  */
 (function () {
   'use strict';
@@ -13,7 +13,7 @@
     hero: {
       kicker: 'Справочник правил и уточнения',
       title: 'Часто задаваемые вопросы',
-      blurb: 'Официальные разъяснения правил и ответы на вопросы, которые чаще всего возникают за столом — для базовой игры и дополнений. Выберите раздел слева или воспользуйтесь поиском выше.',
+      blurb: 'Разъяснения правил и ответы на вопросы по базовой игре и фанатским дополнениям. Названия карт и термины соответствуют русской картотеке. Уточнения из Note библиотеки FS League отмечены ссылкой на источник; отдельные правила сообщества обозначены в ответах.',
     },
     // Заполняется из general.json.expansion.color при загрузке
     dots: ['#d8a657'],
@@ -42,7 +42,7 @@
             var facObj = { faction: fac.Faction || '', picture: fac.picture || '', items: [] };
             (fac.items || []).forEach(function (it) {
               if (!it || !it.Phrase) return;
-              facObj.items.push({ id: uid++, q: it.Phrase, a: it.Main || '' });
+              facObj.items.push({ id: uid++, q: it.Phrase, a: it.Main || '', source: it.Source || '' });
               subCount++; count[ckey]++; count.all++;
             });
             if (facObj.items.length) subObj.factions.push(facObj);
