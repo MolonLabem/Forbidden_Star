@@ -1,0 +1,654 @@
+{
+  "method": "Pixel difference after normalization to common resolution, screening only; not a rule-diff oracle",
+  "threshold": "mean > 1 or fraction pixels with a channel delta > 35 exceeds 0.01",
+  "candidates": [
+    {
+      "file": "page/factions/tdl/adeptuscustodes/backs/combat.jpg",
+      "meanDifference": 1.067,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/backs/order.jpg",
+      "meanDifference": 66.649,
+      "changedPixelsOver35": 0.8189
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/backs/event.jpg",
+      "meanDifference": 66.675,
+      "changedPixelsOver35": 0.8184
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/s1.jpg",
+      "meanDifference": 29.011,
+      "changedPixelsOver35": 0.2712
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/s2.jpg",
+      "meanDifference": 1.203,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/s3.jpg",
+      "meanDifference": 28.196,
+      "changedPixelsOver35": 0.317
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/s4.jpg",
+      "meanDifference": 28.441,
+      "changedPixelsOver35": 0.3147
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/s5.jpg",
+      "meanDifference": 22.468,
+      "changedPixelsOver35": 0.2385
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t0_1.jpg",
+      "meanDifference": 1.202,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t0_2.jpg",
+      "meanDifference": 1.247,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t0_3.jpg",
+      "meanDifference": 1.239,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t0_4.jpg",
+      "meanDifference": 1.435,
+      "changedPixelsOver35": 0.0022
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t2_1.jpg",
+      "meanDifference": 3.244,
+      "changedPixelsOver35": 0.0151
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t2_2.jpg",
+      "meanDifference": 36.043,
+      "changedPixelsOver35": 0.4015
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t2_3.jpg",
+      "meanDifference": 40.392,
+      "changedPixelsOver35": 0.3921
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t3_1.jpg",
+      "meanDifference": 1.146,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/combat/t3_2.jpg",
+      "meanDifference": 1.197,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_1.jpg",
+      "meanDifference": 1.454,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_2.jpg",
+      "meanDifference": 1.399,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_3.jpg",
+      "meanDifference": 1.378,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_4.jpg",
+      "meanDifference": 5.287,
+      "changedPixelsOver35": 0.0283
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_5.jpg",
+      "meanDifference": 1.354,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_6.jpg",
+      "meanDifference": 1.473,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_7.jpg",
+      "meanDifference": 22.905,
+      "changedPixelsOver35": 0.2394
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/events/e_8.jpg",
+      "meanDifference": 1.462,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/faction_card/sheet_back_1.jpg",
+      "meanDifference": 1.193,
+      "changedPixelsOver35": 0.0048
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/orders/o_1.jpg",
+      "meanDifference": 1.112,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/orders/o_2.jpg",
+      "meanDifference": 2.404,
+      "changedPixelsOver35": 0.0087
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/orders/o_3.jpg",
+      "meanDifference": 1.099,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/orders/o_4.jpg",
+      "meanDifference": 1.111,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/orders/o_5.jpg",
+      "meanDifference": 1.106,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/adeptuscustodes/orders/o_6.jpg",
+      "meanDifference": 1.084,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/backs/combat.jpg",
+      "meanDifference": 1.343,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/backs/order.jpg",
+      "meanDifference": 47.139,
+      "changedPixelsOver35": 0.8547
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/backs/event.jpg",
+      "meanDifference": 47.115,
+      "changedPixelsOver35": 0.8538
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/s1.jpg",
+      "meanDifference": 1.229,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/s2.jpg",
+      "meanDifference": 1.114,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/s3.jpg",
+      "meanDifference": 1.253,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/s4.jpg",
+      "meanDifference": 1.111,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/s5.jpg",
+      "meanDifference": 2.363,
+      "changedPixelsOver35": 0.0075
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t0_1.jpg",
+      "meanDifference": 1.135,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t0_2.jpg",
+      "meanDifference": 1.105,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t0_3.jpg",
+      "meanDifference": 1.148,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t0_4.jpg",
+      "meanDifference": 1.191,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t2_1.jpg",
+      "meanDifference": 1.64,
+      "changedPixelsOver35": 0.0042
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t2_2.jpg",
+      "meanDifference": 1.229,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t2_3.jpg",
+      "meanDifference": 1.28,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t3_1.jpg",
+      "meanDifference": 1.264,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/combat/t3_2.jpg",
+      "meanDifference": 29.459,
+      "changedPixelsOver35": 0.3118
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_1.jpg",
+      "meanDifference": 1.306,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_2.jpg",
+      "meanDifference": 1.391,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_3.jpg",
+      "meanDifference": 1.284,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_4.jpg",
+      "meanDifference": 1.385,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_5.jpg",
+      "meanDifference": 1.383,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_6.jpg",
+      "meanDifference": 2.768,
+      "changedPixelsOver35": 0.0114
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_7.jpg",
+      "meanDifference": 1.31,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/events/e_8.jpg",
+      "meanDifference": 1.326,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/orders/o_1.jpg",
+      "meanDifference": 1.1,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/orders/o_2.jpg",
+      "meanDifference": 1.123,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/orders/o_3.jpg",
+      "meanDifference": 1.127,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/orders/o_4.jpg",
+      "meanDifference": 1.126,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/orders/o_5.jpg",
+      "meanDifference": 1.095,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/genestealercult/orders/o_6.jpg",
+      "meanDifference": 1.134,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/backs/combat.jpg",
+      "meanDifference": 1.199,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/backs/order.jpg",
+      "meanDifference": 34.938,
+      "changedPixelsOver35": 0.7667
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/backs/event.jpg",
+      "meanDifference": 34.934,
+      "changedPixelsOver35": 0.7681
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/s1.jpg",
+      "meanDifference": 1.056,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/s2.jpg",
+      "meanDifference": 29.575,
+      "changedPixelsOver35": 0.3465
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/s3.jpg",
+      "meanDifference": 1.14,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/s4.jpg",
+      "meanDifference": 1.089,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/s5.jpg",
+      "meanDifference": 17.654,
+      "changedPixelsOver35": 0.1587
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t0_1.jpg",
+      "meanDifference": 1.088,
+      "changedPixelsOver35": 0.0001
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t0_2.jpg",
+      "meanDifference": 47.56,
+      "changedPixelsOver35": 0.469
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t0_3.jpg",
+      "meanDifference": 23.284,
+      "changedPixelsOver35": 0.2105
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t0_4.jpg",
+      "meanDifference": 37.291,
+      "changedPixelsOver35": 0.3311
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t0_5.jpg",
+      "meanDifference": 1.196,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t2_1.jpg",
+      "meanDifference": 2.284,
+      "changedPixelsOver35": 0.0097
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t2_2.jpg",
+      "meanDifference": 1.987,
+      "changedPixelsOver35": 0.0063
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t2_3.jpg",
+      "meanDifference": 30.998,
+      "changedPixelsOver35": 0.3102
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t2_4.jpg",
+      "meanDifference": 10.123,
+      "changedPixelsOver35": 0.0783
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t3_1.jpg",
+      "meanDifference": 21.424,
+      "changedPixelsOver35": 0.2478
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t3_2.jpg",
+      "meanDifference": 22.143,
+      "changedPixelsOver35": 0.2513
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/combat/t3_3.jpg",
+      "meanDifference": 24.195,
+      "changedPixelsOver35": 0.2586
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_1.jpg",
+      "meanDifference": 1.312,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_2.jpg",
+      "meanDifference": 1.38,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_3.jpg",
+      "meanDifference": 1.259,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_4.jpg",
+      "meanDifference": 1.278,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_5.jpg",
+      "meanDifference": 17.775,
+      "changedPixelsOver35": 0.1844
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_6.jpg",
+      "meanDifference": 1.323,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_7.jpg",
+      "meanDifference": 1.354,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/events/e_8.jpg",
+      "meanDifference": 1.333,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/faction_card/sheet_back_1.jpg",
+      "meanDifference": 1.1,
+      "changedPixelsOver35": 0.0043
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/orders/o_1.jpg",
+      "meanDifference": 9.097,
+      "changedPixelsOver35": 0.0597
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/orders/o_2.jpg",
+      "meanDifference": 9.122,
+      "changedPixelsOver35": 0.0537
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/orders/o_3.jpg",
+      "meanDifference": 4.478,
+      "changedPixelsOver35": 0.022
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/orders/o_4.jpg",
+      "meanDifference": 1.108,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/orders/o_5.jpg",
+      "meanDifference": 3.351,
+      "changedPixelsOver35": 0.0146
+    },
+    {
+      "file": "page/factions/tdl/leaguesofvotann/orders/o_6.jpg",
+      "meanDifference": 1.13,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/backs/combat.jpg",
+      "meanDifference": 1.333,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/backs/order.jpg",
+      "meanDifference": 49.33,
+      "changedPixelsOver35": 0.8667
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/backs/event.jpg",
+      "meanDifference": 49.221,
+      "changedPixelsOver35": 0.8671
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/s1.jpg",
+      "meanDifference": 1.259,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/s2.jpg",
+      "meanDifference": 1.223,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/s3.jpg",
+      "meanDifference": 1.306,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/s4.jpg",
+      "meanDifference": 1.325,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/s5.jpg",
+      "meanDifference": 1.246,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t0_1.jpg",
+      "meanDifference": 1.241,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t0_2.jpg",
+      "meanDifference": 26.544,
+      "changedPixelsOver35": 0.2949
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t0_3.jpg",
+      "meanDifference": 1.374,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t0_4.jpg",
+      "meanDifference": 1.135,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t2_1.jpg",
+      "meanDifference": 2.888,
+      "changedPixelsOver35": 0.0127
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t2_2.jpg",
+      "meanDifference": 1.395,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t2_3.jpg",
+      "meanDifference": 1.16,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t3_1.jpg",
+      "meanDifference": 1.166,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/combat/t3_2.jpg",
+      "meanDifference": 1.336,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_1.jpg",
+      "meanDifference": 6.169,
+      "changedPixelsOver35": 0.0356
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_2.jpg",
+      "meanDifference": 1.437,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_3.jpg",
+      "meanDifference": 1.451,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_4.jpg",
+      "meanDifference": 1.406,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_5.jpg",
+      "meanDifference": 1.378,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_6.jpg",
+      "meanDifference": 4.528,
+      "changedPixelsOver35": 0.0229
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_7.jpg",
+      "meanDifference": 1.482,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_8.jpg",
+      "meanDifference": 6.667,
+      "changedPixelsOver35": 0.0396
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/events/e_9.jpg",
+      "meanDifference": 7.749,
+      "changedPixelsOver35": 0.0456
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/orders/o_1.jpg",
+      "meanDifference": 1.102,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/orders/o_2.jpg",
+      "meanDifference": 1.107,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/orders/o_3.jpg",
+      "meanDifference": 1.11,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/orders/o_4.jpg",
+      "meanDifference": 1.136,
+      "changedPixelsOver35": 0.0
+    },
+    {
+      "file": "page/factions/tdl/thousandsons/orders/o_5.jpg",
+      "meanDifference": 1.155,
+      "changedPixelsOver35": 0.0
+    }
+  ],
+  "oldLocalCommit": "7a1af7105705451e05dfb56d8b5d8e197c75f333",
+  "visuallySignificantCandidates": 48,
+  "note": "This screening gallery includes art, typography and back-type swaps, not just rules. Counts must not be reported as rule changes."
+}

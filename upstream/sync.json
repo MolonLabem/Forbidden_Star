@@ -1,0 +1,60 @@
+{
+  "repository": "Frytkownica/Forbidden_Star",
+  "reviewedCommit": "a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+  "baseline": "upstream/baseline.json",
+  "expansions": {
+    "base": "base",
+    "gif": "gif",
+    "sow": "sow",
+    "dl": "tdl"
+  },
+  "factions": {
+    "sow/adepta_sororitas": "adeptasororitas",
+    "sow/adeptus_mechanicus": "adeptusmechanicus",
+    "sow/dark_eldar": "darkeldar"
+  },
+  "filenames": {
+    "dl/combat": {
+      "s_1.jpg": "s1.jpg",
+      "s_2.jpg": "s2.jpg",
+      "s_3.jpg": "s3.jpg",
+      "s_4.jpg": "s4.jpg",
+      "s_5.jpg": "s5.jpg"
+    },
+    "dl/backs": {
+      "back_1.jpg": "combat.jpg",
+      "back_2.jpg": "order.jpg",
+      "back_3.jpg": "event.jpg"
+    },
+    "dl/maps": {
+      "system_tile_front_1.jpg": "map_A.jpg",
+      "system_tile_back_1.jpg": "map_B.jpg"
+    }
+  },
+  "ignoredExpansions": [
+    "dd"
+  ],
+  "appliedChanges": [
+    {
+      "commit": "a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+      "cards": [
+        "sow/adeptus_mechanicus/orders/o_1.jpg",
+        "sow/adeptus_mechanicus/combat/t2_1.jpg"
+      ],
+      "status": "translated",
+      "note": "Reveal timing; forge token rallies all units. Earlier content still requires individual translation review."
+    }
+  ],
+  "pendingReviews": [
+    {
+      "expansion": "dl",
+      "commit": "a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+      "assetsSynced": 143,
+      "translations": "draft-for-approval",
+      "cards": 115,
+      "factionSheets": 8,
+      "mapImageLocalization": "pending-clean-sources",
+      "report": "reports/tdl/review.md"
+    }
+  ]
+}

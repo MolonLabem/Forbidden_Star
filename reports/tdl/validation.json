@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-22",
+  "dataTests": 32,
+  "tdlImagesTestedInBothModes": 131,
+  "tdlRenderChecks": 262,
+  "russianCardFronts": 115,
+  "russianFactionSheets": 8,
+  "originalMapImagesWithRussianLegends": 8,
+  "generalBrowserScenarios": 10,
+  "printingBrowserPdfChecks": 142,
+  "previousSoWPrintCompositions": 108,
+  "javascriptErrors": [],
+  "published": false,
+  "approval": "pending",
+  "limitations": [
+    "Map image wording remains English; Russian legends and explicit notice are provided.",
+    "Original ambiguities and new proper names need editorial approval.",
+    "Physical printing has not been performed."
+  ]
+}

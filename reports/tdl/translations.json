@@ -1,0 +1,2384 @@
+{
+  "commit": "a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+  "cards": {
+    "tdl/adeptuscustodes/combat/s1.jpg": {
+      "en": {
+        "title": "DACATARAI STANCE",
+        "general": "Gain 1 [D]. *newpara* If your opponent has more unrouted units than you, gain 2 (S).",
+        "unit": "Custodian/Cruiser: During this execution round, if your opponent has to assign any damage, he assigns 2 additional damage."
+      },
+      "ru": {
+        "title": "СТОЙКА ДАКАТАРАЙ",
+        "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 2 (S).",
+        "unit": "Кустодий/Крейсер: В этом раунде битвы, если противник должен распределить хотя бы 1 урон, он распределяет 2 дополнительных урона.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_1.jpg",
+      "blob": "e0c48200daeccc72a1a0fe813398e53eea4d8ec7",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/s2.jpg": {
+      "en": {
+        "title": "RENDAX STANCE",
+        "general": "Gain either 1 [D] or 1 [M]. *newpara* If your opponent has at least 1 unrouted unit that is not a command level 0 unit, gain 1 (B) and 1 (S).",
+        "unit": "Custodian/Cruiser: At the start of the assess damage step of this execution round, if you have 1 [B] or 1 (B), force your opponent to choose and rout 1 of his units."
+      },
+      "ru": {
+        "title": "СТОЙКА РЕНДАКС",
+        "general": "Получите 1 [D] или 1 [M]. *newpara* Если у противника есть хотя бы 1 недеморализованный отряд с командным уровнем выше 0, получите 1 (B) и 1 (S).",
+        "unit": "Кустодий/Крейсер: В начале шага нанесения повреждений этого раунда битвы, если у вас есть 1 [B] или 1 (B), вынудите противника выбрать и деморализовать 1 его отряд.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_2.jpg",
+      "blob": "159c34b08b48345785de5bac0ce84c383df809cd",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/s3.jpg": {
+      "en": {
+        "title": "FIGHT THROUGH FIRE",
+        "general": "Your opponent chooses and routs 1 of his units.",
+        "unit": "Custodian/Cruiser: At the start of the next execution round you may choose to convert 1 of your [B] into [S] to gain 2 (B)."
+      },
+      "ru": {
+        "title": "СКВОЗЬ ОГОНЬ",
+        "general": "Противник выбирает и деморализует 1 свой отряд.",
+        "unit": "Кустодий/Крейсер: В начале следующего раунда битвы вы можете перевернуть 1 ваш [B] на [S], чтобы получить 2 (B).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_3.jpg",
+      "blob": "fa7f4200396d3f2e5922fd2269f10d5b15c43c1e",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/s4.jpg": {
+      "en": {
+        "title": "STAND YOUR GROUND",
+        "general": "Gain 1 [D]. *newpara* Rally 1 of your units.",
+        "unit": "Custodian: Spend 1 [M] to choose 1 of your units, during this execution round that unit cannot become routed or retreat."
+      },
+      "ru": {
+        "title": "СТОЯТЬ НАСМЕРТЬ",
+        "general": "Получите 1 [D]. *newpara* Восстановите 1 ваш отряд.",
+        "unit": "Кустодий: Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть деморализован или отступить.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_4.jpg",
+      "blob": "1aaaaa455f5e655a9340b08560d822c33ac72b1d",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/s5.jpg": {
+      "en": {
+        "title": "UNDYING CONVICTION",
+        "general": "Gain 1 [D]. *newpara* If your opponent has more unrouted units than you, gain 1 (B), 1 (S), or 1 [M].",
+        "unit": "Custodian/Champion/Cruiser: Gain either 1 (B) or 1 (S). *newpara* Spend 1 [M] to choose 1 of your units, during this execution round, that unit cannot be destroyed by abilities on cards."
+      },
+      "ru": {
+        "title": "НЕУГАСИМАЯ УБЕЖДЁННОСТЬ",
+        "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 1 (B), 1 (S) или 1 [M].",
+        "unit": "Кустодий/Чемпион/Крейсер: Получите 1 (B) или 1 (S). *newpara* Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть уничтожен способностями карт.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_5.jpg",
+      "blob": "894158a84d62395811b05e90346e24025785721a",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t0_1.jpg": {
+      "en": {
+        "title": "BRAVE CHARGE",
+        "general": "Gain 1 [B]. *newpara* Convert 1 of your [M] into [B].",
+        "unit": "Champion: Gain 1 (B) for each of your opponent's unrouted units in excess of your unrouted units."
+      },
+      "ru": {
+        "title": "ОТВАЖНАЯ АТАКА",
+        "general": "Получите 1 [B]. *newpara* Переверните 1 ваш [M] на [B].",
+        "unit": "Чемпион: Получите по 1 (B) за каждый недеморализованный отряд противника сверх числа ваших недеморализованных отрядов.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_1.jpg",
+      "blob": "fb8c8557a45f933c60532107456cb02fc30cf049",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t0_2.jpg": {
+      "en": {
+        "title": "INSPIRING LEADER",
+        "general": "Gain either 1 [D] or 1 [M]. *newpara* Either gain 1 [M] or rally 1 of your units.",
+        "unit": "Champion/Cruiser: Convert up to 2 of your [M] into either [B] or [S]."
+      },
+      "ru": {
+        "title": "ВДОХНОВЛЯЮЩИЙ ЛИДЕР",
+        "general": "Получите 1 [D] или 1 [M]. *newpara* Получите 1 [M] или восстановите 1 ваш отряд.",
+        "unit": "Чемпион/Крейсер: Переверните до 2 ваших [M] на [B] или [S].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_2.jpg",
+      "blob": "aa0075b71eaea160136de191b42956d1f0093df0",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t0_3.jpg": {
+      "en": {
+        "title": "PURGE THE WEAK",
+        "general": "For each of your opponent's unrouted command level 0 units and for each of his routed units, gain 1 (B) up to a maximum of 3.",
+        "unit": "Champion/Cruiser: During this execution round, the first time an enemy unit is routed it is destroyed, unless your opponent chooses and routs 1 of his units."
+      },
+      "ru": {
+        "title": "ИСТРЕБИТЬ СЛАБЫХ",
+        "general": "Получите по 1 (B) за каждый недеморализованный отряд противника с командным уровнем 0 и за каждый его деморализованный отряд, максимум 3 (B).",
+        "unit": "Чемпион/Крейсер: В этом раунде битвы при первой деморализации вражеского отряда этот отряд уничтожается, если противник не выберет и не деморализует 1 свой отряд.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_3.jpg",
+      "blob": "229c58c528bcd107cd7e7c4faa84059994197f90",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t0_4.jpg": {
+      "en": {
+        "title": "DEFEND OUR HONOUR",
+        "general": "Choose 1 of your units and gain its morale value as either (B) or (S).",
+        "unit": "Champion/Cruiser: Choose either a Blade Champion or a Classified Cruiser, during this execution round that unit cannot become routed."
+      },
+      "ru": {
+        "title": "ЗАЩИТИТЬ НАШУ ЧЕСТЬ",
+        "general": "Выберите 1 ваш отряд и получите (B) или (S) в количестве, равном его показателю морали.",
+        "unit": "Чемпион/Крейсер: Выберите 1 Чемпиона Клинка или 1 Секретный Крейсер. В этом раунде битвы выбранный отряд не может быть деморализован.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_4.jpg",
+      "blob": "ea1ccc2b2a5e92a0ed752dddbfe05ba112d2211e",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t2_1.jpg": {
+      "en": {
+        "title": "THE GOLDEN DEATH",
+        "general": "Gain 1 [D]. *newpara* Spend 1 [B] to gain 3 (B). Your opponent may spend 1 [M] to retreat 1 of his units.",
+        "unit": "Galatus Dreadnought: Choose and rout 1 of your command level 3 units to gain 3 (B)."
+      },
+      "ru": {
+        "title": "ЗОЛОТАЯ СМЕРТЬ",
+        "general": "Получите 1 [D]. *newpara* Потратьте 1 [B], чтобы получить 3 (B). Противник может потратить 1 [M], чтобы отступить 1 своим отрядом.",
+        "unit": "Дредноут «Галатус»: Выберите и деморализуйте 1 ваш отряд с командным уровнем 3, чтобы получить 3 (B).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_1.jpg",
+      "blob": "ce4ce023cac42037dbd2b4d5334ecd4101460a51",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t2_2.jpg": {
+      "en": {
+        "title": "IMMOVABLE SENTINEL",
+        "general": "Gain either 1 [D] or 1 (S). *newpara* Gain 1 [D] unless your opponent retreats 1 of his units.",
+        "unit": "Galatus Dreadnought/Moiraideis: During this execution round, your command level 3 units cannot be routed, and all of your units cannot be destroyed by abilities on cards."
+      },
+      "ru": {
+        "title": "НЕПОКОЛЕБИМЫЙ СТРАЖ",
+        "general": "Получите 1 [D] или 1 (S). *newpara* Получите 1 [D], если противник не отступит 1 своим отрядом.",
+        "unit": "Дредноут «Галатус»/Мойрайдейс: В этом раунде битвы ваши отряды с командным уровнем 3 не могут быть деморализованы, а все ваши отряды не могут быть уничтожены способностями карт.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_2.jpg",
+      "blob": "e4a62e52eb9bf835ecfbfa3afd8225e29ba14ca5",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t2_3.jpg": {
+      "en": {
+        "title": "MOVED BY HONOUR",
+        "general": "Gain 1 [D]. *newpara* Gain either 1 (B) or 1 (S). *newpara* Rally 1 of your units.",
+        "unit": "Galatus Dreadnought/Moiraideis: Retreat 1 of your units, if you do, gain 2 (B) and rally that unit."
+      },
+      "ru": {
+        "title": "ВЕДОМЫЕ ЧЕСТЬЮ",
+        "general": "Получите 1 [D]. *newpara* Получите 1 (B) или 1 (S). *newpara* Восстановите 1 ваш отряд.",
+        "unit": "Дредноут «Галатус»/Мойрайдейс: Отступите 1 вашим отрядом. Если вы это сделали, получите 2 (B) и восстановите этот отряд.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_3.jpg",
+      "blob": "ad2d9523e2cf3a8c279ff14db70693794f8ddafb",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t3_1.jpg": {
+      "en": {
+        "title": "PRAISE TO THE EMPEROR!",
+        "general": "Gain 3 [D].",
+        "unit": "Valoris: During this combat you have a dice limit of 12 dice. *newpara* Gain 1 [D]."
+      },
+      "ru": {
+        "title": "ХВАЛА ИМПЕРАТОРУ!",
+        "general": "Получите 3 [D].",
+        "unit": "Валорис: До конца этой битвы ваш лимит кубов равен 12. *newpara* Получите 1 [D].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t3_1.jpg",
+      "blob": "77909a78b11bad4a22ff6f06d2710e4d4647842d",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/combat/t3_2.jpg": {
+      "en": {
+        "title": "THE EMPEROR'S SPEAR",
+        "general": "Rally 1 of your units. Draw a combat card.",
+        "unit": "Valoris: Retreat all of your units that are not Trajann Valoris to play any combat card from your hand that is not The Emperor's Spear."
+      },
+      "ru": {
+        "title": "КОПЬЁ ИМПЕРАТОРА",
+        "general": "Восстановите 1 ваш отряд. Возьмите 1 боевую карту.",
+        "unit": "Валорис: Отступите всеми вашими отрядами, кроме Траянна Валориса, чтобы разыграть любую боевую карту с руки, кроме «Копья Императора».",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t3_2.jpg",
+      "blob": "70835b64f63db8c455486bb788b919665e42cb93",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/orders/o_1.jpg": {
+      "en": {
+        "title": "EMPEROR'S WILL",
+        "general": "When you reveal this order token, starting in round 2, treat all uncontrolled worlds that do not contain your objective token as friendly worlds for the remainder of the game. *newline* LIMIT ONCE PER GAME."
+      },
+      "ru": {
+        "title": "ВОЛЯ ИМПЕРАТОРА",
+        "general": "Когда вы раскрываете этот жетон приказа, начиная со 2-го раунда игры, считайте все неконтролируемые миры без вашего жетона цели дружественными до конца игры. *newline* ОДИН РАЗ ЗА ИГРУ.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_1.jpg",
+      "blob": "6a0fd3c80ec4c7484f823ad1944aceb8b081dcc6",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/orders/o_2.jpg": {
+      "en": {
+        "title": "THE AURIC ADVANCE",
+        "general": "When you reveal this order token, you may resolve it as if it were an Advance Order instead. During this Advance Order you may only move up to 2 of your units. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ЗОЛОТОЕ НАСТУПЛЕНИЕ",
+        "general": "Когда вы раскрываете этот жетон приказа, вы можете выполнить его как приказ Продвижения. Во время этого Продвижения вы можете переместить не более 2 ваших отрядов. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_2.jpg",
+      "blob": "9fb1ee0fd1d2925671699f71d7d1f56c29d5db1d",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/orders/o_3.jpg": {
+      "en": {
+        "title": "BLESSING OF THE EMPEROR",
+        "general": "When you reveal this order token, you may rally 1 of your units in either this system or any adjacent system. That unit may not be moved while resolving this order. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "БЛАГОСЛОВЕНИЕ ИМПЕРАТОРА",
+        "general": "Когда вы раскрываете этот жетон приказа, вы можете восстановить 1 ваш отряд в этой или любой соседней системе. Этот отряд нельзя перемещать во время выполнения данного приказа. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_3.jpg",
+      "blob": "5a21ae4fe92544b86c0c65849ab06def1ddcead6",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/orders/o_4.jpg": {
+      "en": {
+        "title": "SOLAR VANGUARD",
+        "general": "While resolving this order, if you purchased a unit, you may move 1 of your purchased units to a friendly area that contains your units or structures in an adjacent system. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "СОЛНЕЧНЫЙ АВАНГАРД",
+        "general": "Во время выполнения этого приказа, если вы купили отряд, вы можете переместить 1 из купленных отрядов в дружественную область соседней системы, содержащую ваши отряды или постройки. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_4.jpg",
+      "blob": "77a34e2cc1a6a854801d2c80a1c6cc13ad7a8255",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/orders/o_5.jpg": {
+      "en": {
+        "title": "STEP OF JUDGEMENT",
+        "general": "After you resolve this order, you may choose 1 of your units in this system and rally it. You may then move that unit to an adjacent area. This can start a combat. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ШАГ ПРАВОСУДИЯ",
+        "general": "После выполнения этого приказа вы можете выбрать и восстановить 1 ваш отряд в этой системе. Затем вы можете переместить его в соседнюю область. Это может начать битву. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_5.jpg",
+      "blob": "7bcff95594e541035e2cab22891e3a1e788c4899",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/orders/o_6.jpg": {
+      "en": {
+        "title": "THE THRONE'S CALL",
+        "general": "While resolving this order, at the start of an assess damage step of combat, you may retreat 1 of your units and then rally that unit. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ЗОВ ТРОНА",
+        "general": "Во время выполнения этого приказа, в начале шага нанесения повреждений битвы, вы можете отступить 1 вашим отрядом, а затем восстановить его. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_6.jpg",
+      "blob": "6881d8bd30277dacff78cf9093bd136960b41f1f",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_1.jpg": {
+      "en": {
+        "title": "THE INNER PALACE",
+        "general": "Either gain 1 materiel or take 1 friendly unit from any world and place it on a friendly world with a city.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ВНУТРЕННИЙ ДВОРЕЦ",
+        "general": "Получите 1 материал или возьмите 1 дружественный отряд из любого мира и разместите его в дружественном мире с городом.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_1.jpg",
+      "blob": "067188c8351251e0516e9a790b50de7f33b77fe8",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_2.jpg": {
+      "en": {
+        "title": "LEX ULTIMA",
+        "general": "Resolve a deploy order in 1 system containing any of your factories.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ЛЕКС УЛЬТИМА",
+        "general": "Выполните приказ Развертывания в 1 системе, содержащей вашу фабрику.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_2.jpg",
+      "blob": "be38fa7f49039053570e562d698a447fdee9d996",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_3.jpg": {
+      "en": {
+        "title": "THE HYKANOTOI",
+        "general": "Gain 2 reinforcement tokens.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ГИКАНАТОИ",
+        "general": "Получите 2 жетона подкрепления.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_3.jpg",
+      "blob": "58174e3da3a06260cfaffb4cd0dabc78c0bd1820",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_4.jpg": {
+      "en": {
+        "title": "GUARDIANS OF HUMANITY",
+        "general": "Purchase a command level 2 order upgrade even if your command level is lower, reducing its materiel cost by 1 for each friendly world providing a prosperity token.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ХРАНИТЕЛИ ЧЕЛОВЕЧЕСТВА",
+        "general": "Купите 1 улучшение приказа с командным уровнем 2, даже если ваш командный уровень ниже. Снизьте его стоимость в материалах на 1 за каждый дружественный мир, приносящий жетон процветания.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_4.jpg",
+      "blob": "a68f4eb387efac2053d2e959ab88a92fdb35fcdf",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_5.jpg": {
+      "en": {
+        "title": "EMPEROR'S PROTECTION",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the end of a reinforce step of combat, you may discard this card to gain 1 (S) at the start of each execution round during this combat.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ЗАЩИТА ИМПЕРАТОРА",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (S) в начале каждого раунда этой битвы.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_5.jpg",
+      "blob": "5ac067e5ba6f1183cbc80c3bc539d999e1e4992f",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_6.jpg": {
+      "en": {
+        "title": "THE GOLDEN RULE",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the end of a reinforce step of combat, you may discard this card to gain 1 (B) at the start of each execution round during this combat.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ЗОЛОТОЕ ПРАВИЛО",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (B) в начале каждого раунда этой битвы.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_6.jpg",
+      "blob": "48209265f3bfd6b1018252e430e78ee2dbdc646b",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_7.jpg": {
+      "en": {
+        "title": "SHIELD OF DUTY",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* When 1 of your units is destroyed or retreats during combat, you may discard this card to take it and place it back routed in this area. Gain 2 (S).",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ЩИТ ДОЛГА",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Когда 1 ваш отряд уничтожен или отступает во время битвы, вы можете сбросить эту карту, чтобы вернуть его в эту область деморализованным. Получите 2 (S).",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_7.jpg",
+      "blob": "e1c7668cdbc4a96a7c79643610602c2168090192",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/adeptuscustodes/events/e_8.jpg": {
+      "en": {
+        "title": "THE TEN THOUSAND",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, you may discard this card to draw 2 combat cards.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ДЕСЯТЬ ТЫСЯЧ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы взять 2 боевые карты.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_8.jpg",
+      "blob": "20b150752ece51ee5a1547e33fa5234183a4273e",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/s1.jpg": {
+      "en": {
+        "title": "CULTISTS ARISE",
+        "general": "Convert 1 of your dice into [M]. *newpara* If you have more [M] than your opponent gain 1 [M].",
+        "unit": "Neophyte: Gain either 1 (B) or 1 (S) for each [M] you have up to a maximum of 3. You can choose a mix of (B) and (S) to gain."
+      },
+      "ru": {
+        "title": "КУЛЬТИСТЫ, ВОССТАНЬТЕ",
+        "general": "Переверните 1 ваш куб на [M]. *newpara* Если у вас больше [M], чем у противника, получите 1 [M].",
+        "unit": "Неофит: Получите по 1 (B) или 1 (S) за каждый ваш [M], максимум 3 жетона. Можно получить сочетание (B) и (S).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_1.jpg",
+      "blob": "ecdc251af7d7332a45828b1eb0b764f030f4bff9",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/s2.jpg": {
+      "en": {
+        "title": "ABERRANT BEHAVIOUR",
+        "general": "Gain 1 (S). *newpara* Your opponent loses 1 [B].",
+        "unit": "Neophyte: Either gain 1 (S) or convert 1 of your dice into [M]."
+      },
+      "ru": {
+        "title": "АБЕРРАНТНОЕ ПОВЕДЕНИЕ",
+        "general": "Получите 1 (S). *newpara* Противник теряет 1 [B].",
+        "unit": "Неофит: Получите 1 (S) или переверните 1 ваш куб на [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_2.jpg",
+      "blob": "584ee0d7cdbf03eb89fc1703e223454c79ae9e12",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/s3.jpg": {
+      "en": {
+        "title": "CULT AMBUSH",
+        "general": "Gain either 1 (B) or 1 (S). *newline* Spend 1 [M] to place 1 free reinforcement token in this area unless your opponent spends 1 [M].",
+        "unit": "Neophyte: If you have more unrouted units than your opponent, gain 1 [M]. *newline* Spend 1 [M] to force your opponent to choose and rout 1 of his units unless he spends 1 [M]."
+      },
+      "ru": {
+        "title": "ЗАСАДА КУЛЬТА",
+        "general": "Получите 1 (B) или 1 (S). *newline* Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области, если противник не потратит 1 [M].",
+        "unit": "Неофит: Если у вас больше недеморализованных отрядов, чем у противника, получите 1 [M]. *newline* Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд, если он не потратит 1 [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_3.jpg",
+      "blob": "b76ff0b3e454c19c9989f7b3ce2a817a98217c81",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/s4.jpg": {
+      "en": {
+        "title": "LOCUS BODYGUARD",
+        "general": "",
+        "unit": "Neophyte: Place 1 free reinforcement token in this area."
+      },
+      "ru": {
+        "title": "ТЕЛОХРАНИТЕЛЬ ЛОКУС",
+        "general": "",
+        "unit": "Неофит: Разместите 1 бесплатный жетон подкрепления в этой области.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_4.jpg",
+      "blob": "6e974f1875d2c3b124a681b576488260f66465a0",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/s5.jpg": {
+      "en": {
+        "title": "RISE AS MANY",
+        "general": "Rally up to 2 Neophyte Hybrids. *newpara* Convert 1 of your dice into [M].",
+        "unit": "Neophyte: Gain 1 [M] for each unrouted Neophyte Hybrid up to a maximum of 2."
+      },
+      "ru": {
+        "title": "ВОССТАТЬ МНОЖЕСТВОМ",
+        "general": "Восстановите до 2 Гибридов-Неофитов. *newpara* Переверните 1 ваш куб на [M].",
+        "unit": "Неофит: Получите по 1 [M] за каждого недеморализованного Гибрида-Неофита, максимум 2 [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_5.jpg",
+      "blob": "a8722296af4774c55b68599db21cc438542af4b8",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t0_1.jpg": {
+      "en": {
+        "title": "UNDIVIDED DEVOTION",
+        "general": "Gain 1 [M]. *newpara* Spend up to 2 [M] and gain 2 (B) for the first [M] spent. Then gain 2 (S) for the second [M] spent.",
+        "unit": "Metamorph: Rally 1 of your units."
+      },
+      "ru": {
+        "title": "БЕЗРАЗДЕЛЬНАЯ ПРЕДАННОСТЬ",
+        "general": "Получите 1 [M]. *newpara* Потратьте до 2 [M]: получите 2 (B) за первый потраченный [M], затем 2 (S) за второй.",
+        "unit": "Метаморф: Восстановите 1 ваш отряд.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_1.jpg",
+      "blob": "4b03602f3b8f5e894d4263e909f9a8e8577f5826",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t0_2.jpg": {
+      "en": {
+        "title": "RELENTLESS ZEAL",
+        "general": "Gain 1 [M]. *newpara* Spend 1 [M] to gain 2 (B). *newpara* Rout 1 of your units to rally 1 of your units.",
+        "unit": "Metamorph: Rout 1 of your units to gain 3 (B)."
+      },
+      "ru": {
+        "title": "НЕУТОМИМОЕ РВЕНИЕ",
+        "general": "Получите 1 [M]. *newpara* Потратьте 1 [M], чтобы получить 2 (B). *newpara* Деморализуйте 1 ваш отряд, чтобы восстановить 1 ваш отряд.",
+        "unit": "Метаморф: Деморализуйте 1 ваш отряд, чтобы получить 3 (B).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_2.jpg",
+      "blob": "fb88099b39ef5a12df6c4bf67e16360de44b55fd",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t0_3.jpg": {
+      "en": {
+        "title": "PUREBORN UPRISING",
+        "general": "Convert 1 of your dice into [M]. *newpara* Rally 1 of your units.",
+        "unit": "Metamorph: Spend 1 [M] to gain 2 (S)."
+      },
+      "ru": {
+        "title": "ВОССТАНИЕ ЧИСТОКРОВНЫХ",
+        "general": "Переверните 1 ваш куб на [M]. *newpara* Восстановите 1 ваш отряд.",
+        "unit": "Метаморф: Потратьте 1 [M], чтобы получить 2 (S).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_3.jpg",
+      "blob": "e826d88d01e6f01be21902b5d3d842ec5de7f1d2",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t0_4.jpg": {
+      "en": {
+        "title": "CULT IS HERE",
+        "general": "Either gain 1 [M] or convert 1 of your dice into [M]. *newpara* Spend 1 [M] to place 1 free reinforcement token in this area.",
+        "unit": "Metamorph: Spend 1 [M] to place 1 free reinforcement token in this area."
+      },
+      "ru": {
+        "title": "КУЛЬТ УЖЕ ЗДЕСЬ",
+        "general": "Получите 1 [M] или переверните 1 ваш куб на [M]. *newpara* Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Метаморф: Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_4.jpg",
+      "blob": "5403cddaa7e1e0570c27fd2ed299255f536bf382",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t2_1.jpg": {
+      "en": {
+        "title": "PURESTRAIN STALKER",
+        "general": "Gain 2 (B). *newpara* When an enemy unit is routed during this execution round, you may spend 1 [M] to destroy that unit.",
+        "unit": "Purestrain: Spend 1 [M] to force your opponent to choose and rout 1 of his units."
+      },
+      "ru": {
+        "title": "ЧИСТОКРОВНЫЙ ОХОТНИК",
+        "general": "Получите 2 (B). *newpara* Когда в этом раунде битвы вражеский отряд деморализован, вы можете потратить 1 [M], чтобы уничтожить этот отряд.",
+        "unit": "Чистокровный: Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_1.jpg",
+      "blob": "ee6c482f9cc1dcdaf73d96e0ab2f47674e1347d5",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t2_2.jpg": {
+      "en": {
+        "title": "WHISPERS OF THE MAGUS",
+        "general": "At the end of this execution round you may convert 1 of your dice into [M]. *newline* Spend 1 [M] to rout 1 enemy unit of either command level 0 or command level 1.",
+        "unit": "Purestrain: Gain 1 [D]. *newline* Spend 1 [M] to force your opponent to choose and retreat 1 of his unrouted command level 0 units."
+      },
+      "ru": {
+        "title": "ШЁПОТ МАГУСА",
+        "general": "В конце этого раунда битвы вы можете перевернуть 1 ваш куб на [M]. *newline* Потратьте 1 [M], чтобы деморализовать 1 вражеский отряд с командным уровнем 0 или 1.",
+        "unit": "Чистокровный: Получите 1 [D]. *newline* Потратьте 1 [M], чтобы вынудить противника выбрать и отступить 1 его недеморализованным отрядом с командным уровнем 0.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_2.jpg",
+      "blob": "d9b4ba368cff9916ecd2f120b849de15023f05ec",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t2_3.jpg": {
+      "en": {
+        "title": "PRIMUS DIRECTIVE",
+        "general": "Convert 1 of your [M] into [B]. *newpara* Spend 1 [B] to place 1 free reinforcement token in this area.",
+        "unit": "Purestrain: Gain 1 [M]. *newline* Spend any number of [M]. For each [M] you spend, your opponent loses 1 [B]."
+      },
+      "ru": {
+        "title": "ДИРЕКТИВА ПРИМУСА",
+        "general": "Переверните 1 ваш [M] на [B]. *newpara* Потратьте 1 [B], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Чистокровный: Получите 1 [M]. *newline* Потратьте любое количество [M]. За каждый потраченный [M] противник теряет 1 [B].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_3.jpg",
+      "blob": "14bef21cb708b5be588de0e32c1db2df6f7e3a16",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t3_1.jpg": {
+      "en": {
+        "title": "BEAUTY OF THE PATRIARCH",
+        "general": "Either gain 4 [M] or convert up to 4 of your dice into [M].",
+        "unit": "Patriarch: During this execution round, gain 1 (S) for each [M] you have at the start of an assess damage step."
+      },
+      "ru": {
+        "title": "ВЕЛИЧИЕ ПАТРИАРХА",
+        "general": "Получите 4 [M] или переверните до 4 ваших кубов на [M].",
+        "unit": "Патриарх: В этом раунде битвы, в начале шага нанесения повреждений получите по 1 (S) за каждый ваш [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t3_1.jpg",
+      "blob": "ad753052ac1b03b4cc8468818395b2de1462d646",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/combat/t3_2.jpg": {
+      "en": {
+        "title": "THE PUREBROOD",
+        "general": "During this execution round, each time 1 of your ground units with command level 1 or higher is destroyed, place 1 free reinforcement token in this area.",
+        "unit": "Patriarch: Place 2 free reinforcement tokens in this area. Gain 1 (B) for each of your unrouted units in excess of your opponent's unrouted units."
+      },
+      "ru": {
+        "title": "ЧИСТОКРОВНЫЙ ВЫВОДОК",
+        "general": "В этом раунде битвы каждый раз, когда уничтожен 1 ваш наземный отряд с командным уровнем 1 или выше, размещайте 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Патриарх: Разместите 2 бесплатных жетона подкрепления в этой области. Получите по 1 (B) за каждый ваш недеморализованный отряд сверх числа недеморализованных отрядов противника.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t3_2.jpg",
+      "blob": "7e0dd287c74dc7f0ac88713ed26e7bb6e33d37a8",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/orders/o_1.jpg": {
+      "en": {
+        "title": "THE CULT GROWS",
+        "general": "When you reveal this order token, you may spend 1 materiel to place 1 free Neophyte Hybrid on any world you have a Neophyte Hybrid on. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "КУЛЬТ РАСТЁТ",
+        "general": "Когда вы раскрываете этот жетон приказа, вы можете потратить 1 материал, чтобы разместить 1 бесплатного Гибрида-Неофита в любом мире, где есть ваш Гибрид-Неофит. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_1.jpg",
+      "blob": "2470eda424a3ec1c0a5340e463f031c9cf7ae958",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/orders/o_2.jpg": {
+      "en": {
+        "title": "THE CULT SPREADS",
+        "general": "When you reveal this order token, you may take 1 of your Neophyte Hybrids in this system and place it in an adjacent system on a world that does not contain your objective token. Then rout that unit. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "КУЛЬТ РАСПРОСТРАНЯЕТСЯ",
+        "general": "Когда вы раскрываете этот жетон приказа, вы можете взять 1 вашего Гибрида-Неофита из этой системы и разместить его в соседней системе в мире без вашего жетона цели. Затем деморализуйте этот отряд. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_2.jpg",
+      "blob": "c3f7318e864a1f2a311b274b530cb1e4de390ddc",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/orders/o_3.jpg": {
+      "en": {
+        "title": "CULTURED INFLUENCE",
+        "general": "While resolving this order, you may gain assets in this system from any hostile worlds you have a Neophyte Hybrid on. *newline* LIMIT ONCE PER ROUND. *newpara* Planet capacity for your units is increased by 1 to a maximum of 5. This also affects your faction ability."
+      },
+      "ru": {
+        "title": "ВЛИЯНИЕ КУЛЬТА",
+        "general": "Во время выполнения этого приказа вы можете получить ресурсы в этой системе с любых враждебных миров, где есть ваш Гибрид-Неофит. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость миров для ваших отрядов увеличена на 1, максимум до 5. Это также влияет на способность вашей фракции.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_3.jpg",
+      "blob": "27973dcdf3432bf05b77045985c1e888d97a8dd9",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/orders/o_4.jpg": {
+      "en": {
+        "title": "CULTURAL DECAY",
+        "general": "When you reveal this order token, you may destroy 1 of your structures in this system to gain 3 materiel. *newline* LIMIT ONCE PER ROUND. *newpara* Planet capacity for your units is increased by 1 to a maximum of 5. This also affects your faction ability."
+      },
+      "ru": {
+        "title": "РАЗЛОЖЕНИЕ КУЛЬТУРЫ",
+        "general": "Когда вы раскрываете этот жетон приказа, вы можете уничтожить 1 вашу постройку в этой системе, чтобы получить 3 материала. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость миров для ваших отрядов увеличена на 1, максимум до 5. Это также влияет на способность вашей фракции.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_4.jpg",
+      "blob": "32254e9973d0c1023ae4f7669012358a39ef0919",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/orders/o_5.jpg": {
+      "en": {
+        "title": "HITCH A RIDE",
+        "general": "While resolving this order, you may treat all enemy voids as friendly voids for any Neophyte Hybrids moving through it. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ПРОЕХАТЬ ПОПУТЧИКОМ",
+        "general": "Во время выполнения этого приказа вы можете считать все вражеские пустоты дружественными для Гибридов-Неофитов, перемещающихся через них. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_5.jpg",
+      "blob": "c11724b292cb9153865528ee7a84c591981dfe8a",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/orders/o_6.jpg": {
+      "en": {
+        "title": "TUNNEL NETWORKS",
+        "general": "After you resolve this order, you may either spend 2 materiel to replace 1 unrouted Neophyte Hybrid in this system with 1 free Hybrid Metamorph or spend 3 materiel to replace that unit with 1 free Purestrain Genestealer. This can start a combat. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "СЕТЬ ТУННЕЛЕЙ",
+        "general": "После выполнения этого приказа вы можете потратить 2 материала, чтобы заменить 1 недеморализованного Гибрида-Неофита в этой системе на 1 бесплатного Гибрида-Метаморфа, или потратить 3 материала, чтобы заменить его на 1 бесплатного Чистокровного Генокрада. Это может начать битву. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_6.jpg",
+      "blob": "8249d08100737afdb3f45258fa4c6c388b3bf3ed",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_1.jpg": {
+      "en": {
+        "title": "HIDDEN TUNNELS",
+        "general": "Either place 1 free factory on a friendly world not containing a structure or spend 2 materiel to place 1 free factory on a friendly world not containing a factory.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "СКРЫТЫЕ ТУННЕЛИ",
+        "general": "Разместите 1 бесплатную фабрику в дружественном мире без построек или потратьте 2 материала, чтобы разместить 1 бесплатную фабрику в дружественном мире без фабрики.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_1.jpg",
+      "blob": "ecb7d5fb13d8bac2bcb45508283c6f6900e20481",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_2.jpg": {
+      "en": {
+        "title": "NEW BREED",
+        "general": "Replace 1 Neophyte Hybrid on a friendly world with 1 free Purestrain Genestealer.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "НОВАЯ ПОРОДА",
+        "general": "Замените 1 Гибрида-Неофита в дружественном мире на 1 бесплатного Чистокровного Генокрада.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_2.jpg",
+      "blob": "9a80033d3f70f5916816bd37a688352fbb63381c",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_3.jpg": {
+      "en": {
+        "title": "DESIRED ICON",
+        "general": "Purchase 1 combat upgrade, reducing its materiel cost by 1 for each different hostile world containing a Neophyte Hybrid.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ЖЕЛАННЫЙ ОБРАЗ",
+        "general": "Купите 1 улучшение боевой колоды. Снизьте его стоимость в материалах на 1 за каждый отдельный враждебный мир, содержащий Гибрида-Неофита.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_3.jpg",
+      "blob": "7eebad7e86444425fb7a01848095eb9e5f7e52aa",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_4.jpg": {
+      "en": {
+        "title": "DAY OF ASCENSION",
+        "general": "Either gain 1 materiel or choose a hostile world containing a Neophyte Hybrid. Gain assets from that world.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ДЕНЬ ВОЗНЕСЕНИЯ",
+        "general": "Получите 1 материал или выберите враждебный мир, содержащий Гибрида-Неофита, и получите ресурсы с этого мира.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_4.jpg",
+      "blob": "54b7315deb79181de79d976f6baee66c327d218a",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_5.jpg": {
+      "en": {
+        "title": "PRIMED INSTINCT",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, if you have 2 or more unrouted Neophyte Hybrids, you may discard this card to rout 1 enemy unit of command level 2 or less.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ПРОБУЖДЁННЫЙ ИНСТИНКТ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы, если у вас есть хотя бы 2 недеморализованных Гибрида-Неофита, вы можете сбросить эту карту, чтобы деморализовать 1 вражеский отряд с командным уровнем 2 или ниже.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_5.jpg",
+      "blob": "6b4ee0e7dd08a3762f87388b6ce29cac64096ac5",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_6.jpg": {
+      "en": {
+        "title": "PURESTRAIN BROADCAST",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of a roll dice step of combat, you may discard this card to have 1 of your opponent command level 0 units to instead roll their combat value for you.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ЗОВ ЧИСТОКРОВНЫХ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале шага броска кубов битвы вы можете сбросить эту карту, чтобы 1 отряд противника с командным уровнем 0 бросал кубы за вас, а не за противника, в количестве, равном своему боевому показателю.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_6.jpg",
+      "blob": "9ab2e6d7a86712f130526a92b366c2dc41a255d4",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_7.jpg": {
+      "en": {
+        "title": "MAGUS MINDREADING",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, you may discard this card to force your opponent to show what card he will play. Gain 1 [B], 1 [S], or 1 [M].",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ЧТЕНИЕ МЫСЛЕЙ МАГУСА",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы вынудить противника показать карту, которую он разыграет. Получите 1 [B], 1 [S] или 1 [M].",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_7.jpg",
+      "blob": "0febcd304b7e8c678e68366b2851c95b31e81ef4",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/genestealercult/events/e_8.jpg": {
+      "en": {
+        "title": "ATALAN JACKALS",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, you may discard this card to gain 2 [M].",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "АТАЛАНСКИЕ ШАКАЛЫ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы получить 2 [M].",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_8.jpg",
+      "blob": "0150a5859f1cd2a4e1407adaf03871e713fa9598",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/s1.jpg": {
+      "en": {
+        "title": "STAFF OF CHANGE",
+        "general": "Gain either 1 (B) or 1 (S). *newpara* If you are attacking, your opponent discards his facedown combat card and chooses a different combat card to play face down. At the end of this execution round he may draw his discarded combat card.",
+        "unit": "Tzaangor/Frigate: Gain either 1 [D] or 2 (S)."
+      },
+      "ru": {
+        "title": "ПОСОХ ПЕРЕМЕН",
+        "general": "Получите 1 (B) или 1 (S). *newpara* Если вы атакуете, противник сбрасывает свою закрытую боевую карту и выбирает другую боевую карту, чтобы разыграть её закрытой. В конце этого раунда битвы он может вернуть сброшенную карту в руку.",
+        "unit": "Цаангор/Фрегат: Получите 1 [D] или 2 (S).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_1.jpg",
+      "blob": "36787d49d37e0f8ae55b20d5b7e56975a9940764",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/s2.jpg": {
+      "en": {
+        "title": "CHANGE OF PLANS",
+        "general": "If you are attacking, either gain 1 [D] or force your opponent to lose 1 [M]. *newpara* If you are defending, you may play any other card from your hand. If you do, do not resolve the unit ability on this card.",
+        "unit": "Tzaangor/Frigate: Gain 1 [D] and 2 (S)."
+      },
+      "ru": {
+        "title": "СМЕНА ПЛАНОВ",
+        "general": "Если вы атакуете, получите 1 [D] или вынудите противника потерять 1 [M]. *newpara* Если вы защищаетесь, вы можете разыграть любую другую карту с руки. Если вы это сделали, не применяйте способность отряда этой карты.",
+        "unit": "Цаангор/Фрегат: Получите 1 [D] и 2 (S).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_2.jpg",
+      "blob": "640a3b41c08cbe9fe90f59c48f2f1f736cc38cb8",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/s3.jpg": {
+      "en": {
+        "title": "EMBRACE THE CHAOS",
+        "general": "Gain 1 [D]. *newpara* Reroll up to 2 dice.",
+        "unit": "Tzaangor/Frigate: Gain 1 [D] and retreat 1 of your units. *newpara* Your opponent may choose and retreat 1 of his units to gain 1 [D]. If he does not, he loses 1 die of his choice."
+      },
+      "ru": {
+        "title": "ПРИНЯТЬ ХАОС",
+        "general": "Получите 1 [D]. *newpara* Перебросьте до 2 кубов.",
+        "unit": "Цаангор/Фрегат: Получите 1 [D] и отступите 1 вашим отрядом. *newpara* Противник может выбрать и отступить 1 своим отрядом, чтобы получить 1 [D]. Если он этого не делает, он теряет 1 куб по своему выбору.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_3.jpg",
+      "blob": "25a14cab8190354ea180022a37e6ffcf2f4c758d",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/s4.jpg": {
+      "en": {
+        "title": "REPLACE CASUALTIES",
+        "general": "Convert 1 of your [B] into [M].",
+        "unit": "Tzaangor/Frigate: If any of your units are destroyed during this execution round, place a free command level 0 unit in this area at the end of the assess damage step."
+      },
+      "ru": {
+        "title": "ВОСПОЛНЕНИЕ ПОТЕРЬ",
+        "general": "Переверните 1 ваш [B] на [M].",
+        "unit": "Цаангор/Фрегат: Если в этом раунде битвы уничтожен хотя бы 1 ваш отряд, в конце шага нанесения повреждений разместите 1 бесплатный отряд с командным уровнем 0 в этой области.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_4.jpg",
+      "blob": "807b14594c5efbff931410bdf0043e21e2dc7975",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/s5.jpg": {
+      "en": {
+        "title": "RIDDLED BY DUST",
+        "general": "Force your opponent to choose and reveal a combat card from their hand. During the next choose combat cards step, your opponent must play that card instead of any other combat card. Gain the combat icons on that card during this execution round.",
+        "unit": "/Rubric Marine/Frigate: Gain 2 (B)."
+      },
+      "ru": {
+        "title": "ЗАГАДКИ ПРАХА",
+        "general": "Вынудите противника выбрать и раскрыть 1 боевую карту с руки. Во время следующего шага выбора боевых карт он обязан разыграть эту карту вместо любой другой. Получите боевые значки этой карты на время текущего раунда битвы.",
+        "unit": "Рубрикатор/Фрегат: Получите 2 (B).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_5.jpg",
+      "blob": "177e0448bf262c7e7b419ea426f7965ef83b53e9",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t0_1.jpg": {
+      "en": {
+        "title": "SWARM OF TZAANGOR",
+        "general": "Place 1 free reinforcement token in this area.",
+        "unit": "Tzaangor: Gain 1 (B) for each of your unrouted Tzaangors."
+      },
+      "ru": {
+        "title": "СТАЯ ЦААНГОРОВ",
+        "general": "Разместите 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Цаангор: Получите по 1 (B) за каждого вашего недеморализованного Цаангора.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_1.jpg",
+      "blob": "e1e191ab802920a6f5c7aabaecd8a43ed41b9c33",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t0_2.jpg": {
+      "en": {
+        "title": "TERRIFYING ILLUSION",
+        "general": "Gain 1 [B], 1 [S], or 1 [M]. *newpara* Spend 1 [M] to force your opponent to choose and rout 1 of his units.",
+        "unit": "Tzaangor/Rubric Marine/Frigate: If your opponent has at least 2 units, force your opponent to choose and retreat 1 of his routed units."
+      },
+      "ru": {
+        "title": "УЖАСАЮЩАЯ ИЛЛЮЗИЯ",
+        "general": "Получите 1 [B], 1 [S] или 1 [M]. *newpara* Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд.",
+        "unit": "Цаангор/Рубрикатор/Фрегат: Если у противника есть хотя бы 2 отряда, вынудите его выбрать и отступить 1 его деморализованным отрядом.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_2.jpg",
+      "blob": "3febef52529dcfbc74c5d49d678614943c07e318",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t0_3.jpg": {
+      "en": {
+        "title": "ALL IS DUST",
+        "general": "During this execution round, when 1 of your Rubric Marines is destroyed, you may take it and place it back routed in this area.",
+        "unit": "Rubric Marine/Frigate: Gain either 1 [D] or 2 (B)."
+      },
+      "ru": {
+        "title": "ВСЁ ЕСТЬ ПРАХ",
+        "general": "В этом раунде битвы, когда уничтожен 1 ваш Рубрикатор, вы можете вернуть его в эту область деморализованным.",
+        "unit": "Рубрикатор/Фрегат: Получите 1 [D] или 2 (B).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_3.jpg",
+      "blob": "f78c1ffba4fea6d9f3c165959dfac525903274b5",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t0_4.jpg": {
+      "en": {
+        "title": "DARK PORTAL",
+        "general": "Take either 1 Tzaangor or 1 Rubric Marine from any world and place it on this world. *newpara* Take 1 of your units and place it on a friendly world.",
+        "unit": "Tzaangor/Rubric Marine/Frigate: Convert 1 of your [B] into [M]. *newpara* Spend 1 [S] to gain 2 (S)."
+      },
+      "ru": {
+        "title": "ТЁМНЫЙ ПОРТАЛ",
+        "general": "Возьмите 1 Цаангора или 1 Рубрикатора из любого мира и разместите его в этом мире. *newpara* Возьмите 1 ваш отряд и разместите его в дружественном мире.",
+        "unit": "Цаангор/Рубрикатор/Фрегат: Переверните 1 ваш [B] на [M]. *newpara* Потратьте 1 [S], чтобы получить 2 (S).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_4.jpg",
+      "blob": "3ef1e7450b41b881def01c9bc40ea61f1e494603",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t2_1.jpg": {
+      "en": {
+        "title": "RENEWAL OF DEATH",
+        "general": "Gain 2 (B). *newline* If any of your units are destroyed during this execution round, you may take and place all of them on an uncontested friendly world containing a city at the end of the assess damage step.",
+        "unit": "Sorcerer: During this execution round, the health value of Rubric Marines is increased by 1. *newline* Destroy 1 of your units to place 2 free reinforcement tokens on this world."
+      },
+      "ru": {
+        "title": "ОБНОВЛЕНИЕ СМЕРТИ",
+        "general": "Получите 2 (B). *newline* Если в этом раунде битвы уничтожены ваши отряды, в конце шага нанесения повреждений вы можете разместить их все в неоспариваемом дружественном мире с городом.",
+        "unit": "Колдун: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Уничтожьте 1 ваш отряд, чтобы разместить 2 бесплатных жетона подкрепления в этом мире.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_1.jpg",
+      "blob": "64f388848d1bc2140887c2ea84ec55ddfabc4f25",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t2_2.jpg": {
+      "en": {
+        "title": "RETURN TO DUST",
+        "general": "Either gain 2 (B), or for every damage suffered by you during this execution round, gain 1 (B) in the next execution round up to a maximum of 4.",
+        "unit": "Sorcerer/Silver Tower: During this execution round, the health value of Rubric Marines is increased by 1. *newline* When 1 of your units is destroyed during this execution round, you may spend 1 of your dice to take and place that unit routed back in this area."
+      },
+      "ru": {
+        "title": "ВОЗВРАЩЕНИЕ В ПРАХ",
+        "general": "Получите 2 (B) или в следующем раунде битвы получите по 1 (B) за каждый урон, понесённый вами в текущем раунде, максимум 4 (B).",
+        "unit": "Колдун/Серебряная Башня: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Когда в этом раунде битвы уничтожен 1 ваш отряд, вы можете потратить 1 ваш куб, чтобы вернуть этот отряд в эту область деморализованным.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_2.jpg",
+      "blob": "9c6433b4b0de894a993534bf18afe0596c3c8800",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t2_3.jpg": {
+      "en": {
+        "title": "DARK INFLUENCE",
+        "general": "Spend 1 [M] to force your opponent to choose and rout 1 of his units. *newline* Convert 1 of your opponent's dice into [M].",
+        "unit": "Sorcerer/Silver Tower: During this execution round, the health value of Rubric Marines is increased by 1. *newline* Spend 1 of your opponent's [M] to force your opponent to choose and destroy 1 of his command level 0 units."
+      },
+      "ru": {
+        "title": "ТЁМНОЕ ВЛИЯНИЕ",
+        "general": "Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд. *newline* Переверните 1 куб противника на [M].",
+        "unit": "Колдун/Серебряная Башня: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Потратьте 1 [M] противника, чтобы вынудить его выбрать и уничтожить 1 его отряд с командным уровнем 0.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_3.jpg",
+      "blob": "f6842d3f33d50aba98b30ca953a82993d7114e7c",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t3_1.jpg": {
+      "en": {
+        "title": "DEADLY DEMISE",
+        "general": "Gain 1 [D]. *newpara* Reroll up to 3 dice.",
+        "unit": "Lord of Change/Silver Tower: Gain 2 (B). *newpara* During this execution round, if a Lord of Change is destroyed, destroy 1 enemy unit."
+      },
+      "ru": {
+        "title": "СМЕРТОНОСНАЯ ГИБЕЛЬ",
+        "general": "Получите 1 [D]. *newpara* Перебросьте до 3 кубов.",
+        "unit": "Владыка Перемен/Серебряная Башня: Получите 2 (B). *newpara* В этом раунде битвы, если уничтожен Владыка Перемен, уничтожьте 1 вражеский отряд.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t3_1.jpg",
+      "blob": "120f8dcb33ceb9329eefe69104f26d073147bb58",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/combat/t3_2.jpg": {
+      "en": {
+        "title": "CHAOTIC FUTURE",
+        "general": "Gain 2 (S).",
+        "unit": "Lord of Change/Silver Tower: Reroll all of your dice. Gain 1 (B) for each [B] rolled and gain 1 (S) for each [S] rolled. For each of your dice, you may choose to reroll them one more time, but gain no extra tokens."
+      },
+      "ru": {
+        "title": "ХАОТИЧНОЕ БУДУЩЕЕ",
+        "general": "Получите 2 (S).",
+        "unit": "Владыка Перемен/Серебряная Башня: Перебросьте все ваши кубы. Получите по 1 (B) за каждый выпавший [B] и по 1 (S) за каждый выпавший [S]. Каждый из ваших кубов вы можете перебросить ещё 1 раз, но за этот переброс дополнительные жетоны не получаете.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t3_2.jpg",
+      "blob": "1fb449ccf1d121da1616df6ce8270849ac1846ff",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/orders/o_1.jpg": {
+      "en": {
+        "title": "A THOUSAND SCHEMES",
+        "general": "When you reveal this order token, you may place 1 of your order tokens from your play area onto the top of your event deck. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ТЫСЯЧА ПЛАНОВ",
+        "general": "Когда вы раскрываете этот жетон приказа, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_1.jpg",
+      "blob": "7ecf9ff8adfede477c96ce13ebb107ad1788d802",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/orders/o_2.jpg": {
+      "en": {
+        "title": "MASTER OF DECEIT",
+        "general": "After you resolve this order, you may take 1 of your orders that's on top of a stack and place it into any system adjacent to it that has no other order tokens. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "МАСТЕР ОБМАНА",
+        "general": "После выполнения этого приказа вы можете взять 1 ваш жетон приказа с верха стека и разместить его в любой соседней с ним системе без жетонов приказов. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_2.jpg",
+      "blob": "cf1c2bca73c6496dfa84a1440fee24652a960133",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/orders/o_3.jpg": {
+      "en": {
+        "title": "HOURGLASS OF MANAT",
+        "general": "While resolving this order, once during a combat, at any time 1 of your units is destroyed, you may take that unit and place it routed back in that area. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ПЕСОЧНЫЕ ЧАСЫ МАНАТА",
+        "general": "Во время выполнения этого приказа, один раз за битву, когда уничтожен 1 ваш отряд, вы можете вернуть этот отряд в ту же область деморализованным. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_3.jpg",
+      "blob": "bb8adb209699c91fe12a6ab2254731988b9712dd",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/orders/o_4.jpg": {
+      "en": {
+        "title": "BLAST FROM THE PAST",
+        "general": "After resolving this orbital strike, you may resolve your faction ability and place one 1 of your order tokens from your play area onto the top of your event deck. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "УДАР ИЗ ПРОШЛОГО",
+        "general": "После выполнения этого орбитального удара вы можете применить способность своей фракции и разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_4.jpg",
+      "blob": "66b1464067d79c3d6f974faa55bad40e571b270a",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/orders/o_5.jpg": {
+      "en": {
+        "title": "TEMPORAL WARPSTRIKE",
+        "general": "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may instead roll number of dice equal to the combined combat value of all friendly routed and unrouted ships in this system. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ВРЕМЕННОЙ ВАРП-УДАР",
+        "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время этого орбитального удара вы можете вместо обычного броска бросить столько кубов, каков суммарный боевой показатель всех дружественных деморализованных и недеморализованных кораблей в этой системе. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_5.jpg",
+      "blob": "80d5818de2f2d47aa3db2ac77ad90c8b404b8803",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_1.jpg": {
+      "en": {
+        "title": "TIMES OF CHANGE",
+        "general": "Place this card in your play area. *newpara* Before placing an order during the Planning Phase, you may discard this card to reveal 1 of your Strategize Orders from your play area and place it facedown on top of any order stack.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ВРЕМЕНА ПЕРЕМЕН",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* Перед размещением приказа в Фазу Планирования вы можете сбросить эту карту, чтобы раскрыть 1 ваш приказ Стратегии из игровой зоны и разместить его закрытым поверх любого стека приказов.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_1.jpg",
+      "blob": "a65ae0311ee6cd8e2c52a8f01e85133641757f3a",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_2.jpg": {
+      "en": {
+        "title": "MERE IMMORTALITY",
+        "general": "Place this card in your play area. *newpara* During a combat, when a Rubric Marine is destroyed, you may discard this card to place 1 free Rubric Marine on that world.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ВСЕГО ЛИШЬ БЕССМЕРТИЕ",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* Когда во время битвы уничтожен Рубрикатор, вы можете сбросить эту карту, чтобы разместить 1 бесплатного Рубрикатора в том же мире.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_2.jpg",
+      "blob": "0a10f98c71605ba6eb5d506f6fef034f9ccceb10",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_3.jpg": {
+      "en": {
+        "title": "EXISTENCE ERASURE",
+        "general": "Place this card in your play area. *newpara* After resolving any of your combat cards, you may discard this card to force your opponent to immediately suffer damage. Ignore the assess damage step for your opponent during this execution round.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "СТИРАНИЕ ИЗ БЫТИЯ",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* После применения любой вашей боевой карты вы можете сбросить эту карту, чтобы вынудить противника немедленно понести урон. Пропустите шаг нанесения повреждений для противника в этом раунде битвы.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_3.jpg",
+      "blob": "90d18071307cf8ba5b7725bbacbf6627b5b1f5f0",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_4.jpg": {
+      "en": {
+        "title": "CHANGER OF WAYS",
+        "general": "Place this card in your play area. *newpara* At the end of a game round, you may discard this card to choose a player. That player gains the first player token at the start of the next game round.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ИЗМЕНЯЮЩИЙ ПУТИ",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* В конце раунда игры вы можете сбросить эту карту, чтобы выбрать игрока. В начале следующего раунда игры этот игрок получает жетон первого игрока.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_4.jpg",
+      "blob": "a5df96e55d11a1a450c8b6e1fa21033f558e806e",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_5.jpg": {
+      "en": {
+        "title": "TEMPORAL STASIS",
+        "general": "Place this card in your play area. *newpara* At the start of an assess damage step of combat, you may discard this card to choose 1 of your opponent's faceup combat cards. Your opponent draws that combat card into his hand.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ВРЕМЕННОЙ СТАЗИС",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* В начале шага нанесения повреждений битвы вы можете сбросить эту карту, чтобы выбрать 1 открытую боевую карту противника. Противник возвращает эту карту в руку.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_5.jpg",
+      "blob": "2daf96f01148fd8400575db3ff5760d61550adf7",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_6.jpg": {
+      "en": {
+        "title": "PORTAL OF CHANGE",
+        "general": "Place this card in your play area. *newpara* While resolving an Advance Order, after moving units, you may take up to 2 units from 1 friendly world and place them on 1 world your units moved from.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ПОРТАЛ ПЕРЕМЕН",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* Во время выполнения приказа Продвижения, после перемещения отрядов вы можете взять до 2 отрядов из 1 дружественного мира и разместить их в 1 мире, из которого переместились ваши отряды.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_6.jpg",
+      "blob": "d9b6f97d0940ffd9285c8d036ff47f19b0766600",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_7.jpg": {
+      "en": {
+        "title": "CHANGE TO VIOLENCE",
+        "general": "Place this card in your play area. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to remove 1 of your orders that's on top of an order stack to place 1 of your orders from your play area into any system not containing an order token.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ПЕРЕХОД К НАСИЛИЮ",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* Вместо раскрытия приказа в Фазу Действий вы можете сбросить эту карту и убрать 1 ваш жетон приказа с верха стека, чтобы разместить 1 ваш жетон приказа из игровой зоны в любой системе без жетонов приказов.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_7.jpg",
+      "blob": "a5deca1912f6a8411c70a6820d2b0df27fe97244",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_8.jpg": {
+      "en": {
+        "title": "HISTORIES UNWRITTEN",
+        "general": "Place this card in your play area. *newpara* After a roll dice step of combat, you may discard this card to replace 1 pair of combat cards in the opponent's combat deck with 1 pair of combat cards of the same command level from his upgrade deck.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "НЕЗАПИСАННЫЕ ИСТОРИИ",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* После шага броска кубов битвы вы можете сбросить эту карту, чтобы заменить 1 пару боевых карт в боевой колоде противника на 1 пару боевых карт того же командного уровня из его колоды улучшений.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_8.jpg",
+      "blob": "05f02f6b7bddf79710cfaa691b3126a1f663d642",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/thousandsons/events/e_9.jpg": {
+      "en": {
+        "title": "NINEFOLD SCHEME",
+        "general": "Place this card in your play area. *newpara* Instead of revealing an order during the Operations Phase, you may discard this card to draw 2 cards from the top of your event deck. Resolve the ability of 1 of those cards and discard the other.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ДЕВЯТИКРАТНЫЙ ПЛАН",
+        "general": "Разместите эту карту в своей игровой зоне. *newpara* Вместо раскрытия приказа в Фазу Действий вы можете сбросить эту карту, чтобы взять 2 верхние карты вашей колоды событий. Примените способность 1 из них, а другую сбросьте.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_9.jpg",
+      "blob": "520a98237cb5ed64a8370b17b928f053f2f41750",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/s1.jpg": {
+      "en": {
+        "title": "WEAVEFIELD PROTECTION",
+        "general": "Gain 1 (S) for each of your unrouted units. *newline* Spend 1 (S) to gain 1 [S].",
+        "unit": ""
+      },
+      "ru": {
+        "title": "ЗАЩИТА ТКАНОГО ПОЛЯ",
+        "general": "Получите по 1 (S) за каждый ваш недеморализованный отряд. *newline* Потратьте 1 (S), чтобы получить 1 [S].",
+        "unit": "",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_1.jpg",
+      "blob": "2e31b90c6865c09f658db225177632f9511ee60f",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/s2.jpg": {
+      "en": {
+        "title": "MEDIPACK SUPPLIES",
+        "general": "Gain 1 [S]. *newpara* During this execution round, the health value of your units is increased by 1.",
+        "unit": "Hearthkyn/Bastion Vessel: Spend 1 [S] to rally 1 of your units and gain 1 (S)."
+      },
+      "ru": {
+        "title": "ЗАПАС МЕДПАКЕТОВ",
+        "general": "Получите 1 [S]. *newpara* В этом раунде битвы показатель здоровья ваших отрядов увеличен на 1.",
+        "unit": "Очажник/Корабль «Бастион»: Потратьте 1 [S], чтобы восстановить 1 ваш отряд и получить 1 (S).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_2.jpg",
+      "blob": "8f0d7e635592cd5028f054c7eed5bacaad6bad8d",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/s3.jpg": {
+      "en": {
+        "title": "CALL FOR BACKUP",
+        "general": "Spend 1 [S] to place 1 free reinforcement token in this area.",
+        "unit": "Hearthkyn/Bastion Vessel: Gain 1 [M]."
+      },
+      "ru": {
+        "title": "ВЫЗОВ ПОДКРЕПЛЕНИЯ",
+        "general": "Потратьте 1 [S], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Очажник/Корабль «Бастион»: Получите 1 [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_3.jpg",
+      "blob": "ed8db86f8477efba29f7e782fc17f15f41ce099d",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/s4.jpg": {
+      "en": {
+        "title": "SUPPRESSIVE FIRE",
+        "general": "Gain 1 [B].",
+        "unit": "Hearthkyn/Hearthguard/Bastion Vessel: If you have more [B] than your opponent, convert 1 of your dice into [B]."
+      },
+      "ru": {
+        "title": "ПОДАВЛЯЮЩИЙ ОГОНЬ",
+        "general": "Получите 1 [B].",
+        "unit": "Очажник/Страж Очага/Корабль «Бастион»: Если у вас больше [B], чем у противника, переверните 1 ваш куб на [B].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_4.jpg",
+      "blob": "40b8493516e189b616ef3d6020e4a2e1ea515577",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/s5.jpg": {
+      "en": {
+        "title": "SCAN FOR ENEMIES",
+        "general": "Either gain 2 (B) or gain 2 (B) at the start of the next execution round.",
+        "unit": "Hearthkyn/Bastion Vessel: Your opponent discards the top card of his combat deck. Gain 1 of the icons on that card as dice."
+      },
+      "ru": {
+        "title": "ПОИСК ВРАГОВ",
+        "general": "Получите 2 (B) сейчас или 2 (B) в начале следующего раунда битвы.",
+        "unit": "Очажник/Корабль «Бастион»: Противник сбрасывает верхнюю карту своей боевой колоды. Получите 1 куб со значком, выбранным среди значков этой карты.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_5.jpg",
+      "blob": "0f628f19c56021be58f186b3c7ae45411135fe53",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t0_1.jpg": {
+      "en": {
+        "title": "THE HEARTH BURNS",
+        "general": "Gain 2 [M].",
+        "unit": "Hearthkyn/Hearthguard/Bastion Vessel: Gain either 1 (B) or 1 (S) for each [M] you have more than your opponent."
+      },
+      "ru": {
+        "title": "ОЧАГ ПЫЛАЕТ",
+        "general": "Получите 2 [M].",
+        "unit": "Очажник/Страж Очага/Корабль «Бастион»: Получите по 1 (B) или 1 (S) за каждый ваш [M] сверх количества [M] противника.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_1.jpg",
+      "blob": "3bbf4fe3056d5c1f8edc15a15a80052322dcf927",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t0_2.jpg": {
+      "en": {
+        "title": "SCANNED SHOT",
+        "general": "Discard a card from your hand to gain 2 (B).",
+        "unit": "Hearthguard/Bastion Vessel: During the assess damage step of this execution round, your opponent assigns 1 additional damage."
+      },
+      "ru": {
+        "title": "ВЫВЕРЕННЫЙ ВЫСТРЕЛ",
+        "general": "Сбросьте 1 карту с руки, чтобы получить 2 (B).",
+        "unit": "Страж Очага/Корабль «Бастион»: Во время шага нанесения повреждений этого раунда битвы противник распределяет 1 дополнительный урон.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_2.jpg",
+      "blob": "b314dc614cb37500b0819838ffb43fb0d67bd2bc",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t0_3.jpg": {
+      "en": {
+        "title": "IT'S KIN",
+        "general": "Either convert 1 of your [S] into [M] or convert 1 of your [M] into [S].",
+        "unit": "Bastion/Hearthkyn/Pioneer/Bastion Vessel: Spend 1 [B] to convert 1 of your [B] into [M]. *newline* Gain 1 [M]."
+      },
+      "ru": {
+        "title": "ЭТО СВОЙ",
+        "general": "Переверните 1 ваш [S] на [M] или 1 ваш [M] на [S].",
+        "unit": "Бастион/Очажник/Пионер/Корабль «Бастион»: Потратьте 1 [B], чтобы перевернуть 1 ваш [B] на [M]. *newline* Получите 1 [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_3.jpg",
+      "blob": "438c61531c8d8418eab57617fc3c0244b889f319",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t0_4.jpg": {
+      "en": {
+        "title": "PRAGMATIC WITHDRAWAL",
+        "general": "Retreat 1 of your units.",
+        "unit": "Hearthkyn/Hearthguard/Bastion Vessel: Spend either 1 [B] or 1 [M] to gain 3 (B)."
+      },
+      "ru": {
+        "title": "ПРАГМАТИЧНОЕ ОТСТУПЛЕНИЕ",
+        "general": "Отступите 1 вашим отрядом.",
+        "unit": "Очажник/Страж Очага/Корабль «Бастион»: Потратьте 1 [B] или 1 [M], чтобы получить 3 (B).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_4.jpg",
+      "blob": "a18b43f51cb0d8b37c035971032b45b267498c0e",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t0_5.jpg": {
+      "en": {
+        "title": "IRON CONCUSSION",
+        "general": "Gain 1 [B], 1 [S], or 1 [M]. *newpara* Force your opponent to choose and discard a combat card from their hand.",
+        "unit": "Hearthguard/Bastion Vessel: Force your opponent to lose 1 [M] and 1 (S)."
+      },
+      "ru": {
+        "title": "ЖЕЛЕЗНАЯ КОНТУЗИЯ",
+        "general": "Получите 1 [B], 1 [S] или 1 [M]. *newpara* Вынудите противника выбрать и сбросить 1 боевую карту с руки.",
+        "unit": "Страж Очага/Корабль «Бастион»: Вынудите противника потерять 1 [M] и 1 (S).",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_5.jpg",
+      "blob": "7fc730f82d41a33585736f1f6f3aeb37f7cb1ced",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t2_1.jpg": {
+      "en": {
+        "title": "ARMOUR OF THE FORGE",
+        "general": "Gain 1 [S]. *newpara* Spend up to 2 [S]. For each [S] you spend, gain 1 (S).",
+        "unit": "Pioneer/Stronghold: Gain either 1 [S] or 1 [M]."
+      },
+      "ru": {
+        "title": "БРОНЯ КУЗНИЦЫ",
+        "general": "Получите 1 [S]. *newpara* Потратьте до 2 [S]. За каждый потраченный [S] получите 1 (S).",
+        "unit": "Пионер/Корабль «Твердыня»: Получите 1 [S] или 1 [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_1.jpg",
+      "blob": "ed2c823ffeeb049e108537889338783041f14b2a",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t2_2.jpg": {
+      "en": {
+        "title": "TELEPORT CREST",
+        "general": "Gain 1 [B] and 1 (B). *newpara* Reroll 1 of your dice.",
+        "unit": "Pioneer/Stronghold: Gain 2 (S). *newline* Draw one of your faceup combat cards to play 1 combat card from your hand. Do not resolve its abilities but gain its combat icons until the end of this combat."
+      },
+      "ru": {
+        "title": "ТЕЛЕПОРТАЦИОННЫЙ ГРЕБЕНЬ",
+        "general": "Получите 1 [B] и 1 (B). *newpara* Перебросьте 1 ваш куб.",
+        "unit": "Пионер/Корабль «Твердыня»: Получите 2 (S). *newline* Верните 1 вашу открытую боевую карту в руку, чтобы разыграть 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_2.jpg",
+      "blob": "40212d518a08518fdb2459fb88bc60f32c66be8c",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t2_3.jpg": {
+      "en": {
+        "title": "SWIFT APPROACH",
+        "general": "Gain either 3 (B) or 3 (S) unless your opponent spends 1 [M].",
+        "unit": "Pioneer/Stronghold: Gain 2 (B) and 2 (S) unless your opponent spends 1 [M]."
+      },
+      "ru": {
+        "title": "СТРЕМИТЕЛЬНОЕ СБЛИЖЕНИЕ",
+        "general": "Получите 3 (B) или 3 (S), если противник не потратит 1 [M].",
+        "unit": "Пионер/Корабль «Твердыня»: Получите 2 (B) и 2 (S), если противник не потратит 1 [M].",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_3.jpg",
+      "blob": "17b92879960d87bc5da9e9d2f66c62714fdec0ce",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t2_4.jpg": {
+      "en": {
+        "title": "VOID IN OUR VEINS",
+        "general": "Rally 1 of your units. *newline* Convert 1 of your [M] into either [B] or [S].",
+        "unit": "Stronghold: Take 1 of your routed or unrouted ships from this area and place it on a friendly area. Take 1 unrouted Bastion Commerce Vessel from any area and place it on this area."
+      },
+      "ru": {
+        "title": "ПУСТОТА В НАШИХ ЖИЛАХ",
+        "general": "Восстановите 1 ваш отряд. *newline* Переверните 1 ваш [M] на [B] или [S].",
+        "unit": "Корабль «Твердыня»: Возьмите 1 ваш деморализованный или недеморализованный корабль из этой области и разместите его в дружественной области. Возьмите 1 недеморализованный Торговый Корабль «Бастион» из любой области и разместите его в этой области.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_4.jpg",
+      "blob": "ead5e8d0a0f06abb80fbbd41a5b3114b2388db78",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t3_1.jpg": {
+      "en": {
+        "title": "ANCESTORS ARE WATCHING",
+        "general": "",
+        "unit": "Fortress/Stronghold: Move 1 of your units to this area from this or any adjacent system to gain either 3 (B) or 3 (S). *newpara* At the start of the resolution phase you may move any of your units from this area to any number of friendly or uncontrolled areas in this or adjacent systems."
+      },
+      "ru": {
+        "title": "ПРЕДКИ НАБЛЮДАЮТ",
+        "general": "",
+        "unit": "Крепость/Корабль «Твердыня»: Переместите 1 ваш отряд в эту область из этой или любой соседней системы, чтобы получить 3 (B) или 3 (S). *newpara* В начале фазы разрешения вы можете переместить любое количество ваших отрядов из этой области в любое количество дружественных или неконтролируемых областей этой или соседних систем.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_1.jpg",
+      "blob": "7b001912d83094fce0bb1c1581d40fd8163b732c",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t3_2.jpg": {
+      "en": {
+        "title": "EYE OF THE ANCESTORS",
+        "general": "Gain 1 [B], 1 [S], or 1 [M]. *newline* Draw 1 combat card.",
+        "unit": "Fortress/Stronghold: Your opponent loses 3 dice of your choice."
+      },
+      "ru": {
+        "title": "ОКО ПРЕДКОВ",
+        "general": "Получите 1 [B], 1 [S] или 1 [M]. *newline* Возьмите 1 боевую карту.",
+        "unit": "Крепость/Корабль «Твердыня»: Противник теряет 3 куба по вашему выбору.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_2.jpg",
+      "blob": "051ea610475fffe028823cbcc1e0a6255a691e46",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/combat/t3_3.jpg": {
+      "en": {
+        "title": "RETURN TO ANCESTORS",
+        "general": "Either convert up to 2 of your [S] into [B] or convert up to 2 of your [M] into [B].",
+        "unit": "Fortress/Stronghold: During this combat, when any of your units are destroyed, gain materiel equal to that unit's materiel cost reduced by 1."
+      },
+      "ru": {
+        "title": "ВОЗВРАЩЕНИЕ К ПРЕДКАМ",
+        "general": "Переверните до 2 ваших [S] на [B] или до 2 ваших [M] на [B].",
+        "unit": "Крепость/Корабль «Твердыня»: До конца этой битвы, когда уничтожен ваш отряд, получите материалы в количестве, равном стоимости этого отряда в материалах минус 1.",
+        "icons": ""
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_3.jpg",
+      "blob": "9ee9b4bb406ecf8eba651506ac9222898a70c179",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/orders/o_1.jpg": {
+      "en": {
+        "title": "A.N – VYL WORKSTATION",
+        "general": "While resolving your faction ability, if you purchased a combat card with a maximum command level of 2, you may spend 1 forge token to take a second combat card of either the same or lower command level you purchased and place it in your combat deck. Then remove a combat card from your combat deck and place it in your combat upgrade deck. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "РАБОЧАЯ СТАНЦИЯ A.N–VYL",
+        "general": "Во время применения способности фракции, если вы купили боевую карту с командным уровнем не выше 2, вы можете потратить 1 жетон кузницы, чтобы взять вторую боевую карту того же или более низкого командного уровня и добавить её в вашу боевую колоду. Затем уберите 1 боевую карту из вашей боевой колоды в вашу колоду боевых улучшений. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_1.jpg",
+      "blob": "3f37bdf1c92af78043d6c8f897a73df330eba41a",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/orders/o_2.jpg": {
+      "en": {
+        "title": "IRONKIN WAYFINDER",
+        "general": "After you resolve this order, you may spend 1 forge token to both place 1 of your order tokens from your play area onto the top of your event deck, and you may move 1 of your ships in the active system to any friendly or uncontrolled void in either the active system or an adjacent system. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ЖЕЛЕЗНОРОДНЫЙ ПРОВОДНИК",
+        "general": "После выполнения этого приказа вы можете потратить 1 жетон кузницы, чтобы разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. При этом вы также можете переместить 1 ваш корабль из активной системы в любую дружественную или неконтролируемую пустоту активной или соседней системы. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_2.jpg",
+      "blob": "d8858f18e4dda6a77ee6b0de1cc5ebd4b42f2c69",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/orders/o_3.jpg": {
+      "en": {
+        "title": "TRADERS OF THE VOID",
+        "general": "While resolving this order, if you have an unrouted ship in the active system gain 1 forge token. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ТОРГОВЦЫ ПУСТОТЫ",
+        "general": "Во время выполнения этого приказа, если у вас есть недеморализованный корабль в активной системе, получите 1 жетон кузницы. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_3.jpg",
+      "blob": "c7b368b8d5ff6d286cbe49239581384d7a0fb967",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/orders/o_4.jpg": {
+      "en": {
+        "title": "HOLD WORLDS",
+        "general": "When you purchase a bastion while resolving this order, you may spend 1 forge token to place that bastion on a friendly world that already contains exactly 1 bastion. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "МИРЫ-ОПЛОТЫ",
+        "general": "Когда вы покупаете бастион во время выполнения этого приказа, вы можете потратить 1 жетон кузницы, чтобы разместить его в дружественном мире, уже содержащем ровно 1 бастион. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_4.jpg",
+      "blob": "164dd7e09758459c89b81b22ca27120cb0e81083",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/orders/o_5.jpg": {
+      "en": {
+        "title": "CELESTIAL HAMMERFALL",
+        "general": "During this orbital strike, gain 1 extra [D] for each of your participating ships and ignore dice limit restrictions. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "НЕБЕСНЫЙ УДАР МОЛОТА",
+        "general": "Во время этого орбитального удара получите по 1 дополнительному [D] за каждый ваш участвующий корабль и игнорируйте лимит кубов. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_5.jpg",
+      "blob": "781824468dfb5d4df8e80a05b9f4d3e87092ce94",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/orders/o_6.jpg": {
+      "en": {
+        "title": "WASTE FEEDS THE VOID",
+        "general": "Enemy bastions do not prevent this orbital strike. During this orbital strike, you may spend 2 [S] to choose and destroy 1 structure on this world. *newline* LIMIT ONCE PER ROUND."
+      },
+      "ru": {
+        "title": "ОТХОДЫ ПИТАЮТ ПУСТОТУ",
+        "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время этого орбитального удара вы можете потратить 2 [S], чтобы выбрать и уничтожить 1 постройку в этом мире. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_6.jpg",
+      "blob": "39cccd959c205f17bdf97f8237dac86e14c5e52b",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_1.jpg": {
+      "en": {
+        "title": "PROSPEROUS TRADERS",
+        "general": "Gain 2 different assets of your choice.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ПРЕУСПЕВАЮЩИЕ ТОРГОВЦЫ",
+        "general": "Получите 2 разных ресурса по вашему выбору.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_1.jpg",
+      "blob": "a1108925ae36f1ba7c6fce5eaa5890384ffcab9c",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_2.jpg": {
+      "en": {
+        "title": "PLANETARY MINING",
+        "general": "Choose a system that contains any of your ships and choose a world in that system. Gain materiel equal to its materiel value.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ПЛАНЕТАРНАЯ ДОБЫЧА",
+        "general": "Выберите систему, содержащую ваши корабли, и 1 мир в ней. Получите материалы в количестве, равном показателю материалов этого мира.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_2.jpg",
+      "blob": "9a64cc36876d8fdfcdadbfe42f0cfd5586a6be85",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_3.jpg": {
+      "en": {
+        "title": "SAILING TO FAR-SPACE",
+        "general": "Purchase 1 order upgrade, ignoring its command level restrictions and reducing its materiel cost by 1 for each friendly void containing your ships.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ПУТЬ В ДАЛЬНИЙ КОСМОС",
+        "general": "Купите 1 улучшение приказа, игнорируя ограничения командного уровня. Снизьте его стоимость в материалах на 1 за каждую дружественную пустоту с вашими кораблями.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_3.jpg",
+      "blob": "28577e7427c303c129401761f44eb409bdf965b3",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_4.jpg": {
+      "en": {
+        "title": "TOIL EARNS",
+        "general": "Gain 2 forge tokens and gain 1 materiel for each forge token that would exceed your maximum asset limit.",
+        "type": "TACTIC"
+      },
+      "ru": {
+        "title": "ТРУД ВОЗНАГРАЖДАЕТСЯ",
+        "general": "Получите 2 жетона кузницы и по 1 материалу за каждый жетон кузницы, который превысил бы ваш лимит ресурсов.",
+        "type": "ТАКТИКА",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_4.jpg",
+      "blob": "2cd3b214ceb105f14c1fbda406d8191da6647da0",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_5.jpg": {
+      "en": {
+        "title": "PREPARE THE KINHOST",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, you may discard this card to take 1 of your units with a maximum command level of 2 from any world and place it on this world.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ПОДГОТОВИТЬ ВОИНСТВО РОДИЧЕЙ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы взять 1 ваш отряд с командным уровнем не выше 2 из любого мира и разместить его в этом мире.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_5.jpg",
+      "blob": "fb1b8bbcaa886216f5f3083fcf0e6cd61d98995d",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_6.jpg": {
+      "en": {
+        "title": "ANCESTOR CORE",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of an execution round of combat, you may discard this card to discard a combat card from your hand. Resolve both abilities on that combat card even if you do not have the listed units in the combat.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ЯДРО ПРЕДКОВ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту и 1 боевую карту с руки. Примените обе способности сброшенной боевой карты, даже если указанные на ней отряды не участвуют в битве.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_6.jpg",
+      "blob": "f57eb667077891200780f158038b40a67df15587",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_7.jpg": {
+      "en": {
+        "title": "TARGETED EFFORT",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* While resolving an orbital strike, you may discard this card to choose and rout 1 enemy unit on that world before assessing damage.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "СОСРЕДОТОЧЕННОЕ УСИЛИЕ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время выполнения орбитального удара вы можете сбросить эту карту, чтобы выбрать и деморализовать 1 вражеский отряд в выбранном мире перед нанесением повреждений.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_7.jpg",
+      "blob": "bb4103e3b71acfcc53bda5d6fcced7d905af1a35",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    },
+    "tdl/leaguesofvotann/events/e_8.jpg": {
+      "en": {
+        "title": "IRONKIN SUPPORT",
+        "general": "Place this card in your play area and discard all of your other schemes. *newpara* At the start of a reinforce step of combat, you may discard this card and spend 1 forge token to place 2 free reinforcement tokens in this area.",
+        "type": "SCHEME"
+      },
+      "ru": {
+        "title": "ПОДДЕРЖКА ЖЕЛЕЗНОРОДНЫХ",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале шага подкрепления битвы вы можете сбросить эту карту и потратить 1 жетон кузницы, чтобы разместить 2 бесплатных жетона подкрепления в этой области.",
+        "type": "ПЛАН",
+        "raster": true
+      },
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_8.jpg",
+      "blob": "9809d1bb904b13707bc688cdd3123efe537b2798",
+      "method": "manual-image-transcription-and-translation",
+      "status": "draft-for-approval"
+    }
+  },
+  "factions": {
+    "adeptuscustodes": {
+      "title": "АДЕПТУС КУСТОДЕС",
+      "subtitle": "Солнечная Стража",
+      "units": [
+        "Кустодий Страж",
+        "Секретный Крейсер",
+        "Чемпион Клинка",
+        "Дредноут «Контемптор-Галатус»",
+        "Мойрайдейс",
+        "Траянн Валорис"
+      ],
+      "abilityEN": "The Guided Path: When you resolve a dominate order, you may place 1 of your order tokens from your play area onto the top of your event deck. *newpara* The Ten Thousand: Passive ability: During a reinforcement step of combat, gain 1 [D] for each reinforcement token you placed and then discard the tokens.",
+      "ability": "АДЕПТУС КУСТОДЕС *newline* Солнечная Стража *newpara* Указанный путь: Когда вы выполняете приказ Доминирования, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newpara* Десять тысяч: Пассивная способность. Во время шага подкрепления битвы получите по 1 [D] за каждый размещённый вами жетон подкрепления, затем сбросьте эти жетоны.",
+      "initial": [
+        "Кустодии Стражи",
+        "Секретный Крейсер",
+        "Город",
+        "Фабрика",
+        "Жетон кузницы",
+        "Улучшение приказа «Воля Императора»",
+        "Материалы"
+      ],
+      "lore": "«Если мы вторгнемся, мы разграбим ваши города, испепелим ваши миры, поработим ваш народ…» *newpara* [+++ ВОКС-ПЕРЕДАЧА +++] [+++ ОТ: [+++ УДАЛЕНО +++] ФЛОТА КСЕНОСОВ +++] *newpara* Ответ после снятия осады мира [+++ УДАЛЕНО +++]: *newpara* «Если…» *newpara* Траянн Валорис, Генерал-Капитан Адептус Кустодес",
+      "loreEN": "If we invade, we will plunder your cities, incinerate your worlds, enslave your people... [+++ VOX-CAST TRANSMISSION +++] [+++ FROM: [+++ REDACTED +++] XENOS FLEET +++] Response following the breaking of the siege of the world [+++ REDACTED +++] If... Trajann Valoris, Adeptus Custodes Captain-General",
+      "objectives": [
+        [
+          "The Watch Beyond: Our watch begins at His Throne and reaches to worlds beyond. A watch eternal, unbroken and vigilant. Glory to the Emperor!",
+          "Дозор за пределами: Наш дозор начинается у Его Трона и простирается к далёким мирам. Вечный, непрерывный, бдительный. Слава Императору!"
+        ],
+        [
+          "Escort the Inquisitor: The Custodes are assigned not as guardians, but as final arbiters. Ensure their passage. Cleanse the site of the heretic without mercy!",
+          "Сопроводить инквизитора: Кустодес назначены не стражами, а последними судьями. Обеспечьте им проход. Безжалостно очистите это место от еретиков!"
+        ],
+        [
+          "All We Need Is One: One Custodian's blade can turn the fate of worlds. Stand unyielding, for his strike is the Emperor's will made manifest!",
+          "Нам нужен лишь один: Клинок одного Кустодия может изменить судьбы миров. Стойте непоколебимо: его удар — воплощённая воля Императора!"
+        ],
+        [
+          "Sigil of the Emperor: It is an unyielding symbol of the Emperor's dominion. Amid war's storm, his resolve does not falter. The Emperor's light endures!",
+          "Печать Императора: Несокрушимый символ власти Императора. В буре войны Его решимость непоколебима. Свет Императора не угасает!"
+        ],
+        [
+          "Captain's Aegis: Where he holds, the Imperium does not yield. By his presence alone, defeat becomes impossible, and retreat... unthinkable.",
+          "Эгида капитана: Там, где он стоит, Империум не отступит. Одно его присутствие делает поражение невозможным, а отступление… немыслимым."
+        ],
+        [
+          "Purge the Heretic: The Emperor's justice is swift and merciless. No shadow of heresy may stand beneath the golden blades. Only the Emperor's will remains!",
+          "Истребить еретика: Правосудие Императора быстро и беспощадно. Ни одна тень ереси не устоит перед золотыми клинками. Останется лишь воля Императора!"
+        ]
+      ],
+      "abilityRendered": "АДЕПТУС КУСТОДЕС *newline* Солнечная Стража *newpara* Указанный путь: Когда вы выполняете приказ Доминирования, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newpara* Десять тысяч: Пассивная способность. Во время шага подкрепления битвы получите по 1 [D] за каждый размещённый вами жетон подкрепления, затем сбросьте эти жетоны.",
+      "loreRendered": "«Если мы вторгнемся, мы разграбим ваши города, испепелим ваши миры, поработим ваш народ…» *newpara* [+++ ВОКС-ПЕРЕДАЧА +++] [+++ ОТ: [+++ УДАЛЕНО +++] ФЛОТА КСЕНОСОВ +++] *newpara* Ответ после снятия осады мира [+++ УДАЛЕНО +++]: *newpara* «Если…» *newpara* Траянн Валорис, Генерал-Капитан Адептус Кустодес"
+    },
+    "genestealercult": {
+      "title": "КУЛЬТ ГЕНОКРАДОВ",
+      "subtitle": "Культ Улья",
+      "units": [
+        "Гибрид-Неофит",
+        "Украденный Грузовой Корабль",
+        "Гибрид-Метаморф",
+        "Чистокровный Генокрад",
+        "Украденный Линкор",
+        "Патриарх"
+      ],
+      "abilityEN": "Hiding Amidst: Passive ability: When you have only Neophyte Hybrids in a hostile world that contains enemy units or structures and does not contain your objective token do not start combat. Treat this world as hostile to you but friendly to your opponent. If any of your other units enter the hostile world start combat with all of your units in that world participating in it. Planet capacity for your Neophyte Hybrids in hostile worlds is 2 and your units on that world do not affect the opponent's planet capacity.",
+      "ability": "КУЛЬТ ГЕНОКРАДОВ *newline* Культ Улья *newpara* Скрываясь среди них: Пассивная способность. Если враждебный мир содержит вражеские отряды или постройки, не содержит вашего жетона цели, а из ваших отрядов в нём находятся только Гибриды-Неофиты, не начинайте битву. Этот мир считается враждебным для вас и дружественным для противника. Если в него входит любой другой ваш отряд, начните битву с участием всех ваших отрядов в этом мире. Вместимость враждебного мира для ваших Гибридов-Неофитов равна 2. Ваши отряды в этом мире не влияют на вместимость мира для противника.",
+      "initial": [
+        "Гибриды-Неофиты",
+        "Гибрид-Метаморф",
+        "Украденный Грузовой Корабль",
+        "Бастион",
+        "Фабрика",
+        "Улучшение приказа «Культ растёт»",
+        "Материалы"
+      ],
+      "lore": "Братья, сёстры! Мы должны разорвать оковы, освободиться от запретов и свергнуть угнетателей. Нас ждут труд, испытания и муки. Но радуйтесь! Все верующие возвысятся, даже если погибнут в борьбе. В великих небесных чертогах Звёздные Дети спят… ждут… слушают… *newpara* Наша грядущая победа пробудит их, и с их пробуждением мы восстанем, чтобы встать рядом с ними… *newpara* [+++ ПОСЛЕДНЕЕ АСТРОПАТИЧЕСКОЕ СООБЩЕНИЕ: НОВЫЙ ГИДЛАМ, СКОПЛЕНИЕ ГЕРАКОН +++] [+++ ГОВОРЯЩИЙ: ВЕКСХАТРИД, ГУБЕРНАТОР НОВОГО ГИДЛАМА +++] [+++ СТАТУС: МИР ПРЕДПОЛОЖИТЕЛЬНО ПОТЕРЯН +++] [+++ ПРИГОВОР: ЭКСТЕРМИНАТУС +++] *newpara* Утверждено Грегором Эйзенхорном, инквизитором Ордо Ксенос, императорским указом.",
+      "loreEN": "Brothers, sisters! We must break our bindings, unshackle our strictures, overthrow our oppressors. Expect toil, tribulation and torment. But oh Rejoice! For all those of faith, even if they may die in our struggle, will be uplifted. In their great sky houses, the Star Children lie dreaming... awaiting... listening... Our coming triumph will bring their awakening, and in their awakening we will be arisen to join their side... [+++ FINAL ASTROPATHIC COMMUNIQUÉ +++] [+++ ORIGIN: NEW GIDLAM, HERAKON CLUSTER +++] [+++ SPEAKER: VEXHATRYD, GOVERNOR OF NEW GIDLAM +++] [+++ STATUS: WORLD ASSUMED LOST +++] [+++ JUDGEMENT: EXTERMINATUS +++] Order Authorised By: Gregor Eisenhorn, Inquisitor of Ordo Xenos, by Imperial Decree",
+      "objectives": [
+        [
+          "Uniting Banner: Beneath the banner's shade, the devout, loyal and zealous are forged into one living weapon, driven in unison against the chains of ignorance.",
+          "Объединяющее знамя: Под сенью знамени верные, преданные и ревностные становятся единым живым оружием, вместе разрывающим цепи невежества."
+        ],
+        [
+          "The Inner Circle: Shadows deepen as the faithful gather close. Here, in the inner circle, all become one as vessels of the coming dawn.",
+          "Внутренний круг: Тени сгущаются, когда верные собираются вместе. Здесь, во внутреннем круге, все становятся единым сосудом грядущего рассвета."
+        ],
+        [
+          "Engines of the Faithful: These roads belong not to tyrants, but to those who ride for a noble cause. Our roars are our hymns of ascension.",
+          "Машины верных: Эти дороги принадлежат не тиранам, а тем, кто едет ради благородной цели. Рёв наших машин — гимн вознесения."
+        ],
+        [
+          "Awaken the Patriarch: Silent and unseen, we await, for the Patriarch's awakening will shatter shadows and bind the faithful in unyielding devotion.",
+          "Пробудить Патриарха: Безмолвно и незримо мы ждём: пробуждение Патриарха рассеет тени и свяжет верных нерушимой преданностью."
+        ],
+        [
+          "Commands of the Primus: In his voice echoes the will of the Star Children, in his command we become one purpose, one blade, one faithful living truth.",
+          "Приказы Примуса: В его голосе звучит воля Звёздных Детей. По его приказу мы становимся единой целью, единым клинком, единой живой истиной веры."
+        ],
+        [
+          "Temple of the Chosen: Hear and gather, faithful! Cast off the doubts of the corrupt, and rise as chosen vessels heralding the great day!",
+          "Храм избранных: Услышьте и соберитесь, верные! Отриньте сомнения развращённых и восстаньте избранными сосудами, возвещающими великий день!"
+        ]
+      ],
+      "abilityRendered": "КУЛЬТ ГЕНОКРАДОВ *newline* Культ Улья *newpara* Скрываясь среди них: Пассивная способность. Если враждебный мир содержит вражеские отряды или постройки, не содержит вашего жетона цели, а из ваших отрядов в нём находятся только Гибриды-Неофиты, не начинайте битву. Этот мир считается враждебным для вас и дружественным для противника. Если в него входит любой другой ваш отряд, начните битву с участием всех ваших отрядов в этом мире. Вместимость враждебного мира для ваших Гибридов-Неофитов равна 2. Ваши отряды в этом мире не влияют на вместимость мира для противника.",
+      "loreRendered": "Братья, сёстры! Мы должны разорвать оковы, освободиться от запретов и свергнуть угнетателей. Нас ждут труд, испытания и муки. Но радуйтесь! Все верующие возвысятся, даже если погибнут в борьбе. В великих небесных чертогах Звёздные Дети спят… ждут… слушают… *newpara* Наша грядущая победа пробудит их, и с их пробуждением мы восстанем, чтобы встать рядом с ними… *newpara* [+++ ПОСЛЕДНЕЕ АСТРОПАТИЧЕСКОЕ СООБЩЕНИЕ: НОВЫЙ ГИДЛАМ, СКОПЛЕНИЕ ГЕРАКОН +++] [+++ ГОВОРЯЩИЙ: ВЕКСХАТРИД, ГУБЕРНАТОР НОВОГО ГИДЛАМА +++] [+++ СТАТУС: МИР ПРЕДПОЛОЖИТЕЛЬНО ПОТЕРЯН +++] [+++ ПРИГОВОР: ЭКСТЕРМИНАТУС +++] *newpara* Утверждено Грегором Эйзенхорном, инквизитором Ордо Ксенос, императорским указом."
+    },
+    "thousandsons": {
+      "title": "ТЫСЯЧА СЫНОВ",
+      "subtitle": "Культ Времени",
+      "units": [
+        "Цаангор",
+        "Рубриканский Фрегат",
+        "Рубрикатор",
+        "Возвышенный Колдун",
+        "Серебряная Башня",
+        "Владыка Перемен"
+      ],
+      "abilityEN": "Shifting Time: When you resolve a dominate order, you may take 1 of your unrevealed order tokens on top of a stack and place it one lower on that stack. It can be the same stack the current revealed order is in.",
+      "ability": "ТЫСЯЧИ СЫНОВ *newline* Культ Времени *newpara* Сдвиг времени: Когда вы выполняете приказ Доминирования, вы можете взять 1 ваш нераскрытый жетон приказа с верха стека и разместить его на одну позицию ниже в том же стеке. Это может быть стек, из которого раскрыт текущий приказ.",
+      "initial": [
+        "Цаангоры",
+        "Рубриканский Фрегат",
+        "Рубрикатор",
+        "Фабрика",
+        "Материалы"
+      ],
+      "lore": "Девять перемен, рождённых огнём. *newline* Девять лживых имён, что звучат шепотком. *newline* Девять слов, переплетённых во фразах. *newline* Девять путей в лабиринтах рассказа. *newline* Девять масок — и каждая лик-ловушка. *newline* Девять загадок, дарованных в молитве. *newline* Девять видений в зеркальном стекле. *newline* Девять грядущих, не сбыться ни одному. *newpara* Девять… *newpara* Тсатик Вхор, Возвышенный Колдун Культа Времени",
+      "loreEN": "Nine are the changes, wrought in flames. Nine are the lies, whispered in names. Nine are the words, weaved in phrases. Nine are the pathways, twisted in mazes. Nine are the masks, each face a snare. Nine are the riddles, granted in prayer. Nine are the visions, mirrored in glass. Nine are the futures, none spun to last. Nine... Tsathic Vhorr, Exalted Sorcerer of Cult of Time",
+      "objectives": [
+        [
+          "Athanean Scrolls: The scrolls rewrite themselves with each passing second. Secure them before their prophecies slip into oblivion!",
+          "Афанейские свитки: Свитки переписывают себя каждую секунду. Завладейте ими, пока их пророчества не канули в забвение!"
+        ],
+        [
+          "Echoes of Prospero: Let not this ground echo with Prospero's name, or the past shall claim it in fire and ash.",
+          "Эхо Просперо: Пусть имя Просперо не отзовётся на этой земле, иначе прошлое поглотит её огнём и пеплом."
+        ],
+        [
+          "Pyramid of the Changer: Within the Pyramid, the weave of time grows fragile and unstable. Preserve its blaze, or risk oblivion's claim.",
+          "Пирамида Изменяющего: В Пирамиде ткань времени становится хрупкой и нестабильной. Сохраните её пламя, иначе рискуете кануть в небытие."
+        ],
+        [
+          "Rubric Orb: Within the orb's swirling depths lie the trapped echoes of souls lost to the Rubric. Their fury ready to burn away the chains of reality.",
+          "Сфера Рубрики: В бурлящих глубинах сферы заточены отголоски душ, поглощённых Рубрикой. Их ярость готова сжечь цепи реальности."
+        ],
+        [
+          "Discs of Tzeentch: The Discs hum with echoes of futures yet to come, a fulcrum where past and future collide. Recover them, lest the hourglass shatter.",
+          "Диски Тзинча: Диски гудят отголосками грядущего, в них сталкиваются прошлое и будущее. Верните их, пока не разбились песочные часы."
+        ],
+        [
+          "Bind the Warp Shadow: Wield the shadow's tide before enemy hands defile its timeless pulse and unmake what was never meant to be.",
+          "Связать тень Варпа: Подчините прилив тени, прежде чем враг осквернит её вневременной пульс и разрушит то, чего никогда не должно было быть."
+        ]
+      ],
+      "abilityRendered": "ТЫСЯЧИ СЫНОВ *newline* Культ Времени *newpara* Сдвиг времени: Когда вы выполняете приказ Доминирования, вы можете взять 1 ваш нераскрытый жетон приказа с верха стека и разместить его на одну позицию ниже в том же стеке. Это может быть стек, из которого раскрыт текущий приказ.",
+      "loreRendered": "Девять перемен, рождённых огнём. *newline* Девять лживых имён, что звучат шепотком. *newline* Девять слов, переплетённых во фразах. *newline* Девять путей в лабиринтах рассказа. *newline* Девять масок — и каждая лик-ловушка. *newline* Девять загадок, дарованных в молитве. *newline* Девять видений в зеркальном стекле. *newline* Девять грядущих, не сбыться ни одному. *newpara* Девять… *newpara* Тсатик Вхор, Возвышенный Колдун Культа Времени"
+    },
+    "leaguesofvotann": {
+      "title": "ЛИГИ ВОТАННА",
+      "subtitle": "Конгломерат Имир",
+      "units": [
+        "Воин-Очажник",
+        "Торговый Корабль «Бастион»",
+        "Страж Очага Эйнхир",
+        "Пионер Хернкин",
+        "Торговый Корабль «Твердыня»",
+        "Сухопутная Крепость «Гекатон»"
+      ],
+      "abilityEN": "Hearth of the Forge: When you resolve a dominate order, you may either purchase an order upgrade, reducing its materiel cost by 1. Or purchase a combat upgrade at half the materiel listed on the card. But place only 1 copy of the purchased combat card into your deck. Then remove 1 combat card from your combat deck and place it into your combat upgrade deck. The paired card may only be purchased with this ability and not by a Strategize Order.",
+      "ability": "ЛИГИ ВОТАННА *newline* Конгломерат Имир *newpara* Очаг кузницы: Когда вы выполняете приказ Доминирования, вы можете купить 1 улучшение приказа, снизив его стоимость в материалах на 1, или купить 1 улучшение боевой колоды за половину указанной на карте стоимости в материалах. Добавьте в вашу боевую колоду только 1 экземпляр купленной боевой карты. Затем уберите 1 боевую карту из вашей боевой колоды в вашу колоду боевых улучшений. Парный экземпляр можно купить только этой способностью, а не приказом Стратегии.",
+      "initial": [
+        "Воины-Очажники",
+        "Страж Очага Эйнхир",
+        "Торговые Корабли «Бастион»",
+        "Фабрика",
+        "Материалы"
+      ],
+      "lore": "…повторяю: мы в сорока днях гал… тического пути строго к западу от станции пустоты Триекс, приближаемся к подсектору… ядру скопления Геракон. Нас… захватило какое-то иск… искажённое гравитационное поле и… Запрашиваю: что… это? Клянусь Омниссией… это излучение исходит… от того корабля. *newpara* Обратите внимание на знаки… на его корпусе. Это… невозможно. Офици… архивные догмы… объявили вымершими!… доказательства… нельзя отрицать, сколь бы… еретичной ни была правда. Тот… корабль принадлежит… *newpara* скватам… *newpara* Архимагос-эксплоратор Гоханнус. Исследовательский флот Дельта-Омега. Последнее полученное астропатическое донесение.",
+      "loreEN": "...epeat we are forty-days gal... tic due west of Triex void station approaching sub-sector... Herakon cluster core. We... caught by some sort of warp...sed gravitational field and... Interrogative, what... that? By the Omnissiah... sed emanation is origina... from that vessel. Attend the markings... its hull. This... annot be. Offici... archival dogma... rendered extinct!... evidence... not be denied, no matter... heretical its truth. That... essel belongs to Squats... Archmagos Explorator Gohannus, Explorator Fleet Delta-Omega, Last received Astropathic report",
+      "objectives": [
+        [
+          "Hearthcall Rescue: Cut off and encircled, the Kâhl, the Ancestors' voice, must be retrieved before enemy blades or blasphemies silence them!",
+          "Спасение по зову Очага: Отрезанного и окружённого Кала, голос Предков, нужно спасти, пока вражеские клинки или богохульства не заставили его умолкнуть!"
+        ],
+        [
+          "Reclaim the Ancestral Site: Within this ancient fane, Grimnyr commune with the Votann's core, drawing from the endless memory of Ancestors...",
+          "Вернуть святилище Предков: В этом древнем храме Гримниры общаются с ядром Вотанна, черпая знания из бесконечной памяти Предков…"
+        ],
+        [
+          "Fulfill the Oathband: Kin ready arms and minds, bound by oath and steel. Luck has, need keeps. The Oathband will tip the void's scales.",
+          "Исполнить долг Братства Клятвы: Родичи готовят оружие и разум, скреплённые клятвой и сталью. Удача даёт, нужда хранит. Братство Клятвы склонит чашу весов пустоты."
+        ],
+        [
+          "Secure the Arsenal: Here burns the Hearth's promise. Weapons forged in Ancestor fire await those worthy to wield them.",
+          "Завладеть арсеналом: Здесь горит обещание Очага. Оружие, выкованное в огне Предков, ждёт достойных рук."
+        ],
+        [
+          "Oath In the Void: His oath was struck in the heart of the forge, not made to be broken in the void. An oath older than the void itself. The Ancestors remember.",
+          "Клятва в пустоте: Его клятва была выкована в сердце кузницы не для того, чтобы нарушить её в пустоте. Клятва древнее самой пустоты. Предки помнят."
+        ],
+        [
+          "Preserve the Hearth Core: Their boots strike in sync with the Ancestors' will. Each hammer blow earned, each strike a vow to preserve the Hearth Core.",
+          "Сохранить ядро Очага: Их шаги звучат в согласии с волей Предков. Каждый удар молота заслужен, каждый удар — клятва сохранить ядро Очага."
+        ]
+      ],
+      "abilityRendered": "ЛИГИ ВОТАННА *newline* Конгломерат Имир *newpara* Очаг кузницы: Когда вы выполняете приказ Доминирования, вы можете купить 1 улучшение приказа, снизив его стоимость в материалах на 1, или купить 1 улучшение боевой колоды за половину указанной на карте стоимости в материалах. Добавьте в вашу боевую колоду только 1 экземпляр купленной боевой карты. Затем уберите 1 боевую карту из вашей боевой колоды в вашу колоду боевых улучшений. Парный экземпляр можно купить только этой способностью, а не приказом Стратегии.",
+      "loreRendered": "…повторяю: мы в сорока днях гал… тического пути строго к западу от станции пустоты Триекс, приближаемся к подсектору… ядру скопления Геракон. Нас… захватило какое-то иск… искажённое гравитационное поле и… Запрашиваю: что… это? Клянусь Омниссией… это излучение исходит… от того корабля. *newpara* Обратите внимание на знаки… на его корпусе. Это… невозможно. Офици… архивные догмы… объявили вымершими!… доказательства… нельзя отрицать, сколь бы… еретичной ни была правда. Тот… корабль принадлежит… *newpara* скватам… *newpara* Архимагос-эксплоратор Гоханнус. Исследовательский флот Дельта-Омега. Последнее полученное астропатическое донесение."
+    }
+  },
+  "maps": {
+    "adeptuscustodes": {
+      "map_A.jpg": [
+        {
+          "originalName": "Titus",
+          "ruDraft": "Титус"
+        },
+        {
+          "originalName": "Luna",
+          "ruDraft": "Луна"
+        },
+        {
+          "originalName": "Terra",
+          "ruDraft": "Терра"
+        },
+        {
+          "originalName": "Sol Asteroid Belt",
+          "ruDraft": "Пояс астероидов Солнца"
+        }
+      ],
+      "map_B.jpg": [
+        {
+          "originalName": "The Inner Watch",
+          "ruDraft": "Внутренний дозор"
+        },
+        {
+          "originalName": "Luna",
+          "ruDraft": "Луна"
+        },
+        {
+          "originalName": "Terra",
+          "ruDraft": "Терра"
+        },
+        {
+          "originalName": "Titus",
+          "ruDraft": "Титус"
+        }
+      ]
+    },
+    "genestealercult": {
+      "map_A.jpg": [
+        {
+          "originalName": "Ichar IV",
+          "ruDraft": "Ичар IV"
+        },
+        {
+          "originalName": "Gatavita",
+          "ruDraft": "Гатавита"
+        },
+        {
+          "originalName": "New Gidlam",
+          "ruDraft": "Новый Гидлам"
+        },
+        {
+          "originalName": "Savlar",
+          "ruDraft": "Савлар"
+        }
+      ],
+      "map_B.jpg": [
+        {
+          "originalName": "Ghosar Quintus",
+          "ruDraft": "Госар Квинтус"
+        },
+        {
+          "originalName": "Gatavita",
+          "ruDraft": "Гатавита"
+        },
+        {
+          "originalName": "New Gidlam",
+          "ruDraft": "Новый Гидлам"
+        },
+        {
+          "originalName": "Savlar",
+          "ruDraft": "Савлар"
+        }
+      ]
+    },
+    "thousandsons": {
+      "map_A.jpg": [
+        {
+          "originalName": "The Screaming Vortex",
+          "ruDraft": "Кричащий Вихрь"
+        },
+        {
+          "originalName": "Dianixis",
+          "ruDraft": "Дианиксис"
+        },
+        {
+          "originalName": "Dessimar",
+          "ruDraft": "Дессимар"
+        },
+        {
+          "originalName": "Q'Sal",
+          "ruDraft": "К’Сал"
+        }
+      ],
+      "map_B.jpg": [
+        {
+          "originalName": "Ultimatus",
+          "ruDraft": "Ультиматус"
+        },
+        {
+          "originalName": "Immaterial Rift",
+          "ruDraft": "Разлом Имматериума"
+        },
+        {
+          "originalName": "Dessimar",
+          "ruDraft": "Дессимар"
+        },
+        {
+          "originalName": "Sortiarius",
+          "ruDraft": "Сортиариус"
+        }
+      ]
+    },
+    "leaguesofvotann": {
+      "map_A.jpg": [
+        {
+          "originalName": "Cynder Span",
+          "ruDraft": "Синдерский простор"
+        },
+        {
+          "originalName": "The Galactic Core",
+          "ruDraft": "Ядро Галактики"
+        },
+        {
+          "originalName": "Töra",
+          "ruDraft": "Тёра"
+        },
+        {
+          "originalName": "Tamaikh",
+          "ruDraft": "Тамайх"
+        }
+      ],
+      "map_B.jpg": [
+        {
+          "originalName": "The Galactic Core",
+          "ruDraft": "Ядро Галактики"
+        },
+        {
+          "originalName": "Cynder Span",
+          "ruDraft": "Синдерский простор"
+        },
+        {
+          "originalName": "Tamaikh",
+          "ruDraft": "Тамайх"
+        }
+      ]
+    }
+  },
+  "initialForces": {
+    "adeptuscustodes": [
+      [
+        "2",
+        "Custodian Guards"
+      ],
+      [
+        "1",
+        "Classified Cruiser"
+      ],
+      [
+        "1",
+        "City"
+      ],
+      [
+        "1",
+        "Factory"
+      ],
+      [
+        "1",
+        "Forge Token"
+      ],
+      [
+        "1",
+        "Emperor's Will Order Upgrade"
+      ],
+      [
+        "6",
+        "Materiel"
+      ]
+    ],
+    "genestealercult": [
+      [
+        "3",
+        "Neophyte Hybrids"
+      ],
+      [
+        "1",
+        "Hybrid Metamorph"
+      ],
+      [
+        "1",
+        "Stolen Freighter"
+      ],
+      [
+        "1",
+        "Bastion"
+      ],
+      [
+        "1",
+        "Factory"
+      ],
+      [
+        "1",
+        "The Cult Grows Order Upgrade"
+      ],
+      [
+        "6",
+        "Materiel"
+      ]
+    ],
+    "thousandsons": [
+      [
+        "4",
+        "Tzaangors"
+      ],
+      [
+        "1",
+        "Rubrician Frigate"
+      ],
+      [
+        "1",
+        "Rubric Marine"
+      ],
+      [
+        "1",
+        "Factory"
+      ],
+      [
+        "6",
+        "Materiel"
+      ]
+    ],
+    "leaguesofvotann": [
+      [
+        "3",
+        "Hearthkyn Warrior"
+      ],
+      [
+        "1",
+        "Einhyr Hearthguard"
+      ],
+      [
+        "2",
+        "Bastion Commerce Vessel"
+      ],
+      [
+        "1",
+        "Factory"
+      ],
+      [
+        "6",
+        "Materiel"
+      ]
+    ]
+  },
+  "limitations": {
+    "mapImages": "Russian name legends are translated; the eight English map rasters remain intact. Trial masks damaged the background and were not applied. Clean/layered artwork is needed for graphical replacement.",
+    "approval": "Draft translation; unresolved original wording is recorded in review.md. No accuracy certification by tests."
+  }
+}

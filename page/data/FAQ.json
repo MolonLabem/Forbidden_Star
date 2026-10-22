@@ -333,62 +333,86 @@
                             {
                                 "Phrase": "Танковое Наступление",
                                 "Main": "Урон не сохраняется и не суммируется между шагами нанесения повреждений. Например, два нанесения по 2 урона не уничтожают отряд со здоровьем 3: первое деморализует его, второе не достигает его здоровья. Дополнительный шаг выполняют обе стороны; он не создаёт нового раунда битвы. Результаты кубов и жетоны сохраняются до его завершения. Особые правила первого шага — например, нанесение повреждений по одному или единственной выбранной цели — действуют и на дополнительном шаге.\n\n«Монт'Ка»: если выбранный отряд остался в битве, он вновь получает полный урон, даже если деморализован. Если он уничтожен на первом шаге, другим отрядам урон на дополнительном шаге не наносится.\n\n«Мученичество»: для защиты от урона на каждом шаге требуется уничтожить отдельный отряд.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80a29c5bfd0d8ae0b87c"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80a29c5bfd0d8ae0b87c",
+                                "Card": "base/spacemarines/combat/t2_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80a29c5bfd0d8ae0b87c"
                             },
                             {
                                 "Phrase": "Прорвать Фронт",
                                 "Main": "В: Можно ли выбрать карту в руке защитника?\nО: Нет. Прорвать Фронт действует только на открытые карты. Если атакующий сыграет эту карту первой, эффект будет потрачен впустую.\n\nВ: Можно ли отменить эффект, действующий весь бой?\nО: Да. Прорвать Фронт может отменить продолжающиеся эффекты, например Вирдбойзы. Однако большинство эффектов разрешаются сразу и уже не могут быть отменены.\n\nУточнение по Note FS League:\nЕсли у противника нет открытых боевых карт, способность отряда применить нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80ea8186f4a76d574b1d"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80ea8186f4a76d574b1d",
+                                "Card": "base/spacemarines/combat/t2_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80ea8186f4a76d574b1d"
                             },
                             {
                                 "Phrase": "Сброс Десантной Капсулы",
                                 "Main": "В: Бросает ли Космодесантник кубы, если переместился эффектом этой карты?\nО: Нет. Кубы отрядов бросаются только на этапе подготовки боя до начала раундов исполнения.\n\nУточнение по Note FS League:\nДеморализованные отряды перемещать нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d801e9393e8097bf5469e"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d801e9393e8097bf5469e",
+                                "Card": "base/spacemarines/combat/t0_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d801e9393e8097bf5469e"
                             },
                             {
                                 "Phrase": "Слава и Смерть",
                                 "Main": "В: Кто выбирает, какой куб теряется?\nО: Если явно не указано иное, выбор делает владелец боевой карты.\n\nУточнение по Note FS League:\nВладелец карты выбирает, теряет противник 1 [S] или 1 [M]. Если ни один вариант выполнить нельзя, эффект ничего не делает.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80ab995ff14d8e08339b"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80ab995ff14d8e08339b",
+                                "Card": "base/spacemarines/combat/t0_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80ab995ff14d8e08339b"
                             },
                             {
                                 "Phrase": "Разведка",
                                 "Main": "В: Если я защищаюсь, я всё равно получаю жетоны атаки/защиты?\nО: Да. Каждый абзац считается отдельно, поэтому вы получаете оба жетона.\n\nУточнение по Note FS League:\nДля отступления можно выбрать деморализованный отряд.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d806a8ee5c1a7aeaded67"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d806a8ee5c1a7aeaded67",
+                                "Card": "base/spacemarines/combat/s2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d806a8ee5c1a7aeaded67"
                             },
                             {
                                 "Phrase": "Слава Императора",
-                                "Main": "Можно перебросить любое количество кубов, включая 0. Восстановить можно только свои отряды, участвующие в этой битве.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d800d93bfef56dde10f39"
+                                "Main": "После восстановления своих отрядов, участвующих в этой битве, переверните любое количество своих кубов на [M], включая 0. Это переворот на выбранный символ, а не переброс кубов.",
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d800d93bfef56dde10f39",
+                                "Card": "base/spacemarines/combat/t3_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d800d93bfef56dde10f39"
                             },
                             {
                                 "Phrase": "Не Показывать Страха",
                                 "Main": "Общий эффект не восстанавливает уже деморализованные отряды: они остаются деморализованными. Он предотвращает новую деморализацию только в текущем раунде битвы. Способность отряда позволяет потратить 1 [M], чтобы восстановить все ваши деморализованные отряды в этой битве. Если другой эффект предлагает выбор между деморализацией и иным последствием, запрещённую деморализацию выбирать нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d8097bf29e41484559845"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d8097bf29e41484559845",
+                                "Card": "base/spacemarines/combat/t2_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d8097bf29e41484559845"
                             },
                             {
                                 "Phrase": "Разведчики Ветераны",
                                 "Main": "Выберите (B) или (S) отдельно для каждого [M]. Подсчитываются все ваши [M] в момент применения эффекта. Для отступления можно выбрать деморализованный отряд.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80e4853fd8d73a785eb7"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80e4853fd8d73a785eb7",
+                                "Card": "base/spacemarines/combat/t0_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80e4853fd8d73a785eb7"
                             },
                             {
                                 "Phrase": "Держать Строй",
                                 "Main": "Если вы не защищаетесь, эффект восстановления отряда применить нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80a89863e8cd4fb36518"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80a89863e8cd4fb36518",
+                                "Card": "base/spacemarines/combat/t0_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80a89863e8cd4fb36518"
                             },
                             {
                                 "Phrase": "Благословенная Броня",
-                                "Main": "Можно перебросить 0, 1 или 2 куба любого типа.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80b0a2b4e62ade02f972"
+                                "Main": "Можно перевернуть 0, 1 или 2 своих куба любого типа на [S]. Кубы не перебрасываются: их результат меняется на [S].",
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80b0a2b4e62ade02f972",
+                                "Card": "base/spacemarines/combat/s4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80b0a2b4e62ade02f972"
                             },
                             {
                                 "Phrase": "Ярость Ультрамара",
                                 "Main": "Владелец карты выбирает потерю противником 1 [S] или 2 (S). Выбранный вариант должен быть выполнен полностью. Если выполним только один вариант, выбирается он; если ни один — эффект ничего не делает.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80b6a024f28f6aceb2de"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80b6a024f28f6aceb2de",
+                                "Card": "base/spacemarines/combat/s3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80b6a024f28f6aceb2de"
                             },
                             {
                                 "Phrase": "Засада",
                                 "Main": "За каждый деморализованный отряд нужно потратить отдельный [M]. Если куб не потрачен, отряд немедленно уничтожается.",
-                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80a1a2d4d580c02313d4"
+                                "Source": "https://fixed-crane-287.notion.site/387346118c5d80a1a2d4d580c02313d4",
+                                "Card": "base/spacemarines/combat/s1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/387346118c5d80a1a2d4d580c02313d4"
                             }
                         ]
                     },
@@ -399,56 +423,78 @@
                             {
                                 "Phrase": "Хаос Объединенный",
                                 "Main": "Варп-шторм не мешает способности: отряд снимается с одного мира и размещается в другом, а не перемещается. Его можно взять из любой системы игрового поля. Для определения максимального командного уровня учитываются все Культисты в активной системе, включая участвующих в текущей битве. Противник не может выбрать деморализацию, если у него нет подходящего отряда или деморализацию запрещает эффект вроде «Не Показывать Страха». В этом случае выполняется другой вариант. Сначала противник делает выбор, затем игрок Хаоса выбирает получаемый куб.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80ebae66edd433770d0b"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80ebae66edd433770d0b",
+                                "Card": "base/chaos/combat/t2_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80ebae66edd433770d0b"
                             },
                             {
                                 "Phrase": "Ярость Кхорна",
                                 "Main": "В: Может ли противник деморализовать уже деморализованный отряд?\nО: Нет. Однако если все его отряды уже деморализованы, дополнительного эффекта не происходит.\n\nУточнение по Note FS League:\nЕсли противник не может потратить [S], он обязан деморализовать один свой отряд. Если обязательную деморализацию предотвращает «Не Показывать Страха», она не происходит.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80bf94fae458099d71b7"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80bf94fae458099d71b7",
+                                "Card": "base/chaos/combat/s1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80bf94fae458099d71b7"
                             },
                             {
                                 "Phrase": "Соблазн Хаоса",
                                 "Main": "Если противник не может деморализовать ни один отряд, в том числе из-за «Не Показывать Страха», он должен выполнить второй вариант эффекта. Если у него уже 8 кубов, деморализацию выбрать можно: отряд деморализуется, но дополнительный куб не получается. Новый Культист или Иконоборец участвует в битве, но не даёт дополнительных кубов.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d809a9acbc40ca65ef4a0"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d809a9acbc40ca65ef4a0",
+                                "Card": "base/chaos/combat/s5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d809a9acbc40ca65ef4a0"
                             },
                             {
                                 "Phrase": "Метка Нургла",
-                                "Main": "Ответ основан на последней странице правил.\n\nВ: Что происходит, если у противника нет деморализованных отрядов для уничтожения?\nО: Хаос автоматически получает 2 (S)."
+                                "Main": "Ответ основан на последней странице правил.\n\nВ: Что происходит, если у противника нет деморализованных отрядов для уничтожения?\nО: Хаос автоматически получает 2 (S).",
+                                "Card": "base/chaos/combat/t0_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80d484aec9e6e79448f2"
                             },
                             {
                                 "Phrase": "Метка Тзинча",
                                 "Main": "В: Могу ли я заменить деморализованного Культиста на Космодесантника Хаоса?\nО: Да. Новый Космодесантник Хаоса размещается недеморализованным.\n\nВ: Могу ли я заменить жетон подкрепления на Космодесантника Хаоса?\nО: Да. Во время боя жетоны подкреплений считаются отрядами командного уровня 0.\n\nУточнение по Note FS League:\nМожно заменить жетон подкрепления. При замене деморализованного отряда новый отряд размещается восстановленным.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8024b732dda1c31566a1"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8024b732dda1c31566a1",
+                                "Card": "base/chaos/combat/t0_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d8024b732dda1c31566a1"
                             },
                             {
                                 "Phrase": "Хаос Победоносный",
                                 "Main": "Владелец карты выбирает вражеский отряд, который деморализуется способностью отряда.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80d2be1becd544cdaaf8"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80d2be1becd544cdaaf8",
+                                "Card": "base/chaos/combat/t3_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80d2be1becd544cdaaf8"
                             },
                             {
                                 "Phrase": "Смерть и Отчаяние",
                                 "Main": "Владелец карты выбирает деморализованный отряд для уничтожения.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d802baf32cc07e6c62547"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d802baf32cc07e6c62547",
+                                "Card": "base/chaos/combat/t3_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d802baf32cc07e6c62547"
                             },
                             {
                                 "Phrase": "Демоническая Стойкость",
                                 "Main": "Если у противника нет отряда, который можно уничтожить, вариант уничтожения выбрать нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80a3944ce643a9370a49"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80a3944ce643a9370a49",
+                                "Card": "base/chaos/combat/t2_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80a3944ce643a9370a49"
                             },
                             {
                                 "Phrase": "Нечеловеческая Сила",
                                 "Main": "Можно уничтожить отряд, предоставляющий эту способность.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80f9ac82f1b352257a02"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80f9ac82f1b352257a02",
+                                "Card": "base/chaos/combat/t2_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80f9ac82f1b352257a02"
                             },
                             {
                                 "Phrase": "Метка Кхорна",
                                 "Main": "Если противник не тратит [S], он должен уничтожить 1 свой деморализованный отряд. Если таких отрядов нет, ничего не уничтожается. Если противник не может потратить [S], но деморализованный отряд есть, он выбирает и уничтожает его. Если невозможны оба действия, эффект не применяется.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80978d7de464b71bcacb"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80978d7de464b71bcacb",
+                                "Card": "base/chaos/combat/t0_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80978d7de464b71bcacb"
                             },
                             {
                                 "Phrase": "Нечистое Намерение",
                                 "Main": "Если у противника нет отряда, который можно деморализовать, или деморализация запрещена эффектом вроде «Не Показывать Страха», этот вариант выбрать нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80a19b03c62356df1872"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80a19b03c62356df1872",
+                                "Card": "base/chaos/combat/s3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80a19b03c62356df1872"
                             }
                         ]
                     },
@@ -458,62 +504,86 @@
                         "items": [
                             {
                                 "Phrase": "Мек Бойзы",
-                                "Main": "В: Получаю ли я карту из руки противника?\nО: Нет. Вы берёте карту из оставшихся карт боевой колоды."
+                                "Main": "Противник сбрасывает верхнюю карту своей боевой колоды, а не карту из руки. Вы получаете боевые значки сброшенной карты до конца текущего раунда битвы; сама карта в вашу руку не добавляется.",
+                                "Card": "base/ork/combat/s2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d803eb832cffd754b8221"
                             },
                             {
                                 "Phrase": "Вирдбойзы",
                                 "Main": "В: Если сыграть две такие карты, получу ли я удвоенный эффект?\nО: Да. Это два продолжающихся эффекта, и они суммируются.\n\nУточнение по Note FS League:\nЭффект обязателен для всех кубов, которые бросают оба игрока. После сброса карты её продолжающийся эффект немедленно прекращается. Две копии карты могут действовать одновременно.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80a193b2e911dc85517f"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80a193b2e911dc85517f",
+                                "Card": "base/ork/combat/t2_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d80a193b2e911dc85517f"
                             },
                             {
                                 "Phrase": "Сокрушающий Гаргант",
                                 "Main": "Если выбранный отряд имеет командный уровень 0, противник не тратит кубы, и эффект уничтожения предотвращается.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80f2816ec9d2d92e8ac9"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80f2816ec9d2d92e8ac9",
+                                "Card": "base/ork/combat/t3_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d80f2816ec9d2d92e8ac9"
                             },
                             {
                                 "Phrase": "Разрывающий Гаргант",
                                 "Main": "Можно выбрать любую открытую боевую карту, сыгранную противником в текущей битве, в том числе в предыдущем раунде битвы.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d807ab568e4129348552f"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d807ab568e4129348552f",
+                                "Card": "base/ork/combat/t3_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d807ab568e4129348552f"
                             },
                             {
                                 "Phrase": "Роккит Вагон",
                                 "Main": "Если выбрано отступление, выполните его немедленно, до шага нанесения повреждений.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d809ba5e9df0b59eda9f2"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d809ba5e9df0b59eda9f2",
+                                "Card": "base/ork/combat/t2_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d809ba5e9df0b59eda9f2"
                             },
                             {
                                 "Phrase": "Байкер Нобы",
                                 "Main": "Эффект обязателен.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8047bd34c25fae69ac59"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8047bd34c25fae69ac59",
+                                "Card": "base/ork/combat/t0_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d8047bd34c25fae69ac59"
                             },
                             {
                                 "Phrase": "Мега Нобы",
                                 "Main": "Эффект обязателен.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80aeadecced097a88cec"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80aeadecced097a88cec",
+                                "Card": "base/ork/combat/t0_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80aeadecced097a88cec"
                             },
                             {
                                 "Phrase": "Море Зеленых",
                                 "Main": "Если у противника меньше отрядов, чем у вас, он выбирает, тратить ли требуемый куб. Если он не хочет или не может его потратить, разместите 1 жетон деморализации. Даже если эффект «Не Показывать Страха» предотвращает деморализацию, противник всё равно может отказаться тратить куб.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80c9890af990322db97c"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80c9890af990322db97c",
+                                "Card": "base/ork/combat/t0_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80c9890af990322db97c"
                             },
                             {
                                 "Phrase": "Слагга Бойзы",
                                 "Main": "Эффект обязателен для обоих игроков.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d802198d8d0727d9444a3"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d802198d8d0727d9444a3",
+                                "Card": "base/ork/combat/s5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d802198d8d0727d9444a3"
                             },
                             {
                                 "Phrase": "Шута Бойзы",
                                 "Main": "Переброс обязателен. Если у противника меньше [S], чем требуется, он перебрасывает все имеющиеся [S]. Один и тот же куб нельзя перебросить этой способностью более одного раза.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d807b84cfc65f51648b7a"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d807b84cfc65f51648b7a",
+                                "Card": "base/ork/combat/s4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d807b84cfc65f51648b7a"
                             },
                             {
                                 "Phrase": "Ард Бойзы",
                                 "Main": "Переброс обязателен. Если у противника меньше [B], чем требуется, он перебрасывает все имеющиеся [B]. Один и тот же куб нельзя перебросить этой способностью более одного раза.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d807d87c4dcfe87732acb"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d807d87c4dcfe87732acb",
+                                "Card": "base/ork/combat/s3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d807d87c4dcfe87732acb"
                             },
                             {
                                 "Phrase": "Гретчины",
-                                "Main": "Противник выбирает, какой его отряд уничтожается. Отряд, предоставляющий эту способность, также можно выбрать для уничтожения.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80b795c5ea38bd765875"
+                                "Main": "Противник выбирает, какой из своих отрядов уничтожить. В качестве платы за способность вы можете уничтожить собственный отряд, который предоставляет эту способность. Это два отдельных уничтожения: своё — как плата, вражеское — по выбору противника.",
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80b795c5ea38bd765875",
+                                "Card": "base/ork/combat/s1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80b795c5ea38bd765875"
                             }
                         ]
                     },
@@ -522,58 +592,77 @@
                         "picture": "pictures/icons/eldar.png",
                         "items": [
                             {
-                                "Phrase": "Рейд Корсаров",
-                                "Main": "Вопрос: Могу ли я нанести орбитальный удар дважды, используя это улучшение?\nО: Нет. Орбитальный удар не является боем, поэтому усиленный приказ использовать нельзя."
-                            },
-                            {
                                 "Phrase": "Ударь и Беги",
-                                "Main": "В: Могу ли я переместиться на планету по диагонали?\nОтвет: Нет. Там указано «Прилегающая территория», а это означает, что они должны иметь общую границу.\n\nВ: Если я передвигаю свой последний отряд, нанесу ли я урон?\nО: Да, шаг нанесения повреждений все еще происходит, после чего вы переходите к шагу разрешения битвы.\n\nВ: Если я передвигаю свой последний отряд, будет ли этот отряд по-прежнему атакован в раунде битвы?\nО: Нет. Отряд больше не участвует в битве, поэтому даже несмотря на то, что раунд битвы завершается и выполняется шаг нанесения повреждений, отступивший отряд не может быть целью для нанесения урона.\n\nУточнение по Note FS League:\nДля перемещения требуется допустимый путь.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8077ac20e98ad58f1075"
+                                "Main": "Переместиться можно только в соседнюю дружественную или неконтролируемую область по допустимому пути. Области должны иметь общую границу; диагональное соседство не подходит. Жетоны подкрепления этой способностью перемещать нельзя.\n\nЕсли ушёл последний ваш отряд, шаг нанесения повреждений текущего раунда всё равно происходит, но это не означает, что ушедшая сторона наносит урон: по уточнению FS League противник распределяет урон, а вы — нет. Ушедший отряд больше не участвует в битве и не может получить в ней повреждения.",
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8077ac20e98ad58f1075",
+                                "RelatedSources": [
+                                    "https://fixed-crane-287.notion.site/38b346118c5d80e78867fdfca104638c"
+                                ],
+                                "Card": "base/eldar/combat/s1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d8077ac20e98ad58f1075"
                             },
                             {
                                 "Phrase": "Психокопье",
                                 "Main": "Если у противника нет открытой боевой карты, он не может выбрать её сброс. В этом случае вы автоматически получаете 4 (B).",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80df8da3dca16b83ca77"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80df8da3dca16b83ca77",
+                                "Card": "base/eldar/combat/t3_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80df8da3dca16b83ca77"
                             },
                             {
                                 "Phrase": "Наставления Видящих",
                                 "Main": "Эффект действует на отряды обоих игроков. Бастионы получают урон как обычно. Если в битве есть бастион, во время действия эффекта он остаётся единственной допустимой целью для распределения урона.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8031a9f2c163505a0fc7"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8031a9f2c163505a0fc7",
+                                "Card": "base/eldar/combat/t2_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d8031a9f2c163505a0fc7"
                             },
                             {
                                 "Phrase": "Волновая Змея",
-                                "Main": "Перемещение выполняется по обычным правилам: в соседнюю область, без перемещения деморализованных отрядов. Новый бой начинается только после полного завершения текущего. Если ваших отрядов не осталось, шаг нанесения повреждений всё равно происходит: противник распределяет урон, вы — нет. Можно начать только один дополнительный бой. Если первое применение создало новую оспариваемую область, второе может переместить отряды в эту область либо в область, которая не оспаривается.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80e78867fdfca104638c"
+                                "Main": "Перемещение выполняется по обычным правилам: в соседнюю область, без перемещения деморализованных отрядов. Новый бой начинается только после полного завершения текущего. Если ваших отрядов не осталось, шаг нанесения повреждений всё равно происходит: противник распределяет урон, вы — нет. Можно начать только один дополнительный бой. Если первое применение создало новую оспариваемую область, второе может переместить отряды в эту область либо в область, которая не оспаривается. Жетоны подкрепления этой способностью перемещать нельзя.",
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80e78867fdfca104638c",
+                                "Card": "base/eldar/combat/t2_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80e78867fdfca104638c"
                             },
                             {
                                 "Phrase": "Излучатель Голо-Поля",
                                 "Main": "Взятая боевая карта добавляется в вашу руку.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80abb7e8fbac1e7cd0cf"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80abb7e8fbac1e7cd0cf",
+                                "Card": "base/eldar/combat/t3_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80abb7e8fbac1e7cd0cf"
                             },
                             {
                                 "Phrase": "Наступление Призрачных Стражей",
                                 "Main": "Если «Не Показывать Страха» или другой эффект предотвращает деморализацию, она не происходит.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80d9b7c3d5b44aaa717c"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80d9b7c3d5b44aaa717c",
+                                "Card": "base/eldar/combat/t0_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80d9b7c3d5b44aaa717c"
                             },
                             {
                                 "Phrase": "Месть Огненных Драконов",
                                 "Main": "Запрет действует до конца текущего раунда битвы и распространяется на все эффекты получения (S).",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8093b2bcde700aab3de6"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8093b2bcde700aab3de6",
+                                "Card": "base/eldar/combat/t0_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d8093b2bcde700aab3de6"
                             },
                             {
                                 "Phrase": "Приказ Автарха",
                                 "Main": "Добавленная карта считается сыгранной, и её могут сбросить другие эффекты. Сброс «Приказа Автарха» сам по себе не приводит к сбросу добавленной карты.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d801eaaa5cecab51dad9f"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d801eaaa5cecab51dad9f",
+                                "Card": "base/eldar/combat/s5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d801eaaa5cecab51dad9f"
                             },
                             {
                                 "Phrase": "Поддержка Рейнджеров",
                                 "Main": "Отступление выполняется по обычным правилам. Если после него ваших отрядов не осталось, шаг нанесения повреждений текущего раунда всё равно происходит: противник распределяет урон по обычным правилам, вы — нет.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80e2a275dbe4d75b521a"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80e2a275dbe4d75b521a",
+                                "Card": "base/eldar/combat/s4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80e2a275dbe4d75b521a"
                             },
                             {
                                 "Phrase": "Воющие Банши",
                                 "Main": "Если у противника нет отрядов, которые можно деморализовать, в том числе из-за «Не Показывать Страха», способность не оказывает эффекта.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80f98e9dcba713a9b002"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80f98e9dcba713a9b002",
+                                "Card": "base/eldar/combat/s2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80f98e9dcba713a9b002"
                             }
                         ]
                     }
@@ -589,32 +678,44 @@
                             {
                                 "Phrase": "Защита Императора",
                                 "Main": "В: Значит ли это, что я могу иметь больше одной постройки на планете?\nО: Да. Если вы заплатите 2 материала, вы можете добавить Бастион на мир, где уже есть Город или Фабрика.\n\nУточнение по Note FS League:\nВторой вариант позволяет разместить бастион в дружественном мире с другими постройками, если в нём ещё нет бастиона.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8023873ddc030ce42388"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8023873ddc030ce42388",
+                                "Card": "base/spacemarines/events/e_8.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d8023873ddc030ce42388"
                             },
                             {
                                 "Phrase": "Адептус Механикус",
                                 "Main": "Количество жетонов кузницы определяется в момент сброса плана. Для получения дополнительных (S) жетоны кузницы не тратятся.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d806b9299fe4d776c2eba"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d806b9299fe4d776c2eba",
+                                "Card": "base/spacemarines/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d806b9299fe4d776c2eba"
                             },
                             {
                                 "Phrase": "Непоколебимость",
                                 "Main": "Восстановите все свои деморализованные отряды в выбранной системе. Сброс плана заменяет раскрытие приказа. Если вы не можете раскрыть приказ, использовать план нельзя. Если раскрытие приказа возможно, план можно использовать вместо него даже без фактического восстановления отрядов.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80b39cfdd5aab63735e5"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80b39cfdd5aab63735e5",
+                                "Card": "base/spacemarines/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d80b39cfdd5aab63735e5"
                             },
                             {
                                 "Phrase": "Экстерминатус",
                                 "Main": "Сбросьте план до броска кубов орбитального удара. Все результаты кубов этого удара переворачиваются на [B], включая дополнительные кубы, полученные эффектами карт. Исходные результаты сохранить нельзя. Эффект действует только во время текущего орбитального удара.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8005ba44c9ced529b3f5"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8005ba44c9ced529b3f5",
+                                "Card": "base/spacemarines/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d8005ba44c9ced529b3f5"
                             },
                             {
                                 "Phrase": "Церемония Перед Боем",
                                 "Main": "Скидка определяется в момент розыгрыша карты.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d807484b7ffc1d646c419"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d807484b7ffc1d646c419",
+                                "Card": "base/spacemarines/events/e_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d807484b7ffc1d646c419"
                             },
                             {
                                 "Phrase": "Героическое Вмешательство",
                                 "Main": "Размещаемый отряд берётся из вашего резерва.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80c38235ecad13a3655e"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80c38235ecad13a3655e",
+                                "Card": "base/spacemarines/events/e_6.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d80c38235ecad13a3655e"
                             }
                         ]
                     },
@@ -624,37 +725,51 @@
                         "items": [
                             {
                                 "Phrase": "Молитва Темным Богам",
-                                "Main": "В: Нужно ли ждать следующего хода, чтобы использовать это событие Хаоса?\nО: Нет. Планы становятся доступны сразу после получения. Если вы первый игрок во время этапа Событий и Варп-штормов фазы Обновления, вы можете прервать перемещение варп-штормов остальных игроков."
+                                "Main": "В: Нужно ли ждать следующего хода, чтобы использовать это событие Хаоса?\nО: Нет. Планы становятся доступны сразу после получения. Если вы первый игрок во время этапа Событий и Варп-штормов фазы Обновления, вы можете прервать перемещение варп-штормов остальных игроков.",
+                                "Card": "base/chaos/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d807ab8b5f58e74ccf988"
                             },
                             {
                                 "Phrase": "Совращенный Хаосом",
                                 "Main": "В: Так как это событие, кто выбирает деморализованный отряд?\nО: Если явно не указано иное, выбор делает владелец карты события.\n\nВ: Можно ли использовать карту в бою другого игрока?\nО: Нет. Если явно не указано иное, карты можно использовать только в собственных боях.\n\nУточнение по Note FS League:\nВладелец плана выбирает, какой вражеский отряд деморализуется.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80848254f0d0febd672a"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80848254f0d0febd672a",
+                                "Card": "base/chaos/events/e_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80848254f0d0febd672a"
                             },
                             {
                                 "Phrase": "Сквозь Варп",
                                 "Main": "В: Получает ли игрок Хаоса мораль, если он не перемещается через Варп-шторм?\nО: Да.\n\nУточнение по Note FS League:\nПолучите 1 [M] в начале битвы, до шага подготовки и броска кубов. План можно использовать только ради этого куба, без перемещения через варп-шторм. Поскольку эффект действует при выполнении приказа Продвижения, после битвы можно также отступить через варп-штормы.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8027a704e7d5fb891212"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8027a704e7d5fb891212",
+                                "Card": "base/chaos/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d8027a704e7d5fb891212"
                             },
                             {
                                 "Phrase": "Задетый Варпом",
                                 "Main": "В: Могу ли я получить улучшение боевой карты?\nО: Да. Когда написано «Улучшение», имеется в виду улучшение Приказа или Боевой карты.\n\nУточнение по Note FS League:\nМожно получить улучшение командного уровня 0, даже если рядом с системой нет варп-шторма. Можно выбрать улучшение приказа или боевое улучшение. Ваш командный уровень не учитывается.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8022b425faf67e4f3f28"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8022b425faf67e4f3f28",
+                                "Card": "base/chaos/events/e_8.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d8022b425faf67e4f3f28"
                             },
                             {
                                 "Phrase": "Заклятие Тзинча",
                                 "Main": "Варп-шторм перемещается по указаниям «Заклятия Тзинча», а не выбранной карты события. Если выбранная карта — план, она размещается в вашей игровой зоне и становится активным планом. Карты, взятые вместе с «Заклятием Тзинча», замешиваются обратно до получения 3 дополнительных карт. После выбора из этих 3 карт «Заклятие Тзинча» замешивается обратно вместе с невыбранными картами.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80a5846bfcce6103b846"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80a5846bfcce6103b846",
+                                "Card": "base/chaos/events/e_6.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80a5846bfcce6103b846"
                             },
                             {
                                 "Phrase": "Пророчества и Знамения",
                                 "Main": "Для первого варианта ни в одном мире выбранной системы не должно быть дружественных Культистов.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d809d8cbdccf7c98dad5d"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d809d8cbdccf7c98dad5d",
+                                "Card": "base/chaos/events/e_7.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d809d8cbdccf7c98dad5d"
                             },
                             {
                                 "Phrase": "Отрава Нургла",
                                 "Main": "Владелец эффекта выбирает вражеский отряд для деморализации. Если подходящей цели нет, пропустить ход с помощью этой карты нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80bda79ce615f5e06a85"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80bda79ce615f5e06a85",
+                                "Card": "base/chaos/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80bda79ce615f5e06a85"
                             }
                         ]
                     },
@@ -665,17 +780,23 @@
                             {
                                 "Phrase": "Добить Их!",
                                 "Main": "В: Должен ли игрок Орков участвовать в бою, чтобы использовать эту карту?\nО: Да. Если не указано иное, способности работают только в ваших собственных боях.\n\nУточнение по Note FS League:\nПлан срабатывает только в момент деморализации отряда. Нанесение урона уже деморализованному отряду не позволяет применить этот эффект.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80118eedfb87f847b893"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80118eedfb87f847b893",
+                                "Card": "base/ork/events/e_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d80118eedfb87f847b893"
                             },
                             {
                                 "Phrase": "Снести Это!",
                                 "Main": "В: Можно ли использовать карту в бою другого игрока?\nО: Нет. Если явно не указано иное, карты можно использовать только в боях, в которых вы участвуете (как атакующий или защитник).\n\nУточнение по Note FS League:\nВы выбираете постройку в этом мире. Она может принадлежать вам или противнику.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80838f46e78cb6b812db"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d80838f46e78cb6b812db",
+                                "Card": "base/ork/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d80838f46e78cb6b812db"
                             },
                             {
                                 "Phrase": "Вперед!",
                                 "Main": "Выполните приказ Продвижения в выбранной системе по обычным правилам. В момент применения плана в системе должны находиться хотя бы 2 ваших отряда. Если ни одна часть приказа Продвижения не выполнена, пропустить ход с помощью этого плана нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d803badd9e99f7e16fd68"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d803badd9e99f7e16fd68",
+                                "Card": "base/ork/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d803badd9e99f7e16fd68"
                             }
                         ]
                     },
@@ -686,37 +807,51 @@
                             {
                                 "Phrase": "Врата Варпа",
                                 "Main": "В источнике текст карты уточнён по разъяснению разработчиков: возьмите свои отряды из 1 области и разместите их в 1 дружественной или неконтролируемой области. Начать битву этим размещением нельзя. Если ни один отряд не размещён, пропустить ход с помощью карты нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8028ae39fd49deba0b43"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8028ae39fd49deba0b43",
+                                "Card": "base/eldar/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d8028ae39fd49deba0b43"
                             },
                             {
                                 "Phrase": "Наследие Ваула",
                                 "Main": "Ограничение в 3 жетона каждого типа на планшете фракции сохраняется.",
-                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d80c3a2b0e8e421b298ab"
+                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d80c3a2b0e8e421b298ab",
+                                "Card": "base/eldar/events/e_8.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38c346118c5d80c3a2b0e8e421b298ab"
                             },
                             {
                                 "Phrase": "Колония Экзодитов",
                                 "Main": "Размещение города не считается покупкой постройки. Улучшение «Певцы Психокости» к этой карте не применяется.",
-                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d80cdaf80ec044b972176"
+                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d80cdaf80ec044b972176",
+                                "Card": "base/eldar/events/e_7.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38c346118c5d80cdaf80ec044b972176"
                             },
                             {
                                 "Phrase": "Возвращение Изгоев",
                                 "Main": "Разместить корабль можно только в неконтролируемой пустоте.",
-                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d8087a0e5c416ebe13e94"
+                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d8087a0e5c416ebe13e94",
+                                "Card": "base/eldar/events/e_6.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38c346118c5d8087a0e5c416ebe13e94"
                             },
                             {
                                 "Phrase": "Путь Воина",
                                 "Main": "Можно купить любое боевое улучшение при соблюдении требования к его командному уровню.",
-                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d807bb44cff819b9a70c3"
+                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d807bb44cff819b9a70c3",
+                                "Card": "base/eldar/events/e_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38c346118c5d807bb44cff819b9a70c3"
                             },
                             {
                                 "Phrase": "Ужасный Налет",
                                 "Main": "Можно перебросить любое количество кубов, включая 0. Затем выберите получаемый куб: [B], [S] или [M]. Новый куб получается после перебросов.",
-                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d8095be3ac2ef96e90ea5"
+                                "Source": "https://fixed-crane-287.notion.site/38c346118c5d8095be3ac2ef96e90ea5",
+                                "Card": "base/eldar/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38c346118c5d8095be3ac2ef96e90ea5"
                             },
                             {
                                 "Phrase": "Предвидение",
                                 "Main": "План можно использовать также в начале дополнительного шага нанесения повреждений, созданного, например, «Танковым Наступлением». Все ваши отряды, включая деморализованные, размещаются в одной выбранной дружественной области любой системы. Бастион остаётся на месте. Даже если ваших отрядов не осталось, шаг нанесения повреждений текущего раунда происходит: противник распределяет урон по обычным правилам, вы — нет.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80bcb36dc5cd4117a27e"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80bcb36dc5cd4117a27e",
+                                "Card": "base/eldar/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80bcb36dc5cd4117a27e"
                             }
                         ]
                     }
@@ -732,27 +867,37 @@
                             {
                                 "Phrase": "Крестовый Поход",
                                 "Main": "В: Получаю ли я жетон подкрепления себе или обязан использовать его в бою?\nО: Вы получаете жетон в свою игровую область, поэтому не обязаны использовать его сразу.\n\nУточнение по Note FS League:\nНаличие дружественных миров проверяется в начале битвы. Чтобы получить жетон подкрепления, вы не должны контролировать ни одного мира в этой системе. Жетон поступает на планшет фракции, а не сразу в битву.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d806a8fa8f83403156a0c"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d806a8fa8f83403156a0c",
+                                "Card": "base/spacemarines/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d806a8fa8f83403156a0c"
                             },
                             {
                                 "Phrase": "Десантные Капсулы",
                                 "Main": "В: Можно ли провести орбитальный удар по неконтролируемому миру в надежде получить бесплатного Космодесантника?\nО: Нет. Орбитальный удар можно проводить только по вражескому миру.\n\nВ: Можно ли провести орбитальный удар по миру, где есть только постройка?\nО: Да. Город и Фабрика не имеют здоровья и не могут быть уничтожены, но перейдут под контроль Космодесанта. Если целью является Бастион, область станет спорной, и начнётся обычный бой, если оставшиеся кубы орбитального удара не уничтожили его.\n\nВ: Есть ли предел количеству Космодесантников?\nО: Да. Вы можете потратить ровно 2 [S] для размещения 1 Космодесантника.\n\nУточнение по Note FS League:\nОрбитальный удар можно нанести по вражескому миру, в котором есть только постройка и нет вражеских отрядов. Разместить можно не более 1 Космодесантника.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8008b576fc1d75667550"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8008b576fc1d75667550",
+                                "Card": "base/spacemarines/orders/o_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d8008b576fc1d75667550"
                             },
                             {
                                 "Phrase": "За Императора (Доминирование)",
                                 "Main": "Можно заменить деморализованный отряд. Командный уровень не учитывается; новый отряд размещается в том же мире. Это замена, а не развёртывание или покупка, поэтому жетон склада для неё не используется.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80018800ec073cdb9ccb"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80018800ec073cdb9ccb",
+                                "Card": "base/spacemarines/faction_card/card.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d80018800ec073cdb9ccb"
                             },
                             {
                                 "Phrase": "Миры Вербовки",
                                 "Main": "Фабрика не требуется: бастионы в активной системе считаются фабриками. Предел развёртывания определяется по обычным правилам — сложите значения развёртывания всех миров с бастионами в системе.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8058b84ef399d5771a69"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d8058b84ef399d5771a69",
+                                "Card": "base/spacemarines/orders/o_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d8058b84ef399d5771a69"
                             },
                             {
                                 "Phrase": "Направлять Верующих",
                                 "Main": "Новая постройка должна быть другого типа. Замена выполняется в той же системе. Улучшение нельзя применить в раунде, в котором оно куплено.",
-                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80a298abf721fb6f4167"
+                                "Source": "https://fixed-crane-287.notion.site/388346118c5d80a298abf721fb6f4167",
+                                "Card": "base/spacemarines/orders/o_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/388346118c5d80a298abf721fb6f4167"
                             }
                         ]
                     },
@@ -763,31 +908,45 @@
                             {
                                 "Phrase": "Полное Разрушение",
                                 "Main": "В: Кто выбирает, что уничтожается?\nО: Ваш противник выбирает, какой отряд или постройка уничтожается.\n\nУточнение по Note FS League:\n[S] тратятся до распределения урона от орбитального удара. Противник выбирает между уничтожением постройки и отряда, а также конкретную цель. Если построек нет, он должен выбрать отряд; если отрядов нет — постройку.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d809d9276e9b143a08982"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d809d9276e9b143a08982",
+                                "Card": "base/chaos/orders/o_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d809d9276e9b143a08982"
                             },
                             {
                                 "Phrase": "Осквернение Хаоса (Доминирование)",
-                                "Main": "В: Препятствуют ли Варп-штормы размещению в соседней системе?\nО: Нет. Варп-штормы запрещают только перемещение и не убирают соседство систем."
+                                "Main": "Варп-шторм не мешает способности: Культист снимается с мира активной системы и размещается в дружественном или неконтролируемом мире соседней системы, а не перемещается по пути. По примечанию FS League деморализованного Культиста для этой способности выбирать нельзя.",
+                                "Id": "faq-6934179e",
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80be8a9ee68d80ea1626",
+                                "Card": "base/chaos/faction_card/card.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80be8a9ee68d80ea1626"
                             },
                             {
                                 "Phrase": "Ужасный Ритуал",
                                 "Main": "В: Нужна ли Фабрика в активной системе?\nО: Нет. Покупка выполняется после приказа Развертывания и вне его ограничений.\n\nВ: Нужен ли дружественный отряд или постройка?\nО: Да. Нужна хотя бы одна дружественная область.\n\nВ: Нужно ли соблюдать требования командного уровня?\nО: Да.\n\nВ: Можно ли купить корабль?\nО: Да, но разместить его можно только в дружественной пустоте.\n\nВ: Можно ли купить Титана-Разорителя при помощи жетона Кузницы?\nО: Нет. Жетон снижает требования покупки, но не снижает сам командный уровень.\n\nУточнение по Note FS League:\nДля покупки фабрика не требуется. Командный уровень купленного отряда не должен превышать 2. Разместите его по обычным правилам в дружественной области. Способность можно использовать, даже если во время приказа Развёртывания вы не покупали отрядов. Жетон Развёртывания поверх колоды событий считается невыполненным и для ритуала не подходит. Если после размещения нового отряда Культист уничтожен из-за вместимости мира, скидка всё равно применяется полностью.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d801faa24d5a8ed26bc46"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d801faa24d5a8ed26bc46",
+                                "Card": "base/chaos/orders/o_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d801faa24d5a8ed26bc46"
                             },
                             {
                                 "Phrase": "Милость Темных Богов",
                                 "Main": "В: При покупке этого улучшения действует ли оно на текущий приказ Планирования?\nО: Нет. Жетон уже раскрыт. Эффект применяется только к последующим приказам.\n\nУточнение по Note FS League:\nМожно выбрать любые 2 своих невыполненных жетона приказов на игровом поле, в том числе лежащие лицевой стороной вниз.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8057afc7f43411c77c7c"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d8057afc7f43411c77c7c",
+                                "Card": "base/chaos/orders/o_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d8057afc7f43411c77c7c"
                             },
                             {
                                 "Phrase": "Из Варпа",
                                 "Main": "В: Можно ли перемещать наземные отряды?\nО: Нет. Карта прямо указывает, что действует только на корабли.\n\nУточнение по Note FS League:\nКорабли могут также отступать через варп-штормы после битвы: отступление входит в выполнение приказа Продвижения.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80b7958fc8ea65d1b8f2"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d80b7958fc8ea65d1b8f2",
+                                "Card": "base/chaos/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d80b7958fc8ea65d1b8f2"
                             },
                             {
                                 "Phrase": "Страх с Небес",
                                 "Main": "Эффект можно применить к отряду, пережившему орбитальный удар. Уничтоженный отряд деморализовать нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/389346118c5d801390f5e9501f2ae18c"
+                                "Source": "https://fixed-crane-287.notion.site/389346118c5d801390f5e9501f2ae18c",
+                                "Card": "base/chaos/orders/o_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/389346118c5d801390f5e9501f2ae18c"
                             }
                         ]
                     },
@@ -798,22 +957,30 @@
                             {
                                 "Phrase": "Зеленый Прилив",
                                 "Main": "Вопрос: Получу ли я свое событие, если решу, что жетон приказа «Планирование» — это что-то другое?\nО: Нет. Использование «Зеленого Прилива» означает, что жетон приказа рассматривается как что-то еще, и только жетоны приказов «Планирование» помещаются поверх вашей колоды событий после выполнения.\n\nУточнение по Note FS League:\nВыберите тип приказа после раскрытия жетона, но до применения его эффектов. Можно использовать улучшения приказов и способности фракции, применимые к выбранному типу. Если приказ выполнен как приказ другого типа, жетон не помещается поверх колоды событий.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d809a9069fa23f2891659"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d809a9069fa23f2891659",
+                                "Card": "base/ork/orders/o_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d809a9069fa23f2891659"
                             },
                             {
                                 "Phrase": "Орчья Булыга",
                                 "Main": "В играх и мероприятиях сообщества FS League отступать с помощью этого улучшения нельзя. Это отдельное правило сообщества для баланса: по буквальному тексту правил запрет на использование улучшения для отступления после атаки не установлен. При обычном перемещении можно проложить путь через неконтролируемую пустоту к своему кораблю, а затем к миру.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d801bba47c40d4405f196"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d801bba47c40d4405f196",
+                                "Card": "base/ork/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d801bba47c40d4405f196"
                             },
                             {
                                 "Phrase": "Споры орков (Доминирование)",
                                 "Main": "Вопрос: Можете ли вы использовать жетоны склада/кузницы?\nА: Да. Даже те, которые вы только что получили в результате действия «Доминирование».\n\nВопрос: Вам нужно построить завод?\nО: Нет. Фабрика требуется только при покупке отрядов во время приказа на развертывание.\n\nВопрос: Нужно ли вам соответствовать требованиям командного уровня?\nА: Да. Покупка отрядов всегда требует ограничения командного уровня и затрат на материальные средства.\n\nВопрос: Могу ли я построить космический корабль?\nО: Нет. Здесь прямо сказано, что на планете, поэтому только наземные отряды.\n\nУточнение по Note FS League:\nДля покупки отряда этой способностью фабрика в активной системе не требуется. Оплатите покупку по обычным правилам и соблюдайте свой командный уровень. Разместить купленный отряд можно только в дружественном мире активной системы.",
-                                "Source": "https://fixed-crane-287.notion.site/d64346118c5d830fb5c281eddb602525"
+                                "Source": "https://fixed-crane-287.notion.site/d64346118c5d830fb5c281eddb602525",
+                                "Card": "base/ork/faction_card/card.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/d64346118c5d830fb5c281eddb602525"
                             },
                             {
                                 "Phrase": "Грабь!",
                                 "Main": "Если у противника нет материалов, он ничего не теряет, но вы всё равно получаете 1 материал. Куб тратится до распределения урона от орбитального удара.",
-                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d806bb4dbf3de9f428a62"
+                                "Source": "https://fixed-crane-287.notion.site/38a346118c5d806bb4dbf3de9f428a62",
+                                "Card": "base/ork/orders/o_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38a346118c5d806bb4dbf3de9f428a62"
                             }
                         ]
                     },
@@ -822,23 +989,39 @@
                         "picture": "pictures/icons/eldar.png",
                         "items": [
                             {
-                                "Phrase": "Видящие",
-                                "Main": "Во время выполнения приказа можно покупать улучшения, даже если у вас нет отрядов в активной системе.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80fab38bd7217ed95d8b"
+                                "Phrase": "Рейд Корсаров",
+                                "Main": "Вопрос: Могу ли я нанести орбитальный удар дважды, используя это улучшение?\nО: Нет. Орбитальный удар не является боем, поэтому усиленный приказ использовать нельзя.",
+                                "Id": "faq-3b04c947",
+                                "Card": "base/eldar/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80718fdddb30e1059e3e"
                             },
                             {
-                                "Phrase": "Стремительный бег",
-                                "Main": "В: Если у меня есть 1 корабль и я решил переместить его в соседнюю систему, могу ли я разыграть оставшиеся кубы?\nА: Да. Игрок-эльдар учитывает эффекты всех бросков кубов, даже если он выводит корабли из системы."
+                                "Phrase": "Видящие",
+                                "Main": "Во время выполнения приказа можно покупать улучшения, даже если у вас нет отрядов в активной системе.",
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80fab38bd7217ed95d8b",
+                                "Card": "base/eldar/orders/o_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80fab38bd7217ed95d8b"
+                            },
+                            {
+                                "Phrase": "Обстрел",
+                                "Main": "Перемещение кораблей эффектом этого улучшения не прерывает орбитальный удар. Разрешите результаты всех уже брошенных кубов, даже если вы переместили из активной системы свой последний корабль.",
+                                "Id": "faq-dbe70dce",
+                                "Card": "base/eldar/orders/o_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80ada436d041e6ff784a"
                             },
                             {
                                 "Phrase": "Певцы Психокости",
                                 "Main": "В мире должна находиться ровно 1 постройка. Уже имеющаяся постройка должна быть другого типа, чем новая. Если противник захватит мир, он получит контроль над обеими постройками.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80b3ba40ca0af33e22ad"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d80b3ba40ca0af33e22ad",
+                                "Card": "base/eldar/orders/o_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d80b3ba40ca0af33e22ad"
                             },
                             {
                                 "Phrase": "Вебвей-портал (Доминирование)",
                                 "Main": "Эффект размещения не считается перемещением и не вызывает способности, связанные с перемещением или выполнением приказа Продвижения. Допустимый путь не требуется. Деморализованные отряды для этой способности выбрать нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8088825ff9e53282ae8c"
+                                "Source": "https://fixed-crane-287.notion.site/38b346118c5d8088825ff9e53282ae8c",
+                                "Card": "base/eldar/faction_card/card.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38b346118c5d8088825ff9e53282ae8c"
                             }
                         ]
                     }
@@ -858,12 +1041,16 @@
                         "items": [
                             {
                                 "Phrase": "Шрайки",
-                                "Main": "В: Может ли противник всё ещё выбрать вариант не позволить мне получить 2 (S), если способность отряда разыгрывается в последнем раунде исполнения боя?\nО: Да. Выбор противника в этом случае не ограничен. Однако если он не позволит вам получить 2 (S), это не увеличит защиту на 2, поскольку это уже был последний раунд."
+                                "Main": "Противник может не позволить вам получить 2 (S) даже в последнем раунде битвы. В этом случае карта даёт +2 к значению атаки в следующем раунде; если следующего раунда уже не будет, бонус не применяется. Речь идёт об атаке, а не о защите.",
+                                "Card": "gif/tyranid/combat/t0_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8095a02cf6d180803994"
                             },
                             {
                                 "Phrase": "Иерофант",
                                 "Main": "Противник делает выбор 3 раза подряд. Каждый раз он независимо выбирает потерю своего куба или деморализацию своего отряда и выбирает конкретный куб или отряд. Отряды, защищённые от деморализации, выбрать нельзя. Если нет подходящего отряда, нужно потерять куб; если нет кубов — деморализовать отряд.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d801c9fafffc95485af4d"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d801c9fafffc95485af4d",
+                                "Card": "gif/tyranid/combat/t3_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d801c9fafffc95485af4d"
                             }
                         ]
                     },
@@ -874,42 +1061,60 @@
                             {
                                 "Phrase": "Булгрин",
                                 "Main": "В: Нужно ли перебрасывать 2 [B] или 2 [M]?\nО: Нет. Можно комбинировать типы.\n\nВ: Если я перебросил свой единственный [B], нужно ли перебрасывать [M]?\nО: Да. Если у вас есть доступные кубы, вы обязаны выполнить два переброса.\n\nУточнение по Note FS League:\nМожно выбрать любую комбинацию из 2 кубов указанных на карте типов.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80629381c16bfe3c4549"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80629381c16bfe3c4549",
+                                "Card": "gif/ig/combat/t0_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80629381c16bfe3c4549"
                             },
                             {
                                 "Phrase": "Полк",
-                                "Main": "В: Достаточно одного типа наземного отряда, чтобы получить 1 боевой жетон?\nО: Да. Подсчёт идёт по отрядам с разным командным уровнем.\n\nВ: Достаточно одного типа корабля, чтобы получить 2 боевых жетона?\nО: Да."
+                                "Main": "Подсчитываются ваши недеморализованные отряды с разными командными уровнями. Один подходящий наземный отряд уже даёт 1 (B) или 1 (S); один подходящий корабль — 2 (B) или 2 (S). Несколько отрядов одного командного уровня не дают повторного вклада.",
+                                "Card": "gif/ig/combat/t2_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d803895e2de9949cdb659"
                             },
                             {
                                 "Phrase": "Тяжелые Расчеты",
-                                "Main": "В: Можно ли перебросить [B] противника вторичной способностью?\nО: Нет. Если явно не указано иное, способности применяются только к вашим эффектам."
+                                "Main": "Способность Гвардейца/Крейсера перебрасывает 1 ваш [S]. Нельзя выбрать куб противника или заменить указанный [S] на [B].",
+                                "Card": "gif/ig/combat/s1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d808dba76fdc3163df6f7"
                             },
                             {
                                 "Phrase": "Наступление Титана",
-                                "Main": "В: Достаточно одного типа наземного отряда для получения 2 боевых жетонов?\nО: Да.\n\nВ: Достаточно одного типа корабля для получения 3 боевых жетонов?\nО: Да."
+                                "Main": "Достаточно одного подходящего недеморализованного отряда. Способность Титана даёт 2 (B) за каждый представленный командный уровень ваших недеморализованных наземных отрядов, максимум 6 (B); способность Линкора — 3 (B) за каждый представленный командный уровень ваших недеморализованных кораблей. Несколько отрядов одного командного уровня не увеличивают число учитываемых уровней.",
+                                "Card": "gif/ig/combat/t3_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8012866ee19f956b7e9c"
                             },
                             {
                                 "Phrase": "Комиссар",
-                                "Main": "В: Достаточно одного типа отряда для получения 1 [D]?\nО: Да."
+                                "Main": "Даже один ваш недеморализованный отряд позволяет получить 1 [D]. Подсчитываются разные командные уровни ваших недеморализованных отрядов в битве; несколько отрядов одного уровня не дают дополнительных кубов.",
+                                "Card": "gif/ig/combat/s4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8004afb0da73f58edce4"
                             },
                             {
                                 "Phrase": "Химера",
-                                "Main": "В: Когда я применяю способность карты, должен ли я сразу выбрать какие жетоны теряет противник?\nО: Нет. Это определяется в начале шага распределения урона."
+                                "Main": "В: Когда я применяю способность карты, должен ли я сразу выбрать какие жетоны теряет противник?\nО: Нет. Это определяется в начале шага распределения урона.",
+                                "Card": "gif/ig/combat/t0_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8063b614c7193c54c2f5"
                             },
                             {
                                 "Phrase": "Огрин",
                                 "Main": "В: Нужно ли перебрасывать 2 [B] или 2 [M]?\nО: Нет.\n\nВ: Если я перебросил 1 [B], нужно ли перебрасывать 1 [M]?\nО: Да. Если у вас есть доступные кубы, вы должны выполнить оба переброса.\n\nУточнение по Note FS League:\nМожно выбрать любую комбинацию из 2 кубов указанных на карте типов.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80899ee1dcfa88f66b97"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80899ee1dcfa88f66b97",
+                                "Card": "gif/ig/combat/t0_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80899ee1dcfa88f66b97"
                             },
                             {
                                 "Phrase": "Поддержка Титана",
-                                "Main": "В: Достаточно одного типа отряда, чтобы заставить противника перебросить 1 [S]?\nО: Да.\n\nУточнение по Note FS League:\nЕсли эффект предотвращает деморализацию, отряды командного уровня 2 или ниже нельзя деморализовать никаким эффектом до конца текущего раунда битвы. Их нельзя выбирать целью деморализации других карт.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80eda24ae1e6f8491568"
+                                "Main": "Для переброса 1 [B] противника достаточно одного вашего недеморализованного отряда. Подсчитываются разные командные уровни подходящих отрядов; несколько отрядов одного уровня не дают повторного вклада.\n\nЕсли способность отряда предотвращает деморализацию, ваши отряды командного уровня 2 или ниже нельзя деморализовать никаким эффектом до конца текущего раунда битвы. Их нельзя выбирать целью деморализации других карт.",
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80eda24ae1e6f8491568",
+                                "Card": "gif/ig/combat/t3_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80eda24ae1e6f8491568"
                             },
                             {
                                 "Phrase": "Виверна",
                                 "Main": "Если у противника нет деморализованных отрядов командного уровня 0 или 1, способность отряда не оказывает эффекта.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d808a9c33eade87f0671f"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d808a9c33eade87f0671f",
+                                "Card": "gif/ig/combat/t2_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d808a9c33eade87f0671f"
                             }
                         ]
                     },
@@ -920,30 +1125,43 @@
                             {
                                 "Phrase": "Фальшивое Отступление",
                                 "Main": "Можно выбрать переброс [S], даже если у вас меньше 2 [S]; отступать вместо этого не обязательно. Если вы всё же выбрали отступление, но допустимого пути нет, отряд уничтожается.",
-                                "Source": "https://fixed-crane-287.notion.site/40b346118c5d82cca24401135bccf10c"
+                                "Source": "https://fixed-crane-287.notion.site/40b346118c5d82cca24401135bccf10c",
+                                "Card": "gif/tau/combat/t0_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/40b346118c5d82cca24401135bccf10c"
                             },
                             {
                                 "Phrase": "Стрельба в Движении",
-                                "Main": "В: Только один уничтоженный отряд можно отступить?\nО: Да."
+                                "Main": "В: Только один уничтоженный отряд можно отступить?\nО: Да.",
+                                "Card": "gif/tau/combat/t2_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/6df346118c5d839b9dce01dcee24b5ec",
+                                "LegacySource": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/data/FAQ.json"
                             },
                             {
                                 "Phrase": "Монт'Ка",
                                 "Main": "Целью может быть любой отряд, включая деморализованный. Если защитник сбросил «Монт'Ка» с помощью «Прорвать Фронт», особый эффект немедленно прекращается; полученные боевые жетоны сохраняются, а урон распределяется обычно. Если выбранный отряд покинул битву до шага нанесения повреждений, игрок Тау не наносит урон. При дополнительном шаге от «Танкового Наступления» или «Безжалостной Атаки» оставшаяся в битве цель вновь получает полный урон, даже будучи деморализованной. Если цель уничтожена на первом шаге, на втором игрок Тау наносит 0 урона.",
-                                "Source": "https://fixed-crane-287.notion.site/1a1346118c5d823f888c01c3e4a4ff61"
+                                "Source": "https://fixed-crane-287.notion.site/1a1346118c5d823f888c01c3e4a4ff61",
+                                "Card": "gif/tau/combat/t0_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/1a1346118c5d823f888c01c3e4a4ff61"
                             },
                             {
                                 "Phrase": "Перегруппировка",
-                                "Main": "В: Можно ли потратить куб, если у меня нет отрядов для восстановления?\nО: Да. Вы можете потратить любое количество кубов. Восстановление является преимуществом, но не обязательным."
+                                "Main": "В: Можно ли потратить куб, если у меня нет отрядов для восстановления?\nО: Да. Вы можете потратить любое количество кубов. Восстановление является преимуществом, но не обязательным.",
+                                "Card": "gif/tau/combat/t2_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/62b346118c5d82ccae81815a5ab994e4"
                             },
                             {
                                 "Phrase": "Стелс-Команды",
                                 "Main": "Если противник не может деморализовать отряд, в том числе из-за «Не Показывать Страха», он должен выполнить второй вариант эффекта. Владелец карты выбирает, какой куб противник теряет.",
-                                "Source": "https://fixed-crane-287.notion.site/e12346118c5d83c0a3de01e5ebae9218"
+                                "Source": "https://fixed-crane-287.notion.site/e12346118c5d83c0a3de01e5ebae9218",
+                                "Card": "gif/tau/combat/s2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/e12346118c5d83c0a3de01e5ebae9218"
                             },
                             {
                                 "Phrase": "Уклонение",
                                 "Main": "В: Можно ли использовать способность на жетонах подкреплений?\nО: Да. Во время боя жетоны подкреплений считаются отрядами командного уровня 0.\n\nУточнение по Note FS League:\nЕсли уничтожен последний отряд Тау, его ещё можно вернуть до поражения в битве из-за отсутствия отрядов. При «Танковом Наступлении» эффект применяется дважды.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d8371b89101a5800a474a"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d8371b89101a5800a474a",
+                                "Card": "gif/tau/combat/t0_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d8371b89101a5800a474a"
                             }
                         ]
                     },
@@ -953,12 +1171,16 @@
                         "items": [
                             {
                                 "Phrase": "Фаланга Монолитов",
-                                "Main": "В: Влияет ли вторая способность на первую?\nО: Нет. Получение урона и деморализация — разные эффекты."
+                                "Main": "Общая способность проверяет, получили ли ваши отряды или бастионы повреждения в текущем раунде битвы, а не были ли они деморализованы. Отсутствие деморализации само по себе не выполняет это условие. Полученные способностью отряда 3 (S) учитываются при обычном расчёте урона. Если ваши отряды и бастионы не получили повреждений, противник выбирает и отступает 1 своим отрядом.",
+                                "Card": "gif/necron/combat/t2_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/390346118c5d80288663f32ab3f57464"
                             },
                             {
                                 "Phrase": "Фаланга Судного Дня",
-                                "Main": "[S] для способности отряда тратится в момент деморализации отряда, а не при раскрытии карты.",
-                                "Source": "https://fixed-crane-287.notion.site/390346118c5d80aeacb4d0c50b7f1944"
+                                "Main": "Противник тратит [S] для способности отряда в момент деморализации своего отряда на шаге нанесения повреждений, а не при раскрытии карты. До этого шага он может получить нужный [S] при применении собственной боевой карты.",
+                                "Source": "https://fixed-crane-287.notion.site/390346118c5d80aeacb4d0c50b7f1944",
+                                "Card": "gif/necron/combat/t2_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/390346118c5d80aeacb4d0c50b7f1944"
                             }
                         ]
                     }
@@ -974,17 +1196,23 @@
                             {
                                 "Phrase": "Тень в Варпе",
                                 "Main": "План действует только при атаке. Разыграйте его в начале битвы, до броска кубов и получения боевых карт. Он не позволяет противнику разместить жетоны подкрепления из резерва; жетон «Направить Праведников», размещённый в мире до битвы, уже находится там.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80ce865cf3dd1e012fdf"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80ce865cf3dd1e012fdf",
+                                "Card": "gif/tyranid/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80ce865cf3dd1e012fdf"
                             },
                             {
-                                "Phrase": "Ульи-Фабрики",
-                                "Main": "Предел развёртывания превышать нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8013a7f5c3c271848058"
+                                "Phrase": "Пищеварительные Бассейны",
+                                "Main": "По примечанию FS League при применении этого плана нельзя превышать предел развёртывания. Уточнение относится к «Пищеварительным Бассейнам», размещающим бесплатных Гаунтов, а не к улучшению приказа «Ульи-Фабрики».",
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8013a7f5c3c271848058",
+                                "Card": "gif/tyranid/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8013a7f5c3c271848058"
                             },
                             {
                                 "Phrase": "Туннели Трайгона",
                                 "Main": "Если новый бастион не построен или не размещён, пропустить ход с помощью этой карты нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80f2903ffe7533b30130"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80f2903ffe7533b30130",
+                                "Card": "gif/tyranid/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80f2903ffe7533b30130"
                             }
                         ]
                     },
@@ -994,27 +1222,37 @@
                         "items": [
                             {
                                 "Phrase": "Тактический Гений",
-                                "Main": "В: Если при разрешении этого события я решу разыграть боевую карту из своей колоды улучшений, что произойдет с этой картой в конце боя?\nО: Карта, которая была сыграна из колоды улучшений при разрешении «Тактического гения», возвращается в колоду улучшений в конце боя.\n\nВопрос: Когда именно нужно использовать эту карту?\nО: Когда вы разыграете боевую карту, вы можете сбросить ее, чтобы разыграть боевую карту из вашей боевой колоды или колоды боевых улучшений. Боевые карты разыгрываются одновременно, поэтому ваш оппонент заранее не знает, что вы будете использовать этот план при выборе его боевой карты.\n\nУточнение по Note FS League:\nКарта из колоды улучшений разыгрывается как боевая карта в текущей битве. После битвы она возвращается в колоду улучшений.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8035bce0e996ff3ec02c"
+                                "Main": "Вместо боевой карты из руки план позволяет разыграть карту из боевой колоды или колоды улучшений, кроме карты, уже разыгранной в этой битве. Карта из колоды улучшений действует как обычная боевая карта текущей битвы и после её завершения возвращается в колоду улучшений.\n\nПорядок выбора по Note FS League: объявите применение плана до того, как любой игрок выберет боевую карту. Свою карту выберите тайно и разместите рубашкой вверх. Секретной остаётся выбранная карта, а не факт применения плана.",
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8035bce0e996ff3ec02c",
+                                "Card": "gif/ig/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8035bce0e996ff3ec02c"
                             },
                             {
                                 "Phrase": "Ракетный Удар",
-                                "Main": "В: Могу ли я использовать этот план в боях других игроков?\nО: Нет. Если явно не указано иное, карты можно использовать только во время собственных боев."
+                                "Main": "В: Могу ли я использовать этот план в боях других игроков?\nО: Нет. Если явно не указано иное, карты можно использовать только во время собственных боев.",
+                                "Card": "gif/ig/events/e_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80abbb27dbe347e6b296"
                             },
                             {
                                 "Phrase": "Имперская Десятина",
                                 "Main": "Для первого варианта фабрика должна находиться в той же системе, что и выбранный мир, но не обязательно в самом этом мире.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8037a13dca789ad0cd3e"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8037a13dca789ad0cd3e",
+                                "Card": "gif/ig/events/e_8.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8037a13dca789ad0cd3e"
                             },
                             {
                                 "Phrase": "Высшее Командование",
                                 "Main": "Используется текущий командный уровень.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80b68b8ce003a2e48728"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80b68b8ce003a2e48728",
+                                "Card": "gif/ig/events/e_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80b68b8ce003a2e48728"
                             },
                             {
                                 "Phrase": "Зов Астропатов",
                                 "Main": "Эти жетоны размещаются дополнительно и не учитываются в ограничении «1 жетон подкрепления на 1 пластиковый отряд» на шаге подкрепления.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80a3b7b5f0c44393c9af"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80a3b7b5f0c44393c9af",
+                                "Card": "gif/ig/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80a3b7b5f0c44393c9af"
                             }
                         ]
                     },
@@ -1024,27 +1262,37 @@
                         "items": [
                             {
                                 "Phrase": "Критический Удар",
-                                "Main": "Вопрос: Может ли он уничтожить Бастион, которому назначен урон?\nО: Нет. Бастионы не являются отрядами.\n\nВ: Если отряд получил урон, но не был деморализован из-за эффекта другой карты, можно ли использовать эту карту для его уничтожения?\nА: Да.\n\nВ: Могу ли я использовать эту карту, когда отряд противника деморализован эффектом другой карты?\nО: Нет. Прямо указано, что отряду должен быть нанесен урон. Орбитальный удар также не учитывается, поскольку явно указано, что он должен быть нанесен во время боя."
+                                "Main": "Вопрос: Может ли он уничтожить Бастион, которому назначен урон?\nО: Нет. Бастионы не являются отрядами.\n\nВ: Если отряд получил урон, но не был деморализован из-за эффекта другой карты, можно ли использовать эту карту для его уничтожения?\nА: Да.\n\nВ: Могу ли я использовать эту карту, когда отряд противника деморализован эффектом другой карты?\nО: Нет. Прямо указано, что отряду должен быть нанесен урон. Орбитальный удар также не учитывается, поскольку явно указано, что он должен быть нанесен во время боя.",
+                                "Card": "gif/tau/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/0e8346118c5d83539ce181eff3f62762"
                             },
                             {
                                 "Phrase": "Отрезать Снабжение",
                                 "Main": "Вопрос: Мешает ли отказ в снабжении моему противнику размещать жетоны подкрепления из запаса в оспариваемой области?\nО: Нет. Как указано, это применимо только к жетонам подкрепления, размещенным из игровой зоны игрока.\n\nУточнение по Note FS League:\nРазыграйте план до броска кубов и получения боевых карт.",
-                                "Source": "https://fixed-crane-287.notion.site/db8346118c5d833597a5819af29f9d82"
+                                "Source": "https://fixed-crane-287.notion.site/db8346118c5d833597a5819af29f9d82",
+                                "Card": "gif/tau/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/db8346118c5d833597a5819af29f9d82"
                             },
                             {
                                 "Phrase": "Адаптивная Тактика",
                                 "Main": "Разыграйте план до броска кубов и получения боевых карт. Заменяются пары карт из боевой колоды на пары карт из колоды улучшений, а не карты из руки. Показывать заменяемые карты не требуется. Стартовые боевые карты не имеют командного уровня; для этого эффекта они считаются ниже любых боевых улучшений.",
-                                "Source": "https://fixed-crane-287.notion.site/42b346118c5d83bca0f8017dae3f4665"
+                                "Source": "https://fixed-crane-287.notion.site/42b346118c5d83bca0f8017dae3f4665",
+                                "Card": "gif/tau/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/42b346118c5d83bca0f8017dae3f4665"
                             },
                             {
                                 "Phrase": "Эвакуация",
                                 "Main": "Варп-шторм не мешает эффекту. Нельзя уничтожить постройку, если нет подходящего мира для размещения новой.",
-                                "Source": "https://fixed-crane-287.notion.site/8ef346118c5d82ceb2128121eb758093"
+                                "Source": "https://fixed-crane-287.notion.site/8ef346118c5d82ceb2128121eb758093",
+                                "Card": "gif/tau/events/e_6.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/8ef346118c5d82ceb2128121eb758093"
                             },
                             {
                                 "Phrase": "Саботаж",
                                 "Main": "Нельзя уничтожить свой отряд, если нет подходящей вражеской постройки для уничтожения.",
-                                "Source": "https://fixed-crane-287.notion.site/e65346118c5d83ce850c810bc60ace72"
+                                "Source": "https://fixed-crane-287.notion.site/e65346118c5d83ce850c810bc60ace72",
+                                "Card": "gif/tau/events/e_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/e65346118c5d83ce850c810bc60ace72"
                             }
                         ]
                     },
@@ -1055,22 +1303,30 @@
                             {
                                 "Phrase": "Сфера Воскрешения",
                                 "Main": "Если уничтожен последний отряд Некронов, его ещё можно возродить до поражения в битве из-за отсутствия отрядов.",
-                                "Source": "https://fixed-crane-287.notion.site/390346118c5d803d9c26e430679906a5"
+                                "Source": "https://fixed-crane-287.notion.site/390346118c5d803d9c26e430679906a5",
+                                "Card": "gif/necron/events/e_6.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/390346118c5d803d9c26e430679906a5"
                             },
                             {
                                 "Phrase": "Пробуждение Ктана",
                                 "Main": "Разыграйте план в начале раунда битвы, до раскрытия боевых карт. Он наносит 3 неблокируемых урона независимо от (S), даже если обычное распределение урона в этом раунде не нанесло повреждений.",
-                                "Source": "https://fixed-crane-287.notion.site/390346118c5d80528a8ceaa5b7c7d52e"
+                                "Source": "https://fixed-crane-287.notion.site/390346118c5d80528a8ceaa5b7c7d52e",
+                                "Card": "gif/necron/events/e_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/390346118c5d80528a8ceaa5b7c7d52e"
                             },
                             {
                                 "Phrase": "Орикан Предсказатель",
                                 "Main": "Сбрасываемые карты показываются всем противникам.",
-                                "Source": "https://fixed-crane-287.notion.site/390346118c5d8068bc64d7e0895e0c2d"
+                                "Source": "https://fixed-crane-287.notion.site/390346118c5d8068bc64d7e0895e0c2d",
+                                "Card": "gif/necron/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/390346118c5d8068bc64d7e0895e0c2d"
                             },
                             {
                                 "Phrase": "Безжалостная Атака",
                                 "Main": "Урон не переносится и не суммируется между шагами нанесения повреждений. Дополнительный шаг не создаёт нового раунда битвы. Результаты кубов и боевые жетоны сохраняются до завершения дополнительного шага.",
-                                "Source": "https://fixed-crane-287.notion.site/390346118c5d806cb1acd54a27ff2254"
+                                "Source": "https://fixed-crane-287.notion.site/390346118c5d806cb1acd54a27ff2254",
+                                "Card": "gif/necron/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/390346118c5d806cb1acd54a27ff2254"
                             }
                         ]
                     }
@@ -1085,17 +1341,23 @@
                         "items": [
                             {
                                 "Phrase": "Споры Мицелия",
-                                "Main": "Вопрос: Могу ли я приобрести эту карту улучшения приказа перед покупкой улучшения «Ульи-Фабрики»? \nО: Да, но для использования вам необходимо приобрести обе карты."
+                                "Main": "Вопрос: Могу ли я приобрести эту карту улучшения приказа перед покупкой улучшения «Ульи-Фабрики»? \nО: Да, но для использования вам необходимо приобрести обе карты.",
+                                "Card": "gif/tyranid/orders/o_5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80388f23e567fe055108"
                             },
                             {
                                 "Phrase": "Рой",
                                 "Main": "Дополнительный жетон подкрепления не учитывается в обычном пределе «1 жетон на 1 пластиковый отряд»: при 2 отрядах можно разместить 3 жетона. Сам дополнительный жетон не считается пластиковой фигуркой для размещения ещё одного жетона.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d805ab953f111ddd0d477"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d805ab953f111ddd0d477",
+                                "Card": "gif/tyranid/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d805ab953f111ddd0d477"
                             },
                             {
                                 "Phrase": "Капиллярные Башни",
                                 "Main": "Способность нельзя использовать сразу после покупки улучшения.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8067aee7cbe22892b982"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d8067aee7cbe22892b982",
+                                "Card": "gif/tyranid/orders/o_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d8067aee7cbe22892b982"
                             }
                         ]
                     },
@@ -1106,16 +1368,22 @@
                             {
                                 "Phrase": "Департамент Муниторум",
                                 "Main": "В: Могу ли я провести орбитальный удар при выполнении ограниченного приказа Продвижения с помощью «Департамента Муниторум»?\nО: Да. Применяются только ограничения, указанные на карте. Для ограниченного приказа Продвижения вы можете перемещать отряды только из 1 области; это единственное отличие от обычного приказа Продвижения.\n\nВ: Можно ли использовать карты улучшения приказа при выполнении ограниченного приказа?\nО: Да.\n\nУточнение по Note FS League:\nПри выборе ограниченного приказа Доминирования можно собрать активы, применить способность фракции или сделать и то и другое, но только для одного и того же мира. Для ограниченного приказа Продвижения жетон можно разместить в системе без дружественных областей.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d803bac5febd72329a84c"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d803bac5febd72329a84c",
+                                "Card": "gif/ig/orders/o_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d803bac5febd72329a84c"
                             },
                             {
                                 "Phrase": "Миры-Ульи",
                                 "Main": "Предел вместимости остаётся равным 4. Прибавка к вместимости для Гвардейцев действует постоянно после покупки улучшения, а не только во время выполнения приказа. Улучшение можно использовать при применении способности фракции «Массовое производство».",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80f8b9a2c18e8951a8bb"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d80f8b9a2c18e8951a8bb",
+                                "Card": "gif/ig/orders/o_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d80f8b9a2c18e8951a8bb"
                             },
                             {
                                 "Phrase": "Массовое производство (Доминирование)",
-                                "Main": "Вопрос: Могу ли я всегда использовать ту часть способности фракции, которая позволяет мне снизить стоимость 2 отрядов командного уровня 0 на 1 каждый, потратив жетон склада, или только при применении способности фракции?\nО: Только при разрешении способности вашей фракции.\n\nВ: Могу ли я покупать постройки, используя способность фракции?\nО: Нет, вам разрешено покупать только отряды."
+                                "Main": "Вопрос: Могу ли я всегда использовать ту часть способности фракции, которая позволяет мне снизить стоимость 2 отрядов командного уровня 0 на 1 каждый, потратив жетон склада, или только при применении способности фракции?\nО: Только при разрешении способности вашей фракции.\n\nВ: Могу ли я покупать постройки, используя способность фракции?\nО: Нет, вам разрешено покупать только отряды.",
+                                "Card": "gif/ig/faction_card/card.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d802f950bfc73a605b78f"
                             }
                         ]
                     },
@@ -1126,12 +1394,16 @@
                             {
                                 "Phrase": "Диверсия",
                                 "Main": "Во время дополнительного приказа Продвижения можно нанести орбитальный удар. После него можно начать бой обычным приказом. Если дополнительный приказ начинает бой, он длится 1 раунд; победитель определяется по обычным правилам разрешения битвы. Жетоны подкрепления в такой битве использовать можно.",
-                                "Source": "https://fixed-crane-287.notion.site/24e346118c5d839cbbd40193712d9c8c"
+                                "Source": "https://fixed-crane-287.notion.site/24e346118c5d839cbbd40193712d9c8c",
+                                "Card": "gif/tau/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/24e346118c5d839cbbd40193712d9c8c"
                             },
                             {
                                 "Phrase": "Союзники",
                                 "Main": "Можно сначала разместить отряд, а затем купить постройку по обычным правилам развёртывания.",
-                                "Source": "https://fixed-crane-287.notion.site/c5c346118c5d83ec896681e30ce3a033"
+                                "Source": "https://fixed-crane-287.notion.site/c5c346118c5d83ec896681e30ce3a033",
+                                "Card": "gif/tau/orders/o_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/c5c346118c5d83ec896681e30ce3a033"
                             }
                         ]
                     }
@@ -1147,7 +1419,9 @@
                             {
                                 "Phrase": "Пожиратели Миров (Доминирование)",
                                 "Main": "Выберите тип дополнительного жетона актива. Его можно получить, только если при обычном выполнении приказа Доминирования вы получили хотя бы 1 жетон. Если обычное получение невозможно из-за предела в 4 жетона, дополнительный жетон также не получается.",
-                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d805bb65ed533b0c50e8c"
+                                "Source": "https://fixed-crane-287.notion.site/38f346118c5d805bb65ed533b0c50e8c",
+                                "Card": "gif/tyranid/faction_card/card.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/38f346118c5d805bb65ed533b0c50e8c"
                             }
                         ]
                     }
@@ -1168,17 +1442,23 @@
                             {
                                 "Phrase": "Посланники Векта",
                                 "Main": "Общий эффект получает и отнимает жетоны подкрепления на планшетах фракций, а не в битве. Способность Кабалита Воина позволяет потратить свой жетон подкрепления, чтобы бесплатно разместить жетон в этой области.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80c49f94fcf191161163"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80c49f94fcf191161163",
+                                "Card": "sow/darkeldar/combat/s2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d80c49f94fcf191161163"
                             },
                             {
                                 "Phrase": "Познание Агонии",
                                 "Main": "Противник может сохранить [M], выпавший при броске полученного свободного [D]. Запрет получать или тратить [M] не запрещает сохранять результат такого броска.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d800faf6bfa6ce425b10d"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d800faf6bfa6ce425b10d",
+                                "Card": "sow/darkeldar/combat/t2_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d800faf6bfa6ce425b10d"
                             },
                             {
                                 "Phrase": "Выстрелить И Исчезнуть",
                                 "Main": "Способность отряда можно применить, даже если противник не отступил.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80d4b967f334587a830b"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80d4b967f334587a830b",
+                                "Card": "sow/darkeldar/combat/t0_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d80d4b967f334587a830b"
                             }
                         ]
                     },
@@ -1188,36 +1468,50 @@
                         "items": [
                             {
                                 "Phrase": "Светоч Веры",
-                                "Main": "В: Могу ли я заменить деморализованную Сестру Репентию?\nО: Да. Пока у вас есть хотя бы одна недеморализованная Сестра Репентия, вы можете заменить деморализованную.\n\nВ: Могу ли я заменить жетон подкрепления?\nО: Да. Во время боя жетоны подкреплений считаются отрядами командного уровня 0."
+                                "Main": "В: Могу ли я заменить деморализованную Сестру Репентию?\nО: Да. Пока у вас есть хотя бы одна недеморализованная Сестра Репентия, вы можете заменить деморализованную.\n\nВ: Могу ли я заменить жетон подкрепления?\nО: Да. Во время боя жетоны подкреплений считаются отрядами командного уровня 0.",
+                                "Card": "sow/adeptasororitas/combat/s2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80018359db77b3098955"
                             },
                             {
                                 "Phrase": "Божественное Благословение",
-                                "Main": "В: Должен ли я тратить только [S] или только [M]?\nО: Нет. Карта позволяет потратить любое количество ваших [S] или [M]. Можно потратить любую комбинацию этих кубов. Вынудите вашего противника потерять 1 [B] за каждый потраченный [S] или [M]."
+                                "Main": "В: Должен ли я тратить только [S] или только [M]?\nО: Нет. Карта позволяет потратить любое количество ваших [S] или [M]. Можно потратить любую комбинацию этих кубов. Вынудите вашего противника потерять 1 [B] за каждый потраченный [S] или [M].",
+                                "Card": "sow/adeptasororitas/combat/t3_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d805290d9c621fa6feb73"
                             },
                             {
                                 "Phrase": "Снисхождение Ангела",
                                 "Main": "При нанесении повреждений по одному бастион может поглотить любое количество урона, по 1 за раз.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80ea8b85cf2518e491b8"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80ea8b85cf2518e491b8",
+                                "Card": "sow/adeptasororitas/combat/t0_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80ea8b85cf2518e491b8"
                             },
                             {
                                 "Phrase": "Мученичество",
-                                "Main": "Против «Танкового Наступления» карта применяется дважды: для защиты на обоих шагах вы уничтожаете 2 отряда и получаете 2 [S].",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8098a36eea54dec52055"
+                                "Main": "Способность срабатывает, когда ваш отряд уничтожается именно на шаге нанесения повреждений текущего раунда битвы. Получите 1 [S]; урон сверх здоровья уничтоженного отряда теряется.\n\nПри дополнительном шаге от «Танкового Наступления» способность может сработать снова. Чтобы её защита от избыточного урона сработала на обоих шагах, на каждом шаге должен быть уничтожен отдельный отряд; суммарно вы получите 2 [S].",
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8098a36eea54dec52055",
+                                "Card": "sow/adeptasororitas/combat/t0_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d8098a36eea54dec52055"
                             },
                             {
                                 "Phrase": "Благословленное Наступление",
                                 "Main": "Способность отряда зависит от результата броска, а не от выбранного куба.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8033ae99d217f3d91887"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8033ae99d217f3d91887",
+                                "Card": "sow/adeptasororitas/combat/s5.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d8033ae99d217f3d91887"
                             },
                             {
                                 "Phrase": "Святая Троица",
                                 "Main": "Способность отряда зависит от выпавшего результата, а не от выбранного куба.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d806db8e8fff2fa997624"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d806db8e8fff2fa997624",
+                                "Card": "sow/adeptasororitas/combat/s4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d806db8e8fff2fa997624"
                             },
                             {
                                 "Phrase": "Путь Искупления",
-                                "Main": "После розыгрыша другой боевой карты эта карта сбрасывается.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8040bbc7d33ee04d01ed"
+                                "Main": "Сначала разыграйте другую боевую карту из руки, затем сбросьте «Путь Искупления». Указание «сбросьте эту карту» относится к «Пути Искупления», а не к только что разыгранной карте.",
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8040bbc7d33ee04d01ed",
+                                "Card": "sow/adeptasororitas/combat/s3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d8040bbc7d33ee04d01ed"
                             }
                         ]
                     },
@@ -1227,17 +1521,23 @@
                         "items": [
                             {
                                 "Phrase": "Серебряная Броня",
-                                "Main": "В: Суммируется ли эффект?\nО: Да. Если сыграны две такие карты, значение здоровья ваших отрядов увеличивается на 2.\n\nВ: Сохраняется ли эффект после сброса карты?\nО: Нет. После сброса карты её эффект прекращается."
+                                "Main": "В: Суммируется ли эффект?\nО: Да. Если сыграны две такие карты, значение здоровья ваших отрядов увеличивается на 2.\n\nВ: Сохраняется ли эффект после сброса карты?\nО: Нет. После сброса карты её эффект прекращается.",
+                                "Card": "sow/inquisition/combat/t3_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d807496d2d12f67fb04a1"
                             },
                             {
                                 "Phrase": "Ракеты Хеллстрайк",
                                 "Main": "Общий эффект можно применить, даже если у противника нет [S].",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80659921c1bbd5637c9c"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80659921c1bbd5637c9c",
+                                "Card": "sow/inquisition/combat/t2_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d80659921c1bbd5637c9c"
                             },
                             {
                                 "Phrase": "Беспощадная Атака",
                                 "Main": "Можно потратить 1 [S], чтобы получить 2 (B), даже при защите. Условие «если вы атакуете» относится к восстановлению отряда.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80a0be1cf06a5056a2f5"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80a0be1cf06a5056a2f5",
+                                "Card": "sow/inquisition/combat/t0_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d80a0be1cf06a5056a2f5"
                             }
                         ]
                     },
@@ -1248,7 +1548,16 @@
                             {
                                 "Phrase": "Скитарии Рейнджеры",
                                 "Main": "Если карта сыграна во 2-м и 3-м раундах битвы, в 3-м нельзя через неё вернуться к способности, использованной в 1-м раунде. Получить куб вместо этого всё ещё можно.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8073a256d139645754d3"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d8073a256d139645754d3",
+                                "Card": "sow/adeptusmechanicus/combat/s1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d8073a256d139645754d3"
+                            },
+                            {
+                                "Phrase": "Превосходство Машины",
+                                "Main": "Во втором абзаце общей способности потратьте 1 жетон кузницы, чтобы восстановить все свои отряды, участвующие в этой битве. Куб [M] для этого не тратится. Это действующая редакция по обновлению оригинала от 13 октября 2026 года.",
+                                "RuleSource": "https://github.com/Frytkownica/Forbidden_Star/commit/a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+                                "Card": "sow/adeptusmechanicus/combat/t2_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d804791acfb1525e764ef"
                             }
                         ]
                     }
@@ -1264,12 +1573,16 @@
                             {
                                 "Phrase": "Генератор Теневого Поля",
                                 "Main": "Нельзя начать битву и выполнить орбитальный удар одним и тем же жетоном приказа. Ограничение относится к этому жетону приказа, а не ко всему раунду игры.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80fba386f02f452a530b"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80fba386f02f452a530b",
+                                "Card": "sow/darkeldar/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d80fba386f02f452a530b"
                             },
                             {
                                 "Phrase": "Рейд Из Паутины",
                                 "Main": "Если нет неконтролируемых миров, пропустить ход с помощью карты нельзя. Это также невозможно, если из-за предела ресурсов вы не можете получить ни материалов, ни жетонов активов.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d8027b0aff14746b11202"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d8027b0aff14746b11202",
+                                "Card": "sow/darkeldar/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d8027b0aff14746b11202"
                             }
                         ]
                     },
@@ -1280,7 +1593,9 @@
                             {
                                 "Phrase": "Рождение Героини",
                                 "Main": "Требуется допустимый путь перемещения: Сестра Репентия или Сестра Битвы может прийти из соседней системы либо переместиться внутри системы. Перемещение по диагонали без общего края невозможно. Если вы выиграли битву, постройка переходит под ваш контроль. Если ни одна Сестра не начала битву, пропустить ход с помощью карты нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80f6b94ee97dcd479329"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80f6b94ee97dcd479329",
+                                "Card": "sow/adeptasororitas/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80f6b94ee97dcd479329"
                             }
                         ]
                     },
@@ -1290,17 +1605,23 @@
                         "items": [
                             {
                                 "Phrase": "Теософомия",
-                                "Main": "В: В чём заключается способность этой карты события?\nО: Карта позволяет переместить варп-шторм в любом направлении. Её текст — «Сбросьте эту карту»; дополнительной способности у неё нет.\n\nВ: Могу ли я использовать карту, если в этом ходу не выполнял приказ Планирования?\nО: Да."
+                                "Main": "В: В чём заключается способность этой карты события?\nО: Карта позволяет переместить варп-шторм в любом направлении. Её текст — «Сбросьте эту карту»; дополнительной способности у неё нет.\n\nВ: Могу ли я использовать карту, если в этом ходу не выполнял приказ Планирования?\nО: Да.",
+                                "Card": "sow/inquisition/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d8060be00ddfefe5203cb"
                             },
                             {
                                 "Phrase": "Догма Министорума",
                                 "Main": "Минимальная стоимость покупки — 1 материал.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80989a88f1d27a003adc"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80989a88f1d27a003adc",
+                                "Card": "sow/inquisition/events/e_7.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d80989a88f1d27a003adc"
                             },
                             {
                                 "Phrase": "Наемные Головорезы",
                                 "Main": "Если ни у одного противника нет плана, пропустить ход с помощью этой карты нельзя.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80fda05dd6f7df362b75"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d80fda05dd6f7df362b75",
+                                "Card": "sow/inquisition/events/e_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d80fda05dd6f7df362b75"
                             }
                         ]
                     },
@@ -1311,22 +1632,30 @@
                             {
                                 "Phrase": "Ядерная Бомбардировка",
                                 "Main": "Отряды со здоровьем 1 уничтожаются после снижения здоровья до 0, даже если на кубах не выпало ни одного [B].",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d808b8f28d344baf67d38"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d808b8f28d344baf67d38",
+                                "Card": "sow/adeptusmechanicus/events/e_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d808b8f28d344baf67d38"
                             },
                             {
                                 "Phrase": "Некромеханика",
                                 "Main": "Эффект срабатывает также при пропуске хода, даже если у вас уже не осталось приказов.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80edb1c4c81012266d7b"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80edb1c4c81012266d7b",
+                                "Card": "sow/adeptusmechanicus/events/e_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80edb1c4c81012266d7b"
                             },
                             {
                                 "Phrase": "Боевые Кузни",
                                 "Main": "Можно построить фабрику до развёртывания отрядов.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80fb92c8f9d8d3ff0e5c"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80fb92c8f9d8d3ff0e5c",
+                                "Card": "sow/adeptusmechanicus/events/e_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80fb92c8f9d8d3ff0e5c"
                             },
                             {
                                 "Phrase": "Поиск Знаний",
                                 "Main": "План можно использовать, даже если в стопке только один жетон приказа.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d805fb6baca800acab45e"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d805fb6baca800acab45e",
+                                "Card": "sow/adeptusmechanicus/events/e_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d805fb6baca800acab45e"
                             }
                         ]
                     }
@@ -1341,12 +1670,16 @@
                         "items": [
                             {
                                 "Phrase": "Боевые Гимны",
-                                "Main": "В: Что входит в суммарный боевой дух на выбранном мире?\nО: Суммарный боевой дух недеморализованных отрядов и бастионов на выбранном мире.\n\nВ: Прибавляет ли карта боевой дух моим кораблям, участвующим в орбитальном ударе?\nО: Нет. Сравните суммарный боевой дух ваших недеморализованных кораблей, участвующих в этом орбитальном ударе, с суммарным боевым духом недеморализованных отрядов и бастионов на выбранном мире."
+                                "Main": "В: Что входит в суммарный боевой дух на выбранном мире?\nО: Суммарный боевой дух недеморализованных отрядов и бастионов на выбранном мире.\n\nВ: Прибавляет ли карта боевой дух моим кораблям, участвующим в орбитальном ударе?\nО: Нет. Сравните суммарный боевой дух ваших недеморализованных кораблей, участвующих в этом орбитальном ударе, с суммарным боевым духом недеморализованных отрядов и бастионов на выбранном мире.",
+                                "Card": "sow/adeptasororitas/orders/o_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80d8ab64dd6eec9f6b2f"
                             },
                             {
                                 "Phrase": "Направить Праведников",
                                 "Main": "До битвы жетон подкрепления не считается отрядом: он не поглощает урон орбитального удара, не может быть целью улучшений орбитального удара и не учитывается во вместимости мира. Разместить второй такой жетон в мире с бастионом нельзя. В битве предел подкреплений определяется количеством пластиковых отрядов; этот жетон не увеличивает предел и не даёт кубов.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d809b94a4d67a0b2d25ba"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d809b94a4d67a0b2d25ba",
+                                "Card": "sow/adeptasororitas/orders/o_3.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d809b94a4d67a0b2d25ba"
                             }
                         ]
                     },
@@ -1355,9 +1688,18 @@
                         "picture": "pictures/icons/adeptus.png",
                         "items": [
                             {
+                                "Phrase": "Кибернетическая Принадлежность",
+                                "Main": "Способность применяется при раскрытии этого жетона приказа, до выполнения приказа. Для покупки дополнительного улучшения можно уничтожить только свой отряд в активной системе. Это действующая редакция по обновлению оригинала от 13 октября 2026 года.",
+                                "RuleSource": "https://github.com/Frytkownica/Forbidden_Star/commit/a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+                                "Card": "sow/adeptusmechanicus/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d808f9967ef409be0c3d0"
+                            },
+                            {
                                 "Phrase": "Священные Проводники",
                                 "Main": "Способность можно применить, если фабрика переместилась по кругу и вернулась в исходный мир.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80298d5fc1f9851d11a8"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80298d5fc1f9851d11a8",
+                                "Card": "sow/adeptusmechanicus/orders/o_4.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80298d5fc1f9851d11a8"
                             }
                         ]
                     },
@@ -1368,12 +1710,16 @@
                             {
                                 "Phrase": "Очистить Стяги",
                                 "Main": "Требуется допустимый путь. Перемещение выполняется после покупки отряда, но до покупки постройки.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d802c9e90e80713712f35"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d802c9e90e80713712f35",
+                                "Card": "sow/inquisition/orders/o_2.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d802c9e90e80713712f35"
                             },
                             {
                                 "Phrase": "Страшный Приговор",
                                 "Main": "Если к моменту применения эффекта у вас не осталось отрядов Инквизиции, использовать карту нельзя. Эффект можно применить и после атаки области, где были только деморализованные отряды противника, вынужденные отступить.",
-                                "Source": "https://fixed-crane-287.notion.site/397346118c5d8000be53c834b03a96e5"
+                                "Source": "https://fixed-crane-287.notion.site/397346118c5d8000be53c834b03a96e5",
+                                "Card": "sow/inquisition/orders/o_1.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/397346118c5d8000be53c834b03a96e5"
                             }
                         ]
                     }
@@ -1389,7 +1735,9 @@
                             {
                                 "Phrase": "Мобильная Промышленность (Доминирование)",
                                 "Main": "Фабрику можно переместить в мир, где уже есть другая постройка.",
-                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80f6acdbdb940659b9ff"
+                                "Source": "https://fixed-crane-287.notion.site/395346118c5d80f6acdbdb940659b9ff",
+                                "Card": "sow/adeptusmechanicus/faction_card/card.jpg",
+                                "CardSource": "https://fixed-crane-287.notion.site/395346118c5d80f6acdbdb940659b9ff"
                             }
                         ]
                     }

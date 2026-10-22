@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-10-22",
+  "source": "https://fixed-crane-287.notion.site/387346118c5d80caa6c1d8d50a60bc74?v=388346118c5d80308e06000cf1c80ca0",
+  "visibleRootRecords": 30,
+  "hasMore": false,
+  "classic": [
+    {
+      "id": "38934611-8c5d-803d-a004-dfad4738960f",
+      "title": "Orks"
+    },
+    {
+      "id": "38734611-8c5d-802d-8456-d27416bf0a64",
+      "title": "Space Marine"
+    },
+    {
+      "id": "38834611-8c5d-80c7-8776-cc6744ebbdbc",
+      "title": "Chaos"
+    },
+    {
+      "id": "38b34611-8c5d-8065-919d-e3a66b634ae3",
+      "title": "Eldar"
+    },
+    {
+      "id": "38f34611-8c5d-809f-b96b-e881e4320540",
+      "title": "Imperial Guard"
+    },
+    {
+      "id": "38f34611-8c5d-8094-86e8-de167718b84e",
+      "title": "Tyranid"
+    },
+    {
+      "id": "39034611-8c5d-80e0-9154-f15822be0a90",
+      "title": "Necron"
+    },
+    {
+      "id": "39534611-8c5d-805b-a6c3-c98f0b7ebf67",
+      "title": "Tau"
+    },
+    {
+      "id": "39034611-8c5d-8029-8c14-d2199f8fc9d9",
+      "title": "Sisters of Battle"
+    },
+    {
+      "id": "39534611-8c5d-803e-9bb6-cd7f9dde8879",
+      "title": "Adeptus Mechanicus"
+    },
+    {
+      "id": "39534611-8c5d-804e-97c4-e486b46e0d4d",
+      "title": "Dark Eldar"
+    },
+    {
+      "id": "39734611-8c5d-807e-a2e5-ec9543237705",
+      "title": "Inquisition "
+    }
+  ],
+  "tdlMatches": 0,
+  "scope": "Supplied public library root, not the entire workspace."
+}

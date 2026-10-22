@@ -27,12 +27,18 @@ for (const faction of read('factions/tdl/faction.json').folder) {
 
 test('FAQ preserves Note provenance through flattening and excludes mod content', () => {
   const sourced = questions.filter(q => q.Source);
-  assert.equal(sourced.length, 139);
+  const review = JSON.parse(fs.readFileSync(path.join(page, '../upstream/fs-league-review.json'), 'utf8'));
+  const reviewedNotes = review.records.filter(record => record.note);
+  assert.deepEqual(new Set(sourced.map(q => q.Source)), new Set(reviewedNotes.map(record => record.source)));
   assert.equal(new Set(sourced.map(q => q.Source)).size, sourced.length);
   for (const q of questions) {
     assert.ok(q.Phrase && q.Main);
     assert.doesNotMatch(q.Phrase + ' ' + q.Main, /RNB|\bTTS\b|\bmod\b|\bмод\b/i);
     if (q.Source) assert.match(q.Source, /^https:\/\/fixed-crane-287\.notion\.site\/[a-f0-9]{32}$/);
+    if (q.CardSource) assert.match(q.CardSource, /^https:\/\/fixed-crane-287\.notion\.site\/[a-f0-9]{32}$/);
+    if (q.RuleSource) assert.match(q.RuleSource, /^https:\/\/github\.com\/Frytkownica\/Forbidden_Star\/commit\/[a-f0-9]{40}$/);
+    if (q.LegacySource) assert.match(q.LegacySource, /^https:\/\/github\.com\/Frytkownica\/Forbidden_Star\/blob\/[a-f0-9]{40}\/page\/data\/FAQ\.json$/);
+    for (const url of q.RelatedSources || []) assert.ok(reviewedNotes.some(record => record.source === url), url);
   }
   const context = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(page, 'script/faq.js'), 'utf8'), context);
@@ -44,6 +50,12 @@ test('FAQ preserves Note provenance through flattening and excludes mod content'
     assert.equal(items[i].q, q.Phrase);
     assert.equal(items[i].a, q.Main);
     assert.equal(items[i].source, q.Source || '');
+    assert.equal(items[i].card, q.Card || '');
+    assert.equal(items[i].cardSource, q.CardSource || '');
+    assert.equal(items[i].ruleSource, q.RuleSource || '');
+    assert.equal(items[i].legacySource, q.LegacySource || '');
+    assert.equal(items[i].relatedSources.join(','), (q.RelatedSources || []).join(','));
+    if (q.Id) assert.equal(items[i].id, q.Id);
   });
 });
 

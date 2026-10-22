@@ -3,7 +3,7 @@
  * Цвета разделов подставляет script.js из general.json (expansion.color).
  *
  * Формат FAQ.json:  [ {Category, items:[ {SubCategory, items:[ {Faction, picture,
- *   items:[ {Phrase, Main, Source?} ] } ] } ] } ]
+ *   items:[ {Phrase, Main, Id?, Source?, Card?, CardSource?, RuleSource?, RelatedSources?, LegacySource?} ] } ] } ] } ]
  */
 (function () {
   'use strict';
@@ -23,7 +23,6 @@
       var navTopics = [{ key: 'all', name: 'Все вопросы', kind: 'all', dot: DOTS[0] }];
       var cats = [];
       var count = { all: 0 };
-      var uid = 0;
       (raw || []).forEach(function (cat, ci) {
         var ckey = 'c' + ci;
         var catObj = {
@@ -42,7 +41,9 @@
             var facObj = { faction: fac.Faction || '', picture: fac.picture || '', items: [] };
             (fac.items || []).forEach(function (it) {
               if (!it || !it.Phrase) return;
-              facObj.items.push({ id: uid++, q: it.Phrase, a: it.Main || '', source: it.Source || '' });
+              var id = it.Id || (window.FSNav ? window.FSNav.faqId(cat.Category, sub.SubCategory, fac.Faction, it.Phrase, it.Source) : (ckey + '_' + skey + '_' + count.all));
+              facObj.items.push({ id: id, q: it.Phrase, a: it.Main || '', source: it.Source || '',
+                card: it.Card || '', cardSource: it.CardSource || '', ruleSource: it.RuleSource || '', relatedSources: it.RelatedSources || [], legacySource: it.LegacySource || '' });
               subCount++; count[ckey]++; count.all++;
             });
             if (facObj.items.length) subObj.factions.push(facObj);

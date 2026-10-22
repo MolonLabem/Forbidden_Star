@@ -19,8 +19,6 @@
   var maxWidth  = 450;
   var maxHeight = 650;
 
-  var marginWidth  = maxWidth  * 0.0578;
-  var maxTextWidth = maxWidth  - 2 * marginWidth;
 
   var iconMap = {
     'B': 'pictures/bolter.png',
@@ -92,8 +90,9 @@
   function layoutStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align, paint) {
     if (!align) align = 'left';
     if (!text) return 0;
-    var baseFont   = fontSize + 'px ForbiddenStars';
-    var italicFont = 'italic ' + fontSize + 'px ForbiddenStars';
+    var family = ctx.fsBodyFont || 'ForbiddenStars';
+    var baseFont   = fontSize + 'px ' + family;
+    var italicFont = 'italic ' + fontSize + 'px ' + family;
     var PARA = '\u0001';
 
     var normalizeText = function (s) {
@@ -131,8 +130,12 @@
 
     var renderLine = function (segments, yy) {
       if (!paint) return;
+      ctx.fsMinimumBodyPx = Math.min(ctx.fsMinimumBodyPx || Infinity, fontSize);
       var totalW = 0;
       for (var s = 0; s < segments.length; s++) totalW += measure(segments[s].text, segments[s].italic);
+      if (ctx.fsStrict && (totalW > maxW + 1 || yy + fontSize * 0.2 > ctx.canvas.height)) {
+        throw new Error('Текст выходит за границы печатной карты');
+      }
       var cx = (align === 'center') ? (x - totalW / 2) : x;
       for (var s = 0; s < segments.length; s++) {
         var seg = segments[s];
@@ -208,16 +211,20 @@
   }
 
   // image cache — shared chrome loads once per session
-  var _imgCache = {};
+  var _imgCache = window.FSCache.create(24);
   function loadImage(url) {
-    if (_imgCache[url]) return _imgCache[url];
-    _imgCache[url] = new Promise(function (resolve, reject) {
+    var cached = _imgCache.get(url);
+    if (cached) return cached;
+    var pending = new Promise(function (resolve, reject) {
       var img = new Image();
-      img.src = url;
       img.onload  = function () { resolve(img); };
       img.onerror = function () { reject(new Error('Failed to load image ' + url)); };
+      img.src = url;
+    }).catch(function (error) {
+      _imgCache.delete(url);
+      throw error;
     });
-    return _imgCache[url];
+    return _imgCache.set(url, pending);
   }
 
   // ---- card draw functions ----
@@ -257,6 +264,12 @@
     ctx.drawImage(picture, 0, 0, cw, ch);
 
     ctx.font = (ch * COMBAT_LAYOUT.titleFontSizeRatio) + 'px Headline';
+    if (ctx.fsStrict) {
+      var titleSize = ch * COMBAT_LAYOUT.titleFontSizeRatio;
+      while (ctx.measureText(data.title || '').width > cw * 0.69) {
+        titleSize *= 0.95; ctx.font = titleSize + 'px Headline';
+      }
+    }
     ctx.textAlign = 'left';
     ctx.fillText(data.title || '', cw * COMBAT_LAYOUT.titleX, ch * COMBAT_LAYOUT.titleY);
 
@@ -295,6 +308,7 @@
         p = measurePanels();
         guard++;
       }
+      if (ctx.fsStrict && overBudget()) throw new Error('Боевой текст не помещается на карте');
 
       var fgPanel = fgText ? {
         y: ch - p.fg, h: p.fg, decoH: fgDecoH, contentH: p.fgContent, bottomClear: bottomH,
@@ -359,6 +373,7 @@
         textH = measureStyledWrappedText(ctx, general, textMaxW, interline, fontSize);
         guard++;
       }
+      if (ctx.fsStrict && textH + fontSize + marginW * 2 > maxFieldsH) throw new Error('Текст приказа не помещается на карте');
     }
 
     ctx.drawImage(picture, 0, 0, cw, ch);
@@ -444,6 +459,7 @@
         textH = measureStyledWrappedText(ctx, general, textMaxW, interline, fontSize);
         guard++;
       }
+      if (ctx.fsStrict && textH > maxFieldsH) throw new Error('Текст события не помещается на карте');
     }
 
     ctx.drawImage(picture, 0, 0, cw, ch);
@@ -452,6 +468,12 @@
     ctx.fillText(data.type || '', cw * 0.5, ch * 0.573);
     ctx.font = tfSize + 'px Headline';
     ctx.textAlign = 'left';
+    if (ctx.fsStrict) {
+      var eventTitleSize = tfSize;
+      while (ctx.measureText(data.title || '').width > cw * 0.9) {
+        eventTitleSize *= 0.95; ctx.font = eventTitleSize + 'px Headline';
+      }
+    }
     ctx.fillText(data.title || '', cw * 0.05, ch * 0.0735);
 
     if (general) {
@@ -459,7 +481,59 @@
     }
   }
 
-  var DRAW = { combat: drawCombatCard, orders: drawOrderCard, events: drawEventCard };
+  // Baked English TDL sources remain intact. Cover their wording before drawing
+  // Russian text; merely adding JSON must never leave two languages superposed.
+  // The same wrapping/font measurement is used by templates and these regions.
+  function drawTextRegion(ctx, region, wording) {
+    var cw = ctx.canvas.width, ch = ctx.canvas.height, b = region.box;
+    var w = b[2] * cw, h = b[3] * ch;
+    ctx.save();
+    ctx.translate((b[0] + b[2] / 2) * cw, (b[1] + b[3] / 2) * ch);
+    ctx.rotate((region.rotation || 0) * Math.PI / 180);
+    ctx.fillStyle = region.fill || '#e9dfb6';
+    ctx.fillRect(-w / 2, -h / 2, w, h);
+    ctx.fillStyle = region.ink || '#15120c';
+    ctx.fsBodyFont = region.font || 'ForbiddenStars';
+    var text = replaceForbiddenStarsElements(window.FSWord.format(region.value, wording));
+    var size = ch * (region.size || 0.03), margin = Math.min(w, h) * 0.06;
+    var maxW = w - margin * 2, maxH = h - margin * 2;
+    var interline = size * 0.12;
+    var height = measureStyledWrappedText(ctx, text, maxW, interline, size);
+    var widestWord = function () {
+      ctx.font = 'italic ' + size + 'px ' + ctx.fsBodyFont;
+      return Math.max.apply(Math, String(text).split(/\s+/).map(function (word) { return ctx.measureText(word).width; }));
+    };
+    var guard = 0;
+    while ((height > maxH || widestWord() > maxW) && guard++ < 180) {
+      size *= 0.97; interline = size * 0.12;
+      height = measureStyledWrappedText(ctx, text, maxW, interline, size);
+    }
+    if (height > maxH) throw new Error('Перевод не помещается в текстовую область');
+    drawStyledWrappedText(ctx, text, region.align === 'center' ? 0 : -w / 2 + margin,
+      -h / 2 + margin, maxW, interline, size, region.align || 'left');
+    ctx.fsBodyFont = null;
+    ctx.restore();
+  }
+
+  async function drawRasterTranslation(data, ctx) {
+    var picture = await loadImage(data.picture);
+    ctx.drawImage(picture, 0, 0, ctx.canvas.width, ctx.canvas.height);
+    var regions = data.regions;
+    if (!regions) {
+      var combat = data.kind === 'combat', order = data.kind === 'orders';
+      regions = [
+        { box: combat ? [.28,.075,.57,.063] : order ? [.26,.205,.53,.052] : [.075,.052,.65,.046],
+          value: data.title, font: 'Headline', size: .044, align: order ? 'center' : 'left', fill: order ? '#fff9d9' : '#e9dfb6' },
+        { box: combat ? [0,.60,1,.36] : order ? [.155,.54,.69,.275] : [.08,.673,.84,.231],
+          value: combat ? [data.background, data.foreground].filter(Boolean).join(' *newpara* ') : data.general,
+          size: .03, fill: '#eee5bc' },
+      ];
+      if (data.kind === 'events') regions.push({box:[.17,.525,.66,.047],value:data.type,font:'EventFont',size:.035,align:'center',fill:'#e9dfb6'});
+    }
+    regions.forEach(function (region) { drawTextRegion(ctx, region, data.wording); });
+  }
+
+  var DRAW = { combat: drawCombatCard, orders: drawOrderCard, events: drawEventCard, overlay: drawRasterTranslation };
 
   // Ensure the custom fonts are loaded before measuring/drawing text.
   var _fontsReady;
@@ -474,35 +548,66 @@
     return _fontsReady;
   }
 
-  var _composed = {};
+  var _composed = window.FSCache.create(32);
 
-  function compose(card) {
-    var key = card.src + '@' + maxWidth + 'x' + maxHeight;
-    if (_composed[key]) return _composed[key];
-    var fn = DRAW[card.kind];
-    if (!fn || !card.text) { _composed[key] = Promise.resolve(card.src); return _composed[key]; }
+  function compose(card, options) {
+    options = options || {};
+    // Capture dimensions before asynchronous work. Printing never changes view resolution.
+    var width = options.width || card.width || maxWidth, height = options.height || card.height || maxHeight;
+    if (card.kind === 'overlay' && card.text && card.text.aspect) height = Math.round(width / card.text.aspect);
+    var strict = !!options.strict;
+    var wording = card.wording || 'explicit';
+    var thumbnail = !strict && !!card.thumbnail;
+    var picture = strict ? card.src : (card.picture || card.src);
+    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, card.text]);
+    var cached = !strict && _composed.get(key);
+    if (cached) return cached;
+    var fn = card.text && card.text.raster ? drawRasterTranslation : DRAW[card.kind];
+    if (strict && (!fn || !card.text || !card.text.title)) return Promise.reject(new Error('Нет русского текста: ' + card.src));
+    if (!fn || !card.text) return Promise.resolve(card.src);
 
-    _composed[key] = fontsReady().then(function () {
+    var ready = strict ? Promise.all(['ForbiddenStars', 'Headline', 'EventFont'].map(function (name) {
+      if (!document.fonts) throw new Error('Браузер не поддерживает проверку шрифтов');
+      return document.fonts.load('16px ' + name).then(function (faces) {
+        if (!faces.length || !document.fonts.check('16px ' + name)) throw new Error('Не загружен шрифт ' + name);
+      });
+    })) : fontsReady();
+    var result = ready.then(function () {
       var canvas = document.createElement('canvas');
-      canvas.width  = maxWidth;
-      canvas.height = maxHeight;
+      canvas.width  = width;
+      canvas.height = height;
       var ctx = canvas.getContext('2d');
+      ctx.fsStrict = strict;
+      var format = function (text) { return window.FSWord.format(text, wording); };
       var data = {
-        picture:    card.src,
+        picture:    picture,
         hasText:    true,
         title:      card.text.title      || '',
-        general:    card.text.general    || '',
-        background: card.text.background || '',
-        foreground: card.text.foreground || '',
+        general:    format(card.text.general),
+        background: format(card.text.background),
+        foreground: format(card.text.foreground),
         icons:      card.text.icons      || '',
         type:       card.text.type       || '',
+        kind:       card.kind,
+        regions:    card.text.regions,
+        wording:    wording,
       };
-      return fn(data, ctx).then(function () { return canvas.toDataURL('image/png'); });
+      return fn(data, ctx).then(function () {
+        if (options.onMetrics) options.onMetrics({minimumBodyPx: ctx.fsMinimumBodyPx});
+        return thumbnail ? canvas.toDataURL('image/jpeg', 0.84) : canvas.toDataURL('image/png');
+      });
     }).catch(function (e) {
+      _composed.delete(key);
+      if (strict) throw e;
       console.error('compose failed for ' + card.src, e);
       return card.src;
     });
-    return _composed[key];
+    // Large print rasters have a job lifetime; do not retain them in the view cache.
+    if (!strict) return _composed.set(key, result);
+    return new Promise(function (resolve, reject) {
+      var timer = setTimeout(function () { reject(new Error('Рендер не завершён: ' + card.src)); }, 20000);
+      result.then(function (value) { clearTimeout(timer); resolve(value); }, function (error) { clearTimeout(timer); reject(error); });
+    });
   }
 
   // Change canvas dimensions and clear the composition cache so all cards are
@@ -510,9 +615,7 @@
   function setResolution(w, h) {
     maxWidth  = w;
     maxHeight = h;
-    marginWidth  = maxWidth  * 0.0578;
-    maxTextWidth = maxWidth  - 2 * marginWidth;
-    _composed = {};
+    _composed.clear();
   }
 
   window.FSCardRender = { compose: compose, fontsReady: fontsReady, setResolution: setResolution };

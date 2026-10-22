@@ -1,0 +1,34 @@
+[
+  {
+    "file": "page/factions/sow/adeptasororitas/text.json",
+    "field": "combatText",
+    "index": 6,
+    "key": "unit",
+    "before": "Сестра Битвы/Легкий Крейсер: Когда 1 из ваших отрядов будет уничтожен в этом раунде битвы, получите 1 [S]. Урон, превышающий значение здоровья уничтоженного отряда, теряется.",
+    "after": "Сестра Битвы/Легкий Крейсер: Когда 1 из ваших отрядов будет уничтожен во время шага нанесения повреждений в этом раунде битвы, получите 1 [S]. Урон, превышающий значение здоровья уничтоженного отряда, теряется."
+  },
+  {
+    "file": "page/factions/sow/adeptusmechanicus/text.json",
+    "field": "combatText",
+    "index": 0,
+    "key": "title",
+    "before": "СИКАРИЙЦЫ ЛАЗУТЧИКИ",
+    "after": "СКИТАРИИ РЕЙНДЖЕРЫ"
+  },
+  {
+    "file": "page/factions/sow/adeptusmechanicus/text.json",
+    "field": "combatText",
+    "index": 3,
+    "key": "title",
+    "before": "СКИТАРИИ РЕЙНДЖЕРЫ",
+    "after": "СИКАРИЙЦЫ ЛАЗУТЧИКИ"
+  },
+  {
+    "file": "page/factions/sow/adeptusmechanicus/text.json",
+    "field": "combatText",
+    "index": 9,
+    "key": "general",
+    "before": "Получите 1 [D], 2 (B) или 2 (S). *newpara* Потратьте 1 [M], чтобы восстановить 1 свой отряд.",
+    "after": "Получите 1 [D], 2 (B) или 2 (S). *newpara* Потратьте 1 жетон кузницы, чтобы восстановить все свои отряды."
+  }
+]

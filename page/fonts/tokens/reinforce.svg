@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <title>Reinforcement token: flag</title>
+  <path d="M500 10 A490 490 0 1 0 500 990 A490 490 0 1 0 500 10 Z M500 80 A420 420 0 1 1 500 920 A420 420 0 1 1 500 80 Z"/>
+  <path d="M260 170 L340 170 L340 820 L260 820 Z M340 210 L750 270 L640 390 L750 510 L340 450 Z"/>
+</svg>

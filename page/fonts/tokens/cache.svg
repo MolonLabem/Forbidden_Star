@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <title>Cache token: supply crate</title>
+  <path d="M500 10 A490 490 0 1 0 500 990 A490 490 0 1 0 500 10 Z M500 80 A420 420 0 1 1 500 920 A420 420 0 1 1 500 80 Z"/>
+  <path d="M190 280 L810 280 L810 740 L190 740 Z M270 360 L270 660 L730 660 L730 360 Z"/>
+  <path d="M205 305 L250 280 L795 705 L750 740 Z M750 280 L795 305 L250 740 L205 705 Z"/>
+</svg>

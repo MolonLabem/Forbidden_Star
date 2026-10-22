@@ -10,7 +10,7 @@
 }
 @font-face {
   font-family: 'ForbiddenStars';
-  src: url('../fonts/ForbiddenStars.woff2') format('woff2');
+  src: url('../fonts/ForbiddenStars.woff2?v=tokens-1') format('woff2');
   font-display: swap;
 }
 @font-face {
@@ -80,7 +80,7 @@ body {
   z-index: 10;
 }
 .fs-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.fs-brand-link { cursor: pointer; }
+.fs-brand-link { cursor: pointer; font: inherit; color: inherit; background: transparent; border: 0; padding: 0; text-align: left; }
 .fs-logo { position: relative; width: 24px; height: 24px; flex-shrink: 0; }
 .fs-logo-ring {
   position: absolute; inset: 2px; transform: rotate(45deg);
@@ -383,6 +383,24 @@ body {
 .fs-lb-mag { right: 116px; font-size: 15px; }
 .fs-lb-tool:hover { border-color: var(--fs-accent); color: #f3efe8; }
 .fs-lb-tool.is-active { border-color: var(--fs-accent); color: var(--fs-accent-fg); background: var(--fs-accent); }
+.fs-lb-share { right: 162px; text-decoration: none; }
+.fs-lb-wording { position: absolute; top: 22px; left: 24px; z-index: 4; max-width: calc(100vw - 230px); }
+.fs-lb-content { display: flex; align-items: center; gap: 24px; max-width: min(1100px, calc(100% - 128px)); min-width: 0; }
+.fs-lb-content .fs-lb-fig { max-width: 100%; min-width: 0; }
+.fs-card-text { flex: 0 0 280px; max-height: calc(100dvh - 120px); overflow-y: auto; padding: 16px; border-radius: 12px; border: 1px solid #38332c; background: #1a1815; color: #ece8e1; }
+.fs-card-text summary { cursor: pointer; color: var(--fs-accent); }
+.fs-card-text h2 { font-size: 17px; line-height: 1.4; }
+.fs-card-text p { white-space: pre-wrap; line-height: 1.7; font-size: 15px; user-select: text; }
+.fs-token { font-family: 'ForbiddenStars'; font-style: normal; font-weight: normal; font-size: 1.15em; line-height: 1; vertical-align: -0.08em; }
+.fs-settings { position: relative; font-size: 13px; margin-left: auto; }
+.fs-settings summary { cursor: pointer; padding: 8px; border: 1px solid #38332c; border-radius: 8px; color: #d8d2c8; }
+.fs-settings-panel { position: absolute; right: 0; top: calc(100% + 8px); width: 290px; max-width: calc(100vw - 28px); z-index: 40; padding: 16px; background: #1a1815; border: 1px solid #38332c; border-radius: 12px; box-shadow: 0 12px 36px #000a; display: flex; flex-direction: column; gap: 12px; }
+.fs-settings select, .fs-lb-wording { color: #ece8e1; background: #221f1a; border: 1px solid #514b40; padding: 8px; border-radius: 6px; font: inherit; }
+.fs-resolution-option { display: flex; align-items: center; gap: 8px; line-height: 1.5; }
+.fs-token-legend { display: grid; gap: 8px; color: #c4bfb5; font-size: 14px; }
+.fs-share { display: inline-block; color: var(--fs-accent); font-size: 12px; margin: 12px 16px 0 0; }
+.fs-faq-answer[hidden] { display: none; }
+:focus-visible { outline: 2px solid var(--fs-accent, #d8a657); outline-offset: 3px; }
 
 /* тултипы кнопок лайтбокса */
 .fs-lb-tool[data-tip]::after {
@@ -574,13 +592,16 @@ body {
   .fs-faq-hero { padding: 28px 20px 22px; }
   .fs-lb { padding: 64px 12px 72px; }
   .fs-lb-nav { position: absolute; bottom: 14px; z-index: 3; }
-  .fs-lb-nav:first-child { left: 20px; }
+  .fs-lb-nav:first-of-type { left: 20px; }
   .fs-lb-nav:nth-of-type(2) { right: 20px; }
   .fs-lb-fig { max-width: 100%; }
   .fs-lb-fig img, .fs-lb-fig.is-full img { max-width: 100%; max-height: calc(100dvh - 168px); }
   .fs-lb-fig.is-full .fs-lb-imgwrap { width: calc((100dvh - 136px) * var(--fs-lb-ratio, 1)); }
   .fs-lb-fig.is-full img { max-height: calc(100dvh - 136px); }
   .fs-lb-cap { max-width: calc(100vw - 24px); text-align: center; }
+  .fs-lb-content { flex-direction: column; max-width: 100%; gap: 16px; max-height: calc(100dvh - 160px); overflow-y: auto; }
+  .fs-card-text { flex: none; width: 100%; max-height: none; }
+  .fs-lb-wording { left: 12px; font-size: 11px; }
   .fs-lb-maghint { white-space: normal; text-align: center; max-width: calc(100vw - 144px); bottom: 14px; }
   .fs-grid { gap: 12px; }
 }

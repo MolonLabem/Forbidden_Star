@@ -1,4 +1,4 @@
-﻿/* Forbidden Stars — Картотека карточек
+/* Forbidden Stars — Картотека карточек
  * Ванильный, управляемый данными браузер карточек. Без фреймворков и сборки.
  *
  * Структура данных (в page/factions/):
@@ -47,13 +47,17 @@
     try { return localStorage.getItem(CARD_RESOLUTION_KEY) === 'true'; } catch (e) { return false; }
   })();
   // Кэш растров обычных карточек (очищается при смене разрешения)
-  var _raster = {};
+  var _raster = window.FSCache.create(16);
+  var WORDING_KEY = 'forbidden-stars.token-wording';
+  var tokenWording = (function () {
+    try { return localStorage.getItem(WORDING_KEY) === 'icons' ? 'icons' : 'explicit'; } catch (e) { return 'explicit'; }
+  })();
 
   function applyResolution(hi) {
     useHighRes = hi;
     var w = hi ? 630 : 450, h = hi ? 880 : 650;
     if (window.FSCardRender) window.FSCardRender.setResolution(w, h);
-    _raster = {};
+    _raster.clear();
     try { localStorage.setItem(CARD_RESOLUTION_KEY, String(hi)); } catch (e) {}
   }
 
@@ -100,6 +104,12 @@
     });
   }
 
+  var initialRoute = window.FSNav.read(location.hash);
+  var lastSeenHash = location.hash;
+  var pendingCard = initialRoute.card;
+  var pendingQuestion = initialRoute.question;
+  var returnCard = null, returnFocus = null, oldOverflow = null;
+  var lazyObserver = null, imageQueue = [], runningImages = 0;
   var state = {
     expansion: null, faction: null, category: 'combat',
     lb: null, lbFull: false, lbMag: false, lbZoom: 2, lbLensSize: 204,
@@ -107,26 +117,76 @@
     faqTopic: 'all', faqQuery: '', faqOpen: {},
     expOpen: null,
     cardQuery: '',
+    faqQuestion: null, settingsOpen: false,
   };
+  ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic'].forEach(function (key) { state[key] = initialRoute[key]; });
+  state.expOpen = state.expansion;
+  state.faqQuestion = initialRoute.question;
+  if (pendingQuestion) state.faqOpen[pendingQuestion] = true;
   var flat = [];
 
-  function setState(patch) {
+  function updateURL(replace) {
+    var card = state.lb !== null && flat[state.lb] ? flat[state.lb].src : pendingCard;
+    var hash = window.FSNav.write(state, card, state.faqQuestion);
+    if (hash !== location.hash) history[replace ? 'replaceState' : 'pushState'](null, '', location.pathname + location.search + hash);
+    lastSeenHash = location.hash;
+  }
+
+  function setState(patch, replace) {
+    if (patch.lb === null) pendingCard = null;
     for (var k in patch) { if (patch.hasOwnProperty(k)) state[k] = patch[k]; }
     render();
+    updateURL(replace);
   }
+
+  function restoreRoute() {
+    if (lastSeenHash === location.hash) return;
+    lastSeenHash = location.hash;
+    var wasModal = state.lb !== null;
+    var route = window.FSNav.read(location.hash);
+    releaseModal();
+    ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic'].forEach(function (key) { state[key] = route[key]; });
+    state.lb = null; state.expOpen = route.expansion; state.faqQuestion = route.question;
+    pendingCard = route.card; pendingQuestion = route.question;
+    if (route.question) state.faqOpen[route.question] = true;
+    render();
+    if (wasModal && state.lb === null && returnCard) {
+      var target = document.querySelector('[data-card-id="' + returnCard + '"]');
+      if (target) target.focus({ preventScroll: true });
+    }
+  }
+  window.addEventListener('popstate', restoreRoute);
+  window.addEventListener('hashchange', restoreRoute);
 
   // Монтирует дерево в #app, сохраняя фокус поля поиска при перерисовке
   function mountApp(app) {
     var root = document.getElementById('app');
-    var ae = document.activeElement, sel = null;
+    var ae = document.activeElement, sel = null, focusId = ae && ae.id;
     if (ae && ae.classList && ae.classList.contains('fs-faq-search')) {
       sel = { s: ae.selectionStart, e: ae.selectionEnd };
     }
+    if (pendingCard && state.view === 'codex') {
+      var index = flat.findIndex(function (card) { return card.src === pendingCard; });
+      if (index >= 0) { state.lb = index; returnCard = flat[index].src; pendingCard = null; }
+    }
+    if (state.lb !== null && state.view === 'codex') appendLightbox(app);
+    if (lazyObserver) lazyObserver.disconnect();
+    imageQueue = [];
     root.innerHTML = '';
     root.appendChild(app);
+    observeCards(root);
     if (sel) {
       var inp = root.querySelector('.fs-faq-search');
       if (inp) { inp.focus(); try { inp.setSelectionRange(sel.s, sel.e); } catch (e) {} }
+    } else if (focusId) {
+      var target = document.getElementById(focusId); if (target) target.focus({ preventScroll: true });
+    }
+    if (state.lb !== null) focusModal();
+    else releaseModal();
+    if (pendingQuestion && DATA.faq) {
+      var question = document.getElementById('question-' + pendingQuestion);
+      if (question) { question.scrollIntoView({ block: 'center' }); question.querySelector('button').focus({ preventScroll: true }); }
+      pendingQuestion = null;
     }
   }
 
@@ -200,6 +260,9 @@
         orders:    (t && t.ordersText)    || null,
         events:    (t && t.eventsText)    || null,
         materials: (t && t.materialsText) || null,
+        raster:    !!(t && t.rasterText),
+        tierLabels: (t && t.tierLabels) || null,
+        components: (t && t.componentsText) || {},
       };
       DATA.loading['man:' + id] = false;
       render();
@@ -286,7 +349,33 @@
 
   function openFaq() {
     delete DATA.errors.faq;
-    setState({ view: 'faq', cardQuery: '' });
+    setState({ view: 'faq', cardQuery: '', lb: null });
+  }
+
+  function renderSettings() {
+    var mode = el('select', { id: 'fs-wording', onchange: function (e) {
+      setTokenWording(e.target.value);
+    } }, [el('option', { value: 'explicit', text: 'Названия жетонов' }), el('option', { value: 'icons', text: 'Значки жетонов' })]);
+    mode.value = tokenWording;
+    var input = el('input', { type: 'checkbox', id: 'fs-res-toggle', checked: useHighRes ? 'checked' : null,
+      onchange: function (e) { applyResolution(e.target.checked); render(); } });
+    var legend = el('div', { class: 'fs-token-legend' }, window.FSWord.tokens.map(function (token) {
+      return el('div', {}, [window.FSWord.append(el('span'), token.glyph, 'icons'), ' — ' + token.label]);
+    }));
+    return el('details', { class: 'fs-settings', open: state.settingsOpen ? '' : null,
+      ontoggle: function (e) { state.settingsOpen = e.target.open; } }, [
+      el('summary', { text: 'Отображение' }),
+      el('div', { class: 'fs-settings-panel' }, [
+        el('label', { for: 'fs-wording', text: 'Обозначение жетонов' }), mode,
+        el('label', { class: 'fs-resolution-option' }, [input, ' Высокое разрешение (630×880)']), legend,
+      ]),
+    ]);
+  }
+
+  function setTokenWording(mode) {
+    tokenWording = mode === 'icons' ? 'icons' : 'explicit';
+    try { localStorage.setItem(WORDING_KEY, tokenWording); } catch (error) {}
+    render();
   }
 
   /* ---- Композитинг / растрирование карточек ---- */
@@ -300,8 +389,9 @@
   function rasterizeCard(src) {
     var sz = cardPixelSize();
     var key = src + '@' + sz.w + 'x' + sz.h;
-    if (_raster[key]) return _raster[key];
-    _raster[key] = new Promise(function (resolve) {
+    var cached = _raster.get(key);
+    if (cached) return cached;
+    var pending = new Promise(function (resolve) {
       var img = new Image();
       img.onload = function () {
         var c = document.createElement('canvas');
@@ -310,10 +400,10 @@
         c.getContext('2d').drawImage(img, 0, 0, sz.w, sz.h);
         resolve(c.toDataURL('image/png'));
       };
-      img.onerror = function () { resolve(src); };
+      img.onerror = function () { _raster.delete(key); resolve(src); };
       img.src = src;
     });
-    return _raster[key];
+    return _raster.set(key, pending);
   }
 
   function isCardShaped(card) {
@@ -323,22 +413,55 @@
 
   // SoW (с текстом) — canvas-композиция; остальные карточные типы —
   // растр в 450×650 / 630×880, чтобы «Сохранить изображение» отдавало нужный размер.
-  function applyComposite(imgEl, card) {
+  function applyComposite(imgEl, card, thumbnail) {
     if (card.text && card.kind && window.FSCardRender) {
-      window.FSCardRender.compose(card).then(function (url) {
-        if (url) imgEl.src = url;
+      return window.FSCardRender.compose({ src: card.src, picture: thumbnail && card.kind !== 'overlay' ? 'thumbnails/' + card.src : card.src,
+        kind: card.kind, text: card.text, wording: tokenWording,
+        width: card.kind === 'overlay' ? (thumbnail ? 720 : 1600) : (thumbnail ? 270 : cardPixelSize().w),
+        height: thumbnail ? 390 : cardPixelSize().h, thumbnail: !!thumbnail,
+      }).then(function (url) {
+        if (url && imgEl.isConnected) imgEl.src = url;
       });
-      return;
+    }
+    if (thumbnail) {
+      imgEl.src = isCardShaped(card) ? 'thumbnails/' + card.src : card.src;
+      return Promise.resolve();
     }
     if (isCardShaped(card)) {
-      rasterizeCard(card.src).then(function (url) {
-        if (url) imgEl.src = url;
+      return rasterizeCard(card.src).then(function (url) {
+        if (url && imgEl.isConnected) imgEl.src = url;
       });
+    }
+    imgEl.src = card.src;
+    return Promise.resolve();
+  }
+
+  function prepareCard(img, card) { img._fsCard = card; }
+
+  function drainImages() {
+    while (runningImages < 3 && imageQueue.length) {
+      var img = imageQueue.shift();
+      if (!img.isConnected) continue;
+      runningImages++;
+      applyComposite(img, img._fsCard, true).finally(function () { runningImages--; drainImages(); });
     }
   }
 
+  function observeCards(root) {
+    var images = root.querySelectorAll('.fs-card img');
+    function queue(img) { imageQueue.push(img); drainImages(); }
+    if (!window.IntersectionObserver) { [].forEach.call(images, queue); return; }
+    lazyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        lazyObserver.unobserve(entry.target); queue(entry.target);
+      });
+    }, { rootMargin: '200px 0px' });
+    [].forEach.call(images, function (img) { lazyObserver.observe(img); });
+  }
+
   function lbImg(card) {
-    var img = el('img', { src: card.src, alt: card.label });
+    var img = el('img', { alt: card.label });
     img.addEventListener('load', function () {
       if (img.parentNode && img.naturalHeight) {
         img.parentNode.style.setProperty('--fs-lb-ratio', img.naturalWidth / img.naturalHeight);
@@ -435,19 +558,22 @@
 
     var base = 'factions/' + state.expansion + '/' + fac + '/' + FOLDER[cat] + '/';
     function push(file, label, kind, text) {
+      if (txt && txt.components[FOLDER[cat] + '/' + file]) { kind = 'overlay'; text = txt.components[FOLDER[cat] + '/' + file]; }
       var idx = flat.length;
-      var c = { src: base + file, label: label, index: idx, kind: kind || null, text: text || null };
+      var c = { src: base + file, label: cardName(state.expansion, fac, cat, file, text && text.title || label),
+        index: idx, kind: kind || null, text: text || null,
+        exp: state.expansion, fac: fac, facName: facName(fac), catName: catName(cat) };
       flat.push(c);
       return c;
     }
 
     if (cat === 'combat') {
       (man.combat || []).forEach(function (files, ti) {
-        var label = tierLabel(ti);
+        var label = (txt && txt.tierLabels && txt.tierLabels[ti]) || tierLabel(ti);
         var tierTxt = txt && txt.combat ? txt.combat[ti] : null;
         var cards = files.map(function (f, i) {
           var t = tierTxt && tierTxt[i]
-            ? { title: tierTxt[i].title, background: tierTxt[i].general, foreground: tierTxt[i].unit, icons: tierTxt[i].icons }
+            ? { title: tierTxt[i].title, background: tierTxt[i].general, foreground: tierTxt[i].unit, icons: tierTxt[i].icons, raster: txt.raster, source: tierTxt[i].source }
             : null;
           return push(f, facName(fac) + ' · ' + label + ' ' + (i + 1), 'combat', t);
         });
@@ -492,6 +618,7 @@
       if (cat === 'material' || !FOLDER[cat]) return;
       var base = 'factions/' + exp + '/' + fac + '/' + FOLDER[cat] + '/';
       function add(file, label, kind, text) {
+        if (txt && txt.components[FOLDER[cat] + '/' + file]) { kind = 'overlay'; text = txt.components[FOLDER[cat] + '/' + file]; label = text.title; }
         out.push({ src: base + file, kind: kind || null, text: text || null,
           label: cardName(exp, fac, cat, file, label),
           catName: catName(cat), exp: exp, expName: en, fac: fac, facName: fn });
@@ -499,10 +626,10 @@
       if (cat === 'combat') {
         (man.combat || []).forEach(function (files, ti) {
           var tierTxt = txt && txt.combat ? txt.combat[ti] : null;
-          var tierName = tierLabel(ti);
+          var tierName = (txt && txt.tierLabels && txt.tierLabels[ti]) || tierLabel(ti);
           files.forEach(function (f, i) {
             var tt = tierTxt && tierTxt[i];
-            var t = tt ? { title: tt.title, background: tt.general, foreground: tt.unit, icons: tt.icons } : null;
+            var t = tt ? { title: tt.title, background: tt.general, foreground: tt.unit, icons: tt.icons, raster: txt.raster, source: tt.source } : null;
             add(f, (tt && tt.title) ? tt.title : (fn + ' · ' + tierName + ' ' + (i + 1)), 'combat', t);
           });
         });
@@ -529,22 +656,53 @@
     if (!appEl) { render(); return; }
     var old = appEl.querySelector('.fs-lb'); if (old) old.remove();
     appendLightbox(appEl);
+    focusModal();
   }
   function hideLightbox() { var lb = document.querySelector('.fs-lb'); if (lb) lb.remove(); }
 
-  function openLb(idx) { state.lb = idx; state.lbFull = true; state.lbMag = false; showLightbox(); }
-  function closeLb() { state.lb = null; hideLightbox(); }
+  function focusModal() {
+    var app = document.querySelector('.fs-app');
+    if (!app) return;
+    [].forEach.call(app.children, function (node) { if (!node.classList.contains('fs-lb')) node.inert = true; });
+    if (oldOverflow === null) { oldOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden'; }
+    var close = app.querySelector('.fs-lb-close');
+    var modal = app.querySelector('.fs-lb');
+    if (close && !modal.contains(document.activeElement)) close.focus({ preventScroll: true });
+  }
+  function releaseModal() {
+    var app = document.querySelector('.fs-app');
+    if (app) [].forEach.call(app.children, function (node) { node.inert = false; });
+    if (oldOverflow !== null) { document.body.style.overflow = oldOverflow; oldOverflow = null; }
+  }
+  function openLb(idx) {
+    returnFocus = document.activeElement; returnCard = flat[idx] && flat[idx].src;
+    state.lb = idx; state.lbFull = true; state.lbMag = false; showLightbox(); updateURL();
+  }
+  function closeLb() {
+    state.lb = null; pendingCard = null; hideLightbox(); releaseModal(); updateURL();
+    var target = returnFocus && returnFocus.isConnected ? returnFocus : document.querySelector('[data-card-id="' + returnCard + '"]');
+    if (target) target.focus({ preventScroll: true });
+  }
   function step(d) {
     if (!flat.length || state.lb === null) return;
     state.lb = (state.lb + d + flat.length) % flat.length;
     showLightbox();
+    updateURL(true);
   }
 
   document.addEventListener('keydown', function (e) {
     if (state.lb === null) return;
-    if (e.key === 'Escape') closeLb();
-    else if (e.key === 'ArrowRight') step(1);
-    else if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'Escape') { e.preventDefault(); closeLb(); }
+    else if (e.key === 'Tab') {
+      var modal = document.querySelector('.fs-lb');
+      var nodes = [].filter.call(modal.querySelectorAll('button, a, summary, input, select'), function (node) { return !node.disabled && node.getClientRects().length > 0; });
+      var first = nodes[0], last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    } else if (!/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) && !String(window.getSelection())) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+    }
   });
 
   /* ---- Вид FAQ (Полевой устав) ---- */
@@ -559,23 +717,50 @@
   function faqItemNode(it) {
     var open = !!state.faqOpen[it.id];
     var icon = el('span', { class: 'fs-faq-icon' + (open ? ' is-open' : '') });
-    var head = el('button', { class: 'fs-faq-qbtn', onclick: function (e) {
+    var headId = 'question-heading-' + it.id, answerId = 'answer-' + it.id;
+    var head = el('button', { class: 'fs-faq-qbtn', id: headId,
+      'aria-expanded': String(open), 'aria-controls': answerId, onclick: function (e) {
       var o = !state.faqOpen[it.id];
       state.faqOpen[it.id] = o;
+      state.faqQuestion = o ? it.id : null;
+      e.currentTarget.setAttribute('aria-expanded', String(o));
+      answer.hidden = !o;
       e.currentTarget.parentNode.classList.toggle('is-open', o);
       icon.classList.toggle('is-open', o);
+      updateURL(true);
     } }, [
-      el('span', { class: 'fs-faq-q', text: it.q }),
+      window.FSWord.append(el('span', { class: 'fs-faq-q' }), it.q, tokenWording),
       icon,
     ]);
-    var answer = el('div', { class: 'fs-faq-answer' }, [el('p', { class: 'fs-faq-atext', text: it.a })]);
-    if (/^https:\/\/fixed-crane-287\.notion\.site\/[a-f0-9]{32}$/.test(it.source)) {
+    var answer = el('div', { class: 'fs-faq-answer', id: answerId, 'aria-labelledby': headId }, [
+      window.FSWord.append(el('p', { class: 'fs-faq-atext' }), it.a, tokenWording),
+    ]);
+    answer.hidden = !open;
+    answer.appendChild(el('a', { class: 'fs-share', href: window.FSNav.write({ view: 'faq', faqTopic: 'all', faqQuery: '' }, null, it.id), text: 'Ссылка на ответ' }));
+    if (/^(base|gif|sow|tdl)\/[a-z0-9_-]+\/(combat|orders|events|faction_card|maps|backs)\/[a-zA-Z0-9_.-]+\.jpg$/.test(it.card)) {
+      var parts = it.card.split('/');
+      answer.appendChild(el('a', { class: 'fs-share fs-faq-card', text: 'Карточка', href: window.FSNav.write({
+        view: 'codex', expansion: parts[0], faction: parts[1], category: parts[2] === 'maps' ? 'map' : parts[2], cardQuery: '',
+      }, 'factions/' + it.card) }));
+    }
+    var librarySource = it.source || it.cardSource;
+    if (/^https:\/\/fixed-crane-287\.notion\.site\/[a-f0-9]{32}$/.test(librarySource)) {
       answer.appendChild(el('a', {
-        class: 'fs-faq-source', href: it.source, target: '_blank', rel: 'noopener noreferrer',
-        text: 'Источник: FS League — Note',
+        class: 'fs-faq-source', href: librarySource, target: '_blank', rel: 'noopener noreferrer',
+        text: it.source ? 'Источник: FS League — Note' : it.ruleSource ? 'Библиотека: прежняя редакция' : 'Текст карточки: FS League',
       }));
     }
-    return el('div', { class: 'fs-faq-item' + (open ? ' is-open' : '') }, [head, answer]);
+    (it.relatedSources || []).forEach(function (url) {
+      if (!/^https:\/\/fixed-crane-287\.notion\.site\/[a-f0-9]{32}$/.test(url)) return;
+      answer.appendChild(el('a', { class: 'fs-faq-source', href: url, target: '_blank', rel: 'noopener noreferrer', text: 'Связанное уточнение: FS League' }));
+    });
+    if (/^https:\/\/github\.com\/Frytkownica\/Forbidden_Star\/commit\/[a-f0-9]{40}$/.test(it.ruleSource)) {
+      answer.appendChild(el('a', { class: 'fs-faq-source', href: it.ruleSource, target: '_blank', rel: 'noopener noreferrer', text: 'Актуальная редакция: оригинал' }));
+    }
+    if (/^https:\/\/github\.com\/Frytkownica\/Forbidden_Star\/blob\/[a-f0-9]{40}\/page\/data\/FAQ\.json$/.test(it.legacySource)) {
+      answer.appendChild(el('a', { class: 'fs-faq-source', href: it.legacySource, target: '_blank', rel: 'noopener noreferrer', text: 'FAQ оригинального проекта' }));
+    }
+    return el('div', { id: 'question-' + it.id, class: 'fs-faq-item' + (open ? ' is-open' : '') }, [head, answer]);
   }
 
   function renderFaqView() {
@@ -584,18 +769,19 @@
     var FAQ = DATA.faq || { navTopics: [], cats: [], count: {} };
     var ready = !!DATA.faq;
     var topic = state.faqTopic;
-    var q = (state.faqQuery || '').trim().toLowerCase();
-    var matches = function (it) { return !q || (it.q + ' ' + it.a).toLowerCase().indexOf(q) >= 0; };
+    if (ready && !findKey(FAQ.navTopics, topic)) topic = state.faqTopic = 'all';
+    var q = window.FSWord.normalize(state.faqQuery);
+    var matches = function (it) { return !q || window.FSWord.normalize(it.q + ' ' + it.a).indexOf(q) >= 0; };
 
     var app = el('div', { class: 'fs-app', 'data-accent': ACCENT });
 
     var search = el('input', {
       class: 'fs-faq-search', type: 'text', value: state.faqQuery,
-      placeholder: 'Поиск по вопросам…', spellcheck: 'false',
-      oninput: function (e) { setState({ faqQuery: e.target.value }); },
+      placeholder: 'Поиск по вопросам…', spellcheck: 'false', 'aria-label': 'Поиск по вопросам и ответам',
+      oninput: function (e) { setState({ faqQuery: e.target.value, faqQuestion: null }, true); },
     });
     var header = el('header', { class: 'fs-header fs-faq-header' }, [
-      el('div', { class: 'fs-brand fs-brand-link', title: 'На главную', onclick: goHome }, [
+      el('button', { type: 'button', class: 'fs-brand fs-brand-link', title: 'На главную', onclick: goHome }, [
         el('div', { class: 'fs-logo' }, [el('div', { class: 'fs-logo-ring' }), el('div', { class: 'fs-logo-core' })]),
         el('div', { class: 'fs-brand-text' }, [
           el('span', { class: 'fs-brand-title', text: 'FORBIDDEN STARS' }),
@@ -608,6 +794,7 @@
         search,
       ]),
       el('div', { class: 'fs-header-spacer' }),
+      renderSettings(),
     ]);
 
     var topicsNav = el('nav', { class: 'fs-nav' },
@@ -711,6 +898,17 @@
 
   function render() {
     if (state.view === 'faq') { renderFaqView(); return; }
+    if (DATA.general && state.expansion && !findKey(DATA.expansions, state.expansion)) {
+      state.expansion = null; state.faction = null; pendingCard = null;
+    }
+    if (state.expansion && DATA.factions[state.expansion] && !findKey(DATA.factions[state.expansion], state.faction)) {
+      var firstFaction = DATA.factions[state.expansion][0]; state.faction = firstFaction ? firstFaction.key : null;
+    }
+    if (!FOLDER[state.category] && state.category !== 'material') state.category = 'combat';
+    if (state.lb !== null) {
+      pendingCard = flat[state.lb] ? flat[state.lb].src : null;
+      state.lb = null;
+    }
     var cols = Math.max(2, Math.min(8, density()));
     var cat = state.category;
 
@@ -737,7 +935,7 @@
 
     /* ---- Заголовок ---- */
     var header = el('header', { class: 'fs-header fs-faq-header' }, [
-      el('div', { class: 'fs-brand fs-brand-link', title: 'На главную', onclick: goHome }, [
+      el('button', { type: 'button', class: 'fs-brand fs-brand-link', title: 'На главную', onclick: goHome }, [
         el('div', { class: 'fs-logo' }, [
           el('div', { class: 'fs-logo-ring' }),
           el('div', { class: 'fs-logo-core' }),
@@ -752,11 +950,12 @@
         el('span', { class: 'fs-faq-searchicon', html: '&#9906;' }),
         el('input', {
           class: 'fs-faq-search', type: 'text', value: state.cardQuery,
-          placeholder: 'Поиск по всем карточкам…', spellcheck: 'false',
-          oninput: function (e) { setState({ cardQuery: e.target.value, lb: null }); },
+          placeholder: 'Поиск по названиям и тексту…', spellcheck: 'false', 'aria-label': 'Поиск по названиям и тексту карточек',
+          oninput: function (e) { setState({ cardQuery: e.target.value, lb: null }, true); },
         }),
       ]),
       el('div', { class: 'fs-header-spacer' }),
+      renderSettings(),
     ]);
 
     /* ---- Боковая панель: навигация Игра › Дополнение › Фракция ---- */
@@ -770,6 +969,7 @@
         var chevron = el('span', { class: 'fs-exp-chevron' + (open ? ' open' : ''), html: '&rsaquo;' });
         var expHeader = el('button', {
           class: 'fs-fac fs-faq-catnav fs-exp-head' + (expActive ? ' is-active' : ''),
+          'aria-expanded': String(open), 'aria-controls': 'factions-' + e.key,
           onclick: (function (key) {
             return function (ev) {
               state.expOpen = (state.expOpen === key) ? null : key;
@@ -778,6 +978,7 @@
                 var isOpen = g.getAttribute('data-exp') === state.expOpen;
                 var s = g.querySelector('.fs-nav-subs'); if (s) s.classList.toggle('collapsed', !isOpen);
                 var c = g.querySelector('.fs-exp-chevron'); if (c) c.classList.toggle('open', isOpen);
+                g.querySelector('.fs-exp-head').setAttribute('aria-expanded', String(isOpen));
               });
             };
           })(e.key),
@@ -787,7 +988,7 @@
           chevron,
         ]);
 
-        var subs = el('div', { class: 'fs-nav-subs' + (open ? '' : ' collapsed') },
+        var subs = el('div', { id: 'factions-' + e.key, class: 'fs-nav-subs' + (open ? '' : ' collapsed') },
           facs.map(function (f) {
             var cnt = manifestCount(DATA.manifest[e.key + '/' + f.key]);
             var facActive = expActive && state.faction === f.key;
@@ -810,18 +1011,6 @@
       })
     );
 
-    // Переключатель разрешения (чекбокс-тоггл)
-    var resInput = el('input', {
-      type: 'checkbox', id: 'fs-res-toggle', class: 'fs-res-input',
-      checked: useHighRes ? 'checked' : null,
-      onchange: function (e) { applyResolution(e.target.checked); render(); },
-    });
-    var resLabel = el('label', { class: 'fs-res-label', for: 'fs-res-toggle' }, [
-      el('span', { class: 'fs-res-track' }, [el('span', { class: 'fs-res-thumb' })]),
-      el('span', { class: 'fs-res-text', text: useHighRes ? 'Высокое (630×880)' : 'Стандарт (450×650)' }),
-    ]);
-    var resBtn = el('div', { class: 'fs-res-wrap' }, [resInput, resLabel]);
-
     var sidebar = el('aside', { class: 'fs-sidebar fs-scroll' }, [
       el('div', { class: 'fs-sidebar-label', text: 'База и дополнения' }),
       libNav,
@@ -833,10 +1022,6 @@
           el('span', { class: 'fs-fac-count', html: '&rsaquo;' }),
         ]),
       ]),
-      el('div', { class: 'fs-sidebar-section' }, [
-        el('div', { class: 'fs-sidebar-label', text: 'Разрешение' }),
-        resBtn,
-      ]),
       el('div', { class: 'fs-sidebar-foot' }, [
         el('p', { html: 'FAN PROJECT &middot; NON&#8209;COMMERCIAL<br>Artwork &copy; Games Workshop' }),
       ]),
@@ -847,10 +1032,10 @@
 
     // ---- Глобальный поиск по карточкам, сгруппированный по дополнению → фракции ----
     if (state.cardQuery.trim()) {
-      var q = state.cardQuery.trim().toLowerCase();
+      var q = window.FSWord.normalize(state.cardQuery);
       flat = [];
       var match = function (c) {
-        return (c.label + ' ' + (c.text && c.text.title ? c.text.title : '')).toLowerCase().indexOf(q) >= 0;
+        return window.FSWord.normalize([c.label, c.facName, c.expName].concat(c.text ? Object.values(c.text) : []).join(' ')).indexOf(q) >= 0;
       };
       var sres = el('div', { class: 'fs-scrollarea fs-scroll' });
       var failed = [];
@@ -874,11 +1059,12 @@
             card.index = flat.length; flat.push(card);
             var btn = el('button', {
               class: 'fs-card fs-card--search', title: card.label,
+              'data-card-id': card.src,
               onclick: (function (idx) { return function () { openLb(idx); }; })(card.index),
-            }, [el('img', { src: card.src, alt: card.label, loading: 'lazy' })]);
+            }, [el('img', { alt: card.label, decoding: 'async' })]);
             var imgEl = btn.querySelector('img');
             imgEl.addEventListener('error', function () { btn.style.display = 'none'; });
-            applyComposite(imgEl, card);
+            prepareCard(imgEl, card);
             return el('div', { class: 'fs-search-item' }, [
               btn,
               el('div', { class: 'fs-search-cap' }, [
@@ -926,7 +1112,6 @@
       main.appendChild(sres);
       app.appendChild(header);
       app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
-      appendLightbox(app);
       mountApp(app);
       return;
     }
@@ -1008,18 +1193,19 @@
         }, group.cards.map(function (card) {
           var btn = el('button', {
             class: 'fs-card' + (naturalCard ? ' fs-card--natural' : ''),
+            'data-card-id': card.src,
             title: card.label,
             style: cardAspect ? ('aspect-ratio:' + cardAspect + ';') : '',
             onclick: (function (idx) { return function () { openLb(idx); }; })(card.index),
           }, [
-            el('img', { src: card.src, alt: card.label, loading: 'lazy' }),
+            el('img', { alt: card.label, decoding: 'async' }),
           ]);
           var imgEl = btn.querySelector('img');
           imgEl.addEventListener('error', function () {
             btn.style.display = 'none';
             maybeEmptyNote(scrollarea);
           });
-          applyComposite(imgEl, card);
+          prepareCard(imgEl, card);
           return btn;
         }));
         scrollarea.appendChild(grid);
@@ -1029,7 +1215,6 @@
 
     app.appendChild(header);
     app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
-    appendLightbox(app);
     mountApp(app);
   }
 
@@ -1044,22 +1229,40 @@
     var imgEl = lbImg(c);
     var imgWrap = el('div', { class: 'fs-lb-imgwrap' + (mag ? ' mag-on' : '') }, [imgEl]);
     attachMagnifier(imgWrap, imgEl);
+    var textPanel = null;
+    if (c.text) {
+      textPanel = el('details', { class: 'fs-card-text', open: window.innerWidth > 720 ? '' : null }, [
+        el('summary', { text: 'Текст карточки' }),
+        el('h2', { text: c.text.title || c.label }),
+      ]);
+      if (c.text.notice) textPanel.appendChild(el('p', { text: c.text.notice }));
+      [c.text.general || c.text.background, c.text.unit || c.text.foreground].filter(Boolean).forEach(function (text) {
+        textPanel.appendChild(window.FSWord.append(el('p'), text, tokenWording));
+      });
+      if (c.text.source) textPanel.appendChild(el('a', { href: c.text.source, target: '_blank', rel: 'noopener noreferrer', text: 'Черновик перевода · английский оригинал' }));
+    }
+    var mode = el('select', { class: 'fs-lb-wording', id: 'fs-lb-wording', 'aria-label': 'Обозначение жетонов',
+      onchange: function (e) { setTokenWording(e.target.value); } }, [
+      el('option', { value: 'explicit', text: 'Названия жетонов' }), el('option', { value: 'icons', text: 'Значки жетонов' }),
+    ]);
+    mode.value = tokenWording;
 
     var children = [
       el('button', {
         class: 'fs-lb-nav', 'aria-label': 'Предыдущая карточка', html: '&lsaquo;',
         onclick: function (e) { e.stopPropagation(); step(-1); },
       }),
-      el('figure', { class: 'fs-lb-fig' + (full ? ' is-full' : ''), onclick: function (e) { e.stopPropagation(); } }, [
+      el('div', { class: 'fs-lb-content', onclick: function (e) { e.stopPropagation(); } }, [
+      el('figure', { class: 'fs-lb-fig' + (full ? ' is-full' : '') }, [
         imgWrap,
         el('figcaption', { class: 'fs-lb-cap' }, [
           el('span', { class: 'fs-lb-label', text: c.label }),
           el('span', {
             class: 'fs-lb-meta',
-            text: (c.catName || catName(state.category)) + ' · ' + facName(state.faction) + ' · ' + (state.lb + 1) + ' / ' + flat.length,
+            text: (c.catName || catName(state.category)) + ' · ' + (c.facName || facName(state.faction)) + ' · ' + (state.lb + 1) + ' / ' + flat.length,
           }),
         ]),
-      ]),
+      ]), textPanel ]),
       el('button', {
         class: 'fs-lb-nav', 'aria-label': 'Следующая карточка', html: '&rsaquo;',
         onclick: function (e) { e.stopPropagation(); step(1); },
@@ -1070,6 +1273,7 @@
       el('button', {
         class: 'fs-lb-tool fs-lb-mag' + (mag ? ' is-active' : ''),
         'aria-label': 'Лупа',
+        'aria-pressed': String(mag),
         'data-tip': 'Лупа · прокрутка: масштаб · Shift+прокрутка: размер',
         html: '&#9906;',
         onclick: function (e) {
@@ -1079,6 +1283,7 @@
           var wrap = ov.querySelector('.fs-lb-imgwrap');
           wrap.classList.toggle('mag-on', state.lbMag);
           e.currentTarget.classList.toggle('is-active', state.lbMag);
+          e.currentTarget.setAttribute('aria-pressed', String(state.lbMag));
           var hint = ov.querySelector('.fs-lb-maghint');
           if (hint) hint.classList.toggle('hidden', !state.lbMag);
           if (!state.lbMag) { var l = wrap.querySelector('.fs-lb-lens'); if (l) l.style.display = 'none'; }
@@ -1086,11 +1291,13 @@
       }),
       el('button', {
         class: 'fs-lb-tool fs-lb-full', 'aria-label': 'Полноэкранный режим',
+        'aria-pressed': String(full),
         'data-tip': full ? 'По размеру окна' : 'На весь экран',
         html: full ? '&#10532;' : '&#10530;',
         onclick: function (e) {
           e.stopPropagation();
           state.lbFull = !state.lbFull;
+          e.currentTarget.setAttribute('aria-pressed', String(state.lbFull));
           var ov = e.currentTarget.closest('.fs-lb');
           ov.querySelector('.fs-lb-fig').classList.toggle('is-full', state.lbFull);
           e.currentTarget.innerHTML = state.lbFull ? '&#10532;' : '&#10530;';
@@ -1101,8 +1308,12 @@
         class: 'fs-lb-tool fs-lb-close', 'aria-label': 'Закрыть', 'data-tip': 'Закрыть (Esc)', html: '&#10005;',
         onclick: function (e) { e.stopPropagation(); closeLb(); },
       }),
+      c.text ? mode : null,
+      el('a', { class: 'fs-lb-tool fs-lb-share', 'aria-label': 'Ссылка на карточку', title: 'Ссылка на карточку',
+        href: window.FSNav.write({ view: 'codex', expansion: c.exp, faction: c.fac,
+          category: c.src.split('/')[3] === 'maps' ? 'map' : c.src.split('/')[3], cardQuery: '' }, c.src), text: '↗' }),
     ];
-    app.appendChild(el('div', { class: 'fs-lb', onclick: closeLb }, children));
+    app.appendChild(el('div', { class: 'fs-lb', role: 'dialog', 'aria-modal': 'true', 'aria-label': c.label, onclick: closeLb }, children));
   }
 
   function goHome() {
