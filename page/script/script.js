@@ -7,8 +7,7 @@
  *   <expansion>/<faction>/text.json    — метаданные: необязательные filenames и текст карточек
  *   <expansion>/<faction>/<folder>/<file>  — изображения карточек
  *
- * Отсутствующие изображения (например, дополнение без карт) обрабатываются
- * корректно: карточка с 404 убирается из сетки.
+ * Загрузка и ошибки изображений показываются явно, с возможностью повторить.
  */
 (function () {
   'use strict';
@@ -46,8 +45,6 @@
   var useHighRes = (function () {
     try { return localStorage.getItem(CARD_RESOLUTION_KEY) === 'true'; } catch (e) { return false; }
   })();
-  // Кэш растров обычных карточек (очищается при смене разрешения)
-  var _raster = window.FSCache.create(16);
   var WORDING_KEY = 'forbidden-stars.token-wording';
   var tokenWording = (function () {
     try { return localStorage.getItem(WORDING_KEY) === 'icons' ? 'icons' : 'explicit'; } catch (e) { return 'explicit'; }
@@ -55,9 +52,8 @@
 
   function applyResolution(hi) {
     useHighRes = hi;
-    var w = hi ? 630 : 450, h = hi ? 880 : 650;
+    var w = hi ? 1600 : 1000, h = Math.round(w * 650 / 450);
     if (window.FSCardRender) window.FSCardRender.setResolution(w, h);
-    _raster.clear();
     try { localStorage.setItem(CARD_RESOLUTION_KEY, String(hi)); } catch (e) {}
   }
 
@@ -146,7 +142,8 @@
     var route = window.FSNav.read(location.hash);
     releaseModal();
     ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic'].forEach(function (key) { state[key] = route[key]; });
-    state.lb = null; state.expOpen = route.expansion; state.faqQuestion = route.question;
+    state.lb = null; state.lbFull = false; state.lbMag = false;
+    state.expOpen = route.expansion; state.faqQuestion = route.question;
     pendingCard = route.card; pendingQuestion = route.question;
     if (route.question) state.faqOpen[route.question] = true;
     render();
@@ -175,6 +172,8 @@
     root.innerHTML = '';
     root.appendChild(app);
     observeCards(root);
+    var modalImage = root.querySelector('.fs-lb img');
+    if (modalImage) loadCardImage(modalImage, false);
     if (sel) {
       var inp = root.querySelector('.fs-faq-search');
       if (inp) { inp.focus(); try { inp.setSelectionRange(sel.s, sel.e); } catch (e) {} }
@@ -263,6 +262,8 @@
         raster:    !!(t && t.rasterText),
         tierLabels: (t && t.tierLabels) || null,
         components: (t && t.componentsText) || {},
+        templates: (t && t.templates) || {},
+        cardAspect: t && t.cardAspect || null,
       };
       DATA.loading['man:' + id] = false;
       render();
@@ -291,7 +292,8 @@
     if (!man) return null;
     var n = 0;
     (man.combat || []).forEach(function (tier) { n += tier.length; });
-    ['orders', 'events', 'backs', 'faction_card', 'map'].forEach(function (k) { n += (man[k] || []).length; });
+    // Счётчик фракции включает только боевые карты, приказы и события.
+    ['orders', 'events'].forEach(function (k) { n += (man[k] || []).length; });
     return n;
   }
 
@@ -367,7 +369,7 @@
       el('summary', { text: 'Отображение' }),
       el('div', { class: 'fs-settings-panel' }, [
         el('label', { for: 'fs-wording', text: 'Обозначение жетонов' }), mode,
-        el('label', { class: 'fs-resolution-option' }, [input, ' Высокое разрешение (630×880)']), legend,
+        el('label', { class: 'fs-resolution-option' }, [input, ' Дополнительная чёткость для увеличения']), legend,
       ]),
     ]);
   }
@@ -380,30 +382,30 @@
 
   /* ---- Композитинг / растрирование карточек ---- */
 
-  function cardPixelSize() {
-    return useHighRes ? { w: 630, h: 880 } : { w: 450, h: 650 };
+  function cardRatio(card) {
+    return card.aspect || card.text && card.text.aspect || 450 / 650;
   }
 
-  // Масштабирует исходное изображение до выбранного разрешения (для скачивания).
-  // Отображение по-прежнему задаётся CSS и не зависит от пиксельного размера.
-  function rasterizeCard(src) {
-    var sz = cardPixelSize();
-    var key = src + '@' + sz.w + 'x' + sz.h;
-    var cached = _raster.get(key);
-    if (cached) return cached;
-    var pending = new Promise(function (resolve) {
-      var img = new Image();
-      img.onload = function () {
-        var c = document.createElement('canvas');
-        c.width = sz.w;
-        c.height = sz.h;
-        c.getContext('2d').drawImage(img, 0, 0, sz.w, sz.h);
-        resolve(c.toDataURL('image/png'));
-      };
-      img.onerror = function () { _raster.delete(key); resolve(src); };
-      img.src = src;
-    });
-    return _raster.set(key, pending);
+  // Reserve the viewer's space before loading; raster dimensions never size the UI.
+  function fitViewer(wrap, card, ratio) {
+    ratio = ratio || cardRatio(card);
+    var mobile = window.innerWidth <= 720;
+    var availableWidth = mobile ? window.innerWidth - 24 : Math.min(1100, window.innerWidth - 192) - (card.text ? 304 : 0);
+    var availableHeight = window.innerHeight - (mobile ? (state.lbFull ? 220 : 280) : (state.lbFull ? 128 : 190));
+    var width = Math.max(1, Math.min(availableWidth, availableHeight * ratio, state.lbFull || ratio > 1 ? Infinity : 500));
+    wrap.style.setProperty('--fs-lb-width', width + 'px');
+    wrap.style.setProperty('--fs-lb-ratio', ratio);
+  }
+
+  function displayPixels(img, thumbnail) {
+    // Layout pixels exclude the viewer's entrance/hover transforms.
+    var width = img.parentNode.offsetWidth;
+    // Supersample text even on a 1× screen. Buckets keep the bounded cache useful
+    // across small viewport changes; the optional setting adds magnifier detail.
+    var scale = Math.max(useHighRes ? 3 : 2, window.devicePixelRatio || 1);
+    var w = Math.ceil(Math.max(thumbnail ? 270 : 900, width * scale) / 64) * 64;
+    if (img._fsCard.kind === 'overlay' && !thumbnail) w = Math.max(1600, w);
+    return { w: w, h: Math.round(w / cardRatio(img._fsCard)) };
   }
 
   function isCardShaped(card) {
@@ -411,39 +413,85 @@
     return /\/(combat|orders|events|backs)\//.test(card.src || '');
   }
 
-  // SoW (с текстом) — canvas-композиция; остальные карточные типы —
-  // растр в 450×650 / 630×880, чтобы «Сохранить изображение» отдавало нужный размер.
-  function applyComposite(imgEl, card, thumbnail) {
+  function cardImageURL(imgEl, card, thumbnail) {
+    var pixels = displayPixels(imgEl, thumbnail);
     if (card.text && card.kind && window.FSCardRender) {
-      return window.FSCardRender.compose({ src: card.src, picture: thumbnail && card.kind !== 'overlay' ? 'thumbnails/' + card.src : card.src,
-        kind: card.kind, text: card.text, wording: tokenWording,
-        width: card.kind === 'overlay' ? (thumbnail ? 720 : 1600) : (thumbnail ? 270 : cardPixelSize().w),
-        height: thumbnail ? 390 : cardPixelSize().h, thumbnail: !!thumbnail,
-      }).then(function (url) {
-        if (url && imgEl.isConnected) imgEl.src = url;
-      });
+      // Render the text directly at display resolution, losslessly, from the full
+      // template. Enlarging the precomposed 270px JPEG loses the small letterforms.
+      return window.FSCardRender.compose({ src: card.src,
+        kind: card.kind, text: card.text, template: card.template, wording: tokenWording,
+        width: pixels.w, height: pixels.h,
+      }, { rejectOnError: true });
     }
-    if (thumbnail) {
-      imgEl.src = isCardShaped(card) ? 'thumbnails/' + card.src : card.src;
-      return Promise.resolve();
-    }
-    if (isCardShaped(card)) {
-      return rasterizeCard(card.src).then(function (url) {
-        if (url && imgEl.isConnected) imgEl.src = url;
-      });
-    }
-    imgEl.src = card.src;
-    return Promise.resolve();
+    // Baked cards retain their native detail and proportions; resampling them to
+    // a larger PNG cannot improve quality. Small grids may still use thumbnails.
+    return Promise.resolve(thumbnail && pixels.w <= 320 && isCardShaped(card) ? 'thumbnails/' + card.src : card.src);
   }
 
-  function prepareCard(img, card) { img._fsCard = card; }
+  function prepareCard(img, card, modal) {
+    img._fsCard = card;
+    img.className = 'fs-card-image';
+    var wrap = img.parentNode;
+    wrap.classList.add('is-loading');
+    wrap.setAttribute('aria-busy', 'true');
+    if (!modal) wrap.setAttribute('aria-label', card.label);
+    if (!modal && card.aspect) wrap.style.aspectRatio = String(card.aspect);
+    var status = el('span', { class: 'fs-image-status', role: modal ? 'status' : null }, [
+      el('span', { class: 'fs-image-spinner', 'aria-hidden': 'true' }),
+      el('span', { class: 'fs-image-label', text: 'Загрузка карточки…' }),
+    ]);
+    if (modal) status.appendChild(el('button', { class: 'fs-image-retry', text: 'Повторить загрузку', hidden: '',
+      onclick: function () { loadCardImage(img, false); } }));
+    else wrap.addEventListener('click', function (event) {
+      if (!wrap.classList.contains('is-error')) return;
+      event.preventDefault(); event.stopImmediatePropagation();
+      loadCardImage(img, true);
+    }, true);
+    wrap.appendChild(status);
+  }
+
+  async function loadCardImage(img, thumbnail) {
+    var wrap = img.parentNode, status = wrap.querySelector('.fs-image-status');
+    var label = status.querySelector('.fs-image-label'), retry = status.querySelector('button');
+    var attempt = img._fsAttempt = (img._fsAttempt || 0) + 1;
+    wrap.classList.remove('is-ready', 'is-error'); wrap.classList.add('is-loading');
+    wrap.setAttribute('aria-busy', 'true');
+    label.textContent = 'Загрузка карточки…';
+    if (retry) retry.hidden = true;
+    var timer;
+    try {
+      await Promise.race([
+        (async function () {
+          var url = await cardImageURL(img, img._fsCard, thumbnail);
+          if (!img.isConnected || img._fsAttempt !== attempt) return;
+          img.src = url;
+          await img.decode();
+        })(),
+        new Promise(function (_, reject) { timer = setTimeout(function () { reject(new Error('Image loading timed out')); }, 20000); }),
+      ]);
+      if (!img.isConnected || img._fsAttempt !== attempt) return;
+      if (!thumbnail) fitViewer(wrap, img._fsCard, img.naturalWidth / img.naturalHeight);
+      wrap.classList.remove('is-loading'); wrap.classList.add('is-ready');
+      wrap.setAttribute('aria-busy', 'false');
+      // Preserve keyboard focus if retry was the active modal control.
+      if (retry && document.activeElement === retry) document.querySelector('.fs-lb-close').focus();
+      if (retry) retry.hidden = true;
+    } catch (error) {
+      if (!img.isConnected || img._fsAttempt !== attempt) return;
+      img._fsAttempt++; // Ignore a source that completes after the timeout.
+      wrap.classList.remove('is-loading'); wrap.classList.add('is-error');
+      wrap.setAttribute('aria-busy', 'false');
+      label.textContent = thumbnail ? 'Не удалось загрузить. Нажмите, чтобы повторить.' : 'Не удалось загрузить карточку.';
+      if (retry) retry.hidden = false;
+    } finally { clearTimeout(timer); }
+  }
 
   function drainImages() {
     while (runningImages < 3 && imageQueue.length) {
       var img = imageQueue.shift();
       if (!img.isConnected) continue;
       runningImages++;
-      applyComposite(img, img._fsCard, true).finally(function () { runningImages--; drainImages(); });
+      loadCardImage(img, true).finally(function () { runningImages--; drainImages(); });
     }
   }
 
@@ -458,17 +506,6 @@
       });
     }, { rootMargin: '200px 0px' });
     [].forEach.call(images, function (img) { lazyObserver.observe(img); });
-  }
-
-  function lbImg(card) {
-    var img = el('img', { alt: card.label });
-    img.addEventListener('load', function () {
-      if (img.parentNode && img.naturalHeight) {
-        img.parentNode.style.setProperty('--fs-lb-ratio', img.naturalWidth / img.naturalHeight);
-      }
-    });
-    applyComposite(img, card);
-    return img;
   }
 
   /* ---- Лупа в лайтбоксе ---- */
@@ -532,15 +569,6 @@
     ]);
   }
 
-  function maybeEmptyNote(scrollarea) {
-    if (!scrollarea || scrollarea.querySelector('.fs-note')) return;
-    var cards = scrollarea.querySelectorAll('.fs-card');
-    for (var i = 0; i < cards.length; i++) {
-      if (cards[i].style.display !== 'none') return;
-    }
-    if (cards.length) scrollarea.appendChild(el('div', { class: 'fs-note', text: 'Нет изображений для этого набора.' }));
-  }
-
   /* ---- Модель карточек ---- */
 
   function build() {
@@ -562,6 +590,8 @@
       var idx = flat.length;
       var c = { src: base + file, label: cardName(state.expansion, fac, cat, file, text && text.title || label),
         index: idx, kind: kind || null, text: text || null,
+        template: txt && txt.templates[FOLDER[cat] + '/' + file] || null,
+        aspect: txt && txt.cardAspect && /^(combat|orders|events)$/.test(cat) ? txt.cardAspect : null,
         exp: state.expansion, fac: fac, facName: facName(fac), catName: catName(cat) };
       flat.push(c);
       return c;
@@ -620,6 +650,8 @@
       function add(file, label, kind, text) {
         if (txt && txt.components[FOLDER[cat] + '/' + file]) { kind = 'overlay'; text = txt.components[FOLDER[cat] + '/' + file]; label = text.title; }
         out.push({ src: base + file, kind: kind || null, text: text || null,
+          template: txt && txt.templates[FOLDER[cat] + '/' + file] || null,
+          aspect: txt && txt.cardAspect && /^(combat|orders|events)$/.test(cat) ? txt.cardAspect : null,
           label: cardName(exp, fac, cat, file, label),
           catName: catName(cat), exp: exp, expName: en, fac: fac, facName: fn });
       }
@@ -656,6 +688,8 @@
     if (!appEl) { render(); return; }
     var old = appEl.querySelector('.fs-lb'); if (old) old.remove();
     appendLightbox(appEl);
+    var img = appEl.querySelector('.fs-lb img');
+    if (img) loadCardImage(img, false);
     focusModal();
   }
   function hideLightbox() { var lb = document.querySelector('.fs-lb'); if (lb) lb.remove(); }
@@ -676,7 +710,7 @@
   }
   function openLb(idx) {
     returnFocus = document.activeElement; returnCard = flat[idx] && flat[idx].src;
-    state.lb = idx; state.lbFull = true; state.lbMag = false; showLightbox(); updateURL();
+    state.lb = idx; state.lbFull = false; state.lbMag = false; showLightbox(); updateURL();
   }
   function closeLb() {
     state.lb = null; pendingCard = null; hideLightbox(); releaseModal(); updateURL();
@@ -736,7 +770,6 @@
       window.FSWord.append(el('p', { class: 'fs-faq-atext' }), it.a, tokenWording),
     ]);
     answer.hidden = !open;
-    answer.appendChild(el('a', { class: 'fs-share', href: window.FSNav.write({ view: 'faq', faqTopic: 'all', faqQuery: '' }, null, it.id), text: 'Ссылка на ответ' }));
     if (/^(base|gif|sow|tdl)\/[a-z0-9_-]+\/(combat|orders|events|faction_card|maps|backs)\/[a-zA-Z0-9_.-]+\.jpg$/.test(it.card)) {
       var parts = it.card.split('/');
       answer.appendChild(el('a', { class: 'fs-share fs-faq-card', text: 'Карточка', href: window.FSNav.write({
@@ -916,7 +949,7 @@
     var groups = built.groups;
 
     // Faction Card и Maps — без принудительного соотношения сторон
-    // Events: 2×4; Orders: 2 ряда (3 колонки); остальные — адаптивная сетка
+    // Orders/events have up to four bounded columns; mobile keeps cards legible.
     var naturalCard = (cat === 'faction_card' || cat === 'map');
     var gridCols, gridJustify, cardAspect;
     if (cat === 'faction_card') {
@@ -924,9 +957,9 @@
     } else if (cat === 'map') {
       gridCols = 'repeat(1, minmax(0, 920px))'; gridJustify = 'center'; cardAspect = '';
     } else if (cat === 'events') {
-      gridCols = 'repeat(4, minmax(0, 1fr))'; gridJustify = 'start'; cardAspect = '450 / 650';
+      gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 320px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     } else if (cat === 'orders') {
-      gridCols = 'repeat(4, minmax(0, 1fr))'; gridJustify = 'start'; cardAspect = '450 / 650';
+      gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 320px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     } else {
       gridCols = 'repeat(' + cols + ', minmax(0, 1fr))'; gridJustify = 'start'; cardAspect = '450 / 650';
     }
@@ -1063,7 +1096,6 @@
               onclick: (function (idx) { return function () { openLb(idx); }; })(card.index),
             }, [el('img', { alt: card.label, decoding: 'async' })]);
             var imgEl = btn.querySelector('img');
-            imgEl.addEventListener('error', function () { btn.style.display = 'none'; });
             prepareCard(imgEl, card);
             return el('div', { class: 'fs-search-item' }, [
               btn,
@@ -1201,10 +1233,6 @@
             el('img', { alt: card.label, decoding: 'async' }),
           ]);
           var imgEl = btn.querySelector('img');
-          imgEl.addEventListener('error', function () {
-            btn.style.display = 'none';
-            maybeEmptyNote(scrollarea);
-          });
           prepareCard(imgEl, card);
           return btn;
         }));
@@ -1226,8 +1254,10 @@
     var full = state.lbFull;
     var mag = state.lbMag;
 
-    var imgEl = lbImg(c);
+    var imgEl = el('img', { alt: c.label, decoding: 'async' });
     var imgWrap = el('div', { class: 'fs-lb-imgwrap' + (mag ? ' mag-on' : '') }, [imgEl]);
+    fitViewer(imgWrap, c);
+    prepareCard(imgEl, c, true);
     attachMagnifier(imgWrap, imgEl);
     var textPanel = null;
     if (c.text) {
@@ -1239,7 +1269,8 @@
       [c.text.general || c.text.background, c.text.unit || c.text.foreground].filter(Boolean).forEach(function (text) {
         textPanel.appendChild(window.FSWord.append(el('p'), text, tokenWording));
       });
-      if (c.text.source) textPanel.appendChild(el('a', { href: c.text.source, target: '_blank', rel: 'noopener noreferrer', text: 'Черновик перевода · английский оригинал' }));
+      if (c.text.source) textPanel.appendChild(el('a', { href: c.text.source, target: '_blank', rel: 'noopener noreferrer',
+        text: c.template ? 'Источник русского текста' : 'Черновик перевода · английский оригинал' }));
     }
     var mode = el('select', { class: 'fs-lb-wording', id: 'fs-lb-wording', 'aria-label': 'Обозначение жетонов',
       onchange: function (e) { setTokenWording(e.target.value); } }, [
@@ -1300,6 +1331,8 @@
           e.currentTarget.setAttribute('aria-pressed', String(state.lbFull));
           var ov = e.currentTarget.closest('.fs-lb');
           ov.querySelector('.fs-lb-fig').classList.toggle('is-full', state.lbFull);
+          fitViewer(ov.querySelector('.fs-lb-imgwrap'), c, imgEl.naturalWidth ? imgEl.naturalWidth / imgEl.naturalHeight : cardRatio(c));
+          loadCardImage(imgEl, false);
           e.currentTarget.innerHTML = state.lbFull ? '&#10532;' : '&#10530;';
           e.currentTarget.setAttribute('data-tip', state.lbFull ? 'По размеру окна' : 'На весь экран');
         },

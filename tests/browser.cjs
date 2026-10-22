@@ -40,7 +40,7 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
   }
   const waitCard = page => page.waitForFunction(() => {
     const img = document.querySelector('.fs-lb img');
-    return img?.src.startsWith('data:image/png') && img.complete && img.naturalWidth > 0;
+    return img?.parentNode.classList.contains('is-ready') && img.complete && img.naturalWidth > 0;
   });
   try {
     const desktop = await makeContext({ width: 1440, height: 1000 });
@@ -75,10 +75,11 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
       assert.match(await page.locator('.fs-card-text').innerText(), /жетон кузницы/);
       assert.equal(await page.locator('.fs-header').evaluate(node => node.inert), true);
       assert.equal(await page.locator('.fs-lb-close').evaluate(node => node === document.activeElement), true);
-      await page.locator('.fs-lb-share').focus(); await page.keyboard.press('Tab');
+      const lastControl = page.locator('.fs-lb').locator('button:enabled:visible, a:visible, summary:visible, input:enabled:visible, select:enabled:visible').last();
+      await lastControl.focus(); await page.keyboard.press('Tab');
       assert.equal(await page.locator('.fs-lb-nav').first().evaluate(node => node === document.activeElement), true);
       await page.keyboard.press('Shift+Tab');
-      assert.equal(await page.locator('.fs-lb-share').evaluate(node => node === document.activeElement), true);
+      assert.equal(await lastControl.evaluate(node => node === document.activeElement), true);
       cardLink = await page.locator('.fs-lb-share').getAttribute('href');
     });
     await check('icon wording reaches canvas and accessible HTML, persists, and switches back', async () => {
@@ -138,8 +139,9 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
       const head = page.locator('.fs-faq-qbtn').first();
       assert.equal(await head.getAttribute('aria-expanded'), 'false');
       await head.click(); assert.equal(await head.getAttribute('aria-expanded'), 'true');
-      const link = await page.locator('.fs-faq-item.is-open .fs-share').getAttribute('href');
-      await page.goto(base + link);
+      assert.equal(await page.getByRole('link', { name: 'Ссылка на ответ', exact: true }).count(), 0);
+      const link = page.url();
+      await page.goto(link);
       await page.locator('.fs-faq-item.is-open .fs-faq-qbtn[aria-expanded=true]').waitFor();
       assert.equal(await page.locator('.fs-faq-item.is-open').count(), 1);
       const answerId = await page.locator('.fs-faq-item.is-open button').getAttribute('aria-controls');
@@ -182,7 +184,7 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
     await desktop.context.close();
 
     const lazy = await makeContext({ width: 1280, height: 800 }); active = lazy.page;
-    await check('grids request thumbnails and defer offscreen cards', async () => {
+    await check('grids defer offscreen cards and render visible text in HD', async () => {
       const originals = [];
       lazy.page.on('request', r => { if (new URL(r.url()).pathname.startsWith('/factions/') && /\.jpg$/.test(r.url())) originals.push(r.url()); });
       await lazy.page.goto(base + '#q=' + encodeURIComponent('Получите'));
@@ -191,8 +193,8 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
       const total = await lazy.page.locator('.fs-card').count(), loaded = await lazy.page.locator('.fs-card img[src]').count();
       assert.ok(loaded < total, `${loaded} loaded of ${total}`);
       await lazy.page.locator('.fs-card').last().scrollIntoViewIfNeeded();
-      await lazy.page.waitForFunction(() => Array.from(document.querySelectorAll('.fs-card img')).at(-1)?.src.startsWith('data:image/jpeg'));
-      assert.deepEqual(originals, []);
+      await lazy.page.waitForFunction(() => Array.from(document.querySelectorAll('.fs-card img')).at(-1)?.src.startsWith('data:image/png'));
+      assert.ok(originals.length < total, `${originals.length} original images for ${total} cards`);
       console.log(`  Initially loaded ${loaded}/${total} grid images.`);
     });
     await lazy.context.close();
@@ -212,7 +214,7 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
       await mobile.page.locator('.fs-settings summary').click();
       await mobile.page.locator('#fs-res-toggle').check();
       await mobile.page.locator('.fs-card[data-card-id$="combat/t2_1.jpg"]').click(); await waitCard(mobile.page);
-      assert.equal(await mobile.page.locator('.fs-lb img').evaluate(img => img.naturalWidth), 630);
+      assert.ok(await mobile.page.locator('.fs-lb img').evaluate(img => img.naturalWidth >= img.getBoundingClientRect().width * 3));
     });
     await mobile.context.close();
     assert.deepEqual(errors, []);

@@ -43,6 +43,18 @@ const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=u
     assert.equal(result.settingsUnchanged,true);
     assert.equal(result.width,card.kind==='overlay'?1600:816);
     assert.equal(result.height,card.kind==='overlay'?Math.round(1600/card.text.aspect):1110);
+    if(card.kind==='combat'){
+     const panels=result.metrics.combatPanels;
+     assert.ok(panels,card.id+' must use framed combat effects');
+     assert.equal(!!panels.general,!!card.text.general,card.id+' general panel');
+     assert.equal(!!panels.unit,!!card.text.unit,card.id+' unit panel');
+     assert.ok(Math.abs(panels.coveredTopPx-result.height*.6)<.01,card.id+' covers baked wording');
+     for(const panel of [panels.general,panels.unit].filter(Boolean)){
+      assert.ok(panel.textTopPx>=panel.innerTopPx-.01,card.id+' overlaps upper frame');
+      assert.ok(panel.textBottomPx<=panel.innerBottomPx+.01,card.id+' overflows its effect panel');
+     }
+     if(panels.general&&panels.unit)assert.ok(Math.abs(panels.general.topPx+panels.general.heightPx-panels.unit.topPx)<.01,card.id+' has an inter-panel gap');
+    }
     if(mode==='explicit'){
      const file=card.id.replaceAll('/','__').replace(/\.jpg$/,'.png');await fs.writeFile(path.join(output,file),Buffer.from(result.png.split(',')[1],'base64'));
     }
@@ -52,7 +64,7 @@ const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=u
   }
   // Real UI direct links, source attribution and wording preference.
   await page.goto(base+'#exp=tdl&faction=leaguesofvotann&category=orders&card=factions%2Ftdl%2Fleaguesofvotann%2Forders%2Fo_1.jpg');
-  const waitCard=()=>page.waitForFunction(()=>document.querySelector('.fs-lb img')?.src.startsWith('data:image/png'));
+  const waitCard=()=>page.waitForFunction(()=>document.querySelector('.fs-lb-imgwrap.is-ready img')?.src.startsWith('data:image/png'));
   await waitCard();assert.match(await page.locator('.fs-card-text').innerText(),/жетон кузницы/);
   assert.match(await page.locator('.fs-card-text a').getAttribute('href'),/a31d0e9/);
   await page.screenshot({path:path.join(output,'desktop.png')});
@@ -70,8 +82,33 @@ const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=u
   await waitCard();const size=await page.locator('.fs-lb img').evaluate(im=>[im.naturalWidth,im.naturalHeight]);assert.equal(size[0],1600);assert.equal(size[1],Math.round(1600/(3118/1878)));
   await page.locator('.fs-card-text summary').click();
   assert.match(await page.locator('.fs-card-text').innerText(),/Вместимость/);
+  await page.goto(base+'#exp=tdl&faction=adeptuscustodes&category=combat&card=factions%2Ftdl%2Fadeptuscustodes%2Fcombat%2Fs1.jpg');
+  await waitCard();
+  await page.screenshot({path:path.join(output,'combat-panels-mobile.png')});
+  await page.setViewportSize({width:1440,height:1050});
+  await page.waitForTimeout(200);await waitCard();
+  await page.screenshot({path:path.join(output,'combat-panels-desktop.png')});
+  await page.locator('.fs-lb img').screenshot({path:path.join(output,'combat-panels-card.png'),animations:'disabled'});
+  // Replacing the entire baked wording area must not change any pixel below the
+  // new frames. Transparent decorative headers must not expose old English ink.
+  const coverage=await page.evaluate(async()=>{
+   const d=await(await fetch('factions/tdl/adeptuscustodes/text.json')).json(),t=d.combatText[0][0];
+   const source='factions/tdl/adeptuscustodes/combat/s1.jpg';
+   const image=new Image();image.src=source;await image.decode();
+   const poison=document.createElement('canvas');poison.width=image.width;poison.height=image.height;
+   const p=poison.getContext('2d');p.drawImage(image,0,0);p.fillStyle='#ff00ff';p.fillRect(0,image.height*.6,image.width,image.height*.4);
+   const text={...t,raster:true,background:t.general,foreground:t.unit};
+   const images=await Promise.all([source,poison.toDataURL()].map(async src=>{
+    const url=await FSCardRender.compose({src,kind:'combat',text},{strict:true,width:1024,height:1479});
+    const im=new Image();im.src=url;await im.decode();return im;
+   }));
+   const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=1479;const ctx=canvas.getContext('2d');
+   const pixels=images.map(im=>{ctx.drawImage(im,0,0);return ctx.getImageData(0,Math.ceil(1479*.6)+1,1024,1479-Math.ceil(1479*.6)-1).data;});
+   let changed=0;for(let i=0;i<pixels[0].length;i+=4)if(Math.max(...[0,1,2].map(c=>Math.abs(pixels[0][i+c]-pixels[1][i+c])))>2)changed++;
+   return {changedPixels:changed,coveredFrom:Math.ceil(1479*.6)+1};
+  });assert.equal(coverage.changedPixels,0,'Baked English wording remains visible through frames');
   assert.deepEqual(errors,[]);
-  await fs.writeFile(path.join(output,'browser-results.json'),JSON.stringify({renders:results.length,ui:['direct-card-link','source-link','token-wording','rules-search','mobile','landscape-sheet'],errors,results},null,2)+'\n');
-  console.log('PASS 262 strict renders; direct links, sources, token wording, rules search, mobile and landscape sheets; no JavaScript errors');
+  await fs.writeFile(path.join(output,'browser-results.json'),JSON.stringify({renders:results.length,combatRenders:results.filter(r=>r.id.includes('/combat/')).length,coverage,ui:['direct-card-link','source-link','token-wording','rules-search','mobile','landscape-sheet','combat-panels'],errors,results},null,2)+'\n');
+  console.log('PASS 262 strict renders, including 118 structured combat renders; pixel coverage, direct links, sources, token wording, rules search, mobile and landscape sheets; no JavaScript errors');
  }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(e=>{console.error(e);process.exitCode=1;});

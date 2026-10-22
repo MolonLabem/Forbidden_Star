@@ -1,10 +1,2072 @@
 {
-    "materialsText": [
-        { "label": "Разведчики", "value": "6" },
-        { "label": "Ударные Крейсеры", "value": "3" },
-        { "label": "Космодесантники", "value": "6" },
-        { "label": "Ленд Рейдеры", "value": "6" },
-        { "label": "Боевые Баржи", "value": "3" },
-        { "label": "Титаны Полководец", "value": "3" }
+  "materialsText": [
+    {
+      "label": "Разведчики",
+      "value": "6"
+    },
+    {
+      "label": "Ударные Крейсеры",
+      "value": "3"
+    },
+    {
+      "label": "Космодесантники",
+      "value": "6"
+    },
+    {
+      "label": "Ленд Рейдеры",
+      "value": "6"
+    },
+    {
+      "label": "Боевые Баржи",
+      "value": "3"
+    },
+    {
+      "label": "Титаны Полководец",
+      "value": "3"
+    }
+  ],
+  "combatText": [
+    [
+      {
+        "title": "Засада",
+        "general": "Получите 2 (B).",
+        "unit": "Разведчик/Ударный Крейсер: Любой отряд противника, деморализованный в этом раунде битвы, - уничтожается. Ваш противник может избежать этого уничтожения, если потратит 1 [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s1.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Разведка",
+        "general": "Если вы атакуете, то посмотрите выбранную боевую карту противника. *newline* Получите 2 (B) или 2 (S).",
+        "unit": "Разведчик/Ударный Крейсер: Потратьте 1 [M], чтобы отступить 1 вашим отрядом.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s2.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Ярость Ультрамара",
+        "general": "Ваш противник должен перебросить 1 [S]. Затем вы можете перебросить 1 [S].",
+        "unit": "Космодесантник/Ударный Крейсер: Вынудите вашего противника потерять 1 [S] или 2 (S).",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s3.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Благословенная Броня",
+        "general": "Получите 2 (S).",
+        "unit": "Бастион/Космодесантник/Ударный Крейсер: Переверните до 2 ваших кубов на [S].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s4.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Вера в Императора",
+        "general": "Получите 1 [D].",
+        "unit": "Разведчик/Космодесантник/Ударный Крейсер: Восстановите 1 ваш отряд или получите 1 [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s5.jpg",
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Держать Строй",
+        "general": "Получите 2 (S). *newline* Если вы защищаетесь, то восстановите 1 ваш отряд.",
+        "unit": "Бастион/Космодесантник/Ударный Крейсер: Получите 1 [S] или 1 [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_1.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Слава и Смерть",
+        "general": "Получите 2 (B). *newline* Если вы атакуете, то восстановите 1 ваш отряд.",
+        "unit": "Космодесантник/Ударный Крейсер: Вынудите вашего противника потерять 1 [S] или 1 [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_2.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Сброс Десантной Капсулы",
+        "general": "Получите 1 [D].",
+        "unit": "Космодесантник: Потратьте 1 [M], чтобы забрать 1 Разведчика или 1 Космодесантника из любого мира и разместить в этом мире.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_3.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Разведчики Ветераны",
+        "general": "За каждый ваш [M] получите 1 (B) или 1 (S).",
+        "unit": "Разведчик/Ударный Крейсер: Потратьте любое количество [M]. Отступите 1 вашим отрядом за каждый потраченный [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_4.jpg",
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Не Показывать Страха",
+        "general": "В этом раунде битвы ваши отряды не могут стать деморализованными.",
+        "unit": "Бастион/Космодесантник/Ударный Крейсер: Потратьте 1 [M], чтобы восстановить все ваши отряды.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_1.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Прорвать Фронт",
+        "general": "Потратьте до 3 [M]. За каждый потраченный [M] получите 1 [B] или 1 [S].",
+        "unit": "Ленд Рейдер/Боевая Баржа: Ваш противник должен выбрать и сбросить 1 свою открытую боевую карту.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_2.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Танковое Наступление",
+        "general": "Получите 1 [D].",
+        "unit": "Ленд Рейдер/Боевая Баржа: Выполните 1 дополнительный шаг нанесения повреждений во время этого раунда битвы.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_3.jpg",
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Мощь Императора",
+        "general": "Получите 2 [D].",
+        "unit": "Титан Полководец/Боевая Баржа: Потратьте любое количество [B]. За каждый потраченный [B] получите 2 (B).",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t3_1.jpg",
+        "icons": ""
+      },
+      {
+        "title": "Слава Императора",
+        "general": "Получите 2 [D].",
+        "unit": "Титан Полководец/Боевая Баржа: Восстановите все ваши отряды. Затем переверните любые ваши кубы на [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t3_2.jpg",
+        "icons": ""
+      }
     ]
+  ],
+  "ordersText": [
+    {
+      "title": "Крестовый Поход",
+      "general": "Если во время выполнения этого приказа вы начали битву в системе, где у вас нет дружественных миров, то получите 1 жетон подкрепления. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_1.jpg"
+    },
+    {
+      "title": "Направлять Верующих",
+      "general": "После раскрытия этого приказа вы можете заменить 1 вашу постройку в этой системе на любую другую. *newline* ОДИН РАЗ ЗА РАУНД",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_2.jpg"
+    },
+    {
+      "title": "Миры Вербовки",
+      "general": "Во время выполнения этого приказа вы можете считать все бастионы активной системы фабриками. Ваш лимит развертывания при этом уменьшается на 1 за каждый ваш бастион в активной системе. *newline* ОДИН РАЗ ЗА РАУНД",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_3.jpg"
+    },
+    {
+      "title": "Огненный Дождь",
+      "general": "Во время выполнения этого орбитального удара получите 1 [D], и вы можете перевернуть 1 ваш [M] на 1 [B]. *newline* ОДИН РАЗ ЗА РАУНД",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_4.jpg"
+    },
+    {
+      "title": "Десантные Капсулы",
+      "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара вы можете потратить 2 [S], чтобы бесплатно разместить 1 отряд Космодесантника в этом мире, из-за чего по окончании этого орбитального удара может начаться битва. *newline* ОДИН РАЗ ЗА РАУНД",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_5.jpg"
+    }
+  ],
+  "eventsText": [
+    {
+      "title": "Адептус Механикус",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время битвы в начале шага нанесения повреждений вы можете сбросить эту карту, чтобы получить 2 (S), а также получить по 1 (S) за каждый ваш жетон кузницы.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_1.jpg"
+    },
+    {
+      "title": "Непоколебимость",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Вместо раскрытия одного из ваших приказов в фазу Действий вы можете сбросить эту карту, чтобы восстановить все ваши отряды в 1 любой системе.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_2.jpg"
+    },
+    {
+      "title": "Чемпион Императора",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время битвы в начале шага нанесения повреждений вы можете сбросить эту карту, чтобы восстановить 1 ваш отряд.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_3.jpg"
+    },
+    {
+      "title": "Экстерминатус",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Перед выполнением орбитального удара вы можете сбросить эту карту, чтобы перевернуть все ваши кубы на [B] вместо броска.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_4.jpg"
+    },
+    {
+      "title": "Церемония Перед Боем",
+      "general": "Купите 1 улучшение приказа. Уменьшите его стоимость на 1 за каждый дружественный мир, который содержит бастион.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_5.jpg"
+    },
+    {
+      "title": "Героическое Вмешательство",
+      "general": "Либо бесплатно разместите 1 Космодесантника в дружественном мире, который содержит вашу постройку, либо бесплатно разместите 1 Разведчика в любом дружественном мире.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_6.jpg"
+    },
+    {
+      "title": "Работа Праведных",
+      "general": "Выберите дружественный мир. Либо получите ценные ресурсы этого мира, либо получите материалы, равные производственному значению этого мира.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_7.jpg"
+    },
+    {
+      "title": "Защита Императора",
+      "general": "Либо бесплатно разместите 1 бастион в дружественном мире, который не содержит постройки, либо заплатите 2 материала, чтобы бесплатно разместить 1 бастион в дружественном мире, который не содержит бастион.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_8.jpg"
+    }
+  ],
+  "cardAspect": 0.7046875,
+  "wordingSource": {
+    "kind": "current-russian-raster",
+    "revision": "28ab2c341b006842924d505c2ec2206f94a754f7",
+    "imageSha256": {
+      "combat/s1.jpg": "f1d0fe72a90ef4cd9a9f83caae4b4a799bac20d1a0df9710aeed3aa45c4264f0",
+      "combat/s2.jpg": "0d87512e5cf5b70b528d71cb37e73ce6baffbd8d939352c336f873ad8eee67b8",
+      "combat/s3.jpg": "674cad475a2dbd1d64c8cac33151dce1b428a8437fca2b5580cd59a33c064cfc",
+      "combat/s4.jpg": "0707bb769115a977cfdbaa5be1b9d98f503454f935a0c7e377b11fdd2e3b559b",
+      "combat/s5.jpg": "90853102a716667db1d3df33b0c9e30193e3b7a5ffd6ccf2e29a241d634848f4",
+      "combat/t0_1.jpg": "e4d11d483eb9559a5ab883bd3c85b5eec7f8a52c1ab487f86bee7d62e2a09d51",
+      "combat/t0_2.jpg": "6500d7bc0bfcdc2409f22405ef23bf2bf2c45bdccd3fad470ff894d6f9bd2240",
+      "combat/t0_3.jpg": "bcfc066a8e253079a0af64c8ade95598ebd62aa993ec27db5637b9da9a416fd3",
+      "combat/t0_4.jpg": "313671abf2fea22ec3c3312fcdcb0125c9dc1bc7e313cb32b7eb83d0cf5dfd69",
+      "combat/t2_1.jpg": "28b18e6f31d8c5221e7d87c6be68d3b874e03408cfbbab25d82b8edb5fa81298",
+      "combat/t2_2.jpg": "5102a3ee5fd4b339c86b7344b90ac635a23c30b2d5f5bafc822101894acc1e16",
+      "combat/t2_3.jpg": "619265855b3e9531d8de72b337718a7122dd4a5d5e819af0a42b4b88f82cd9a0",
+      "combat/t3_1.jpg": "85c0c898cf53e7c6a1a8dadf6ebd9a129f7bf6034ae3dd6959c083d902e170d1",
+      "combat/t3_2.jpg": "c30cac308af657f6b71b5658689b806d06063346ac896aba02fa42141d222364",
+      "orders/o_1.jpg": "9bcd11f36097319b2d0300c447519ac5b562566d8c4292a0bf1c2c53cd24119c",
+      "orders/o_2.jpg": "93da9ea9d5e8828fd04e45b616b5a5594bc3c1049b71bccbbdfc13bed223f9ad",
+      "orders/o_3.jpg": "b597617d1148037362377a5bc53ead3276bce6e346464e6b6802109a9343833f",
+      "orders/o_4.jpg": "e9c94e20cff25bc5b602158e302114244bb63426c238b6d56158fe8ffb59faed",
+      "orders/o_5.jpg": "99a3f0e963e699f8a31fd9d8759e6b908ffe68f6188673c9db90ea203066b260",
+      "events/e_1.jpg": "37397075e46841693dca1351b6ead5a92417112a49b4a6e3a2df745520b42cd2",
+      "events/e_2.jpg": "1faab024b32021439cd39bf42f0669272062cf2906095aba363ab74c788580d1",
+      "events/e_3.jpg": "eab18660aa45c62f226e72ae3230d79538b5f799e43547d09fd85b10198f4d4d",
+      "events/e_4.jpg": "c83aff541150b25d986af977580e8cf210931c06de8c0b44f96d13fa050ff80f",
+      "events/e_5.jpg": "5f06788dafd2e1c2b5334ce9061281aa22b0722033fead2d3006b178e150b63d",
+      "events/e_6.jpg": "d9f71278eef6e7567d071e0d8e18742324969a265124f2d451b46f277bed2b36",
+      "events/e_7.jpg": "2d68223ec9fa15e751f54034d20fe37666000215ba05e4ce89b30644e893a70f",
+      "events/e_8.jpg": "55fdb019844733478d768f8cafdfb02b8c776d2c95dfbe2d586e33d94b4b6f26"
+    }
+  },
+  "templates": {
+    "combat/s1.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/s1.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.607,
+            1,
+            0.378
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.45699999999999996
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.542,
+            0.23,
+            0.025
+          ],
+          "top": 0.599
+        }
+      }
+    },
+    "combat/s2.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/s2.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.607,
+            1,
+            0.378
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.45699999999999996
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.542,
+            0.23,
+            0.025
+          ],
+          "top": 0.599
+        }
+      }
+    },
+    "combat/s3.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/s3.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.66,
+            1,
+            0.32499999999999996
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.51
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.595,
+            0.23,
+            0.025
+          ],
+          "top": 0.652
+        }
+      }
+    },
+    "combat/s4.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/s4.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.695,
+            1,
+            0.29000000000000004
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5449999999999999
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6299999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.6869999999999999
+        }
+      }
+    },
+    "combat/s5.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/s5.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.66,
+            1,
+            0.32499999999999996
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.51
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.595,
+            0.23,
+            0.025
+          ],
+          "top": 0.652
+        }
+      }
+    },
+    "combat/t0_1.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t0_1.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.607,
+            1,
+            0.378
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.45699999999999996
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.542,
+            0.23,
+            0.025
+          ],
+          "top": 0.599
+        }
+      }
+    },
+    "combat/t0_2.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t0_2.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.607,
+            1,
+            0.378
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.45699999999999996
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.542,
+            0.23,
+            0.025
+          ],
+          "top": 0.599
+        }
+      }
+    },
+    "combat/t0_3.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t0_3.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.66,
+            1,
+            0.32499999999999996
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.51
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.595,
+            0.23,
+            0.025
+          ],
+          "top": 0.652
+        }
+      }
+    },
+    "combat/t0_4.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t0_4.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.66,
+            1,
+            0.32499999999999996
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.51
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.595,
+            0.23,
+            0.025
+          ],
+          "top": 0.652
+        }
+      }
+    },
+    "combat/t2_1.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t2_1.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.619,
+            1,
+            0.366
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.469
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.554,
+            0.23,
+            0.025
+          ],
+          "top": 0.611
+        }
+      }
+    },
+    "combat/t2_2.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t2_2.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.619,
+            1,
+            0.366
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.469
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.554,
+            0.23,
+            0.025
+          ],
+          "top": 0.611
+        }
+      }
+    },
+    "combat/t2_3.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t2_3.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.66,
+            1,
+            0.32499999999999996
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.51
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.595,
+            0.23,
+            0.025
+          ],
+          "top": 0.652
+        }
+      }
+    },
+    "combat/t3_1.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t3_1.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.66,
+            1,
+            0.32499999999999996
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.51
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.595,
+            0.23,
+            0.025
+          ],
+          "top": 0.652
+        }
+      }
+    },
+    "combat/t3_2.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.6,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/combat/t3_2.jpg",
+            "crop": [
+              0.85,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.66,
+            1,
+            0.32499999999999996
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.51
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.595,
+            0.23,
+            0.025
+          ],
+          "top": 0.652
+        }
+      }
+    },
+    "orders/o_1.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.181,
+            0.47,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.12,
+            0.54,
+            0.76,
+            0.28
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "body": {
+        "box": [
+          0.15,
+          0.545,
+          0.7,
+          0.25
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_2.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.12,
+            0.54,
+            0.76,
+            0.28
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "body": {
+        "box": [
+          0.15,
+          0.545,
+          0.7,
+          0.25
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_3.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.12,
+            0.54,
+            0.76,
+            0.28
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "body": {
+        "box": [
+          0.15,
+          0.545,
+          0.7,
+          0.25
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_4.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.12,
+            0.54,
+            0.76,
+            0.28
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "body": {
+        "box": [
+          0.15,
+          0.545,
+          0.7,
+          0.25
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_5.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "body": {
+        "box": [
+          0.14,
+          0.535,
+          0.72,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "events/e_1.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    },
+    "events/e_2.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_2.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    },
+    "events/e_3.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_3.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    },
+    "events/e_4.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_4.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    },
+    "events/e_5.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    },
+    "events/e_6.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_6.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    },
+    "events/e_7.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_7.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    },
+    "events/e_8.jpg": {
+      "status": "reconstructed-preview-not-clean-master",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_1.jpg",
+            "crop": [
+              0.62,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_8.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.2,
+              0.047
+            ]
+          },
+          "role": "event-type",
+          "featherPx": 1.5
+        },
+        {
+          "role": "body-erasure",
+          "box": [
+            0.045,
+            0.676,
+            0.91,
+            0.27
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/events/e_5.jpg",
+            "crop": [
+              0.14,
+              0.83,
+              0.7,
+              0.09
+            ]
+          },
+          "tile": true,
+          "featherPx": 3
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.075,
+          0.687,
+          0.85,
+          0.245
+        ],
+        "align": "left"
+      }
+    }
+  }
 }

@@ -11,6 +11,11 @@
  *   text (combat):  { title, background, foreground, icons }
  *   text (orders):  { title, general }
  *   text (events):  { title, general, type }
+ *   Optional template: { patches:[{box:[x,y,w,h],texture:{src,crop:[x,y,w,h]}}],
+ *                        titleY?, eventType?:{box:[x,y,w,h]}, body?:{box:[x,y,w,h],align},
+ *                        combatArt?:{crop:[x,y,w,h],box:[x,y,w],rail?:{crop:[x,y,w,h],top}} }
+ *   Template coordinates are fractions of native images/canvas. Clean patches
+ *   let approved raster cards reuse the text renderer without changing assets.
  */
 (function () {
   'use strict';
@@ -227,51 +232,112 @@
     return _imgCache.set(url, pending);
   }
 
+  // Optional reconstructed template. Patches take clean texture from a real
+  // asset; the original raster sources stay intact.
+  // This prepares a background only. Rules, wrapping and symbols still use DRAW.
+  async function loadCardPicture(data) {
+    var picture = await loadImage(data.picture);
+    if (!data.template) return picture;
+    var canvas = document.createElement('canvas');
+    canvas.width = picture.width; canvas.height = picture.height;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(picture, 0, 0);
+    for (var patch of data.template.patches || []) {
+      var texture = await loadImage(patch.texture.src), crop = patch.texture.crop, box = patch.box;
+      var layer=document.createElement('canvas');
+      layer.width=Math.ceil(box[2]*canvas.width);layer.height=Math.ceil(box[3]*canvas.height);
+      var layerCtx=layer.getContext('2d');
+      if(patch.tile){
+        var tile=document.createElement('canvas');tile.width=Math.ceil(crop[2]*texture.width);tile.height=Math.ceil(crop[3]*texture.height);
+        tile.getContext('2d').drawImage(texture,crop[0]*texture.width,crop[1]*texture.height,
+          crop[2]*texture.width,crop[3]*texture.height,0,0,tile.width,tile.height);
+        layerCtx.fillStyle=layerCtx.createPattern(tile,'repeat');layerCtx.fillRect(0,0,layer.width,layer.height);
+      }else layerCtx.drawImage(texture,crop[0]*texture.width,crop[1]*texture.height,
+        crop[2]*texture.width,crop[3]*texture.height,0,0,layer.width,layer.height);
+      var feather=Math.min(patch.featherPx||0,layer.width/4,layer.height/4);
+      if(feather){
+        layerCtx.globalCompositeOperation='destination-in';
+        [[0,0,feather,0,false],[layer.width-feather,0,layer.width,0,true],
+          [0,0,0,feather,false],[0,layer.height-feather,0,layer.height,true]].forEach(function(edge){
+          var gradient=layerCtx.createLinearGradient(edge[0],edge[1],edge[2],edge[3]);
+          gradient.addColorStop(0,edge[4]?'#000':'transparent');gradient.addColorStop(1,edge[4]?'transparent':'#000');
+          layerCtx.fillStyle=gradient;layerCtx.fillRect(0,0,layer.width,layer.height);
+        });
+      }
+      ctx.drawImage(layer,box[0]*canvas.width,box[1]*canvas.height,box[2]*canvas.width,box[3]*canvas.height);
+    }
+    return canvas;
+  }
+
+  function coverArtwork(ctx, picture, art, bottom) {
+    var c = art.crop, b = art.box, cw = ctx.canvas.width, ch = ctx.canvas.height;
+    var sw = c[2]*picture.width, sh = c[3]*picture.height;
+    var dw = b[2]*cw, dh = bottom - b[1]*ch;
+    if (dw <= 0 || dh <= 0) throw new Error('Неверная область иллюстрации');
+    var scale = Math.max(dw/sw, dh/sh), cropW = dw/scale, cropH = dh/scale;
+    // Extend the complete upper section to the same join, including the left
+    // rail. Extending only the illustration exposes the erased parchment there.
+    if (art.rail && bottom > art.rail.top*ch) {
+      var rail = art.rail, r = rail.crop, top = rail.top*ch;
+      ctx.drawImage(picture, r[0]*picture.width, r[1]*picture.height, r[2]*picture.width, r[3]*picture.height,
+        0, top, b[0]*cw + 1, bottom-top);
+    }
+    ctx.drawImage(picture, c[0]*picture.width + (sw-cropW)/2, c[1]*picture.height + (sh-cropH)/2,
+      cropW, cropH, b[0]*cw, b[1]*ch, dw, dh);
+  }
+
+  function drawEventType(ctx, label, region) {
+    var b = region.box, cw = ctx.canvas.width, ch = ctx.canvas.height;
+    var box = {x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
+    var size = ch*.04, ink;
+    ctx.textAlign = 'center';
+    for (var guard=0; guard<80; guard++) {
+      ctx.font = 'bold ' + size + 'px EventFont';
+      ink = ctx.measureText(label);
+      if (ink.width<=box.width*.9 && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*.8) break;
+      size *= .96;
+    }
+    ctx.textAlign = 'center';
+    var x=box.x+box.width/2+(ink.actualBoundingBoxLeft-ink.actualBoundingBoxRight)/2;
+    var y=box.y+box.height/2+(ink.actualBoundingBoxAscent-ink.actualBoundingBoxDescent)/2;
+    ctx.fillText(label,x,y);
+    ctx.fsEventType = {box:box,ink:{left:x-ink.actualBoundingBoxLeft,right:x+ink.actualBoundingBoxRight,
+      top:y-ink.actualBoundingBoxAscent,bottom:y+ink.actualBoundingBoxDescent}};
+  }
+
+  function drawBodyTextBox(ctx, text, region) {
+    var b=region.box,cw=ctx.canvas.width,ch=ctx.canvas.height;
+    var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
+    var size=ch*.03,interline=size*.257,height;
+    for(var guard=0;guard<100;guard++){
+      height=measureStyledWrappedText(ctx,text,box.width,interline,size);
+      if(height+size*.25<=box.height)break;
+      size*=.96;interline=size*.257;
+    }
+    if(height+size*.25>box.height)throw new Error('Текст не помещается в область правил');
+    var align=region.align||'left';
+    drawStyledWrappedText(ctx,text,align==='center'?box.x+box.width/2:box.x,
+      box.y,box.width,interline,size,align);
+    ctx.fsBodyTextBox={box:box,inkBottomPx:box.y+height+size*.25,fontSizePx:size};
+  }
+
   // ---- card draw functions ----
 
-  async function drawCombatCard(data, ctx) {
+  // Shared framed general/unit effects for blank templates and baked TDL cards.
+  // Baked cards fill the complete old wording area so no English text is exposed
+  // when the Russian wording is shorter or only one effect exists.
+  function drawCombatEffects(data, ctx, picture, panels, fillTextArea) {
     var cw = ctx.canvas.width, ch = ctx.canvas.height;
     var textMarginX = cw * COMBAT_LAYOUT.textMarginX;
     var textWidth   = cw - textMarginX * 2;
     var maxTextH    = ch * COMBAT_LAYOUT.maxTextAreaHeight;
-    var iconSz      = cw * COMBAT_LAYOUT.iconSizeRatio;
-    var iconSp      = cw * COMBAT_LAYOUT.iconSpacingRatio;
-    var iconXPos    = cw * COMBAT_LAYOUT.iconX;
-    var iconStartYPos = ch * COMBAT_LAYOUT.iconStartY;
-
     var bgText = data.hasText ? replaceForbiddenStarsElements(data.background || '') : '';
     var fgText = data.hasText ? replaceForbiddenStarsElements(data.foreground || '') : '';
-
-    var iconChars = String(data.icons || '').split('').map(function (c) { return iconMap[c.toUpperCase()]; }).filter(Boolean);
-    var resources = await Promise.all([
-      loadImage(data.picture),
-      loadImage('pictures/background.png'),
-      loadImage('pictures/foreground.png'),
-      loadImage('pictures/bottom.png'),
-    ].concat(iconChars.map(loadImage)));
-
-    var picture      = resources[0];
-    var backgroundImg = resources[1];
-    var foregroundImg = resources[2];
-    var bottomImg    = resources[3];
-    var iconImgs     = resources.slice(4);
-
+    var backgroundImg = panels[0], foregroundImg = panels[1], bottomImg = panels[2];
     // Chrome sizes derived from the loaded assets (no fixed 880px reference).
     var bgDecoH  = srcPxToCanvas(backgroundImg, COMBAT_LAYOUT.backgroundDecoSrcPx, cw);
     var fgDecoH  = srcPxToCanvas(foregroundImg, COMBAT_LAYOUT.foregroundDecoSrcPx, cw);
     var bottomH  = srcPxToCanvas(bottomImg, bottomImg.height, cw);
-
-    ctx.drawImage(picture, 0, 0, cw, ch);
-
-    ctx.font = (ch * COMBAT_LAYOUT.titleFontSizeRatio) + 'px Headline';
-    if (ctx.fsStrict) {
-      var titleSize = ch * COMBAT_LAYOUT.titleFontSizeRatio;
-      while (ctx.measureText(data.title || '').width > cw * 0.69) {
-        titleSize *= 0.95; ctx.font = titleSize + 'px Headline';
-      }
-    }
-    ctx.textAlign = 'left';
-    ctx.fillText(data.title || '', cw * COMBAT_LAYOUT.titleX, ch * COMBAT_LAYOUT.titleY);
 
     if (bgText || fgText) {
       var fontSize  = ch * COMBAT_LAYOUT.fontSize;
@@ -285,8 +351,9 @@
       };
 
       var measurePanels = function () {
-        var bgContent = bgText ? measureStyledWrappedText(ctx, bgText, textWidth, interline, fontSize) : 0;
-        var fgContent = fgText ? measureStyledWrappedText(ctx, fgText, textWidth, interline, fontSize) : 0;
+        var inkClearance = fillTextArea ? fontSize * 0.25 : 0;
+        var bgContent = bgText ? measureStyledWrappedText(ctx, bgText, textWidth, interline, fontSize) + inkClearance : 0;
+        var fgContent = fgText ? measureStyledWrappedText(ctx, fgText, textWidth, interline, fontSize) + inkClearance : 0;
         return {
           bgContent: bgContent,
           fgContent: fgContent,
@@ -310,6 +377,18 @@
       }
       if (ctx.fsStrict && overBudget()) throw new Error('Боевой текст не помещается на карте');
 
+      if (fillTextArea) {
+        var spare = Math.max(0, maxTextH - p.bg - p.fg);
+        if (bgText && fgText) { p.bg += spare / 2; p.fg += spare / 2; }
+        else if (bgText) p.bg += spare;
+        else p.fg += spare;
+        // The decorative panel PNGs contain transparent pixels. Put clean
+        // parchment underneath their full area rather than exposing baked text.
+        var sourceTop = COMBAT_LAYOUT.backgroundDecoSrcPx;
+        ctx.drawImage(backgroundImg, 0, sourceTop, backgroundImg.width, backgroundImg.height - sourceTop,
+          0, ch - maxTextH, cw, maxTextH);
+      }
+
       var fgPanel = fgText ? {
         y: ch - p.fg, h: p.fg, decoH: fgDecoH, contentH: p.fgContent, bottomClear: bottomH,
       } : null;
@@ -320,6 +399,14 @@
         bottomClear: fgPanel ? 0 : bottomH,
       } : null;
 
+      if (data.template?.combatArt) {
+        var panelTop = bgPanel ? bgPanel.y : fgPanel.y;
+        // Decorative PNG headers have transparent pixels. Cover their entire
+        // height underneath before painting them, so no erased strip shows.
+        var join = panelTop + (bgPanel ? bgDecoH : fgDecoH) + 1;
+        coverArtwork(ctx, picture, data.template.combatArt, join);
+        ctx.fsCombatJoin = {panelTopPx:panelTop,upperBottomPx:join,decorativeBottomPx:join-1};
+      }
       if (bgPanel) drawStretchPanel(ctx, backgroundImg, bgPanel.y, bgPanel.drawH, COMBAT_LAYOUT.backgroundDecoSrcPx);
       if (fgPanel) drawStretchPanel(ctx, foregroundImg, fgPanel.y, fgPanel.h,     COMBAT_LAYOUT.foregroundDecoSrcPx);
 
@@ -331,8 +418,40 @@
 
       if (bgPanel) drawStyledWrappedText(ctx, bgText, textMarginX, textY(bgPanel), textWidth, interline, fontSize, 'left');
       if (fgPanel) drawStyledWrappedText(ctx, fgText, textMarginX, textY(fgPanel), textWidth, interline, fontSize, 'left');
+
+      var bounds = function (panel) {
+        return panel ? { topPx: panel.y, heightPx: panel.h, textTopPx: textY(panel),
+          textBottomPx: textY(panel) + panel.contentH, innerTopPx: panel.y + panel.decoH,
+          innerBottomPx: panel.y + panel.h - panel.bottomClear } : null;
+      };
+      ctx.fsCombatPanels = { general: bounds(bgPanel), unit: bounds(fgPanel),
+        fontSizePx: fontSize, coveredTopPx: fillTextArea ? ch - maxTextH : null };
     }
 
+    return bottomH;
+  }
+
+  async function drawCombatCard(data, ctx) {
+    var cw = ctx.canvas.width, ch = ctx.canvas.height;
+    var iconSz = cw * COMBAT_LAYOUT.iconSizeRatio, iconSp = cw * COMBAT_LAYOUT.iconSpacingRatio;
+    var iconXPos = cw * COMBAT_LAYOUT.iconX, iconStartYPos = ch * COMBAT_LAYOUT.iconStartY;
+    var iconChars = String(data.icons || '').split('').map(function (c) { return iconMap[c.toUpperCase()]; }).filter(Boolean);
+    var resources = await Promise.all([
+      loadCardPicture(data), loadImage('pictures/background.png'),
+      loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),
+    ].concat(iconChars.map(loadImage)));
+    var picture = resources[0], bottomImg = resources[3], iconImgs = resources.slice(4);
+    ctx.drawImage(picture, 0, 0, cw, ch);
+    ctx.font = (ch * COMBAT_LAYOUT.titleFontSizeRatio) + 'px Headline';
+    if (ctx.fsStrict) {
+      var titleSize = ch * COMBAT_LAYOUT.titleFontSizeRatio;
+      while (ctx.measureText(data.title || '').width > cw * 0.69) {
+        titleSize *= 0.95; ctx.font = titleSize + 'px Headline';
+      }
+    }
+    ctx.textAlign = 'left';
+    ctx.fillText(data.title || '', cw * COMBAT_LAYOUT.titleX, ch * (data.template?.titleY || COMBAT_LAYOUT.titleY));
+    var bottomH = drawCombatEffects(data, ctx, picture, resources.slice(1, 4), false);
     var iy = iconStartYPos;
     for (var i = 0; i < iconImgs.length; i++) {
       ctx.drawImage(iconImgs[i], iconXPos, iy, iconSz, iconSz);
@@ -358,11 +477,11 @@
     var titleY     = ch * 0.2325;
     var textMaxW   = cw - 2 * marginW;
 
-    var picture = await loadImage(data.picture);
+    var picture = await loadCardPicture(data);
     var general = data.hasText ? replaceForbiddenStarsElements(data.general || '') : '';
     var title = data.title || '';
 
-    if (general) {
+    if (general && !data.template?.body) {
       var textH = measureStyledWrappedText(ctx, general, textMaxW, interline, fontSize);
       var guard = 0;
       // English: returnHeight += lineHeight*2 + 2*margin  (extra=0).
@@ -380,7 +499,8 @@
     drawOrderTitle(ctx, title, cw * 0.5, titleY, titleMaxW, ch * 0.05, ch * 0.022);
 
     if (general) {
-      drawStyledWrappedText(ctx, general, cw * 0.5, textPosY, textMaxW, interline, fontSize, 'center');
+      if(data.template?.body)drawBodyTextBox(ctx,general,data.template.body);
+      else drawStyledWrappedText(ctx, general, cw * 0.5, textPosY, textMaxW, interline, fontSize, 'center');
     }
   }
 
@@ -446,11 +566,11 @@
     var tfSize     = ch * 0.05;
     var textMaxW   = cw - 2 * mw;
 
-    var picture = await loadImage(data.picture);
+    var picture = await loadCardPicture(data);
     var general = data.hasText ? replaceForbiddenStarsElements(data.general || '') : '';
 
     var textH = 0;
-    if (general) {
+    if (general && !data.template?.body) {
       textH = measureStyledWrappedText(ctx, general, textMaxW, interline, fontSize);
       var guard = 0;
       while (textH > maxFieldsH && guard < 80) {
@@ -465,7 +585,8 @@
     ctx.drawImage(picture, 0, 0, cw, ch);
     ctx.font = 'bold ' + (tfSize * 0.8) + 'px EventFont';
     ctx.textAlign = 'center';
-    ctx.fillText(data.type || '', cw * 0.5, ch * 0.573);
+    if (data.template?.eventType) drawEventType(ctx,data.type || '',data.template.eventType);
+    else ctx.fillText(data.type || '', cw * 0.5, ch * 0.573);
     ctx.font = tfSize + 'px Headline';
     ctx.textAlign = 'left';
     if (ctx.fsStrict) {
@@ -474,10 +595,11 @@
         eventTitleSize *= 0.95; ctx.font = eventTitleSize + 'px Headline';
       }
     }
-    ctx.fillText(data.title || '', cw * 0.05, ch * 0.0735);
+    ctx.fillText(data.title || '', cw * 0.05, ch * (data.template?.titleY || 0.0735));
 
     if (general) {
-      drawStyledWrappedText(ctx, general, mw, textPosY, textMaxW, interline, fontSize, 'left');
+      if(data.template?.body)drawBodyTextBox(ctx,general,data.template.body);
+      else drawStyledWrappedText(ctx, general, mw, textPosY, textMaxW, interline, fontSize, 'left');
     }
   }
 
@@ -518,14 +640,24 @@
   async function drawRasterTranslation(data, ctx) {
     var picture = await loadImage(data.picture);
     ctx.drawImage(picture, 0, 0, ctx.canvas.width, ctx.canvas.height);
+    if (data.kind === 'combat' && !data.regions) {
+      drawTextRegion(ctx, { box: [.28,.075,.57,.063], value: data.title, font: 'Headline', size: .044, fill: '#e9dfb6' }, data.wording);
+      var panels = await Promise.all([
+        loadImage('pictures/background.png'), loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),
+      ]);
+      var bottomH = drawCombatEffects(data, ctx, picture, panels, true);
+      ctx.drawImage(panels[2], 0, 0, panels[2].width, panels[2].height,
+        0, ctx.canvas.height - bottomH, ctx.canvas.width, bottomH);
+      return;
+    }
     var regions = data.regions;
     if (!regions) {
-      var combat = data.kind === 'combat', order = data.kind === 'orders';
+      var order = data.kind === 'orders';
       regions = [
-        { box: combat ? [.28,.075,.57,.063] : order ? [.26,.205,.53,.052] : [.075,.052,.65,.046],
+        { box: order ? [.26,.205,.53,.052] : [.075,.052,.65,.046],
           value: data.title, font: 'Headline', size: .044, align: order ? 'center' : 'left', fill: order ? '#fff9d9' : '#e9dfb6' },
-        { box: combat ? [0,.60,1,.36] : order ? [.155,.54,.69,.275] : [.08,.673,.84,.231],
-          value: combat ? [data.background, data.foreground].filter(Boolean).join(' *newpara* ') : data.general,
+        { box: order ? [.155,.54,.69,.275] : [.08,.673,.84,.231],
+          value: data.general,
           size: .03, fill: '#eee5bc' },
       ];
       if (data.kind === 'events') regions.push({box:[.17,.525,.66,.047],value:data.type,font:'EventFont',size:.035,align:'center',fill:'#e9dfb6'});
@@ -556,17 +688,18 @@
     var width = options.width || card.width || maxWidth, height = options.height || card.height || maxHeight;
     if (card.kind === 'overlay' && card.text && card.text.aspect) height = Math.round(width / card.text.aspect);
     var strict = !!options.strict;
+    var rejectOnError = strict || !!options.rejectOnError;
     var wording = card.wording || 'explicit';
     var thumbnail = !strict && !!card.thumbnail;
     var picture = strict ? card.src : (card.picture || card.src);
-    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, card.text]);
+    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, card.text, card.template]);
     var cached = !strict && _composed.get(key);
     if (cached) return cached;
     var fn = card.text && card.text.raster ? drawRasterTranslation : DRAW[card.kind];
-    if (strict && (!fn || !card.text || !card.text.title)) return Promise.reject(new Error('Нет русского текста: ' + card.src));
+    if (rejectOnError && (!fn || !card.text || !card.text.title)) return Promise.reject(new Error('Нет русского текста: ' + card.src));
     if (!fn || !card.text) return Promise.resolve(card.src);
 
-    var ready = strict ? Promise.all(['ForbiddenStars', 'Headline', 'EventFont'].map(function (name) {
+    var ready = rejectOnError ? Promise.all(['ForbiddenStars', 'Headline', 'EventFont'].map(function (name) {
       if (!document.fonts) throw new Error('Браузер не поддерживает проверку шрифтов');
       return document.fonts.load('16px ' + name).then(function (faces) {
         if (!faces.length || !document.fonts.check('16px ' + name)) throw new Error('Не загружен шрифт ' + name);
@@ -580,6 +713,7 @@
       ctx.fsStrict = strict;
       var format = function (text) { return window.FSWord.format(text, wording); };
       var data = {
+        template:   card.template,
         picture:    picture,
         hasText:    true,
         title:      card.text.title      || '',
@@ -593,12 +727,19 @@
         wording:    wording,
       };
       return fn(data, ctx).then(function () {
-        if (options.onMetrics) options.onMetrics({minimumBodyPx: ctx.fsMinimumBodyPx});
+        if (options.onMetrics) {
+          var metrics = {minimumBodyPx:ctx.fsMinimumBodyPx};
+          if (ctx.fsCombatPanels) metrics.combatPanels=ctx.fsCombatPanels;
+          if (ctx.fsCombatJoin) metrics.combatJoin=ctx.fsCombatJoin;
+          if (ctx.fsEventType) metrics.eventType=ctx.fsEventType;
+          if (ctx.fsBodyTextBox) metrics.bodyTextBox=ctx.fsBodyTextBox;
+          options.onMetrics(metrics);
+        }
         return thumbnail ? canvas.toDataURL('image/jpeg', 0.84) : canvas.toDataURL('image/png');
       });
     }).catch(function (e) {
       _composed.delete(key);
-      if (strict) throw e;
+      if (rejectOnError) throw e;
       console.error('compose failed for ' + card.src, e);
       return card.src;
     });
