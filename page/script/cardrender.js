@@ -12,7 +12,7 @@
  *   text (orders):  { title, general }
  *   text (events):  { title, general, type }
  *   Optional template: { patches:[{box:[x,y,w,h],texture:{src,crop:[x,y,w,h]}}],
- *                        titleY?, eventType?:{box:[x,y,w,h]}, body?:{box:[x,y,w,h],align},
+ *                        picture?, titleY?, titleMaxWidth?, eventType?:{box:[x,y,w,h]}, body?:{box:[x,y,w,h],align},
  *                        combatArt?:{crop:[x,y,w,h],box:[x,y,w],rail?:{crop:[x,y,w,h],top}} }
  *   Template coordinates are fractions of native images/canvas. Clean patches
  *   let approved raster cards reuse the text renderer without changing assets.
@@ -116,7 +116,7 @@
       if (!p.trim() || p === PARA) return [];
       if (p.trim() === '-или-') return [{ text: '-или-', italic: true, glue: true }];
       var ci = p.indexOf(':');
-      if (ci !== -1) {
+      if (ci !== -1 && ctx.fsItalicPrefixes !== false) {
         var before = p.slice(0, ci).replace(/\s+$/, '');
         var after  = p.slice(ci + 1).replace(/^\s+/, '');
         var toks = [];
@@ -254,7 +254,7 @@
   // asset; the original raster sources stay intact.
   // This prepares a background only. Rules, wrapping and symbols still use DRAW.
   async function loadCardPicture(data) {
-    var picture = await loadImage(data.picture);
+    var picture = await loadImage(data.template?.picture || data.picture);
     if (!data.template) return picture;
     var canvas = document.createElement('canvas');
     canvas.width = picture.width; canvas.height = picture.height;
@@ -324,6 +324,8 @@
   }
 
   function drawBodyTextBox(ctx, text, region) {
+    var previousPrefixes=ctx.fsItalicPrefixes;
+    if(region.italicPrefixes===false)ctx.fsItalicPrefixes=false;
     var b=region.box,cw=ctx.canvas.width,ch=ctx.canvas.height;
     var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
     var size=ch*.03,interline=size*.257,height;
@@ -337,6 +339,7 @@
     drawStyledWrappedText(ctx,text,align==='center'?box.x+box.width/2:box.x,
       box.y,box.width,interline,size,align);
     ctx.fsBodyTextBox={box:box,inkBottomPx:box.y+height+size*.25,fontSizePx:size};
+    ctx.fsItalicPrefixes=previousPrefixes;
   }
 
   // ---- card draw functions ----
@@ -461,9 +464,9 @@
     var picture = resources[0], bottomImg = resources[3], iconImgs = resources.slice(4);
     ctx.drawImage(picture, 0, 0, cw, ch);
     ctx.font = (ch * COMBAT_LAYOUT.titleFontSizeRatio) + 'px Headline';
-    if (ctx.fsStrict) {
+    if (ctx.fsStrict || data.template) {
       var titleSize = ch * COMBAT_LAYOUT.titleFontSizeRatio;
-      while (ctx.measureText(data.title || '').width > cw * 0.69) {
+      while (ctx.measureText(data.title || '').width > cw * (data.template?.titleMaxWidth || 0.69)) {
         titleSize *= 0.95; ctx.font = titleSize + 'px Headline';
       }
     }
@@ -607,9 +610,9 @@
     else ctx.fillText(data.type || '', cw * 0.5, ch * 0.573);
     ctx.font = tfSize + 'px Headline';
     ctx.textAlign = 'left';
-    if (ctx.fsStrict) {
+    if (ctx.fsStrict || data.template) {
       var eventTitleSize = tfSize;
-      while (ctx.measureText(data.title || '').width > cw * 0.9) {
+      while (ctx.measureText(data.title || '').width > cw * (data.template?.titleMaxWidth || 0.9)) {
         eventTitleSize *= 0.95; ctx.font = eventTitleSize + 'px Headline';
       }
     }

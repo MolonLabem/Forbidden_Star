@@ -157,9 +157,9 @@ const card = (category, file) => faction + category + '&card=' + encodeURICompon
 
     const raster = await context({ width: 1280, height: 900 });
     let rawMissing = true;
-    await raster.page.route('**/factions/base/ork/orders/o_1.jpg', route => rawMissing ? route.fulfill({ status: 404, body: '' }) : route.continue());
+    await raster.page.route('**/factions/base/ork/backs/order.jpg', route => rawMissing ? route.fulfill({ status: 404, body: '' }) : route.continue());
     await check('raster image failures offer retry and recover the native image without stretching', async () => {
-      await raster.page.goto(base + '#exp=base&faction=ork&category=orders&card=factions%2Fbase%2Fork%2Forders%2Fo_1.jpg');
+      await raster.page.goto(base + '#exp=base&faction=ork&category=backs&card=factions%2Fbase%2Fork%2Fbacks%2Forder.jpg');
       await raster.page.locator('.fs-lb-imgwrap.is-error').waitFor();
       assert.equal(await raster.page.locator('.fs-lb img').evaluate(img => getComputedStyle(img).visibility), 'hidden');
       rawMissing = false;
@@ -168,7 +168,7 @@ const card = (category, file) => faction + category + '&card=' + encodeURICompon
         const b = img.getBoundingClientRect();
         return { src: img.getAttribute('src'), ratio: img.naturalWidth / img.naturalHeight, displayedRatio: b.width / b.height };
       });
-      assert.equal(native.src, 'factions/base/ork/orders/o_1.jpg');
+      assert.equal(native.src, 'factions/base/ork/backs/order.jpg');
       assert.ok(Math.abs(native.ratio - native.displayedRatio) < .001);
     });
     await check('landscape faction sheets keep their aspect ratio and fit beside the text panel', async () => {

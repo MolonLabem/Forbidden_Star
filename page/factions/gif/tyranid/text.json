@@ -1,10 +1,2467 @@
 {
-    "materialsText": [
-        { "label": "Гаунты", "value": "6" },
-        { "label": "Пожиратели", "value": "6" },
-        { "label": "Воины", "value": "6" },
-        { "label": "Карнифексы", "value": "3" },
-        { "label": "Корабли-Ульи", "value": "3" },
-        { "label": "Био-Титаны", "value": "3" }
+  "materialsText": [
+    {
+      "label": "Гаунты",
+      "value": "6"
+    },
+    {
+      "label": "Пожиратели",
+      "value": "6"
+    },
+    {
+      "label": "Воины",
+      "value": "6"
+    },
+    {
+      "label": "Карнифексы",
+      "value": "3"
+    },
+    {
+      "label": "Корабли-Ульи",
+      "value": "3"
+    },
+    {
+      "label": "Био-Титаны",
+      "value": "3"
+    }
+  ],
+  "templates": {
+    "combat/s1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6837,
+            1,
+            0.3013
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5337
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6187,
+            0.23,
+            0.025
+          ],
+          "top": 0.6757
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.7632,
+            1,
+            0.2218
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.6132
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6981999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.7552
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6181,
+            1,
+            0.3669
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.46809999999999996
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5530999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.6101
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6727,
+            1,
+            0.3123
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5226999999999999
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6076999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.6647
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.7648,
+            1,
+            0.22019999999999995
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.6148
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6998,
+            0.23,
+            0.025
+          ],
+          "top": 0.7568
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5916,
+            1,
+            0.39339999999999997
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4416
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5266,
+            0.23,
+            0.025
+          ],
+          "top": 0.5836
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6493,
+            1,
+            0.3357
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.49929999999999997
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5843,
+            0.23,
+            0.025
+          ],
+          "top": 0.6413
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.055,
+            0.61,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/t0_3.jpg",
+            "crop": [
+              0.8,
+              0.058,
+              0.05,
+              0.06
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6093,
+            1,
+            0.37570000000000003
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.104,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.18,
+          0.77,
+          0.40929999999999994
+        ],
+        "box": [
+          0.23,
+          0.18,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5443,
+            0.23,
+            0.025
+          ],
+          "top": 0.6013
+        }
+      },
+      "titleMaxWidth": 0.61
+    },
+    "combat/t0_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5807,
+            1,
+            0.4043
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.43069999999999997
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5157,
+            0.23,
+            0.025
+          ],
+          "top": 0.5727
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5979,
+            1,
+            0.3871
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.44789999999999996
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5328999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.5899
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6493,
+            1,
+            0.3357
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.49929999999999997
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5843,
+            0.23,
+            0.025
+          ],
+          "top": 0.6413
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5947,
+            1,
+            0.3903
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4447
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5297000000000001,
+            0.23,
+            0.025
+          ],
+          "top": 0.5867
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t3_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6057,
+            1,
+            0.37929999999999997
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4557
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5407,
+            0.23,
+            0.025
+          ],
+          "top": 0.5977
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t3_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6369,
+            1,
+            0.34809999999999997
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4869
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5719000000000001,
+            0.23,
+            0.025
+          ],
+          "top": 0.6289
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "orders/o_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "events/e_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_2.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_3.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_4.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_5.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_6.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_6.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_7.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_7.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_8.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/tyranid/events/e_8.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-tyranid-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    }
+  },
+  "combatText": [
+    [
+      {
+        "title": "Иглогаунты",
+        "general": "Получите 1 (S).",
+        "unit": "Гаунт/Пожиратель: Уничтожьте 1 недеморализованного Гаунта или Пожирателя, чтобы получить 3 (B).",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s1.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Культ Генокрадов",
+        "general": "",
+        "unit": "Гаунт/Пожиратель: Ваш противник должен потерять 1 куб из тех, которых у него больше всего. При равенстве, вы выбираете какой. Получите 1 куб такого же типа.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Тиран Улья",
+        "general": "Разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
+        "unit": "Воин/Корабль-Улей: Восстановите 1 ваш отряд. Потратьте 1 [M], чтобы получить 1 [B] или 1 [S].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s3.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Туннель",
+        "general": "Если вы атакуете, получите 2 (S). *newline* Если вы защищаетесь, либо бесплатно разместите 1 жетон подкрепления в эту область, либо уничтожьте 2 недеморализованных Гаунта, чтобы разместить бастион в этом мире, если он еще не содержит постройку.",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s4.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Тираноциты",
+        "general": "Уничтожьте 1 недеморализованного Пожирателя в этой системе, чтобы бесплатно разместить 1 Воина в этот мир, затем получите 2 [D].",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s5.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Шрайки",
+        "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 3 (B).",
+        "unit": "Воин/Пожиратель: Ваш противник может позволить вам получить 2 (S). Если он этого не сделал, то увеличьте значение вашей атаки в следующем раунде битвы на 2.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_1.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Орда Потрошителей",
+        "general": "Получите 2 (B).",
+        "unit": "Гаунт/Пожиратель: В конце этого раунда битвы получите по 1 материалу за каждый уничтоженный отряд, но не более 2.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Термагаунты",
+        "general": "Либо получите 1 (B) за каждого недеморализованного Гаунта или Пожирателя, либо бесплатно разместите 1 жетон подкрепления в эту область. *newline* Уменьшите значение получаемого вами урона в следующем раунде битвы на 1 за каждого убитого или деморализованного Гаунта или Пожирателя в этом раунде.",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_3.jpg",
+        "aspect": 0.724910394265233,
+        "icons": ""
+      },
+      {
+        "title": "Воины",
+        "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 2 (S), и уменьшить значение получаемого вами повреждения в следующем раунде битвы на 2.",
+        "unit": "Воин/Корабль-Улей: Перебросьте все ваши [B], [S], или [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_4.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Вопящий Убийца",
+        "general": "В течение этого раунда боя, если ваш противник будет распределять какой-либо урон, он должен распределить дополнительно 3 урона.",
+        "unit": "Карнифекс/Корабль-Улей: Уничтожьте 1 недеморализованный Карнифекс или Корабль-Улей, чтобы получить 3 (B) и 2 (S).",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t2_1.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Камнедробитель",
+        "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 3 (B).",
+        "unit": "Карнифекс/Корабль-Улей: Потратьте 1 [B] или 1 [M], чтобы вынудить противника потерять 2 [S].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t2_2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Лорд Роя",
+        "general": "Получите 1 [D]. *newline* Бесплатно разместите 1 жетон подкрепления в эту область.",
+        "unit": "Воин/Корабль-Улей: Восстановите 1 ваш отряд. *newline* Получите 1 (B) или 1 (S) за каждый ваш недеморализованный отряд, превышающий общее число недеморализованных отрядов противника.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t2_3.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Доминатрикс",
+        "general": "Потратьте любое количество [M]. *newline* Получите 1 [B] или 1 [S] за каждый потраченный [M].",
+        "unit": "Био-Титан/Корабль-Улей: Восстановите все ваши отряды. *newline* Во время шага нанесения повреждений вы выбираете порядок, в котором отряды и бастион противника получают повреждения в этом раунде боя.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t3_1.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Иерофант",
+        "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 3 (B) или 3 (S).",
+        "unit": "Био-Титан/Корабль-Улей: Ваш противник трижды выбирает либо потерять 1 куб на свой выбор, либо выбрать и деморализовать 1 свой отряд.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t3_2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
     ]
+  ],
+  "ordersText": [
+    {
+      "title": "Рой",
+      "general": "Во время выполнения этого приказа, если в активной системе есть хотя бы 1 ваш недеморализованный корабль, вы можете бесплатно разместить 1 жетон подкрепления в оспариваемую область в начале фазы вызова подкреплений. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/orders/o_1.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Ульи-Фабрики",
+      "general": "После выполнения этого приказа вы можете купить до 2 отрядов за каждый недеморализованный Корабль-Улей в активной системе и разместить их на любых дружественных или неконтролируемых мирах в активной системе. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/orders/o_2.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Капиллярные Башни",
+      "general": "После выполнения этого приказа вы можете уничтожить любые ваши наземные отряды и постройки в одном мире активной системы для получения материалов, равных их стоимости. Купите любые корабли в этой системе, используя только полученные материалы и жетоны кузниц. Города, уничтоженные таким образом, сохраняют ваш командный уровень до конца выполнения этого приказа. Оставшиеся материалы, полученные этим действием, теряются. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/orders/o_3.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Проникновение Генокрадов",
+      "general": "Во время выполнения этого орбитального удара получите 1 [D], и вы можете потратить до 2 [B], чтобы получить 1 жетон подкрепления за каждый потраченный [B]. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/orders/o_4.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Споры Мицелия",
+      "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара вы можете потратить до 2 [B], за каждый участвующий Корабль-Улей. За каждый сброшенный [B], купите 1 отряд с командным уровнем 0-2. Разместите эти отряды в атакованном мире. Это может привести к началу новой битвы после выполнения этого орбитального удара. *newline* ОДИН РАЗ ЗА РАУНД. *newline* ТРЕБУЕТ УЛЬИ-ФАБРИКИ.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/orders/o_5.jpg",
+      "aspect": 0.7051482059282371
+    }
+  ],
+  "eventsText": [
+    {
+      "title": "Туннели Трайгона",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Вместо раскрытия одного из ваших приказов в фазу Действий вы можете сбросить эту карту, чтобы бесплатно разместить 1 бастион в любом дружественном мире, если он еще не содержит постройку.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_1.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Пищеварительные Бассейны",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Перед раскрытием одного из ваших приказов в фазу Действий вы можете сбросить эту карту, чтобы бесплатно разместить по 1 Гаунту в двух разных дружественных мирах.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_2.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Разум Улья",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время выполнения одного из ваших приказов в фазу Действий вы можете сбросить эту карту. В течение этого приказа, каждый ваш Корабль-Улей в игре повышает ваш командный уровень на 1.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_3.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Тень в Варпе",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале битвы, где вы - атакующий, вы можете сбросить эту карту. Ваш противник не может использовать жетоны подкреплений во время этой битвы.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_4.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Генетические Манипуляции",
+      "general": "Получите 2 жетона кузницы.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_5.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Пожиратели Миров",
+      "general": "Выберите систему. Получите материалы, равные производственному значению каждого дружественного мира в этой системе.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_6.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Ликторы-Разведчики",
+      "general": "Купите 1 боевое улучшение. Его стоимость в материалах уменьшается на 1 за каждый Корабль-Улей под вашим контролем.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_7.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Осколки Флота",
+      "general": "Бесплатно разместите 1 Пожирателя в любой дружественной пустоте.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/events/e_8.jpg",
+      "aspect": 0.7051482059282371
+    }
+  ],
+  "wordingSource": {
+    "kind": "current-russian-raster",
+    "revision": "7a9a58bf2284863250f7d4284e292a7c18315a4e",
+    "imageSha256": {
+      "combat/s1.jpg": "4e4b784071c7f1237027da037573750609c8caa097b76aeb83fffd3c2f599973",
+      "combat/s2.jpg": "7710d9fc9a42e3018dbbb6037614c40e7b39448646b3faffac9fc2a02ba5ca63",
+      "combat/s3.jpg": "a38f7cd22d9c3094188eef0bdec27db4a8c3deef9a595aa5f2dae42d104c3195",
+      "combat/s4.jpg": "f8ff84c22f623daa1aac948e0018a368064eb4422d1cb38ce672a21bdad38e64",
+      "combat/s5.jpg": "8eaeeb1d28d07a6eef10d0ad5fea3d26b8e024d477cc937b77a33fa44649e4a5",
+      "combat/t0_1.jpg": "4c4beda594b89bd76647d7e1a0e6d3308490e3d0d9e94f1252958b4fc82d678a",
+      "combat/t0_2.jpg": "92a75d626360aee8cb2d2e62060dd779bf90142cbc93466f6a95d5c58726ab26",
+      "combat/t0_3.jpg": "49bb5cd1b7f4efad142ad94a528bf2fc6d77a18bb38bd066e3b057ec59afddb9",
+      "combat/t0_4.jpg": "b5ee43ec9f8a23fde485b9c272275263cb9ab57d33f2ba558edb3772c94a839a",
+      "combat/t2_1.jpg": "fba95e78191ae3c809878f110173b216ba40f6d1eb7cbeaaf99a29246432e6ca",
+      "combat/t2_2.jpg": "3a814e1aa2c4f7ff2bd7da18a865b2e5c98651f823b9f1845a8e6234502560eb",
+      "combat/t2_3.jpg": "c72ff71c9e48c17ecf3f10d92888cf861ea150f5b919805733748ac30d70470c",
+      "combat/t3_1.jpg": "d7c82cdcd7906775771e1f67f9026a363fbb85fae28174a40aa2207391d3a3a1",
+      "combat/t3_2.jpg": "ef3ca7c8058373d237da2070f99f0574c55901a736cf2972e2973b00ba339491",
+      "orders/o_1.jpg": "95bc07b855b5db3ae56146cd4612a51e9e9c086b6664f898905d64030ddcb4b4",
+      "orders/o_2.jpg": "3b85185b809960f11cfd0be11d31e7d3ab5469dd3b2afb9702fd0a78cc089a90",
+      "orders/o_3.jpg": "873f4a1a3c37beddadf2b378c2c9c9504c7903e440ee2bad1bb2eb98552be11f",
+      "orders/o_4.jpg": "e2fc216b7fa5afeaff197682baf7929eb8fcb4c1331729ef73a523e9242ffd78",
+      "orders/o_5.jpg": "34fcc107d2bd647bf46c7e1e79cf768ee5744d6659ea29532e2f65464bc624b8",
+      "events/e_1.jpg": "ab9c5647e0318521432de081082a0cd20c11dd47acaabc8d82b67be2f7aaa00a",
+      "events/e_2.jpg": "a90b50c773b5e076906b40c192e2b1c78f14130fe67a1b8587e076ffac4b83b0",
+      "events/e_3.jpg": "2f46d6864247e682401ec4b84e6b892e62f439953a3b951ce97c7499ea69ae45",
+      "events/e_4.jpg": "c497cdcb161e0cc48cdfebb7caa12f9b7d39dd339caffc003315f0e7b9c3cff8",
+      "events/e_5.jpg": "2ea956092d8b929f2b77807d937a7c600589b0d1c6019f73776571149a20cb70",
+      "events/e_6.jpg": "c75cd17046ac2eeaa45c6fd97cda15c8dc763e959a1b55231a049608d74d6238",
+      "events/e_7.jpg": "64cc7d970c78fc4c7d6f054b373715206960b63d0f34832177c6bd2593e8062b",
+      "events/e_8.jpg": "c82e191df11987aada1f6d55e529d6a7c772e515f18655da7a748294abce7348"
+    },
+    "imageDimensions": {
+      "combat/s1.jpg": [
+        452,
+        641
+      ],
+      "combat/s2.jpg": [
+        452,
+        641
+      ],
+      "combat/s3.jpg": [
+        452,
+        641
+      ],
+      "combat/s4.jpg": [
+        452,
+        641
+      ],
+      "combat/s5.jpg": [
+        452,
+        641
+      ],
+      "combat/t0_1.jpg": [
+        452,
+        641
+      ],
+      "combat/t0_2.jpg": [
+        452,
+        641
+      ],
+      "combat/t0_3.jpg": [
+        809,
+        1116
+      ],
+      "combat/t0_4.jpg": [
+        452,
+        641
+      ],
+      "combat/t2_1.jpg": [
+        452,
+        641
+      ],
+      "combat/t2_2.jpg": [
+        452,
+        641
+      ],
+      "combat/t2_3.jpg": [
+        452,
+        641
+      ],
+      "combat/t3_1.jpg": [
+        452,
+        641
+      ],
+      "combat/t3_2.jpg": [
+        452,
+        641
+      ],
+      "orders/o_1.jpg": [
+        452,
+        641
+      ],
+      "orders/o_2.jpg": [
+        452,
+        641
+      ],
+      "orders/o_3.jpg": [
+        452,
+        641
+      ],
+      "orders/o_4.jpg": [
+        452,
+        641
+      ],
+      "orders/o_5.jpg": [
+        452,
+        641
+      ],
+      "events/e_1.jpg": [
+        452,
+        641
+      ],
+      "events/e_2.jpg": [
+        452,
+        641
+      ],
+      "events/e_3.jpg": [
+        452,
+        641
+      ],
+      "events/e_4.jpg": [
+        452,
+        641
+      ],
+      "events/e_5.jpg": [
+        452,
+        641
+      ],
+      "events/e_6.jpg": [
+        452,
+        641
+      ],
+      "events/e_7.jpg": [
+        452,
+        641
+      ],
+      "events/e_8.jpg": [
+        452,
+        641
+      ]
+    },
+    "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  }
 }

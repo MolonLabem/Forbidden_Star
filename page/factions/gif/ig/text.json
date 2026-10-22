@@ -1,10 +1,2468 @@
 {
-    "materialsText": [
-        { "label": "Гвардейцы", "value": "12" },
-        { "label": "Крейсеры", "value": "3" },
-        { "label": "Огрины", "value": "6" },
-        { "label": "Танки Леман Русс", "value": "6" },
-        { "label": "Линкоры", "value": "3" },
-        { "label": "Титаны", "value": "3" }
+  "materialsText": [
+    {
+      "label": "Гвардейцы",
+      "value": "12"
+    },
+    {
+      "label": "Крейсеры",
+      "value": "3"
+    },
+    {
+      "label": "Огрины",
+      "value": "6"
+    },
+    {
+      "label": "Танки Леман Русс",
+      "value": "6"
+    },
+    {
+      "label": "Линкоры",
+      "value": "3"
+    },
+    {
+      "label": "Титаны",
+      "value": "3"
+    }
+  ],
+  "templates": {
+    "combat/s1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.055,
+            0.61,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s1.jpg",
+            "crop": [
+              0.8,
+              0.058,
+              0.05,
+              0.06
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5994,
+            1,
+            0.38559999999999994
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.104,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.18,
+          0.77,
+          0.39940000000000003
+        ],
+        "box": [
+          0.23,
+          0.18,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5344,
+            0.23,
+            0.025
+          ],
+          "top": 0.5914
+        }
+      },
+      "titleMaxWidth": 0.61
+    },
+    "combat/s2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6993,
+            1,
+            0.28569999999999995
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5493
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6343000000000001,
+            0.23,
+            0.025
+          ],
+          "top": 0.6913
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6961,
+            1,
+            0.28889999999999993
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5461
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6311,
+            0.23,
+            0.025
+          ],
+          "top": 0.6881
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6977,
+            1,
+            0.2873
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5477
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6327,
+            0.23,
+            0.025
+          ],
+          "top": 0.6897
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6353,
+            1,
+            0.3497
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.48529999999999995
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5703,
+            0.23,
+            0.025
+          ],
+          "top": 0.6273
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6275,
+            1,
+            0.35750000000000004
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4774999999999999
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5625,
+            0.23,
+            0.025
+          ],
+          "top": 0.6194999999999999
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6805,
+            1,
+            0.3045
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5305
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6154999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.6725
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6805,
+            1,
+            0.3045
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5305
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6154999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.6725
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.7742,
+            1,
+            0.2108
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.6242
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.7092,
+            0.23,
+            0.025
+          ],
+          "top": 0.7662
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6213,
+            1,
+            0.3637
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.47129999999999994
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5563,
+            0.23,
+            0.025
+          ],
+          "top": 0.6133
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.601,
+            1,
+            0.384
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.45099999999999996
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.536,
+            0.23,
+            0.025
+          ],
+          "top": 0.593
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.718,
+            1,
+            0.267
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.568
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.653,
+            0.23,
+            0.025
+          ],
+          "top": 0.71
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t3_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6337,
+            1,
+            0.35129999999999995
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4837
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5687,
+            0.23,
+            0.025
+          ],
+          "top": 0.6257
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t3_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/gif/ig/combat/s2.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6525,
+            1,
+            0.3325
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5025
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5874999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.6445
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "orders/o_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center",
+        "italicPrefixes": false
+      }
+    },
+    "orders/o_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "events/e_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_2.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_3.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_4.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_5.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_6.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_6.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_7.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_7.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_8.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/gif/ig/events/e_8.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/gif-ig-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    }
+  },
+  "combatText": [
+    [
+      {
+        "title": "Тяжелые Расчеты",
+        "general": "Если вы атакуете, то ваш противник должен потерять 2 (S) в начале шага нанесения повреждений. *newline* Если вы защищаетесь, то получите 2 (S).",
+        "unit": "Гвардеец/Крейсер: Перебросьте 1 ваш [S].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s1.jpg",
+        "aspect": 0.724910394265233,
+        "icons": ""
+      },
+      {
+        "title": "За Императора!",
+        "general": "Перебросьте 1 ваш куб.",
+        "unit": "Гвардеец/Крейсер: Получите 1 (B) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Вторжение",
+        "general": "Получите 1 [D].",
+        "unit": "Гвардеец/Крейсер: Получите 1 (S) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s3.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Комиссар",
+        "general": "Получите 1 [D] за каждый тип ваших недеморализованных отрядов.",
+        "unit": "Гвардеец/Крейсер: Восстановите 1 ваш отряд.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s4.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Ратлинги",
+        "general": "Ваш противник теряет 2 (B) в начале шага нанесения повреждений.",
+        "unit": "Гвардеец/Крейсер: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 куб на свой выбор.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s5.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Страж",
+        "general": "Если у вас больше недеморализованных отрядов, чем у противника, то он должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 [M].",
+        "unit": "Огрин/Крейсер: Посмотрите выбранную боевую карту противника. Получите 2 [B] или 2 [S].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_1.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Огрин",
+        "general": "Вы обязаны перебросить 2 ваших [S] или [M] в любой комбинации.",
+        "unit": "Огрин/Крейсер: Получите 1 (S) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Булгрин",
+        "general": "Вы обязаны перебросить 2 ваших [B] или [M] в любой комбинации.",
+        "unit": "Огрин/Крейсер: Получите 1 (B) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_3.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Химера",
+        "general": "За каждую недеморализованную пару: Гвардеец+Огрин или Крейсер+Линкор ваш противник должен потерять 3 (B) или 3 (S) в начале шага нанесения повреждений.",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_4.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Виверна",
+        "general": "Если у вас больше недеморализованных отрядов с командным уровнем 0, чем у вашего противника, то он должен выбрать и деморализовать 1 свой отряд.",
+        "unit": "Леманн Русс/Линкор: Ваш противник должен выбрать и уничтожить 1 свой деморализованный отряд с командным уровнем 0-1.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_1.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Василиск",
+        "general": "Уничтожьте 1 Крейсер, чтобы вынудить противника сбросить 3 куба на свой выбор, либо уничтожьте до 2 Гвардейцев, чтобы вынудить противника сбросить 2 куба на свой выбор за каждый уничтоженный отряд.",
+        "unit": "Леманн Русс/Линкор: Выберите 1 отряд противника с командным уровнем 2-3 или бастион. Этот отряд или бастион получает повреждения первым во время этого шага нанесения повреждений.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Полк",
+        "general": "За каждый тип ваших недеморализованных наземных отрядов получите 1 (B) или 1 (S). За каждый тип ваших недеморализованных кораблей получите 2 (B) или 2 (S). Восстановите 1 деморализованный отряд и получите 1 [D].",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_3.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Наступление Титана",
+        "general": "Ваш противник должен потерять 1 [S].",
+        "unit": "Титан: Получите 2 (B) за каждый тип ваших недеморализованных наземных отрядов, но не более 6. *newline* Линкор: Получите 3 (B) за каждый тип ваших недеморализованных кораблей.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t3_1.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      },
+      {
+        "title": "Поддержка Титана",
+        "general": "Ваш противник обязан перебросить 1 [B] за каждый тип ваших недеморализованных отрядов в этой битве.",
+        "unit": "Титан/Линкор: В этом раунде битвы ваши отряды с командным уровнем 0-2 не могут стать деморализованными.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t3_2.jpg",
+        "aspect": 0.7051482059282371,
+        "icons": ""
+      }
     ]
+  ],
+  "ordersText": [
+    {
+      "title": "Адептус Астрономика",
+      "general": "Во время выполнения этого приказа вы можете переместить до 6 отрядов в мир активной системы, при условии наличия среди них Гвардейца. После выполнения этого приказа вы можете отступить отрядами Гвардейцев, которые превышают вместимость этого мира. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_1.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Миры-Ульи",
+      "general": "Во время выполнения этого приказа любые ваши города считаются фабриками для производства Гвардейцев. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость отрядов дружественных миров, которые содержат города, увеличивается на 2 (максимум 4). Этот бонус вместимости отрядов может быть использован только для Гвардейцев.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_2.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Департамент Муниторум",
+      "general": "После раскрытия этого приказа вы можете купить только 1 улучшение. Затем выполните ограниченный приказ в активной системе на свой выбор: *newline* Развертывание в одной области; *newline* Продвижение из одной области; *newline* Доминирование в одном из миров (способность фракции может быть использована только в этом мире). *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_3.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Ковровая Бомбардировка",
+      "general": "Во время выполнения этого орбитального удара получите 1 [D], и вы можете перевернуть 1 [M] на 1 [B]. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_4.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Вирусная Бомбардировка",
+      "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара понизьте показатели здоровья всех отрядов вашего противника до 3. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_5.jpg",
+      "aspect": 0.7051482059282371
+    }
+  ],
+  "eventsText": [
+    {
+      "title": "Зов Астропатов",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Если вы защищаетесь, вы можете сбросить эту карту, чтобы бесплатно разместить 2 жетона подкрепления в эту область в конце шага вызова подкреплений.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_1.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Орбитальные Лазеры",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Перед началом выполнения орбитального удара вы можете сбросить эту карту. Во время этого орбитального удара добавьте 2 урона.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_2.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Ракетный Удар",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Перед началом битвы на любом мире вы можете сбросить эту карту, чтобы уничтожить 1 отряд с командным уровнем 0-1 или деморализовать 1 отряд с командным уровнем 2 в конце шага нанесения повреждений первого раунда битвы.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_3.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Тактический Гений",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Сбросьте эту карту во время выбора боевой карты в битве, чтобы выбрать любую, еще не разыгранную в этой битве карту из вашей боевой колоды или колоды улучшений.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_4.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Высшее Командование",
+      "general": "Купите 1 боевое улучшение. Его стоимость в материалах уменьшается на 1 за каждый дружественный мир, который содержит фабрику.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_5.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Мир Кузница",
+      "general": "Выберите дружественный мир. Получите ценные ресурсы и материалы, равные производственному значению этого мира.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_6.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Темпестус Сционы",
+      "general": "Выберите и деморализуйте 1 отряд вашего противника с командным уровнем 0-1 в системе, которая содержит хотя бы 1 ваш отряд, или в любой соседней с ней.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_7.jpg",
+      "aspect": 0.7051482059282371
+    },
+    {
+      "title": "Имперская Десятина",
+      "general": "Либо бесплатно разместите до 2 Гвардейцев в любом дружественном мире в системе, которая содержит фабрику, либо бесплатно разместите 1 Гвардейца в любом дружественном мире.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_8.jpg",
+      "aspect": 0.7051482059282371
+    }
+  ],
+  "wordingSource": {
+    "kind": "current-russian-raster",
+    "revision": "7a9a58bf2284863250f7d4284e292a7c18315a4e",
+    "imageSha256": {
+      "combat/s1.jpg": "7be5e9661bc175fe4b66ffb37f07f0316af102ef94bdb24376e5edde6a59f48f",
+      "combat/s2.jpg": "56c92aee5c01b07157b37b9c23d750436bdae616bbd6a8c1ca916211b7704695",
+      "combat/s3.jpg": "4e4b115154f83eee2a50ce5ca3db0a549977f3d0bf51199df76536a59877813a",
+      "combat/s4.jpg": "a17d59cad58e766df56d813480332153034a565eb1c7317b95a14fc2c431ccb2",
+      "combat/s5.jpg": "b7fd745ac6eb9e6ccca7f0cf4011948832e7913415970bef29389dc356b77d9e",
+      "combat/t0_1.jpg": "2a6b9309510bfd390d290c68d74685662c492e62daf8ee442a06f139d83ba98c",
+      "combat/t0_2.jpg": "e05d2cf8e0ce9d8062d6b361079f0041bf16bfb4d73a6ac827053fbf101d0c4a",
+      "combat/t0_3.jpg": "96b1a6688f05d2ddfacdbbe75295d17c2554c3497f5e22d4e69f96c0ae629886",
+      "combat/t0_4.jpg": "11e5fa50fdd1878355a540c10ae909cc4a1cc97279b0a66662ee72612fcc8ac4",
+      "combat/t2_1.jpg": "c20a7845bc2ad1bb9ba5ea262288e4c3d4d5f5f46b57467b370854b0f86952e8",
+      "combat/t2_2.jpg": "5d7418f358adc39add09093c30b15e2232eaa85552c5e001f593cffa21d14c13",
+      "combat/t2_3.jpg": "2fe7cb90e9c1124897492ac470e55edfeb3723ff690da398835320c665a0cfb2",
+      "combat/t3_1.jpg": "dfcbf2408cf605e1e6aab355c54438d1d81e5f2fe67fd3d28cb3f76cecb75573",
+      "combat/t3_2.jpg": "8b86db6329c883eaa0df116396cac87deeed8a139321e501b591606dfc9df13a",
+      "orders/o_1.jpg": "50719fe9c5fafb938a7dc8a8601784da1d0fee32889bfee84485bf45f21213c0",
+      "orders/o_2.jpg": "f15361c3baa8eefd0f84f038797db0e6bd14896135bb5050b3d19f87fe07d0c7",
+      "orders/o_3.jpg": "148a780aa1fa77da93ed55a6338a27b9126d4d25c3bbda9d65dac27b2b0bb2bb",
+      "orders/o_4.jpg": "cc898b57e0eb973cc23694b60ffcc6d98f5793090a71b161d0fdb8292afa8de6",
+      "orders/o_5.jpg": "cfeb2e3b16ca3393ed94a7bb142f2956b195978a13836ef02c91a728a194d0e3",
+      "events/e_1.jpg": "c70eeb3409744399c1900b180abcc038d221b086cb4e9e9db38482d5315b0011",
+      "events/e_2.jpg": "9d01ef1dd296886455b9687da75605a0ca745dcdfe2f12269cec72272948c0f8",
+      "events/e_3.jpg": "ee644d880c9b299385ea44ef5ae3851ed4da4c77a21f18ecfb06e277c17d76de",
+      "events/e_4.jpg": "4caf048fb23cd10dc114ec460623dad2819b37402b6859f432f4300392fc9ee1",
+      "events/e_5.jpg": "177cd00068e60699f3b58d530c07d49e94b7007fe92eba9d9a5e9074193db0d0",
+      "events/e_6.jpg": "71a9e68617315459e899a8f7f5fb1b6d3e3ad6386441250e8ca4a7483e4acaf0",
+      "events/e_7.jpg": "d197cdbe5ad6bc58ee639817945b68a64857fc7c1550750a25d59c6c2abce3eb",
+      "events/e_8.jpg": "d485c05a59c7281351f5212c3afc3675b5d0762efca9d0b9547baaf80090e84b"
+    },
+    "imageDimensions": {
+      "combat/s1.jpg": [
+        809,
+        1116
+      ],
+      "combat/s2.jpg": [
+        452,
+        641
+      ],
+      "combat/s3.jpg": [
+        452,
+        641
+      ],
+      "combat/s4.jpg": [
+        452,
+        641
+      ],
+      "combat/s5.jpg": [
+        452,
+        641
+      ],
+      "combat/t0_1.jpg": [
+        452,
+        641
+      ],
+      "combat/t0_2.jpg": [
+        452,
+        641
+      ],
+      "combat/t0_3.jpg": [
+        452,
+        641
+      ],
+      "combat/t0_4.jpg": [
+        452,
+        641
+      ],
+      "combat/t2_1.jpg": [
+        452,
+        641
+      ],
+      "combat/t2_2.jpg": [
+        452,
+        641
+      ],
+      "combat/t2_3.jpg": [
+        452,
+        641
+      ],
+      "combat/t3_1.jpg": [
+        452,
+        641
+      ],
+      "combat/t3_2.jpg": [
+        452,
+        641
+      ],
+      "orders/o_1.jpg": [
+        452,
+        641
+      ],
+      "orders/o_2.jpg": [
+        452,
+        641
+      ],
+      "orders/o_3.jpg": [
+        452,
+        641
+      ],
+      "orders/o_4.jpg": [
+        452,
+        641
+      ],
+      "orders/o_5.jpg": [
+        452,
+        641
+      ],
+      "events/e_1.jpg": [
+        452,
+        641
+      ],
+      "events/e_2.jpg": [
+        452,
+        641
+      ],
+      "events/e_3.jpg": [
+        452,
+        641
+      ],
+      "events/e_4.jpg": [
+        452,
+        641
+      ],
+      "events/e_5.jpg": [
+        452,
+        641
+      ],
+      "events/e_6.jpg": [
+        452,
+        641
+      ],
+      "events/e_7.jpg": [
+        452,
+        641
+      ],
+      "events/e_8.jpg": [
+        452,
+        641
+      ]
+    },
+    "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  }
 }

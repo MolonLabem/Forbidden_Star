@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "asset": "pictures/templates/base-chaos-event-paper.png",
+      "sha256": "737840d0acf650a01e9ed62586294993f9f9645d1b76e03c85a3ca9bc1a4b639",
+      "role": "clean-event-parchment",
+      "source": "factions/base/chaos/events/e_5.jpg",
+      "sourceSha256": "353936b73a515d63024b9b416c8ebf25fd09071ad5a1322bf2bcea52e6fe5d9f",
+      "tool": "tools/prepare-base-gif-paper.py",
+      "modification": "Native parchment retained; checked printed ink filled from neighbouring parchment. No replacement artwork."
+    },
+    {
+      "asset": "pictures/templates/base-ork-event-paper.png",
+      "sha256": "7014ff8f6441b617de80936234faad262737d896a16617865451d83a5a6ecd4c",
+      "role": "clean-event-parchment",
+      "source": "factions/base/ork/events/e_8.jpg",
+      "sourceSha256": "5142835385d7e6ac0d689e9ec63086cdf09aa48c56ee8d8d9166649a365c4692",
+      "tool": "tools/prepare-base-gif-paper.py",
+      "modification": "Native parchment retained; checked printed ink filled from neighbouring parchment. No replacement artwork."
+    },
+    {
+      "asset": "pictures/templates/base-eldar-event-paper.png",
+      "sha256": "a3a42dfdb7e417b0ee1e4f20e3a3aa9a4b1d7460cc86e7f2d17514968789b63b",
+      "role": "clean-event-parchment",
+      "source": "factions/base/eldar/events/e_8.jpg",
+      "sourceSha256": "6356de492aabb4835b1dac58575e77b1f831f0e15435fde30a8451848e16499d",
+      "tool": "tools/prepare-base-gif-paper.py",
+      "modification": "Native parchment retained; checked printed ink filled from neighbouring parchment. No replacement artwork."
+    },
+    {
+      "asset": "pictures/templates/gif-ig-event-paper.png",
+      "sha256": "cf1c10652409efa14460069bedc7a275a074fb1746b22bda5b9ab1ec1a46c5a6",
+      "role": "clean-event-parchment",
+      "source": "factions/gif/ig/events/e_6.jpg",
+      "sourceSha256": "71a9e68617315459e899a8f7f5fb1b6d3e3ad6386441250e8ca4a7483e4acaf0",
+      "tool": "tools/prepare-base-gif-paper.py",
+      "modification": "Native parchment retained; checked printed ink filled from neighbouring parchment. No replacement artwork."
+    },
+    {
+      "asset": "pictures/templates/gif-necron-event-paper.png",
+      "sha256": "55e4c4b20e59fc57148485026c63b5ff339067ffb74a443a3762aaf967d92759",
+      "role": "clean-event-parchment",
+      "source": "factions/gif/necron/events/e_8.jpg",
+      "sourceSha256": "3b955b35bf566c5adcd5f0b52ee45bac9c0b1ac2a705307e2b603273b992e74a",
+      "tool": "tools/prepare-base-gif-paper.py",
+      "modification": "Native parchment retained; checked printed ink filled from neighbouring parchment. No replacement artwork."
+    },
+    {
+      "asset": "pictures/templates/gif-tyranid-event-paper.png",
+      "sha256": "1c10a75bff9e594b136d4aee59c96f89725603c3e21623196697c55a3c9cbe62",
+      "role": "clean-event-parchment",
+      "source": "factions/gif/tyranid/events/e_5.jpg",
+      "sourceSha256": "2ea956092d8b929f2b77807d937a7c600589b0d1c6019f73776571149a20cb70",
+      "tool": "tools/prepare-base-gif-paper.py",
+      "modification": "Native parchment retained; checked printed ink filled from neighbouring parchment. No replacement artwork."
+    },
+    {
+      "asset": "pictures/templates/tau/gif__tau__combat__s1.jpg",
+      "sha256": "c31fb411928eb965f6553a4e9997fef12a97103f55f1f6aa95c2ce401ba47aed",
+      "role": "approved-tau-sample-template-and-paper-donor",
+      "source": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/gif/tau/combat/s1.jpg",
+      "sourceSha256": "c31fb411928eb965f6553a4e9997fef12a97103f55f1f6aa95c2ce401ba47aed",
+      "nativeDimensions": [
+        816,
+        1110
+      ],
+      "modification": "Byte-identical image used by the five approved Tau samples; text comes only from current Russian images. This is a card face, not a clean artwork master."
+    },
+    {
+      "asset": "pictures/templates/tau/gif__tau__combat__t3_1.jpg",
+      "sha256": "9c6965942a514741136c446aefd1be78c39866b4e3e66d64dfb95e9f8a98912a",
+      "role": "approved-tau-sample-template-and-paper-donor",
+      "source": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/gif/tau/combat/t3_1.jpg",
+      "sourceSha256": "9c6965942a514741136c446aefd1be78c39866b4e3e66d64dfb95e9f8a98912a",
+      "nativeDimensions": [
+        816,
+        1110
+      ],
+      "modification": "Byte-identical image used by the five approved Tau samples; text comes only from current Russian images. This is a card face, not a clean artwork master."
+    },
+    {
+      "asset": "pictures/templates/tau/gif__tau__events__e_1.jpg",
+      "sha256": "6d56933a91da5625b6a1afeba16b27c423707db855ba3c1d1d3462fe786ecd1e",
+      "role": "approved-tau-sample-template-and-paper-donor",
+      "source": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/gif/tau/events/e_1.jpg",
+      "sourceSha256": "6d56933a91da5625b6a1afeba16b27c423707db855ba3c1d1d3462fe786ecd1e",
+      "nativeDimensions": [
+        816,
+        1110
+      ],
+      "modification": "Byte-identical image used by the five approved Tau samples; text comes only from current Russian images. This is a card face, not a clean artwork master."
+    },
+    {
+      "asset": "pictures/templates/tau/gif__tau__orders__o_1.jpg",
+      "sha256": "d53dc083bef57e181a905ccb61a81b2fc1a45ef34e916ca7e1b315e5690a58ff",
+      "role": "approved-tau-sample-template-and-paper-donor",
+      "source": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/gif/tau/orders/o_1.jpg",
+      "sourceSha256": "d53dc083bef57e181a905ccb61a81b2fc1a45ef34e916ca7e1b315e5690a58ff",
+      "nativeDimensions": [
+        816,
+        1110
+      ],
+      "modification": "Byte-identical image used by the five approved Tau samples; text comes only from current Russian images. This is a card face, not a clean artwork master."
+    },
+    {
+      "asset": "pictures/templates/tau/gif__tau__events__e_5.jpg",
+      "sha256": "cb8ea9ad590e269a7e0af8247161e6e35b1d78d19ee12f17be7db9ac0346ab08",
+      "role": "approved-tau-sample-template-and-paper-donor",
+      "source": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/gif/tau/events/e_5.jpg",
+      "sourceSha256": "cb8ea9ad590e269a7e0af8247161e6e35b1d78d19ee12f17be7db9ac0346ab08",
+      "nativeDimensions": [
+        816,
+        1110
+      ],
+      "modification": "Byte-identical image used by the five approved Tau samples; text comes only from current Russian images. This is a card face, not a clean artwork master."
+    }
+  ]
+}

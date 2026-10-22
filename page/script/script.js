@@ -435,7 +435,7 @@
     wrap.classList.add('is-loading');
     wrap.setAttribute('aria-busy', 'true');
     if (!modal) wrap.setAttribute('aria-label', card.label);
-    if (!modal && card.aspect) wrap.style.aspectRatio = String(card.aspect);
+    if (!modal && (card.aspect || card.text && card.text.aspect)) wrap.style.aspectRatio = String(cardRatio(card));
     var status = el('span', { class: 'fs-image-status', role: modal ? 'status' : null }, [
       el('span', { class: 'fs-image-spinner', 'aria-hidden': 'true' }),
       el('span', { class: 'fs-image-label', text: 'Загрузка карточки…' }),
@@ -603,7 +603,7 @@
         var tierTxt = txt && txt.combat ? txt.combat[ti] : null;
         var cards = files.map(function (f, i) {
           var t = tierTxt && tierTxt[i]
-            ? { title: tierTxt[i].title, background: tierTxt[i].general, foreground: tierTxt[i].unit, icons: tierTxt[i].icons, raster: txt.raster, source: tierTxt[i].source }
+            ? { title: tierTxt[i].title, background: tierTxt[i].general, foreground: tierTxt[i].unit, icons: tierTxt[i].icons, raster: txt.raster, source: tierTxt[i].source, aspect: tierTxt[i].aspect }
             : null;
           return push(f, facName(fac) + ' · ' + label + ' ' + (i + 1), 'combat', t);
         });
@@ -661,7 +661,7 @@
           var tierName = (txt && txt.tierLabels && txt.tierLabels[ti]) || tierLabel(ti);
           files.forEach(function (f, i) {
             var tt = tierTxt && tierTxt[i];
-            var t = tt ? { title: tt.title, background: tt.general, foreground: tt.unit, icons: tt.icons, raster: txt.raster, source: tt.source } : null;
+            var t = tt ? { title: tt.title, background: tt.general, foreground: tt.unit, icons: tt.icons, raster: txt.raster, source: tt.source, aspect: tt.aspect } : null;
             add(f, (tt && tt.title) ? tt.title : (fn + ' · ' + tierName + ' ' + (i + 1)), 'combat', t);
           });
         });

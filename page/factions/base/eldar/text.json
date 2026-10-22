@@ -1,10 +1,2467 @@
 {
-    "materialsText": [
-        { "label": "Аспектные Воины", "value": "6" },
-        { "label": "Фрегаты Морозник", "value": "6" },
-        { "label": "Призрачные Стражи", "value": "3" },
-        { "label": "Соколы", "value": "3" },
-        { "label": "Пустотные Охотники", "value": "3" },
-        { "label": "Боевые Титаны Колдун", "value": "3" }
+  "materialsText": [
+    {
+      "label": "Аспектные Воины",
+      "value": "6"
+    },
+    {
+      "label": "Фрегаты Морозник",
+      "value": "6"
+    },
+    {
+      "label": "Призрачные Стражи",
+      "value": "3"
+    },
+    {
+      "label": "Соколы",
+      "value": "3"
+    },
+    {
+      "label": "Пустотные Охотники",
+      "value": "3"
+    },
+    {
+      "label": "Боевые Титаны Колдун",
+      "value": "3"
+    }
+  ],
+  "templates": {
+    "combat/s1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6394,
+            1,
+            0.3456
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.48939999999999995
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5744,
+            0.23,
+            0.025
+          ],
+          "top": 0.6314
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6801,
+            1,
+            0.30489999999999995
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5301
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6151,
+            0.23,
+            0.025
+          ],
+          "top": 0.6721
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.7176,
+            1,
+            0.26739999999999997
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5676
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6526000000000001,
+            0.23,
+            0.025
+          ],
+          "top": 0.7096
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.7832,
+            1,
+            0.20179999999999998
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.6332
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.7182,
+            0.23,
+            0.025
+          ],
+          "top": 0.7752
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/s5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.7066,
+            1,
+            0.2784
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5566
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6416,
+            0.23,
+            0.025
+          ],
+          "top": 0.6986
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6785,
+            1,
+            0.3065
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5285
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6134999999999999,
+            0.23,
+            0.025
+          ],
+          "top": 0.6705
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6801,
+            1,
+            0.30489999999999995
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5301
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6151,
+            0.23,
+            0.025
+          ],
+          "top": 0.6721
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5551,
+            1,
+            0.42989999999999995
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4051
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.49010000000000004,
+            0.23,
+            0.025
+          ],
+          "top": 0.5471
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t0_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.6316,
+            1,
+            0.35339999999999994
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.48160000000000003
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5666,
+            0.23,
+            0.025
+          ],
+          "top": 0.6236
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.641,
+            1,
+            0.344
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.491
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5760000000000001,
+            0.23,
+            0.025
+          ],
+          "top": 0.633
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5238,
+            1,
+            0.46119999999999994
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.3738
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.45880000000000004,
+            0.23,
+            0.025
+          ],
+          "top": 0.5158
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t2_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.7176,
+            1,
+            0.26739999999999997
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5676
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.6526000000000001,
+            0.23,
+            0.025
+          ],
+          "top": 0.7096
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t3_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5957,
+            1,
+            0.3893
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4457
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5307,
+            0.23,
+            0.025
+          ],
+          "top": 0.5877
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "combat/t3_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.27,
+            0.03,
+            0.665,
+            0.065
+          ],
+          "texture": {
+            "src": "factions/base/eldar/combat/s1.jpg",
+            "crop": [
+              0.88,
+              0.03,
+              0.025,
+              0.065
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0,
+            0.5785,
+            1,
+            0.4065
+          ],
+          "texture": {
+            "src": "pictures/background.png",
+            "crop": [
+              0.15,
+              0.15,
+              0.7,
+              0.7
+            ]
+          },
+          "tile": true,
+          "featherPx": 2,
+          "role": "combat-erasure"
+        }
+      ],
+      "titleY": 0.077,
+      "combatArt": {
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4285
+        ],
+        "box": [
+          0.23,
+          0.13,
+          0.77
+        ],
+        "rail": {
+          "crop": [
+            0,
+            0.5135000000000001,
+            0.23,
+            0.025
+          ],
+          "top": 0.5705
+        }
+      },
+      "titleMaxWidth": 0.65
+    },
+    "orders/o_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "orders/o_5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.25,
+            0.181,
+            0.54,
+            0.066
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.181,
+              0.025,
+              0.066
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.12,
+            0.53,
+            0.76,
+            0.295
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.14,
+              0.76,
+              0.18,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 3,
+          "role": "body-erasure"
+        },
+        {
+          "box": [
+            0.78,
+            0.19,
+            0.045,
+            0.046
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        },
+        {
+          "box": [
+            0.823,
+            0.209,
+            0.025,
+            0.028
+          ],
+          "texture": {
+            "src": "factions/base/spacemarines/orders/o_1.jpg",
+            "crop": [
+              0.74,
+              0.192,
+              0.025,
+              0.04
+            ]
+          },
+          "tile": true,
+          "featherPx": 1,
+          "role": "title-tail"
+        }
+      ],
+      "body": {
+        "box": [
+          0.145,
+          0.535,
+          0.71,
+          0.277
+        ],
+        "align": "center"
+      }
+    },
+    "events/e_1.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_2.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_2.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_3.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_3.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_4.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_4.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_5.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_5.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_6.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_6.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_7.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_7.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    },
+    "events/e_8.jpg": {
+      "status": "current-russian-raster-template",
+      "patches": [
+        {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_1.jpg",
+            "crop": [
+              0.65,
+              0.025,
+              0.05,
+              0.05
+            ]
+          },
+          "tile": true,
+          "featherPx": 2
+        },
+        {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ],
+          "texture": {
+            "src": "factions/base/eldar/events/e_8.jpg",
+            "crop": [
+              0.12,
+              0.538,
+              0.18,
+              0.047
+            ]
+          },
+          "tile": false,
+          "featherPx": 1.5,
+          "role": "event-type"
+        },
+        {
+          "box": [
+            0.04,
+            0.675,
+            0.92,
+            0.275
+          ],
+          "texture": {
+            "src": "pictures/templates/base-eldar-event-paper.png",
+            "crop": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "tile": false,
+          "featherPx": 2,
+          "role": "body-erasure"
+        }
+      ],
+      "titleY": 0.0735,
+      "eventType": {
+        "box": [
+          0.1,
+          0.533,
+          0.8,
+          0.055
+        ]
+      },
+      "body": {
+        "box": [
+          0.08,
+          0.687,
+          0.84,
+          0.242
+        ],
+        "align": "left"
+      },
+      "titleMaxWidth": 0.7
+    }
+  },
+  "combatText": [
+    [
+      {
+        "title": "Ударь и Беги",
+        "general": "Получите 2 (B).",
+        "unit": "Аспектный Воин/Фрегат: Потратьте 1 [M], чтобы переместить 1 ваш отряд в соседнюю дружественную или неконтролируемую область.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s1.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Воющие Банши",
+        "general": "Получите 1 [D].",
+        "unit": "Аспектный Воин/Фрегат: Потратьте 1 [M], чтобы вынудить вашего противника выбрать и деморализовать 1 свой отряд.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s2.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Жалящие Скорпионы",
+        "general": "Получите 1 [D].",
+        "unit": "Аспектный Воин/Фрегат: Ваш противник должен потерять 1 куб на свой выбор.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s3.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Поддержка Рейнджеров",
+        "general": "Если вы атакуете, то получите 1 (B) и 1 (S). Если вы защищаетесь, то можете отступить 1 вашим отрядом.",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s4.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Приказ Автарха",
+        "general": "Восстановите 1 ваш отряд или получите 1 [M]. *newline* Разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s5.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Месть Огненных Драконов",
+        "general": "Если вы атакуете, то ваш противник не может получить (S) в течение этого раунда битвы.",
+        "unit": "Аспектный Воин/Фрегат: Получите 2 (S).",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_1.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Пикирующие Ястребы",
+        "general": "Если вы защищаетесь, то ваш противник должен потерять 3 (B).",
+        "unit": "Аспектный Воин/Фрегат: Потратьте 1 [M], чтобы получить 2 (B).",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_2.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Наступление Призрачных Стражей",
+        "general": "Получите 1 [D] или 1 [M]. *newline* Переверните до 2 ваших [S] на [B].",
+        "unit": "Призрачный Страж/Фрегат/Пустотный Охотник: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 [M].",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_3.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Поддержка Призрачных Стражей",
+        "general": "Получите 1 [D] или 1 [M]. *newline* Переверните до 2 ваших [B] на [S].",
+        "unit": "Призрачный Страж/Фрегат/Пустотный Охотник: Потратьте 1 [M], чтобы восстановить 1 ваш отряд.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_4.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Огненная Призма",
+        "general": "Переверните любое количество ваших [M] на [B].",
+        "unit": "Сокол/Пустотный Охотник: Если вы атакуете, то получите 2 (B). Если вы защищаетесь, то противник теряет 5 (S).",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_1.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Волновая Змея",
+        "general": "Получите 1 [D]. *newline* Получите 3 (S). Ваш противник может избежать этого эффекта, если потратит 1 [M].",
+        "unit": "Сокол/Пустотный Охотник: Потратьте 1 [M], чтобы переместить любое количество ваших отрядов с командным уровнем 0-1 в соседнюю область. Это может привести к новому сражению по завершении текущего.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_2.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Наставления Видящих",
+        "general": "Получите 1 [M]. *newline* Деморализуйте 1 ваш отряд. Если вы это сделали, то все отряды до конца этого раунда битвы не могут получать какой-либо урон.",
+        "unit": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_3.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      }
+    ],
+    [
+      {
+        "title": "Излучатель Голо-Поля",
+        "general": "Получите 1 [D]. *newline* Возьмите 1 боевую карту.",
+        "unit": "Титан Колдун/Пустотный Охотник: Разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t3_1.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      },
+      {
+        "title": "Психокопье",
+        "general": "Получите 1 [D]. *newline* Ваш противник должен сбросить 1 случайную боевую карту с руки.",
+        "unit": "Титан Колдун/Пустотный Охотник: Получите 4 (B). Ваш противник может избежать этого эффекта, если позволит вам выбрать и сбросить 1 свою открытую боевую карту.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t3_2.jpg",
+        "aspect": 0.7046875,
+        "icons": ""
+      }
     ]
+  ],
+  "ordersText": [
+    {
+      "title": "Рейд Корсаров",
+      "general": "После того как закончится битва во время выполнения этого приказа, вы можете нанести 1 орбитальный удар в активной системе. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/orders/o_1.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Видящие",
+      "general": "Вы можете выполнить этот приказ, даже если у вас нет отрядов или построек в активной системе. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/orders/o_2.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Певцы Психокости",
+      "general": "При покупке постройки во время выполнения этого приказа вы можете разместить её в дружественном мире, который содержит ровно 1 вашу постройку другого типа. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/orders/o_3.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Тактические удары",
+      "general": "Во время выполнения этого орбитального удара получите 1 [D], и вы можете потратить 1 [M], чтобы выбрать 1 отряд вашего противника в этом мире. Во время этого орбитального удара этот отряд получает повреждения первым. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/orders/o_4.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Обстрел",
+      "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара вы можете потратить 2 [S], чтобы переместить любые ваши корабли из активной системы в 1 дружественную или неконтролируемую пустоту в соседней системе. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/orders/o_5.jpg",
+      "aspect": 0.7046875
+    }
+  ],
+  "eventsText": [
+    {
+      "title": "Предвидение",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время битвы в начале шага нанесения повреждений вы можете сбросить эту карту, чтобы забрать все ваши отряды из этой битвы и разместить их в 1 любой дружественной области.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_1.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Врата Варпа",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Вместо раскрытия одного из ваших приказов в фазу Действий вы можете сбросить эту карту, чтобы забрать любые ваши отряды из 1 области и разместить их в 1 другую дружественную или неконтролируемую область.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_2.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Военная Хитрость",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце фазы Планирования вы можете сбросить эту карту, чтобы посмотреть 1 ваш жетон приказа в любом месте стека. Затем положите его на верх или под низ стека.",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_3.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Ужасный Налет",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время выполнения орбитального удара вы можете сбросить эту карту, чтобы перебросить любые ваши кубы, а затем получите 1 [B], 1 [S] или 1 [M].",
+      "type": "ПЛАН",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_4.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Путь Воина",
+      "general": "Купите 1 боевое улучшение. Уменьшите его стоимость на 1 за каждый мир, который содержит ваш город.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_5.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Возвращение Изгоев",
+      "general": "Либо бесплатно разместите 1 Фрегат в любой неконтролируемой пустоте, либо заберите 1 Фрегат из 1 пустоты и разместите его в любой неконтролируемой пустоте.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_6.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Колония Экзодитов",
+      "general": "Потратьте 1 материал, чтобы взять из резерва 1 город и разместить его в дружественном или неконтролируемом мире, который не содержит других построек или маркеров целей Эльдар.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_7.jpg",
+      "aspect": 0.7046875
+    },
+    {
+      "title": "Наследие Ваула",
+      "general": "Получите 2 жетона кузницы.",
+      "type": "ТАКТИКА",
+      "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/events/e_8.jpg",
+      "aspect": 0.7046875
+    }
+  ],
+  "wordingSource": {
+    "kind": "current-russian-raster",
+    "revision": "7a9a58bf2284863250f7d4284e292a7c18315a4e",
+    "imageSha256": {
+      "combat/s1.jpg": "890fa4a671acbca5089535519bb2d88eed2bb3fcb5944cd17c097aec78492ebb",
+      "combat/s2.jpg": "25a68294b20af0c24994d05010debb73927504ae25461cf549e50d11b8f90caa",
+      "combat/s3.jpg": "f12ea5d2deb2e89fd8165813ad9b94ef66f57c6eae0e3c7144c59bc9d5a26a9e",
+      "combat/s4.jpg": "fbfadae9cabaff90fee6ee402d1da04fe9f11a486d73bd3e72be5aea04c8c583",
+      "combat/s5.jpg": "fe0e6ffd5706b852824f76be37fd8225bb8189432a35716c5580ecfb079099d7",
+      "combat/t0_1.jpg": "a1aaa8d0dad10d04ec4faad7a24257ed71820210ab8fb7046d0d37fe6a845b3b",
+      "combat/t0_2.jpg": "2928adb57e7ac1273d09cbaf82384aa982d33fcaaea80a439eb6d875fb9c3a52",
+      "combat/t0_3.jpg": "e6e590d5f26be263cdcfdfb40fd084ecb20eee3bdcf11f769d29a4593b0ee49c",
+      "combat/t0_4.jpg": "fa203117238227b61da68ea909802c77f210b4619c22eb7ae1860521851651ff",
+      "combat/t2_1.jpg": "bd51d669fb6e0298abcf4245b8527d6f717259b28a1f454c66ca79dab2b53930",
+      "combat/t2_2.jpg": "8db0e1cb818462cbd11b9cde1ea14d98ce2caad7b5bbc5c1c77589757b969ae9",
+      "combat/t2_3.jpg": "cc747710c994685af903a4e4920d58aa472de15558c3de73eb737b0701449a8d",
+      "combat/t3_1.jpg": "f7aa7458f988ef226cca39609e9035acad2b7525d120a59639ee518f68886be1",
+      "combat/t3_2.jpg": "6a8152021053ebb9f2bfc25735d2ddc36d5423a30ea7f95ba92e2cd886de4d00",
+      "orders/o_1.jpg": "d8b95e063f10726ed98ec28b74465a8f42b33d2d4f10168dbdb8f579bbb6dfe8",
+      "orders/o_2.jpg": "13125c71e68dfcf9b0924790b71c916c613aedbece4cbd0a9f7c43936f8f90bc",
+      "orders/o_3.jpg": "72048be35fc800cf05cf9edd1a5f34f5236f66e4c8110f60df77d4533a41cffa",
+      "orders/o_4.jpg": "6e277c64e29d5afbac892b22fd2da573b8db86a97afb0b72eb155f7af3452f34",
+      "orders/o_5.jpg": "2711647625646b198f2350f52d4a38b3ad0787ef848e93d97d07014f00d86b29",
+      "events/e_1.jpg": "9df3a8c7561f1b458738eb4394234aa07a9fb40c2753dab0943a229f0857c02a",
+      "events/e_2.jpg": "f26f3f269d4b34086cdc7ee9ebf6c5f23e6a43c0edd68a2c5cde4ffc8ce121c2",
+      "events/e_3.jpg": "047e247a7201a4c8cce44144430ad312a386ff5aa1cdd53420ed113023948113",
+      "events/e_4.jpg": "e588087e99c078c0e9537af8c9fb7a472a36dac4f2e0282dcc52d16f205338e4",
+      "events/e_5.jpg": "405b5d18c6829f4a23c34b6717439bea210732581a8467b635a36457f0f5ac0d",
+      "events/e_6.jpg": "3a5fa886efb2d7ddb630530152ba5f7aed7337aca7bf9cac70b5dd44156f053f",
+      "events/e_7.jpg": "01bffc35f26928dd663450b8dbbeb5ce70940cab169458a4031d1f0bcef23128",
+      "events/e_8.jpg": "6356de492aabb4835b1dac58575e77b1f831f0e15435fde30a8451848e16499d"
+    },
+    "imageDimensions": {
+      "combat/s1.jpg": [
+        451,
+        640
+      ],
+      "combat/s2.jpg": [
+        451,
+        640
+      ],
+      "combat/s3.jpg": [
+        451,
+        640
+      ],
+      "combat/s4.jpg": [
+        451,
+        640
+      ],
+      "combat/s5.jpg": [
+        451,
+        640
+      ],
+      "combat/t0_1.jpg": [
+        451,
+        640
+      ],
+      "combat/t0_2.jpg": [
+        451,
+        640
+      ],
+      "combat/t0_3.jpg": [
+        451,
+        640
+      ],
+      "combat/t0_4.jpg": [
+        451,
+        640
+      ],
+      "combat/t2_1.jpg": [
+        451,
+        640
+      ],
+      "combat/t2_2.jpg": [
+        451,
+        640
+      ],
+      "combat/t2_3.jpg": [
+        451,
+        640
+      ],
+      "combat/t3_1.jpg": [
+        451,
+        640
+      ],
+      "combat/t3_2.jpg": [
+        451,
+        640
+      ],
+      "orders/o_1.jpg": [
+        451,
+        640
+      ],
+      "orders/o_2.jpg": [
+        451,
+        640
+      ],
+      "orders/o_3.jpg": [
+        451,
+        640
+      ],
+      "orders/o_4.jpg": [
+        451,
+        640
+      ],
+      "orders/o_5.jpg": [
+        451,
+        640
+      ],
+      "events/e_1.jpg": [
+        451,
+        640
+      ],
+      "events/e_2.jpg": [
+        451,
+        640
+      ],
+      "events/e_3.jpg": [
+        451,
+        640
+      ],
+      "events/e_4.jpg": [
+        451,
+        640
+      ],
+      "events/e_5.jpg": [
+        451,
+        640
+      ],
+      "events/e_6.jpg": [
+        451,
+        640
+      ],
+      "events/e_7.jpg": [
+        451,
+        640
+      ],
+      "events/e_8.jpg": [
+        451,
+        640
+      ]
+    },
+    "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  }
 }
