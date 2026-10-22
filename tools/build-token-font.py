@@ -21,17 +21,23 @@ def build(source, output):
     token_names = {original_cmap.get(codepoint, 'token_' + key) for key, codepoint in TOKENS.items()}
     original_glyphs = {name: font['glyf'][name].compile(font['glyf']) for name in font.getGlyphOrder() if name not in token_names}
     order = font.getGlyphOrder()
+    # Use the existing bolter-token circle's size, baseline and advance. The SVG
+    # masters reuse that very outline and cut the original TTS emblem out of it.
+    reference_name = original_cmap[ord('#')]
+    reference = font['glyf'][reference_name]
+    icon_transform = ((reference.xMax - reference.xMin) / 1000, 0, 0,
+                      -(reference.yMax - reference.yMin) / 1000,
+                      reference.xMin, reference.yMax)
     for key, codepoint in TOKENS.items():
         # WOFF2/post format 3 may reconstruct names as uniE100 on reload.
         name = original_cmap.get(codepoint, 'token_' + key)
         pen = TTGlyphPen(font.getGlyphSet())
-        # 1800-unit icons align with the existing dice glyphs in this 2048 UPM font.
-        svg_pen = TransformPen(Cu2QuPen(pen, max_err=1.0, reverse_direction=False), (1.8, 0, 0, -1.8, 100, 1650))
+        svg_pen = TransformPen(Cu2QuPen(pen, max_err=1.0, reverse_direction=False), icon_transform)
         svg = ElementTree.parse(ROOT / 'page/fonts/tokens' / (key + '.svg'))
         for path in svg.iter('{http://www.w3.org/2000/svg}path'):
             parse_path(path.attrib['d'], svg_pen)
         font['glyf'][name] = pen.glyph()
-        font['hmtx'].metrics[name] = (2000, 100)
+        font['hmtx'].metrics[name] = font['hmtx'].metrics[reference_name]
         if name not in order:
             order.append(name)
         for table in font['cmap'].tables:

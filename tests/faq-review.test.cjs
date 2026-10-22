@@ -84,9 +84,9 @@ test('card-specific fixes distinguish conversion, die types, ownership, and atta
 
 test('translated cards and FAQ retain current triggers and the newer Adeptus rules', () => {
   const mech = read('page/factions/sow/adeptusmechanicus/text.json');
-  assert.equal(mech.combatText[0][0].title, 'СКИТАРИИ РЕЙНДЖЕРЫ');
+  assert.equal(mech.combatText[0][0].title, 'СКИТАРИИ-РЕЙНДЖЕРЫ');
   assert.match(mech.combatText[0][0].general, /предыдущем раунде/);
-  assert.equal(mech.combatText[0][3].title, 'СИКАРИЙЦЫ ЛАЗУТЧИКИ');
+  assert.equal(mech.combatText[0][3].title, 'СИКАРИЙЦЫ-ЛАЗУТЧИКИ');
   assert.match(mech.combatText[0][3].general, /закрытую боевую карту/);
   const martyrdom = read('page/factions/sow/adeptasororitas/text.json').combatText.flat().find(c => c.title === 'МУЧЕНИЧЕСТВО');
   assert.match(martyrdom.unit, /во время шага нанесения повреждений/);

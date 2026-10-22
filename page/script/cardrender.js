@@ -146,7 +146,7 @@
         var seg = segments[s];
         ctx.font = seg.italic ? italicFont : baseFont;
         ctx.textAlign = 'left';
-        ctx.fillText(seg.text, cx, yy);
+        drawTokenText(ctx, seg.text, cx, yy, fontSize);
         cx += measure(seg.text, seg.italic);
       }
     };
@@ -213,6 +213,24 @@
 
   function drawStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align) {
     return layoutStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align, true);
+  }
+
+  // Image tokens occupy the same advance and baseline as their font glyphs, so
+  // switching style cannot change wrapping or effect-panel geometry.
+  function drawTokenText(ctx, text, x, y, fontSize) {
+    if (!ctx.fsTokenImages || !/[\uE100-\uE102]/.test(text)) {
+      ctx.fillText(text, x, y); return;
+    }
+    text.split(/([\uE100-\uE102])/).forEach(function (part) {
+      var image = ctx.fsTokenImages[part], advance = ctx.measureText(part).width;
+      if (image) {
+        var size = fontSize * 1996 / 2048;
+        var left = x + (advance - size) / 2, top = y - fontSize * 1754 / 2048;
+        ctx.drawImage(image, left, top, size, size);
+        ctx.fsTokenImageBounds.push({ glyph: part, x: left, y: top, width: size, height: size });
+      } else ctx.fillText(part, x, y);
+      x += advance;
+    });
   }
 
   // image cache — shared chrome loads once per session
@@ -689,7 +707,7 @@
     if (card.kind === 'overlay' && card.text && card.text.aspect) height = Math.round(width / card.text.aspect);
     var strict = !!options.strict;
     var rejectOnError = strict || !!options.rejectOnError;
-    var wording = card.wording || 'explicit';
+    var wording = card.wording || 'icons';
     var thumbnail = !strict && !!card.thumbnail;
     var picture = strict ? card.src : (card.picture || card.src);
     var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, card.text, card.template]);
@@ -705,7 +723,7 @@
         if (!faces.length || !document.fonts.check('16px ' + name)) throw new Error('Не загружен шрифт ' + name);
       });
     })) : fontsReady();
-    var result = ready.then(function () {
+    var result = ready.then(async function () {
       var canvas = document.createElement('canvas');
       canvas.width  = width;
       canvas.height = height;
@@ -726,6 +744,14 @@
         regions:    card.text.regions,
         wording:    wording,
       };
+      if (wording === 'images') {
+        var formatted = format(JSON.stringify(card.text));
+        var used = window.FSWord.tokens.filter(function (token) { return formatted.indexOf(token.glyph) !== -1; });
+        ctx.fsTokenImages = {}; ctx.fsTokenImageBounds = [];
+        await Promise.all(used.map(async function (token) {
+          ctx.fsTokenImages[token.glyph] = await loadImage(token.image);
+        }));
+      }
       return fn(data, ctx).then(function () {
         if (options.onMetrics) {
           var metrics = {minimumBodyPx:ctx.fsMinimumBodyPx};
@@ -733,6 +759,7 @@
           if (ctx.fsCombatJoin) metrics.combatJoin=ctx.fsCombatJoin;
           if (ctx.fsEventType) metrics.eventType=ctx.fsEventType;
           if (ctx.fsBodyTextBox) metrics.bodyTextBox=ctx.fsBodyTextBox;
+          if (ctx.fsTokenImageBounds) metrics.tokenImages=ctx.fsTokenImageBounds;
           options.onMetrics(metrics);
         }
         return thumbnail ? canvas.toDataURL('image/jpeg', 0.84) : canvas.toDataURL('image/png');

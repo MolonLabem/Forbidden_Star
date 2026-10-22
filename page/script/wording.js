@@ -2,9 +2,9 @@
 (function (root) {
   'use strict';
   var tokens = [
-    { key: 'FORGE', glyph: '\uE100', label: 'жетон кузницы', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+кузниц[аыеу]|forge\s+tokens?)(?!\p{L})/giu },
-    { key: 'REINFORCE', glyph: '\uE101', label: 'жетон подкрепления', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+подкреплени[яйею]|reinforcement\s+tokens?)(?!\p{L})/giu },
-    { key: 'CACHE', glyph: '\uE102', label: 'жетон запасов', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+(?:запас(?:ов|а|ы)|склад[аыуе])|cache\s+tokens?)(?!\p{L})/giu },
+    { key: 'FORGE', glyph: '\uE100', image: 'pictures/tokens/forge.png', label: 'жетон кузницы', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+кузниц[аыеу]|forge\s+tokens?)(?!\p{L})/giu },
+    { key: 'REINFORCE', glyph: '\uE101', image: 'pictures/tokens/reinforce.png', label: 'жетон подкрепления', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+подкреплени[яйею]|reinforcement\s+tokens?)(?!\p{L})/giu },
+    { key: 'CACHE', glyph: '\uE102', image: 'pictures/tokens/cache.png', label: 'жетон запасов', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+(?:запас(?:ов|а|ы)|склад[аыуе])|cache\s+tokens?)(?!\p{L})/giu },
   ];
   function format(text, mode) {
     var value = String(text || '');
@@ -12,7 +12,9 @@
       value = value.replace(new RegExp('\\[' + token.key + '\\]', 'g'), token.label);
       value = value.replace(new RegExp(token.glyph, 'g'), token.label);
     });
-    if (mode !== 'icons') return value;
+    // Explicit wording is retained for canonical text and source review. Both
+    // visual styles use identical symbols/spacing and therefore identical wraps.
+    if (mode === 'explicit') return value;
     // A shared noun in "жетоны склада/кузницы" still refers to two token types.
     value = value.replace(/жетон(?:ами|ах|ов|ом|а|ы)?\s+склада\/кузницы/giu, '\uE102/\uE100');
     tokens.forEach(function (token) { value = value.replace(token.pattern, token.glyph); });
@@ -22,18 +24,27 @@
     return format(text, 'explicit').replace(/\s*\*(?:newline|newpara)\*\s*/g, '\n').trim();
   }
   function normalize(text) {
-    return plain(text).toLocaleLowerCase('ru').replace(/ё/g, 'е').replace(/\s+/g, ' ').trim();
+    return plain(text).toLocaleLowerCase('ru').replace(/ё/g, 'е').replace(/[-\u2010-\u2015]/g, ' ').replace(/\s+/g, ' ').trim();
   }
   function append(node, text, mode) {
-    var value = plain(format(text, mode));
-    // plain() expands glyphs; preserve glyphs in the visual icon version.
-    if (mode === 'icons') value = format(text, mode).replace(/\s*\*(?:newline|newpara)\*\s*/g, '\n');
+    var value = format(text, mode).replace(/\s*\*(?:newline|newpara)\*\s*/g, '\n');
     value.split(/([\uE100-\uE102])/).forEach(function (part) {
       var token = tokens.find(function (t) { return t.glyph === part; });
       if (!token) { node.appendChild(document.createTextNode(part)); return; }
       var span = document.createElement('span');
-      span.className = 'fs-token'; span.textContent = token.glyph;
+      span.className = 'fs-token';
       span.setAttribute('role', 'img'); span.setAttribute('aria-label', token.label); span.title = token.label;
+      if (mode === 'images') {
+        span.classList.add('fs-token--image');
+        var fallback = document.createElement('span');
+        fallback.className = 'fs-token-fallback'; fallback.textContent = token.glyph;
+        fallback.setAttribute('aria-hidden', 'true'); span.appendChild(fallback);
+        var img = document.createElement('img');
+        img.className = 'fs-token-image'; img.alt = ''; img.setAttribute('aria-hidden', 'true');
+        img.onload = function () { span.classList.add('has-image'); };
+        img.onerror = function () { img.remove(); };
+        img.src = token.image; span.appendChild(img);
+      } else span.textContent = token.glyph;
       node.appendChild(span);
     });
     return node;

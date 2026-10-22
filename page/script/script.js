@@ -45,9 +45,9 @@
   var useHighRes = (function () {
     try { return localStorage.getItem(CARD_RESOLUTION_KEY) === 'true'; } catch (e) { return false; }
   })();
-  var WORDING_KEY = 'forbidden-stars.token-wording';
-  var tokenWording = (function () {
-    try { return localStorage.getItem(WORDING_KEY) === 'icons' ? 'icons' : 'explicit'; } catch (e) { return 'explicit'; }
+  var TOKEN_STYLE_KEY = 'forbidden-stars.token-style';
+  var tokenStyle = (function () {
+    try { return localStorage.getItem(TOKEN_STYLE_KEY) === 'images' ? 'images' : 'icons'; } catch (e) { return 'icons'; }
   })();
 
   function applyResolution(hi) {
@@ -172,7 +172,7 @@
     root.innerHTML = '';
     root.appendChild(app);
     observeCards(root);
-    var modalImage = root.querySelector('.fs-lb img');
+    var modalImage = root.querySelector('.fs-lb-imgwrap > img');
     if (modalImage) loadCardImage(modalImage, false);
     if (sel) {
       var inp = root.querySelector('.fs-faq-search');
@@ -356,27 +356,27 @@
 
   function renderSettings() {
     var mode = el('select', { id: 'fs-wording', onchange: function (e) {
-      setTokenWording(e.target.value);
-    } }, [el('option', { value: 'explicit', text: 'Названия жетонов' }), el('option', { value: 'icons', text: 'Значки жетонов' })]);
-    mode.value = tokenWording;
+      setTokenStyle(e.target.value);
+    } }, [el('option', { value: 'icons', text: 'Чёрно-белые' }), el('option', { value: 'images', text: 'Изображения' })]);
+    mode.value = tokenStyle;
     var input = el('input', { type: 'checkbox', id: 'fs-res-toggle', checked: useHighRes ? 'checked' : null,
       onchange: function (e) { applyResolution(e.target.checked); render(); } });
     var legend = el('div', { class: 'fs-token-legend' }, window.FSWord.tokens.map(function (token) {
-      return el('div', {}, [window.FSWord.append(el('span'), token.glyph, 'icons'), ' — ' + token.label]);
+      return el('div', {}, [window.FSWord.append(el('span'), token.glyph, tokenStyle), ' — ' + token.label]);
     }));
     return el('details', { class: 'fs-settings', open: state.settingsOpen ? '' : null,
       ontoggle: function (e) { state.settingsOpen = e.target.open; } }, [
       el('summary', { text: 'Отображение' }),
       el('div', { class: 'fs-settings-panel' }, [
-        el('label', { for: 'fs-wording', text: 'Обозначение жетонов' }), mode,
+        el('label', { for: 'fs-wording', text: 'Вид жетонов' }), mode,
         el('label', { class: 'fs-resolution-option' }, [input, ' Дополнительная чёткость для увеличения']), legend,
       ]),
     ]);
   }
 
-  function setTokenWording(mode) {
-    tokenWording = mode === 'icons' ? 'icons' : 'explicit';
-    try { localStorage.setItem(WORDING_KEY, tokenWording); } catch (error) {}
+  function setTokenStyle(mode) {
+    tokenStyle = mode === 'images' ? 'images' : 'icons';
+    try { localStorage.setItem(TOKEN_STYLE_KEY, tokenStyle); } catch (error) {}
     render();
   }
 
@@ -419,7 +419,7 @@
       // Render the text directly at display resolution, losslessly, from the full
       // template. Enlarging the precomposed 270px JPEG loses the small letterforms.
       return window.FSCardRender.compose({ src: card.src,
-        kind: card.kind, text: card.text, template: card.template, wording: tokenWording,
+        kind: card.kind, text: card.text, template: card.template, wording: tokenStyle,
         width: pixels.w, height: pixels.h,
       }, { rejectOnError: true });
     }
@@ -688,7 +688,7 @@
     if (!appEl) { render(); return; }
     var old = appEl.querySelector('.fs-lb'); if (old) old.remove();
     appendLightbox(appEl);
-    var img = appEl.querySelector('.fs-lb img');
+    var img = appEl.querySelector('.fs-lb-imgwrap > img');
     if (img) loadCardImage(img, false);
     focusModal();
   }
@@ -763,11 +763,11 @@
       icon.classList.toggle('is-open', o);
       updateURL(true);
     } }, [
-      window.FSWord.append(el('span', { class: 'fs-faq-q' }), it.q, tokenWording),
+      window.FSWord.append(el('span', { class: 'fs-faq-q' }), it.q, tokenStyle),
       icon,
     ]);
     var answer = el('div', { class: 'fs-faq-answer', id: answerId, 'aria-labelledby': headId }, [
-      window.FSWord.append(el('p', { class: 'fs-faq-atext' }), it.a, tokenWording),
+      window.FSWord.append(el('p', { class: 'fs-faq-atext' }), it.a, tokenStyle),
     ]);
     answer.hidden = !open;
     if (/^(base|gif|sow|tdl)\/[a-z0-9_-]+\/(combat|orders|events|faction_card|maps|backs)\/[a-zA-Z0-9_.-]+\.jpg$/.test(it.card)) {
@@ -1267,16 +1267,16 @@
       ]);
       if (c.text.notice) textPanel.appendChild(el('p', { text: c.text.notice }));
       [c.text.general || c.text.background, c.text.unit || c.text.foreground].filter(Boolean).forEach(function (text) {
-        textPanel.appendChild(window.FSWord.append(el('p'), text, tokenWording));
+        textPanel.appendChild(window.FSWord.append(el('p'), text, tokenStyle));
       });
       if (c.text.source) textPanel.appendChild(el('a', { href: c.text.source, target: '_blank', rel: 'noopener noreferrer',
         text: c.template ? 'Источник русского текста' : 'Черновик перевода · английский оригинал' }));
     }
-    var mode = el('select', { class: 'fs-lb-wording', id: 'fs-lb-wording', 'aria-label': 'Обозначение жетонов',
-      onchange: function (e) { setTokenWording(e.target.value); } }, [
-      el('option', { value: 'explicit', text: 'Названия жетонов' }), el('option', { value: 'icons', text: 'Значки жетонов' }),
+    var mode = el('select', { class: 'fs-lb-wording', id: 'fs-lb-wording', 'aria-label': 'Вид жетонов',
+      onchange: function (e) { setTokenStyle(e.target.value); } }, [
+      el('option', { value: 'icons', text: 'Чёрно-белые' }), el('option', { value: 'images', text: 'Изображения' }),
     ]);
-    mode.value = tokenWording;
+    mode.value = tokenStyle;
 
     var children = [
       el('button', {

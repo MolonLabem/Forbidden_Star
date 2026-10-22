@@ -380,7 +380,7 @@
                                 "CardSource": "https://fixed-crane-287.notion.site/387346118c5d8097bf29e41484559845"
                             },
                             {
-                                "Phrase": "Разведчики Ветераны",
+                                "Phrase": "Разведчики-Ветераны",
                                 "Main": "Выберите (B) или (S) отдельно для каждого [M]. Подсчитываются все ваши [M] в момент применения эффекта. Для отступления можно выбрать деморализованный отряд.",
                                 "Source": "https://fixed-crane-287.notion.site/387346118c5d80e4853fd8d73a785eb7",
                                 "Card": "base/spacemarines/combat/t0_4.jpg",
@@ -1546,7 +1546,7 @@
                         "picture": "pictures/icons/adeptus.png",
                         "items": [
                             {
-                                "Phrase": "Скитарии Рейнджеры",
+                                "Phrase": "Скитарии-Рейнджеры",
                                 "Main": "Если карта сыграна во 2-м и 3-м раундах битвы, в 3-м нельзя через неё вернуться к способности, использованной в 1-м раунде. Получить куб вместо этого всё ещё можно.",
                                 "Source": "https://fixed-crane-287.notion.site/395346118c5d8073a256d139645754d3",
                                 "Card": "sow/adeptusmechanicus/combat/s1.jpg",

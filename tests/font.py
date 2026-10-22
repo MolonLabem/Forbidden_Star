@@ -4,6 +4,7 @@ from tempfile import TemporaryDirectory
 import subprocess
 import sys
 import unittest
+from xml.etree import ElementTree
 from fontTools.ttLib import TTFont
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,22 @@ class TokenFontTests(unittest.TestCase):
         names = [after.getBestCmap()[c] for c in [0xE100, 0xE101, 0xE102]]
         self.assertEqual(len(set(names)), 3)
         self.assertTrue(all(after['glyf'][name].numberOfContours > 0 for name in names))
+
+    def test_tokens_share_the_existing_combat_token_circle_and_metrics(self):
+        font = TTFont(ROOT / 'page/fonts/ForbiddenStars.woff2')
+        cmap = font.getBestCmap()
+        reference = font['glyf'][cmap[ord('#')]]
+        for key, codepoint in [('forge', 0xE100), ('reinforce', 0xE101), ('cache', 0xE102)]:
+            name = cmap[codepoint]
+            glyph = font['glyf'][name]
+            self.assertEqual(font['hmtx'].metrics[name], font['hmtx'].metrics[cmap[ord('#')]])
+            for coordinate in ['xMin', 'yMin', 'xMax', 'yMax']:
+                self.assertLessEqual(abs(getattr(glyph, coordinate) - getattr(reference, coordinate)), 1)
+            svg = ElementTree.parse(ROOT / 'page/fonts/tokens' / (key + '.svg'))
+            # One filled outline contains both circle and transparent emblem
+            # counters. Separate SVG paint layers would fill those cut-outs.
+            self.assertEqual(len(list(svg.iter('{http://www.w3.org/2000/svg}path'))), 1)
+            self.assertFalse(list(svg.iter('{http://www.w3.org/2000/svg}image')))
 
     def test_rebuild_is_reproducible_and_supports_an_already_extended_font(self):
         with TemporaryDirectory() as directory:

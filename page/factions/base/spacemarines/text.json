@@ -86,7 +86,7 @@
         "icons": ""
       },
       {
-        "title": "Разведчики Ветераны",
+        "title": "Разведчики-Ветераны",
         "general": "За каждый ваш [M] получите 1 (B) или 1 (S).",
         "unit": "Разведчик/Ударный Крейсер: Потратьте любое количество [M]. Отступите 1 вашим отрядом за каждый потраченный [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_4.jpg",

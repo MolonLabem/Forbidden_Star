@@ -29,10 +29,17 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
     const context = await browser.newContext({ viewport });
     await context.addInitScript(() => {
       window.drawnText = [];
+      window.drawnImages = [];
       const fill = CanvasRenderingContext2D.prototype.fillText;
       CanvasRenderingContext2D.prototype.fillText = function (text, ...args) {
         window.drawnText.push(text); return fill.call(this, text, ...args);
       };
+      const draw = CanvasRenderingContext2D.prototype.drawImage;
+      CanvasRenderingContext2D.prototype.drawImage = function (img, ...args) {
+        if (img.src) window.drawnImages.push(img.src);
+        return draw.call(this, img, ...args);
+      };
+      localStorage.setItem('forbidden-stars.token-wording', 'explicit');
     });
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
@@ -59,6 +66,8 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
       assert.equal(new Set(bitmaps.map(x => x.png)).size, 3);
       assert.ok(bitmaps.every(x => x.ink > 30));
       assert.equal(await page.locator('.fs-token-legend [role=img][aria-label]').count(), 3);
+      assert.equal(await page.locator('#fs-wording').inputValue(), 'icons', 'Legacy verbose preferences do not override the icon default');
+      assert.deepEqual(await page.locator('#fs-wording option').evaluateAll(nodes => nodes.map(n => n.value)), ['icons', 'images']);
       await page.locator('.fs-token-legend').screenshot({ path: path.join(output, 'tokens.png') });
       await page.locator('.fs-settings summary').click();
     });
@@ -72,7 +81,7 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
     await check('modal exposes selectable text and traps keyboard focus', async () => {
       await page.locator('.fs-card').click(); await waitCard(page);
       assert.equal(await page.locator('[role=dialog][aria-modal=true]').count(), 1);
-      assert.match(await page.locator('.fs-card-text').innerText(), /жетон кузницы/);
+      assert.equal(await page.locator('.fs-card-text .fs-token[aria-label="жетон кузницы"]').count(), 1);
       assert.equal(await page.locator('.fs-header').evaluate(node => node.inert), true);
       assert.equal(await page.locator('.fs-lb-close').evaluate(node => node === document.activeElement), true);
       const lastControl = page.locator('.fs-lb').locator('button:enabled:visible, a:visible, summary:visible, input:enabled:visible, select:enabled:visible').last();
@@ -82,17 +91,22 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
       assert.equal(await lastControl.evaluate(node => node === document.activeElement), true);
       cardLink = await page.locator('.fs-lb-share').getAttribute('href');
     });
-    await check('icon wording reaches canvas and accessible HTML, persists, and switches back', async () => {
-      await page.evaluate(() => { window.drawnText = []; });
-      await page.locator('#fs-lb-wording').selectOption('icons'); await waitCard(page);
+    await check('font icons are the default; original token images reach canvas and HTML, persist and switch back', async () => {
+      assert.equal(await page.locator('#fs-lb-wording').inputValue(), 'icons');
       assert.equal(await page.locator('.fs-card-text .fs-token[aria-label="жетон кузницы"]').count(), 1);
       assert.equal(await page.evaluate(() => window.drawnText.some(text => text.includes('\uE100'))), true);
       await page.screenshot({ path: path.join(output, 'card-icons.png'), animations: 'disabled' });
+      await page.evaluate(() => { window.drawnImages = []; });
+      await page.locator('#fs-lb-wording').selectOption('images'); await waitCard(page);
+      await page.waitForFunction(() => document.querySelector('.fs-card-text .fs-token--image.has-image img')?.naturalWidth === 260);
+      assert.equal(await page.evaluate(() => window.drawnImages.some(src => src.endsWith('/pictures/tokens/forge.png'))), true);
+      await page.screenshot({ path: path.join(output, 'card-token-images.png'), animations: 'disabled' });
       await page.reload(); await waitCard(page);
-      assert.equal(await page.locator('#fs-lb-wording').inputValue(), 'icons');
-      await page.locator('#fs-lb-wording').selectOption('explicit'); await waitCard(page);
-      assert.equal(await page.locator('.fs-card-text .fs-token').count(), 0);
-      assert.match(await page.locator('.fs-card-text').innerText(), /жетон кузницы/);
+      assert.equal(await page.locator('#fs-lb-wording').inputValue(), 'images');
+      assert.equal(await page.evaluate(() => localStorage.getItem('forbidden-stars.token-style')), 'images');
+      await page.locator('#fs-lb-wording').selectOption('icons'); await waitCard(page);
+      assert.equal(await page.locator('.fs-card-text .fs-token-image').count(), 0);
+      assert.equal(await page.locator('.fs-card-text .fs-token[aria-label="жетон кузницы"]').count(), 1);
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('.fs-header').evaluate(node => node.inert), false);
       assert.equal(await page.locator('.fs-card').evaluate(node => node === document.activeElement), true);

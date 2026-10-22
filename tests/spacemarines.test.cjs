@@ -24,8 +24,10 @@ test('the approved current-Russian wording preserves die types, actions and unit
  assert.match(lookup('combat/t3_2.jpg').unit,/переверните любые ваши кубы на \[M\]/);
  assert.match(lookup('events/e_4.jpg').general,/перевернуть все ваши кубы на \[B\] вместо броска/);
  assert.match(lookup('events/e_3.jpg').general,/восстановить 1 ваш отряд/);
- const wording={combatText:data.combatText,ordersText:data.ordersText,eventsText:data.eventsText};
- // Fingerprint of the complete 27-card wording approved by the owner.
+ const wording=structuredClone({combatText:data.combatText,ordersText:data.ordersText,eventsText:data.eventsText});
+ // Only this owner-requested title punctuation differs from the approved raster
+ // wording. Keep the fingerprint protecting every other title and all rules.
+ wording.combatText[1][3].title=wording.combatText[1][3].title.replace('Разведчики-Ветераны','Разведчики Ветераны');
  assert.equal(crypto.createHash('sha256').update(JSON.stringify(wording)).digest('hex'),'1e0263e8ca85b727f63f6ab66504212435cff5081d689f9d7cfb7731d760d898');
 });
 

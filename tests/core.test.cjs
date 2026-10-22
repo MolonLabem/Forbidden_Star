@@ -18,10 +18,26 @@ test('token wording handles Russian cases, English aliases, shared nouns, and qu
   assert.equal(FSWord.format(explicit, 'explicit'), explicit);
   assert.equal(FSWord.format('жетон приказа из запаса; жетон подкреплениями', 'icons'), 'жетон приказа из запаса; жетон подкреплениями');
   assert.equal(FSWord.format('[FORGE] [REINFORCE] [CACHE]', 'explicit'), 'жетон кузницы жетон подкрепления жетон запасов');
+  assert.equal(FSWord.format('1 жетон кузницы'), '1\u00a0\uE100');
+  assert.equal(FSWord.format('1 жетон кузницы', 'images'), FSWord.format('1 жетон кузницы', 'icons'));
 });
 
-test('Russian search is independent of ё/е, line-break markup, and token presentation', () => {
+test('both token styles share canonical identities and real obverse image assets', () => {
+  assert.equal(new Set(FSWord.tokens.map(t => t.image)).size, 3);
+  for (const token of FSWord.tokens) {
+    const bytes = fs.readFileSync(path.join(page, token.image));
+    assert.equal(bytes.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+    assert.deepEqual([bytes.readUInt32BE(16), bytes.readUInt32BE(20)], [260, 260]);
+    assert.equal(bytes[25], 6, 'RGBA disc with transparent corners');
+    assert.equal(FSWord.plain(FSWord.format(token.label, 'images')), token.label);
+  }
+});
+
+test('Russian search is independent of ё/е, hyphenation, line-break markup, and token presentation', () => {
   assert.equal(FSWord.normalize('СЁСТРЫ *newpara* БИТВЫ'), FSWord.normalize('сестры битвы'));
+  for (const name of ['Сикарийцы-Лазутчики', 'Сикарийцы\u2011Лазутчики', 'Сикарийцы – Лазутчики']) {
+    assert.equal(FSWord.normalize(name), FSWord.normalize('сикарийцы лазутчики'));
+  }
   assert.equal(FSWord.normalize('1 \uE100'), FSWord.normalize('1 жетон кузницы'));
   assert.equal(FSWord.plain('Текст *newline* Продолжение'), 'Текст\nПродолжение');
 });

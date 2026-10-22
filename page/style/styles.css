@@ -418,6 +418,10 @@ body {
 .fs-card-text h2 { font-size: 17px; line-height: 1.4; }
 .fs-card-text p { white-space: pre-wrap; line-height: 1.7; font-size: 15px; user-select: text; }
 .fs-token { font-family: 'ForbiddenStars'; font-style: normal; font-weight: normal; font-size: 1.15em; line-height: 1; vertical-align: -0.08em; }
+.fs-token--image { position: relative; display: inline-block; }
+.fs-token-image { position: absolute; width: .975em; height: .975em; max-width: none; left: 50%; top: 50%; transform: translate(-50%, -50%); visibility: hidden; }
+.fs-token--image.has-image .fs-token-image { visibility: visible; }
+.fs-token--image.has-image .fs-token-fallback { visibility: hidden; }
 .fs-settings { position: relative; font-size: 13px; margin-left: auto; }
 .fs-settings summary { cursor: pointer; padding: 8px; border: 1px solid #38332c; border-radius: 8px; color: #d8d2c8; }
 .fs-settings-panel { position: absolute; right: 0; top: calc(100% + 8px); width: 290px; max-width: calc(100vw - 28px); z-index: 40; padding: 16px; background: #1a1815; border: 1px solid #38332c; border-radius: 12px; box-shadow: 0 12px 36px #000a; display: flex; flex-direction: column; gap: 12px; }

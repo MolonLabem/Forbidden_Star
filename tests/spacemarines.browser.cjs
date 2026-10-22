@@ -21,7 +21,7 @@ const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json
   await page.route('https://fonts.googleapis.com/**',route=>route.fulfill({contentType:'text/css',body:''}));
   page.on('pageerror',e=>errors.push(e.message));
   const ready=()=>page.waitForFunction(()=>document.querySelector('.fs-lb-imgwrap.is-ready img')?.naturalWidth>0);
-  async function matches(category,file,wording='explicit'){
+  async function matches(category,file,wording='icons'){
    const row=data[category+'Text'].flat()[files[category].flat().indexOf(file)];
    const result=await page.evaluate(async({category,file,row,template,wording})=>{
     const img=document.querySelector('.fs-lb img'),width=img.naturalWidth,height=img.naturalHeight;
@@ -52,8 +52,8 @@ const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json
   assert.equal(await page.locator('.fs-card-text .fs-token[aria-label="жетон подкрепления"]').count(),1);
   await page.goto(base+'#q='+encodeURIComponent('выбранную боевую карту противника'));
   await page.locator('.fs-card[data-card-id="factions/base/spacemarines/combat/s2.jpg"]').click();await ready();
-  await page.locator('#fs-lb-wording').selectOption('explicit');await ready();
-  await matches('combat','s2.jpg');
+  await page.locator('#fs-lb-wording').selectOption('images');await ready();
+  await matches('combat','s2.jpg','images');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   assert.deepEqual(errors,[]);
   console.log(`PASS ${checked} live cards match the approved composition; search, direct links, mobile, token modes and 27-card count; no JavaScript errors`);
