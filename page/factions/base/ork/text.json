@@ -27,604 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/s1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4426
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5726
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/ork/combat/s1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.491
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.621
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/ork/combat/s2.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.566
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.696
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/ork/combat/s3.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.566
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.696
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/ork/combat/s4.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.566
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.696
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/ork/combat/s5.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5676
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6976
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t0_1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.48160000000000003
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6116
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t0_2.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6066
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7366
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t0_3.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6066
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7366
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t0_4.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.45189999999999997
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5819
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t2_1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.491
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.621
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t2_2.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6441
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7741
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t2_3.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t3_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6426
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7726
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t3_1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/base/ork/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5285
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/ork/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6585
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/ork/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/ork/combat/t3_2.jpg",
+      "titleMaxWidth": 0.645
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1763,7 +1219,7 @@
         "general": "Получите 1 (B) и 1 (S). *newline* Ваш противник должен перебросить 1 куб на ваш выбор.",
         "unit": "Натиск: Уничтожьте 1 Натиск, чтобы вынудить вашего противника выбрать и уничтожить 1 свой отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/s1.jpg",
-        "aspect": 0.7046875,
+        "aspect": 0.7194928684627575,
         "icons": ""
       },
       {
@@ -1771,32 +1227,32 @@
         "general": "Получите 1 [D].",
         "unit": "Бойз/Натиск: Ваш противник должен сбросить верхнюю карту со своей боевой колоды. Получите её боевые значки до конца текущего раунда битвы.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/s2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "M"
       },
       {
         "title": "Ард Бойзы",
         "general": "Вы обязаны перебросить все ваши [B].",
         "unit": "Бойз: Ваш противник обязан перебросить 1 [B] за каждого недеморализованного Бойза.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/s3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SS"
       },
       {
         "title": "Шута Бойзы",
         "general": "Вы обязаны перебросить все ваши [S].",
         "unit": "Бойз: Ваш противник обязан перебросить 1 [S] за каждого недеморализованного Бойза.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/s4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BB"
       },
       {
         "title": "Слагга Бойзы",
         "general": "Вы и ваш противник обязаны перебросить все [M].",
         "unit": "Бойз/Натиск: Восстановите 1 ваш отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/s5.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       }
     ],
     [
@@ -1805,32 +1261,32 @@
         "general": "Восстановите 1 ваш отряд.",
         "unit": "Бойз/Натиск: Получите 1 (B) за каждого недеморализованного Бойза или Натиска.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t0_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "MMM"
       },
       {
         "title": "Море Зеленых",
         "general": "Бесплатно разместите 1 жетон подкрепления в эту область. *newline* Если у вас больше недеморализованных отрядов, чем у вашего противника, то он должен выбрать и деморализовать 1 свой отряд. Ваш противник может избежать этого эффекта, если потратит 1 [M].",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t0_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       },
       {
         "title": "Мега Нобы",
         "general": "Ваш противник обязан перебросить все [S].",
         "unit": "Ноб/Натиск: Получите 1 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t0_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSS"
       },
       {
         "title": "Байкер Нобы",
         "general": "Ваш противник обязан перебросить все [B].",
         "unit": "Ноб/Натиск: Получите 1 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t0_4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBS"
       }
     ],
     [
@@ -1839,24 +1295,24 @@
         "general": "Вы и ваш противник обязаны перебросить все кубы.",
         "unit": "Бойз/Натиск: Каждый раз во время этой битвы, когда ваш противник получает (B) или (S), вы получаете такое же количество (B) или (S) соответственно.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t2_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSM"
       },
       {
         "title": "Пати Вагон",
         "general": "Бесплатно разместите 1 жетон подкрепления в эту область.",
         "unit": "Боевой Вагон/Крузер Убийца: Если у вас больше недеморализованных отрядов, чем у вашего противника, то получите 2 (B) и 2 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t2_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSS"
       },
       {
         "title": "Роккит Вагон",
         "general": "",
         "unit": "Боевой Вагон/Крузер Убийца: Получите 3 (B). Ваш противник может отступить 1 своим отрядом.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t2_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBB"
       }
     ],
     [
@@ -1865,16 +1321,16 @@
         "general": "",
         "unit": "Гаргант/Крузер Убийца: Сбросьте 1 открытую боевую карту вашего противника.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t3_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBBBS"
       },
       {
         "title": "Сокрушающий Гаргант",
         "general": "",
         "unit": "Гаргант/Крузер Убийца: Выберите 1 отряд вашего противника и уничтожьте его. Ваш противник может избежать этого эффекта, если потратит количество кубов, равное командному уровню выбранного отряда.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/ork/combat/t3_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBSSS"
       }
     ]
   ],
@@ -2111,16 +1567,5 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/base/ork/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.645
   }
 }

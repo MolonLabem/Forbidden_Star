@@ -27,604 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/s1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.491
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.621
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/chaos/combat/s1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4535
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5835
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/chaos/combat/s2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.42069999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5507
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/chaos/combat/s3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.45189999999999997
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5819
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/chaos/combat/s4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4223
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5523
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/chaos/combat/s5.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.42379999999999995
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5538
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t0_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.42379999999999995
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5538
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t0_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4223
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5523
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t0_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4223
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5523
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t0_4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5676
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6976
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t2_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.491
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.621
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t2_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.43320000000000003
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5632
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t2_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t3_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.40349999999999997
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5335
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t3_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/base/chaos/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4426
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/chaos/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5726
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/chaos/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/chaos/combat/t3_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1763,40 +1219,40 @@
         "general": "Потратьте 1 [B], чтобы получить 3 (B).",
         "unit": "Космодесантник Хаоса/Иконоборец: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/s1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Нечестивое Поклонение",
         "general": "Получите 1 [D].",
         "unit": "Культист/Иконоборец: Если у вашего противника есть хотя бы 1 деморализованный отряд, то получите 1 (S) за каждого недеморализованного Культиста или Иконоборца.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/s2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "S"
       },
       {
         "title": "Нечистое Намерение",
         "general": "Если у вас больше [M], чем у вашего противника, то восстановите 1 ваш отряд.",
         "unit": "Культист/Иконоборец: Получите 1 (B) за каждого недеморализованного Культиста или Иконоборца. Ваш противник может избежать этого эффекта, если выберет и деморализует 1 свой отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/s3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       },
       {
         "title": "Темная Вера",
         "general": "Получите 1 [M].",
         "unit": "Культист/Иконоборец: Если у вас больше [M], чем у вашего противника, то бесплатно разместите 1 Культиста в другом дружественном или неконтролируемом мире в этой системе.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/s4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "M"
       },
       {
         "title": "Соблазн Хаоса",
         "general": "Ваш противник может выбрать и деморализовать 1 свой отряд, чтобы получить 1 [D]. Если он этого не сделал, то бесплатно разместите 1 Культиста или Иконоборца в эту область.",
         "unit": "Культист/Иконоборец: Получите 2 (B) или 2 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/s5.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "M"
       }
     ],
     [
@@ -1805,32 +1261,32 @@
         "general": "Потратьте 1 [B] или 1 [M], чтобы получить 3 (B).",
         "unit": "Космодесантник Хаоса/Иконоборец: Ваш противник должен выбрать и уничтожить 1 свой деморализованный отряд. Он может избежать этого эффекта, если потратит 1 [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t0_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BB"
       },
       {
         "title": "Метка Нургла",
         "general": "Потратьте 1 [S] или 1 [M], чтобы получить 3 (S).",
         "unit": "Космодесантник Хаоса/Иконоборец: Получите 2 (S). Ваш противник может избежать этого эффекта, если выберет и уничтожит 1 свой деморализованный отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t0_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SS"
       },
       {
         "title": "Метка Слаанеш",
         "general": "Получите 1 [D]. *newline* Если у вас больше [M], чем у вашего противника, то он должен выбрать и деморализовать 1 свой отряд.",
         "unit": "Космодесантник Хаоса: Если у вашего противника есть хотя бы 1 деморализованный отряд, то бесплатно разместите 1 Культиста в этом мире.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t0_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       },
       {
         "title": "Метка Тзинча",
         "general": "Получите 1 [M]. *newline* Если у вас больше [M], чем у вашего противника, то замените 1 Культиста на 1 Космодесантника Хаоса в этом мире.",
         "unit": "Космодесантник Хаоса/Иконоборец: Потратьте до 2 [M]. За каждый [M], который вы потратили, получите 1 [B] или 1 [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t0_4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "MM"
       }
     ],
     [
@@ -1839,24 +1295,24 @@
         "general": "Получите 1 [B] или 1 [M].",
         "unit": "Хелбрут/Тяжелый Крейсер: Уничтожьте 1 ваш отряд, чтобы получить 4 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t2_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBM"
       },
       {
         "title": "Демоническая Стойкость",
         "general": "Получите 1 [S] или 1 [M].",
         "unit": "Хелбрут/Тяжелый Крейсер: Получите 4 (S). Ваш противник может избежать этого эффекта, если выберет и уничтожит 1 свой отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t2_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SSM"
       },
       {
         "title": "Хаос Объединенный",
         "general": "Ваш противник может выбрать и деморализовать 1 свой отряд. Если он этого не сделал, то получите 1 [B], 1 [S] или 1 [M].",
         "unit": "Культист/Космодесантник Хаоса/Хелбрут: Возьмите 1 ваш отряд из любого мира и разместите его в этом мире. Командный уровень этого отряда не может превышать числа Культистов в этой системе.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t2_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSM"
       }
     ],
     [
@@ -1865,16 +1321,16 @@
         "general": "Получите 2 [B] или 2 [M]. *newline* Потратьте любое количество [M]. За каждый [M], который вы потратили, уничтожьте 1 отряд противника с командным уровнем 0.",
         "unit": "Титан Хаоса/Тяжелый Крейсер: Если у вас больше [M], чем у вашего противника, то уничтожьте 1 его деморализованный отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t3_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBM"
       },
       {
         "title": "Хаос Победоносный",
         "general": "Получите 2 [D]. *newline* Если у вас больше [M], чем у вашего противника, то деморализуйте все его отряды с командным уровнем 0.",
         "unit": "Титан Хаоса/Тяжелый Крейсер: Деморализуйте 1 отряд вашего противника.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/chaos/combat/t3_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSM"
       }
     ]
   ],
@@ -2111,16 +1567,5 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/base/chaos/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.625
   }
 }

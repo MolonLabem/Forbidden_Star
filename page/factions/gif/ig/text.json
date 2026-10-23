@@ -27,604 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/s1.jpg",
-        "crop": [
-          0.23,
-          0.18,
-          0.77,
-          0.39940000000000003
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5794
-        ],
-        "headerHeight": 0.164,
-        "titleY": 0.104,
-        "titlePatch": {
-          "box": [
-            0.27,
-            0.055,
-            0.61,
-            0.065
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/ig/combat/s1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5493
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6793
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/ig/combat/s2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5461
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6761
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/ig/combat/s3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5477
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6777
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/ig/combat/s4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.48529999999999995
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6153
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/ig/combat/s5.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4774999999999999
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6075
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t0_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5305
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6605
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t0_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5305
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6605
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t0_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6242
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7542
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t0_4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.47129999999999994
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6013
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t2_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.45099999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.581
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t2_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.568
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.698
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t2_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t3_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4837
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6137
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t3_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/ig/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5025
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/ig/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6325
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/ig/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/ig/combat/t3_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1764,40 +1220,40 @@
         "general": "Если вы атакуете, то ваш противник должен потерять 2 (S) в начале шага нанесения повреждений. *newline* Если вы защищаетесь, то получите 2 (S).",
         "unit": "Гвардеец/Крейсер: Перебросьте 1 ваш [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "За Императора!",
         "general": "Перебросьте 1 ваш куб.",
         "unit": "Гвардеец/Крейсер: Получите 1 (B) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Вторжение",
         "general": "Получите 1 [D].",
         "unit": "Гвардеец/Крейсер: Получите 1 (S) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "S"
       },
       {
         "title": "Комиссар",
         "general": "Получите 1 [D] за каждый тип ваших недеморализованных отрядов.",
         "unit": "Гвардеец/Крейсер: Восстановите 1 ваш отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s4.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "M"
       },
       {
         "title": "Ратлинги",
         "general": "Ваш противник теряет 2 (B) в начале шага нанесения повреждений.",
         "unit": "Гвардеец/Крейсер: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 куб на свой выбор.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s5.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       }
     ],
     [
@@ -1806,32 +1262,32 @@
         "general": "Если у вас больше недеморализованных отрядов, чем у противника, то он должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 [M].",
         "unit": "Огрин/Крейсер: Посмотрите выбранную боевую карту противника. Получите 2 [B] или 2 [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "S"
       },
       {
         "title": "Огрин",
         "general": "Вы обязаны перебросить 2 ваших [S] или [M] в любой комбинации.",
         "unit": "Огрин/Крейсер: Получите 1 (S) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BB"
       },
       {
         "title": "Булгрин",
         "general": "Вы обязаны перебросить 2 ваших [B] или [M] в любой комбинации.",
         "unit": "Огрин/Крейсер: Получите 1 (B) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SS"
       },
       {
         "title": "Химера",
         "general": "За каждую недеморализованную пару: Гвардеец+Огрин или Крейсер+Линкор ваш противник должен потерять 3 (B) или 3 (S) в начале шага нанесения повреждений.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_4.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSM"
       }
     ],
     [
@@ -1840,24 +1296,24 @@
         "general": "Если у вас больше недеморализованных отрядов с командным уровнем 0, чем у вашего противника, то он должен выбрать и деморализовать 1 свой отряд.",
         "unit": "Леманн Русс/Линкор: Ваш противник должен выбрать и уничтожить 1 свой деморализованный отряд с командным уровнем 0-1.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSS"
       },
       {
         "title": "Василиск",
         "general": "Уничтожьте 1 Крейсер, чтобы вынудить противника сбросить 3 куба на свой выбор, либо уничтожьте до 2 Гвардейцев, чтобы вынудить противника сбросить 2 куба на свой выбор за каждый уничтоженный отряд.",
         "unit": "Леманн Русс/Линкор: Выберите 1 отряд противника с командным уровнем 2-3 или бастион. Этот отряд или бастион получает повреждения первым во время этого шага нанесения повреждений.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBB"
       },
       {
         "title": "Полк",
         "general": "За каждый тип ваших недеморализованных наземных отрядов получите 1 (B) или 1 (S). За каждый тип ваших недеморализованных кораблей получите 2 (B) или 2 (S). Восстановите 1 деморализованный отряд и получите 1 [D].",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       }
     ],
     [
@@ -1866,16 +1322,16 @@
         "general": "Ваш противник должен потерять 1 [S].",
         "unit": "Титан: Получите 2 (B) за каждый тип ваших недеморализованных наземных отрядов, но не более 6. *newline* Линкор: Получите 3 (B) за каждый тип ваших недеморализованных кораблей.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t3_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBBM"
       },
       {
         "title": "Поддержка Титана",
         "general": "Ваш противник обязан перебросить 1 [B] за каждый тип ваших недеморализованных отрядов в этой битве.",
         "unit": "Титан/Линкор: В этом раунде битвы ваши отряды с командным уровнем 0-2 не могут стать деморализованными.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t3_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSSMM"
       }
     ]
   ],
@@ -2112,16 +1568,5 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/gif/ig/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.625
   }
 }

@@ -27,604 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/s1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5337
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6637
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/s1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6132
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7432
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/s2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.46809999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5981
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/s3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5226999999999999
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6527
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/s4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6148
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7448
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/s5.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4416
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5716
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t0_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.49929999999999997
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6293
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t0_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.18,
-          0.77,
-          0.40929999999999994
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5893
-        ],
-        "headerHeight": 0.164,
-        "titleY": 0.104,
-        "titlePatch": {
-          "box": [
-            0.27,
-            0.055,
-            0.61,
-            0.065
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.14,
-          0.24,
-          0.115
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t0_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.43069999999999997
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5607
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t0_4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.44789999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5779
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t2_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.49929999999999997
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6293
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t2_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4447
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5747
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t2_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t3_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4557
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5857
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t3_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tyranid/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4869
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tyranid/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6169
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tyranid/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tyranid/combat/t3_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1763,40 +1219,40 @@
         "general": "Получите 1 (S).",
         "unit": "Гаунт/Пожиратель: Уничтожьте 1 недеморализованного Гаунта или Пожирателя, чтобы получить 3 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Культ Генокрадов",
         "general": "",
         "unit": "Гаунт/Пожиратель: Ваш противник должен потерять 1 куб из тех, которых у него больше всего. При равенстве, вы выбираете какой. Получите 1 куб такого же типа.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Тиран Улья",
         "general": "Разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
         "unit": "Воин/Корабль-Улей: Восстановите 1 ваш отряд. Потратьте 1 [M], чтобы получить 1 [B] или 1 [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Туннель",
         "general": "Если вы атакуете, получите 2 (S). *newline* Если вы защищаетесь, либо бесплатно разместите 1 жетон подкрепления в эту область, либо уничтожьте 2 недеморализованных Гаунта, чтобы разместить бастион в этом мире, если он еще не содержит постройку.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s4.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "S"
       },
       {
         "title": "Тираноциты",
         "general": "Уничтожьте 1 недеморализованного Пожирателя в этой системе, чтобы бесплатно разместить 1 Воина в этот мир, затем получите 2 [D].",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/s5.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "S"
       }
     ],
     [
@@ -1805,32 +1261,32 @@
         "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 3 (B).",
         "unit": "Воин/Пожиратель: Ваш противник может позволить вам получить 2 (S). Если он этого не сделал, то увеличьте значение вашей атаки в следующем раунде битвы на 2.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BB"
       },
       {
         "title": "Орда Потрошителей",
         "general": "Получите 2 (B).",
         "unit": "Гаунт/Пожиратель: В конце этого раунда битвы получите по 1 материалу за каждый уничтоженный отряд, но не более 2.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BB"
       },
       {
         "title": "Термагаунты",
         "general": "Либо получите 1 (B) за каждого недеморализованного Гаунта или Пожирателя, либо бесплатно разместите 1 жетон подкрепления в эту область. *newline* Уменьшите значение получаемого вами урона в следующем раунде битвы на 1 за каждого убитого или деморализованного Гаунта или Пожирателя в этом раунде.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       },
       {
         "title": "Воины",
         "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 2 (S), и уменьшить значение получаемого вами повреждения в следующем раунде битвы на 2.",
         "unit": "Воин/Корабль-Улей: Перебросьте все ваши [B], [S], или [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_4.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       }
     ],
     [
@@ -1839,24 +1295,24 @@
         "general": "В течение этого раунда боя, если ваш противник будет распределять какой-либо урон, он должен распределить дополнительно 3 урона.",
         "unit": "Карнифекс/Корабль-Улей: Уничтожьте 1 недеморализованный Карнифекс или Корабль-Улей, чтобы получить 3 (B) и 2 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t2_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBS"
       },
       {
         "title": "Камнедробитель",
         "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 3 (B).",
         "unit": "Карнифекс/Корабль-Улей: Потратьте 1 [B] или 1 [M], чтобы вынудить противника потерять 2 [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t2_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSS"
       },
       {
         "title": "Лорд Роя",
         "general": "Получите 1 [D]. *newline* Бесплатно разместите 1 жетон подкрепления в эту область.",
         "unit": "Воин/Корабль-Улей: Восстановите 1 ваш отряд. *newline* Получите 1 (B) или 1 (S) за каждый ваш недеморализованный отряд, превышающий общее число недеморализованных отрядов противника.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t2_3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       }
     ],
     [
@@ -1865,16 +1321,16 @@
         "general": "Потратьте любое количество [M]. *newline* Получите 1 [B] или 1 [S] за каждый потраченный [M].",
         "unit": "Био-Титан/Корабль-Улей: Восстановите все ваши отряды. *newline* Во время шага нанесения повреждений вы выбираете порядок, в котором отряды и бастион противника получают повреждения в этом раунде боя.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t3_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBBS"
       },
       {
         "title": "Иерофант",
         "general": "Уничтожьте 1 ваш недеморализованный отряд, чтобы получить 3 (B) или 3 (S).",
         "unit": "Био-Титан/Корабль-Улей: Ваш противник трижды выбирает либо потерять 1 куб на свой выбор, либо выбрать и деморализовать 1 свой отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t3_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSS"
       }
     ]
   ],
@@ -2111,17 +1567,6 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/gif/tyranid/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.625
   },
   "assetSources": {
     "maps/map_A.jpg": {

@@ -27,604 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/s1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.48939999999999995
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6194
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/eldar/combat/s1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5301
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6601
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/eldar/combat/s2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5676
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6976
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/eldar/combat/s3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6332
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7632
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/eldar/combat/s4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5566
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6866
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/eldar/combat/s5.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5285
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6585
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t0_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5301
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6601
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t0_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4051
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5351
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t0_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.48160000000000003
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6116
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t0_4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.491
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.621
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t2_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.3738
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5038
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t2_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5676
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6976
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t2_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t3_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4457
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5757
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t3_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/base/eldar/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4285
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/eldar/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5585
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/eldar/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/eldar/combat/t3_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1763,39 +1219,39 @@
         "general": "Получите 2 (B).",
         "unit": "Аспектный Воин/Фрегат: Потратьте 1 [M], чтобы переместить 1 ваш отряд в соседнюю дружественную или неконтролируемую область.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Воющие Банши",
         "general": "Получите 1 [D].",
         "unit": "Аспектный Воин/Фрегат: Потратьте 1 [M], чтобы вынудить вашего противника выбрать и деморализовать 1 свой отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Жалящие Скорпионы",
         "general": "Получите 1 [D].",
         "unit": "Аспектный Воин/Фрегат: Ваш противник должен потерять 1 куб на свой выбор.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "S"
       },
       {
         "title": "Поддержка Рейнджеров",
         "general": "Если вы атакуете, то получите 1 (B) и 1 (S). Если вы защищаетесь, то можете отступить 1 вашим отрядом.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SM"
       },
       {
         "title": "Приказ Автарха",
         "general": "Восстановите 1 ваш отряд или получите 1 [M]. *newline* Разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/s5.jpg",
-        "aspect": 0.7046875,
+        "aspect": 0.7194928684627575,
         "icons": ""
       }
     ],
@@ -1805,32 +1261,32 @@
         "general": "Если вы атакуете, то ваш противник не может получить (S) в течение этого раунда битвы.",
         "unit": "Аспектный Воин/Фрегат: Получите 2 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BB"
       },
       {
         "title": "Пикирующие Ястребы",
         "general": "Если вы защищаетесь, то ваш противник должен потерять 3 (B).",
         "unit": "Аспектный Воин/Фрегат: Потратьте 1 [M], чтобы получить 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SS"
       },
       {
         "title": "Наступление Призрачных Стражей",
         "general": "Получите 1 [D] или 1 [M]. *newline* Переверните до 2 ваших [S] на [B].",
         "unit": "Призрачный Страж/Фрегат/Пустотный Охотник: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BM"
       },
       {
         "title": "Поддержка Призрачных Стражей",
         "general": "Получите 1 [D] или 1 [M]. *newline* Переверните до 2 ваших [B] на [S].",
         "unit": "Призрачный Страж/Фрегат/Пустотный Охотник: Потратьте 1 [M], чтобы восстановить 1 ваш отряд.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t0_4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SM"
       }
     ],
     [
@@ -1839,24 +1295,24 @@
         "general": "Переверните любое количество ваших [M] на [B].",
         "unit": "Сокол/Пустотный Охотник: Если вы атакуете, то получите 2 (B). Если вы защищаетесь, то противник теряет 5 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBS"
       },
       {
         "title": "Волновая Змея",
         "general": "Получите 1 [D]. *newline* Получите 3 (S). Ваш противник может избежать этого эффекта, если потратит 1 [M].",
         "unit": "Сокол/Пустотный Охотник: Потратьте 1 [M], чтобы переместить любое количество ваших отрядов с командным уровнем 0-1 в соседнюю область. Это может привести к новому сражению по завершении текущего.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSSM"
       },
       {
         "title": "Наставления Видящих",
         "general": "Получите 1 [M]. *newline* Деморализуйте 1 ваш отряд. Если вы это сделали, то все отряды до конца этого раунда битвы не могут получать какой-либо урон.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSM"
       }
     ],
     [
@@ -1865,16 +1321,16 @@
         "general": "Получите 1 [D]. *newline* Возьмите 1 боевую карту.",
         "unit": "Титан Колдун/Пустотный Охотник: Разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t3_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSSM"
       },
       {
         "title": "Психокопье",
         "general": "Получите 1 [D]. *newline* Ваш противник должен сбросить 1 случайную боевую карту с руки.",
         "unit": "Титан Колдун/Пустотный Охотник: Получите 4 (B). Ваш противник может избежать этого эффекта, если позволит вам выбрать и сбросить 1 свою открытую боевую карту.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t3_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBS"
       }
     ]
   ],
@@ -2111,16 +1567,5 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/base/eldar/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.625
   }
 }

@@ -263,7 +263,6 @@
         tierLabels: (t && t.tierLabels) || null,
         components: (t && t.componentsText) || {},
         templates: (t && t.templates) || {},
-        combatFrame: (t && t.combatFrame) || null,
         cardAspect: t && t.cardAspect || null,
       };
       DATA.loading['man:' + id] = false;
@@ -292,9 +291,6 @@
   function cardTemplate(txt, cat, file) {
     if (!txt) return null;
     var template = txt.templates[FOLDER[cat] + '/' + file];
-    if (cat === 'combat' && txt.combatFrame && template) {
-      return Object.assign({ frame: txt.combatFrame }, template);
-    }
     return template || null;
   }
 

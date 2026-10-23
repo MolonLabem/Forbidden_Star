@@ -27,604 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/s1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.7115
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.8415
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/necron/combat/s1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.7115
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.8415
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/necron/combat/s2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.48529999999999995
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6153
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/necron/combat/s3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5461
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6761
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/necron/combat/s4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5305
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6605
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/necron/combat/s5.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6568999999999999
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7869
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t0_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5367999999999999
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6668
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t0_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5009
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6309
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t0_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6819
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.8119
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t0_4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.18,
-          0.77,
-          0.4971000000000001
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6771
-        ],
-        "headerHeight": 0.14,
-        "titleY": 0.104,
-        "titlePatch": {
-          "box": [
-            0.27,
-            0.055,
-            0.61,
-            0.065
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.14,
-          0.24,
-          0.115
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t2_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.46809999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5981
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t2_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.44009999999999994
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5701
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t2_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t3_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4697
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5997
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t3_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/necron/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.18,
-          0.77,
-          0.4532
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/necron/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6332
-        ],
-        "headerHeight": 0.14,
-        "titleY": 0.104,
-        "titlePatch": {
-          "box": [
-            0.27,
-            0.055,
-            0.61,
-            0.065
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/necron/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.14,
-          0.24,
-          0.115
-        ]
-      }
+      "picture": "pictures/templates/gif/necron/combat/t3_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1763,39 +1219,39 @@
         "general": "",
         "unit": "Воин/Жнец: Получите 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BB"
       },
       {
         "title": "Фаланга",
         "general": "",
         "unit": "Воин/Жнец: Получите 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SS"
       },
       {
         "title": "Криптек",
         "general": "Получите 1 [B], 1 [S] или 1 [M]. *newline* Потратьте 1 [M], чтобы выбрать: забрать 1 ваш отряд из этого мира и разместить его деморализованным в любом дружественном мире, который содержит постройку; забрать 1 ваш отряд с командным уровнем 0-1 из любого мира, который содержит постройку, и разместить его в этом мире.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "M"
       },
       {
         "title": "Освежеванные",
         "general": "Получите 2 (B).",
         "unit": "Воин/Жнец: Если у вашего противника есть хотя бы 1 [M], то вынудите его потерять 1 [M], затем получите 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s4.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Лорд",
         "general": "Получите 1 [M]. *newline* Восстановите 1 ваш отряд.",
         "unit": "Воин/Жнец/Бессмертный: Получите 1 [B] или 1 [S] за каждый ваш [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s5.jpg",
-        "aspect": 0.7051482059282371,
+        "aspect": 0.7194928684627575,
         "icons": ""
       }
     ],
@@ -1805,32 +1261,32 @@
         "general": "Получите 1 [D]. *newline* Бесплатно разместите 1 жетон подкрепления в эту область.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BM"
       },
       {
         "title": "Разрушители",
         "general": "Потратьте 1 [S] или 1 [M], чтобы получить 2 (B).",
         "unit": "Бессмертный/Жнец: Если у вашего противника есть хотя бы 1 деморализованный отряд, то получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBM"
       },
       {
         "title": "Лич Страж",
         "general": "Деморализуйте 1 ваш отряд, затем ваш противник должен выбрать и деморализовать 1 свой отряд.",
         "unit": "Бессмертный/Жнец: Если у вашего противника есть хотя бы 1 деморализованный отряд, то получите 2 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SSM"
       },
       {
         "title": "Владыка",
         "general": "Восстановите 1 ваш отряд. *newline* Перебросьте до 2 ваших кубов.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_4.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "MMM"
       }
     ],
     [
@@ -1839,24 +1295,24 @@
         "general": "Если вы не получили урон в этом раунде битвы, то противник должен выбрать и отступить одним из своих отрядов.",
         "unit": "Монолит/Корабль-Гробница: Получите 3 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t2_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBS"
       },
       {
         "title": "Фаланга Судного Дня",
         "general": "Ваш противник теряет 1 [S].",
         "unit": "Монолит/Корабль-Гробница: Любой отряд противника, деморализованный во время шага нанесения повреждений в этом раунде битвы, - уничтожается. Ваш противник может избежать этого эффекта, если потратит 1 [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t2_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBB"
       },
       {
         "title": "Триарх Преторианец",
         "general": "Восстановите 1 ваш деморализованный отряд или бесплатно разместите 1 жетон подкрепления в эту область.",
         "unit": "Воин/Жнец: За каждого недеморализованного Воина или Жнеца вы можете потратить 1 куб, чтобы получить 1 [B], 1 [S] или 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t2_3.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSM"
       }
     ],
     [
@@ -1865,16 +1321,16 @@
         "general": "Разыграйте верхнюю карту боевой колоды. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
         "unit": "Ктан: Возьмите вашего Ктана и разместите его в любом дружественном мире.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t3_1.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSMM"
       },
       {
         "title": "Несущий Ночь",
         "general": "Выберите и уничтожьте 1 отряд с командным уровнем 0 или получите 3 (B).",
         "unit": "Ктан/Корабль-Гробница: Выберите и уничтожьте 1 отряд с командным уровнем 0-1.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t3_2.jpg",
-        "aspect": 0.7051482059282371,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBS"
       }
     ]
   ],
@@ -2111,16 +1567,5 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/gif/necron/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.625
   }
 }

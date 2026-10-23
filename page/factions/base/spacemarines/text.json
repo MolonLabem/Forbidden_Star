@@ -32,40 +32,40 @@
         "general": "Получите 2 (B).",
         "unit": "Разведчик/Ударный Крейсер: Любой отряд противника, деморализованный в этом раунде битвы, - уничтожается. Ваш противник может избежать этого уничтожения, если потратит 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s1.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "B",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Разведка",
         "general": "Если вы атакуете, то посмотрите выбранную боевую карту противника. *newline* Получите 2 (B) или 2 (S).",
         "unit": "Разведчик/Ударный Крейсер: Потратьте 1 [M], чтобы отступить 1 вашим отрядом.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s2.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "S",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Ярость Ультрамара",
         "general": "Ваш противник должен перебросить 1 [S]. Затем вы можете перебросить 1 [S].",
         "unit": "Космодесантник/Ударный Крейсер: Вынудите вашего противника потерять 1 [S] или 2 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s3.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "B",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Благословенная Броня",
         "general": "Получите 2 (S).",
         "unit": "Бастион/Космодесантник/Ударный Крейсер: Переверните до 2 ваших кубов на [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s4.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "S",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Вера в Императора",
         "general": "Получите 1 [D].",
         "unit": "Разведчик/Космодесантник/Ударный Крейсер: Восстановите 1 ваш отряд или получите 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s5.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "M",
+        "aspect": 0.7194928684627575
       }
     ],
     [
@@ -74,32 +74,32 @@
         "general": "Получите 2 (S). *newline* Если вы защищаетесь, то восстановите 1 ваш отряд.",
         "unit": "Бастион/Космодесантник/Ударный Крейсер: Получите 1 [S] или 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_1.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "SM",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Слава и Смерть",
         "general": "Получите 2 (B). *newline* Если вы атакуете, то восстановите 1 ваш отряд.",
         "unit": "Космодесантник/Ударный Крейсер: Вынудите вашего противника потерять 1 [S] или 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_2.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "BM",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Сброс Десантной Капсулы",
         "general": "Получите 1 [D].",
         "unit": "Космодесантник: Потратьте 1 [M], чтобы забрать 1 Разведчика или 1 Космодесантника из любого мира и разместить в этом мире.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_3.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "BS",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Разведчики-Ветераны",
         "general": "За каждый ваш [M] получите 1 (B) или 1 (S).",
         "unit": "Разведчик/Ударный Крейсер: Потратьте любое количество [M]. Отступите 1 вашим отрядом за каждый потраченный [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_4.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "BSM",
+        "aspect": 0.7194928684627575
       }
     ],
     [
@@ -108,24 +108,24 @@
         "general": "В этом раунде битвы ваши отряды не могут стать деморализованными.",
         "unit": "Бастион/Космодесантник/Ударный Крейсер: Потратьте 1 [M], чтобы восстановить все ваши отряды.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_1.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "SSM",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Прорвать Фронт",
         "general": "Потратьте до 3 [M]. За каждый потраченный [M] получите 1 [B] или 1 [S].",
         "unit": "Ленд Рейдер/Боевая Баржа: Ваш противник должен выбрать и сбросить 1 свою открытую боевую карту.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_2.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "BSS",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Танковое Наступление",
         "general": "Получите 1 [D].",
         "unit": "Ленд Рейдер/Боевая Баржа: Выполните 1 дополнительный шаг нанесения повреждений во время этого раунда битвы.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_3.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "BBS",
+        "aspect": 0.7194928684627575
       }
     ],
     [
@@ -134,16 +134,16 @@
         "general": "Получите 2 [D].",
         "unit": "Титан Полководец/Боевая Баржа: Потратьте любое количество [B]. За каждый потраченный [B] получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t3_1.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "BBB",
+        "aspect": 0.7194928684627575
       },
       {
         "title": "Слава Императора",
         "general": "Получите 2 [D].",
         "unit": "Титан Полководец/Боевая Баржа: Восстановите все ваши отряды. Затем переверните любые ваши кубы на [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t3_2.jpg",
-        "icons": "",
-        "aspect": 0.7046875
+        "icons": "SSMM",
+        "aspect": 0.7194928684627575
       }
     ]
   ],
@@ -260,604 +260,60 @@
   },
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/s1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.45699999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.587
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/s1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.45699999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.587
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/s2.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.51
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/s3.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5449999999999999
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.675
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/s4.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.51
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/s5.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.45699999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.587
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t0_1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.45699999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.587
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t0_2.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.51
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t0_3.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.51
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t0_4.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.469
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.599
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t2_1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.469
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.599
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t2_2.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.51
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t2_3.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t3_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.51
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t3_1.jpg",
+      "titleMaxWidth": 0.645
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/base/spacemarines/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.51
-        ]
-      },
-      "chrome": {
-        "src": "factions/base/spacemarines/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.685,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/base/spacemarines/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/base/spacemarines/combat/t3_2.jpg",
+      "titleMaxWidth": 0.645
     },
     "orders/o_1.jpg": {
       "status": "reconstructed-preview-not-clean-master",
@@ -1772,16 +1228,5 @@
         "align": "left"
       }
     }
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/base/spacemarines/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.645
   }
 }

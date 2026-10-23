@@ -27,604 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "artwork": {
-        "src": "pictures/templates/tau/gif__tau__combat__s1.jpg",
-        "crop": [
-          0.23,
-          0.195,
-          0.77,
-          0.445
-        ]
-      },
-      "chrome": {
-        "src": "pictures/templates/tau/gif__tau__combat__s1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.64
-        ],
-        "headerHeight": 0.185,
-        "titleY": 0.108,
-        "titlePatch": {
-          "box": [
-            0.27,
-            0.06,
-            0.6,
-            0.065
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tau/combat/s1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/s2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5113
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/s2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6413
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tau/combat/s2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s3.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/s3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5347
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/s3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6647
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tau/combat/s3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s4.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/s4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5363
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/s4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6663
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tau/combat/s4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/s5.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/s5.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6238
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/s5.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.7538
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        }
-      }
+      "picture": "pictures/templates/gif/tau/combat/s5.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t0_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.47219999999999995
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t0_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6022
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t0_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t0_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5488
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t0_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6788
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t0_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t0_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4769
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t0_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6069
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t0_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t0_4.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t0_4.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4629
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t0_4.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.5929
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t0_4.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_1.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t2_1.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5065999999999999
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t2_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6366
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t2_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t2_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5597
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t2_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6897
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t2_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t2_3.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t2_3.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.48319999999999996
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t2_3.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6132
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t2_3.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_1.jpg": {
-      "artwork": {
-        "src": "pictures/templates/tau/gif__tau__combat__t3_1.jpg",
-        "crop": [
-          0.23,
-          0.195,
-          0.77,
-          0.415
-        ]
-      },
-      "chrome": {
-        "src": "pictures/templates/tau/gif__tau__combat__t3_1.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.61
-        ],
-        "headerHeight": 0.185,
-        "titleY": 0.108,
-        "titlePatch": {
-          "box": [
-            0.27,
-            0.06,
-            0.6,
-            0.065
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.14,
-          0.24,
-          0.115
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t3_1.jpg",
+      "titleMaxWidth": 0.625
     },
     "combat/t3_2.jpg": {
-      "artwork": {
-        "src": "factions/gif/tau/combat/t3_2.jpg",
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5051
-        ]
-      },
-      "chrome": {
-        "src": "factions/gif/tau/combat/t3_2.jpg",
-        "crop": [
-          0,
-          0,
-          0.205,
-          0.6351
-        ],
-        "headerHeight": 0.13,
-        "titleY": 0.077,
-        "titlePatch": {
-          "box": [
-            0.24,
-            0.022,
-            0.665,
-            0.071
-          ],
-          "texture": {
-            "src": "pictures/templates/gif/tau/combat.png",
-            "crop": [
-              0.3,
-              0.03,
-              0.55,
-              0.055
-            ]
-          }
-        },
-        "costStamp": [
-          0,
-          0.115,
-          0.213,
-          0.12
-        ]
-      }
+      "picture": "pictures/templates/gif/tau/combat/t3_2.jpg",
+      "titleMaxWidth": 0.625
     },
     "orders/o_1.jpg": {
       "status": "reconstructed-preview-not-clean-master",
@@ -1722,39 +1178,39 @@
         "general": "Если у вас меньше отрядов, чем у вашего противника, то получите 1 (S), а он теряет 1 [B]. *newline* В противном случае получите 1 (B).",
         "unit": "Воин Огня/Защитник: Получите 1 [D].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Стелс-Команды",
         "general": "Получите 1 (S).",
         "unit": "Воин Огня/Защитник: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если сбросит 1 куб на ваш выбор.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Перекрестный Огонь",
         "general": "Ваш противник теряет 3 (B) в начале шага нанесения повреждений.",
         "unit": "Воин Огня/Защитник/Бронекостюм: Получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "B"
       },
       {
         "title": "Тактическое Отступление",
         "general": "Отступите одним из ваших отрядов. Вы можете потратить 1 [M], чтобы восстановить этот отряд.",
         "unit": "Воин Огня/Защитник: Получите 2 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "S"
       },
       {
         "title": "Следопыты",
         "general": "",
         "unit": "Воин Огня/Защитник: Ваш противник должен открыть выбранную боевую карту. Разыграйте новую боевую карту из вашей руки. Затем сбросьте эту карту.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s5.jpg",
-        "aspect": 0.7046875,
+        "aspect": 0.7194928684627575,
         "icons": ""
       }
     ],
@@ -1764,7 +1220,7 @@
         "general": "Получите 2 (B). Выберите 1 отряд вашего противника или бастион. В этом раунде боя ваш противник должен распределить весь полученный им урон только в этот отряд или бастион.",
         "unit": "Бронекостюм/Защитник: Потратьте до 2 кубов. За каждый потраченный куб получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_1.jpg",
-        "aspect": 0.7046875,
+        "aspect": 0.7194928684627575,
         "icons": ""
       },
       {
@@ -1772,24 +1228,24 @@
         "general": "Получите 1 (S). *newline* Если вы защищаетесь, вы можете передвинуть 1 ваш отряд из соседней области в эту область в конце этого раунда битвы. Получите [D] согласно боевой мощи этого отряда.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SS"
       },
       {
         "title": "Уклонение",
         "general": "Получите 1 [D].",
         "unit": "Воин Огня/Защитник: Если ваши недеморализованные отряды с командным уровнем 0 будут деморализованы или уничтожены в этом раунде битвы, то верните эти отряды недеморализованными в эту область в конце шага нанесения повреждений.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "SM"
       },
       {
         "title": "Фальшивое Отступление",
         "general": "Ваш противник обязан перебросить все [S]. *newline* Вы обязаны перебросить 2 [S] или отступить одним из ваших отрядов.",
         "unit": "Воин Огня/Бронекостюм/Защитник: Если ни один из ваших отрядов не отступил в этом раунде битвы, получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_4.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BS"
       }
     ],
     [
@@ -1798,24 +1254,24 @@
         "general": "Ваш противник должен потерять 3 (B) в начале шага нанесения повреждений.",
         "unit": "Бронекостюм/Рыба-Молот/Хранитель: Получите 1 (S). Ваш противник должен потерять 1 [B] или 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBS"
       },
       {
         "title": "Перегруппировка",
         "general": "Потратьте любое количество кубов. *newline* За каждые 2 куба, которые вы потратили, восстановите 1 ваш отряд.",
         "unit": "Рыба-Молот/Хранитель: Получите 2 [D].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBM"
       },
       {
         "title": "Стрельба в Движении",
         "general": "Перебросьте все ваши кубы одного типа.",
         "unit": "Рыба-Молот/Хранитель: Во время шага нанесения повреждений выберите 1 ваш отряд, который должен быть уничтожен. Этот отряд может отступить вместо уничтожения.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_3.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BSM"
       }
     ],
     [
@@ -1824,16 +1280,16 @@
         "general": "Получите 2 (B). *newline* Переверните до 2 ваших [M] на [B] или [S].",
         "unit": "Превосходство/Хранитель: Значение здоровья всех отрядов вашего противника понижается до 3 на время этого раунда битвы.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t3_1.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBBS"
       },
       {
         "title": "Во Имя Высшего Блага",
         "general": "Ваш противник обязан перебросить все [B].",
         "unit": "Превосходство/Хранитель: Ваш противник должен потерять 3 [M]. За каждый [M], который он не может потерять, получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t3_2.jpg",
-        "aspect": 0.7046875,
-        "icons": ""
+        "aspect": 0.7194928684627575,
+        "icons": "BBSMM"
       }
     ]
   ],
@@ -2070,16 +1526,5 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  },
-  "combatFrame": {
-    "picture": "pictures/templates/gif/tau/combat.png",
-    "artBox": [
-      0.205,
-      0.13,
-      0.795
-    ],
-    "titleX": 0.27,
-    "titleY": 0.077,
-    "titleMaxWidth": 0.625
   }
 }
