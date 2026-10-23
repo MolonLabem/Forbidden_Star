@@ -27,823 +27,26 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "status": "reconstructed-preview-not-clean-master",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.06,
-            0.6,
-            0.065
-          ],
-          "texture": {
-            "src": "pictures/templates/tau/gif__tau__combat__s1.jpg",
-            "crop": [
-              0.82,
-              0.06,
-              0.02,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.66,
-            1,
-            0.32499999999999996
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.108,
-      "combatArt": {
+      "artwork": {
+        "src": "pictures/templates/tau/gif__tau__combat__s1.jpg",
         "crop": [
           0.23,
           0.195,
           0.77,
           0.445
-        ],
-        "box": [
-          0.23,
-          0.195,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.595,
-            0.23,
-            0.025
-          ],
-          "top": 0.652
-        }
+        ]
       },
-      "picture": "pictures/templates/tau/gif__tau__combat__s1.jpg"
-    },
-    "combat/s2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6613,
-            1,
-            0.3237
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "chrome": {
+        "src": "pictures/templates/tau/gif__tau__combat__s1.jpg",
         "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5113
+          0,
+          0,
+          0.205,
+          0.64
         ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5963,
-            0.23,
-            0.025
-          ],
-          "top": 0.6533
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/s3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6847,
-            1,
-            0.3003
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5347
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6196999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6767
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/s4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6863,
-            1,
-            0.29869999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5363
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6213,
-            0.23,
-            0.025
-          ],
-          "top": 0.6783
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/s5.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7738,
-            1,
-            0.21119999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.6238
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7088000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.7658
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t0_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6222,
-            1,
-            0.3628
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.47219999999999995
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5571999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6142
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t0_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6988,
-            1,
-            0.2862
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5488
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6337999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6908
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t0_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6269,
-            1,
-            0.3581
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4769
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5619000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.6189
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t0_4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6129,
-            1,
-            0.3721
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4629
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5479,
-            0.23,
-            0.025
-          ],
-          "top": 0.6049
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t2_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6566,
-            1,
-            0.3284
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5065999999999999
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5915999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6486
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t2_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7097,
-            1,
-            0.2753
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.5597
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6447,
-            0.23,
-            0.025
-          ],
-          "top": 0.7017
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t2_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.65,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
-            "crop": [
-              0.85,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6332,
-            1,
-            0.3518
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.48319999999999996
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5682,
-            0.23,
-            0.025
-          ],
-          "top": 0.6252
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t3_1.jpg": {
-      "status": "reconstructed-preview-not-clean-master",
-      "patches": [
-        {
+        "headerHeight": 0.185,
+        "titleY": 0.108,
+        "titlePatch": {
           "box": [
             0.27,
             0.06,
@@ -851,128 +54,577 @@
             0.065
           ],
           "texture": {
-            "src": "pictures/templates/tau/gif__tau__combat__t3_1.jpg",
+            "src": "pictures/templates/gif/tau/combat.png",
             "crop": [
-              0.82,
-              0.06,
-              0.02,
-              0.065
+              0.3,
+              0.03,
+              0.55,
+              0.055
             ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
+          }
+        }
+      }
+    },
+    "combat/s2.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/s2.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5113
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/s2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6413
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
           "box": [
-            0,
-            0.63,
-            1,
-            0.355
+            0.24,
+            0.022,
+            0.665,
+            0.071
           ],
           "texture": {
-            "src": "pictures/background.png",
+            "src": "pictures/templates/gif/tau/combat.png",
             "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
+              0.3,
+              0.03,
+              0.55,
+              0.055
             ]
-          },
-          "role": "combat-erasure"
+          }
         }
-      ],
-      "titleY": 0.108,
-      "combatArt": {
+      }
+    },
+    "combat/s3.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/s3.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5347
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/s3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6647
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
+    },
+    "combat/s4.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/s4.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5363
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/s4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6663
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
+    },
+    "combat/s5.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/s5.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.6238
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/s5.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7538
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
+    },
+    "combat/t0_1.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t0_1.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.47219999999999995
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/t0_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6022
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t0_2.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t0_2.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5488
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/t0_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6788
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t0_3.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t0_3.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4769
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/t0_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6069
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t0_4.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t0_4.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4629
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/t0_4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5929
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t2_1.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t2_1.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5065999999999999
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/t2_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6366
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t2_2.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t2_2.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.5597
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/t2_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6897
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t2_3.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t2_3.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.48319999999999996
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tau/combat/t2_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6132
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t3_1.jpg": {
+      "artwork": {
+        "src": "pictures/templates/tau/gif__tau__combat__t3_1.jpg",
         "crop": [
           0.23,
           0.195,
           0.77,
           0.415
-        ],
-        "box": [
-          0.23,
-          0.195,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.565,
-            0.23,
-            0.025
-          ],
-          "top": 0.622
-        }
+        ]
       },
-      "picture": "pictures/templates/tau/gif__tau__combat__t3_1.jpg"
-    },
-    "combat/t3_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
+      "chrome": {
+        "src": "pictures/templates/tau/gif__tau__combat__t3_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.61
+        ],
+        "headerHeight": 0.185,
+        "titleY": 0.108,
+        "titlePatch": {
           "box": [
             0.27,
-            0.03,
-            0.65,
+            0.06,
+            0.6,
             0.065
           ],
           "texture": {
-            "src": "factions/gif/tau/combat/s1.jpg",
+            "src": "pictures/templates/gif/tau/combat.png",
             "crop": [
-              0.85,
+              0.3,
               0.03,
-              0.025,
-              0.065
+              0.55,
+              0.055
             ]
-          },
-          "tile": true,
-          "featherPx": 2
+          }
         },
-        {
-          "box": [
-            0,
-            0.6551,
-            1,
-            0.32989999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+        "costStamp": [
+          0,
+          0.14,
+          0.24,
+          0.115
+        ]
+      }
+    },
+    "combat/t3_2.jpg": {
+      "artwork": {
+        "src": "factions/gif/tau/combat/t3_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5051
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5901000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.6471
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tau/combat/t3_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6351
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tau/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "orders/o_1.jpg": {
       "status": "reconstructed-preview-not-clean-master",
@@ -2070,7 +1722,7 @@
         "general": "Если у вас меньше отрядов, чем у вашего противника, то получите 1 (S), а он теряет 1 [B]. *newline* В противном случае получите 1 (B).",
         "unit": "Воин Огня/Защитник: Получите 1 [D].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s1.jpg",
-        "aspect": 0.7351351351351352,
+        "aspect": 0.7046875,
         "icons": ""
       },
       {
@@ -2172,7 +1824,7 @@
         "general": "Получите 2 (B). *newline* Переверните до 2 ваших [M] на [B] или [S].",
         "unit": "Превосходство/Хранитель: Значение здоровья всех отрядов вашего противника понижается до 3 на время этого раунда битвы.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t3_1.jpg",
-        "aspect": 0.7351351351351352,
+        "aspect": 0.7046875,
         "icons": ""
       },
       {
@@ -2418,5 +2070,16 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  },
+  "combatFrame": {
+    "picture": "pictures/templates/gif/tau/combat.png",
+    "artBox": [
+      0.205,
+      0.13,
+      0.795
+    ],
+    "titleX": 0.27,
+    "titleY": 0.077,
+    "titleMaxWidth": 0.625
   }
 }

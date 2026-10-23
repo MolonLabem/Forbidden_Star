@@ -114,6 +114,190 @@
         1110
       ],
       "modification": "Byte-identical image used by the five approved Tau samples; text comes only from current Russian images. This is a card face, not a clean artwork master."
+    },
+    {
+      "asset": "pictures/templates/base/spacemarines/combat.png",
+      "sha256": "14a8f1cb54ec634073f029d40f058c0a258a3ba3e4c72d38cd1933b00e6bf49b",
+      "role": "reusable-combat-frame",
+      "source": "factions/base/spacemarines/combat/s1.jpg",
+      "sourceSha256": "f1d0fe72a90ef4cd9a9f83caae4b4a799bac20d1a0df9710aeed3aa45c4264f0",
+      "nativeDimensions": [
+        451,
+        640
+      ],
+      "dimensions": [
+        902,
+        1280
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/base/spacemarines/combat/s4.jpg",
+          "sha256": "0707bb769115a977cfdbaa5be1b9d98f503454f935a0c7e377b11fdd2e3b559b",
+          "role": "existing rail and empty faction background"
+        }
+      ]
+    },
+    {
+      "asset": "pictures/templates/base/chaos/combat.png",
+      "sha256": "a60c2bb77c7c275b0662424ee05ec3dadbd0dfd6c3e56d820ff45a0cae384090",
+      "role": "reusable-combat-frame",
+      "source": "factions/base/chaos/combat/s1.jpg",
+      "sourceSha256": "c59b769e89766e4b5565390f2a9ac137bf5dfbf063cd446b5f9a2665fc4bceeb",
+      "nativeDimensions": [
+        451,
+        640
+      ],
+      "dimensions": [
+        902,
+        1280
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/base/chaos/combat/t2_1.jpg",
+          "sha256": "74c3d46ba699ef93ca44501988856489def39fdf7dafe9acf442f3d473115dae",
+          "role": "existing rail and empty faction background"
+        }
+      ]
+    },
+    {
+      "asset": "pictures/templates/base/ork/combat.png",
+      "sha256": "d95b63741607262198c9e274e697a977cadac5690bbf11a631916cffef6acdfe",
+      "role": "reusable-combat-frame",
+      "source": "factions/base/ork/combat/s1.jpg",
+      "sourceSha256": "a96e68368e34af4e7f613e16320df8f4f110a8da5a474edd381ddcf6093b66df",
+      "nativeDimensions": [
+        451,
+        640
+      ],
+      "dimensions": [
+        902,
+        1280
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/base/ork/combat/t2_3.jpg",
+          "sha256": "c3315b207be44f02f104c7870787a69af75073b432fbfba3b6af32fb2dff3509",
+          "role": "existing rail and empty faction background"
+        }
+      ]
+    },
+    {
+      "asset": "pictures/templates/base/eldar/combat.png",
+      "sha256": "989280c03cea75e395e8033fbe34f0cd1e5b4fdfec1c0bf93340939481b2b96b",
+      "role": "reusable-combat-frame",
+      "source": "factions/base/eldar/combat/s1.jpg",
+      "sourceSha256": "890fa4a671acbca5089535519bb2d88eed2bb3fcb5944cd17c097aec78492ebb",
+      "nativeDimensions": [
+        451,
+        640
+      ],
+      "dimensions": [
+        902,
+        1280
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/base/eldar/combat/s4.jpg",
+          "sha256": "fbfadae9cabaff90fee6ee402d1da04fe9f11a486d73bd3e72be5aea04c8c583",
+          "role": "existing rail and empty faction background"
+        }
+      ]
+    },
+    {
+      "asset": "pictures/templates/gif/ig/combat.png",
+      "sha256": "78ba43749d2872d7693c2eaa932cba32cebf51d8a9176435bd4c9cd8e6eeba00",
+      "role": "reusable-combat-frame",
+      "source": "factions/gif/ig/combat/s2.jpg",
+      "sourceSha256": "56c92aee5c01b07157b37b9c23d750436bdae616bbd6a8c1ca916211b7704695",
+      "nativeDimensions": [
+        452,
+        641
+      ],
+      "dimensions": [
+        904,
+        1282
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/gif/ig/combat/t0_4.jpg",
+          "sha256": "11e5fa50fdd1878355a540c10ae909cc4a1cc97279b0a66662ee72612fcc8ac4",
+          "role": "existing rail and empty faction background"
+        }
+      ]
+    },
+    {
+      "asset": "pictures/templates/gif/necron/combat.png",
+      "sha256": "99bb21ead7a1f9ef8f5912b28e943e28f1a2435d738b332a5aaf4b78f07b306b",
+      "role": "reusable-combat-frame",
+      "source": "factions/gif/necron/combat/s1.jpg",
+      "sourceSha256": "cf03040ecae6665296b8a94cfad9db57e031cd31ac9be0361ad4cf1986fb32b5",
+      "nativeDimensions": [
+        452,
+        641
+      ],
+      "dimensions": [
+        904,
+        1282
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/gif/necron/combat/s1.jpg",
+          "sha256": "cf03040ecae6665296b8a94cfad9db57e031cd31ac9be0361ad4cf1986fb32b5",
+          "role": "existing rail and empty faction background"
+        }
+      ]
+    },
+    {
+      "asset": "pictures/templates/gif/tau/combat.png",
+      "sha256": "7fc35de9b0da74a36602ce4a602d73dd321674a500b226ae34a82331fdeec3b5",
+      "role": "reusable-combat-frame",
+      "source": "factions/gif/tau/combat/s1.jpg",
+      "sourceSha256": "6581b10f68b73f8ffd28e6c4f2cb1ef8296976c67124b0f17c127114508b6024",
+      "nativeDimensions": [
+        451,
+        640
+      ],
+      "dimensions": [
+        902,
+        1280
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/gif/tau/combat/s5.jpg",
+          "sha256": "cdbc605cb3834c249abf855fee9be7e06474c1c3e499c551e8adac5baa7aa657",
+          "role": "existing rail and empty faction background"
+        }
+      ]
+    },
+    {
+      "asset": "pictures/templates/gif/tyranid/combat.png",
+      "sha256": "2c22954b4cb012c8b6978949d31802524c82af071491f5be4b4a802fb53230fc",
+      "role": "reusable-combat-frame",
+      "source": "factions/gif/tyranid/combat/s1.jpg",
+      "sourceSha256": "4e4b784071c7f1237027da037573750609c8caa097b76aeb83fffd3c2f599973",
+      "nativeDimensions": [
+        452,
+        641
+      ],
+      "dimensions": [
+        904,
+        1282
+      ],
+      "modification": "Existing faction frame retained; title, artwork and rules areas left blank. 2x interpolation adds no new image detail. Each card supplies its original badge/symbol strip and an independent illustration.",
+      "additionalSources": [
+        {
+          "source": "factions/gif/tyranid/combat/s5.jpg",
+          "sha256": "8eaeeb1d28d07a6eef10d0ad5fea3d26b8e024d477cc937b77a33fa44649e4a5",
+          "role": "existing rail and empty faction background"
+        }
+      ]
     }
   ]
 }

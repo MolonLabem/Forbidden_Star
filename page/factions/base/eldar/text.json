@@ -27,956 +27,604 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6394,
-            1,
-            0.3456
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/s1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.48939999999999995
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5744,
-            0.23,
-            0.025
-          ],
-          "top": 0.6314
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/s1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6194
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6801,
-            1,
-            0.30489999999999995
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/s2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5301
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6151,
-            0.23,
-            0.025
-          ],
-          "top": 0.6721
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/s2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6601
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7176,
-            1,
-            0.26739999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/s3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5676
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6526000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.7096
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/s3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6976
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7832,
-            1,
-            0.20179999999999998
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/s4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6332
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7182,
-            0.23,
-            0.025
-          ],
-          "top": 0.7752
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/s4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7632
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s5.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7066,
-            1,
-            0.2784
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/s5.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5566
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6416,
-            0.23,
-            0.025
-          ],
-          "top": 0.6986
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/s5.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6866
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/t0_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6785,
-            1,
-            0.3065
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t0_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5285
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6134999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6705
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t0_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6585
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6801,
-            1,
-            0.30489999999999995
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t0_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5301
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6151,
-            0.23,
-            0.025
-          ],
-          "top": 0.6721
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t0_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6601
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5551,
-            1,
-            0.42989999999999995
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t0_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4051
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.49010000000000004,
-            0.23,
-            0.025
-          ],
-          "top": 0.5471
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t0_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5351
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6316,
-            1,
-            0.35339999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t0_4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.48160000000000003
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5666,
-            0.23,
-            0.025
-          ],
-          "top": 0.6236
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t0_4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6116
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.641,
-            1,
-            0.344
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t2_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.491
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5760000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.633
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t2_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.621
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5238,
-            1,
-            0.46119999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t2_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.3738
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.45880000000000004,
-            0.23,
-            0.025
-          ],
-          "top": 0.5158
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t2_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5038
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7176,
-            1,
-            0.26739999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t2_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5676
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6526000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.7096
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t2_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6976
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5957,
-            1,
-            0.3893
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t3_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4457
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5307,
-            0.23,
-            0.025
-          ],
-          "top": 0.5877
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t3_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5757
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/eldar/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5785,
-            1,
-            0.4065
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/eldar/combat/t3_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4285
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5135000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.5705
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/eldar/combat/t3_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5585
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/eldar/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -2463,5 +2111,16 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  },
+  "combatFrame": {
+    "picture": "pictures/templates/base/eldar/combat.png",
+    "artBox": [
+      0.205,
+      0.13,
+      0.795
+    ],
+    "titleX": 0.27,
+    "titleY": 0.077,
+    "titleMaxWidth": 0.625
   }
 }

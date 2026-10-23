@@ -27,485 +27,311 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6837,
-            1,
-            0.3013
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/s1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5337
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6187,
-            0.23,
-            0.025
-          ],
-          "top": 0.6757
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/s1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6637
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7632,
-            1,
-            0.2218
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/s2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6132
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6981999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.7552
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/s2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7432
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6181,
-            1,
-            0.3669
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/s3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.46809999999999996
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5530999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6101
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/s3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5981
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6727,
-            1,
-            0.3123
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/s4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5226999999999999
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6076999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6647
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/s4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6527
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s5.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7648,
-            1,
-            0.22019999999999995
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/s5.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6148
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6998,
-            0.23,
-            0.025
-          ],
-          "top": 0.7568
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/s5.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7448
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/t0_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5916,
-            1,
-            0.39339999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t0_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4416
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5266,
-            0.23,
-            0.025
-          ],
-          "top": 0.5836
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t0_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5716
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6493,
-            1,
-            0.3357
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t0_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.49929999999999997
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5843,
-            0.23,
-            0.025
-          ],
-          "top": 0.6413
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t0_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6293
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t0_3.jpg",
+        "crop": [
+          0.23,
+          0.18,
+          0.77,
+          0.40929999999999994
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t0_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5893
+        ],
+        "headerHeight": 0.164,
+        "titleY": 0.104,
+        "titlePatch": {
           "box": [
             0.27,
             0.055,
@@ -513,470 +339,292 @@
             0.065
           ],
           "texture": {
-            "src": "factions/gif/tyranid/combat/t0_3.jpg",
+            "src": "pictures/templates/gif/tyranid/combat.png",
             "crop": [
-              0.8,
-              0.058,
-              0.05,
-              0.06
+              0.3,
+              0.03,
+              0.55,
+              0.055
             ]
-          },
-          "tile": true,
-          "featherPx": 2
+          }
         },
-        {
-          "box": [
-            0,
-            0.6093,
-            1,
-            0.37570000000000003
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.104,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.18,
-          0.77,
-          0.40929999999999994
-        ],
-        "box": [
-          0.23,
-          0.18,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5443,
-            0.23,
-            0.025
-          ],
-          "top": 0.6013
-        }
-      },
-      "titleMaxWidth": 0.61
+        "costStamp": [
+          0,
+          0.14,
+          0.24,
+          0.115
+        ]
+      }
     },
     "combat/t0_4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5807,
-            1,
-            0.4043
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t0_4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.43069999999999997
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5157,
-            0.23,
-            0.025
-          ],
-          "top": 0.5727
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t0_4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5607
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5979,
-            1,
-            0.3871
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t2_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.44789999999999996
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5328999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.5899
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t2_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5779
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6493,
-            1,
-            0.3357
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t2_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.49929999999999997
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5843,
-            0.23,
-            0.025
-          ],
-          "top": 0.6413
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t2_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6293
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5947,
-            1,
-            0.3903
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t2_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4447
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5297000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.5867
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t2_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5747
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6057,
-            1,
-            0.37929999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t3_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4557
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5407,
-            0.23,
-            0.025
-          ],
-          "top": 0.5977
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t3_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5857
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/tyranid/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6369,
-            1,
-            0.34809999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/tyranid/combat/t3_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4869
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5719000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.6289
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/tyranid/combat/t3_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6169
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/tyranid/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -2173,7 +1821,7 @@
         "general": "Либо получите 1 (B) за каждого недеморализованного Гаунта или Пожирателя, либо бесплатно разместите 1 жетон подкрепления в эту область. *newline* Уменьшите значение получаемого вами урона в следующем раунде битвы на 1 за каждого убитого или деморализованного Гаунта или Пожирателя в этом раунде.",
         "unit": "",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tyranid/combat/t0_3.jpg",
-        "aspect": 0.724910394265233,
+        "aspect": 0.7051482059282371,
         "icons": ""
       },
       {
@@ -2463,5 +2111,30 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  },
+  "combatFrame": {
+    "picture": "pictures/templates/gif/tyranid/combat.png",
+    "artBox": [
+      0.205,
+      0.13,
+      0.795
+    ],
+    "titleX": 0.27,
+    "titleY": 0.077,
+    "titleMaxWidth": 0.625
+  },
+  "assetSources": {
+    "maps/map_A.jpg": {
+      "url": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/gif/tyranid/maps/map_A.jpg",
+      "revision": "a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+      "sha256": "9e436c291c6b58f1dadfa923a765b99dedd5e8a173ee381d4a5beadb7c46e373",
+      "language": "en"
+    },
+    "maps/map_B.jpg": {
+      "url": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/gif/tyranid/maps/map_B.jpg",
+      "revision": "a31d0e9dd83d82691389341c7f412d9ff787fdc2",
+      "sha256": "73a99ea58281246944bb45137ab0932edb3feb90e93988fe871d23eae6ce4c2e",
+      "language": "en"
+    }
   }
 }

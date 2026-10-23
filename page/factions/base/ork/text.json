@@ -27,956 +27,604 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5926,
-            1,
-            0.39239999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/s1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4426
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5276000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.5846
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/s1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5726
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.641,
-            1,
-            0.344
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/s2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.491
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5760000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.633
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/s2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.621
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.716,
-            1,
-            0.269
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/s3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.566
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.651,
-            0.23,
-            0.025
-          ],
-          "top": 0.708
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/s3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.696
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.716,
-            1,
-            0.269
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/s4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.566
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.651,
-            0.23,
-            0.025
-          ],
-          "top": 0.708
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/s4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.696
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s5.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.716,
-            1,
-            0.269
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/s5.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.566
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.651,
-            0.23,
-            0.025
-          ],
-          "top": 0.708
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/s5.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.696
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/t0_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7176,
-            1,
-            0.26739999999999997
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t0_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5676
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6526000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.7096
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t0_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6976
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6316,
-            1,
-            0.35339999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t0_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.48160000000000003
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5666,
-            0.23,
-            0.025
-          ],
-          "top": 0.6236
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t0_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6116
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7566,
-            1,
-            0.22839999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t0_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6066
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6916,
-            0.23,
-            0.025
-          ],
-          "top": 0.7486
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t0_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7366
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7566,
-            1,
-            0.22839999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t0_4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6066
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6916,
-            0.23,
-            0.025
-          ],
-          "top": 0.7486
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t0_4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7366
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6019,
-            1,
-            0.3831
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t2_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.45189999999999997
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5368999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.5939
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t2_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5819
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.641,
-            1,
-            0.344
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t2_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.491
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5760000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.633
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t2_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.621
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7941,
-            1,
-            0.19089999999999996
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t2_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6441
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7291000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.7861
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t2_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7741
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7926,
-            1,
-            0.19240000000000002
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t3_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6426
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7276,
-            0.23,
-            0.025
-          ],
-          "top": 0.7846
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t3_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7726
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/base/ork/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6785,
-            1,
-            0.3065
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/base/ork/combat/t3_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5285
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6134999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6705
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/base/ork/combat/t3_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6585
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.685,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/base/ork/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -2463,5 +2111,16 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  },
+  "combatFrame": {
+    "picture": "pictures/templates/base/ork/combat.png",
+    "artBox": [
+      0.205,
+      0.13,
+      0.795
+    ],
+    "titleX": 0.27,
+    "titleY": 0.077,
+    "titleMaxWidth": 0.645
   }
 }

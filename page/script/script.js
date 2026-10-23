@@ -47,7 +47,7 @@
   })();
   var TOKEN_STYLE_KEY = 'forbidden-stars.token-style';
   var tokenStyle = (function () {
-    try { return localStorage.getItem(TOKEN_STYLE_KEY) === 'images' ? 'images' : 'icons'; } catch (e) { return 'icons'; }
+    try { return localStorage.getItem(TOKEN_STYLE_KEY) === 'icons' ? 'icons' : 'images'; } catch (e) { return 'images'; }
   })();
 
   function applyResolution(hi) {
@@ -263,6 +263,7 @@
         tierLabels: (t && t.tierLabels) || null,
         components: (t && t.componentsText) || {},
         templates: (t && t.templates) || {},
+        combatFrame: (t && t.combatFrame) || null,
         cardAspect: t && t.cardAspect || null,
       };
       DATA.loading['man:' + id] = false;
@@ -286,6 +287,15 @@
       faction_card: over.faction_card || d.faction_card || [],
       map:          over.map          || d.map          || [],
     };
+  }
+
+  function cardTemplate(txt, cat, file) {
+    if (!txt) return null;
+    var template = txt.templates[FOLDER[cat] + '/' + file];
+    if (cat === 'combat' && txt.combatFrame && template) {
+      return Object.assign({ frame: txt.combatFrame }, template);
+    }
+    return template || null;
   }
 
   function manifestCount(man) {
@@ -590,7 +600,7 @@
       var idx = flat.length;
       var c = { src: base + file, label: cardName(state.expansion, fac, cat, file, text && text.title || label),
         index: idx, kind: kind || null, text: text || null,
-        template: txt && txt.templates[FOLDER[cat] + '/' + file] || null,
+        template: cardTemplate(txt, cat, file),
         aspect: txt && txt.cardAspect && /^(combat|orders|events)$/.test(cat) ? txt.cardAspect : null,
         exp: state.expansion, fac: fac, facName: facName(fac), catName: catName(cat) };
       flat.push(c);
@@ -650,7 +660,7 @@
       function add(file, label, kind, text) {
         if (txt && txt.components[FOLDER[cat] + '/' + file]) { kind = 'overlay'; text = txt.components[FOLDER[cat] + '/' + file]; label = text.title; }
         out.push({ src: base + file, kind: kind || null, text: text || null,
-          template: txt && txt.templates[FOLDER[cat] + '/' + file] || null,
+          template: cardTemplate(txt, cat, file),
           aspect: txt && txt.cardAspect && /^(combat|orders|events)$/.test(cat) ? txt.cardAspect : null,
           label: cardName(exp, fac, cat, file, label),
           catName: catName(cat), exp: exp, expName: en, fac: fac, facName: fn });

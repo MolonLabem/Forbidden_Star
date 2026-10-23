@@ -27,893 +27,401 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.8615,
-            1,
-            0.12349999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/s1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.7115
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7965,
-            0.23,
-            0.025
-          ],
-          "top": 0.8535
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/s1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.8415
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.8615,
-            1,
-            0.12349999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/s2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.7115
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7965,
-            0.23,
-            0.025
-          ],
-          "top": 0.8535
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/s2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.8415
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6353,
-            1,
-            0.3497
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/s3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.48529999999999995
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5703,
-            0.23,
-            0.025
-          ],
-          "top": 0.6273
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/s3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6153
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6961,
-            1,
-            0.28889999999999993
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/s4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5461
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6311,
-            0.23,
-            0.025
-          ],
-          "top": 0.6881
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/s4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6761
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s5.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6805,
-            1,
-            0.3045
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/s5.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5305
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6154999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6725
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/s5.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6605
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/t0_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.8069,
-            1,
-            0.17810000000000004
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t0_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6568999999999999
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7419,
-            0.23,
-            0.025
-          ],
-          "top": 0.7988999999999999
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/t0_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7869
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6868,
-            1,
-            0.2982
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t0_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5367999999999999
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6217999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6788
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/t0_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6668
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6509,
-            1,
-            0.33409999999999995
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t0_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5009
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5859000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.6429
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/t0_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6309
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.8319,
-            1,
-            0.1531
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t0_4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6819
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7668999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.8239
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/necron/combat/t0_4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.8119
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.055,
-            0.61,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/t2_1.jpg",
-            "crop": [
-              0.8,
-              0.058,
-              0.05,
-              0.06
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6971,
-            1,
-            0.28789999999999993
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.104,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t2_1.jpg",
         "crop": [
           0.23,
           0.18,
           0.77,
           0.4971000000000001
-        ],
-        "box": [
-          0.23,
-          0.18,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6321000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.6891
-        }
+        ]
       },
-      "titleMaxWidth": 0.61
-    },
-    "combat/t2_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6181,
-            1,
-            0.3669
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "chrome": {
+        "src": "factions/gif/necron/combat/t2_1.jpg",
         "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.46809999999999996
+          0,
+          0,
+          0.205,
+          0.6771
         ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5530999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6101
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t2_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5901,
-            1,
-            0.39490000000000003
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.44009999999999994
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5250999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.5821
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t3_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/necron/combat/s1.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6197,
-            1,
-            0.36529999999999996
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.13,
-          0.77,
-          0.4697
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5547,
-            0.23,
-            0.025
-          ],
-          "top": 0.6117
-        }
-      },
-      "titleMaxWidth": 0.65
-    },
-    "combat/t3_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
+        "headerHeight": 0.14,
+        "titleY": 0.104,
+        "titlePatch": {
           "box": [
             0.27,
             0.055,
@@ -921,62 +429,202 @@
             0.065
           ],
           "texture": {
-            "src": "factions/gif/necron/combat/t3_2.jpg",
+            "src": "pictures/templates/gif/necron/combat.png",
             "crop": [
-              0.8,
-              0.058,
-              0.05,
-              0.06
+              0.3,
+              0.03,
+              0.55,
+              0.055
             ]
-          },
-          "tile": true,
-          "featherPx": 2
+          }
         },
-        {
+        "costStamp": [
+          0,
+          0.14,
+          0.24,
+          0.115
+        ]
+      }
+    },
+    "combat/t2_2.jpg": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t2_2.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.46809999999999996
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/necron/combat/t2_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5981
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
           "box": [
-            0,
-            0.6532,
-            1,
-            0.3318
+            0.24,
+            0.022,
+            0.665,
+            0.071
           ],
           "texture": {
-            "src": "pictures/background.png",
+            "src": "pictures/templates/gif/necron/combat.png",
             "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
+              0.3,
+              0.03,
+              0.55,
+              0.055
             ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.104,
-      "combatArt": {
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t2_3.jpg": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t2_3.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.44009999999999994
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/necron/combat/t2_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5701
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t3_1.jpg": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t3_1.jpg",
+        "crop": [
+          0.23,
+          0.13,
+          0.77,
+          0.4697
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/necron/combat/t3_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5997
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
+    },
+    "combat/t3_2.jpg": {
+      "artwork": {
+        "src": "factions/gif/necron/combat/t3_2.jpg",
         "crop": [
           0.23,
           0.18,
           0.77,
           0.4532
-        ],
-        "box": [
-          0.23,
-          0.18,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5882000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.6452
-        }
+        ]
       },
-      "titleMaxWidth": 0.61
+      "chrome": {
+        "src": "factions/gif/necron/combat/t3_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6332
+        ],
+        "headerHeight": 0.14,
+        "titleY": 0.104,
+        "titlePatch": {
+          "box": [
+            0.27,
+            0.055,
+            0.61,
+            0.065
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/necron/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.14,
+          0.24,
+          0.115
+        ]
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -2191,7 +1839,7 @@
         "general": "Если вы не получили урон в этом раунде битвы, то противник должен выбрать и отступить одним из своих отрядов.",
         "unit": "Монолит/Корабль-Гробница: Получите 3 (S).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t2_1.jpg",
-        "aspect": 0.724910394265233,
+        "aspect": 0.7051482059282371,
         "icons": ""
       },
       {
@@ -2225,7 +1873,7 @@
         "general": "Выберите и уничтожьте 1 отряд с командным уровнем 0 или получите 3 (B).",
         "unit": "Ктан/Корабль-Гробница: Выберите и уничтожьте 1 отряд с командным уровнем 0-1.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t3_2.jpg",
-        "aspect": 0.724910394265233,
+        "aspect": 0.7051482059282371,
         "icons": ""
       }
     ]
@@ -2463,5 +2111,16 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  },
+  "combatFrame": {
+    "picture": "pictures/templates/gif/necron/combat.png",
+    "artBox": [
+      0.205,
+      0.13,
+      0.795
+    ],
+    "titleX": 0.27,
+    "titleY": 0.077,
+    "titleMaxWidth": 0.625
   }
 }

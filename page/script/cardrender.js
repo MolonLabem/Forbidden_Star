@@ -14,6 +14,9 @@
  *   Optional template: { patches:[{box:[x,y,w,h],texture:{src,crop:[x,y,w,h]}}],
  *                        picture?, titleY?, titleMaxWidth?, eventType?:{box:[x,y,w,h]}, body?:{box:[x,y,w,h],align},
  *                        combatArt?:{crop:[x,y,w,h],box:[x,y,w],rail?:{crop:[x,y,w,h],top}} }
+ *   Reusable combat frames: { frame:{picture,artBox,titleY,titleMaxWidth},
+ *     artwork:{src,crop:[x,y,w,h]}, chrome:{src,crop:[x,y,w,h]} }.
+ *   Chrome is copied from the original card, including its badges and symbols.
  *   Template coordinates are fractions of native images/canvas. Clean patches
  *   let approved raster cards reuse the text renderer without changing assets.
  */
@@ -254,6 +257,7 @@
   // asset; the original raster sources stay intact.
   // This prepares a background only. Rules, wrapping and symbols still use DRAW.
   async function loadCardPicture(data) {
+    if (data.template?.frame) return loadCombatFrame(data.template);
     var picture = await loadImage(data.template?.picture || data.picture);
     if (!data.template) return picture;
     var canvas = document.createElement('canvas');
@@ -283,6 +287,49 @@
         });
       }
       ctx.drawImage(layer,box[0]*canvas.width,box[1]*canvas.height,box[2]*canvas.width,box[3]*canvas.height);
+    }
+    return canvas;
+  }
+
+  async function loadCombatFrame(template) {
+    var images = await Promise.all([loadImage(template.frame.picture),
+      loadCardPicture({picture:template.chrome.src,template:{patches:[template.chrome.titlePatch]}})]);
+    var frame = images[0], chrome = images[1];
+    var canvas = document.createElement('canvas');
+    canvas.width = frame.width; canvas.height = frame.height;
+    var ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(frame, 0, 0);
+    // Copy the entire existing left strip. Preserve the aspect of its printed
+    // badges and symbols, including cards scanned with different proportions.
+    var c = template.chrome.crop;
+    var scale = canvas.width / chrome.width;
+    var h = c[3] * chrome.height * scale;
+    ctx.drawImage(chrome, c[0]*chrome.width, c[1]*chrome.height,
+      c[2]*chrome.width, c[3]*chrome.height, 0, 0, c[2]*canvas.width, h);
+    // Below the original rail, repeat empty faction background. This keeps
+    // larger scans from exposing a second rail ornament from the shared frame.
+    if (h < canvas.height) {
+      var tile = document.createElement('canvas');
+      tile.width = Math.ceil(canvas.width*c[2]); tile.height = Math.ceil(frame.height*.04);
+      tile.getContext('2d').drawImage(frame,0,frame.height*.65,frame.width*c[2],frame.height*.04,
+        0,0,tile.width,tile.height);
+      ctx.save(); ctx.translate(0,h); ctx.fillStyle = ctx.createPattern(tile,'repeat');
+      ctx.fillRect(0,0,canvas.width*c[2],canvas.height-h); ctx.restore();
+    }
+    // Preserve the native header as well as the rail, so the few larger scans
+    // retain their complete faction ornaments without a mismatched corner.
+    var headerH = template.chrome.headerHeight*chrome.height*scale;
+    ctx.drawImage(chrome, 0, 0, chrome.width, template.chrome.headerHeight*chrome.height,
+      0, 0, canvas.width, headerH);
+    canvas.fsArtworkTop = headerH/canvas.height;
+    canvas.fsTitleY = template.chrome.titleY*chrome.height*scale/canvas.height;
+    if (template.chrome.costStamp) {
+      var b = template.chrome.costStamp;
+      canvas.fsCostStamp = [b[0]*canvas.width,b[1]*chrome.height*scale,
+        b[2]*canvas.width,b[3]*chrome.height*scale];
+      ctx.drawImage(chrome,b[0]*chrome.width,b[1]*chrome.height,b[2]*chrome.width,b[3]*chrome.height,
+        ...canvas.fsCostStamp);
     }
     return canvas;
   }
@@ -347,7 +394,7 @@
   // Shared framed general/unit effects for blank templates and baked TDL cards.
   // Baked cards fill the complete old wording area so no English text is exposed
   // when the Russian wording is shorter or only one effect exists.
-  function drawCombatEffects(data, ctx, picture, panels, fillTextArea) {
+  function drawCombatEffects(data, ctx, picture, panels, fillTextArea, artworkImage) {
     var cw = ctx.canvas.width, ch = ctx.canvas.height;
     var textMarginX = cw * COMBAT_LAYOUT.textMarginX;
     var textWidth   = cw - textMarginX * 2;
@@ -420,7 +467,19 @@
         bottomClear: fgPanel ? 0 : bottomH,
       } : null;
 
-      if (data.template?.combatArt) {
+      if (data.template?.artwork && artworkImage) {
+        var panelTop = bgPanel ? bgPanel.y : fgPanel.y;
+        var join = panelTop + (bgPanel ? bgDecoH : fgDecoH) + 1;
+        var artBox = data.template.frame.artBox.slice();
+        artBox[1] = picture.fsArtworkTop;
+        coverArtwork(ctx, artworkImage, {crop:data.template.artwork.crop,box:artBox}, join);
+        if (picture.fsCostStamp) {
+          var b = picture.fsCostStamp;
+          ctx.drawImage(picture,...b,b[0]*cw/picture.width,b[1]*ch/picture.height,
+            b[2]*cw/picture.width,b[3]*ch/picture.height);
+        }
+        ctx.fsCombatJoin = {panelTopPx:panelTop,upperBottomPx:join,decorativeBottomPx:join-1};
+      } else if (data.template?.combatArt) {
         var panelTop = bgPanel ? bgPanel.y : fgPanel.y;
         // Decorative PNG headers have transparent pixels. Cover their entire
         // height underneath before painting them, so no erased strip shows.
@@ -460,19 +519,21 @@
     var resources = await Promise.all([
       loadCardPicture(data), loadImage('pictures/background.png'),
       loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),
+      data.template?.artwork ? loadImage(data.template.artwork.src) : Promise.resolve(null),
     ].concat(iconChars.map(loadImage)));
-    var picture = resources[0], bottomImg = resources[3], iconImgs = resources.slice(4);
+    var picture = resources[0], bottomImg = resources[3], artworkImage = resources[4], iconImgs = resources.slice(5);
+    var frame = data.template?.frame;
     ctx.drawImage(picture, 0, 0, cw, ch);
     ctx.font = (ch * COMBAT_LAYOUT.titleFontSizeRatio) + 'px Headline';
     if (ctx.fsStrict || data.template) {
       var titleSize = ch * COMBAT_LAYOUT.titleFontSizeRatio;
-      while (ctx.measureText(data.title || '').width > cw * (data.template?.titleMaxWidth || 0.69)) {
+      while (ctx.measureText(data.title || '').width > cw * (frame?.titleMaxWidth || data.template?.titleMaxWidth || 0.69)) {
         titleSize *= 0.95; ctx.font = titleSize + 'px Headline';
       }
     }
     ctx.textAlign = 'left';
-    ctx.fillText(data.title || '', cw * COMBAT_LAYOUT.titleX, ch * (data.template?.titleY || COMBAT_LAYOUT.titleY));
-    var bottomH = drawCombatEffects(data, ctx, picture, resources.slice(1, 4), false);
+    ctx.fillText(data.title || '', cw * (frame?.titleX || COMBAT_LAYOUT.titleX), ch * (picture.fsTitleY || frame?.titleY || data.template?.titleY || COMBAT_LAYOUT.titleY));
+    var bottomH = drawCombatEffects(data, ctx, picture, resources.slice(1, 4), false, artworkImage);
     var iy = iconStartYPos;
     for (var i = 0; i < iconImgs.length; i++) {
       ctx.drawImage(iconImgs[i], iconXPos, iy, iconSz, iconSz);
@@ -710,7 +771,7 @@
     if (card.kind === 'overlay' && card.text && card.text.aspect) height = Math.round(width / card.text.aspect);
     var strict = !!options.strict;
     var rejectOnError = strict || !!options.rejectOnError;
-    var wording = card.wording || 'icons';
+    var wording = card.wording || 'images';
     var thumbnail = !strict && !!card.thumbnail;
     var picture = strict ? card.src : (card.picture || card.src);
     var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, card.text, card.template]);

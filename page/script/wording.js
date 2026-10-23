@@ -27,6 +27,7 @@
     return plain(text).toLocaleLowerCase('ru').replace(/ё/g, 'е').replace(/[-\u2010-\u2015]/g, ' ').replace(/\s+/g, ' ').trim();
   }
   function append(node, text, mode) {
+    mode = mode || 'images';
     var value = format(text, mode).replace(/\s*\*(?:newline|newpara)\*\s*/g, '\n');
     value.split(/([\uE100-\uE102])/).forEach(function (part) {
       var token = tokens.find(function (t) { return t.glyph === part; });

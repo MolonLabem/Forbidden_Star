@@ -27,9 +27,26 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
+      "artwork": {
+        "src": "factions/gif/ig/combat/s1.jpg",
+        "crop": [
+          0.23,
+          0.18,
+          0.77,
+          0.39940000000000003
+        ]
+      },
+      "chrome": {
+        "src": "factions/gif/ig/combat/s1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.5794
+        ],
+        "headerHeight": 0.164,
+        "titleY": 0.104,
+        "titlePatch": {
           "box": [
             0.27,
             0.055,
@@ -37,946 +54,577 @@
             0.065
           ],
           "texture": {
-            "src": "factions/gif/ig/combat/s1.jpg",
+            "src": "pictures/templates/gif/ig/combat.png",
             "crop": [
-              0.8,
-              0.058,
-              0.05,
-              0.06
+              0.3,
+              0.03,
+              0.55,
+              0.055
             ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.5994,
-            1,
-            0.38559999999999994
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
+          }
         }
-      ],
-      "titleY": 0.104,
-      "combatArt": {
-        "crop": [
-          0.23,
-          0.18,
-          0.77,
-          0.39940000000000003
-        ],
-        "box": [
-          0.23,
-          0.18,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5344,
-            0.23,
-            0.025
-          ],
-          "top": 0.5914
-        }
-      },
-      "titleMaxWidth": 0.61
+      }
     },
     "combat/s2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6993,
-            1,
-            0.28569999999999995
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/s2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5493
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6343000000000001,
-            0.23,
-            0.025
-          ],
-          "top": 0.6913
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/s2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6793
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6961,
-            1,
-            0.28889999999999993
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/s3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5461
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6311,
-            0.23,
-            0.025
-          ],
-          "top": 0.6881
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/s3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6761
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6977,
-            1,
-            0.2873
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/s4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5477
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6327,
-            0.23,
-            0.025
-          ],
-          "top": 0.6897
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/s4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6777
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/s5.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6353,
-            1,
-            0.3497
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/s5.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.48529999999999995
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5703,
-            0.23,
-            0.025
-          ],
-          "top": 0.6273
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/s5.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6153
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        }
+      }
     },
     "combat/t0_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6275,
-            1,
-            0.35750000000000004
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t0_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4774999999999999
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5625,
-            0.23,
-            0.025
-          ],
-          "top": 0.6194999999999999
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t0_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6075
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6805,
-            1,
-            0.3045
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t0_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5305
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6154999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6725
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t0_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6605
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6805,
-            1,
-            0.3045
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t0_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5305
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.6154999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6725
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t0_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6605
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t0_4.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.7742,
-            1,
-            0.2108
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t0_4.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.6242
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.7092,
-            0.23,
-            0.025
-          ],
-          "top": 0.7662
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t0_4.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.7542
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6213,
-            1,
-            0.3637
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t2_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.47129999999999994
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5563,
-            0.23,
-            0.025
-          ],
-          "top": 0.6133
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t2_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6013
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.601,
-            1,
-            0.384
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t2_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.45099999999999996
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.536,
-            0.23,
-            0.025
-          ],
-          "top": 0.593
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t2_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.581
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t2_3.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.718,
-            1,
-            0.267
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t2_3.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.568
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.653,
-            0.23,
-            0.025
-          ],
-          "top": 0.71
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t2_3.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.698
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_1.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6337,
-            1,
-            0.35129999999999995
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t3_1.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.4837
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5687,
-            0.23,
-            0.025
-          ],
-          "top": 0.6257
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t3_1.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6137
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "combat/t3_2.jpg": {
-      "status": "current-russian-raster-template",
-      "patches": [
-        {
-          "box": [
-            0.27,
-            0.03,
-            0.665,
-            0.065
-          ],
-          "texture": {
-            "src": "factions/gif/ig/combat/s2.jpg",
-            "crop": [
-              0.88,
-              0.03,
-              0.025,
-              0.065
-            ]
-          },
-          "tile": true,
-          "featherPx": 2
-        },
-        {
-          "box": [
-            0,
-            0.6525,
-            1,
-            0.3325
-          ],
-          "texture": {
-            "src": "pictures/background.png",
-            "crop": [
-              0.15,
-              0.15,
-              0.7,
-              0.7
-            ]
-          },
-          "tile": true,
-          "featherPx": 2,
-          "role": "combat-erasure"
-        }
-      ],
-      "titleY": 0.077,
-      "combatArt": {
+      "artwork": {
+        "src": "factions/gif/ig/combat/t3_2.jpg",
         "crop": [
           0.23,
           0.13,
           0.77,
           0.5025
-        ],
-        "box": [
-          0.23,
-          0.13,
-          0.77
-        ],
-        "rail": {
-          "crop": [
-            0,
-            0.5874999999999999,
-            0.23,
-            0.025
-          ],
-          "top": 0.6445
-        }
+        ]
       },
-      "titleMaxWidth": 0.65
+      "chrome": {
+        "src": "factions/gif/ig/combat/t3_2.jpg",
+        "crop": [
+          0,
+          0,
+          0.205,
+          0.6325
+        ],
+        "headerHeight": 0.13,
+        "titleY": 0.077,
+        "titlePatch": {
+          "box": [
+            0.24,
+            0.022,
+            0.665,
+            0.071
+          ],
+          "texture": {
+            "src": "pictures/templates/gif/ig/combat.png",
+            "crop": [
+              0.3,
+              0.03,
+              0.55,
+              0.055
+            ]
+          }
+        },
+        "costStamp": [
+          0,
+          0.115,
+          0.213,
+          0.12
+        ]
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -2116,7 +1764,7 @@
         "general": "Если вы атакуете, то ваш противник должен потерять 2 (S) в начале шага нанесения повреждений. *newline* Если вы защищаетесь, то получите 2 (S).",
         "unit": "Гвардеец/Крейсер: Перебросьте 1 ваш [S].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s1.jpg",
-        "aspect": 0.724910394265233,
+        "aspect": 0.7051482059282371,
         "icons": ""
       },
       {
@@ -2464,5 +2112,16 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
+  },
+  "combatFrame": {
+    "picture": "pictures/templates/gif/ig/combat.png",
+    "artBox": [
+      0.205,
+      0.13,
+      0.795
+    ],
+    "titleX": 0.27,
+    "titleY": 0.077,
+    "titleMaxWidth": 0.625
   }
 }
