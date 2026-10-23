@@ -249,10 +249,9 @@
       var data=await load(),catalog=data.catalog,cards=data.cards;if(closed) return;content.replaceChildren();
       heading.querySelector('.fs-mode-badge').textContent=root.FSModes.label(displayMode)+(catalog.ruleVersion?' · '+catalog.ruleVersion:'');
       var cart=element('section','',content,'fs-print-selection'),cartHead=element('div','',cart,'fs-print-cart-head');element('h3','Карты',cartHead);
-      button('Выбрать ещё',cartHead,async function () {await api.setMode(true);dialog.close();});
+      var chooseCards=button('Выбрать карты',cartHead,async function () {await api.setMode(true);dialog.close();});
       var list=element('div','',cart,'fs-print-cart fs-scroll'),rows=new Map();
       var empty=element('div','',cart,'fs-print-empty');element('p','Набор пуст',empty);element('small','Выберите карты галочками в картотеке.',empty);
-      button('Выбрать карты',empty,async function () {await api.setMode(true);dialog.close();});
       var cartActions=element('div','',cart,'fs-print-cart-actions');
       var addFaction=button('Вся фракция',cartActions,async function () {
         try {await api.addFaction(options.factionId);} catch(error) {status.textContent=error.message;}
@@ -338,6 +337,7 @@
           row.querySelector('.fs-print-stepper button:last-child').disabled=busy||quantities[id]>=20;
         });
         empty.hidden=!!ids.length;list.hidden=!ids.length;clear.disabled=busy||!ids.length;
+        chooseCards.textContent=ids.length?'Выбрать ещё':'Выбрать карты';
         try {
           var count=total(cards,quantities),grid=root.FSPaper.layout(catalog,currentOptions());
           summary.textContent=count+' экз. · '+ids.length+' разных карт'+(count?' · '+Math.ceil(count/grid.capacity)+' лист.':'');

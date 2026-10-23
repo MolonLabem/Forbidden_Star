@@ -439,12 +439,14 @@ body {
 .fs-token--image.has-image .fs-token-image { visibility: visible; }
 .fs-token--image.has-image .fs-token-fallback { visibility: hidden; }
 .fs-settings { position: relative; font-size: 13px; margin-left: auto; }
-.fs-settings summary { cursor: pointer; padding: 8px; border: 1px solid #38332c; border-radius: 8px; color: #d8d2c8; }
+.fs-settings > summary { cursor: pointer; display: flex; align-items: center; gap: 8px; list-style: none; }
+.fs-settings > summary::-webkit-details-marker { display: none; }
+.fs-settings-chevron { transition: transform .15s; }
+.fs-settings[open] > summary .fs-settings-chevron { transform: rotate(180deg); }
 .fs-settings-panel { position: absolute; right: 0; top: calc(100% + 8px); width: 290px; max-width: calc(100vw - 28px); z-index: 40; padding: 16px; background: #1a1815; border: 1px solid #38332c; border-radius: 12px; box-shadow: 0 12px 36px #000a; display: flex; flex-direction: column; gap: 12px; }
 .fs-settings select { color: #ece8e1; background: #221f1a; border: 1px solid #514b40; padding: 8px; border-radius: 6px; font: inherit; }
 .fs-mode-badge { border: 1px solid #514b40; border-radius: 6px; background: #221f1a; color: #e8bc6c; padding: 7px 10px; font: inherit; font-size: 12px; white-space: nowrap; }
-button.fs-mode-badge { cursor: pointer; }
-.fs-header .fs-print-tools > .fs-mode-badge { margin-right: auto; }
+.fs-header .fs-print-tools > .fs-settings { margin-left: 0; margin-right: auto; }
 .fs-mode-description { margin: 0; color: #ada496; font-size: 12px; line-height: 1.5; }
 .fs-mode-fallback { color: #ada496; font-size: 12px; }
 .fs-mode-loading { max-width: 600px; margin: 15vh auto; padding: 24px; color: #e8e1d7; }
@@ -610,7 +612,7 @@ button.fs-mode-badge { cursor: pointer; }
 @keyframes fsexpand { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ---- адаптивность ---- */
-.fs-mobile-nav-toggle, .fs-mobile-back, .fs-mobile-only, .fs-settings-short { display: none; }
+.fs-mobile-nav-toggle, .fs-mobile-back, .fs-mobile-only { display: none; }
 @media (min-width: 721px) and (max-width: 1050px) {
   .fs-header { gap: 12px; padding: 0 16px; }
   .fs-brand { gap: 8px; }
@@ -652,8 +654,6 @@ button.fs-mode-badge { cursor: pointer; }
   .fs-brand-title { font-size: 14px; letter-spacing: .12em; }
   .fs-settings { grid-column: 2; grid-row: 1; position: static; margin-left: 0; }
   .fs-settings summary { min-height: 44px; padding: 12px 10px; }
-  .fs-settings-label { display: none; }
-  .fs-settings-short { display: inline; }
   .fs-settings-panel { left: 12px; right: 12px; top: calc(100% + 6px); width: auto; max-width: none; max-height: calc(100dvh - 190px); overflow-y: auto; }
   .fs-settings select { min-height: 44px; font-size: 16px; }
   .fs-header-spacer { display: none; }
@@ -761,7 +761,6 @@ button.fs-mode-badge { cursor: pointer; }
 .fs-print-stepper input[type=number] { width: 42px; height: 28px; padding: 2px; text-align: center; border: 0; border-radius: 0; appearance: textfield; -moz-appearance: textfield; }
 .fs-print-stepper input::-webkit-inner-spin-button, .fs-print-stepper input::-webkit-outer-spin-button { appearance: none; margin: 0; }
 .fs-print-empty { margin: auto; padding: 36px 20px; text-align: center; }
-.fs-print-empty button { margin-top: 18px; }
 .fs-print-sheet-pane { display: flex; flex-direction: column; min-height: 0; overflow: auto; padding: 16px 22px 12px; gap: 12px; }
 .fs-print-settings { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
 .fs-print-settings label { display: flex; flex-direction: column; gap: 5px; color: #a99e8a; font-size: 11px; }

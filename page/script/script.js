@@ -362,10 +362,13 @@
       return el('div', {}, [window.FSWord.append(el('span'), token.glyph, tokenStyle), ' — ' + token.label]);
     }));
     return el('details', { class: 'fs-settings', open: state.settingsOpen ? '' : null,
-      ontoggle: function (e) { state.settingsOpen = e.target.open; } }, [
-      el('summary', { 'aria-label': 'Отображение' }, [
-        el('span', { class: 'fs-settings-label', text: 'Отображение' }),
-        el('span', { class: 'fs-settings-short', text: 'Вид', 'aria-hidden': 'true' }),
+      ontoggle: function (e) { if(e.target.isConnected)state.settingsOpen = e.target.open; } }, [
+      el('summary', { class:'fs-mode-badge', title:'Настройки отображения', 'aria-label': 'Настройки отображения: '+window.FSModes.label(state.displayMode),
+        // Native toggle events are queued; keep the state before an async redraw.
+        onclick:function (e) {state.settingsOpen=!e.currentTarget.parentNode.open;}
+      }, [
+        window.FSModes.label(state.displayMode),
+        el('span', { class: 'fs-settings-chevron', text: '▾', 'aria-hidden': 'true' }),
       ]),
       el('div', { class: 'fs-settings-panel' }, [
         el('label', {for:'fs-display-mode',text:'Версия карт'}),display,
@@ -1012,7 +1015,7 @@
     if(!isRnb)main.appendChild(el('aside',{class:'fs-compare-tokens'},[
       el('h2',{text:'Жетоны и кубы прямо в тексте'}),
       window.FSWord.append(el('p',{class:'fs-compare-token-demo'}),'Потратьте 1 жетон кузницы, чтобы получить 1 [D]. Получите 2 (B) или 2 (S).',tokenStyle),
-      el('p',{class:'fs-note',text:'Так же отображаются жетоны подкрепления и запасов. В меню «Отображение» можно выбрать цветные изображения или чёрно-белые символы.'}),
+      el('p',{class:'fs-note',text:'Так же отображаются жетоны подкрепления и запасов. В меню с названием текущей версии можно выбрать цветные изображения или чёрно-белые символы.'}),
     ]));
     flat=[];
     var records=isRnb ? Object.keys(DATA.rnb.changes).map(function (id) {return {id:id,change:DATA.rnb.changes[id]};}) : (DATA.comparison?.examples || []).map(function (id) {return {id:id};});
@@ -1034,11 +1037,14 @@
     }
     if(DATA.errors.comparison && !isRnb)main.appendChild(loadError('Не удалось загрузить примеры.',function () {delete DATA.errors.comparison;render();}));
     else if(!isRnb && !DATA.comparison)main.appendChild(el('p',{role:'status',text:'Загрузка примеров…'}));
+    var waitingFactions=new Set();
     records.forEach(function (row,index) {
       var parts=row.id.split('/'),id=parts.slice(0,2).join('/');
       var card=(DATA.cards[id] || []).find(function (card) {return card.id===row.id;});
-      if(card)main.appendChild(comparisonPair(decorateCard(card,'updated'),row.change,index));
-      else if(DATA.errors['man:'+id] || DATA.errors['fac:'+parts[0]])main.appendChild(loadError('Не удалось загрузить карты фракции.',function () {
+      if(card) {main.appendChild(comparisonPair(decorateCard(card,'updated'),row.change,index));return;}
+      if(waitingFactions.has(id))return;
+      waitingFactions.add(id);
+      if(DATA.errors['man:'+id] || DATA.errors['fac:'+parts[0]])main.appendChild(loadError('Не удалось загрузить карты фракции.',function () {
         delete DATA.errors['man:'+id];delete DATA.errors['fac:'+parts[0]];ensureFactions(parts[0]);ensureManifest(parts[0],parts[1]);render();
       }));
       else if(DATA.manifest[id])main.appendChild(el('p',{role:'alert',text:'Карта для сравнения больше не доступна в каталоге.'}));
@@ -1124,14 +1130,11 @@
         }),
       ]),
       el('div', { class: 'fs-header-spacer' }),
-      renderSettings(),
     ]);
 
     /* ---- Боковая панель: навигация Игра › Дополнение › Фракция ---- */
     var displayTools=window.FSPrint?window.FSPrint.controls(state.faction && !state.cardQuery.trim() ? state.expansion + '/' + state.faction : null):el('div',{class:'fs-print-tools'});
-    displayTools.insertBefore(el('button',{type:'button',class:'fs-mode-badge','aria-label':'Версия карт: '+window.FSModes.label(state.displayMode),text:window.FSModes.label(state.displayMode)+' ▾',onclick:function () {
-      state.settingsOpen=true;render();document.getElementById('fs-display-mode').focus();
-    }}),displayTools.firstChild);header.appendChild(displayTools);
+    displayTools.insertBefore(renderSettings(),displayTools.firstChild);header.appendChild(displayTools);
     if(state.displayMode==='rnb' && state.expansion==='dl')header.appendChild(el('span',{class:'fs-mode-fallback',role:'status',text:'TDL: обновлённая версия · RNB не опубликован'}));
     var libNav = el('nav', { class: 'fs-nav' },
       DATA.expansions.map(function (e) {
