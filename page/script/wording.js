@@ -4,7 +4,7 @@
   var tokens = [
     { key: 'FORGE', glyph: '\uE100', image: 'pictures/tokens/forge.png', label: 'жетон кузницы', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+кузниц[аыеу]|forge\s+tokens?)(?!\p{L})/giu },
     { key: 'REINFORCE', glyph: '\uE101', image: 'pictures/tokens/reinforce.png', label: 'жетон подкрепления', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+подкреплени[яйею]|reinforcement\s+tokens?)(?!\p{L})/giu },
-    { key: 'CACHE', glyph: '\uE102', image: 'pictures/tokens/cache.png', label: 'жетон запасов', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+(?:запас(?:ов|а|ы)|склад[аыуе])|cache\s+tokens?)(?!\p{L})/giu },
+    { key: 'CACHE', glyph: '\uE102', image: 'pictures/tokens/cache.png', rotation:90, label: 'жетон запасов', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+(?:запас(?:ов|а|ы)|склад[аыуе])|cache\s+tokens?)(?!\p{L})/giu },
   ];
   // The same game-font glyphs are used by canvas cards and HTML descriptions.
   // Match explicit notation only; ordinary brackets and punctuation stay text.
@@ -51,6 +51,7 @@
       var span = document.createElement('span');
       span.className = 'fs-token';
       span.setAttribute('role', 'img'); span.setAttribute('aria-label', token.label); span.title = token.label;
+      if(token.rotation){span.style.display='inline-block';span.style.transform='rotate('+token.rotation+'deg)';}
       if (mode === 'images' && token.image) {
         span.classList.add('fs-token--image');
         var fallback = document.createElement('span');

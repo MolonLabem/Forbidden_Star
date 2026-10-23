@@ -16,8 +16,8 @@
  *   Combat pictures contain the frame, native badges and illustration, with
  *   blank title, combat-symbol rail and effect areas, just like SoW templates.
  *   Template coordinates are fractions of native images/canvas. Clean patches
- *   describe artwork erasure only. Text fields are derived from those patches;
- *   shared typography and measured text determine layout. Without an explicit
+ *   describe artwork erasure only. Shared frame fields and explicit printed
+ *   regions determine placement; measured text determines wrapping. Without an explicit
  *   output height, composition retains the source image's native proportions.
  *   Sheet text adds crop?, side, sheet:{title,subtitle,abilities}, regions?.
  *   Crops and regions describe native artwork; typography is measured here.
@@ -25,9 +25,13 @@
 (function () {
   'use strict';
 
-  // Canvas size — everything else is derived. Updated via setResolution().
+  // Output pixels control sharpness only. Typography uses one logical width;
+  // its height follows the source aspect, even when print dimensions are given.
+  var layoutWidth = 450;
   var maxWidth  = 450;
   var maxHeight = 650;
+
+  function canvasSize(ctx) { return ctx.fsLayout || ctx.canvas; }
 
 
   var iconMap = {
@@ -41,14 +45,17 @@
   var FIELDS = {
     combat: {title:[.27,.025,.64,.065]},
     orders: {title:[.26,.18,.48,.067],body:[.145,.54,.71,.275]},
-    events: {title:[.05,.025,.7,.065],body:[.0578,.685,.8844,.25],type:[.1,.533,.8,.055]},
+    // The event frame reserves space for its hanging emblem and paper edges.
+    // Keep this content contract shared, independent of wording and image pixels.
+    events: {title:[.05,.025,.7,.065],body:[.065,.705,.87,.22],type:[.1,.533,.8,.055]},
     raster: {
-      combat: {title:[.28,.075,.57,.063]},
+      combat: {title:[.29,.08,.56,.05]},
       orders: {title:[.26,.205,.53,.052],body:[.155,.54,.69,.275]},
-      events: {title:[.075,.052,.65,.046],body:[.08,.673,.84,.231],type:[.17,.525,.66,.047]},
+      events: {title:[.075,.057,.65,.041],body:[.08,.673,.84,.231],type:[.17,.525,.66,.047]},
     },
   };
-  var FONT = {title:'Headline',type:'ForbiddenStars',body:'ForbiddenStars'};
+  var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
+  var LABEL_LAYOUT = {paddingX:.02,paddingY:.05};
 
   function recordInk(ctx, text, x, y, role, align) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
@@ -94,7 +101,7 @@
   // on measured height (no independent foreground offset hacks).
   function drawStretchPanel(ctx, image, y, height, decoSrcPx) {
     if (height <= 0) return;
-    var cw = ctx.canvas.width;
+    var cw = canvasSize(ctx).width;
     var topH = Math.min(height, srcPxToCanvas(image, decoSrcPx, cw));
     var srcTopH = Math.min(image.height, decoSrcPx);
     ctx.drawImage(image, 0, 0, image.width, srcTopH, 0, y, cw, topH);
@@ -106,7 +113,7 @@
 
   // Shared layout for styled wrapped text. Returns the ink-box height from the
   // top of the text box (matches what draw paints).
-  //   • text before a colon on the same line → italic
+  //   • ability names before a colon → bold; combat unit prefixes → italic
   //   • '-или-' token → centred italic line
   //   • *newline* / *newpara* → line / paragraph break
   //   • align: 'left' | 'center'
@@ -115,8 +122,8 @@
     if (!align) align = 'left';
     if (!text) return 0;
     var family = ctx.fsBodyFont || FONT.body;
-    var baseFont   = fontSize + 'px ' + family;
-    var italicFont = 'italic ' + fontSize + 'px ' + family;
+    var baseFont = (ctx.fsBodyWeight ? ctx.fsBodyWeight+' ' : '') + fontSize + 'px ' + family;
+    var styledFont = function (style) { return style ? style+' '+fontSize+'px '+family : baseFont; };
     var PARA = '\u0001';
 
     var normalizeText = function (s) {
@@ -134,44 +141,51 @@
 
     var buildTokens = function (p) {
       if (!p.trim() || p === PARA) return [];
-      if (p.trim() === '-или-') return [{ text: '-или-', italic: true, glue: true }];
+      if (p.trim() === '-или-') return [{ text: '-или-', style:'italic' }];
       var ci = p.indexOf(':');
-      if (ci !== -1 && ctx.fsItalicPrefixes === true) {
+      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'italic' : null);
+      if(prefixStyle==='bold') {
+        // Ability titles are structured data. A colon inside a description or
+        // a later paragraph must not turn ordinary rules text into a heading.
+        var title=(ctx.fsPrefixTitles||[]).find(function(title){return p.startsWith(title+':');});
+        ci=title===undefined?-1:title.length;
+      }
+      if (ci !== -1 && prefixStyle) {
         var before = p.slice(0, ci).replace(/\s+$/, '');
         var after  = p.slice(ci + 1).replace(/^\s+/, '');
         var toks = [];
-        if (before) toks.push({ text: before, italic: true,  glue: true });
-        toks.push(             { text: ':',    italic: false, glue: true });
-        if (after)  toks.push({ text: ' ' + after, italic: false, glue: true });
+        if (before) toks.push({ text: before, style:prefixStyle });
+        toks.push({ text: ':', style:prefixStyle==='bold'?'bold':null });
+        if (after) toks.push({ text: ' ' + after });
         return toks;
       }
-      return [{ text: p, italic: false, glue: true }];
+      return [{ text:p }];
     };
 
-    var measure = function (txt, italic) {
-      ctx.font = italic ? italicFont : baseFont;
+    var measure = function (txt, style) {
+      ctx.font = styledFont(style);
       return ctx.measureText(txt).width;
     };
 
     var lineAlign=align,lineRole=ctx.fsTextRole||'body';
     var renderLine = function (segments, yy) {
       var totalW = 0;
-      for (var s = 0; s < segments.length; s++) totalW += measure(segments[s].text, segments[s].italic);
+      for (var s = 0; s < segments.length; s++) totalW += measure(segments[s].text, segments[s].style);
       ctx.fsMeasuredWidth=Math.max(ctx.fsMeasuredWidth||0,totalW);
       if (!paint) return;
       ctx.fsMinimumBodyPx = Math.min(ctx.fsMinimumBodyPx || Infinity, fontSize);
-      if (ctx.fsStrict && (totalW > maxW + 1 || yy + fontSize * 0.2 > ctx.canvas.height)) {
+      if (ctx.fsStrict && (totalW > maxW + 1 || yy + fontSize * 0.2 > canvasSize(ctx).height)) {
         throw new Error('Текст выходит за границы печатной карты');
       }
       var left=align==='center'?x-maxW/2:x;
       var cx = lineAlign==='center' ? left+(maxW-totalW)/2 : left;
       for (var s = 0; s < segments.length; s++) {
         var seg = segments[s];
-        ctx.font = seg.italic ? italicFont : baseFont;
+        ctx.font = styledFont(seg.style);
         ctx.textAlign = 'left';
         recordInk(ctx,seg.text,cx,yy,lineRole,lineAlign);
         drawTokenText(ctx, seg.text, cx, yy, fontSize);
-        cx += measure(seg.text, seg.italic);
+        cx += measure(seg.text, seg.style);
       }
     };
 
@@ -195,12 +209,12 @@
       var words = [];
       buildTokens(p).forEach(function (token) {
         if (token.text === ':' && words.length) {
-          words[words.length-1].segments.push({text:':',italic:false});
-          words[words.length-1].width += measure(':',false);
+          words[words.length-1].segments.push({text:':',style:token.style});
+          words[words.length-1].width += measure(':',token.style);
           return;
         }
         token.text.split(' ').filter(Boolean).forEach(function (word) {
-          words.push({segments:[{text:word,italic:token.italic}],width:measure(word,token.italic),space:measure(' ',token.italic)});
+          words.push({segments:[{text:word,style:token.style}],width:measure(word,token.style),space:measure(' ',token.style)});
         });
       });
       // Keep the fewest lines, then prefer even wrapping and a useful last line.
@@ -225,7 +239,7 @@
       for(var start=0;start<words.length;start=breaks[start].end){
         var line=[];
         for(var wi=start;wi<breaks[start].end;wi++)words[wi].segments.forEach(function(segment,index){
-          line.push({text:(wi>start && !index?' ':'')+segment.text,italic:segment.italic});
+          line.push({text:(wi>start && !index?' ':'')+segment.text,style:segment.style});
         });
         renderLine(line, yy);
         lastBaseline = yy;
@@ -251,17 +265,28 @@
   // Image tokens occupy the same advance and baseline as their font glyphs, so
   // switching style cannot change wrapping or effect-panel geometry.
   function drawTokenText(ctx, text, x, y, fontSize) {
-    if (!ctx.fsTokenImages || !/[\uE100-\uE102]/.test(text)) {
+    if (!/[\uE100-\uE102]/.test(text)) {
       ctx.fillText(text, x, y); return;
     }
     text.split(/([\uE100-\uE102])/).forEach(function (part) {
-      var image = ctx.fsTokenImages[part], advance = ctx.measureText(part).width;
+      var token=window.FSWord.tokens.find(function(t){return t.glyph===part;});
+      var image = ctx.fsTokenImages && ctx.fsTokenImages[part], advance = ctx.measureText(part).width;
+      var rotation=token?.rotation||0;
       if (image) {
         var size = fontSize * 1996 / 2048;
         var left = x + (advance - size) / 2, top = y - fontSize * 1754 / 2048;
-        ctx.drawImage(image, left, top, size, size);
-        ctx.fsTokenImageBounds.push({ glyph: part, x: left, y: top, width: size, height: size });
+        ctx.save();ctx.translate(left+size/2,top+size/2);ctx.rotate(rotation*Math.PI/180);
+        ctx.drawImage(image,-size/2,-size/2,size,size);ctx.restore();
+        ctx.fsTokenImageBounds.push({ glyph: part, x: left, y: top, width: size, height: size,rotation:rotation });
+      } else if(rotation){
+        var ink=ctx.measureText(part),cx=x+(ink.actualBoundingBoxRight-ink.actualBoundingBoxLeft)/2;
+        var cy=y+(ink.actualBoundingBoxDescent-ink.actualBoundingBoxAscent)/2;
+        ctx.save();ctx.translate(cx,cy);ctx.rotate(rotation*Math.PI/180);ctx.fillText(part,x-cx,y-cy);ctx.restore();
       } else ctx.fillText(part, x, y);
+      if(rotation && (ctx.fsStrict || ctx.fsCollectMetrics)){
+        if(!ctx.fsTokenRotations)ctx.fsTokenRotations=[];
+        ctx.fsTokenRotations.push({glyph:part,rotation:rotation});
+      }
       x += advance;
     });
   }
@@ -289,6 +314,17 @@
   // Optional reconstructed template. Patches take clean texture from a real
   // asset; the original raster sources stay intact.
   // This prepares a background only. Rules, wrapping and symbols still use DRAW.
+  function featherEdges(canvas,amount) {
+    var ctx=canvas.getContext('2d');ctx.save();ctx.globalCompositeOperation='destination-in';
+    [[0,0,amount,0,false],[canvas.width-amount,0,canvas.width,0,true],
+      [0,0,0,amount,false],[0,canvas.height-amount,0,canvas.height,true]].forEach(function(edge){
+      var gradient=ctx.createLinearGradient(edge[0],edge[1],edge[2],edge[3]);
+      gradient.addColorStop(0,edge[4]?'#000':'transparent');gradient.addColorStop(1,edge[4]?'transparent':'#000');
+      ctx.fillStyle=gradient;ctx.fillRect(0,0,canvas.width,canvas.height);
+    });
+    ctx.restore();
+  }
+
   async function loadCardPicture(data) {
     if(data.preparedPicture)return data.preparedPicture;
     var picture = await loadImage(data.template?.picture || data.picture);
@@ -297,12 +333,15 @@
     canvas.width = picture.width; canvas.height = picture.height;
     var ctx = canvas.getContext('2d');
     ctx.drawImage(picture, 0, 0);
+    var titlePatch=data.kind==='orders' && data.template.patches.find(function(p){return !p.role;});
     for (var patch of data.template.patches || []) {
       if(patch.role==='event-type'){
         eraseNativeField(ctx,picture,patch.box,true);
         continue;
       }
-      var texture = await loadImage(patch.texture.src), crop = patch.texture.crop;
+      var header=titlePatch && (!patch.role || patch.role==='title-tail');
+      var recipe=header?titlePatch:patch;
+      var texture = await loadImage(recipe.texture.src), crop = recipe.texture.crop;
       var feather=patch.featherPx||0, padding=feather+(data.kind==='orders'?3:0);
       // Keep the entire erasure opaque, including accents just beyond its box.
       // Blend outside that guard, so old lettering cannot show through the fade.
@@ -310,14 +349,19 @@
       var right=Math.min(canvas.width,(original[0]+original[2])*canvas.width+padding);
       var bottom=Math.min(canvas.height,(original[1]+original[3])*canvas.height+padding);
       var box=[x/canvas.width,y/canvas.height,(right-x)/canvas.width,(bottom-y)/canvas.height];
-      if(data.kind==='orders' && (!patch.role || patch.role==='title-tail')){
-        eraseNativeField(ctx,picture,box,true);
-        continue;
-      }
       var layer=document.createElement('canvas');
       layer.width=Math.ceil(box[2]*canvas.width);layer.height=Math.ceil(box[3]*canvas.height);
       var layerCtx=layer.getContext('2d');
-      if(patch.tile){
+      if(header){
+        // Title patches share one vertical texture origin. Repeat across the
+        // nameplate only, so overlapping tails cannot introduce shifted bands.
+        var tile=document.createElement('canvas');tile.width=Math.ceil(crop[2]*texture.width);tile.height=layer.height;
+        var scaleY=crop[3]*texture.height/(recipe.box[3]*canvas.height);
+        var sourceY=crop[1]*texture.height+(y-recipe.box[1]*canvas.height)*scaleY;
+        tile.getContext('2d').drawImage(texture,crop[0]*texture.width,sourceY,crop[2]*texture.width,(bottom-y)*scaleY,0,0,tile.width,tile.height);
+        var pattern=layerCtx.createPattern(tile,'repeat-x');pattern.setTransform(new DOMMatrix().translate(-x,0));
+        layerCtx.fillStyle=pattern;layerCtx.fillRect(0,0,layer.width,layer.height);
+      }else if(patch.tile){
         var tile=document.createElement('canvas');tile.width=Math.ceil(crop[2]*texture.width);tile.height=Math.ceil(crop[3]*texture.height);
         tile.getContext('2d').drawImage(texture,crop[0]*texture.width,crop[1]*texture.height,
           crop[2]*texture.width,crop[3]*texture.height,0,0,tile.width,tile.height);
@@ -325,15 +369,7 @@
       }else layerCtx.drawImage(texture,crop[0]*texture.width,crop[1]*texture.height,
         crop[2]*texture.width,crop[3]*texture.height,0,0,layer.width,layer.height);
       feather=Math.min(feather,layer.width/4,layer.height/4);
-      if(feather){
-        layerCtx.globalCompositeOperation='destination-in';
-        [[0,0,feather,0,false],[layer.width-feather,0,layer.width,0,true],
-          [0,0,0,feather,false],[0,layer.height-feather,0,layer.height,true]].forEach(function(edge){
-          var gradient=layerCtx.createLinearGradient(edge[0],edge[1],edge[2],edge[3]);
-          gradient.addColorStop(0,edge[4]?'#000':'transparent');gradient.addColorStop(1,edge[4]?'transparent':'#000');
-          layerCtx.fillStyle=gradient;layerCtx.fillRect(0,0,layer.width,layer.height);
-        });
-      }
+      if(feather)featherEdges(layer,feather);
       ctx.drawImage(layer,box[0]*canvas.width,box[1]*canvas.height,box[2]*canvas.width,box[3]*canvas.height);
     }
     return canvas;
@@ -403,7 +439,7 @@
       }
       _artworkAreas.set(picture.src,end);
     }
-    var cw=ctx.canvas.width,ch=ctx.canvas.height;
+    var cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
     ctx.fsCombatArtwork={nativeBottomPx:end===null?ch:end*ch,paintedBottomPx:end===null?ch:end*ch,extended:false};
     if(end===null || panelTop<=end*ch+1)return;
     // Blank templates may contain only a cropped illustration. Cover the larger
@@ -416,7 +452,7 @@
   }
 
   function restoreNativeFrame(ctx,source,panelTop) {
-    var top=.62,left=.18,cw=ctx.canvas.width,ch=ctx.canvas.height,y=ch*top;
+    var top=.62,left=.18,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height,y=ch*top;
     if (!source || panelTop<=y) return;
     var bottom=combatSourceArea(source).top-.008;
     if (bottom<=top) return;
@@ -506,14 +542,14 @@
   }
 
   function drawLabel(ctx, label, region, role, startSize) {
-    var b = region.box, cw = ctx.canvas.width, ch = ctx.canvas.height;
+    var b = region.box, cw = canvasSize(ctx).width, ch = canvasSize(ctx).height;
     var box = {x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
     var size = ch*(startSize||.05), ink;
     var family=region.font||FONT[role]||FONT.title;
     for (var guard=0; guard<160; guard++) {
       ctx.font = (role==='type'?'bold ':'') + size + 'px '+family;
       ink = ctx.measureText(label);
-      if (ink.width<=box.width*.96 && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*.9) break;
+      if (ink.width<=box.width*(1-2*LABEL_LAYOUT.paddingX) && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*(1-2*LABEL_LAYOUT.paddingY)) break;
       size *= .96;
     }
     ctx.textAlign = 'left';
@@ -529,17 +565,19 @@
   }
 
   function textField(data,kind) {
-    if(data.template?.body)return data.template.body;
+    var align=kind==='orders'?'center':'left';
+    if(data.template?.body)return Object.assign({align:align},data.template.body);
     var patch=(data.template?.patches||[]).find(function(p){return p.role==='body-erasure';});
     if(patch){
       var b=patch.box;
-      return {box:[b[0]+.025,b[1]+.005,b[2]-.05,b[3]-.02],align:kind==='orders'?'center':'left'};
+      return {box:[b[0]+.025,b[1]+.005,b[2]-.05,b[3]-.02],align:align};
     }
-    return {box:FIELDS[kind].body,align:kind==='orders'?'center':'left'};
+    return {box:FIELDS[kind].body,align:align};
   }
 
   function labelField(data,kind) {
     if(data.template?.titleRegion)return data.template.titleRegion;
+    if(kind==='orders')return {box:FIELDS.orders.title,align:'center'};
     var patch=(data.template?.patches||[]).find(function(p){return !p.role;});
     return {box:patch?patch.box:FIELDS[kind].title,align:kind==='orders'?'center':'left'};
   }
@@ -548,7 +586,7 @@
     var previousPrefixes=ctx.fsItalicPrefixes;
     var previousGap=ctx.fsParagraphGap;
     if(region.italicPrefixes===false)ctx.fsItalicPrefixes=false;
-    var b=region.box,cw=ctx.canvas.width,ch=ctx.canvas.height;
+    var b=region.box,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
     var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
     var size=ch*.03,interline=size*.257,height;
     ctx.fsParagraphGap=.743;
@@ -574,7 +612,7 @@
   // Baked cards fill the complete old wording area so no English text is exposed
   // when the Russian wording is shorter or only one effect exists.
   function drawCombatEffects(data, ctx, panels, sourceArea, picture, nativeFrame) {
-    var cw = ctx.canvas.width, ch = ctx.canvas.height;
+    var cw = canvasSize(ctx).width, ch = canvasSize(ctx).height;
     var endY=sourceArea?ch*sourceArea.bottom:ch;
     var textMarginX = cw * COMBAT_LAYOUT.textMarginX;
     var textWidth   = cw - textMarginX * 2;
@@ -688,7 +726,7 @@
   }
 
   async function drawCombatCard(data, ctx) {
-    var cw = ctx.canvas.width, ch = ctx.canvas.height;
+    var cw = canvasSize(ctx).width, ch = canvasSize(ctx).height;
     var iconSz = cw * COMBAT_LAYOUT.iconSizeRatio, iconSp = cw * COMBAT_LAYOUT.iconSpacingRatio;
     var iconXPos = cw * COMBAT_LAYOUT.iconX, iconStartYPos = ch * COMBAT_LAYOUT.iconStartY;
     var iconChars = String(data.icons || '').split('').map(function (c) { return iconMap[c.toUpperCase()]; }).filter(Boolean);
@@ -728,7 +766,7 @@
   async function drawOrderCard(data, ctx) {
     var picture=await loadCardPicture(data);
     var general=data.hasText?window.FSWord.symbolize(data.general||''):'';
-    ctx.drawImage(picture,0,0,ctx.canvas.width,ctx.canvas.height);
+    ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
     drawLabel(ctx,data.title||'',labelField(data,'orders'),'title');
     if(general)drawBodyTextBox(ctx,general,textField(data,'orders'));
   }
@@ -736,7 +774,7 @@
   async function drawEventCard(data, ctx) {
     var picture=await loadCardPicture(data);
     var general=data.hasText?window.FSWord.symbolize(data.general||''):'';
-    ctx.drawImage(picture,0,0,ctx.canvas.width,ctx.canvas.height);
+    ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
     var patch=(data.template?.patches||[]).find(function(p){return p.role==='event-type';});
     drawEventType(ctx,data.type||'',data.template?.eventType||{box:patch?patch.box:FIELDS.events.type});
     drawLabel(ctx,data.title||'',labelField(data,'events'),'title');
@@ -747,7 +785,7 @@
   // Russian text; merely adding JSON must never leave two languages superposed.
   // The same wrapping/font measurement is used by templates and these regions.
   function drawTextRegion(ctx, region, wording) {
-    var cw = ctx.canvas.width, ch = ctx.canvas.height, b = region.box;
+    var cw = canvasSize(ctx).width, ch = canvasSize(ctx).height, b = region.box;
     var w = b[2] * cw, h = b[3] * ch;
     ctx.save();
     ctx.translate((b[0] + b[2] / 2) * cw, (b[1] + b[3] / 2) * ch);
@@ -758,6 +796,11 @@
     }
     ctx.fillStyle = region.ink || '#15120c';
     ctx.fsBodyFont = region.role === 'heading' ? FONT.title : region.font || FONT.body;
+    ctx.fsBodyWeight = region.role === 'subheading' ? 'bold' : null;
+    ctx.fsPrefixStyle = region.role === 'ability' ? 'bold' : null;
+    ctx.fsPrefixTitles = (region.abilities||[]).map(function(ability){
+      return window.FSWord.symbolize(window.FSWord.format(ability.title,wording)).replace(/\s+/g,' ').trim();
+    });
     ctx.fsTextRole = region.role || 'body';
     // Label names stay words even when body text uses token icons. Headline
     // intentionally has no token glyphs (its private-use slots contain a logo).
@@ -766,19 +809,18 @@
     var maxW = w - margin * 2, maxH = h - margin * 2;
     var interline = size * 0.12;
     var height = measureStyledWrappedText(ctx, text, maxW, interline, size);
-    var widestWord = function () {
-      ctx.font = 'italic ' + size + 'px ' + ctx.fsBodyFont;
-      return Math.max.apply(Math, String(text).split(/\s+/).map(function (word) { return ctx.measureText(word).width; }));
-    };
     var guard = 0;
-    while ((height > maxH || widestWord() > maxW) && guard++ < 180) {
+    while ((height > maxH || ctx.fsMeasuredWidth > maxW) && guard++ < 180) {
       size *= 0.97; interline = size * 0.12;
       height = measureStyledWrappedText(ctx, text, maxW, interline, size);
     }
-    if (height > maxH || widestWord()>maxW) throw new Error('Перевод не помещается в текстовую область');
+    if (height > maxH || ctx.fsMeasuredWidth>maxW) throw new Error('Перевод не помещается в текстовую область');
     drawStyledWrappedText(ctx, text, region.align === 'center' ? 0 : -w / 2 + margin,
       -h / 2 + margin, maxW, interline, size, region.align || 'left');
     ctx.fsBodyFont = null;
+    ctx.fsBodyWeight = null;
+    ctx.fsPrefixStyle = null;
+    ctx.fsPrefixTitles = null;
     ctx.fsTextRole = null;
     ctx.restore();
   }
@@ -792,19 +834,22 @@
     picture.width=source.width;picture.height=source.height;
     picture.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,source.width,source.height);
     ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
-    ctx.drawImage(picture,0,0,ctx.canvas.width,ctx.canvas.height);
+    ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
     sheetRegions(data).forEach(function (region) {
       if (region.role === 'ability') {
         eraseNativeField(ctx,picture,region.box);
         var b=region.box, inset=b[2]*.035, titleH=b[3]*.16, subH=b[3]*.12;
         var field=function (value,y,h,role,size) {
-          drawTextRegion(ctx,{box:[b[0]+inset,y,b[2]-inset*2,h],value:value,role:role,
-            transparent:true,align:role==='heading'?'center':'left',size:size},data.wording);
+          var box=[b[0]+inset,y,b[2]-inset*2,h];
+          if(role==='heading') {drawLabel(ctx,value,{box:box,align:'center'},role);return;}
+          drawTextRegion(ctx,{box:box,value:value,role:role,
+            abilities:role==='ability'?data.sheet.abilities:null,
+            transparent:true,align:role==='heading'||role==='subheading'?'center':'left',size:size},data.wording);
         };
-        field(data.sheet.title,b[1]+b[3]*.035,titleH,'heading',.034);
-        field(data.sheet.subtitle,b[1]+titleH+b[3]*.035,subH,'heading',.024);
+        field(data.sheet.title,b[1]+b[3]*.035,titleH,'heading');
+        field(data.sheet.subtitle,b[1]+titleH+b[3]*.035,subH,'subheading',.024);
         field(data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
-          b[1]+titleH+subH+b[3]*.08,b[3]*.87-titleH-subH,'body',.024);
+          b[1]+titleH+subH+b[3]*.08,b[3]*.87-titleH-subH,'ability',.024);
       } else {
         eraseNativeField(ctx,picture,region.box);
         drawTextRegion(ctx,Object.assign({},region,{transparent:true}),data.wording);
@@ -813,6 +858,48 @@
   }
 
   // Recover blank grain from the same field instead of painting a flat rectangle.
+  // The shared nameplate layout reserves unprinted top and side gutters. Their
+  // broad shading and paper grain reconstruct the background independently of
+  // the old wording, without detecting ink or stretching a row into stripes.
+  function restoreNativeLabel(ctx,picture,box) {
+    var x=box[0]*picture.width,y=box[1]*picture.height,w=box[2]*picture.width,h=box[3]*picture.height;
+    var layer=document.createElement('canvas');layer.width=Math.ceil(w);layer.height=Math.ceil(h);
+    var c=layer.getContext('2d',{willReadFrequently:true}),width=layer.width,height=layer.height;
+    c.drawImage(picture,x,y,w,h,0,0,width,height);
+    var source=c.getImageData(0,0,width,height).data,clean=c.createImageData(width,height);
+    var top=Math.max(1,Math.floor(height*LABEL_LAYOUT.paddingY)),side=Math.max(1,Math.floor(width*LABEL_LAYOUT.paddingX));
+    var radius=Math.max(1,Math.floor(height/4)),tone=[],rows=[],vertical=[],reference=[0,0,0];
+    for(var xx=0;xx<width;xx++){
+      tone[xx]=[0,0,0];
+      for(var yy=0;yy<top;yy++)for(var channel=0;channel<3;channel++)tone[xx][channel]+=source[(yy*width+xx)*4+channel]/top;
+    }
+    for(var xx=width-side;xx<width;xx++)for(var channel=0;channel<3;channel++)reference[channel]+=tone[xx][channel]/side;
+    for(var yy=0;yy<height;yy++){
+      rows[yy]=[0,0,0];
+      for(var xx=width-side;xx<width;xx++)for(var channel=0;channel<3;channel++)rows[yy][channel]+=source[(yy*width+xx)*4+channel]/side;
+    }
+    for(var yy=0;yy<height;yy++){
+      var first=Math.max(0,yy-radius),last=Math.min(height-1,yy+radius);vertical[yy]=[0,0,0];
+      for(var sy=first;sy<=last;sy++)for(var channel=0;channel<3;channel++)vertical[yy][channel]+=rows[sy][channel]/(last-first+1);
+    }
+    for(var xx=0;xx<width;xx++){
+      var first=Math.max(0,xx-radius),last=Math.min(width-1,xx+radius),shade=[0,0,0];
+      for(var sx=first;sx<=last;sx++)for(var channel=0;channel<3;channel++)shade[channel]+=tone[sx][channel]/(last-first+1);
+      for(var yy=0;yy<height;yy++){
+        // Redistribute the native fine grain deterministically. A repeated
+        // gutter would turn its lighting gradient into visible vertical bands.
+        var seed=((xx+1)*73856093^(yy+1)*19349663)>>>0,gy=Math.floor(seed/side)%height;
+        var target=(yy*width+xx)*4,grain=(gy*width+width-side+seed%side)*4;
+        for(var channel=0;channel<3;channel++)clean.data[target+channel]=shade[channel]+vertical[yy][channel]-reference[channel]+source[grain+channel]-rows[gy][channel];
+        clean.data[target+3]=255;
+      }
+    }
+    c.putImageData(clean,0,0);
+    var feather=Math.max(1,Math.min(w*LABEL_LAYOUT.paddingX,h*LABEL_LAYOUT.paddingY));
+    featherEdges(layer,feather);
+    ctx.drawImage(layer,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
+  }
+
   function eraseNativeField(ctx,picture,box,preserveGrain) {
     var crop=document.createElement('canvas');crop.width=Math.max(1,Math.round(box[2]*picture.width));crop.height=Math.max(1,Math.round(box[3]*picture.height));
     var c=crop.getContext('2d',{willReadFrequently:true});
@@ -838,7 +925,7 @@
         if(ink){var i=(y*crop.width+x)*4;for(var channel=0;channel<3;channel++)clean.data[i+channel]=rows[y][channel];}
       }
       c.putImageData(clean,0,0);
-      ctx.drawImage(crop,box[0]*ctx.canvas.width,box[1]*ctx.canvas.height,box[2]*ctx.canvas.width,box[3]*ctx.canvas.height);
+      ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
       return;
     }
     var size=Math.max(2,Math.min(14,Math.floor(crop.height*.18),Math.floor(crop.width*.04))),best={score:Infinity,x:0,y:0};
@@ -854,22 +941,73 @@
     var tile=document.createElement('canvas');tile.width=tile.height=size;
     tile.getContext('2d').drawImage(crop,best.x,best.y,size,size,0,0,size,size);
     c.fillStyle=c.createPattern(tile,'repeat');c.fillRect(0,0,crop.width,crop.height);
-    ctx.drawImage(crop,box[0]*ctx.canvas.width,box[1]*ctx.canvas.height,box[2]*ctx.canvas.width,box[3]*ctx.canvas.height);
+    ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
+  }
+
+  // The order frame leaves clean paper on the rules field's four edges.
+  // Interpolate that shading and reuse its fine grain, rather than selecting a
+  // bright tile from the wording. The field stays opaque over the old text;
+  // matching its native edges avoids both a coloured rectangle and ink ghosts.
+  function restoreOrderPaper(ctx,picture,box) {
+    var crop=document.createElement('canvas');
+    crop.width=Math.max(2,Math.round(box[2]*picture.width));crop.height=Math.max(2,Math.round(box[3]*picture.height));
+    var c=crop.getContext('2d',{willReadFrequently:true}),w=crop.width,h=crop.height;
+    c.drawImage(picture,box[0]*picture.width,box[1]*picture.height,box[2]*picture.width,box[3]*picture.height,0,0,w,h);
+    var source=c.getImageData(0,0,w,h),pixels=source.data,clean=c.createImageData(w,h);
+    var radius=Math.max(1,Math.round(Math.min(w,h)*.05)),grain=[];
+    function edge(length,index) {
+      var raw=new Float32Array(length*3),smooth=new Float32Array(length*3);
+      for(var n=0;n<length;n++)for(var channel=0;channel<3;channel++)raw[n*3+channel]=pixels[index(n)+channel];
+      for(var n=0;n<length;n++){
+        var first=Math.max(0,n-radius),last=Math.min(length-1,n+radius);
+        for(var at=first;at<=last;at++)for(var channel=0;channel<3;channel++)smooth[n*3+channel]+=raw[at*3+channel]/(last-first+1);
+        var previous=Math.max(0,n-1)*3,next=Math.min(length-1,n+1)*3;
+        grain.push([0,1,2].map(function(channel){return (2*raw[n*3+channel]-raw[previous+channel]-raw[next+channel])/4;}));
+      }
+      // Adjacent edges share their corner colours, so the interpolation meets
+      // every boundary without a seam. Grain is kept separate from shading.
+      for(var channel=0;channel<3;channel++){
+        var start=raw[channel]-smooth[channel],end=raw[(length-1)*3+channel]-smooth[(length-1)*3+channel];
+        for(var n=0;n<length;n++)smooth[n*3+channel]+=(1-n/(length-1))*start+n/(length-1)*end;
+      }
+      return smooth;
+    }
+    // The paper's lower corners meet the bevelled frame. Sample inside those
+    // corners and leave their native pixels in place, rather than spreading
+    // the dark frame across the bottom of the rules panel.
+    var top=edge(w,function(n){return n*4;}),bottom=edge(w,function(n){return ((h-1)*w+Math.max(radius,Math.min(w-1-radius,n)))*4;});
+    var left=edge(h,function(n){return Math.min(h-1-radius,n)*w*4;}),right=edge(h,function(n){return (Math.min(h-1-radius,n)*w+w-1)*4;});
+    for(var y=0;y<h;y++)for(var x=0;x<w;x++){
+      var u=x/(w-1),v=y/(h-1),target=(y*w+x)*4;
+      var seed=((x+1)*73856093^(y+1)*19349663)>>>0,noise=grain[seed%grain.length];
+      var bevel=y>=h-radius && (x<y-h+radius || w-1-x<y-h+radius);
+      for(var channel=0;channel<3;channel++){
+        var corners=(1-u)*(1-v)*top[channel]+u*(1-v)*top[(w-1)*3+channel]+(1-u)*v*bottom[channel]+u*v*bottom[(w-1)*3+channel];
+        var shade=(1-v)*top[x*3+channel]+v*bottom[x*3+channel]+(1-u)*left[y*3+channel]+u*right[y*3+channel]-corners;
+        var low=Math.min(top[x*3+channel],bottom[x*3+channel],left[y*3+channel],right[y*3+channel]);
+        var high=Math.max(top[x*3+channel],bottom[x*3+channel],left[y*3+channel],right[y*3+channel]);
+        clean.data[target+channel]=(x===0||y===0||x===w-1||y===h-1||bevel)?pixels[target+channel]:
+          Math.max(low,Math.min(high,shade))+noise[channel];
+      }
+      clean.data[target+3]=255;
+    }
+    c.putImageData(clean,0,0);
+    ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
   }
 
   async function drawRasterTranslation(data, ctx) {
     var picture = await loadImage(data.picture);
-    ctx.drawImage(picture, 0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.drawImage(picture, 0, 0, canvasSize(ctx).width, canvasSize(ctx).height);
     if (data.kind === 'combat' && !data.regions) {
       var titleBox=FIELDS.raster.combat.title;
-      eraseNativeField(ctx,picture,titleBox);
-      drawLabel(ctx,data.title,{box:titleBox},'title',.044);
+      restoreNativeLabel(ctx,picture,titleBox);
+      drawLabel(ctx,data.title,{box:titleBox,align:'center'},'title',.044);
       var panels = await Promise.all([
         loadImage('pictures/background.png'), loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),
       ]);
       var bottomH = drawCombatEffects(data, ctx, panels, combatSourceArea(picture));
       ctx.drawImage(panels[2], 0, 0, panels[2].width, panels[2].height,
-        0, ctx.fsCombatBottom - bottomH, ctx.canvas.width, bottomH);
+        0, ctx.fsCombatBottom - bottomH, canvasSize(ctx).width, bottomH);
       return;
     }
     if(data.regions){data.regions.forEach(function(region){drawTextRegion(ctx,region,data.wording);});return;}
@@ -877,10 +1015,24 @@
     if(!fields)throw new Error('Нет разметки исходной карты');
     var prepared=document.createElement('canvas');prepared.width=picture.width;prepared.height=picture.height;
     var layer=prepared.getContext('2d');layer.drawImage(picture,0,0);
-    Object.keys(fields).forEach(function(role){eraseNativeField(layer,picture,fields[role],role==='type');});
+    Object.keys(fields).forEach(function(role){
+      if(role==='title'||role==='type'){
+        var box=fields[role].slice();
+        if(data.kind==='orders' && role==='title'){
+          // Keep the old accents inside the opaque cleanup and sample above
+          // them. The title's measured placement remains independent.
+          var gutter=box[3]*LABEL_LAYOUT.paddingY*2;box[1]-=gutter;box[3]+=gutter;
+        }
+        restoreNativeLabel(layer,picture,box);
+      }
+      else if(data.kind==='orders' && role==='body')restoreOrderPaper(layer,picture,fields[role]);
+      else eraseNativeField(layer,picture,fields[role]);
+    });
+    var title=fields.title.slice();
+    if(data.kind==='orders')title[2]=1-2*title[0];
     var clean=Object.assign({},data,{preparedPicture:prepared,template:{
-      titleRegion:{box:fields.title,align:data.kind==='orders'?'center':'left'},
-      body:{box:fields.body,align:'left'},eventType:fields.type?{box:fields.type}:null,
+      titleRegion:{box:title,align:'center'},
+      body:{box:fields.body},eventType:fields.type?{box:fields.type}:null,
     }});
     if(data.kind==='orders')return drawOrderCard(clean,ctx);
     return drawEventCard(clean,ctx);
@@ -912,6 +1064,30 @@
 
   var _composed = window.FSCache.create(32);
 
+  // Diagnostics and print legibility use output pixels. Keep layout decisions
+  // in logical units and convert only at this boundary; ink bounds already
+  // include the canvas transform recorded by recordInk().
+  function outputMetrics(ctx) {
+    var sx=ctx.canvas.width/ctx.fsLayout.width,sy=ctx.canvas.height/ctx.fsLayout.height;
+    var scaled=function (value,scale) {
+      if(!value)return value;
+      var result=Object.assign({},value);
+      Object.keys(result).forEach(function(key){if(typeof result[key]==='number')result[key]*=scale;});
+      return result;
+    };
+    var box=function (value) {return Object.assign({},value,{x:value.x*sx,y:value.y*sy,width:value.width*sx,height:value.height*sy});};
+    var metrics={minimumBodyPx:ctx.fsMinimumBodyPx===undefined?undefined:ctx.fsMinimumBodyPx*sy,textLines:ctx.fsTextLines};
+    if(ctx.fsCombatPanels)metrics.combatPanels=Object.assign(scaled(ctx.fsCombatPanels,sy),{
+      general:scaled(ctx.fsCombatPanels.general,sy),unit:scaled(ctx.fsCombatPanels.unit,sy)});
+    if(ctx.fsCombatArtwork)metrics.artwork=scaled(ctx.fsCombatArtwork,sy);
+    if(ctx.fsCombatIcons)metrics.combatIcons=ctx.fsCombatIcons.map(function(icon){return {symbol:icon.symbol,x:icon.x*sx,y:icon.y*sy,size:icon.size*sx};});
+    if(ctx.fsEventType)metrics.eventType=Object.assign({},ctx.fsEventType,{box:box(ctx.fsEventType.box)});
+    if(ctx.fsBodyTextBox)metrics.bodyTextBox=Object.assign(scaled(ctx.fsBodyTextBox,sy),{box:box(ctx.fsBodyTextBox.box)});
+    if(ctx.fsTokenImageBounds)metrics.tokenImages=ctx.fsTokenImageBounds.map(box);
+    if(ctx.fsTokenRotations)metrics.tokenRotations=ctx.fsTokenRotations;
+    return metrics;
+  }
+
   function compose(card, options) {
     options = options || {};
     // Capture dimensions before asynchronous work. Printing never changes view resolution.
@@ -933,10 +1109,10 @@
 
     var fontReady = strict ? Promise.all(Array.from(new Set(Object.values(FONT))).map(loadFont)) : fontsReady();
     // Fetch the source while fonts load; neither depends on the other.
-    var ready = Promise.all([fontReady,!height?sourceInfo(Object.assign({},card,{src:picture})):null]);
+    var ready = Promise.all([fontReady,sourceInfo(Object.assign({},card,{src:picture}))]);
     var result = ready.then(async function (resources) {
+      var source=resources[1];
       if(!height){
-        var source=resources[1];
         height=Math.round(width*source.height/source.width);
         if(bounded && height>maxHeight){width=Math.round(width*maxHeight/height);height=maxHeight;}
       }
@@ -945,6 +1121,9 @@
       canvas.width  = width;
       canvas.height = height;
       var ctx = canvas.getContext('2d');
+      ctx.fsLayout={width:layoutWidth,height:layoutWidth*source.height/source.width};
+      ctx.scale(canvas.width/ctx.fsLayout.width,canvas.height/ctx.fsLayout.height);
+      ctx.imageSmoothingQuality='high';
       ctx.fsStrict = strict;
       ctx.fsCollectMetrics=!!options.onMetrics;
       ctx.fsTextLines=[];ctx.fsKind=card.kind;
@@ -976,17 +1155,7 @@
         }));
       }
       return fn(data, ctx).then(function () {
-        if (options.onMetrics) {
-          var metrics = {minimumBodyPx:ctx.fsMinimumBodyPx};
-          metrics.textLines=ctx.fsTextLines;
-          if (ctx.fsCombatPanels) metrics.combatPanels=ctx.fsCombatPanels;
-          if (ctx.fsCombatArtwork) metrics.artwork=ctx.fsCombatArtwork;
-          if (ctx.fsCombatIcons) metrics.combatIcons=ctx.fsCombatIcons;
-          if (ctx.fsEventType) metrics.eventType=ctx.fsEventType;
-          if (ctx.fsBodyTextBox) metrics.bodyTextBox=ctx.fsBodyTextBox;
-          if (ctx.fsTokenImageBounds) metrics.tokenImages=ctx.fsTokenImageBounds;
-          options.onMetrics(metrics);
-        }
+        if (options.onMetrics) options.onMetrics(outputMetrics(ctx));
         return thumbnail ? canvas.toDataURL('image/jpeg', 0.84) : canvas.toDataURL('image/png');
       });
     }).catch(function (e) {

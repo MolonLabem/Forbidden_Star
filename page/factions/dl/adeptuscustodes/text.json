@@ -246,7 +246,7 @@
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_5.jpg"
         },
         {
-            "title": "ЗОЛОТОЕ ПРАВИЛО",
+            "title": "ВЛАСТЬ ЗОЛОТА",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (B) в начале каждого раунда этой битвы.",
             "type": "ПЛАН",
             "raster": true,

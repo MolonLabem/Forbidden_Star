@@ -72,10 +72,10 @@
     errors:    {},
   };
 
-  // Напечатанное название карточки (из cardnames.json) или запасной вариант
-  function cardName(exp, fac, cat, file, fallback) {
-    var n = DATA.cardnames[exp + '/' + fac + '/' + cat + '/' + file];
-    return n || fallback;
+  // Русский текст — основной источник; справочник нужен для растров без текста.
+  function cardName(card) {
+    return card.text && card.text.title ||
+      DATA.cardnames[card.exp + '/' + card.fac + '/' + card.category + '/' + card.file] || card.label;
   }
 
   function ensureFaq() {
@@ -555,7 +555,7 @@
 
   function decorateCard(card) {
     return Object.assign({},card,{
-      label:cardName(card.exp,card.fac,card.category,card.file,card.label),
+      label:cardName(card),
       facName:facNameOf(card.exp,card.fac),expName:expName(card.exp),catName:catName(card.category),
     });
   }
