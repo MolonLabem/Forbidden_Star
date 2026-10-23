@@ -389,18 +389,17 @@
     var sheet = card.kind === 'sheet';
     var availableWidth = mobile ? window.innerWidth - 24 : (state.lbFull || sheet ? window.innerWidth - 192 : Math.min(1100, window.innerWidth - 192)) - (card.text && !sheet ? 304 : 0);
     var availableHeight = window.innerHeight - (mobile ? (state.lbFull ? 220 : 280) : (state.lbFull ? 128 : sheet ? 235 : 190));
-    var width = Math.max(1, Math.min(availableWidth, availableHeight * ratio, state.lbFull || ratio > 1 ? Infinity : 500));
+    var width = Math.max(1, Math.min(availableWidth, availableHeight * ratio, state.lbFull || ratio > 1 ? Infinity : 460));
     wrap.style.setProperty('--fs-lb-width', width + 'px');
     wrap.style.setProperty('--fs-lb-ratio', ratio);
   }
 
-  function displayPixels(img, thumbnail) {
+  function displayPixels(img, thumbnail, nativeWidth) {
     // Layout pixels exclude the viewer's entrance/hover transforms.
     var width = img.parentNode.offsetWidth;
-    // The grid is a preview, independent of device DPI and the viewer HD setting.
+    // Keep native detail and enough pixels for the display; never enlarge a JPEG preview.
     if (thumbnail) {
-      var limit=['faction_card','map'].includes(img._fsCard.category)?640:320;
-      return {w:Math.min(limit,Math.max(256,Math.ceil(width/32)*32))};
+      return {w:Math.max(nativeWidth,Math.ceil(width*Math.max(1,window.devicePixelRatio||1)/32)*32)};
     }
     // Supersample text even on a 1× screen. Buckets keep the bounded cache useful
     // across small viewport changes; the optional setting adds rendering detail.
@@ -416,9 +415,9 @@
   }
 
   async function cardImageURL(imgEl, card, thumbnail) {
-    var pixels = displayPixels(imgEl, thumbnail);
+    var source = thumbnail || card.kind === 'sheet' ? await window.FSCardRender.sourceInfo(card) : null;
+    var pixels = displayPixels(imgEl, thumbnail, source?.width);
     if (card.kind === 'sheet' && !thumbnail) {
-      var source = await window.FSCardRender.sourceInfo(card);
       // Conservative resampling for the art; all translated glyphs are redrawn.
       var scale = card.exp === 'sow' ? 1.4 : card.exp === 'dl' ? 1 : 1.15;
       pixels.w = Math.round(source.width * scale);
@@ -428,12 +427,10 @@
       // template. Enlarging the precomposed 270px JPEG loses the small letterforms.
       return window.FSCardRender.compose({ src: card.src,
         kind: card.kind, text: card.text, template: card.template, wording: tokenStyle,
-        width: pixels.w, thumbnail:thumbnail,
+        width: pixels.w,
       }, { rejectOnError: true });
     }
-    // Baked cards retain their native detail and proportions; resampling them to
-    // a larger PNG cannot improve quality. Small grids may still use thumbnails.
-    return Promise.resolve(thumbnail && pixels.w <= 320 && isCardShaped(card) ? 'thumbnails/' + card.src : card.src);
+    return card.src;
   }
 
   function prepareCard(img, card, modal) {
@@ -941,11 +938,11 @@
     } else if (cat === 'map') {
       gridCols = 'repeat(1, minmax(0, 920px))'; gridJustify = 'center'; cardAspect = '';
     } else if (cat === 'events') {
-      gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 320px))'; gridJustify = 'start'; cardAspect = '450 / 650';
+      gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     } else if (cat === 'orders') {
-      gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 320px))'; gridJustify = 'start'; cardAspect = '450 / 650';
+      gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     } else {
-      gridCols = 'repeat(' + cols + ', minmax(0, 1fr))'; gridJustify = 'start'; cardAspect = '450 / 650';
+      gridCols = 'repeat(' + cols + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     }
 
     var app = el('div', { class: 'fs-app', 'data-accent': ACCENT });
@@ -1076,7 +1073,7 @@
           expCount += hits.length;
           var grid = el('div', {
             class: 'fs-grid',
-            style: 'grid-template-columns:repeat(' + cols + ', minmax(0, 1fr));justify-content:start;',
+            style: 'grid-template-columns:repeat(' + cols + ', minmax(0, 280px));justify-content:start;',
           }, hits.map(function (card) {
             card.index = flat.length; flat.push(card);
             var btn = el('button', {

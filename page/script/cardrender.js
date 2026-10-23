@@ -48,7 +48,7 @@
       events: {title:[.075,.052,.65,.046],body:[.08,.673,.84,.231],type:[.17,.525,.66,.047]},
     },
   };
-  var FONT = {title:'Headline',type:'Headline',body:'ForbiddenStars'};
+  var FONT = {title:'Headline',type:'ForbiddenStars',body:'ForbiddenStars'};
 
   function recordInk(ctx, text, x, y, role, align) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
@@ -123,6 +123,7 @@
       return String(s)
         .replace(/\s*\*newpara\*\s*/g, '\n' + PARA + '\n')
         .replace(/\s*\*newline\*\s*/g, '\n')
+        .replace(/(\d[\d.,]*)[ \t]+(?=[}{<|#@\uE100-\uE102])/g, '$1\u00a0')
         .replace(/[ \t]+/g, ' ')
         .replace(/ *\n */g, '\n')
         .trim();
@@ -183,46 +184,49 @@
     for (var pi = 0; pi < paragraphs.length; pi++) {
       var p = paragraphs[pi];
       if (p === PARA) {
-        // Paragraph break: next baseline is 2*lineHeight below the previous one.
-        yy = lastBaseline + 2 * lineHeight;
+        // Preserve the authored paragraph, with a smaller gap only when fitting.
+        yy = lastBaseline + (ctx.fsParagraphGap === undefined ? 2*lineHeight : lineHeight+interline+fontSize*ctx.fsParagraphGap);
         continue;
       }
       if (p === '') continue;
       var limit=ctx.fsKind==='orders' && /^ОДИН РАЗ ЗА РАУНД[.!]?$/i.test(p.trim());
       lineAlign=limit || p.trim()==='-или-'?'center':align;
       lineRole=limit?'limit':ctx.fsTextRole||'body';
-      var tokens = buildTokens(p);
-      var line = [];
-      var lineWidth = 0;
-
-      var pushWord = function (word, italic, glue, reserve) {
-        var segText = (line.length === 0 || glue) ? word : (' ' + word);
-        var w = measure(segText, italic);
-        if (lineWidth + w + (reserve || 0) > maxW && line.length > 0) {
-          renderLine(line, yy);
-          lastBaseline = yy;
-          yy += lineHeight + interline;
-          drew = true;
-          line = [{ text: word, italic: italic }];
-          lineWidth = measure(word, italic);
-        } else {
-          line.push({ text: segText, italic: italic });
-          lineWidth += w;
+      var words = [];
+      buildTokens(p).forEach(function (token) {
+        if (token.text === ':' && words.length) {
+          words[words.length-1].segments.push({text:':',italic:false});
+          words[words.length-1].width += measure(':',false);
+          return;
         }
-      };
-
-      for (var ti = 0; ti < tokens.length; ti++) {
-        var t = tokens[ti];
-        if (t.text === ':') { pushWord(':', false, true); continue; }
-        var words = t.text.split(' ');
-        for (var wi = 0; wi < words.length; wi++) {
-          if (!words[wi]) continue;
-          // Keep a unit prefix and its colon together, even at the line edge.
-          var reserve = tokens[ti + 1] && tokens[ti + 1].text === ':' && wi === words.length - 1 ? measure(':', false) : 0;
-          pushWord(words[wi], t.italic, line.length === 0 || (t.glue && wi === 0), reserve);
+        token.text.split(' ').filter(Boolean).forEach(function (word) {
+          words.push({segments:[{text:word,italic:token.italic}],width:measure(word,token.italic),space:measure(' ',token.italic)});
+        });
+      });
+      // Keep the fewest lines, then prefer even wrapping and a useful last line.
+      // Authored paragraph breaks and wording are never rewritten here.
+      var breaks = new Array(words.length+1);breaks[words.length]={lines:0,cost:0};
+      for (var start=words.length-1;start>=0;start--) {
+        var width=0,best=null;
+        for (var end=start;end<words.length;end++) {
+          width += words[end].width + (end>start?words[end].space:0);
+          if(width>maxW && end>start)break;
+          var tail=breaks[end+1],last=end===words.length-1;
+          var slack=Math.max(0,1-width/maxW);
+          var cost=tail.cost+slack*slack*(last ? .15 : 1);
+          if(last && start>0 && end===start)cost+=4;
+          else if(last && start>0 && width<maxW*.3)cost+=1;
+          if(!last && /[.!?;:]$/.test(words[end].segments.map(function(s){return s.text;}).join('')))cost-=.08;
+          var candidate={lines:tail.lines+1,cost:cost,end:end+1};
+          if(!best || candidate.lines<best.lines || candidate.lines===best.lines && candidate.cost<best.cost)best=candidate;
         }
+        breaks[start]=best;
       }
-      if (line.length) {
+      for(var start=0;start<words.length;start=breaks[start].end){
+        var line=[];
+        for(var wi=start;wi<breaks[start].end;wi++)words[wi].segments.forEach(function(segment,index){
+          line.push({text:(wi>start && !index?' ':'')+segment.text,italic:segment.italic});
+        });
         renderLine(line, yy);
         lastBaseline = yy;
         yy += lineHeight + interline;
@@ -294,7 +298,22 @@
     var ctx = canvas.getContext('2d');
     ctx.drawImage(picture, 0, 0);
     for (var patch of data.template.patches || []) {
-      var texture = await loadImage(patch.texture.src), crop = patch.texture.crop, box = patch.box;
+      if(patch.role==='event-type'){
+        eraseNativeField(ctx,picture,patch.box,true);
+        continue;
+      }
+      var texture = await loadImage(patch.texture.src), crop = patch.texture.crop;
+      var feather=patch.featherPx||0, padding=feather+(data.kind==='orders'?3:0);
+      // Keep the entire erasure opaque, including accents just beyond its box.
+      // Blend outside that guard, so old lettering cannot show through the fade.
+      var original=patch.box, x=Math.max(0,original[0]*canvas.width-padding), y=Math.max(0,original[1]*canvas.height-padding);
+      var right=Math.min(canvas.width,(original[0]+original[2])*canvas.width+padding);
+      var bottom=Math.min(canvas.height,(original[1]+original[3])*canvas.height+padding);
+      var box=[x/canvas.width,y/canvas.height,(right-x)/canvas.width,(bottom-y)/canvas.height];
+      if(data.kind==='orders' && (!patch.role || patch.role==='title-tail')){
+        eraseNativeField(ctx,picture,box,true);
+        continue;
+      }
       var layer=document.createElement('canvas');
       layer.width=Math.ceil(box[2]*canvas.width);layer.height=Math.ceil(box[3]*canvas.height);
       var layerCtx=layer.getContext('2d');
@@ -305,7 +324,7 @@
         layerCtx.fillStyle=layerCtx.createPattern(tile,'repeat');layerCtx.fillRect(0,0,layer.width,layer.height);
       }else layerCtx.drawImage(texture,crop[0]*texture.width,crop[1]*texture.height,
         crop[2]*texture.width,crop[3]*texture.height,0,0,layer.width,layer.height);
-      var feather=Math.min(patch.featherPx||0,layer.width/4,layer.height/4);
+      feather=Math.min(feather,layer.width/4,layer.height/4);
       if(feather){
         layerCtx.globalCompositeOperation='destination-in';
         [[0,0,feather,0,false],[layer.width-feather,0,layer.width,0,true],
@@ -492,7 +511,7 @@
     var size = ch*(startSize||.05), ink;
     var family=region.font||FONT[role]||FONT.title;
     for (var guard=0; guard<160; guard++) {
-      ctx.font = size + 'px '+family;
+      ctx.font = (role==='type'?'bold ':'') + size + 'px '+family;
       ink = ctx.measureText(label);
       if (ink.width<=box.width*.96 && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*.9) break;
       size *= .96;
@@ -527,14 +546,18 @@
 
   function drawBodyTextBox(ctx, text, region) {
     var previousPrefixes=ctx.fsItalicPrefixes;
+    var previousGap=ctx.fsParagraphGap;
     if(region.italicPrefixes===false)ctx.fsItalicPrefixes=false;
     var b=region.box,cw=ctx.canvas.width,ch=ctx.canvas.height;
     var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
     var size=ch*.03,interline=size*.257,height;
+    ctx.fsParagraphGap=.743;
     for(var guard=0;guard<100;guard++){
       height=measureStyledWrappedText(ctx,text,box.width,interline,size);
       if(height+size*.25<=box.height && ctx.fsMeasuredWidth<=box.width)break;
-      size*=.96;interline=size*.257;
+      if(ctx.fsMeasuredWidth<=box.width && ctx.fsParagraphGap>.25)ctx.fsParagraphGap=Math.max(.25,ctx.fsParagraphGap-.1);
+      else if(ctx.fsMeasuredWidth<=box.width && interline>size*.18+.01)interline=Math.max(size*.18,interline*.94);
+      else {size*=.96;interline=size*.18;}
     }
     if(height+size*.25>box.height || ctx.fsMeasuredWidth>box.width)throw new Error('Текст не помещается в область правил');
     var align=region.align||'left';
@@ -542,6 +565,7 @@
       box.y,box.width,interline,size,align);
     ctx.fsBodyTextBox={box:box,inkBottomPx:box.y+height+size*.25,fontSizePx:size};
     ctx.fsItalicPrefixes=previousPrefixes;
+    ctx.fsParagraphGap=previousGap;
   }
 
   // ---- card draw functions ----
@@ -565,6 +589,8 @@
     var bottomH  = srcPxToCanvas(bottomImg, bottomImg.height, cw);
 
     if (bgText || fgText) {
+      var previousGap=ctx.fsParagraphGap;
+      ctx.fsParagraphGap=.743;
       var fontSize  = ch * COMBAT_LAYOUT.fontSize;
       var interline = ch * COMBAT_LAYOUT.lineSpacing;
       var marginH   = cw * COMBAT_LAYOUT.marginY;
@@ -597,9 +623,10 @@
         return p.bg+p.fg>maxTextH || p.maxWidth>textWidth;
       };
       while (overBudget() && guard < 80) {
-        marginH   *= COMBAT_LAYOUT.marginShrinkFactor;
-        fontSize  *= COMBAT_LAYOUT.fontShrinkFactor;
-        interline *= COMBAT_LAYOUT.lineSpacingShrinkFactor;
+        if(p.maxWidth<=textWidth && marginH>cw*.025+.01)marginH=Math.max(cw*.025,marginH*COMBAT_LAYOUT.marginShrinkFactor);
+        else if(p.maxWidth<=textWidth && ctx.fsParagraphGap>.25)ctx.fsParagraphGap=Math.max(.25,ctx.fsParagraphGap-.1);
+        else if(p.maxWidth<=textWidth && interline>fontSize*.18+.01)interline=Math.max(fontSize*.18,interline*COMBAT_LAYOUT.lineSpacingShrinkFactor);
+        else {fontSize*=COMBAT_LAYOUT.fontShrinkFactor;interline=fontSize*.18;}
         p = measurePanels();
         guard++;
       }
@@ -654,6 +681,7 @@
       };
       ctx.fsCombatPanels = { general: bounds(bgPanel), unit: bounds(fgPanel),
         fontSizePx: fontSize, coveredTopPx: sourceArea ? endY-minimumHeight : null,sourceArea:sourceArea||null };
+      ctx.fsParagraphGap=previousGap;
     }
     ctx.fsCombatBottom=endY;
     return bottomH;
@@ -785,12 +813,34 @@
   }
 
   // Recover blank grain from the same field instead of painting a flat rectangle.
-  // The small tile with least ink/contrast works for parchment and coloured labels.
-  function eraseNativeField(ctx,picture,box) {
+  function eraseNativeField(ctx,picture,box,preserveGrain) {
     var crop=document.createElement('canvas');crop.width=Math.max(1,Math.round(box[2]*picture.width));crop.height=Math.max(1,Math.round(box[3]*picture.height));
     var c=crop.getContext('2d',{willReadFrequently:true});
     c.drawImage(picture,box[0]*picture.width,box[1]*picture.height,box[2]*picture.width,box[3]*picture.height,0,0,crop.width,crop.height);
     var pixels=c.getImageData(0,0,crop.width,crop.height).data;
+    if(preserveGrain){
+      // Remove ink only. Keep the original grain and each coloured scan line;
+      // a repeated tile would add stripes or a differently coloured rectangle.
+      var mask=new Uint8Array(crop.width*crop.height),rows=[];
+      for(var y=0;y<crop.height;y++){
+        var row=[];
+        for(var x=0;x<crop.width;x++){var i=(y*crop.width+x)*4;row.push({i:i,light:(pixels[i]+pixels[i+1]+pixels[i+2])/3});}
+        row.sort(function(a,b){return a.light-b.light;});
+        var paper=row[Math.floor(row.length*.75)];rows[y]=[pixels[paper.i],pixels[paper.i+1],pixels[paper.i+2]];
+        row.forEach(function(p){if(p.light<paper.light-25)mask[p.i/4]=1;});
+      }
+      var clean=c.createImageData(crop.width,crop.height);clean.data.set(pixels);
+      for(var y=0;y<crop.height;y++)for(var x=0;x<crop.width;x++){
+        var ink=false;
+        // Include JPEG fringes around the old letter, not just its dark centre.
+        for(var yy=Math.max(0,y-2);yy<=Math.min(crop.height-1,y+2);yy++)
+          for(var xx=Math.max(0,x-2);xx<=Math.min(crop.width-1,x+2);xx++)if(mask[yy*crop.width+xx])ink=true;
+        if(ink){var i=(y*crop.width+x)*4;for(var channel=0;channel<3;channel++)clean.data[i+channel]=rows[y][channel];}
+      }
+      c.putImageData(clean,0,0);
+      ctx.drawImage(crop,box[0]*ctx.canvas.width,box[1]*ctx.canvas.height,box[2]*ctx.canvas.width,box[3]*ctx.canvas.height);
+      return;
+    }
     var size=Math.max(2,Math.min(14,Math.floor(crop.height*.18),Math.floor(crop.width*.04))),best={score:Infinity,x:0,y:0};
     for(var y=0;y<=crop.height-size;y+=size)for(var x=0;x<=crop.width-size;x+=size){
       var sum=0,squares=0,dark=0;
@@ -827,7 +877,7 @@
     if(!fields)throw new Error('Нет разметки исходной карты');
     var prepared=document.createElement('canvas');prepared.width=picture.width;prepared.height=picture.height;
     var layer=prepared.getContext('2d');layer.drawImage(picture,0,0);
-    Object.keys(fields).forEach(function(role){eraseNativeField(layer,picture,fields[role]);});
+    Object.keys(fields).forEach(function(role){eraseNativeField(layer,picture,fields[role],role==='type');});
     var clean=Object.assign({},data,{preparedPicture:prepared,template:{
       titleRegion:{box:fields.title,align:data.kind==='orders'?'center':'left'},
       body:{box:fields.body,align:'left'},eventType:fields.type?{box:fields.type}:null,
