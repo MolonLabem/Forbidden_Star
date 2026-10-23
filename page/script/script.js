@@ -400,7 +400,7 @@
   function fitViewer(wrap, card, ratio) {
     ratio = ratio || cardRatio(card);
     var mobile = window.innerWidth <= 720;
-    var availableWidth = mobile ? window.innerWidth - 24 : Math.min(1100, window.innerWidth - 192) - (card.text ? 304 : 0);
+    var availableWidth = mobile ? window.innerWidth - 24 : (state.lbFull ? window.innerWidth - 192 : Math.min(1100, window.innerWidth - 192)) - (card.text ? 304 : 0);
     var availableHeight = window.innerHeight - (mobile ? (state.lbFull ? 220 : 280) : (state.lbFull ? 128 : 190));
     var width = Math.max(1, Math.min(availableWidth, availableHeight * ratio, state.lbFull || ratio > 1 ? Infinity : 500));
     wrap.style.setProperty('--fs-lb-width', width + 'px');
@@ -693,6 +693,76 @@
 
   /* ---- Лайтбокс ---- */
 
+  function viewerIsFullscreen() {
+    return document.fullscreenElement === document.getElementById('app');
+  }
+
+  function viewerFeedback(message) {
+    var status = document.querySelector('.fs-lb-feedback');
+    if (status) { clearTimeout(status._fsTimer); status.textContent = message; }
+    return status;
+  }
+
+  function syncViewerFullscreen() {
+    state.lbFull = state.lb !== null && viewerIsFullscreen();
+    var modal = document.querySelector('.fs-lb'), card = flat[state.lb];
+    if (!modal || !card) return;
+    modal.classList.toggle('is-fullscreen', state.lbFull);
+    modal.querySelector('.fs-lb-fig').classList.toggle('is-full', state.lbFull);
+    var button = modal.querySelector('.fs-lb-full');
+    button.setAttribute('aria-pressed', String(state.lbFull));
+    button.setAttribute('aria-label', state.lbFull ? 'Выйти из полноэкранного режима' : 'На весь экран');
+    button.setAttribute('data-tip', state.lbFull ? 'Выйти из полноэкранного режима' : 'На весь экран');
+    button.innerHTML = state.lbFull ? '&#10532;' : '&#10530;';
+    var img = modal.querySelector('.fs-lb-imgwrap > img');
+    fitViewer(img.parentNode, card, img.naturalWidth ? img.naturalWidth / img.naturalHeight : cardRatio(card));
+    loadCardImage(img, false);
+  }
+  document.addEventListener('fullscreenchange', syncViewerFullscreen);
+
+  async function toggleViewerFullscreen() {
+    try {
+      if (viewerIsFullscreen()) await document.exitFullscreen();
+      else await document.getElementById('app').requestFullscreen();
+    } catch (error) {
+      viewerFeedback('Не удалось включить полноэкранный режим.');
+    }
+  }
+
+  function copyWithSelection(url, modal) {
+    var field = el('textarea', { readonly: '', tabindex: '-1', 'aria-label': 'Ссылка на карту' });
+    field.value = url;
+    field.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+    var focus = document.activeElement, selection = window.getSelection(), ranges = [];
+    for (var i = 0; selection && i < selection.rangeCount; i++) ranges.push(selection.getRangeAt(i).cloneRange());
+    modal.appendChild(field);
+    try { field.focus(); field.select(); return document.execCommand('copy'); }
+    finally {
+      field.remove();
+      if (focus && focus.isConnected) focus.focus({ preventScroll: true });
+      if (selection) { selection.removeAllRanges(); ranges.forEach(function (range) { selection.addRange(range); }); }
+    }
+  }
+
+  async function copyCardLink(card) {
+    var url = new URL(window.FSNav.write({ view: 'codex', expansion: card.exp, faction: card.fac,
+      category: card.src.split('/')[3] === 'maps' ? 'map' : card.src.split('/')[3], cardQuery: '' }, card.src), location.href).href;
+    var modal = document.querySelector('.fs-lb'), copied = false;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try { await navigator.clipboard.writeText(url); copied = true; } catch (error) {}
+    }
+    if (!modal.isConnected) return;
+    if (!copied) { try { copied = copyWithSelection(url, modal); } catch (error) {} }
+    var status = viewerFeedback(copied ? 'Ссылка скопирована' : 'Скопируйте ссылку вручную:');
+    if (!status) return;
+    if (copied) {
+      status._fsTimer = setTimeout(function () { if (status.isConnected) status.textContent = ''; }, 3000);
+    } else {
+      var field = el('input', { type: 'text', readonly: '', 'aria-label': 'Ссылка на карту' });
+      field.value = url; status.appendChild(field); field.focus(); field.select();
+    }
+  }
+
   function showLightbox() {
     var appEl = document.querySelector('.fs-app');
     if (!appEl) { render(); return; }
@@ -717,6 +787,8 @@
     var app = document.querySelector('.fs-app');
     if (app) [].forEach.call(app.children, function (node) { node.inert = false; });
     if (oldOverflow !== null) { document.body.style.overflow = oldOverflow; oldOverflow = null; }
+    state.lbFull = false;
+    if (viewerIsFullscreen()) document.exitFullscreen().catch(function () {});
   }
   function openLb(idx) {
     returnFocus = document.activeElement; returnCard = flat[idx] && flat[idx].src;
@@ -736,7 +808,11 @@
 
   document.addEventListener('keydown', function (e) {
     if (state.lb === null) return;
-    if (e.key === 'Escape') { e.preventDefault(); closeLb(); }
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      if (viewerIsFullscreen()) toggleViewerFullscreen();
+      else closeLb();
+    }
     else if (e.key === 'Tab') {
       var modal = document.querySelector('.fs-lb');
       var nodes = [].filter.call(modal.querySelectorAll('button, a, summary, input, select'), function (node) { return !node.disabled && node.getClientRects().length > 0; });
@@ -1279,14 +1355,7 @@
       [c.text.general || c.text.background, c.text.unit || c.text.foreground].filter(Boolean).forEach(function (text) {
         textPanel.appendChild(window.FSWord.append(el('p'), text, tokenStyle));
       });
-      if (c.text.source) textPanel.appendChild(el('a', { href: c.text.source, target: '_blank', rel: 'noopener noreferrer',
-        text: c.template ? 'Источник русского текста' : 'Черновик перевода · английский оригинал' }));
     }
-    var mode = el('select', { class: 'fs-lb-wording', id: 'fs-lb-wording', 'aria-label': 'Вид жетонов',
-      onchange: function (e) { setTokenStyle(e.target.value); } }, [
-      el('option', { value: 'icons', text: 'Чёрно-белые' }), el('option', { value: 'images', text: 'Изображения' }),
-    ]);
-    mode.value = tokenStyle;
 
     var children = [
       el('button', {
@@ -1331,32 +1400,24 @@
         },
       }),
       el('button', {
-        class: 'fs-lb-tool fs-lb-full', 'aria-label': 'Полноэкранный режим',
+        class: 'fs-lb-tool fs-lb-full', 'aria-label': full ? 'Выйти из полноэкранного режима' : 'На весь экран',
         'aria-pressed': String(full),
-        'data-tip': full ? 'По размеру окна' : 'На весь экран',
+        disabled: document.fullscreenEnabled && document.getElementById('app').requestFullscreen ? null : '',
+        'data-tip': document.fullscreenEnabled ? (full ? 'Выйти из полноэкранного режима' : 'На весь экран') : 'Полноэкранный режим недоступен в этом браузере',
         html: full ? '&#10532;' : '&#10530;',
-        onclick: function (e) {
-          e.stopPropagation();
-          state.lbFull = !state.lbFull;
-          e.currentTarget.setAttribute('aria-pressed', String(state.lbFull));
-          var ov = e.currentTarget.closest('.fs-lb');
-          ov.querySelector('.fs-lb-fig').classList.toggle('is-full', state.lbFull);
-          fitViewer(ov.querySelector('.fs-lb-imgwrap'), c, imgEl.naturalWidth ? imgEl.naturalWidth / imgEl.naturalHeight : cardRatio(c));
-          loadCardImage(imgEl, false);
-          e.currentTarget.innerHTML = state.lbFull ? '&#10532;' : '&#10530;';
-          e.currentTarget.setAttribute('data-tip', state.lbFull ? 'По размеру окна' : 'На весь экран');
-        },
+        onclick: function (e) { e.stopPropagation(); toggleViewerFullscreen(); },
       }),
       el('button', {
         class: 'fs-lb-tool fs-lb-close', 'aria-label': 'Закрыть', 'data-tip': 'Закрыть (Esc)', html: '&#10005;',
         onclick: function (e) { e.stopPropagation(); closeLb(); },
       }),
-      c.text ? mode : null,
-      el('a', { class: 'fs-lb-tool fs-lb-share', 'aria-label': 'Ссылка на карточку', title: 'Ссылка на карточку',
-        href: window.FSNav.write({ view: 'codex', expansion: c.exp, faction: c.fac,
-          category: c.src.split('/')[3] === 'maps' ? 'map' : c.src.split('/')[3], cardQuery: '' }, c.src), text: '↗' }),
+      el('button', { class: 'fs-lb-tool fs-lb-share', 'aria-label': 'Скопировать ссылку на карту',
+        'data-tip': 'Скопировать ссылку на карту', html: '&#10697;',
+        onclick: function (e) { e.stopPropagation(); copyCardLink(c); } }),
+      el('div', { class: 'fs-lb-feedback', role: 'status', 'aria-live': 'polite', 'aria-atomic': 'true' }),
     ];
-    app.appendChild(el('div', { class: 'fs-lb', role: 'dialog', 'aria-modal': 'true', 'aria-label': c.label, onclick: closeLb }, children));
+    app.appendChild(el('div', { class: 'fs-lb' + (full ? ' is-fullscreen' : ''), role: 'dialog', 'aria-modal': 'true', 'aria-label': c.label,
+      onclick: function (e) { if (e.target === e.currentTarget) closeLb(); } }, children));
   }
 
   function goHome() {
