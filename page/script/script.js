@@ -70,6 +70,8 @@
     cardnames: {},
     loading:   {},
     errors:    {},
+    rnb:       null,
+    comparison: null,
   };
 
   // Русский текст — основной источник; справочник нужен для растров без текста.
@@ -97,6 +99,7 @@
   }
 
   var initialRoute = window.FSNav.read(location.hash);
+  initialRoute.displayMode = window.FSModes.initial(location.hash);
   var lastSeenHash = location.hash;
   var pendingCard = initialRoute.card;
   var pendingQuestion = initialRoute.question;
@@ -111,7 +114,8 @@
     cardQuery: '',
     faqQuestion: null, settingsOpen: false, navOpen: false, faqNavOpen: false,
   };
-  ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic'].forEach(function (key) { state[key] = initialRoute[key]; });
+  var routeKeys = ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic', 'displayMode', 'comparison', 'comparisonFaction', 'comparisonSide'];
+  routeKeys.forEach(function (key) { state[key] = initialRoute[key]; });
   state.expOpen = state.expansion;
   state.faqQuestion = initialRoute.question;
   if (pendingQuestion) state.faqOpen[pendingQuestion] = true;
@@ -119,7 +123,8 @@
 
   function updateURL(replace) {
     var card = state.lb !== null && flat[state.lb] ? flat[state.lb].src : pendingCard;
-    var hash = window.FSNav.write(state, card, state.faqQuestion);
+    var route = Object.assign({},state,{comparisonSide:flat[state.lb]?.comparisonSide || state.comparisonSide});
+    var hash = window.FSNav.write(route, card, state.faqQuestion);
     if (hash !== location.hash) history[replace ? 'replaceState' : 'pushState'](null, '', location.pathname + location.search + hash);
     lastSeenHash = location.hash;
   }
@@ -137,7 +142,7 @@
     var wasModal = state.lb !== null;
     var route = window.FSNav.read(location.hash);
     releaseModal();
-    ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic'].forEach(function (key) { state[key] = route[key]; });
+    routeKeys.forEach(function (key) { state[key] = route[key]; });
     state.lb = null; state.lbFull = false;
     state.expOpen = route.expansion; state.faqQuestion = route.question;
     pendingCard = route.card; pendingQuestion = route.question;
@@ -158,11 +163,11 @@
     if (ae && ae.classList && ae.classList.contains('fs-faq-search')) {
       sel = { s: ae.selectionStart, e: ae.selectionEnd };
     }
-    if (pendingCard && state.view === 'codex') {
-      var index = flat.findIndex(function (card) { return card.src === pendingCard; });
+    if (pendingCard && ['codex','compare'].includes(state.view)) {
+      var index = flat.findIndex(function (card) { return card.src === pendingCard && (state.view !== 'compare' || card.comparisonSide === state.comparisonSide); });
       if (index >= 0) { state.lb = index; returnCard = flat[index].src; pendingCard = null; }
     }
-    if (state.lb !== null && state.view === 'codex') appendLightbox(app);
+    if (state.lb !== null && ['codex','compare'].includes(state.view)) appendLightbox(app);
     if (lazyObserver) lazyObserver.disconnect();
     imageQueue = [];
     root.innerHTML = '';
@@ -333,7 +338,20 @@
     setState({ view: 'faq', cardQuery: '', lb: null });
   }
 
+  function comparisonLink() {
+    return window.FSNav.write({view:'compare',displayMode:state.displayMode,comparison:'visual'});
+  }
+
+  function openComparison(event) {
+    if(event)event.preventDefault();
+    setState({view:'compare',comparison:'visual',comparisonFaction:'all',lb:null,settingsOpen:false});
+  }
+
   function renderSettings() {
+    var display = el('select', {id:'fs-display-mode','aria-label':'Версия карт',onchange:function (e) {
+      setDisplayMode(e.target.value);
+    }}, window.FSModes.definitions.map(function (m) {return el('option',{value:m.id,text:m.label});}));
+    display.value=state.displayMode;
     var mode = el('select', { id: 'fs-wording', onchange: function (e) {
       setTokenStyle(e.target.value);
     } }, [el('option', { value: 'icons', text: 'Чёрно-белые' }), el('option', { value: 'images', text: 'Изображения' })]);
@@ -350,6 +368,10 @@
         el('span', { class: 'fs-settings-short', text: 'Вид', 'aria-hidden': 'true' }),
       ]),
       el('div', { class: 'fs-settings-panel' }, [
+        el('label', {for:'fs-display-mode',text:'Версия карт'}),display,
+        el('p',{class:'fs-mode-description',text:window.FSModes.definitions.find(function (m) {return m.id===state.displayMode;}).description+(state.displayMode==='rnb'&&DATA.rnb?' Версия '+DATA.rnb.version+'.':'')}),
+        el('a',{class:'fs-share',text:'Сравнение версий →',href:comparisonLink(),onclick:openComparison}),
+        state.displayMode==='rnb'&&DATA.rnb?el('a',{class:'fs-share',text:'Изменения RNB',href:DATA.rnb.sources.changelog,target:'_blank',rel:'noopener noreferrer'}):null,
         el('label', { for: 'fs-wording', text: 'Вид жетонов' }), mode,
         el('label', { class: 'fs-resolution-option' }, [input, ' Повышенная чёткость открытых карт']), legend,
       ]),
@@ -360,6 +382,11 @@
     tokenStyle = mode === 'images' ? 'images' : 'icons';
     try { localStorage.setItem(TOKEN_STYLE_KEY, tokenStyle); } catch (error) {}
     render();
+  }
+
+  function setDisplayMode(mode) {
+    mode=window.FSModes.normalize(mode);
+    setState({displayMode:mode,lb:null});
   }
 
   function mobileNavigation(nav, label, key, id) {
@@ -425,10 +452,7 @@
     if (card.text && card.kind && window.FSCardRender) {
       // Render the text directly at display resolution, losslessly, from the full
       // template. Enlarging the precomposed 270px JPEG loses the small letterforms.
-      return window.FSCardRender.compose({ src: card.src,
-        kind: card.kind, text: card.text, template: card.template, wording: tokenStyle,
-        width: pixels.w,
-      }, { rejectOnError: true });
+      return window.FSCardRender.compose(Object.assign({},card,{wording:tokenStyle,width:pixels.w}), { rejectOnError: true });
     }
     return card.src;
   }
@@ -553,7 +577,8 @@
 
   /* ---- Модель карточек ---- */
 
-  function decorateCard(card) {
+  function decorateCard(card, mode) {
+    card=window.FSModes.apply(card,typeof mode === 'string' ? mode : state.displayMode,DATA.rnb);
     return Object.assign({},card,{
       label:cardName(card),
       facName:facNameOf(card.exp,card.fac),expName:expName(card.exp),catName:catName(card.category),
@@ -636,7 +661,7 @@
 
   async function copyCardLink(card) {
     var url = new URL(window.FSNav.write({ view: 'codex', expansion: card.exp, faction: card.fac,
-      category: card.src.split('/')[3] === 'maps' ? 'map' : card.src.split('/')[3], cardQuery: '' }, card.src), location.href).href;
+      category: card.src.split('/')[3] === 'maps' ? 'map' : card.src.split('/')[3], cardQuery: '',displayMode:card.displayMode }, card.src), location.href).href;
     var modal = document.querySelector('.fs-lb'), copied = false;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       try { await navigator.clipboard.writeText(url); copied = true; } catch (error) {}
@@ -752,7 +777,7 @@
     if (/^(base|gif|sow|dl|tdl)\/[a-z0-9_-]+\/(combat|orders|events|faction_card|maps|backs)\/[a-zA-Z0-9_.-]+\.jpg$/.test(it.card)) {
       var parts = it.card.split('/');
       answer.appendChild(el('a', { class: 'fs-share fs-faq-card', text: 'Карточка', href: window.FSNav.write({
-        view: 'codex', expansion: parts[0], faction: parts[1], category: parts[2] === 'maps' ? 'map' : parts[2], cardQuery: '',
+        view: 'codex', expansion: parts[0], faction: parts[1], category: parts[2] === 'maps' ? 'map' : parts[2], cardQuery: '', displayMode:state.displayMode,
       }, 'factions/' + it.card) }));
     }
     var librarySource = it.source || it.cardSource;
@@ -910,8 +935,138 @@
 
   /* ---- Главная отрисовка ---- */
 
+  function comparisonPair(card, change, number) {
+    var isRnb = state.comparison === 'rnb';
+    var variants = [decorateCard(card,isRnb ? 'updated' : 'classic'),decorateCard(card,isRnb ? 'rnb' : 'updated')];
+    var title = 'comparison-card-' + number;
+    var pair = el('div',{class:'fs-compare-pair'});
+    variants.forEach(function (variant,index) {
+      variant.index=flat.length;variant.comparisonSide=index ? 'after' : 'before';flat.push(variant);
+      var button=el('button',{type:'button',class:'fs-card fs-compare-card',
+        'data-card-id':variant.src,'data-version':variant.displayMode,
+        'aria-label':'Увеличить: '+variant.label+' — '+window.FSModes.label(variant.displayMode),
+        onclick:function () {openLb(variant.index);}
+      },[el('img',{alt:variant.label,decoding:'async'})]);
+      prepareCard(button.querySelector('img'),variant);
+      pair.appendChild(el('div',{class:'fs-compare-side'},[
+        el('h3',{text:window.FSModes.label(variant.displayMode)}),button,
+        el('p',{class:'fs-compare-card-title',text:variant.label}),
+      ]));
+      if(index===0)pair.appendChild(el('span',{class:'fs-compare-arrow',text:'→','aria-hidden':'true'}));
+    });
+    var kinds={balance:'Изменение эффекта',restriction:'Ограничение',clarification:'Уточнение',level:'Командный уровень'};
+    var children=[
+      el('div',{class:'fs-compare-rowhead'},[
+        el('span',{class:'fs-compare-kicker',text:(isRnb ? card.facName : (number+1)+'. '+({combat:'Боевая карта',events:'Карта события',orders:'Улучшение приказа'}[card.category] || card.catName))+' · '+(isRnb ? card.catName : card.facName)}),
+        el('h2',{id:title,text:card.label}),
+      ]),
+      change ? el('div',{class:'fs-compare-change'},[
+        el('span',{class:'fs-compare-kind',text:kinds[change.kind]}),
+        window.FSWord.append(el('p'),change.summary,tokenStyle),
+      ]) : null,
+      pair,
+    ];
+    if(isRnb) {
+      var texts=el('div',{class:'fs-compare-texts'});
+      variants.forEach(function (variant) {
+        var column=el('div',{},[el('h3',{text:window.FSModes.label(variant.displayMode)}),el('strong',{text:variant.label})]);
+        [variant.text.general || variant.text.background,variant.text.foreground].filter(Boolean).forEach(function (text) {
+          column.appendChild(window.FSWord.append(el('p'),text,tokenStyle));
+        });
+        texts.appendChild(column);
+      });
+      children.push(el('details',{class:'fs-compare-rules'},[el('summary',{text:'Сравнить тексты'}),texts]));
+      children.push(el('a',{class:'fs-share',text:'Источник RNB ↗',href:variants[1].ruleSource,target:'_blank',rel:'noopener noreferrer'}));
+    }
+    return el('article',{class:'fs-compare-row','aria-labelledby':title,'data-comparison-id':card.id},children);
+  }
+
+  function renderComparisonView() {
+    var isRnb=state.comparison==='rnb';
+    if(!DATA.comparison && !DATA.loading.comparison && !DATA.errors.comparison) {
+      DATA.loading.comparison=true;
+      fetchJSON('data/version-comparison.json').then(function (data) {
+        if(!Array.isArray(data.examples) || data.examples.length!==3)throw new Error('Некорректные примеры сравнения');
+        DATA.comparison=data;DATA.loading.comparison=false;render();
+      }).catch(function () {DATA.loading.comparison=false;DATA.errors.comparison=true;render();});
+    }
+    var app=el('div',{class:'fs-app fs-compare','data-accent':ACCENT});
+    var main=el('main',{class:'fs-compare-main fs-scroll'});
+    app.appendChild(el('header',{class:'fs-header fs-compare-header'},[
+      el('button',{type:'button',class:'fs-share',text:'← Картотека',onclick:goHome}),
+      el('span',{class:'fs-brand-title',text:'FORBIDDEN STARS'}),renderSettings(),
+    ]));
+    var tabs=el('nav',{class:'fs-compare-tabs','aria-label':'Сравнение версий'});
+    [['visual','Классический → Обновлённый'],['rnb','Обновлённый → RNB']].forEach(function (tab) {
+      tabs.appendChild(el('a',{class:'fs-cat'+(state.comparison===tab[0]?' is-active':''),
+        href:window.FSNav.write(Object.assign({},state,{view:'compare',comparison:tab[0]})),
+        'aria-current':state.comparison===tab[0]?'page':null,
+        onclick:function (event) {event.preventDefault();setState({comparison:tab[0],lb:null});}
+      },tab[1]));
+    });
+    main.appendChild(el('div',{class:'fs-compare-intro'},[
+      el('h1',{text:'Сравнение версий'}),tabs,
+      el('p',{text:isRnb ? 'RNB '+DATA.rnb.version+' · Проверенные изменения правил и уточнения. Слева — наша обновлённая версия, справа — русский текст RNB.' : 'Три примера обновлённого оформления: исходные изображения и чёткий динамический текст с улучшенными переносами. Правила сохранены.'}),
+      el('p',{class:'fs-note',text:isRnb ? 'Переименования и различия перевода сами по себе не считаются изменением правил. Для TDL версия RNB не опубликована.' : 'Исходные иллюстрации сохранены; текст рисуется заново в нужном разрешении. Нажмите на любую карту, чтобы рассмотреть её крупнее.'}),
+    ]));
+    if(!isRnb)main.appendChild(el('aside',{class:'fs-compare-tokens'},[
+      el('h2',{text:'Жетоны и кубы прямо в тексте'}),
+      window.FSWord.append(el('p',{class:'fs-compare-token-demo'}),'Потратьте 1 жетон кузницы, чтобы получить 1 [D]. Получите 2 (B) или 2 (S).',tokenStyle),
+      el('p',{class:'fs-note',text:'Так же отображаются жетоны подкрепления и запасов. В меню «Отображение» можно выбрать цветные изображения или чёрно-белые символы.'}),
+    ]));
+    flat=[];
+    var records=isRnb ? Object.keys(DATA.rnb.changes).map(function (id) {return {id:id,change:DATA.rnb.changes[id]};}) : (DATA.comparison?.examples || []).map(function (id) {return {id:id};});
+    var factionIds=Array.from(new Set(records.map(function (row) {return row.id.split('/').slice(0,2).join('/');})));
+    factionIds.forEach(function (id) {ensureFactions(id.split('/')[0]);});
+    if(isRnb) {
+      if(!factionIds.includes(state.comparisonFaction))state.comparisonFaction='all';
+      var select=el('select',{id:'fs-compare-faction',onchange:function (e) {setState({comparisonFaction:e.target.value,lb:null});}},[
+        el('option',{value:'all',text:'Все фракции · '+records.length}),
+      ].concat(factionIds.map(function (id) {
+        var parts=id.split('/'),count=records.filter(function (row) {return row.id.startsWith(id+'/');}).length;
+        return el('option',{value:id,text:facNameOf(parts[0],parts[1])+' · '+count});
+      })));
+      select.value=state.comparisonFaction;
+      main.appendChild(el('div',{class:'fs-compare-filter'},[el('label',{for:'fs-compare-faction',text:'Фракция'}),select,
+        el('a',{class:'fs-share',text:'Журнал изменений RNB ↗',href:DATA.rnb.sources.changelog,target:'_blank',rel:'noopener noreferrer'}),
+      ]));
+      if(state.comparisonFaction!=='all')records=records.filter(function (row) {return row.id.startsWith(state.comparisonFaction+'/');});
+    }
+    if(DATA.errors.comparison && !isRnb)main.appendChild(loadError('Не удалось загрузить примеры.',function () {delete DATA.errors.comparison;render();}));
+    else if(!isRnb && !DATA.comparison)main.appendChild(el('p',{role:'status',text:'Загрузка примеров…'}));
+    records.forEach(function (row,index) {
+      var parts=row.id.split('/'),id=parts.slice(0,2).join('/');
+      var card=(DATA.cards[id] || []).find(function (card) {return card.id===row.id;});
+      if(card)main.appendChild(comparisonPair(decorateCard(card,'updated'),row.change,index));
+      else if(DATA.errors['man:'+id] || DATA.errors['fac:'+parts[0]])main.appendChild(loadError('Не удалось загрузить карты фракции.',function () {
+        delete DATA.errors['man:'+id];delete DATA.errors['fac:'+parts[0]];ensureFactions(parts[0]);ensureManifest(parts[0],parts[1]);render();
+      }));
+      else if(DATA.manifest[id])main.appendChild(el('p',{role:'alert',text:'Карта для сравнения больше не доступна в каталоге.'}));
+      else main.appendChild(el('p',{role:'status',text:'Загрузка карт: '+facNameOf(parts[0],parts[1])+'…'}));
+    });
+    app.appendChild(main);mountApp(app);
+  }
+
   function render() {
+    if((state.displayMode==='rnb' || state.view==='compare' && state.comparison==='rnb') && !DATA.rnb) {
+      if(!DATA.loading.rnb && !DATA.errors.rnb) {
+        DATA.loading.rnb=true;
+        window.FSModes.load('rnb').then(function (data) {DATA.rnb=data;DATA.loading.rnb=false;render();})
+          .catch(function () {DATA.loading.rnb=false;DATA.errors.rnb=true;render();});
+      }
+      var loading=el('main',{class:'fs-mode-loading'},[
+        el('h1',{text:'RNB'}),
+        DATA.errors.rnb?loadError('Не удалось загрузить правила RNB.',function () {delete DATA.errors.rnb;render();}):el('p',{text:'Загрузка правил RNB…',role:'status'}),
+        el('button',{text:'К обновлённым картам',onclick:function () {setState({view:'codex',displayMode:'updated',lb:null});}}),
+      ]);
+      mountApp(loading);return;
+    }
+    if(window.FSPrint)window.FSPrint.setDisplayMode(state.displayMode);
     if (state.view === 'faq') { renderFaqView(); return; }
+    if(state.view==='compare') {
+      if(state.lb!==null) {pendingCard=flat[state.lb]?.src;state.comparisonSide=flat[state.lb]?.comparisonSide;state.lb=null;}
+      renderComparisonView();return;
+    }
     if (DATA.general && state.expansion && !findKey(DATA.expansions, state.expansion)) {
       state.expansion = null; state.faction = null; pendingCard = null;
     }
@@ -945,7 +1100,7 @@
       gridCols = 'repeat(' + cols + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     }
 
-    var app = el('div', { class: 'fs-app', 'data-accent': ACCENT });
+    var app = el('div', { class: 'fs-app', 'data-accent': ACCENT, 'data-display-mode':state.displayMode });
 
     /* ---- Заголовок ---- */
     var header = el('header', { class: 'fs-header fs-faq-header' }, [
@@ -973,7 +1128,11 @@
     ]);
 
     /* ---- Боковая панель: навигация Игра › Дополнение › Фракция ---- */
-    if (window.FSPrint) header.appendChild(window.FSPrint.controls(state.faction && !state.cardQuery.trim() ? state.expansion + '/' + state.faction : null));
+    var displayTools=window.FSPrint?window.FSPrint.controls(state.faction && !state.cardQuery.trim() ? state.expansion + '/' + state.faction : null):el('div',{class:'fs-print-tools'});
+    displayTools.insertBefore(el('button',{type:'button',class:'fs-mode-badge','aria-label':'Версия карт: '+window.FSModes.label(state.displayMode),text:window.FSModes.label(state.displayMode)+' ▾',onclick:function () {
+      state.settingsOpen=true;render();document.getElementById('fs-display-mode').focus();
+    }}),displayTools.firstChild);header.appendChild(displayTools);
+    if(state.displayMode==='rnb' && state.expansion==='dl')header.appendChild(el('span',{class:'fs-mode-fallback',role:'status',text:'TDL: обновлённая версия · RNB не опубликован'}));
     var libNav = el('nav', { class: 'fs-nav' },
       DATA.expansions.map(function (e) {
         ensureFactions(e.key);
@@ -1038,6 +1197,11 @@
           el('span', { class: 'fs-fac-name', text: 'FAQ' }),
           el('span', { class: 'fs-fac-count', html: '&rsaquo;' }),
         ]),
+        el('a',{class:'fs-fac',href:comparisonLink(),onclick:openComparison},[
+          el('span',{class:'fs-fac-dot',style:'background:var(--fs-accent);'}),
+          el('span',{class:'fs-fac-name',text:'Сравнение версий'}),
+          el('span',{class:'fs-fac-count',text:'→'}),
+        ]),
       ]),
       el('div', { class: 'fs-sidebar-foot' }, [
         el('p', { html: 'FAN PROJECT &middot; NON&#8209;COMMERCIAL<br>Artwork &copy; Games Workshop' }),
@@ -1053,7 +1217,7 @@
       var q = window.FSWord.normalize(state.cardQuery);
       flat = [];
       var match = function (c) {
-        return window.FSWord.normalize([c.label, c.facName, c.expName].concat(c.text ? Object.values(c.text) : []).join(' ')).indexOf(q) >= 0;
+        return window.FSWord.normalize([c.label, c.originalTitle || '', c.facName, c.expName].concat(c.text ? Object.values(c.text) : []).join(' ')).indexOf(q) >= 0;
       };
       var sres = el('div', { class: 'fs-scrollarea fs-scroll' });
       var failed = [];
@@ -1087,7 +1251,7 @@
             return el('div', { class: 'fs-search-item' }, [
               btn,
               el('div', { class: 'fs-search-cap' }, [
-                el('span', { class: 'fs-search-cat', text: card.catName }),
+                el('span', { class: 'fs-search-cat', text: card.catName+(card.modeFallback?' · Обновлённый':'') }),
                 el('span', { class: 'fs-search-name', text: card.label }),
               ]),
             ]);
@@ -1296,6 +1460,8 @@
       [c.text.general || c.text.background, c.text.unit || c.text.foreground].filter(Boolean).forEach(function (text) {
         textPanel.appendChild(window.FSWord.append(el('p'), text, tokenStyle));
       });
+      if(c.ruleSource)textPanel.appendChild(el('a',{class:'fs-share',text:'Источник RNB',href:c.ruleSource,target:'_blank',rel:'noopener noreferrer'}));
+      if(c.modeFallback)textPanel.appendChild(el('p',{class:'fs-note',text:'RNB для этой карты не опубликован. Показана обновлённая версия.'}));
     }
 
     var children = [
@@ -1310,7 +1476,7 @@
           el('span', { class: 'fs-lb-label', text: c.label }),
           el('span', {
             class: 'fs-lb-meta',
-            text: (c.catName || catName(state.category)) + ' · ' + (c.facName || facName(state.faction)) + ' · ' + (state.lb + 1) + ' / ' + flat.length,
+            text: window.FSModes.label(c.displayMode) + ' · ' + (c.catName || catName(state.category)) + ' · ' + (c.facName || facName(state.faction)) + ' · ' + (state.lb + 1) + ' / ' + flat.length,
           }),
         ]),
       ]), textPanel ]),

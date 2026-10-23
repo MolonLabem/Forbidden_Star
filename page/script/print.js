@@ -11,7 +11,8 @@
     return value;
   }
   function validOptions(value) {
-    return value && ['long','short'].includes(value.flip) && ['images','icons'].includes(value.tokenStyle) &&
+    return value && (value.displayMode===undefined || root.FSModes.normalize(value.displayMode)===value.displayMode) &&
+      ['long','short'].includes(value.flip) && ['images','icons'].includes(value.tokenStyle) &&
       Number.isFinite(value.marginMm) && value.marginMm>=5 && value.marginMm<=20 &&
       ['a4','letter'].includes(value.paper || 'a4') && (value.backs===undefined || typeof value.backs==='boolean');
   }
@@ -30,19 +31,23 @@
   var api={cardsFrom:cardsFrom,dimensions:dimensions,selected:selected,total:total};
   if(typeof module!=='undefined' && module.exports) {module.exports=api;return;}
   root.FSPrint=api;
-  var STORAGE='forbidden-stars.print-cart.v2',quantities={},warning='',version=0,mode=false,loaded,available;
+  var STORAGE='forbidden-stars.print-cart.v2',displayMode=root.FSModes.initial(location.hash),quantities={},warning='',version=0,mode=false,loaded,available;
+  function storageKey() {return STORAGE+(displayMode==='updated'?'':'.'+displayMode);}
   var printOptions=Object.assign({},DEFAULTS),importRequested=false;
-  try {quantities=validateCart(JSON.parse(localStorage.getItem(STORAGE)||'{}'));}
+  try {quantities=validateCart(JSON.parse(localStorage.getItem(storageKey())||'{}'));}
   catch(error) {warning='Сохранённый набор не прочитан. Выберите карты заново.';}
   try {
     var encoded=new URLSearchParams(location.hash.slice(1)).get('print');
     if(encoded) {
       var payload=JSON.parse(encoded),incoming=validateCart(payload.cards || payload);
+      if(payload.displayMode!==undefined && root.FSModes.normalize(payload.displayMode)!==payload.displayMode)throw new Error();
+      var importMode=payload.displayMode||displayMode,importRoute=new URLSearchParams(location.hash.slice(1));
+      if(importRoute.has('mode') && root.FSModes.normalize(importRoute.get('mode'))!==importMode)throw new Error();
       if(payload.cards && !validOptions(payload)) throw new Error();
       if(Object.values(incoming).reduce(function (sum,n) {return sum+n;},0)>200) throw new Error();
-      quantities=incoming;importRequested=true;
+      displayMode=importMode;quantities=incoming;importRequested=true;
       if(payload.cards) Object.keys(DEFAULTS).forEach(function (key) {if(payload[key]!==undefined) printOptions[key]=payload[key];});
-      try {localStorage.setItem(STORAGE,JSON.stringify(quantities));} catch(error) {warning='Набор сохранится только до перезагрузки страницы.';}
+      try {localStorage.setItem(storageKey(),JSON.stringify(quantities));} catch(error) {warning='Набор сохранится только до перезагрузки страницы.';}
     }
   } catch(error) {warning='Ссылка на набор повреждена. Сохранённый набор доступен.';}
   function element(tag,text,parent,className) {
@@ -50,17 +55,28 @@
   }
   function button(text,parent,action,className) {var node=element('button',text,parent,className);node.type='button';node.onclick=action;return node;}
   function load() {
-    if(!loaded) loaded=catalogAPI.loadPrintCatalog().then(function (data) {
+    var requestedMode=displayMode;
+    if(!loaded) loaded=catalogAPI.loadPrintCatalog(requestedMode).then(function (data) {
+      if(requestedMode!==displayMode)throw new Error('Версия карт изменилась. Откройте печать заново.');
       available=new Map(data.cards.map(function (c) {return [c.id,c];}));sync();return data;
-    }).catch(function (error) {loaded=null;throw error;});
+    }).catch(function (error) {if(requestedMode===displayMode)loaded=null;throw error;});
     return loaded;
   }
   api.load=load;
+  api.displayMode=function () {return displayMode;};
+  api.setDisplayMode=function (value) {
+    value=root.FSModes.normalize(value);if(displayMode===value)return;
+    displayMode=value;loaded=null;available=null;mode=false;version++;
+    if(previews)previews.clear();
+    try {quantities=validateCart(JSON.parse(localStorage.getItem(storageKey())||'{}'));warning='';}
+    catch(error) {quantities={};warning='Сохранённый набор этой версии не прочитан.';}
+    sync();
+  };
   api.count=function () {return Object.values(quantities).reduce(function (sum,n) {return sum+n;},0);};
   api.selection=function () {return Object.assign({},quantities);};
   function save(next) {
     quantities=validateCart(next);version++;
-    try {localStorage.setItem(STORAGE,JSON.stringify(quantities));} catch(error) {warning='Набор сохранится только до перезагрузки страницы.';}
+    try {localStorage.setItem(storageKey(),JSON.stringify(quantities));} catch(error) {warning='Набор сохранится только до перезагрузки страницы.';}
     root.dispatchEvent(new Event('fs-print-change'));
   }
   api.setQuantity=function (id,n) {
@@ -142,8 +158,13 @@
     });
   }
   async function front(card,catalog,style) {
-    var native=await image(card.src),source=await image(card.template?.picture||card.src);
+    var native=await image(card.artSrc||card.src),source=await image(card.renderMode==='raster'?card.src:card.artSrc||card.template?.picture||card.src);
     var size=dimensions(catalog.widthMm,catalog.heightMm,catalog.dpi,source.naturalWidth,source.naturalHeight);
+    if(card.renderMode==='raster') {
+      var canvas=document.createElement('canvas');canvas.width=size.width;canvas.height=size.height;
+      canvas.getContext('2d').drawImage(native,0,0,canvas.width,canvas.height);
+      return {png:canvas.toDataURL('image/png'),minimumTextPt:null,dpi:Math.min(native.naturalWidth/catalog.widthMm,native.naturalHeight/catalog.heightMm)*25.4};
+    }
     var minimum=0,png=await root.FSCardRender.compose(Object.assign({},card,{wording:style}),{strict:true,width:size.width,height:size.height,onMetrics:function (m) {
       minimum=m.minimumBodyPx*Math.min(catalog.widthMm/size.width,catalog.heightMm/size.height)*72/25.4;
     }});
@@ -161,7 +182,7 @@
       var result=await front(card,catalog,settings.tokenStyle);
       rendered.push({id:card.id,quantity:chosen[card.id],rendered:true,front:result.png,minimumTextPt:result.minimumTextPt,sourceVersion:card.sourceVersion});
     }
-    return {catalogId:catalog.id,flip:flip,calibration:calibration,marginMm:settings.marginMm,cards:rendered};
+    return {catalogId:catalog.id,displayMode:catalog.displayMode||'updated',ruleVersion:catalog.ruleVersion||null,flip:flip,calibration:calibration,marginMm:settings.marginMm,cards:rendered};
   };
   async function jpeg(src) {
     var img=await image(src),canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
@@ -173,6 +194,7 @@
   api.exportPdf=async function (chosen,settings,progress,check,calibration) {
     if(!validOptions(settings)) throw new Error('Проверьте настройки печати');
     settings=Object.assign({},DEFAULTS,settings);check=check||function () {};
+    if(settings.displayMode && settings.displayMode!==displayMode)throw new Error('Версия набора не совпадает с выбранной версией карт');
     var data=await load(),catalog=data.catalog;
     if(calibration) chosen=Object.fromEntries(catalog.calibrationIds.map(function (id) {return [id,1];}));
     var selection=selected(data.cards,chosen),count=total(data.cards,chosen);
@@ -183,7 +205,7 @@
       var rendered=await front(card,catalog,settings.tokenStyle);check();
       var jpg=await jpeg(rendered.png);images.set(card.id,jpg);bytes+=jpg.bytes.length;
       if(rendered.dpi<300) warnings.push(card.title+': исходная иллюстрация '+Math.round(rendered.dpi)+' DPI');
-      if(rendered.minimumTextPt<6) warnings.push(card.title+': текст '+rendered.minimumTextPt.toFixed(1)+' пт');
+      if(rendered.minimumTextPt!==null && rendered.minimumTextPt<6) warnings.push(card.title+': текст '+rendered.minimumTextPt.toFixed(1)+' пт');
       if(settings.backs && !images.has(card.backSrc)) {var back=await jpeg(card.backSrc);images.set(card.backSrc,back);bytes+=back.bytes.length;}
       if(bytes>64*1024*1024) throw new Error('Набор слишком большой для браузера. Разделите его на несколько PDF.');
       for(var q=0;q<chosen[card.id];q++) items.push(card);
@@ -195,11 +217,11 @@
       pages.push({positions:root.FSPaper.placements(items,sheet,false,grid,settings.flip),calibration:calibration});
       if(settings.backs) pages.push({positions:root.FSPaper.placements(items,sheet,true,grid,settings.flip),calibration:calibration});
     }
-    return {blob:root.FSPaper.pdf(pages,images,grid),pages:pages.length,count:count,warnings:warnings,layout:grid};
+    return {blob:root.FSPaper.pdf(pages,images,grid),pages:pages.length,count:count,warnings:warnings,layout:grid,displayMode:catalog.displayMode};
   };
   var previews=root.FSCache.create(24);
   function previewImage(card,catalog,style) {
-    var key=card.id+'|'+card.sourceVersion+'|'+style,cached=previews.get(key);if(cached) return cached;
+    var key=card.id+'|'+card.displayMode+'|'+card.sourceVersion+'|'+style,cached=previews.get(key);if(cached) return cached;
     // Downsample the exact print render: rendering text in a differently shaped
     // thumbnail canvas can change line breaks compared with the exported PDF.
     var pending=front(card,catalog,style).then(async function (r) {
@@ -213,6 +235,7 @@
     options=options||{};
     var returnFocus=document.activeElement,dialog=element('dialog','','','fs-print');dialog.setAttribute('aria-labelledby','fs-print-title');
     var heading=element('header','',dialog,'fs-print-heading');element('h2','Печать карт',heading).id='fs-print-title';
+    element('span',root.FSModes.label(displayMode),heading,'fs-mode-badge');
     var summary=element('p','Загрузка…',heading),closed=false,busy=false,pdfUrl=null,previewVersion=0,job=null,changed;
     button('×',heading,function () {dialog.close();},'fs-print-close').setAttribute('aria-label','Закрыть печать');
     dialog.addEventListener('close',function () {
@@ -224,6 +247,7 @@
     var content=element('div','',dialog,'fs-print-content'),status=element('p','Загрузка каталога…',content);status.setAttribute('role','status');
     try {
       var data=await load(),catalog=data.catalog,cards=data.cards;if(closed) return;content.replaceChildren();
+      heading.querySelector('.fs-mode-badge').textContent=root.FSModes.label(displayMode)+(catalog.ruleVersion?' · '+catalog.ruleVersion:'');
       var cart=element('section','',content,'fs-print-selection'),cartHead=element('div','',cart,'fs-print-cart-head');element('h3','Карты',cartHead);
       button('Выбрать ещё',cartHead,async function () {await api.setMode(true);dialog.close();});
       var list=element('div','',cart,'fs-print-cart fs-scroll'),rows=new Map();
@@ -260,7 +284,7 @@
       var quality=element('details','',pane,'fs-print-quality');quality.hidden=true;
       var footer=element('footer','',dialog,'fs-print-footer');status=element('p',warning||'',footer);status.setAttribute('role','status');status.setAttribute('aria-live','polite');
       var generate=button('Скачать PDF',footer,function () {if(busy) {job.cancelled=true;status.textContent='Отмена…';} else run(false);},'fs-print-primary');
-      function currentOptions() {return {paper:paper.value,backs:backs.checked,flip:flip.value,marginMm:Number(margin.value),tokenStyle:token.value};}
+      function currentOptions() {return {paper:paper.value,backs:backs.checked,flip:flip.value,marginMm:Number(margin.value),tokenStyle:token.value,displayMode:displayMode};}
       function items() {
         var result=[];selected(cards,quantities).forEach(function (c) {for(var i=0;i<quantities[c.id];i++) result.push(c);});return result;
       }
@@ -333,7 +357,7 @@
           },calibration);
           if(closed || task.cancelled) throw new Error('Создание PDF отменено');
           pdfUrl=URL.createObjectURL(result.blob);
-          var link=element('a','',dialog);link.href=pdfUrl;link.download='forbidden-stars-'+(calibration?'control-':'')+paper.value+'.pdf';link.click();link.remove();
+          var link=element('a','',dialog);link.href=pdfUrl;link.download='forbidden-stars-'+displayMode+(catalog.ruleVersion?'-'+catalog.ruleVersion:'')+'-'+(calibration?'control-':'')+paper.value+'.pdf';link.click();link.remove();
           quality.hidden=!result.warnings.length;
           if(result.warnings.length) {element('summary','Качество исходников · '+result.warnings.length,quality);var warningsList=element('ul','',quality);result.warnings.forEach(function (w) {element('li',w,warningsList);});}
           status.textContent='PDF готов · '+result.count+' экз. · '+result.pages+' стр. Масштаб 100%'+(backs.checked?' · переворот по '+(flip.value==='long'?'длинной':'короткой')+' стороне.':'.');

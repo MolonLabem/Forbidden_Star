@@ -1,6 +1,7 @@
 /* One card model from the existing faction manifests and Russian text. */
 (function (root) {
   'use strict';
+  var modes=root.FSModes || (typeof require==='function'?require('./modes.js'):null);
   var folders = {combat:'combat',orders:'orders',events:'events',backs:'backs',faction_card:'faction_card',map:'maps'};
   var playable = ['combat','orders','events'], supported = ['base','gif','sow','dl'];
   function manifest(general, data) {
@@ -22,6 +23,8 @@
         if (!/^[a-zA-Z0-9_.-]+\.jpg$/.test(file)) throw new Error('Некорректное имя файла: ' + file);
         var relative = folders[category] + '/' + file, src = 'factions/' + expansion + '/' + faction + '/' + relative;
         var raw = category === 'combat' ? (data.combatText || [])[tier]?.[index] : (data[category + 'Text'] || [])[index];
+        var sourceText=raw?.sourceText || data.sourceText?.[category] || 'printed';
+        if(!['printed','template'].includes(sourceText))throw new Error('Некорректный тип исходного изображения: '+relative);
         var text = raw ? category === 'combat' ? {title:raw.title,background:raw.general,foreground:raw.unit,icons:raw.icons,source:raw.source,aspect:raw.aspect,raster:!!data.rasterText} : Object.assign({},raw,{raster:!!data.rasterText || !!raw.raster}) : null;
         var kind = playable.includes(category) ? category : null;
         var component = (data.componentsText || {})[relative];
@@ -38,7 +41,7 @@
         var id = expansion + '/' + faction + '/' + folders[category] + '/' + file.slice(0,-4);
         var card = {id:id,factionId:expansion+'/'+faction,exp:expansion,fac:faction,category:category,file:file,tier:tier,index:index,
           title:text && text.title || label,label:label,tierLabel:tierLabel,src:src,kind:kind,text:text,
-          template:(data.templates || {})[relative] || null,aspect:playable.includes(category) ? data.cardAspect || null : null,factionTitle:factionTitle};
+          template:(data.templates || {})[relative] || null,aspect:playable.includes(category) ? data.cardAspect || null : null,factionTitle:factionTitle,nativeText:sourceText==='printed'};
         // A manifest still names the original asset. Atlas views describe its
         // printed sides; the first view retains existing card IDs and links.
         var views = category === 'faction_card' && component?.views || [component || {}];
@@ -64,7 +67,7 @@
     });
     return cards;
   }
-  function printCatalog(spec,general,factionDocs,texts) {
+  function printCatalog(spec,general,factionDocs,texts,displayMode,rnb) {
     if (spec.id !== 'mixed' || spec.schemaVersion !== 4 || spec.widthMm !== 63 || spec.heightMm !== 88 || spec.dpi !== 300 || !Array.isArray(spec.expansions) || new Set(spec.expansions).size !== spec.expansions.length) throw new Error('Неподдерживаемая спецификация печати');
     var factions = [], cards = [], ids = new Set();
     spec.expansions.forEach(function (expansion) {
@@ -82,28 +85,32 @@
           if (/^(base|gif)$/.test(expansion) && (!card.template || (card.category==='combat' ? !card.template.picture : !card.template.patches?.length))) throw new Error('Нет чистого шаблона: ' + card.id);
           var back = spec.backTypes[card.category];
           if (!/^[a-z0-9_]+\.jpg$/.test(back || '') || !files.backs.includes(back)) throw new Error('Нет рубашки нужного типа: ' + card.id);
-          cards.push(Object.assign({},card,{back:back,backSrc:'factions/'+id+'/backs/'+back,renderMode:'composite'}));
+          cards.push(Object.assign(modes.apply(card,displayMode,rnb),{back:back,backSrc:'factions/'+id+'/backs/'+back}));
         });
       });
     });
     if (!Array.isArray(spec.calibrationIds) || new Set(spec.calibrationIds).size!==spec.calibrationIds.length || spec.calibrationIds.some(function (id) { return !ids.has(id); })) throw new Error('Контрольный набор отсутствует в манифестах');
-    return Object.assign({},spec,{factions:factions,cards:cards});
+    return Object.assign({},spec,{factions:factions,cards:cards,displayMode:modes.normalize(displayMode),ruleVersion:modes.normalize(displayMode)==='rnb'?rnb.version:null});
   }
-  function sourcePaths(expansion,faction) {
-    return ['data/print-catalog.json','factions/general.json','factions/'+expansion+'/faction.json','factions/'+expansion+'/'+faction+'/text.json'].sort();
+  function sourcePaths(expansion,faction,displayMode) {
+    var paths=['data/print-catalog.json','factions/general.json','factions/'+expansion+'/faction.json','factions/'+expansion+'/'+faction+'/text.json'];
+    if(modes.normalize(displayMode)==='rnb')paths.push('data/rnb.json');
+    return paths.sort();
   }
-  async function loadFactionCards(expansion,faction) {
+  async function loadFactionCards(expansion,faction,displayMode) {
     var data = await Promise.all([root.FSCache.json('factions/general.json'),root.FSCache.json('factions/'+expansion+'/faction.json'),root.FSCache.json('factions/'+expansion+'/'+faction+'/text.json')]);
     var index = data[1].folder.indexOf(faction); if (index<0) throw new Error('Нет фракции: '+expansion+'/'+faction);
-    return factionCards(data[0],data[2],expansion,faction,data[1].name[index]);
+    var rnb=await modes.load(displayMode);
+    return factionCards(data[0],data[2],expansion,faction,data[1].name[index]).map(function (c) {return modes.apply(c,displayMode,rnb);});
   }
-  async function loadPrintCatalog() {
+  async function loadPrintCatalog(displayMode) {
+    var rnb=await modes.load(displayMode);
     var pair = await Promise.all([root.FSCache.json('data/print-catalog.json'),root.FSCache.json('factions/general.json')]), spec=pair[0],general=pair[1],docs={},texts={},versions={};
     await Promise.all(spec.expansions.map(async function (expansion) {
       var doc=docs[expansion]=await root.FSCache.json('factions/'+expansion+'/faction.json');
-      await Promise.all(doc.folder.map(async function (faction) { var id=expansion+'/'+faction;texts[id]=await root.FSCache.json('factions/'+id+'/text.json');versions[id]=await root.FSCache.fingerprint(sourcePaths(expansion,faction)); }));
+      await Promise.all(doc.folder.map(async function (faction) { var id=expansion+'/'+faction;texts[id]=await root.FSCache.json('factions/'+id+'/text.json');versions[id]=await root.FSCache.fingerprint(sourcePaths(expansion,faction,displayMode)); }));
     }));
-    var catalog=printCatalog(spec,general,docs,texts);catalog.cards.forEach(function (card) { card.sourceVersion=versions[card.factionId]; });
+    var catalog=printCatalog(spec,general,docs,texts,displayMode,rnb);catalog.cards.forEach(function (card) { card.sourceVersion=versions[card.factionId]; });
     return {catalog:catalog,cards:catalog.cards};
   }
   var api={folders:folders,manifest:manifest,factionCards:factionCards,printCatalog:printCatalog,sourcePaths:sourcePaths,loadFactionCards:loadFactionCards,loadPrintCatalog:loadPrintCatalog};

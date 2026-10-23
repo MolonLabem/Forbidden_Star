@@ -376,7 +376,7 @@
   }
 
   async function sourceInfo(card) {
-    var url=card.template?.picture || card.picture || card.src;
+    var url=card.artSrc || (card.renderMode==='raster'?card.src:card.template?.picture || card.picture || card.src);
     if (card.text?.crop) {
       // A virtual side is route state, not a second bitmap. Both crops share
       // one decoded source (especially useful for large sheets on phones).
@@ -1090,6 +1090,12 @@
 
   function compose(card, options) {
     options = options || {};
+    if(card.renderMode==='raster')return sourceInfo(card).then(function (source) {
+      if(!card.text?.crop)return card.artSrc || card.src;
+      var canvas=document.createElement('canvas');canvas.width=source.width;canvas.height=source.height;
+      canvas.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,source.width,source.height);
+      return canvas.toDataURL('image/png');
+    });
     // Capture dimensions before asynchronous work. Printing never changes view resolution.
     var width = options.width || card.width || maxWidth, height = options.height || card.height;
     var bounded=!options.width && !card.width;
@@ -1098,7 +1104,7 @@
     var wording = card.wording || 'images';
     var thumbnail = !strict && !!card.thumbnail;
     var cacheable=!strict && !options.onMetrics;
-    var picture = strict ? card.src : (card.picture || card.src);
+    var picture = card.artSrc || (strict ? card.src : (card.picture || card.src));
     var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, card.text, card.template]);
     var cached = cacheable && _composed.get(key);
     if (cached) return cached;

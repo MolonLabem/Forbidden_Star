@@ -1,4 +1,5 @@
 {
+    "sourceText": { "combat": "template", "orders": "template", "events": "template" },
     "ordersText": [
         {
             "title": "БОЖЕСТВЕННОЕ ИЗБАВЛЕНИЕ",

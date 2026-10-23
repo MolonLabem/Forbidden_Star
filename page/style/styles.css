@@ -168,6 +168,7 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.035);
 }
 .fs-fac-name { flex: 1; }
+.fs-sidebar a.fs-fac { text-decoration: none; }
 .fs-fac-count { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f6a61; }
 
 .fs-sidebar-section { margin-top: 22px; }
@@ -441,6 +442,12 @@ body {
 .fs-settings summary { cursor: pointer; padding: 8px; border: 1px solid #38332c; border-radius: 8px; color: #d8d2c8; }
 .fs-settings-panel { position: absolute; right: 0; top: calc(100% + 8px); width: 290px; max-width: calc(100vw - 28px); z-index: 40; padding: 16px; background: #1a1815; border: 1px solid #38332c; border-radius: 12px; box-shadow: 0 12px 36px #000a; display: flex; flex-direction: column; gap: 12px; }
 .fs-settings select { color: #ece8e1; background: #221f1a; border: 1px solid #514b40; padding: 8px; border-radius: 6px; font: inherit; }
+.fs-mode-badge { border: 1px solid #514b40; border-radius: 6px; background: #221f1a; color: #e8bc6c; padding: 7px 10px; font: inherit; font-size: 12px; white-space: nowrap; }
+button.fs-mode-badge { cursor: pointer; }
+.fs-header .fs-print-tools > .fs-mode-badge { margin-right: auto; }
+.fs-mode-description { margin: 0; color: #ada496; font-size: 12px; line-height: 1.5; }
+.fs-mode-fallback { color: #ada496; font-size: 12px; }
+.fs-mode-loading { max-width: 600px; margin: 15vh auto; padding: 24px; color: #e8e1d7; }
 .fs-resolution-option { display: flex; align-items: center; gap: 8px; line-height: 1.5; }
 .fs-token-legend { display: grid; gap: 8px; color: #c4bfb5; font-size: 14px; }
 .fs-share { display: inline-block; color: var(--fs-accent); font-size: 12px; margin: 12px 16px 0 0; }
@@ -810,4 +817,53 @@ body {
   .fs-print .fs-print-remove { min-width: 40px; }
   .fs-print-preview-nav button { width: 44px; height: 44px; }
   .fs-faq-search, .fs-settings select, .fs-print input, .fs-print select { font-size: 16px; }
+}
+
+/* Version comparisons keep both cards at the same displayed width. */
+.fs-app.fs-compare { height: 100dvh; min-height: 0; overflow: hidden; }
+.fs-compare-header { justify-content: space-between; }
+.fs-compare-header .fs-settings { margin-left: 0; }
+.fs-compare-header > button { cursor: pointer; background: none; border: 0; font: inherit; }
+.fs-compare-main { flex: 1; min-height: 0; overflow-y: auto; padding: 28px max(20px, calc((100% - 960px) / 2)) 60px; }
+.fs-compare-intro h1 { font-size: 30px; margin: 0 0 18px; }
+.fs-compare-intro p { max-width: 780px; line-height: 1.6; }
+.fs-compare .fs-note { padding: 0; margin: 12px 0; font: inherit; font-size: 13px; letter-spacing: normal; color: #aaa194; }
+.fs-compare-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.fs-compare-tabs a { text-decoration: none; border: 1px solid #494134; }
+.fs-compare-tokens { margin: 24px 0; padding: 18px 22px; border: 1px solid #494134; border-radius: 12px; background: #1c1914; }
+.fs-compare-tokens h2 { font-size: 17px; margin: 0 0 12px; }
+.fs-compare-token-demo { font-size: 21px; line-height: 1.6; margin: 0; }
+.fs-compare-filter { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 26px 0; }
+.fs-compare-filter select { min-width: 0; max-width: 100%; background: #242019; border: 1px solid #494134; color: inherit; border-radius: 8px; padding: 10px; font: inherit; }
+.fs-compare-row { margin-top: 26px; padding: 24px; border: 1px solid #39342c; border-radius: 14px; background: #181612; }
+.fs-compare-rowhead h2 { margin: 8px 0 18px; font-size: 21px; }
+.fs-compare-kicker { font-size: 12px; letter-spacing: .04em; color: #b3a58e; }
+.fs-compare-change { margin-bottom: 20px; line-height: 1.6; }
+.fs-compare-change p { margin: 6px 0; }
+.fs-compare-kind { font-size: 12px; color: var(--fs-accent); }
+.fs-compare-pair { display: grid; grid-template-columns: minmax(0,1fr) 36px minmax(0,1fr); align-items: start; gap: 16px; max-width: 760px; margin: 0 auto; }
+.fs-compare-side { min-width: 0; text-align: center; }
+.fs-compare-side h3, .fs-compare-texts h3 { margin: 0 0 14px; font-size: 14px; font-weight: 500; color: var(--fs-accent); }
+.fs-compare-card.fs-card { display: block; width: 100%; max-width: 340px; margin: 0 auto; }
+.fs-compare-card-title { margin: 12px 0 0; font-size: 13px; color: #c4bdb1; overflow-wrap: anywhere; }
+.fs-compare-arrow { align-self: center; font-size: 28px; color: var(--fs-accent); text-align: center; }
+.fs-compare-rules { margin: 22px 0 16px; }
+.fs-compare-rules summary { color: var(--fs-accent); cursor: pointer; padding: 8px 0; }
+.fs-compare-texts { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; margin-top: 14px; font-size: 16px; line-height: 1.65; }
+.fs-compare-texts > div { min-width: 0; }
+.fs-compare-texts p { white-space: pre-line; overflow-wrap: break-word; }
+.fs-compare a:focus-visible, .fs-compare button:focus-visible, .fs-compare select:focus-visible, .fs-compare summary:focus-visible { outline: 2px solid var(--fs-accent); outline-offset: 4px; }
+@media (max-width: 720px) {
+  .fs-header.fs-compare-header { display: flex; flex-wrap: wrap; height: auto; min-height: 64px; padding: 12px; gap: 12px; }
+  .fs-compare-header .fs-brand-title { display: none; }
+  .fs-compare-main { padding: 22px 12px 40px; }
+  .fs-compare-intro h1 { font-size: 25px; }
+  .fs-compare-row { padding: 16px 10px; margin-top: 18px; }
+  .fs-compare-pair { grid-template-columns: minmax(0,1fr) 18px minmax(0,1fr); gap: 5px; }
+  .fs-compare-arrow { font-size: 21px; }
+  .fs-compare-side h3 { font-size: 12px; }
+  .fs-compare-rowhead h2 { font-size: 19px; }
+  .fs-compare-tokens { padding: 16px; }
+  .fs-compare-token-demo { font-size: 18px; }
+  .fs-compare-texts { gap: 14px; font-size: 14px; }
 }
