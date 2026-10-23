@@ -660,61 +660,93 @@ body {
   left: 18px; background: #fff;
 }
 .fs-res-text { flex: 1; }
-/* Printing uses the existing card browser and a native focus-managed dialog. */
-.fs-print-launch, .fs-print button, .fs-print-download {
-  padding: .6rem .9rem; border: 1px solid #8a795a; border-radius: 4px;
-  background: #25231f; color: #eee5d6; cursor: pointer; font: inherit;
+/* Printing is an opt-in selection mode; the usual card grid stays uncluttered. */
+.fs-print-tools { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.fs-print-tools button, .fs-print-modebar button, .fs-print button {
+  border: 1px solid #4c4538; border-radius: 7px; padding: 8px 12px;
+  background: #29251e; color: #eee5d6; font: inherit; font-size: 13px; cursor: pointer;
 }
-.fs-print-launch { flex-shrink: 0; margin-right: 12px; }
-.fs-print-card { display: block; width: 100%; margin: 8px 0; padding: 7px; border: 1px solid #8a795a; border-radius: 5px; background: #25231f; color: #eee5d6; font: inherit; cursor: pointer; }
-.fs-print-card[aria-pressed=true] { border-color: #e9c67a; background: #443a26; }
-.fs-print-card:disabled { opacity: .5; cursor: default; }
-.fs-print-item { min-width: 0; width: 100%; }
-.fs-lb-cap .fs-print-card { width: auto; }
-.fs-print-card.fs-lb-print { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); width: auto; max-width: 160px; margin: 0; z-index: 4; }
-.fs-print-picker { max-height: 300px; overflow: auto; border: 1px solid #544d40; padding: 8px; }
-.fs-print-picker-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px; border-bottom: 1px solid #544d40; }
-.fs-print-picker-row button { flex-shrink: 0; }
-.fs-print-back { width: 42px; height: 59px; object-fit: contain; background: white; }
-.fs-print-cart { table-layout: fixed; }
-.fs-print-cart th:first-child { width: 48%; }
-.fs-print-cart th:nth-child(2) { width: 12%; }
-.fs-print details summary { cursor: pointer; padding: 10px 0; }
-.fs-print { box-sizing: border-box; width: min(1060px, 96vw); max-height: 92dvh; overflow: auto;
-  padding: 24px; background: #1b1a18; color: #eee5d6; border: 1px solid #8a795a; border-radius: 8px; }
-.fs-print::backdrop { background: #000b; }
-.fs-print h2 { padding-right: 90px; }
-.fs-print p { margin: 1rem 0; line-height: 1.5; }
-.fs-print a { color: #e9c67a; }
-.fs-print a[aria-disabled=true] { opacity: .5; cursor: not-allowed; }
-.fs-print-close { position: absolute; top: 16px; right: 16px; }
-.fs-print-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0; }
-.fs-print table { width: 100%; border-collapse: collapse; }
-.fs-print th, .fs-print td { text-align: left; padding: 8px; border-bottom: 1px solid #544d40; }
-.fs-print small { display: block; color: #bcb29f; }
-.fs-print input[type=number] { width: 64px; }
-.fs-print input, .fs-print select { color: #eee5d6; background: #302d27; padding: 6px; border: 1px solid #8a795a; }
-.fs-print iframe { width: 100%; height: 70vh; border: 1px solid #8a795a; margin-top: 16px; background: white; }
-.fs-print-download { display: block; margin-top: 16px; text-align: center; }
-.fs-print [hidden] { display: none; }
-.fs-print-warnings ul { max-height: 160px; overflow: auto; padding-left: 22px; }
-.fs-print button:disabled { opacity: .5; cursor: wait; }
-.fs-print :focus-visible { outline: 2px solid #e9c67a; outline-offset: 3px; }
-@media (max-width: 600px) {
-  .fs-print { padding: 12px; }
-  .fs-print th, .fs-print td { padding: 6px 2px; font-size: 12px; overflow-wrap: anywhere; }
-  .fs-print input[type=number] { width: 45px; }
-  .fs-print-cart th:first-child { width: 40%; }
-  .fs-print-cart th:nth-child(2) { width: 16%; }
-  .fs-print-cart button { padding: 4px; font-size: 11px; }
-  .fs-print .fs-print-controls label { max-width: 100%; }
-  .fs-print select { max-width: 100%; }
-  .fs-print-launch { font-size: 11px; padding: 5px; margin-right: 4px; }
+.fs-print-tools button:hover, .fs-print-modebar button:hover, .fs-print button:hover { border-color: #cfaa68; }
+.fs-print-mode-toggle[aria-pressed=true], .fs-print button[aria-pressed=true] { background: #493c26; border-color: #d8b16b; }
+.fs-print-feedback { color: #dbb878; font-size: 12px; }
+.fs-print-feedback:empty { display: none; }
+.fs-print-modebar { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 12px 26px; background: #292217; border-bottom: 1px solid #51422c; font-size: 13px; }
+.fs-print-modebar[hidden] { display: none; }
+.fs-print-modebar .fs-print-faction { margin-left: auto; }
+.fs-print-mode-count { color: #e7c382; }
+.fs-print-check { display: none; position: absolute; top: 9px; right: 9px; z-index: 3; min-width: 28px; height: 28px; padding: 2px 5px; border: 2px solid #f4e3bf; border-radius: 6px; background: #17140ddd; color: #17140d; font-size: 17px; font-weight: bold; line-height: 20px; }
+.fs-print-mode .is-print-selectable .fs-print-check { display: block; }
+.fs-print-mode .is-print-selected { outline: 3px solid #e6bd70; outline-offset: 2px; }
+.fs-print-mode .is-print-selected .fs-print-check { background: #e6bd70; border-color: #e6bd70; }
+.fs-print { width: min(1180px,96vw); height: min(880px,94dvh); max-height: 94dvh; padding: 0; overflow: hidden; color: #eee5d6; background: #191714; border: 1px solid #5b503d; border-radius: 14px; }
+.fs-print[open] { display: flex; flex-direction: column; }
+.fs-print::backdrop { background: #000c; backdrop-filter: blur(4px); }
+.fs-print [hidden] { display: none !important; }
+.fs-print h2, .fs-print h3, .fs-print p { margin: 0; }
+.fs-print h2 { font-size: 24px; font-weight: 600; }
+.fs-print h3 { font-size: 15px; }
+.fs-print-heading { position: relative; padding: 20px 60px 18px 24px; border-bottom: 1px solid #373027; flex-shrink: 0; }
+.fs-print-heading p { margin-top: 6px; color: #ada492; font-size: 13px; }
+.fs-print .fs-print-close { position: absolute; top: 17px; right: 18px; padding: 3px 10px; font-size: 26px; background: transparent; border-color: transparent; }
+.fs-print-content { display: grid; grid-template-columns: 350px minmax(0,1fr); flex: 1; min-height: 0; }
+.fs-print-selection { display: flex; flex-direction: column; min-height: 0; border-right: 1px solid #373027; }
+.fs-print-cart-head, .fs-print-cart-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 18px; }
+.fs-print-cart-head { border-bottom: 1px solid #302a23; }
+.fs-print-cart-actions { margin-top: auto; border-top: 1px solid #302a23; }
+.fs-print-cart { overflow: auto; flex: 1; min-height: 0; padding: 0 16px; }
+.fs-print-row { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; align-items: center; gap: 10px; padding: 13px 0; border-bottom: 1px solid #302a23; }
+.fs-print-row img { width: 42px; height: 59px; object-fit: cover; border-radius: 4px; grid-row: span 2; }
+.fs-print-row-name { min-width: 0; }
+.fs-print-row-name strong { display: block; font-size: 13px; font-weight: 500; line-height: 1.3; }
+.fs-print small { display: block; color: #9b9282; font-size: 11px; margin-top: 4px; }
+.fs-print-stepper { display: flex; align-items: center; grid-column: 2; gap: 0; }
+.fs-print .fs-print-stepper button { width: 28px; height: 28px; padding: 2px; border-radius: 4px; font-size: 16px; }
+.fs-print .fs-print-remove { grid-column: 3; grid-row: 1 / span 2; padding: 3px 7px; background: transparent; border-color: transparent; color: #a49781; font-size: 20px; }
+.fs-print input, .fs-print select { border: 1px solid #514737; border-radius: 5px; padding: 7px 8px; color: #eee5d6; background: #25211c; font: inherit; font-size: 13px; max-width: 100%; }
+.fs-print input[type=number] { width: 62px; }
+.fs-print-stepper input[type=number] { width: 42px; height: 28px; padding: 2px; text-align: center; border: 0; border-radius: 0; appearance: textfield; -moz-appearance: textfield; }
+.fs-print-stepper input::-webkit-inner-spin-button, .fs-print-stepper input::-webkit-outer-spin-button { appearance: none; margin: 0; }
+.fs-print-empty { margin: auto; padding: 36px 20px; text-align: center; }
+.fs-print-empty button { margin-top: 18px; }
+.fs-print-sheet-pane { display: flex; flex-direction: column; min-height: 0; overflow: auto; padding: 16px 22px 12px; gap: 12px; }
+.fs-print-settings { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.fs-print-settings label { display: flex; flex-direction: column; gap: 5px; color: #a99e8a; font-size: 11px; }
+.fs-print-settings .fs-print-back-toggle { flex-direction: row; align-items: center; margin-top: 18px; color: #ddd3c1; font-size: 13px; }
+.fs-print-back-toggle input { accent-color: #e3b973; width: 16px; height: 16px; }
+.fs-print details summary { color: #c6b89d; font-size: 12px; cursor: pointer; }
+.fs-print-options[open] .fs-print-settings { margin: 12px 0; }
+.fs-print-options p { color: #9e9380; font-size: 12px; line-height: 1.5; margin-bottom: 8px; max-width: 560px; }
+.fs-print .fs-print-quiet { color: #b9a98b; background: transparent; border-color: #40372b; font-size: 12px; }
+.fs-print-preview-nav { display: flex; align-items: center; gap: 8px; }
+.fs-print-preview-nav span { font-size: 12px; color: #b6aa94; margin-right: auto; }
+.fs-print-preview-nav button { padding: 4px 10px; }
+.fs-print-paper { flex: 1; min-height: 120px; background: #27231e; border-radius: 7px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 14px; }
+.fs-print-paper canvas { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.fs-print .fs-print-layout-label { font-size: 11px; color: #a99d87; text-align: center; }
+.fs-print-quality { flex-shrink: 0; }
+.fs-print-quality ul { max-height: 100px; overflow: auto; font-size: 11px; color: #ad9e83; padding-left: 18px; }
+.fs-print-footer { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; background: #211d16; border-top: 1px solid #40372b; }
+.fs-print-footer p { font-size: 12px; line-height: 1.4; color: #b6a98e; }
+.fs-print .fs-print-primary { flex-shrink: 0; color: #211a0f; background: #dfb56d; border-color: #dfb56d; padding: 11px 22px; font-weight: 600; }
+.fs-print button:disabled, .fs-print-tools button:disabled, .fs-print-modebar button:disabled { opacity: .4; cursor: default; }
+.fs-print :focus-visible, .fs-print-tools :focus-visible, .fs-print-modebar :focus-visible { outline: 2px solid #e9c67a; outline-offset: 3px; }
+@media (max-width: 1050px) {
+  .fs-print-tools { gap: 4px; }
+  .fs-print-tools button { font-size: 11px; padding: 7px 8px; }
+  .fs-print-content { grid-template-columns: 300px minmax(0,1fr); }
 }
-
-.fs-print-preview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin-top: 20px; }
-.fs-print-preview figure { min-width: 0; margin: 0; }
-.fs-print-preview img { display: block; width: 100%; height: auto; background: white; }
-.fs-print-preview figcaption { margin-bottom: 6px; font-size: 14px; }
-.fs-print pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 12px 0; }
-@media (max-width: 600px) { .fs-print-preview { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .fs-print { height: 94dvh; overflow-y: auto; }
+  .fs-print-heading { padding: 16px 50px 14px 16px; }
+  .fs-print h2 { font-size: 21px; }
+  .fs-print-content { display: flex; flex-direction: column; flex: none; }
+  .fs-print-selection { border-right: 0; border-bottom: 1px solid #373027; }
+  .fs-print-cart { max-height: 240px; flex: none; }
+  .fs-print-sheet-pane { overflow: visible; padding: 14px; flex: none; }
+  .fs-print-paper { flex: none; min-height: 240px; height: 52dvh; }
+  .fs-print-footer { position: sticky; bottom: 0; padding: 12px 14px; margin-top: auto; }
+  .fs-print-tools { margin-left: auto; }
+  .fs-print-modebar { padding: 10px 16px; gap: 8px; }
+  .fs-print-modebar span:first-child { flex-basis: 100%; }
+  .fs-print-preview-nav { gap: 5px; }
+}

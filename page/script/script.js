@@ -938,11 +938,7 @@
     ]);
 
     /* ---- Боковая панель: навигация Игра › Дополнение › Фракция ---- */
-    if (window.FSPrint) header.appendChild(el('button', {
-      class: 'fs-print-launch', text: 'Печать (' + window.FSPrint.count() + ')',
-      title: 'Общий набор отдельных карт разных фракций и типов',
-      onclick: function () { window.FSPrint.open({ factionId: state.expansion + '/' + state.faction }); },
-    }));
+    if (window.FSPrint) header.appendChild(window.FSPrint.controls(state.faction && !state.cardQuery.trim() ? state.expansion + '/' + state.faction : null));
     var libNav = el('nav', { class: 'fs-nav' },
       DATA.expansions.map(function (e) {
         ensureFactions(e.key);
@@ -1014,6 +1010,7 @@
 
     /* ---- Основная область ---- */
     var main = el('main', { class: 'fs-main' });
+    if (window.FSPrint) main.appendChild(window.FSPrint.factionBar(state.faction && !state.cardQuery.trim() ? state.expansion + '/' + state.faction : null));
 
     // ---- Глобальный поиск по карточкам, сгруппированный по дополнению → фракции ----
     if (state.cardQuery.trim()) {
@@ -1050,9 +1047,9 @@
             }, [el('img', { alt: card.label, decoding: 'async' })]);
             var imgEl = btn.querySelector('img');
             prepareCard(imgEl, card);
+            if (window.FSPrint) window.FSPrint.decorateCard(btn, card);
             return el('div', { class: 'fs-search-item' }, [
               btn,
-              window.FSPrint && window.FSPrint.cardButton(card),
               el('div', { class: 'fs-search-cap' }, [
                 el('span', { class: 'fs-search-cat', text: card.catName }),
                 el('span', { class: 'fs-search-name', text: card.label }),
@@ -1190,8 +1187,8 @@
           ]);
           var imgEl = btn.querySelector('img');
           prepareCard(imgEl, card);
-          var printButton = window.FSPrint && window.FSPrint.cardButton(card);
-          return printButton ? el('div', { class: 'fs-print-item' }, [btn, printButton]) : btn;
+          if (window.FSPrint) window.FSPrint.decorateCard(btn, card);
+          return btn;
         }));
         scrollarea.appendChild(grid);
       });
@@ -1262,8 +1259,6 @@
         onclick: function (e) { e.stopPropagation(); copyCardLink(c); } }),
       el('div', { class: 'fs-lb-feedback', role: 'status', 'aria-live': 'polite', 'aria-atomic': 'true' }),
     ];
-    var printButton = window.FSPrint && window.FSPrint.cardButton(c);
-    if (printButton) { printButton.classList.add('fs-lb-print'); children.push(printButton); }
     app.appendChild(el('div', { class: 'fs-lb' + (full ? ' is-fullscreen' : ''), role: 'dialog', 'aria-modal': 'true', 'aria-label': c.label,
       onclick: function (e) { if (e.target === e.currentTarget) closeLb(); } }, children));
   }
