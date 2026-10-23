@@ -406,10 +406,8 @@ body {
 }
 .fs-lb-close { right: 24px; }
 .fs-lb-full { right: 70px; font-size: 16px; }
-.fs-lb-mag { right: 116px; font-size: 15px; }
 .fs-lb-tool:hover { border-color: var(--fs-accent); color: #f3efe8; }
-.fs-lb-tool.is-active { border-color: var(--fs-accent); color: var(--fs-accent-fg); background: var(--fs-accent); }
-.fs-lb-share { right: 162px; text-decoration: none; }
+.fs-lb-share { right: 116px; text-decoration: none; }
 .fs-lb-tool:disabled { opacity: .45; cursor: default; }
 .fs-lb-feedback {
   position: absolute; top: 72px; right: 24px; z-index: 7;
@@ -458,28 +456,13 @@ body {
 .fs-lb-fig.is-full img { border-radius: 8px; }
 .fs-lb-fig.is-full .fs-lb-cap { display: none; }
 
-/* лупа */
+/* Изображение открытой карточки */
 .fs-lb-imgwrap {
   position: relative; display: block; line-height: 0; flex-shrink: 0;
   width: var(--fs-lb-width); aspect-ratio: var(--fs-lb-ratio, 450 / 650);
   max-width: 100%; border-radius: 14px;
 }
 .fs-lb-imgwrap .fs-card-image { position: absolute; inset: 0; }
-.fs-lb-imgwrap.mag-on { cursor: crosshair; }
-.fs-lb-lens {
-  position: absolute; display: none; width: 204px; height: 204px; border-radius: 50%;
-  border: 2px solid var(--fs-accent); background-color: #0c0b0a; background-repeat: no-repeat;
-  box-shadow: 0 6px 26px rgba(0, 0, 0, .7); pointer-events: none; z-index: 5;
-}
-
-/* подсказка управления лупой */
-.fs-lb-maghint {
-  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-  background: rgba(20, 18, 16, .92); border: 1px solid #38332c; color: #c4bdb1;
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em;
-  padding: 7px 14px; border-radius: 20px; z-index: 6; pointer-events: none; white-space: nowrap;
-}
-.fs-lb-maghint.hidden { display: none; }
 
 /* ---- раздел справочника + ссылка на ЧаВо ---- */
 .fs-faq-entry { margin-top: 2px; }
@@ -644,7 +627,6 @@ body {
   .fs-lb-content { flex-direction: column; max-width: 100%; gap: 16px; max-height: calc(100dvh - 160px); overflow-y: auto; }
   .fs-card-text { flex: none; width: 100%; max-height: none; }
   .fs-lb.is-fullscreen .fs-lb-content { max-width: 100%; }
-  .fs-lb-maghint { white-space: normal; text-align: center; max-width: calc(100vw - 144px); bottom: 14px; }
   .fs-grid { gap: 12px; }
 }
 
@@ -690,7 +672,6 @@ body {
 .fs-print-item { min-width: 0; width: 100%; }
 .fs-lb-cap .fs-print-card { width: auto; }
 .fs-print-card.fs-lb-print { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); width: auto; max-width: 160px; margin: 0; z-index: 4; }
-.fs-lb:has(.fs-lb-print) .fs-lb-maghint { bottom: 62px; }
 .fs-print-picker { max-height: 300px; overflow: auto; border: 1px solid #544d40; padding: 8px; }
 .fs-print-picker-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px; border-bottom: 1px solid #544d40; }
 .fs-print-picker-row button { flex-shrink: 0; }

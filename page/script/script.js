@@ -106,7 +106,7 @@
   var lazyObserver = null, imageQueue = [], runningImages = 0;
   var state = {
     expansion: null, faction: null, category: 'combat',
-    lb: null, lbFull: false, lbMag: false, lbZoom: 2, lbLensSize: 204,
+    lb: null, lbFull: false,
     view: 'codex',
     faqTopic: 'all', faqQuery: '', faqOpen: {},
     expOpen: null,
@@ -140,7 +140,7 @@
     var route = window.FSNav.read(location.hash);
     releaseModal();
     ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic'].forEach(function (key) { state[key] = route[key]; });
-    state.lb = null; state.lbFull = false; state.lbMag = false;
+    state.lb = null; state.lbFull = false;
     state.expOpen = route.expansion; state.faqQuestion = route.question;
     pendingCard = route.card; pendingQuestion = route.question;
     if (route.question) state.faqOpen[route.question] = true;
@@ -358,7 +358,7 @@
       el('summary', { text: 'Отображение' }),
       el('div', { class: 'fs-settings-panel' }, [
         el('label', { for: 'fs-wording', text: 'Вид жетонов' }), mode,
-        el('label', { class: 'fs-resolution-option' }, [input, ' Дополнительная чёткость для увеличения']), legend,
+        el('label', { class: 'fs-resolution-option' }, [input, ' Повышенная чёткость карт']), legend,
       ]),
     ]);
   }
@@ -390,7 +390,7 @@
     // Layout pixels exclude the viewer's entrance/hover transforms.
     var width = img.parentNode.offsetWidth;
     // Supersample text even on a 1× screen. Buckets keep the bounded cache useful
-    // across small viewport changes; the optional setting adds magnifier detail.
+    // across small viewport changes; the optional setting adds rendering detail.
     var scale = Math.max(useHighRes ? 3 : 2, window.devicePixelRatio || 1);
     var w = Math.ceil(Math.max(thumbnail ? 270 : 900, width * scale) / 64) * 64;
     if (img._fsCard.kind === 'overlay' && !thumbnail) w = Math.max(1600, w);
@@ -496,44 +496,6 @@
       });
     }, { rootMargin: '200px 0px' });
     [].forEach.call(images, function (img) { lazyObserver.observe(img); });
-  }
-
-  /* ---- Лупа в лайтбоксе ---- */
-
-  function attachMagnifier(wrap, img) {
-    var lens = el('div', { class: 'fs-lb-lens' });
-    wrap.appendChild(lens);
-    var ex = null, ey = null;
-    function draw() {
-      var L = state.lbLensSize;
-      lens.style.width = L + 'px'; lens.style.height = L + 'px';
-      if (!state.lbMag || ex == null) { lens.style.display = 'none'; return; }
-      var r = img.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
-      var x = ex - r.left, y = ey - r.top;
-      if (x < 0 || y < 0 || x > r.width || y > r.height) { lens.style.display = 'none'; return; }
-      var z = state.lbZoom;
-      lens.style.display = 'block';
-      lens.style.backgroundImage = 'url("' + (img.currentSrc || img.src) + '")';
-      lens.style.backgroundSize = (r.width * z) + 'px ' + (r.height * z) + 'px';
-      lens.style.backgroundPosition = (-(x * z - L / 2)) + 'px ' + (-(y * z - L / 2)) + 'px';
-      lens.style.left = (ex - wr.left - L / 2) + 'px';
-      lens.style.top  = (ey - wr.top  - L / 2) + 'px';
-    }
-    img.addEventListener('mousemove', function (ev) { ex = ev.clientX; ey = ev.clientY; draw(); });
-    img.addEventListener('mouseleave', function () { lens.style.display = 'none'; });
-    // Прокрутка — масштаб; Shift+прокрутка — размер лупы
-    img.addEventListener('wheel', function (ev) {
-      if (!state.lbMag) return;
-      ev.preventDefault();
-      var delta = ev.deltaY !== 0 ? ev.deltaY : ev.deltaX;
-      var up = delta < 0;
-      if (ev.shiftKey) {
-        state.lbLensSize = Math.max(120, Math.min(520, state.lbLensSize + (up ? 20 : -20)));
-      } else {
-        state.lbZoom = Math.max(1.4, Math.min(6, state.lbZoom + (up ? 0.3 : -0.3)));
-      }
-      draw();
-    }, { passive: false });
   }
 
   /* ---- Карточка «Состав фракции» (таблица) ---- */
@@ -690,7 +652,7 @@
   }
   function openLb(idx) {
     returnFocus = document.activeElement; returnCard = flat[idx] && flat[idx].src;
-    state.lb = idx; state.lbFull = false; state.lbMag = false; showLightbox(); updateURL();
+    state.lb = idx; state.lbFull = false; showLightbox(); updateURL();
   }
   function closeLb() {
     state.lb = null; pendingCard = null; hideLightbox(); releaseModal(); updateURL();
@@ -1247,13 +1209,10 @@
     var c = flat[state.lb];
     if (!c) return;
     var full = state.lbFull;
-    var mag = state.lbMag;
-
     var imgEl = el('img', { alt: c.label, decoding: 'async' });
-    var imgWrap = el('div', { class: 'fs-lb-imgwrap' + (mag ? ' mag-on' : '') }, [imgEl]);
+    var imgWrap = el('div', { class: 'fs-lb-imgwrap' }, [imgEl]);
     fitViewer(imgWrap, c);
     prepareCard(imgEl, c, true);
-    attachMagnifier(imgWrap, imgEl);
     var textPanel = null;
     if (c.text) {
       textPanel = el('details', { class: 'fs-card-text', open: window.innerWidth > 720 ? '' : null }, [
@@ -1285,28 +1244,6 @@
       el('button', {
         class: 'fs-lb-nav', 'aria-label': 'Следующая карточка', html: '&rsaquo;',
         onclick: function (e) { e.stopPropagation(); step(1); },
-      }),
-      el('div', { class: 'fs-lb-maghint' + (mag ? '' : ' hidden') }, [
-        'Прокрутка = масштаб · Shift+прокрутка = размер лупы',
-      ]),
-      el('button', {
-        class: 'fs-lb-tool fs-lb-mag' + (mag ? ' is-active' : ''),
-        'aria-label': 'Лупа',
-        'aria-pressed': String(mag),
-        'data-tip': 'Лупа · прокрутка: масштаб · Shift+прокрутка: размер',
-        html: '&#9906;',
-        onclick: function (e) {
-          e.stopPropagation();
-          state.lbMag = !state.lbMag;
-          var ov = e.currentTarget.closest('.fs-lb');
-          var wrap = ov.querySelector('.fs-lb-imgwrap');
-          wrap.classList.toggle('mag-on', state.lbMag);
-          e.currentTarget.classList.toggle('is-active', state.lbMag);
-          e.currentTarget.setAttribute('aria-pressed', String(state.lbMag));
-          var hint = ov.querySelector('.fs-lb-maghint');
-          if (hint) hint.classList.toggle('hidden', !state.lbMag);
-          if (!state.lbMag) { var l = wrap.querySelector('.fs-lb-lens'); if (l) l.style.display = 'none'; }
-        },
       }),
       el('button', {
         class: 'fs-lb-tool fs-lb-full', 'aria-label': full ? 'Выйти из полноэкранного режима' : 'На весь экран',
