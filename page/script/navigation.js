@@ -1,12 +1,14 @@
 /* Shareable routes use real asset filenames and stable FAQ identities. */
 (function (root) {
   'use strict';
+  function expansion(value) { return value === 'tdl' ? 'dl' : value; }
+  function cardPath(value) { return value && value.replace(/^((?:\.\/)?factions\/)?tdl\//, '$1dl/'); }
   function read(hash) {
     var p = new URLSearchParams((hash || '').replace(/^#/, ''));
-    return { view: p.get('view') === 'faq' ? 'faq' : 'codex', expansion: p.get('exp') || null,
+    return { view: p.get('view') === 'faq' ? 'faq' : 'codex', expansion: expansion(p.get('exp')) || null,
       faction: p.get('faction') || null, category: p.get('category') || 'combat',
       cardQuery: p.get('q') || '', faqQuery: p.get('faqQ') || '', faqTopic: p.get('topic') || 'all',
-      card: p.get('card') || null, question: p.get('question') || null };
+      card: cardPath(p.get('card')) || null, question: p.get('question') || null };
   }
   function write(state, card, question) {
     var p = new URLSearchParams();
@@ -16,11 +18,11 @@
       if (state.faqQuery) p.set('faqQ', state.faqQuery);
       if (question) p.set('question', question);
     } else {
-      if (state.expansion) p.set('exp', state.expansion);
+      if (state.expansion) p.set('exp', expansion(state.expansion));
       if (state.faction) p.set('faction', state.faction);
       if (state.category !== 'combat') p.set('category', state.category);
       if (state.cardQuery) p.set('q', state.cardQuery);
-      if (card) p.set('card', card);
+      if (card) p.set('card', cardPath(card));
     }
     return p.size ? '#' + p.toString() : '';
   }

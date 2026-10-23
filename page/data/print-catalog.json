@@ -1,0 +1,39 @@
+{
+  "id": "mixed",
+  "schemaVersion": 4,
+  "title": "Набор отдельных карт",
+  "widthMm": 63,
+  "heightMm": 88,
+  "dpi": 300,
+  "status": "physical-calibration-pending",
+  "sizeEvidence": [
+    {
+      "url": "https://sleevekings.com/pages/sks-8810-sleeves",
+      "note": "Таблица Forbidden Stars: 63×88 мм (размер карты, не название протектора). Номинальный формат; физическая проверка ожидается."
+    }
+  ],
+  "backTypes": {
+    "combat": "combat.jpg",
+    "orders": "order.jpg",
+    "events": "event.jpg"
+  },
+  "excluded": [
+    {
+      "expansion": "dl",
+      "reason": "Печатный формат и контрольный комплект TDL ещё не подтверждены. Русский перевод доступен в справочнике."
+    }
+  ],
+  "calibrationIds": [
+    "sow/adeptasororitas/combat/t2_1",
+    "base/spacemarines/combat/s1",
+    "gif/tau/orders/o_1",
+    "sow/adeptasororitas/orders/o_3",
+    "sow/adeptusmechanicus/events/e_7",
+    "sow/adeptasororitas/events/e_2"
+  ],
+  "expansions": [
+    "base",
+    "gif",
+    "sow"
+  ]
+}

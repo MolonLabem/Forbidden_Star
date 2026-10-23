@@ -678,3 +678,62 @@ body {
   left: 18px; background: #fff;
 }
 .fs-res-text { flex: 1; }
+/* Printing uses the existing card browser and a native focus-managed dialog. */
+.fs-print-launch, .fs-print button, .fs-print-download {
+  padding: .6rem .9rem; border: 1px solid #8a795a; border-radius: 4px;
+  background: #25231f; color: #eee5d6; cursor: pointer; font: inherit;
+}
+.fs-print-launch { flex-shrink: 0; margin-right: 12px; }
+.fs-print-card { display: block; width: 100%; margin: 8px 0; padding: 7px; border: 1px solid #8a795a; border-radius: 5px; background: #25231f; color: #eee5d6; font: inherit; cursor: pointer; }
+.fs-print-card[aria-pressed=true] { border-color: #e9c67a; background: #443a26; }
+.fs-print-card:disabled { opacity: .5; cursor: default; }
+.fs-print-item { min-width: 0; width: 100%; }
+.fs-lb-cap .fs-print-card { width: auto; }
+.fs-print-card.fs-lb-print { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); width: auto; max-width: 160px; margin: 0; z-index: 4; }
+.fs-lb:has(.fs-lb-print) .fs-lb-maghint { bottom: 62px; }
+.fs-print-picker { max-height: 300px; overflow: auto; border: 1px solid #544d40; padding: 8px; }
+.fs-print-picker-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px; border-bottom: 1px solid #544d40; }
+.fs-print-picker-row button { flex-shrink: 0; }
+.fs-print-back { width: 42px; height: 59px; object-fit: contain; background: white; }
+.fs-print-cart { table-layout: fixed; }
+.fs-print-cart th:first-child { width: 48%; }
+.fs-print-cart th:nth-child(2) { width: 12%; }
+.fs-print details summary { cursor: pointer; padding: 10px 0; }
+.fs-print { box-sizing: border-box; width: min(1060px, 96vw); max-height: 92dvh; overflow: auto;
+  padding: 24px; background: #1b1a18; color: #eee5d6; border: 1px solid #8a795a; border-radius: 8px; }
+.fs-print::backdrop { background: #000b; }
+.fs-print h2 { padding-right: 90px; }
+.fs-print p { margin: 1rem 0; line-height: 1.5; }
+.fs-print a { color: #e9c67a; }
+.fs-print a[aria-disabled=true] { opacity: .5; cursor: not-allowed; }
+.fs-print-close { position: absolute; top: 16px; right: 16px; }
+.fs-print-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0; }
+.fs-print table { width: 100%; border-collapse: collapse; }
+.fs-print th, .fs-print td { text-align: left; padding: 8px; border-bottom: 1px solid #544d40; }
+.fs-print small { display: block; color: #bcb29f; }
+.fs-print input[type=number] { width: 64px; }
+.fs-print input, .fs-print select { color: #eee5d6; background: #302d27; padding: 6px; border: 1px solid #8a795a; }
+.fs-print iframe { width: 100%; height: 70vh; border: 1px solid #8a795a; margin-top: 16px; background: white; }
+.fs-print-download { display: block; margin-top: 16px; text-align: center; }
+.fs-print [hidden] { display: none; }
+.fs-print-warnings ul { max-height: 160px; overflow: auto; padding-left: 22px; }
+.fs-print button:disabled { opacity: .5; cursor: wait; }
+.fs-print :focus-visible { outline: 2px solid #e9c67a; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .fs-print { padding: 12px; }
+  .fs-print th, .fs-print td { padding: 6px 2px; font-size: 12px; overflow-wrap: anywhere; }
+  .fs-print input[type=number] { width: 45px; }
+  .fs-print-cart th:first-child { width: 40%; }
+  .fs-print-cart th:nth-child(2) { width: 16%; }
+  .fs-print-cart button { padding: 4px; font-size: 11px; }
+  .fs-print .fs-print-controls label { max-width: 100%; }
+  .fs-print select { max-width: 100%; }
+  .fs-print-launch { font-size: 11px; padding: 5px; margin-right: 4px; }
+}
+
+.fs-print-preview { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin-top: 20px; }
+.fs-print-preview figure { min-width: 0; margin: 0; }
+.fs-print-preview img { display: block; width: 100%; height: auto; background: white; }
+.fs-print-preview figcaption { margin-bottom: 6px; font-size: 14px; }
+.fs-print pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 12px 0; }
+@media (max-width: 600px) { .fs-print-preview { grid-template-columns: 1fr; } }

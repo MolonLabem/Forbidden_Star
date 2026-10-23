@@ -25,10 +25,7 @@
   }
 
   // ключ категории → папка на диске
-  var FOLDER = {
-    combat: 'combat', orders: 'orders', events: 'events',
-    backs: 'backs', faction_card: 'faction_card', map: 'maps',
-  };
+  var FOLDER = window.FSCatalog.folders;
 
   var DOT_FALLBACK = '#857f74';
   var ACCENT_FALLBACK = '#d8a657';
@@ -70,6 +67,7 @@
     factions:  {},
     manifest:  {},
     text:      {},
+    cards:     {},
     faq:       null,
     cardnames: {},
     loading:   {},
@@ -189,12 +187,7 @@
     }
   }
 
-  function fetchJSON(url) {
-    return fetch(url, { cache: 'no-store' }).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status + ' — ' + url);
-      return r.json();
-    });
-  }
+  function fetchJSON(url) { return window.FSCache.json(url); }
 
   /* ---- Вспомогательные функции ---- */
 
@@ -230,21 +223,29 @@
   }
 
   function ensureFactions(exp) {
-    if (DATA.factions[exp] || DATA.loading['fac:' + exp]) return;
+    if (DATA.factions[exp] || DATA.loading['fac:' + exp] || DATA.errors['fac:' + exp]) return;
     DATA.loading['fac:' + exp] = true;
     fetchJSON('factions/' + exp + '/faction.json').then(function (fj) {
       var list = (fj.folder || []).map(function (key, i) {
         return { key: key, name: (fj.name && fj.name[i]) || key, dot: factionDot(fj, i) };
       });
       DATA.factions[exp] = list;
+      DATA.loading['fac:' + exp] = false;
       list.forEach(function (f) { ensureManifest(exp, f.key); });
       if (state.expansion === exp && !state.faction && list[0]) state.faction = list[0].key;
       render();
     }).catch(function (e) {
-      DATA.factions[exp] = [];
+      DATA.loading['fac:' + exp] = false;
+      DATA.errors['fac:' + exp] = true;
       console.error(e);
       render();
     });
+  }
+
+  function retryFactions(exp) {
+    delete DATA.errors['fac:' + exp];
+    ensureFactions(exp);
+    render();
   }
 
   // Манифест нужен до показа карточек: часть изображений содержит только шаблон.
@@ -253,7 +254,8 @@
     if (DATA.manifest[id] || DATA.loading['man:' + id] || DATA.errors['man:' + id]) return;
     DATA.loading['man:' + id] = true;
     fetchJSON('factions/' + exp + '/' + fac + '/text.json').then(function (t) {
-      DATA.manifest[id] = mergeFilenames(t && t.filenames);
+      DATA.manifest[id] = window.FSCatalog.manifest(DATA.general,t);
+      DATA.cards[id] = window.FSCatalog.factionCards(DATA.general,t,exp,fac,facNameOf(exp,fac));
       DATA.text[id] = {
         combat:    (t && t.combatText)    || null,
         orders:    (t && t.ordersText)    || null,
@@ -273,25 +275,6 @@
       DATA.errors['man:' + id] = true;
       render();
     });
-  }
-
-  function mergeFilenames(over) {
-    var d = DATA.defaults || {};
-    over = over || {};
-    return {
-      combat:       over.combat       || d.combat       || [],
-      orders:       over.orders       || d.orders       || [],
-      events:       over.events       || d.events       || [],
-      backs:        over.backs        || d.backs        || [],
-      faction_card: over.faction_card || d.faction_card || [],
-      map:          over.map          || d.map          || [],
-    };
-  }
-
-  function cardTemplate(txt, cat, file) {
-    if (!txt) return null;
-    var template = txt.templates[FOLDER[cat] + '/' + file];
-    return template || null;
   }
 
   function manifestCount(man) {
@@ -485,6 +468,7 @@
     } catch (error) {
       if (!img.isConnected || img._fsAttempt !== attempt) return;
       img._fsAttempt++; // Ignore a source that completes after the timeout.
+      img.removeAttribute('src');
       wrap.classList.remove('is-loading'); wrap.classList.add('is-error');
       wrap.setAttribute('aria-busy', 'false');
       label.textContent = thumbnail ? 'Не удалось загрузить. Нажмите, чтобы повторить.' : 'Не удалось загрузить карточку.';
@@ -577,115 +561,33 @@
 
   /* ---- Модель карточек ---- */
 
+  function decorateCard(card) {
+    return Object.assign({},card,{
+      label:cardName(card.exp,card.fac,card.category,card.file,card.label),
+      facName:facNameOf(card.exp,card.fac),expName:expName(card.exp),catName:catName(card.category),
+    });
+  }
+
   function build() {
-    var fac = state.faction, cat = state.category;
-    var id = state.expansion + '/' + fac;
-    var man = DATA.manifest[id];
-    var txt = DATA.text[id];
-    var groups = [];
-    flat = [];
-    if (!man || !fac) return { groups: groups, ready: false };
-
-    if (cat === 'material') {
-      return { groups: groups, ready: true, material: (txt && txt.materials) || null };
-    }
-
-    var base = 'factions/' + state.expansion + '/' + fac + '/' + FOLDER[cat] + '/';
-    function push(file, label, kind, text) {
-      if (txt && txt.components[FOLDER[cat] + '/' + file]) { kind = 'overlay'; text = txt.components[FOLDER[cat] + '/' + file]; }
-      var idx = flat.length;
-      var c = { src: base + file, label: cardName(state.expansion, fac, cat, file, text && text.title || label),
-        index: idx, kind: kind || null, text: text || null,
-        template: cardTemplate(txt, cat, file),
-        aspect: txt && txt.cardAspect && /^(combat|orders|events)$/.test(cat) ? txt.cardAspect : null,
-        exp: state.expansion, fac: fac, facName: facName(fac), catName: catName(cat) };
-      flat.push(c);
-      return c;
-    }
-
-    if (cat === 'combat') {
-      (man.combat || []).forEach(function (files, ti) {
-        var label = (txt && txt.tierLabels && txt.tierLabels[ti]) || tierLabel(ti);
-        var tierTxt = txt && txt.combat ? txt.combat[ti] : null;
-        var cards = files.map(function (f, i) {
-          var t = tierTxt && tierTxt[i]
-            ? { title: tierTxt[i].title, background: tierTxt[i].general, foreground: tierTxt[i].unit, icons: tierTxt[i].icons, raster: txt.raster, source: tierTxt[i].source, aspect: tierTxt[i].aspect }
-            : null;
-          return push(f, facName(fac) + ' · ' + label + ' ' + (i + 1), 'combat', t);
-        });
-        if (cards.length) groups.push({ label: label, sub: cards.length + ' ' + ruPlural(cards.length, 'карточка', 'карточки', 'карточек'), cards: cards });
+    var id=state.expansion+'/'+state.faction, man=DATA.manifest[id], txt=DATA.text[id], groups=[];
+    flat=[];
+    if (!man || !state.faction) return {groups:groups,ready:false};
+    if (state.category==='material') return {groups:groups,ready:true,material:txt && txt.materials || null};
+    flat=(DATA.cards[id] || []).filter(function (card) { return card.category===state.category; }).map(function (card,index) {
+      return Object.assign(decorateCard(card),{index:index});
+    });
+    if (state.category==='combat') {
+      man.combat.forEach(function (_,tier) {
+        var cards=flat.filter(function (card) { return card.tier===tier; });
+        if (cards.length) groups.push({label:cards[0].tierLabel,sub:cards.length+' '+ruPlural(cards.length,'карточка','карточки','карточек'),cards:cards});
       });
-    } else {
-      var files = man[cat] || [];
-      var labels, kind = null, textList = null;
-      if (cat === 'backs') {
-        labels = files.map(function (f) { return backLabel(f); });
-      } else if (cat === 'faction_card') {
-        labels = files.map(function (_, i) { return facName(fac) + ' Справочник' + (files.length > 1 ? ' ' + (i + 1) : ''); });
-      } else if (cat === 'map') {
-        labels = files.map(function (_, i) { return 'Карта ' + String.fromCharCode(65 + i); });
-      } else if (cat === 'orders') {
-        labels = files.map(function (_, i) { return 'Приказ ' + (i + 1); });
-        kind = 'orders'; textList = txt ? txt.orders : null;
-      } else {
-        labels = files.map(function (_, i) { return 'Событие ' + (i + 1); });
-        kind = 'events'; textList = txt ? txt.events : null;
-      }
-      var cards = files.map(function (f, i) {
-        var t = (kind && textList && textList[i]) ? textList[i] : null;
-        return push(f, labels[i], kind, t);
-      });
-      if (cards.length) groups.push({ label: null, sub: '', cards: cards });
-    }
-    return { groups: groups, ready: true };
+    } else if (flat.length) groups.push({label:null,sub:'',cards:flat});
+    return {groups:groups,ready:true};
   }
 
   function facNameOf(exp, fac) { var f = findKey(DATA.factions[exp] || [], fac); return f ? f.name : fac; }
 
-  // Все карточки одной фракции по всем категориям — для глобального поиска
-  function collectFaction(exp, fac) {
-    var id = exp + '/' + fac;
-    var man = DATA.manifest[id], txt = DATA.text[id];
-    var out = [];
-    if (!man) return out;
-    var fn = facNameOf(exp, fac), en = expName(exp);
-    DATA.categories.forEach(function (c) {
-      var cat = c.key;
-      if (cat === 'material' || !FOLDER[cat]) return;
-      var base = 'factions/' + exp + '/' + fac + '/' + FOLDER[cat] + '/';
-      function add(file, label, kind, text) {
-        if (txt && txt.components[FOLDER[cat] + '/' + file]) { kind = 'overlay'; text = txt.components[FOLDER[cat] + '/' + file]; label = text.title; }
-        out.push({ src: base + file, kind: kind || null, text: text || null,
-          template: cardTemplate(txt, cat, file),
-          aspect: txt && txt.cardAspect && /^(combat|orders|events)$/.test(cat) ? txt.cardAspect : null,
-          label: cardName(exp, fac, cat, file, label),
-          catName: catName(cat), exp: exp, expName: en, fac: fac, facName: fn });
-      }
-      if (cat === 'combat') {
-        (man.combat || []).forEach(function (files, ti) {
-          var tierTxt = txt && txt.combat ? txt.combat[ti] : null;
-          var tierName = (txt && txt.tierLabels && txt.tierLabels[ti]) || tierLabel(ti);
-          files.forEach(function (f, i) {
-            var tt = tierTxt && tierTxt[i];
-            var t = tt ? { title: tt.title, background: tt.general, foreground: tt.unit, icons: tt.icons, raster: txt.raster, source: tt.source, aspect: tt.aspect } : null;
-            add(f, (tt && tt.title) ? tt.title : (fn + ' · ' + tierName + ' ' + (i + 1)), 'combat', t);
-          });
-        });
-      } else {
-        var files = man[cat] || [];
-        files.forEach(function (f, i) {
-          var label, kind = null, t = null;
-          if (cat === 'backs') label = backLabel(f);
-          else if (cat === 'faction_card') label = fn + ' Справочник' + (files.length > 1 ? ' ' + (i + 1) : '');
-          else if (cat === 'map') label = 'Карта ' + String.fromCharCode(65 + i);
-          else if (cat === 'orders') { kind = 'orders'; t = txt && txt.orders ? txt.orders[i] : null; label = (t && t.title) || ('Приказ ' + (i + 1)); }
-          else { kind = 'events'; t = txt && txt.events ? txt.events[i] : null; label = (t && t.title) || ('Событие ' + (i + 1)); }
-          add(f, label, kind, t);
-        });
-      }
-    });
-    return out;
-  }
+  function collectFaction(exp,fac) { return (DATA.cards[exp+'/'+fac] || []).map(decorateCard); }
 
   /* ---- Лайтбокс ---- */
 
@@ -803,7 +705,7 @@
   }
 
   document.addEventListener('keydown', function (e) {
-    if (state.lb === null) return;
+    if (state.lb === null || document.querySelector('.fs-print[open]')) return;
     if (e.key === 'Escape') {
       e.preventDefault();
       if (viewerIsFullscreen()) toggleViewerFullscreen();
@@ -852,7 +754,7 @@
       window.FSWord.append(el('p', { class: 'fs-faq-atext' }), it.a, tokenStyle),
     ]);
     answer.hidden = !open;
-    if (/^(base|gif|sow|tdl)\/[a-z0-9_-]+\/(combat|orders|events|faction_card|maps|backs)\/[a-zA-Z0-9_.-]+\.jpg$/.test(it.card)) {
+    if (/^(base|gif|sow|dl|tdl)\/[a-z0-9_-]+\/(combat|orders|events|faction_card|maps|backs)\/[a-zA-Z0-9_.-]+\.jpg$/.test(it.card)) {
       var parts = it.card.split('/');
       answer.appendChild(el('a', { class: 'fs-share fs-faq-card', text: 'Карточка', href: window.FSNav.write({
         view: 'codex', expansion: parts[0], faction: parts[1], category: parts[2] === 'maps' ? 'map' : parts[2], cardQuery: '',
@@ -921,7 +823,7 @@
         if (t.kind !== 'sub') kids.push(el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:' + (t.dot || 'var(--fs-accent)') + ';' }));
         kids.push(el('span', { class: 'fs-fac-name', text: t.name }));
         kids.push(el('span', { class: 'fs-fac-count', text: String(FAQ.count[t.key] || 0) }));
-        return el('button', { class: cls, onclick: (function (key) { return function () { setState({ faqTopic: key }); }; })(t.key) }, kids);
+        return el('button', { class: cls, onclick: (function (key) { return function () { setState({ faqTopic: key, faqQuestion: null }); }; })(t.key) }, kids);
       })
     );
     var sidebar = el('aside', { class: 'fs-sidebar fs-scroll' }, [
@@ -1074,6 +976,11 @@
     ]);
 
     /* ---- Боковая панель: навигация Игра › Дополнение › Фракция ---- */
+    if (window.FSPrint) header.appendChild(el('button', {
+      class: 'fs-print-launch', text: 'Печать (' + window.FSPrint.count() + ')',
+      title: 'Общий набор отдельных карт разных фракций и типов',
+      onclick: function () { window.FSPrint.open({ factionId: state.expansion + '/' + state.faction }); },
+    }));
     var libNav = el('nav', { class: 'fs-nav' },
       DATA.expansions.map(function (e) {
         ensureFactions(e.key);
@@ -1121,6 +1028,7 @@
             ]);
           })
         );
+        if (DATA.errors['fac:' + e.key]) subs.appendChild(loadError('Не удалось загрузить список фракций.', function () { retryFactions(e.key); }));
 
         return el('div', { class: 'fs-nav-group', 'data-exp': e.key }, [expHeader, subs]);
       })
@@ -1157,6 +1065,7 @@
       var pending = false;
       DATA.expansions.forEach(function (e) {
         if (DATA.loading['fac:' + e.key] && !DATA.factions[e.key]) pending = true;
+        if (DATA.errors['fac:' + e.key]) failed.push({ exp: e.key, fac: null });
         var facs = DATA.factions[e.key] || [];
         var facBlocks = [];
         var expCount = 0;
@@ -1181,6 +1090,7 @@
             prepareCard(imgEl, card);
             return el('div', { class: 'fs-search-item' }, [
               btn,
+              window.FSPrint && window.FSPrint.cardButton(card),
               el('div', { class: 'fs-search-cap' }, [
                 el('span', { class: 'fs-search-cat', text: card.catName }),
                 el('span', { class: 'fs-search-name', text: card.label }),
@@ -1213,6 +1123,7 @@
       if (failed.length) {
         sres.appendChild(loadError('Не все данные карточек загружены. Результаты поиска могут быть неполными.', function () {
           failed.forEach(function (f) {
+            if (!f.fac) { delete DATA.errors['fac:' + f.exp]; ensureFactions(f.exp); return; }
             delete DATA.errors['man:' + f.exp + '/' + f.fac];
             ensureManifest(f.exp, f.fac);
           });
@@ -1231,7 +1142,8 @@
     }
 
     if (!state.expansion || !state.faction) {
-      main.appendChild(el('div', { class: 'fs-empty' }, [
+      if (DATA.errors['fac:' + state.expansion]) main.appendChild(loadError('Не удалось загрузить список фракций. Проверьте соединение и попробуйте снова.', function () { retryFactions(state.expansion); }));
+      else main.appendChild(el('div', { class: 'fs-empty' }, [
         el('div', { class: 'fs-empty-glyph' }, [el('div', { class: 'ring' }), el('div', { class: 'core' })]),
         el('div', { class: 'fs-empty-stack' }, [
           el('h2', { text: 'Forbidden Stars — Картотека' }),
@@ -1316,7 +1228,8 @@
           ]);
           var imgEl = btn.querySelector('img');
           prepareCard(imgEl, card);
-          return btn;
+          var printButton = window.FSPrint && window.FSPrint.cardButton(card);
+          return printButton ? el('div', { class: 'fs-print-item' }, [btn, printButton]) : btn;
         }));
         scrollarea.appendChild(grid);
       });
@@ -1412,6 +1325,8 @@
         onclick: function (e) { e.stopPropagation(); copyCardLink(c); } }),
       el('div', { class: 'fs-lb-feedback', role: 'status', 'aria-live': 'polite', 'aria-atomic': 'true' }),
     ];
+    var printButton = window.FSPrint && window.FSPrint.cardButton(c);
+    if (printButton) { printButton.classList.add('fs-lb-print'); children.push(printButton); }
     app.appendChild(el('div', { class: 'fs-lb' + (full ? ' is-fullscreen' : ''), role: 'dialog', 'aria-modal': 'true', 'aria-label': c.label,
       onclick: function (e) { if (e.target === e.currentTarget) closeLb(); } }, children));
   }
@@ -1453,7 +1368,7 @@
     }).catch(function (e) {
       console.error(e);
       var root = document.getElementById('app');
-      if (root) root.textContent = 'Ошибка загрузки данных.';
+      if (root) root.replaceChildren(loadError('Не удалось загрузить данные справочника. Проверьте соединение и попробуйте снова.', boot));
     });
   }
 

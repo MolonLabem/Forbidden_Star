@@ -170,10 +170,10 @@
       var line = [];
       var lineWidth = 0;
 
-      var pushWord = function (word, italic, glue) {
+      var pushWord = function (word, italic, glue, reserve) {
         var segText = (line.length === 0 || glue) ? word : (' ' + word);
         var w = measure(segText, italic);
-        if (lineWidth + w > maxW && line.length > 0) {
+        if (lineWidth + w + (reserve || 0) > maxW && line.length > 0) {
           renderLine(line, yy);
           lastBaseline = yy;
           yy += lineHeight + interline;
@@ -192,7 +192,9 @@
         var words = t.text.split(' ');
         for (var wi = 0; wi < words.length; wi++) {
           if (!words[wi]) continue;
-          pushWord(words[wi], t.italic, line.length === 0 || (t.glue && wi === 0));
+          // Keep a unit prefix and its colon together, even at the line edge.
+          var reserve = tokens[ti + 1] && tokens[ti + 1].text === ':' && wi === words.length - 1 ? measure(':', false) : 0;
+          pushWord(words[wi], t.italic, line.length === 0 || (t.glue && wi === 0), reserve);
         }
       }
       if (line.length) {
@@ -240,12 +242,15 @@
     var cached = _imgCache.get(url);
     if (cached) return cached;
     var pending = new Promise(function (resolve, reject) {
-      var img = new Image();
-      img.onload  = function () { resolve(img); };
-      img.onerror = function () { reject(new Error('Failed to load image ' + url)); };
+      var img = new Image(), timer = setTimeout(function () {
+        img.onload = img.onerror = null; img.removeAttribute('src');
+        reject(new Error('Не завершена загрузка ' + url));
+      }, 15000);
+      img.onload  = function () { clearTimeout(timer); resolve(img); };
+      img.onerror = function () { clearTimeout(timer); reject(new Error('Failed to load image ' + url)); };
       img.src = url;
     }).catch(function (error) {
-      _imgCache.delete(url);
+      if (_imgCache.get(url) === pending) _imgCache.delete(url);
       throw error;
     });
     return _imgCache.set(url, pending);
@@ -677,14 +682,23 @@
 
   // Ensure the custom fonts are loaded before measuring/drawing text.
   var _fontsReady;
+  function loadFont(name) {
+    return new Promise(function (resolve, reject) {
+      if (!document.fonts) { reject(new Error('Браузер не поддерживает проверку шрифтов')); return; }
+      var timer = setTimeout(function () { reject(new Error('Не завершена загрузка шрифта ' + name)); }, 15000);
+      document.fonts.load('16px ' + name).then(function (faces) {
+        clearTimeout(timer);
+        if (!faces.length || !document.fonts.check('16px ' + name)) reject(new Error('Не загружен шрифт ' + name));
+        else resolve();
+      }, function (error) { clearTimeout(timer); reject(error); });
+    });
+  }
   function fontsReady() {
     if (_fontsReady) return _fontsReady;
-    if (!document.fonts) { _fontsReady = Promise.resolve(); return _fontsReady; }
-    _fontsReady = Promise.all([
-      document.fonts.load('1em ForbiddenStars'),
-      document.fonts.load('1em Headline'),
-      document.fonts.load('1em EventFont'),
-    ]).catch(function () {});
+    _fontsReady = Promise.all(['ForbiddenStars', 'Headline', 'EventFont'].map(loadFont)).catch(function (error) {
+      _fontsReady = null;
+      throw error;
+    });
     return _fontsReady;
   }
 
@@ -707,12 +721,7 @@
     if (rejectOnError && (!fn || !card.text || !card.text.title)) return Promise.reject(new Error('Нет русского текста: ' + card.src));
     if (!fn || !card.text) return Promise.resolve(card.src);
 
-    var ready = rejectOnError ? Promise.all(['ForbiddenStars', 'Headline', 'EventFont'].map(function (name) {
-      if (!document.fonts) throw new Error('Браузер не поддерживает проверку шрифтов');
-      return document.fonts.load('16px ' + name).then(function (faces) {
-        if (!faces.length || !document.fonts.check('16px ' + name)) throw new Error('Не загружен шрифт ' + name);
-      });
-    })) : fontsReady();
+    var ready = rejectOnError ? Promise.all(['ForbiddenStars', 'Headline', 'EventFont'].map(loadFont)) : fontsReady();
     var result = ready.then(async function () {
       var canvas = document.createElement('canvas');
       canvas.width  = width;
