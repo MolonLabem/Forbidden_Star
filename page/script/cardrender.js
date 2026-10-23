@@ -51,7 +51,7 @@
     foregroundDecoSrcPx:     28,
     iconSizeRatio:           0.097,
     iconSpacingRatio:        0.011,
-    iconX:                   0.0632,
+    iconX:                   0.0552,
     iconStartY:              0.242,
   };
 
