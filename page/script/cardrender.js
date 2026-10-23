@@ -55,7 +55,7 @@
     },
   };
   var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
-  var LABEL_LAYOUT = {paddingX:.02,paddingY:.05};
+  var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
 
   function recordInk(ctx, text, x, y, role, align) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
@@ -582,6 +582,17 @@
     return {box:patch?patch.box:FIELDS[kind].title,align:kind==='orders'?'center':'left'};
   }
 
+  function rasterTitleField(kind) {
+    var box=FIELDS.raster[kind].title.slice();
+    if(kind==='orders')box[2]=1-2*box[0];
+    else {
+      // Erasure covers the old lettering; placement keeps the paper's inset.
+      var inset=box[2]*LABEL_LAYOUT.nativeInsetX;
+      box[0]+=inset;box[2]-=inset*2;
+    }
+    return {box:box,align:kind==='orders'?'center':'left'};
+  }
+
   function drawBodyTextBox(ctx, text, region) {
     var previousPrefixes=ctx.fsItalicPrefixes;
     var previousGap=ctx.fsParagraphGap;
@@ -1001,7 +1012,7 @@
     if (data.kind === 'combat' && !data.regions) {
       var titleBox=FIELDS.raster.combat.title;
       restoreNativeLabel(ctx,picture,titleBox);
-      drawLabel(ctx,data.title,{box:titleBox,align:'center'},'title',.044);
+      drawLabel(ctx,data.title,rasterTitleField('combat'),'title');
       var panels = await Promise.all([
         loadImage('pictures/background.png'), loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),
       ]);
@@ -1028,10 +1039,8 @@
       else if(data.kind==='orders' && role==='body')restoreOrderPaper(layer,picture,fields[role]);
       else eraseNativeField(layer,picture,fields[role]);
     });
-    var title=fields.title.slice();
-    if(data.kind==='orders')title[2]=1-2*title[0];
     var clean=Object.assign({},data,{preparedPicture:prepared,template:{
-      titleRegion:{box:title,align:'center'},
+      titleRegion:rasterTitleField(data.kind),
       body:{box:fields.body},eventType:fields.type?{box:fields.type}:null,
     }});
     if(data.kind==='orders')return drawOrderCard(clean,ctx);
