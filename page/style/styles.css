@@ -423,6 +423,15 @@ body {
 .fs-card-text summary { cursor: pointer; color: var(--fs-accent); }
 .fs-card-text h2 { font-size: 17px; line-height: 1.4; }
 .fs-card-text p { white-space: pre-wrap; line-height: 1.7; font-size: 15px; user-select: text; }
+.fs-lb--sheet .fs-lb-content { flex-direction: column; max-width: calc(100% - 128px); max-height: calc(100dvh - 120px); overflow-y: auto; gap: 12px; }
+.fs-lb--sheet .fs-lb-fig { flex: none; }
+.fs-lb--sheet .fs-card-text { flex: none; width: min(760px, 100%); max-height: none; padding: 10px 16px; }
+.fs-lb-zoom { right: 162px; }
+.fs-lb-zoom svg { fill: none; stroke: currentColor; stroke-width: 2; }
+.fs-lb-imgwrap.is-zoomed { overflow: auto; overscroll-behavior: contain; border-radius: 8px; cursor: grab; }
+.fs-lb-imgwrap.is-panning { cursor: grabbing; }
+.fs-lb-imgwrap.is-zoomed .fs-card-image { position: relative; display: block; width: calc(100% * var(--fs-sheet-zoom, 2)); height: calc(100% * var(--fs-sheet-zoom, 2)); max-width: none; max-height: none; border-radius: 0; }
+.fs-lb-imgwrap:focus-visible { outline: 2px solid var(--fs-accent); outline-offset: 3px; }
 .fs-token { font-family: 'ForbiddenStars'; font-style: normal; font-weight: normal; font-size: 1.15em; line-height: 1; vertical-align: -0.08em; }
 .fs-token--image { position: relative; display: inline-block; }
 .fs-token-image { position: absolute; width: .975em; height: .975em; max-width: none; left: 50%; top: 50%; transform: translate(-50%, -50%); visibility: hidden; }
@@ -594,6 +603,15 @@ body {
 @keyframes fsexpand { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ---- адаптивность ---- */
+.fs-mobile-nav-toggle, .fs-mobile-back, .fs-mobile-only, .fs-settings-short { display: none; }
+@media (min-width: 721px) and (max-width: 1050px) {
+  .fs-header { gap: 12px; padding: 0 16px; }
+  .fs-brand { gap: 8px; }
+  .fs-brand-title { font-size: 14px; letter-spacing: .12em; }
+  .fs-header-spacer { display: none; }
+  .fs-faq-header .fs-faq-searchwrap { flex: 1; width: auto; max-width: none; min-width: 120px; }
+  .fs-settings { margin-left: 0; }
+}
 @media (max-width: 900px) {
   .fs-sidebar { width: 188px; }
 }
@@ -605,19 +623,46 @@ body {
     flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 14px;
   }
   .fs-sidebar-label { display: none; }
-  .fs-nav { flex-direction: row; flex-wrap: wrap; flex: 1; }
-  .fs-fac { width: auto; }
+  .fs-mobile-nav-toggle, .fs-mobile-back {
+    display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 9px 11px;
+    border: 1px solid #38332c; border-radius: 8px; background: #221f1a; color: #d8d2c8; font: inherit; font-size: 14px; cursor: pointer;
+  }
+  .fs-mobile-nav-toggle { flex: 1; min-width: 0; order: 1; text-align: left; }
+  .fs-mobile-nav-toggle span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fs-mobile-nav-chevron { margin-left: auto; flex-shrink: 0; }
+  .fs-mobile-nav-toggle[aria-expanded=true] .fs-mobile-nav-chevron { transform: rotate(180deg); }
+  .fs-mobile-back { order: 2; }
+  .fs-nav.fs-mobile-nav { display: none; flex-basis: 100%; order: 3; max-height: 55dvh; overflow-y: auto; }
+  .fs-nav.fs-mobile-nav.is-mobile-open { display: flex; }
+  .fs-fac, .fs-faq-subnav { min-height: 44px; }
   .fs-fac-count { display: none; }
   .fs-sidebar-foot { display: none; }
   .fs-sidebar-section { display: none; }
-  .fs-sidebar-section.fs-faq-section { display: block; margin-top: 0; }
-  .fs-scrollarea { overflow-y: visible; }
-  .fs-header { flex-wrap: wrap; height: auto; gap: 12px; padding: 14px; }
+  .fs-sidebar-section.fs-faq-section { display: block; margin-top: 0; order: 2; }
+  .fs-scrollarea { overflow-y: visible; padding: 18px 16px 36px; }
+  .fs-header { position: relative; display: grid; grid-template-columns: minmax(0,1fr) auto; height: auto; gap: 10px; padding: 12px 14px; }
+  .fs-brand { grid-column: 1; grid-row: 1; gap: 8px; min-height: 44px; }
+  .fs-brand-title { font-size: 14px; letter-spacing: .12em; }
+  .fs-settings { grid-column: 2; grid-row: 1; position: static; margin-left: 0; }
+  .fs-settings summary { min-height: 44px; padding: 12px 10px; }
+  .fs-settings-label { display: none; }
+  .fs-settings-short { display: inline; }
+  .fs-settings-panel { left: 12px; right: 12px; top: calc(100% + 6px); width: auto; max-width: none; max-height: calc(100dvh - 190px); overflow-y: auto; }
+  .fs-settings select { min-height: 44px; font-size: 16px; }
   .fs-header-spacer { display: none; }
-  .fs-faq-header .fs-faq-searchwrap { width: 100%; max-width: none; min-width: 0; }
-  .fs-faq-content { padding: 22px 20px 40px; }
-  .fs-faq-hero { padding: 28px 20px 22px; }
+  .fs-faq-header .fs-faq-searchwrap { grid-column: 1 / -1; grid-row: 2; width: 100%; max-width: none; min-width: 0; }
+  .fs-faq-search { min-height: 44px; font-size: 16px; }
+  .fs-header .fs-print-tools { grid-column: 1 / -1; grid-row: 3; justify-content: flex-end; }
+  .fs-header .fs-print-tools button { min-height: 44px; font-size: 12px; }
+  .fs-mobile-only { display: inline-flex; }
+  .fs-cattabs-wrap { padding: 0 14px; }
+  .fs-breadcrumb { padding: 17px 16px 5px; }
+  .fs-faq-content { padding: 22px 16px 40px; }
+  .fs-faq-hero { padding: 24px 16px 20px; }
+  .fs-faq-title { font-size: 24px; }
+  .fs-faq-blurb { font-size: 14px; }
   .fs-lb { padding: 64px 12px 72px; }
+  .fs-lb-tool { width: 44px; height: 44px; }
   .fs-lb-nav { position: absolute; bottom: 14px; z-index: 3; }
   .fs-lb-nav:first-of-type { left: 20px; }
   .fs-lb-nav:nth-of-type(2) { right: 20px; }
@@ -627,7 +672,9 @@ body {
   .fs-lb-content { flex-direction: column; max-width: 100%; gap: 16px; max-height: calc(100dvh - 160px); overflow-y: auto; }
   .fs-card-text { flex: none; width: 100%; max-height: none; }
   .fs-lb.is-fullscreen .fs-lb-content { max-width: 100%; }
+  .fs-lb--sheet .fs-lb-content { max-width: 100%; max-height: calc(100dvh - 160px); }
   .fs-grid { gap: 12px; }
+  .fs-card:hover { transform: none; }
 }
 
 /* ---- Resolution toggle switch ---- */
@@ -717,9 +764,10 @@ body {
 .fs-print-options[open] .fs-print-settings { margin: 12px 0; }
 .fs-print-options p { color: #9e9380; font-size: 12px; line-height: 1.5; margin-bottom: 8px; max-width: 560px; }
 .fs-print .fs-print-quiet { color: #b9a98b; background: transparent; border-color: #40372b; font-size: 12px; }
-.fs-print-preview-nav { display: flex; align-items: center; gap: 8px; }
-.fs-print-preview-nav span { font-size: 12px; color: #b6aa94; margin-right: auto; }
-.fs-print-preview-nav button { padding: 4px 10px; }
+.fs-print-preview-sides { display: flex; justify-content: center; gap: 8px; flex-shrink: 0; }
+.fs-print-preview-nav { display: flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; }
+.fs-print-preview-nav span { min-width: 96px; text-align: center; font-size: 12px; color: #b6aa94; }
+.fs-print-preview-nav button { width: 40px; height: 40px; padding: 4px; font-size: 20px; }
 .fs-print-paper { flex: 1; min-height: 120px; background: #27231e; border-radius: 7px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 14px; }
 .fs-print-paper canvas { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
 .fs-print .fs-print-layout-label { font-size: 11px; color: #a99d87; text-align: center; }
@@ -748,5 +796,18 @@ body {
   .fs-print-tools { margin-left: auto; }
   .fs-print-modebar { padding: 10px 16px; gap: 8px; }
   .fs-print-modebar span:first-child { flex-basis: 100%; }
-  .fs-print-preview-nav { gap: 5px; }
+  .fs-print-preview-nav button { width: 44px; height: 44px; }
+  .fs-print .fs-print-stepper button, .fs-print-stepper input[type=number] { height: 44px; width: 40px; }
+  .fs-print .fs-print-remove { min-width: 40px; min-height: 44px; }
+  .fs-print input, .fs-print select { min-height: 44px; font-size: 16px; }
+  .fs-print-back-toggle input { min-height: 20px; width: 20px; height: 20px; }
+  .fs-print details summary { min-height: 44px; padding: 12px 0; }
+}
+@media (pointer: coarse) {
+  .fs-header button, .fs-settings summary, .fs-fac, .fs-faq-subnav, .fs-print button { min-height: 44px; }
+  .fs-header .fs-print-tools button { font-size: 12px; }
+  .fs-print .fs-print-stepper button, .fs-print-stepper input[type=number] { width: 40px; height: 44px; }
+  .fs-print .fs-print-remove { min-width: 40px; }
+  .fs-print-preview-nav button { width: 44px; height: 44px; }
+  .fs-faq-search, .fs-settings select, .fs-print input, .fs-print select { font-size: 16px; }
 }

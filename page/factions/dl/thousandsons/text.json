@@ -271,7 +271,6 @@
     "componentsText": {
         "faction_card/sheet_front_1.jpg": {
             "title": "ТЫСЯЧА СЫНОВ · Лист фракции: способности и отряды",
-            "aspect": 1.6602768903088392,
             "regions": [
                 {
                     "box": [
@@ -280,11 +279,7 @@
                         0.218,
                         0.24
                     ],
-                    "value": "ТЫСЯЧА СЫНОВ *newline* Культ Времени *newpara* Сдвиг времени: Когда вы выполняете приказ Доминирования, вы можете взять 1 ваш нераскрытый жетон приказа с верха стека и разместить его на одну позицию ниже в том же стеке. Это может быть стек, из которого раскрыт текущий приказ.",
-                    "font": "ForbiddenStars",
-                    "size": 0.022,
-                    "fill": "#e9dfb6",
-                    "ink": "#15120c"
+                    "role": "ability"
                 },
                 {
                     "box": [
@@ -417,12 +412,11 @@
                     "ink": "#15120c"
                 }
             ],
-            "general": "ТЫСЯЧА СЫНОВ *newline* Культ Времени *newpara* Сдвиг времени: Когда вы выполняете приказ Доминирования, вы можете взять 1 ваш нераскрытый жетон приказа с верха стека и разместить его на одну позицию ниже в том же стеке. Это может быть стек, из которого раскрыт текущий приказ. *newpara* ЖЕТОНЫ ЦЕЛЕЙ *newpara* ГОРОД *newpara* ФАБРИКА *newpara* БАСТИОН *newpara* ТЗААНГОР *newpara* РУБРИКАНСКИЙ ФРЕГАТ *newpara* РУБРИКАТОР *newpara* ВОЗВЫШЕННЫЙ КОЛДУН *newpara* СЕРЕБРЯНАЯ БАШНЯ *newpara* ВЛАДЫКА ПЕРЕМЕН",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg"
+            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg",
+            "side": "front"
         },
         "faction_card/sheet_back_1.jpg": {
             "title": "ТЫСЯЧА СЫНОВ · Начальные силы и история",
-            "aspect": 1.6602768903088392,
             "regions": [
                 {
                     "box": [
@@ -510,7 +504,7 @@
                         0.313
                     ],
                     "value": "Девять перемен, рождённых огнём. *newline* Девять лживых имён, что звучат шепотком. *newline* Девять слов, переплетённых во фразах. *newline* Девять путей в лабиринтах рассказа. *newline* Девять масок — и каждая лик-ловушка. *newline* Девять загадок, дарованных в молитве. *newline* Девять видений в зеркальном стекле. *newline* Девять грядущих, не сбыться ни одному. *newpara* Девять… *newpara* Тсатик Вхор, Возвышенный Колдун Культа Времени",
-                    "font": "Georgia",
+                    "font": "ForbiddenStars",
                     "size": 0.023,
                     "fill": "#88b0c4",
                     "ink": "#15120c"
@@ -594,12 +588,11 @@
                     "ink": "#15120c"
                 }
             ],
-            "general": "НАЧАЛЬНЫЕ СИЛЫ *newpara* Тзаангоры *newpara* Рубриканский Фрегат *newpara* Рубрикатор *newpara* Фабрика *newpara* Материалы *newpara* Девять перемен, рождённых огнём. *newline* Девять лживых имён, что звучат шепотком. *newline* Девять слов, переплетённых во фразах. *newline* Девять путей в лабиринтах рассказа. *newline* Девять масок — и каждая лик-ловушка. *newline* Девять загадок, дарованных в молитве. *newline* Девять видений в зеркальном стекле. *newline* Девять грядущих, не сбыться ни одному. *newpara* Девять… *newpara* Тсатик Вхор, Возвышенный Колдун Культа Времени *newpara* Афанейские свитки: Свитки переписывают себя каждую секунду. Завладейте ими, пока их пророчества не канули в забвение! *newpara* Эхо Просперо: Пусть имя Просперо не отзовётся на этой земле, иначе прошлое поглотит её огнём и пеплом. *newpara* Пирамида Изменяющего: В Пирамиде ткань времени становится хрупкой и нестабильной. Сохраните её пламя, иначе рискуете кануть в небытие. *newpara* Сфера Рубрики: В бурлящих глубинах сферы заточены отголоски душ, поглощённых Рубрикой. Их ярость готова сжечь цепи реальности. *newpara* Диски Тзинча: Диски гудят отголосками грядущего, в них сталкиваются прошлое и будущее. Верните их, пока не разбились песочные часы. *newpara* Связать тень Варпа: Подчините прилив тени, прежде чем враг осквернит её вневременной пульс и разрушит то, чего никогда не должно было быть.",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_back_1.jpg"
+            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_back_1.jpg",
+            "side": "back"
         },
         "maps/map_A.jpg": {
             "title": "ТЫСЯЧА СЫНОВ · Домашняя система А",
-            "aspect": 1,
             "regions": [],
             "general": "The Screaming Vortex — Кричащий Вихрь *newpara* Dianixis — Дианиксис *newpara* Dessimar — Дессимар *newpara* Q'Sal — К’Сал",
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/maps/system_tile_front_1.jpg",
@@ -625,7 +618,6 @@
         },
         "maps/map_B.jpg": {
             "title": "ТЫСЯЧА СЫНОВ · Домашняя система Б",
-            "aspect": 1,
             "regions": [],
             "general": "Ultimatus — Ультиматус *newpara* Immaterial Rift — Разлом Имматериума *newpara* Dessimar — Дессимар *newpara* Sortiarius — Сортиариус",
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/maps/system_tile_back_1.jpg",
@@ -675,5 +667,16 @@
             "label": "Владыка Перемен",
             "value": "3"
         }
-    ]
+    ],
+    "factionSheet": {
+        "title": "ТЫСЯЧА СЫНОВ",
+        "subtitle": "Культ Времени",
+        "abilities": [
+            {
+                "title": "Сдвиг времени",
+                "text": "Когда вы выполняете приказ Доминирования, вы можете взять 1 ваш нераскрытый жетон приказа с верха стека и разместить его на одну позицию ниже в том же стеке. Это может быть стек, из которого раскрыт текущий приказ."
+            }
+        ],
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg"
+    }
 }

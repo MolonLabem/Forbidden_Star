@@ -27,60 +27,46 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s1.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/s1.jpg"
     },
     "combat/s2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s2.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/s2.jpg"
     },
     "combat/s3.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s3.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/s3.jpg"
     },
     "combat/s4.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s4.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/s4.jpg"
     },
     "combat/s5.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s5.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/s5.jpg"
     },
     "combat/t0_1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_1.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t0_1.jpg"
     },
     "combat/t0_2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_2.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t0_2.jpg"
     },
     "combat/t0_3.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_3.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t0_3.jpg"
     },
     "combat/t0_4.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_4.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t0_4.jpg"
     },
     "combat/t2_1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t2_1.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t2_1.jpg"
     },
     "combat/t2_2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t2_2.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t2_2.jpg"
     },
     "combat/t2_3.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t2_3.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t2_3.jpg"
     },
     "combat/t3_1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t3_1.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t3_1.jpg"
     },
     "combat/t3_2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t3_2.jpg",
-      "titleMaxWidth": 0.645
+      "picture": "pictures/templates/base/ork/combat/t3_2.jpg"
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -164,16 +150,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "orders/o_2.jpg": {
       "status": "current-russian-raster-template",
@@ -257,16 +234,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "orders/o_3.jpg": {
       "status": "current-russian-raster-template",
@@ -350,16 +318,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "orders/o_4.jpg": {
       "status": "current-russian-raster-template",
@@ -443,16 +402,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "orders/o_5.jpg": {
       "status": "current-russian-raster-template",
@@ -536,16 +486,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "events/e_1.jpg": {
       "status": "current-russian-raster-template",
@@ -609,26 +550,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_2.jpg": {
       "status": "current-russian-raster-template",
@@ -692,26 +614,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_3.jpg": {
       "status": "current-russian-raster-template",
@@ -775,26 +678,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_4.jpg": {
       "status": "current-russian-raster-template",
@@ -858,26 +742,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_5.jpg": {
       "status": "current-russian-raster-template",
@@ -941,26 +806,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_6.jpg": {
       "status": "current-russian-raster-template",
@@ -1024,26 +870,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_7.jpg": {
       "status": "current-russian-raster-template",
@@ -1107,26 +934,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_8.jpg": {
       "status": "current-russian-raster-template",
@@ -1190,26 +998,7 @@
           "featherPx": 2,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     }
   },
   "combatText": [
@@ -1567,5 +1356,40 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  }
+  },
+    "factionSheet": {
+        "title": "ОРКИ",
+        "subtitle": "Клан Злосолнц",
+        "abilities": [
+            {
+                "title": "Споры Орков",
+                "text": "Во время выполнения приказа доминирования вы можете купить 1 отряд и разместить его в дружественном мире активной системы."
+            }
+        ],
+        "source": "factions/base/ork/faction_card/card.jpg"
+    },
+    "componentsText": {
+        "faction_card/card.jpg": {
+            "views": [
+                {
+                    "side": "front",
+                    "crop": [
+                        0,
+                        0,
+                        1,
+                        0.5
+                    ]
+                },
+                {
+                    "side": "back",
+                    "crop": [
+                        0,
+                        0.5,
+                        1,
+                        0.5
+                    ]
+                }
+            ]
+        }
+    }
 }

@@ -27,60 +27,46 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s1.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/s1.jpg"
     },
     "combat/s2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s2.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/s2.jpg"
     },
     "combat/s3.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s3.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/s3.jpg"
     },
     "combat/s4.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s4.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/s4.jpg"
     },
     "combat/s5.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s5.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/s5.jpg"
     },
     "combat/t0_1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_1.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t0_1.jpg"
     },
     "combat/t0_2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_2.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t0_2.jpg"
     },
     "combat/t0_3.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_3.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t0_3.jpg"
     },
     "combat/t0_4.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_4.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t0_4.jpg"
     },
     "combat/t2_1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t2_1.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t2_1.jpg"
     },
     "combat/t2_2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t2_2.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t2_2.jpg"
     },
     "combat/t2_3.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t2_3.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t2_3.jpg"
     },
     "combat/t3_1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t3_1.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t3_1.jpg"
     },
     "combat/t3_2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t3_2.jpg",
-      "titleMaxWidth": 0.625
+      "picture": "pictures/templates/gif/tau/combat/t3_2.jpg"
     },
     "orders/o_1.jpg": {
       "status": "reconstructed-preview-not-clean-master",
@@ -125,15 +111,6 @@
           "featherPx": 3
         }
       ],
-      "body": {
-        "box": [
-          0.18,
-          0.545,
-          0.64,
-          0.255
-        ],
-        "align": "center"
-      },
       "picture": "pictures/templates/tau/gif__tau__orders__o_1.jpg"
     },
     "orders/o_2.jpg": {
@@ -218,16 +195,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "orders/o_3.jpg": {
       "status": "current-russian-raster-template",
@@ -311,16 +279,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "orders/o_4.jpg": {
       "status": "current-russian-raster-template",
@@ -404,16 +363,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "orders/o_5.jpg": {
       "status": "current-russian-raster-template",
@@ -497,16 +447,7 @@
           "featherPx": 1,
           "role": "title-tail"
         }
-      ],
-      "body": {
-        "box": [
-          0.145,
-          0.535,
-          0.71,
-          0.277
-        ],
-        "align": "center"
-      }
+      ]
     },
     "events/e_1.jpg": {
       "status": "reconstructed-preview-not-clean-master",
@@ -570,24 +511,6 @@
           "featherPx": 3
         }
       ],
-      "titleY": 0.1,
-      "eventType": {
-        "box": [
-          0.14,
-          0.533,
-          0.71,
-          0.054
-        ]
-      },
-      "body": {
-        "box": [
-          0.115,
-          0.684,
-          0.77,
-          0.22
-        ],
-        "align": "left"
-      },
       "picture": "pictures/templates/tau/gif__tau__events__e_1.jpg"
     },
     "events/e_2.jpg": {
@@ -652,26 +575,7 @@
           "featherPx": 3,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_3.jpg": {
       "status": "current-russian-raster-template",
@@ -735,26 +639,7 @@
           "featherPx": 3,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_4.jpg": {
       "status": "current-russian-raster-template",
@@ -818,26 +703,7 @@
           "featherPx": 3,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_5.jpg": {
       "status": "reconstructed-preview-not-clean-master",
@@ -901,24 +767,6 @@
           "featherPx": 3
         }
       ],
-      "titleY": 0.1,
-      "eventType": {
-        "box": [
-          0.14,
-          0.533,
-          0.71,
-          0.054
-        ]
-      },
-      "body": {
-        "box": [
-          0.115,
-          0.684,
-          0.77,
-          0.22
-        ],
-        "align": "left"
-      },
       "picture": "pictures/templates/tau/gif__tau__events__e_5.jpg"
     },
     "events/e_6.jpg": {
@@ -983,26 +831,7 @@
           "featherPx": 3,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_7.jpg": {
       "status": "current-russian-raster-template",
@@ -1066,26 +895,7 @@
           "featherPx": 3,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     },
     "events/e_8.jpg": {
       "status": "current-russian-raster-template",
@@ -1149,26 +959,7 @@
           "featherPx": 3,
           "role": "body-erasure"
         }
-      ],
-      "titleY": 0.0735,
-      "eventType": {
-        "box": [
-          0.1,
-          0.533,
-          0.8,
-          0.055
-        ]
-      },
-      "body": {
-        "box": [
-          0.08,
-          0.687,
-          0.84,
-          0.242
-        ],
-        "align": "left"
-      },
-      "titleMaxWidth": 0.7
+      ]
     }
   },
   "combatText": [
@@ -1526,5 +1317,40 @@
       ]
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
-  }
+  },
+    "factionSheet": {
+        "title": "ИМПЕРИЯ ТАУ",
+        "subtitle": "Т’ау Септ",
+        "abilities": [
+            {
+                "title": "Тактика Приспособления",
+                "text": "Во время выполнения приказа доминирования в системе, которая содержит ваши отряды или постройки, вы можете взять 4 карты из колоды событий. Используйте способность одной из них, а остальные сбросьте."
+            }
+        ],
+        "source": "factions/gif/tau/faction_card/card.jpg"
+    },
+    "componentsText": {
+        "faction_card/card.jpg": {
+            "views": [
+                {
+                    "side": "front",
+                    "crop": [
+                        0,
+                        0,
+                        1,
+                        0.5
+                    ]
+                },
+                {
+                    "side": "back",
+                    "crop": [
+                        0,
+                        0.5,
+                        1,
+                        0.5
+                    ]
+                }
+            ]
+        }
+    }
 }

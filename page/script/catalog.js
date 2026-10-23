@@ -36,10 +36,30 @@
           else label = (category === 'orders' ? 'Приказ ' : 'Событие ') + (index+1);
         }
         var id = expansion + '/' + faction + '/' + folders[category] + '/' + file.slice(0,-4);
-        if (ids.has(id)) throw new Error('Повторяющийся ID: ' + id); ids.add(id);
-        cards.push({id:id,factionId:expansion+'/'+faction,exp:expansion,fac:faction,category:category,file:file,tier:tier,index:index,
+        var card = {id:id,factionId:expansion+'/'+faction,exp:expansion,fac:faction,category:category,file:file,tier:tier,index:index,
           title:text && text.title || label,label:label,tierLabel:tierLabel,src:src,kind:kind,text:text,
-          template:(data.templates || {})[relative] || null,aspect:playable.includes(category) ? data.cardAspect || null : null,factionTitle:factionTitle});
+          template:(data.templates || {})[relative] || null,aspect:playable.includes(category) ? data.cardAspect || null : null,factionTitle:factionTitle};
+        // A manifest still names the original asset. Atlas views describe its
+        // printed sides; the first view retains existing card IDs and links.
+        var views = category === 'faction_card' && component?.views || [component || {}];
+        if (!Array.isArray(views) || !views.length) throw new Error('Нет сторон листа: ' + relative);
+        var sides = new Set();
+        views.forEach(function (view, side) {
+          var entry = Object.assign({},card);
+          if (category === 'faction_card' && data.factionSheet) {
+            var sheet = data.factionSheet;
+            if (!['front','back'].includes(view.side) || sides.has(view.side) || !sheet.abilities?.length) throw new Error('Некорректная сторона листа: ' + relative);
+            sides.add(view.side);
+            entry.id += side ? '/' + view.side : '';
+            entry.src += side ? '?side=' + encodeURIComponent(view.side) : '';
+            entry.title = entry.label = sheet.title + ' · ' + (view.side === 'back' ? 'Оборот' : 'Способности и отряды');
+            entry.kind = 'sheet';
+            entry.text = Object.assign({},view,{title:entry.title,sheet:sheet,
+              general:sheet.abilities.map(function (ability) { return ability.title + ': ' + ability.text; }).join(' *newpara* ')});
+          }
+          if (ids.has(entry.id)) throw new Error('Повторяющийся ID: ' + entry.id); ids.add(entry.id);
+          cards.push(entry);
+        });
       }); });
     });
     return cards;

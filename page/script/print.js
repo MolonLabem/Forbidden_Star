@@ -91,7 +91,7 @@
       node.querySelector('.fs-print-check').textContent=n?(n>1?'✓ ×'+n:'✓'):'';
     });
     document.querySelectorAll('.fs-print-launch').forEach(function (node) {node.textContent='Печать'+(api.count()?' · '+api.count():'');});
-    document.querySelectorAll('.fs-print-mode-toggle').forEach(function (node) {node.textContent=mode?'Готово':'Выбрать для печати';node.setAttribute('aria-pressed',String(mode));});
+    document.querySelectorAll('.fs-print-mode-toggle').forEach(function (node) {node.textContent='Режим печати';node.setAttribute('aria-pressed',String(mode));});
     document.querySelectorAll('.fs-print-modebar').forEach(function (node) {node.hidden=!mode;});
     document.querySelectorAll('.fs-print-mode-count').forEach(function (node) {node.textContent='Выбрано: '+api.count();});
   }
@@ -118,7 +118,7 @@
   };
   api.controls=function (factionId) {
     var tools=element('div','','','fs-print-tools'),feedback=element('span','',tools,'fs-print-feedback');feedback.setAttribute('role','status');
-    var toggle=button(mode?'Готово':'Выбрать для печати',tools,async function () {
+    var toggle=button('Режим печати',tools,async function () {
       toggle.disabled=true;feedback.textContent='';
       try {await api.setMode(!mode);} catch(error) {feedback.textContent=error.message;} finally {toggle.disabled=false;}
     },'fs-print-mode-toggle');toggle.setAttribute('aria-pressed',String(mode));
@@ -248,12 +248,13 @@
       var token=select('Жетоны',[['images','Изображения'],['icons','Чёрно-белые символы']],printOptions.tokenStyle,fields);
       element('p','Печатайте в масштабе 100%, без подгонки. Размер карты — 63 × 88 мм. Сначала проверьте совмещение сторон на контрольном листе.',advanced);
       var calibrate=button('Скачать контрольный лист',advanced,function () {run(true);},'fs-print-quiet');
-      var navigation=element('div','',pane,'fs-print-preview-nav'),sheet=0,back=false;
-      var previous=button('‹',navigation,function () {sheet--;refreshPreview();});previous.setAttribute('aria-label','Предыдущий лист');
-      var pageLabel=element('span','',navigation);
-      var next=button('›',navigation,function () {sheet++;refreshPreview();});next.setAttribute('aria-label','Следующий лист');
-      var face=button('Лица',navigation,function () {back=false;refreshPreview();}),reverse=button('Рубашки',navigation,function () {back=true;refreshPreview();});
+      var sides=element('div','',pane,'fs-print-preview-sides'),sheet=0,back=false;
+      var face=button('Лица',sides,function () {back=false;refreshPreview();}),reverse=button('Рубашки',sides,function () {back=true;refreshPreview();});
       var stage=element('div','',pane,'fs-print-paper'),canvas=element('canvas','',stage);canvas.width=630;canvas.setAttribute('role','img');canvas.setAttribute('aria-label','Предпросмотр раскладки карт на листе');
+      var navigation=element('nav','',pane,'fs-print-preview-nav');navigation.setAttribute('aria-label','Листы для печати');
+      var previous=button('‹',navigation,function () {sheet--;refreshPreview();});previous.setAttribute('aria-label','Предыдущий лист');
+      var pageLabel=element('span','',navigation);pageLabel.setAttribute('aria-live','polite');
+      var next=button('›',navigation,function () {sheet++;refreshPreview();});next.setAttribute('aria-label','Следующий лист');
       var layoutLabel=element('p','',pane,'fs-print-layout-label');
       var duplexLabel=element('p','',pane,'fs-print-layout-label');
       var quality=element('details','',pane,'fs-print-quality');quality.hidden=true;

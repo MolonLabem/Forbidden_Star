@@ -270,7 +270,6 @@
     "componentsText": {
         "faction_card/sheet_front_1.jpg": {
             "title": "АДЕПТУС КУСТОДЕС · Лист фракции: способности и отряды",
-            "aspect": 1.6602768903088392,
             "regions": [
                 {
                     "box": [
@@ -279,11 +278,7 @@
                         0.218,
                         0.24
                     ],
-                    "value": "АДЕПТУС КУСТОДЕС *newline* Солнечный Дозор *newpara* Указанный путь: Когда вы выполняете приказ Доминирования, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newpara* Десять тысяч: Пассивная способность. Во время шага подкрепления битвы получите по 1 [D] за каждый размещённый вами жетон подкрепления, затем сбросьте эти жетоны.",
-                    "font": "ForbiddenStars",
-                    "size": 0.022,
-                    "fill": "#e9dfb6",
-                    "ink": "#15120c"
+                    "role": "ability"
                 },
                 {
                     "box": [
@@ -416,12 +411,11 @@
                     "ink": "#15120c"
                 }
             ],
-            "general": "АДЕПТУС КУСТОДЕС *newline* Солнечный Дозор *newpara* Указанный путь: Когда вы выполняете приказ Доминирования, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newpara* Десять тысяч: Пассивная способность. Во время шага подкрепления битвы получите по 1 [D] за каждый размещённый вами жетон подкрепления, затем сбросьте эти жетоны. *newpara* ЖЕТОНЫ ЦЕЛЕЙ *newpara* ГОРОД *newpara* ФАБРИКА *newpara* БАСТИОН *newpara* КУСТОДИЙ-СТРАЖ *newpara* СЕКРЕТНЫЙ КРЕЙСЕР *newpara* ЧЕМПИОН КЛИНКА *newpara* ДРЕДНОУТ «КОНТЕМПТОР-ГАЛАТУС» *newpara* МОЙРАЙДЕЙ *newpara* ТРАЯНН ВАЛОРИС",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg"
+            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg",
+            "side": "front"
         },
         "faction_card/sheet_back_1.jpg": {
             "title": "АДЕПТУС КУСТОДЕС · Начальные силы и история",
-            "aspect": 1.6602768903088392,
             "regions": [
                 {
                     "box": [
@@ -535,7 +529,7 @@
                         0.313
                     ],
                     "value": "«Если мы вторгнемся, мы разграбим ваши города, испепелим ваши миры, поработим ваш народ…» *newpara* [+++ ВОКС-ПЕРЕДАЧА +++] [+++ ОТ: [+++ УДАЛЕНО +++] ФЛОТА КСЕНОСОВ +++] *newpara* Ответ после снятия осады мира [+++ УДАЛЕНО +++]: *newpara* «Если…» *newpara* Траянн Валорис, Генерал-Капитан Адептус Кустодес",
-                    "font": "Georgia",
+                    "font": "ForbiddenStars",
                     "size": 0.023,
                     "fill": "#f5d64e",
                     "ink": "#15120c"
@@ -619,12 +613,11 @@
                     "ink": "#15120c"
                 }
             ],
-            "general": "НАЧАЛЬНЫЕ СИЛЫ *newpara* Кустодии Стражи *newpara* Секретный Крейсер *newpara* Город *newpara* Фабрика *newpara* Жетон кузницы *newpara* Улучшение приказа «Воля Императора» *newpara* Материалы *newpara* «Если мы вторгнемся, мы разграбим ваши города, испепелим ваши миры, поработим ваш народ…» *newpara* [+++ ВОКС-ПЕРЕДАЧА +++] [+++ ОТ: [+++ УДАЛЕНО +++] ФЛОТА КСЕНОСОВ +++] *newpara* Ответ после снятия осады мира [+++ УДАЛЕНО +++]: *newpara* «Если…» *newpara* Траянн Валорис, Генерал-Капитан Адептус Кустодес *newpara* Дозор за пределами: Наш дозор начинается у Его Трона и простирается к далёким мирам. Вечный, непрерывный, бдительный. Слава Императору! *newpara* Сопроводить инквизитора: Кустодес назначены не стражами, а последними судьями. Обеспечьте им проход. Безжалостно очистите это место от еретиков! *newpara* Нам нужен лишь один: Клинок одного Кустодия может изменить судьбы миров. Стойте непоколебимо: его удар — воплощённая воля Императора! *newpara* Печать Императора: Несокрушимый символ власти Императора. В буре войны Его решимость непоколебима. Свет Императора не угасает! *newpara* Эгида капитана: Там, где он стоит, Империум не отступит. Одно его присутствие делает поражение невозможным, а отступление… немыслимым. *newpara* Истребить еретика: Правосудие Императора быстро и беспощадно. Ни одна тень ереси не устоит перед золотыми клинками. Останется лишь воля Императора!",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_back_1.jpg"
+            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_back_1.jpg",
+            "side": "back"
         },
         "maps/map_A.jpg": {
             "title": "АДЕПТУС КУСТОДЕС · Домашняя система А",
-            "aspect": 1,
             "regions": [],
             "general": "Titus — Титус *newpara* Luna — Луна *newpara* Terra — Терра *newpara* Sol Asteroid Belt — Пояс астероидов Солнца",
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/maps/system_tile_front_1.jpg",
@@ -650,7 +643,6 @@
         },
         "maps/map_B.jpg": {
             "title": "АДЕПТУС КУСТОДЕС · Домашняя система Б",
-            "aspect": 1,
             "regions": [],
             "general": "The Inner Watch — Внутренний дозор *newpara* Luna — Луна *newpara* Terra — Терра *newpara* Titus — Титус",
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/maps/system_tile_back_1.jpg",
@@ -700,5 +692,20 @@
             "label": "Траянн Валорис",
             "value": "1"
         }
-    ]
+    ],
+    "factionSheet": {
+        "title": "АДЕПТУС КУСТОДЕС",
+        "subtitle": "Солнечный Дозор",
+        "abilities": [
+            {
+                "title": "Указанный путь",
+                "text": "Когда вы выполняете приказ Доминирования, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий."
+            },
+            {
+                "title": "Десять тысяч",
+                "text": "Пассивная способность. Во время шага подкрепления битвы получите по 1 [D] за каждый размещённый вами жетон подкрепления, затем сбросьте эти жетоны."
+            }
+        ],
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg"
+    }
 }

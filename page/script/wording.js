@@ -6,6 +6,21 @@
     { key: 'REINFORCE', glyph: '\uE101', image: 'pictures/tokens/reinforce.png', label: 'жетон подкрепления', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+подкреплени[яйею]|reinforcement\s+tokens?)(?!\p{L})/giu },
     { key: 'CACHE', glyph: '\uE102', image: 'pictures/tokens/cache.png', label: 'жетон запасов', pattern: /(?:жетон(?:ами|ах|ов|ом|а|ы)?\s+(?:запас(?:ов|а|ы)|склад[аыуе])|cache\s+tokens?)(?!\p{L})/giu },
   ];
+  // The same game-font glyphs are used by canvas cards and HTML descriptions.
+  // Match explicit notation only; ordinary brackets and punctuation stay text.
+  var symbols = [
+    { notation:'[B]', glyph:'}', label:'болтер на кубе' },
+    { notation:'[S]', glyph:'{', label:'щит на кубе' },
+    { notation:'[M]', glyph:'<', label:'мораль на кубе' },
+    { notation:'[D]', glyph:'|', label:'куб' },
+    { notation:'(B)', glyph:'#', label:'временная атака' },
+    { notation:'(S)', glyph:'@', label:'временная защита' },
+  ];
+  function symbolize(text) {
+    var value = String(text || '');
+    symbols.forEach(function (symbol) { value = value.split(symbol.notation).join(symbol.glyph); });
+    return value;
+  }
   function format(text, mode) {
     var value = String(text || '');
     tokens.forEach(function (token) {
@@ -28,14 +43,15 @@
   }
   function append(node, text, mode) {
     mode = mode || 'images';
-    var value = format(text, mode).replace(/\s*\*(?:newline|newpara)\*\s*/g, '\n');
-    value.split(/([\uE100-\uE102])/).forEach(function (part) {
-      var token = tokens.find(function (t) { return t.glyph === part; });
+    var value = format(text, mode).replace(/\s*\*(?:newline|newpara)\*\s*/g, '\n')
+      .replace(/(\d+)[ \t]+(?=\[[BSMD]\]|\([BS]\))/g, '$1\u00a0');
+    value.split(/([\uE100-\uE102]|\[[BSMD]\]|\([BS]\))/).forEach(function (part) {
+      var token = tokens.find(function (t) { return t.glyph === part; }) || symbols.find(function (s) { return s.notation === part; });
       if (!token) { node.appendChild(document.createTextNode(part)); return; }
       var span = document.createElement('span');
       span.className = 'fs-token';
       span.setAttribute('role', 'img'); span.setAttribute('aria-label', token.label); span.title = token.label;
-      if (mode === 'images') {
+      if (mode === 'images' && token.image) {
         span.classList.add('fs-token--image');
         var fallback = document.createElement('span');
         fallback.className = 'fs-token-fallback'; fallback.textContent = token.glyph;
@@ -50,5 +66,5 @@
     });
     return node;
   }
-  root.FSWord = { tokens: tokens, format: format, plain: plain, normalize: normalize, append: append };
+  root.FSWord = { tokens: tokens, symbols: symbols, symbolize: symbolize, format: format, plain: plain, normalize: normalize, append: append };
 })(window);
