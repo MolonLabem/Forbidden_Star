@@ -291,7 +291,9 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -304,7 +306,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -317,7 +321,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -330,7 +336,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -343,7 +351,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -356,7 +366,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -369,7 +381,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -382,7 +396,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -395,7 +411,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -408,7 +426,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_front_1.jpg",
@@ -428,7 +448,9 @@
                     "font": "Headline",
                     "size": 0.031,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -441,7 +463,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -454,7 +479,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -467,7 +495,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -480,7 +511,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -493,7 +527,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -506,7 +543,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -519,7 +559,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -529,10 +572,11 @@
                         0.313
                     ],
                     "value": "Братья, сёстры! Мы должны разорвать оковы, освободиться от запретов и свергнуть угнетателей. Нас ждут труд, испытания и муки. Но радуйтесь! Все верующие возвысятся, даже если погибнут в борьбе. В великих небесных чертогах Звёздные Дети спят… ждут… слушают… *newpara* Наша грядущая победа пробудит их, и с их пробуждением мы восстанем, чтобы встать рядом с ними… *newpara* [+++ ПОСЛЕДНЕЕ АСТРОПАТИЧЕСКОЕ СООБЩЕНИЕ: НОВЫЙ ГИДЛАМ, СКОПЛЕНИЕ ГЕРАКОН +++] [+++ ГОВОРЯЩИЙ: ВЕКСХАТРИД, ГУБЕРНАТОР НОВОГО ГИДЛАМА +++] [+++ СТАТУС: МИР ПРЕДПОЛОЖИТЕЛЬНО ПОТЕРЯН +++] [+++ ПРИГОВОР: ЭКСТЕРМИНАТУС +++] *newpara* Утверждено Грегором Эйзенхорном, инквизитором Ордо Ксенос, императорским указом.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.023,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "lore"
                 },
                 {
                     "box": [
@@ -542,10 +586,11 @@
                         0.065
                     ],
                     "value": "Объединяющее знамя: Под сенью знамени верные, преданные и ревностные становятся единым живым оружием, вместе разрывающим цепи невежества.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -555,10 +600,11 @@
                         0.065
                     ],
                     "value": "Внутренний круг: Тени сгущаются, когда верные собираются вместе. Здесь, во внутреннем круге, все становятся единым сосудом грядущего рассвета.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -568,10 +614,11 @@
                         0.065
                     ],
                     "value": "Машины верных: Эти дороги принадлежат не тиранам, а тем, кто едет ради благородной цели. Рёв наших машин — гимн вознесения.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -581,10 +628,11 @@
                         0.065
                     ],
                     "value": "Пробудить Патриарха: Безмолвно и незримо мы ждём: пробуждение Патриарха рассеет тени и свяжет верных нерушимой преданностью.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -594,10 +642,11 @@
                         0.065
                     ],
                     "value": "Приказы Примуса: В его голосе звучит воля Звёздных Детей. По его приказу мы становимся единой целью, единым клинком, единой живой истиной веры.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -607,10 +656,11 @@
                         0.065
                     ],
                     "value": "Храм избранных: Услышьте и соберитесь, верные! Отриньте сомнения развращённых и восстаньте избранными сосудами, возвещающими великий день!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#b694ce",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_back_1.jpg",

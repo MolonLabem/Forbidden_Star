@@ -291,7 +291,9 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -304,7 +306,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -317,7 +321,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -330,7 +336,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -343,7 +351,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -356,7 +366,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -369,7 +381,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -382,7 +396,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -395,7 +411,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -408,7 +426,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg",
@@ -428,7 +448,9 @@
                     "font": "Headline",
                     "size": 0.031,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -441,7 +463,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -454,7 +479,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -467,7 +495,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -480,7 +511,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -493,7 +527,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -506,7 +543,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -519,7 +559,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -529,10 +572,11 @@
                         0.313
                     ],
                     "value": "«Если мы вторгнемся, мы разграбим ваши города, испепелим ваши миры, поработим ваш народ…» *newpara* [+++ ВОКС-ПЕРЕДАЧА +++] [+++ ОТ: [+++ УДАЛЕНО +++] ФЛОТА КСЕНОСОВ +++] *newpara* Ответ после снятия осады мира [+++ УДАЛЕНО +++]: *newpara* «Если…» *newpara* Траянн Валорис, Генерал-Капитан Адептус Кустодес",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.023,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "lore"
                 },
                 {
                     "box": [
@@ -542,10 +586,11 @@
                         0.065
                     ],
                     "value": "Дозор за пределами: Наш дозор начинается у Его Трона и простирается к далёким мирам. Вечный, непрерывный, бдительный. Слава Императору!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -555,10 +600,11 @@
                         0.065
                     ],
                     "value": "Сопроводить инквизитора: Кустодес назначены не стражами, а последними судьями. Обеспечьте им проход. Безжалостно очистите это место от еретиков!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -568,10 +614,11 @@
                         0.065
                     ],
                     "value": "Нам нужен лишь один: Клинок одного Кустодия может изменить судьбы миров. Стойте непоколебимо: его удар — воплощённая воля Императора!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -581,10 +628,11 @@
                         0.065
                     ],
                     "value": "Печать Императора: Несокрушимый символ власти Императора. В буре войны Его решимость непоколебима. Свет Императора не угасает!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -594,10 +642,11 @@
                         0.065
                     ],
                     "value": "Эгида капитана: Там, где он стоит, Империум не отступит. Одно его присутствие делает поражение невозможным, а отступление… немыслимым.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -607,10 +656,11 @@
                         0.065
                     ],
                     "value": "Истребить еретика: Правосудие Императора быстро и беспощадно. Ни одна тень ереси не устоит перед золотыми клинками. Останется лишь воля Императора!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#f5d64e",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_back_1.jpg",

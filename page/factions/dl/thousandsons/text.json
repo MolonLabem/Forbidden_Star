@@ -279,7 +279,9 @@
                         0.218,
                         0.24
                     ],
-                    "role": "ability"
+                    "role": "ability",
+                    "paperBox": [0.416, 0.303, 0.218, 0.177],
+                    "bodyBox": [0.426, 0.385, 0.198, 0.093]
                 },
                 {
                     "box": [
@@ -292,7 +294,9 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -305,7 +309,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -318,7 +324,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -331,7 +339,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -344,7 +354,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -357,7 +369,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -370,7 +384,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -383,7 +399,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -396,7 +414,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -409,7 +429,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg",
@@ -429,7 +451,9 @@
                     "font": "Headline",
                     "size": 0.031,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -442,7 +466,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -455,7 +482,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -468,7 +498,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -481,7 +514,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -494,7 +530,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -504,10 +543,11 @@
                         0.313
                     ],
                     "value": "Девять перемен, рождённых огнём. *newline* Девять лживых имён, что звучат шепотком. *newline* Девять слов, переплетённых во фразах. *newline* Девять путей в лабиринтах рассказа. *newline* Девять масок — и каждая лик-ловушка. *newline* Девять загадок, дарованных в молитве. *newline* Девять видений в зеркальном стекле. *newline* Девять грядущих, не сбыться ни одному. *newpara* Девять… *newpara* Тсатик Вхор, Возвышенный Колдун Культа Времени",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.023,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "lore"
                 },
                 {
                     "box": [
@@ -517,10 +557,11 @@
                         0.065
                     ],
                     "value": "Афанейские свитки: Свитки переписывают себя каждую секунду. Завладейте ими, пока их пророчества не канули в забвение!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -530,10 +571,11 @@
                         0.065
                     ],
                     "value": "Эхо Просперо: Пусть имя Просперо не отзовётся на этой земле, иначе прошлое поглотит её огнём и пеплом.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -543,10 +585,11 @@
                         0.065
                     ],
                     "value": "Пирамида Изменяющего: В Пирамиде ткань времени становится хрупкой и нестабильной. Сохраните её пламя, иначе рискуете кануть в небытие.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -556,10 +599,11 @@
                         0.065
                     ],
                     "value": "Сфера Рубрики: В бурлящих глубинах сферы заточены отголоски душ, поглощённых Рубрикой. Их ярость готова сжечь цепи реальности.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -569,10 +613,11 @@
                         0.065
                     ],
                     "value": "Диски Тзинча: Диски гудят отголосками грядущего, в них сталкиваются прошлое и будущее. Верните их, пока не разбились песочные часы.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -582,10 +627,11 @@
                         0.065
                     ],
                     "value": "Связать тень Варпа: Подчините прилив тени, прежде чем враг осквернит её вневременной пульс и разрушит то, чего никогда не должно было быть.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#88b0c4",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_back_1.jpg",

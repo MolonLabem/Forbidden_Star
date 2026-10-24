@@ -315,7 +315,9 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -328,7 +330,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -341,7 +345,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -354,7 +360,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -367,7 +375,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -380,7 +390,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -393,7 +405,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -406,7 +420,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -419,7 +435,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -432,7 +450,9 @@
                     "font": "Headline",
                     "size": 0.017,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/faction_card/sheet_front_1.jpg",
@@ -452,7 +472,9 @@
                     "font": "Headline",
                     "size": 0.031,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center"
                 },
                 {
                     "box": [
@@ -465,7 +487,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -478,7 +503,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -491,7 +519,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -504,7 +535,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -517,7 +551,10 @@
                     "font": "Headline",
                     "size": 0.026,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "heading",
+                    "align": "center",
+                    "wrap": true
                 },
                 {
                     "box": [
@@ -527,10 +564,11 @@
                         0.313
                     ],
                     "value": "…повторяю: мы в сорока днях гал… тического пути строго к западу от станции пустоты Триекс, приближаемся к подсектору… ядру скопления Геракон. Нас… захватило какое-то иск… искажённое гравитационное поле и… Запрашиваю: что… это? Клянусь Омниссией… это излучение исходит… от того корабля. *newpara* Обратите внимание на знаки… на его корпусе. Это… невозможно. Офици… архивные догмы… объявили вымершими!… доказательства… нельзя отрицать, сколь бы… еретичной ни была правда. Тот… корабль принадлежит… *newpara* скватам… *newpara* Архимагос-эксплоратор Гоханнус. Исследовательский флот Дельта-Омега. Последнее полученное астропатическое донесение.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.023,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "lore"
                 },
                 {
                     "box": [
@@ -540,10 +578,11 @@
                         0.065
                     ],
                     "value": "Спасение по зову Очага: Отрезанного и окружённого Кала, голос Предков, нужно спасти, пока вражеские клинки или богохульства не заставили его умолкнуть!",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -553,10 +592,11 @@
                         0.065
                     ],
                     "value": "Вернуть святилище Предков: В этом древнем храме Гримниры общаются с ядром Вотанна, черпая знания из бесконечной памяти Предков…",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -566,10 +606,11 @@
                         0.065
                     ],
                     "value": "Исполнить долг Братства Клятвы: Родичи готовят оружие и разум, скреплённые клятвой и сталью. Удача даёт, нужда хранит. Братство Клятвы склонит чашу весов пустоты.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -579,10 +620,11 @@
                         0.065
                     ],
                     "value": "Завладеть арсеналом: Здесь горит обещание Очага. Оружие, выкованное в огне Предков, ждёт достойных рук.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -592,10 +634,11 @@
                         0.065
                     ],
                     "value": "Клятва в пустоте: Его клятва была выкована в сердце кузницы не для того, чтобы нарушить её в пустоте. Клятва древнее самой пустоты. Предки помнят.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 },
                 {
                     "box": [
@@ -605,10 +648,11 @@
                         0.065
                     ],
                     "value": "Сохранить ядро Очага: Их шаги звучат в согласии с волей Предков. Каждый удар молота заслужен, каждый удар — клятва сохранить ядро Очага.",
-                    "font": "ForbiddenStars",
+                    "font": "EventFont",
                     "size": 0.013,
                     "fill": "#fb805b",
-                    "ink": "#15120c"
+                    "ink": "#15120c",
+                    "role": "objective"
                 }
             ],
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/faction_card/sheet_back_1.jpg",

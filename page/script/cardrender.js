@@ -125,13 +125,22 @@
     var family = ctx.fsBodyFont || FONT.body;
     var baseFont = (ctx.fsBodyWeight ? ctx.fsBodyWeight+' ' : '') + fontSize + 'px ' + family;
     var styledFont = function (style) { return style ? style+' '+fontSize+'px '+family : baseFont; };
+    var fontRuns = function (text, style) {
+      if(!ctx.fsSheetProse)return [{text:text,font:styledFont(style)}];
+      return text.split(/([\uE100-\uE102\uE200-\uE205])/).filter(Boolean).map(function (part) {
+        var symbol=part.length===1 && /[\uE100-\uE102\uE200-\uE205]/.test(part);
+        var index=part.charCodeAt(0)-0xE200;
+        return {text:index>=0&&index<window.FSWord.symbols.length?window.FSWord.symbols[index].glyph:part,
+          font:symbol?fontSize+'px '+FONT.body:styledFont(style)};
+      });
+    };
     var PARA = '\u0001';
 
     var normalizeText = function (s) {
       return String(s)
         .replace(/\s*\*newpara\*\s*/g, '\n' + PARA + '\n')
         .replace(/\s*\*newline\*\s*/g, '\n')
-        .replace(/(\d[\d.,]*)[ \t]+(?=[}{<|#@\uE100-\uE102])/g, '$1\u00a0')
+        .replace(/(\d[\d.,]*)[ \t]+(?=[}{<|#@\uE100-\uE102\uE200-\uE205])/g, '$1\u00a0')
         .replace(/[ \t]+/g, ' ')
         .replace(/ *\n */g, '\n')
         .trim();
@@ -164,8 +173,7 @@
     };
 
     var measure = function (txt, style) {
-      ctx.font = styledFont(style);
-      return ctx.measureText(txt).width;
+      return fontRuns(txt,style).reduce(function (width,run) {ctx.font=run.font;return width+ctx.measureText(run.text).width;},0);
     };
 
     var lineAlign=align,lineRole=ctx.fsTextRole||'body';
@@ -178,15 +186,16 @@
       if (ctx.fsStrict && (totalW > maxW + 1 || yy + fontSize * 0.2 > canvasSize(ctx).height)) {
         throw new Error('Текст выходит за границы печатной карты');
       }
-      var left=align==='center'?x-maxW/2:x;
-      var cx = lineAlign==='center' ? left+(maxW-totalW)/2 : left;
+      var left=align==='center'?x-maxW/2:align==='right'?x-maxW:x;
+      var cx = lineAlign==='center' ? left+(maxW-totalW)/2 : lineAlign==='right'?left+maxW-totalW:left;
       for (var s = 0; s < segments.length; s++) {
         var seg = segments[s];
-        ctx.font = styledFont(seg.style);
-        ctx.textAlign = 'left';
-        recordInk(ctx,seg.text,cx,yy,lineRole,lineAlign);
-        drawTokenText(ctx, seg.text, cx, yy, fontSize);
-        cx += measure(seg.text, seg.style);
+        fontRuns(seg.text,seg.style).forEach(function (run) {
+          ctx.font=run.font;ctx.textAlign='left';
+          recordInk(ctx,run.text,cx,yy,lineRole,lineAlign);
+          drawTokenText(ctx,run.text,cx,yy,fontSize);
+          cx+=ctx.measureText(run.text).width;
+        });
       }
     };
 
@@ -413,11 +422,11 @@
       sheet.units.forEach(function (value,index) {add([.777,.291+index*.1044,.155,.024],value,true,.02);});
     } else {
       add([.109,.286,.201,.032],'Стартовые силы',true,.03);
-      add([.442,.224,.311,.31],sheet.lore,false,.022);
+      regions.push({box:[.442,.224,.311,.31],value:sheet.lore,role:'lore',size:.022});
       var step=.522/sheet.initialForces.length;
-      sheet.initialForces.forEach(function (value,index) {add([.194,.335+step*index,.116,step*.79],value,true,.025);});
+      sheet.initialForces.forEach(function (value,index) {add([.194,.335+step*index,.116,step*.79],value,true,.025);regions[regions.length-1].wrap=true;});
       sheet.objectives.forEach(function (value,index) {
-        if (value) add([index<3?.496:.779,.568+(index%3)*.097,.149,.067],value,false,.015);
+        if (value) regions.push({box:[index<3?.496:.779,.568+(index%3)*.097,.149,.067],value:value,role:'objective',size:.015});
       });
     }
     return regions;
@@ -825,15 +834,19 @@
     }
     ctx.fillStyle = region.ink || '#15120c';
     ctx.fsBodyFont = region.role === 'heading' ? FONT.title : region.font || FONT.body;
-    ctx.fsBodyWeight = region.role === 'subheading' ? 'bold' : null;
-    ctx.fsPrefixStyle = region.role === 'ability' ? 'bold' : null;
-    ctx.fsPrefixTitles = (region.abilities||[]).map(function(ability){
+    ctx.fsBodyWeight = region.weight || (region.role === 'subheading' ? 'bold' : null);
+    ctx.fsPrefixStyle = ['ability','objective'].includes(region.role) ? 'bold' : null;
+    ctx.fsSheetProse=!!region.prose;
+    ctx.fsParagraphGap=region.paragraphGap;
+    ctx.fsPrefixTitles = (region.abilities|| (region.role==='objective'?[{title:region.value.split(':')[0]}]:[])).map(function(ability){
       return window.FSWord.symbolize(window.FSWord.format(ability.title,wording)).replace(/\s+/g,' ').trim();
     });
     ctx.fsTextRole = region.role || 'body';
     // Label names stay words even when body text uses token icons. Headline
     // intentionally has no token glyphs (its private-use slots contain a logo).
-    var text = window.FSWord.symbolize(window.FSWord.format(region.value, ctx.fsBodyFont === FONT.title ? 'explicit' : wording));
+    var text = window.FSWord.format(region.value, ctx.fsBodyFont === FONT.title ? 'explicit' : wording);
+    if(region.prose)window.FSWord.symbols.forEach(function (symbol,index) {text=text.split(symbol.notation).join(String.fromCharCode(0xE200+index));});
+    else text=window.FSWord.symbolize(text);
     var size = ch * (region.size || 0.03), margin = Math.min(w, h) * 0.06;
     var maxW = w - margin * 2, maxH = h - margin * 2;
     var interline = size * 0.12;
@@ -844,44 +857,71 @@
       height = measureStyledWrappedText(ctx, text, maxW, interline, size);
     }
     if (height > maxH || ctx.fsMeasuredWidth>maxW) throw new Error('Перевод не помещается в текстовую область');
-    drawStyledWrappedText(ctx, text, region.align === 'center' ? 0 : -w / 2 + margin,
-      -h / 2 + margin, maxW, interline, size, region.align || 'left');
+    var top=-h/2+margin;
+    if(region.valign==='center'){
+      ctx.font=(ctx.fsBodyWeight?ctx.fsBodyWeight+' ':'')+size+'px '+ctx.fsBodyFont;
+      var ink=ctx.measureText(text);top=-height/2-(size-ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent)/2;
+    }
+    drawStyledWrappedText(ctx, text, region.align === 'center' ? 0 : region.align==='right'?w/2-margin:-w/2+margin,
+      top, maxW, interline, size, region.align || 'left');
     ctx.fsBodyFont = null;
     ctx.fsBodyWeight = null;
     ctx.fsPrefixStyle = null;
     ctx.fsPrefixTitles = null;
     ctx.fsTextRole = null;
+    ctx.fsSheetProse=false;
+    ctx.fsParagraphGap=undefined;
     ctx.restore();
+    return {fontSize:size,height:height};
   }
 
   // Typography is shared; boxes identify printed fields in the source artwork.
   // Existing Russian raster lettering remains intact where it already uses the
   // game's fonts. New translations are drawn from the same ability data as HTML.
+  var _sheetBackgrounds=window.FSCache.create(2);
   async function drawFactionSheet(data, ctx) {
     var source = await sourceInfo({src:data.picture,text:{crop:data.crop}});
-    var picture = document.createElement('canvas');
-    picture.width=source.width;picture.height=source.height;
-    picture.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,source.width,source.height);
+    var regions=sheetRegions(data),key=JSON.stringify([data.picture,data.crop,regions.map(function(r){return [r.paperBox||r.box,r.role];})]);
+    var picture=_sheetBackgrounds.get(key);
+    if(!picture){
+      var original=document.createElement('canvas');original.width=source.width;original.height=source.height;
+      original.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,source.width,source.height);
+      picture=document.createElement('canvas');picture.width=source.width;picture.height=source.height;
+      var background=picture.getContext('2d');background.drawImage(original,0,0);
+      regions.forEach(function (region) {
+        var box=(region.paperBox||region.box).slice();
+        if(region.role==='heading'){box[0]-=4/source.width;box[2]+=8/source.width;}
+        restoreOrderPaper(background,original,box,region.role==='heading'?'ruled':region.role==='ability'?'parchment':'paper');
+      });
+      _sheetBackgrounds.set(key,picture);
+    }
     ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
     ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
-    sheetRegions(data).forEach(function (region) {
+    regions.forEach(function (region) {
       if (region.role === 'ability') {
-        eraseNativeField(ctx,picture,region.box);
-        var b=region.box, inset=b[2]*.035, titleH=b[3]*.16, subH=b[3]*.12;
-        var field=function (value,y,h,role,size) {
-          var box=[b[0]+inset,y,b[2]-inset*2,h];
-          if(role==='heading') {drawLabel(ctx,value,{box:box,align:'center'},role);return;}
-          drawTextRegion(ctx,{box:box,value:value,role:role,
-            abilities:role==='ability'?data.sheet.abilities:null,
-            transparent:true,align:role==='heading'||role==='subheading'?'center':'left',size:size},data.wording);
-        };
-        field(data.sheet.title,b[1]+b[3]*.035,titleH,'heading');
-        field(data.sheet.subtitle,b[1]+titleH+b[3]*.035,subH,'subheading',.024);
-        field(data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
-          b[1]+titleH+subH+b[3]*.08,b[3]*.87-titleH-subH,'ability',.024);
+        var b=region.box,inset=b[2]*.045;
+        // Some source illustrations intrude into the panel; their explicit
+        // paper/body boxes keep both erasure and translated ink above the art.
+        var field=function (y,h) {return [b[0]+inset,b[1]+b[3]*y,b[2]-inset*2,b[3]*h];};
+        drawLabel(ctx,data.sheet.title,{box:field(.07,.13),align:'center'},'heading');
+        var body=drawTextRegion(ctx,{box:region.bodyBox||field(.34,.63),value:data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
+          role:'ability',abilities:data.sheet.abilities,font:FONT.type,prose:true,transparent:true,size:.019,paragraphGap:.35},data.wording);
+        drawTextRegion(ctx,{box:field(.23,.075),value:data.sheet.subtitle,role:'subheading',font:FONT.type,prose:true,
+          transparent:true,align:'center',valign:'center',size:Math.min(.018,body.fontSize/canvasSize(ctx).height)},data.wording);
+      } else if(region.role==='heading'){
+        if(region.wrap)drawTextRegion(ctx,Object.assign({},region,{transparent:true,valign:'center'}),data.wording);
+        else {
+          var box=region.box.slice();box[1]+=box[3]*.16;box[3]*=.68;
+          drawLabel(ctx,region.value,{box:box,align:'center'},'heading');
+        }
+      } else if(region.role==='lore'){
+        var parts=region.value.split(/\s*\*newpara\*\s*/),signature=parts.pop(),box=region.box;
+        drawTextRegion(ctx,Object.assign({},region,{box:[box[0],box[1],box[2],box[3]*.75],value:parts.join(' *newpara* '),
+          font:FONT.type,prose:true,weight:'italic',transparent:true,paragraphGap:.4}),data.wording);
+        drawTextRegion(ctx,{box:[box[0],box[1]+box[3]*.78,box[2],box[3]*.22],value:signature,role:'signature',align:'right',valign:'center',
+          font:FONT.type,prose:true,weight:'italic',transparent:true,size:region.size},data.wording);
       } else {
-        eraseNativeField(ctx,picture,region.box);
-        drawTextRegion(ctx,Object.assign({},region,{transparent:true}),data.wording);
+        drawTextRegion(ctx,Object.assign({},region,{transparent:true,font:FONT.type,prose:true,weight:'italic',paragraphGap:.3}),data.wording);
       }
     });
   }
@@ -977,7 +1017,7 @@
   // Interpolate that shading and reuse its fine grain, rather than selecting a
   // bright tile from the wording. The field stays opaque over the old text;
   // matching its native edges avoids both a coloured rectangle and ink ghosts.
-  function restoreOrderPaper(ctx,picture,box) {
+  function restoreOrderPaper(ctx,picture,box,sheetStyle) {
     var crop=document.createElement('canvas');
     crop.width=Math.max(2,Math.round(box[2]*picture.width));crop.height=Math.max(2,Math.round(box[3]*picture.height));
     var c=crop.getContext('2d',{willReadFrequently:true}),w=crop.width,h=crop.height;
@@ -1019,6 +1059,91 @@
           Math.max(low,Math.min(high,shade))+noise[channel];
       }
       clean.data[target+3]=255;
+    }
+    if(sheetStyle){
+      // Retain the source's unprinted texture and stains. Only the old dark
+      // lettering and its JPEG fringe receive nearby clean paper.
+      var mask=new Uint8Array(w*h);
+      var paperRows=[],paperColors=[],gutter=Math.max(1,Math.floor(w*.02));
+      var inkGutter=sheetStyle==='paper'?0:gutter;
+      for(var y=0;y<h;y++){
+        var row=[];
+        for(var x=gutter;x<w-gutter;x++)row.push({at:(y*w+x)*4,light:(pixels[(y*w+x)*4]+pixels[(y*w+x)*4+1]+pixels[(y*w+x)*4+2])/3});
+        row.sort(function(a,b){return a.light-b.light;});var sample=row[Math.floor(row.length*.85)];
+        paperRows[y]=sample.light;paperColors[y]=[pixels[sample.at],pixels[sample.at+1],pixels[sample.at+2]];
+      }
+      for(var at=0;at<w*h;at++){
+        var i=at*4,light=(pixels[i]+pixels[i+1]+pixels[i+2])/3;
+        var neutral=sheetStyle==='paper'||Math.max(pixels[i],pixels[i+1],pixels[i+2])-Math.min(pixels[i],pixels[i+1],pixels[i+2])<35;
+        if(neutral&&light<Math.min(110,paperRows[Math.floor(at/w)]-35)&&at%w>=inkGutter&&at%w<w-inkGutter)mask[at]=1;
+      }
+      if(sheetStyle==='ruled'){
+        // Some source boxes include a thin dark side trim. Keep connected
+        // edge strips; unlike the centered lettering, they reach the gutter.
+        var visited=new Uint8Array(w*h);
+        for(var start=0;start<w*h;start++)if(mask[start]&&!visited[start]){
+          var component=[start],first=w,last=0,touches=false;visited[start]=1;
+          for(var pos=0;pos<component.length;pos++){
+            var at=component[pos],x=at%w,y=Math.floor(at/w);first=Math.min(first,x);last=Math.max(last,x);touches=touches||x===gutter||x===w-1-gutter;
+            [x?at-1:-1,x+1<w?at+1:-1,y?at-w:-1,y+1<h?at+w:-1].forEach(function(next){if(next>=0&&mask[next]&&!visited[next]){visited[next]=1;component.push(next);}});
+          }
+          if(touches&&last-first<Math.max(2,gutter*2))component.forEach(function(at){mask[at]=0;});
+        }
+      }
+      var expanded=new Uint8Array(w*h);
+      var fringe=sheetStyle==='ruled'?5:sheetStyle==='paper'?4:3;
+      for(var y=0;y<h;y++)for(var x=0;x<w;x++){
+        for(var yy=Math.max(0,y-fringe);!expanded[y*w+x]&&yy<=Math.min(h-1,y+fringe);yy++)
+          for(var xx=Math.max(0,x-fringe);xx<=Math.min(w-1,x+fringe);xx++)if(mask[yy*w+xx]){expanded[y*w+x]=1;break;}
+      }
+      // Normalized convolution excludes the old ink instead of blurring it
+      // into the replacement. Three box passes give smooth local shading;
+      // unmasked paper and stains retain their exact native pixels.
+      var weighted=new Float32Array(w*h*4),scratch=new Float32Array(w*h*4);
+      for(var at=0;at<w*h;at++)if(!expanded[at]&&at%w>=gutter&&at%w<w-gutter){
+        for(var channel=0;channel<3;channel++)weighted[at*4+channel]=pixels[at*4+channel];weighted[at*4+3]=1;
+      }
+      function blur(from,to,horizontal){
+        var length=horizontal?w:h,lines=horizontal?h:w,radius=16,divisor=radius*2+1;
+        for(var line=0;line<lines;line++){
+          var sum=[0,0,0,0],index=function(n){return (horizontal?line*w+n:n*w+line)*4;};
+          for(var n=0;n<=Math.min(radius,length-1);n++)for(var channel=0;channel<4;channel++)sum[channel]+=from[index(n)+channel];
+          for(var n=0;n<length;n++){
+            for(var channel=0;channel<4;channel++)to[index(n)+channel]=sum[channel]/divisor;
+            for(var channel=0;channel<4;channel++){
+              if(n+radius+1<length)sum[channel]+=from[index(n+radius+1)+channel];
+              if(n-radius>=0)sum[channel]-=from[index(n-radius)+channel];
+            }
+          }
+        }
+      }
+      for(var pass=0;pass<3;pass++){blur(weighted,scratch,true);blur(scratch,weighted,false);}
+      var distance=new Uint16Array(w*h);distance.fill(w+h);
+      for(var y=0;y<h;y++)for(var x=0;x<w;x++)distance[y*w+x]=expanded[y*w+x]?0:Math.min(x?distance[y*w+x-1]+1:w+h,y?distance[(y-1)*w+x]+1:w+h);
+      for(var y=h-1;y>=0;y--)for(var x=w-1;x>=0;x--)distance[y*w+x]=Math.min(distance[y*w+x],x+1<w?distance[y*w+x+1]+1:w+h,y+1<h?distance[(y+1)*w+x]+1:w+h);
+      clean.data.set(pixels);
+      for(var at=0;at<w*h;at++)if(expanded[at]||sheetStyle!=='ruled'&&distance[at]<8){
+        var x=at%w,y=Math.floor(at/w),left=x-1,right=x+1;
+        if(sheetStyle==='ruled'){
+          while(left>=0&&expanded[y*w+left])left--;
+          while(right<w&&expanded[y*w+right])right++;
+        }
+        var ruled=sheetStyle==='ruled'&&left>=gutter&&right<w-gutter;
+        if(ruled){
+          var leftLight=(pixels[(y*w+left)*4]+pixels[(y*w+left)*4+1]+pixels[(y*w+left)*4+2])/3;
+          var rightLight=(pixels[(y*w+right)*4]+pixels[(y*w+right)*4+1]+pixels[(y*w+right)*4+2])/3;
+          ruled=Math.min(leftLight,rightLight)>paperRows[y]-35;
+        }
+        if(weighted[at*4+3]<.00001&&sheetStyle!=='ruled')throw new Error('Не найден чистый фон листа фракции');
+        var noise=grain[at%grain.length];
+        for(var channel=0;channel<3;channel++){
+          var shade=weighted[at*4+channel]/weighted[at*4+3];
+          if(ruled)shade=(pixels[(y*w+left)*4+channel]*(right-x)+pixels[(y*w+right)*4+channel]*(x-left))/(right-left);
+          else if(sheetStyle==='ruled')shade=paperColors[y][channel];
+          var alpha=expanded[at]?1:1-distance[at]/8;
+          clean.data[at*4+channel]=pixels[at*4+channel]*(1-alpha)+(shade+Math.max(-2,Math.min(2,noise[channel])))*alpha;
+        }
+      }
     }
     c.putImageData(clean,0,0);
     ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
@@ -1155,7 +1280,11 @@
       canvas.width  = width;
       canvas.height = height;
       var ctx = canvas.getContext('2d');
-      ctx.fsLayout={width:layoutWidth,height:layoutWidth*source.height/source.width};
+      // Sheet labels can be only a few pixels high in the card-sized layout.
+      // Native logical coordinates avoid rounding their measured ink down by
+      // a whole font size, while remaining independent of output resolution.
+      var logicalWidth=card.kind==='sheet'&&source.regions.length?source.width:layoutWidth;
+      ctx.fsLayout={width:logicalWidth,height:logicalWidth*source.height/source.width};
       ctx.scale(canvas.width/ctx.fsLayout.width,canvas.height/ctx.fsLayout.height);
       ctx.imageSmoothingQuality='high';
       ctx.fsStrict = strict;
