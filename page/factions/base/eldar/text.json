@@ -1,4 +1,13 @@
 {
+  "combatFrame": {
+    "picture": "factions/base/eldar/combat/s4.jpg",
+    "box": [
+      0,
+      0.56,
+      0.18,
+      0.2040625
+    ]
+  },
   "materialsText": [
     {
       "label": "Аспектные Воины",

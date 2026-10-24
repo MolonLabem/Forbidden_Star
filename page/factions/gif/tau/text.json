@@ -1,4 +1,13 @@
 {
+  "combatFrame": {
+    "picture": "factions/gif/tau/combat/s5.jpg",
+    "box": [
+      0,
+      0.56,
+      0.18,
+      0.1946875
+    ]
+  },
   "materialsText": [
     {
       "label": "Воины Огня",

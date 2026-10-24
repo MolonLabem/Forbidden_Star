@@ -219,7 +219,7 @@
         },
         {
             "title": "Лекс ультима",
-            "general": "Выполните приказ Развертывания в 1 системе, содержащей вашу фабрику.",
+            "general": "Выполните приказ Развёртывания в 1 системе, содержащей вашу фабрику.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_2.jpg"

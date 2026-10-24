@@ -1,4 +1,13 @@
 {
+  "combatFrame": {
+    "picture": "factions/base/spacemarines/combat/s4.jpg",
+    "box": [
+      0,
+      0.56,
+      0.18,
+      0.115
+    ]
+  },
   "materialsText": [
     {
       "label": "Разведчики",

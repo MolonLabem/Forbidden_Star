@@ -1,4 +1,13 @@
 {
+  "combatFrame": {
+    "picture": "factions/base/chaos/combat/t2_1.jpg",
+    "box": [
+      0,
+      0.56,
+      0.18,
+      0.1384375
+    ]
+  },
   "materialsText": [
     {
       "label": "Культисты",

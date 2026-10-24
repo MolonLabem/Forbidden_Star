@@ -57,7 +57,7 @@
   };
   var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
-  var ORDER_LIMIT = {scale:.8,gap:.35};
+  var ORDER_LIMIT = {scale:.8,gap:.7};
 
   function recordInk(ctx, text, x, y, role, align) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
@@ -483,58 +483,30 @@
     var source=[picture.width*left+(sw-cropW)/2,picture.height*top,cropW,cropH],target=[cw*left,ch*top,dw,dh];
     ctx.drawImage(picture,source[0],source[1],source[2],source[3],target[0],target[1],target[2],target[3]);
     drawEnhancedArtwork(ctx,source,target);
-    ctx.drawImage(picture,0,picture.height*(end-.04),picture.width*left,picture.height*.04,0,ch*end,cw*left,panelTop-ch*end);
     ctx.fsCombatArtwork.paintedBottomPx=panelTop;ctx.fsCombatArtwork.extended=true;
   }
 
-  function restoreNativeFrame(ctx,source,panelTop) {
-    var top=.62,left=.18,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height,y=ch*top;
+  function restoreNativeFrame(ctx,source,panelTop,sourceBox) {
+    var top=.56,left=.18,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height,y=ch*top;
     if (!source || panelTop<=y) return;
-    // Paper detection begins inside the field. Exclude its raised border from
-    // the reusable frame strip, or it becomes a second divider above the panel.
-    var bottom=combatSourceArea(source).top-.02;
+    var bottom=sourceBox?sourceBox[1]+sourceBox[3]:ctx.fsCombatArtwork.nativeBottomPx/ch-.02;
     if (bottom<=top) return;
-    var scale=cw/source.width,sw=source.width*left,sy=source.height*top;
-    var sourceH=(bottom-top)*source.height,height=Math.min(panelTop-y,sourceH*scale);
-    // A source whose rules begin immediately under the rail has no usable
-    // background strip. Retain its clean frame rather than repeat its rail cap.
-    if(sourceH<source.width*.04)return;
-    // The native strip contains each rivet, cable and flesh detail only once.
-    // Keep its proportions rather than stretching a narrow row across the gap.
+    var sourceTop=sourceBox?sourceBox[1]:top,sourceLeft=sourceBox?sourceBox[0]:0,sourceWidth=sourceBox?sourceBox[2]:left;
+    var scale=cw/source.width,sw=source.width*sourceWidth,sy=source.height*sourceTop,height=panelTop-y;
+    var sourceH=Math.min((bottom-sourceTop)*source.height,height/scale),sx=source.width*sourceLeft;
+    // Replace the whole free frame once. Replaying a native fragment over a
+    // template, then tiling its tail, duplicated the cables and blue pattern.
+    // A longer artwork window stretches this one continuous section instead.
+    var ratio=sourceH/height;
     var feather=Math.min(cw*.01,height/3);
     ctx.save();
     for(var edge=0;edge<feather;edge++){
       var rowH=Math.min(1,feather-edge);ctx.globalAlpha=(edge+rowH/2)/feather;
-      ctx.drawImage(source,0,sy+edge/scale,sw,rowH/scale,0,y+edge,cw*left,rowH);
+      ctx.drawImage(source,sx,sy+edge*ratio,sw,rowH*ratio,0,y+edge,cw*left,rowH);
     }
     ctx.restore();
-    ctx.drawImage(source,0,sy+feather/scale,sw,(height-feather)/scale,0,y+feather,cw*left,height-feather);
-    var end=y+height;
-    if(end<panelTop){
-      var sample=document.createElement('canvas');sample.width=Math.ceil(sw);sample.height=Math.ceil(sourceH);
-      var c=sample.getContext('2d',{willReadFrequently:true});c.drawImage(source,0,sy,sw,sourceH,0,0,sample.width,sample.height);
-      var pixels=c.getImageData(0,0,sample.width,sample.height).data,median=[];
-      for(var x=0;x<sample.width;x++)for(var channel=0;channel<3;channel++){
-        var values=[];for(var row=0;row<sample.height;row++)values.push(pixels[(row*sample.width+x)*4+channel]);
-        values.sort(function(a,b){return a-b;});median[x*3+channel]=values[Math.floor(values.length/2)];
-      }
-      var band=Math.max(1,Math.min(12,Math.floor(sample.height/3))),best=0,score=Infinity;
-      for(var row=0;row<=sample.height-band;row++){
-        var difference=0;
-        for(var yy=row;yy<row+band;yy++)for(var x=0;x<sample.width;x++)for(var channel=0;channel<3;channel++)
-          difference+=Math.abs(pixels[(yy*sample.width+x)*4+channel]-median[x*3+channel]);
-        if(difference<score){score=difference;best=row;}
-      }
-      // Prefer grain close to the column medians rather than prominent details.
-      // Mirrored joins avoid hard horizontal tile seams.
-      var tileHeight=band*scale,flip=false;
-      for(var dy=end;dy<panelTop;dy+=tileHeight){
-        ctx.save();ctx.beginPath();ctx.rect(0,dy,cw*left,Math.min(tileHeight,panelTop-dy));ctx.clip();
-        ctx.translate(0,flip?dy+tileHeight:dy);ctx.scale(1,flip?-1:1);
-        ctx.drawImage(sample,0,best,sample.width,band,0,0,cw*left,tileHeight);ctx.restore();flip=!flip;
-      }
-    }
-    ctx.fsCombatArtwork.nativeFrame={source:source.src,topPx:y,bottomPx:panelTop,grainExtended:end<panelTop};
+    ctx.drawImage(source,sx,sy+feather*ratio,sw,(height-feather)*ratio,0,y+feather,cw*left,height-feather);
+    ctx.fsCombatArtwork.nativeFrame={source:source.src,topPx:y,bottomPx:panelTop,sourceTop:sourceTop,sourceBottom:sourceTop+sourceH/source.height,continuous:true};
   }
   function combatTitleField(picture) {
     var cached=_titleAreas.get(picture.src);if(cached)return cached;
@@ -637,6 +609,11 @@
     if(region.italicPrefixes===false)ctx.fsItalicPrefixes=false;
     var b=region.box,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
     var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
+    if(ctx.fsKind==='orders'&&/ОДИН РАЗ ЗА РАУНД/i.test(text)){
+      // The order paper has an unprinted footer. Use it for the separated
+      // caption before making the effect text smaller on dense cards.
+      box.height+=Math.max(0,Math.min(ch*.025,ch*.835-box.y-box.height));
+    }
     var size=ch*.03,interline=size*.257,height;
     ctx.fsParagraphGap=.743;
     for(var guard=0;guard<100;guard++){
@@ -751,8 +728,12 @@
         bottomClear: fgPanel ? 0 : bottomH,
       } : null;
 
-      if(!sourceArea && picture)extendArtwork(ctx,picture,(bgPanel||fgPanel).y);
-      if(nativeFrame)restoreNativeFrame(ctx,nativeFrame,(bgPanel||fgPanel).y);
+      // Unit-only separators have transparent tips. Continue the illustration
+      // beneath their header so the blank template cannot show a white seam.
+      var artworkBottom=(bgPanel||fgPanel).y+(bgPanel?0:fgDecoH);
+      if(!sourceArea && picture)extendArtwork(ctx,picture,artworkBottom);
+      if(nativeFrame)restoreNativeFrame(ctx,nativeFrame,artworkBottom,data.template.frame.box);
+      else if(picture&&ctx.fsCombatArtwork?.extended)restoreNativeFrame(ctx,picture,artworkBottom);
 
       if (bgPanel) drawStretchPanel(ctx, backgroundImg, bgPanel.y, bgPanel.drawH, COMBAT_LAYOUT.backgroundDecoSrcPx);
       if (fgPanel) drawStretchPanel(ctx, foregroundImg, fgPanel.y, fgPanel.h,     COMBAT_LAYOUT.foregroundDecoSrcPx);
@@ -789,8 +770,11 @@
     var iconSz = cw * COMBAT_LAYOUT.iconSizeRatio, iconSp = cw * COMBAT_LAYOUT.iconSpacingRatio;
     var iconXPos = cw * COMBAT_LAYOUT.iconX, iconStartYPos = ch * COMBAT_LAYOUT.iconStartY;
     var iconChars = String(data.icons || '').split('').map(function (c) { return iconMap[c.toUpperCase()]; }).filter(Boolean);
-    // Native frame measurements stay identical for viewing and printing.
-    var nativeFrame=data.template?.picture?loadImage(data.picture):Promise.resolve(null);
+    // Faction-wide references have explicit bounds with no baked symbols.
+    var frame=data.template?.frame;
+    if(frame&&(typeof frame.picture!=='string'||!frame.picture||!Array.isArray(frame.box)||frame.box.length!==4||frame.box.some(function(v){return !Number.isFinite(v)||v<0;})||
+      !frame.box[2]||!frame.box[3]||frame.box[0]+frame.box[2]>1||frame.box[1]+frame.box[3]>1))throw new Error('Некорректная область рамки');
+    var nativeFrame=frame?loadImage(frame.picture):Promise.resolve(null);
     var resources = await Promise.all([
       loadCardPicture(data), loadImage('pictures/background.png'),
       loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),nativeFrame,
@@ -1258,7 +1242,13 @@
     var metrics={minimumBodyPx:ctx.fsMinimumBodyPx===undefined?undefined:ctx.fsMinimumBodyPx*sy,textLines:ctx.fsTextLines};
     if(ctx.fsCombatPanels)metrics.combatPanels=Object.assign(scaled(ctx.fsCombatPanels,sy),{
       general:scaled(ctx.fsCombatPanels.general,sy),unit:scaled(ctx.fsCombatPanels.unit,sy)});
-    if(ctx.fsCombatArtwork)metrics.artwork=scaled(ctx.fsCombatArtwork,sy);
+    if(ctx.fsCombatArtwork){
+      metrics.artwork=scaled(ctx.fsCombatArtwork,sy);
+      if(ctx.fsCombatArtwork.nativeFrame){
+        var frame=ctx.fsCombatArtwork.nativeFrame;
+        metrics.artwork.nativeFrame=Object.assign({},frame,{topPx:frame.topPx*sy,bottomPx:frame.bottomPx*sy});
+      }
+    }
     if(ctx.fsCombatIcons)metrics.combatIcons=ctx.fsCombatIcons.map(function(icon){return {symbol:icon.symbol,x:icon.x*sx,y:icon.y*sy,size:icon.size*sx};});
     if(ctx.fsEventType)metrics.eventType=Object.assign({},ctx.fsEventType,{box:box(ctx.fsEventType.box)});
     if(ctx.fsBodyTextBox)metrics.bodyTextBox=Object.assign(scaled(ctx.fsBodyTextBox,sy),{box:box(ctx.fsBodyTextBox.box)});

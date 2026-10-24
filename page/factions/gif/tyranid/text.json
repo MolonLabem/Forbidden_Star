@@ -1,4 +1,13 @@
 {
+  "combatFrame": {
+    "picture": "factions/gif/tyranid/combat/s5.jpg",
+    "box": [
+      0,
+      0.56,
+      0.18,
+      0.18570983
+    ]
+  },
   "materialsText": [
     {
       "label": "Гаунты",

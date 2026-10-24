@@ -1,4 +1,13 @@
 {
+  "combatFrame": {
+    "picture": "factions/gif/necron/combat/s2.jpg",
+    "box": [
+      0,
+      0.56,
+      0.18,
+      0.2824337
+    ]
+  },
   "materialsText": [
     {
       "label": "Воины",

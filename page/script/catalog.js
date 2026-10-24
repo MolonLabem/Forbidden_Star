@@ -42,6 +42,7 @@
         var card = {id:id,factionId:expansion+'/'+faction,exp:expansion,fac:faction,category:category,file:file,tier:tier,index:index,
           title:text && text.title || label,label:label,tierLabel:tierLabel,src:src,kind:kind,text:text,
           template:(data.templates || {})[relative] || null,aspect:playable.includes(category) ? data.cardAspect || null : null,factionTitle:factionTitle,nativeText:sourceText==='printed'};
+        if(category==='combat'&&data.combatFrame)card.template=Object.assign({},card.template,{frame:data.combatFrame});
         // A manifest still names the original asset. Atlas views describe its
         // printed sides; the first view retains existing card IDs and links.
         var views = category === 'faction_card' && component?.views || [component || {}];
