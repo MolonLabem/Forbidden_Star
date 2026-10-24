@@ -76,9 +76,10 @@
   // *source image pixels* (scaled from the loaded PNG width at draw time).
   var COMBAT_LAYOUT = {
     maxTextAreaHeight:       0.4,
-    textMarginX:             0.0578,
-    marginY:                 0.05,   // of width
-    lineSpacing:             0.0077,
+    readingArea:             {marginX:0.0578,marginY:0.05,lineSpacing:0.0077},
+    textMarginX:             0.045,
+    marginY:                 0.028,  // of width; keep the original-sized type
+    lineSpacing:             0.006,
     fontSize:                0.03,
     marginShrinkFactor:      0.8,
     fontShrinkFactor:        0.99,
@@ -98,13 +99,14 @@
     return srcPx * (canvasWidth / image.width);
   }
 
-  // Fixed decorative top + stretched parchment body. Panel placement depends only
-  // on measured height (no independent foreground offset hacks).
+  // Keep the native border and its soft shadow at the card's scale. Stretch
+  // only the quieter paper below it, so compact panels still have depth.
   function drawStretchPanel(ctx, image, y, height, decoSrcPx) {
     if (height <= 0) return;
     var cw = canvasSize(ctx).width;
-    var topH = Math.min(height, srcPxToCanvas(image, decoSrcPx, cw));
-    var srcTopH = Math.min(image.height, decoSrcPx);
+    var scale=cw/image.width;
+    var topH = Math.min(height, srcPxToCanvas(image, decoSrcPx+image.width*.12, cw));
+    var srcTopH = Math.min(image.height, topH/scale);
     ctx.drawImage(image, 0, 0, image.width, srcTopH, 0, y, cw, topH);
     var parchH = height - topH;
     if (parchH > 0 && srcTopH < image.height) {
@@ -475,7 +477,9 @@
   function restoreNativeFrame(ctx,source,panelTop) {
     var top=.62,left=.18,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height,y=ch*top;
     if (!source || panelTop<=y) return;
-    var bottom=combatSourceArea(source).top-.008;
+    // Paper detection begins inside the field. Exclude its raised border from
+    // the reusable frame strip, or it becomes a second divider above the panel.
+    var bottom=combatSourceArea(source).top-.02;
     if (bottom<=top) return;
     var scale=cw/source.width,sw=source.width*left,sy=source.height*top;
     var sourceH=(bottom-top)*source.height,height=Math.min(panelTop-y,sourceH*scale);
@@ -646,7 +650,10 @@
   function drawCombatEffects(data, ctx, panels, sourceArea, picture, nativeFrame) {
     var cw = canvasSize(ctx).width, ch = canvasSize(ctx).height;
     var endY=sourceArea?ch*sourceArea.bottom:ch;
-    var textMarginX = cw * COMBAT_LAYOUT.textMarginX;
+    // Choose the font against the established reading-area budget first.
+    // Freed padding then goes to artwork, rather than enlarging dense type
+    // until it consumes the space again.
+    var textMarginX = cw * COMBAT_LAYOUT.readingArea.marginX;
     var textWidth   = cw - textMarginX * 2;
     var minimumHeight=sourceArea?ch*(sourceArea.bottom-sourceArea.top):0;
     var maxTextH    = Math.max(ch * COMBAT_LAYOUT.maxTextAreaHeight,minimumHeight);
@@ -662,8 +669,8 @@
       var previousGap=ctx.fsParagraphGap;
       ctx.fsParagraphGap=.743;
       var fontSize  = ch * COMBAT_LAYOUT.fontSize;
-      var interline = ch * COMBAT_LAYOUT.lineSpacing;
-      var marginH   = cw * COMBAT_LAYOUT.marginY;
+      var interline = ch * COMBAT_LAYOUT.readingArea.lineSpacing;
+      var marginH   = cw * COMBAT_LAYOUT.readingArea.marginY;
 
       // Panel = decorative header + margins + measured text (+ bottom strip on the
       // bottom-most panel). Text is vertically centred in the parchment area.
@@ -702,6 +709,12 @@
       }
       if (ctx.fsStrict && overBudget()) throw new Error('Боевой текст не помещается на карте');
 
+      textMarginX=cw*COMBAT_LAYOUT.textMarginX;textWidth=cw-textMarginX*2;
+      marginH=Math.min(marginH,cw*COMBAT_LAYOUT.marginY);
+      interline=Math.min(interline,ch*COMBAT_LAYOUT.lineSpacing);
+      ctx.fsParagraphGap=Math.min(ctx.fsParagraphGap,.4);
+      p=measurePanels();
+
       if (sourceArea) {
         var spare = Math.max(0, minimumHeight - p.bg - p.fg);
         if (bgText && fgText) {var share=p.bg/(p.bg+p.fg);p.bg+=spare*share;p.fg+=spare*(1-share);}
@@ -719,7 +732,8 @@
       } : null;
       var bgPanel = bgText ? {
         y: endY - p.bg - (fgPanel ? p.fg : 0),
-        drawH: p.bg + (fgPanel ? p.fg : 0),
+        // Green paper is visible through the separator's transparent tips.
+        drawH: p.bg + (fgPanel ? fgDecoH : 0),
         h: p.bg, decoH: bgDecoH, contentH: p.bgContent,
         bottomClear: fgPanel ? 0 : bottomH,
       } : null;
