@@ -57,6 +57,7 @@
   };
   var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
+  var ORDER_LIMIT = {scale:.8,gap:.35};
 
   function recordInk(ctx, text, x, y, role, align) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
@@ -125,15 +126,16 @@
     if (!align) align = 'left';
     if (!text) return 0;
     var family = ctx.fsBodyFont || FONT.body;
+    var lineFontSize=fontSize;
     var baseFont = (ctx.fsBodyWeight ? ctx.fsBodyWeight+' ' : '') + fontSize + 'px ' + family;
-    var styledFont = function (style) { return style ? style+' '+fontSize+'px '+family : baseFont; };
+    var styledFont = function (style) { return style ? style+' '+lineFontSize+'px '+family : baseFont; };
     var fontRuns = function (text, style) {
       if(!ctx.fsSheetProse)return [{text:text,font:styledFont(style)}];
       return text.split(/([\uE100-\uE102\uE200-\uE205])/).filter(Boolean).map(function (part) {
         var symbol=part.length===1 && /[\uE100-\uE102\uE200-\uE205]/.test(part);
         var index=part.charCodeAt(0)-0xE200;
         return {text:index>=0&&index<window.FSWord.symbols.length?window.FSWord.symbols[index].glyph:part,
-          font:symbol?fontSize+'px '+FONT.body:styledFont(style)};
+          font:symbol?lineFontSize+'px '+FONT.body:styledFont(style)};
       });
     };
     var PARA = '\u0001';
@@ -184,8 +186,8 @@
       for (var s = 0; s < segments.length; s++) totalW += measure(segments[s].text, segments[s].style);
       ctx.fsMeasuredWidth=Math.max(ctx.fsMeasuredWidth||0,totalW);
       if (!paint) return;
-      ctx.fsMinimumBodyPx = Math.min(ctx.fsMinimumBodyPx || Infinity, fontSize);
-      if (ctx.fsStrict && (totalW > maxW + 1 || yy + fontSize * 0.2 > canvasSize(ctx).height)) {
+      ctx.fsMinimumBodyPx = Math.min(ctx.fsMinimumBodyPx || Infinity, lineFontSize);
+      if (ctx.fsStrict && (totalW > maxW + 1 || yy + lineFontSize * 0.2 > canvasSize(ctx).height)) {
         throw new Error('Текст выходит за границы печатной карты');
       }
       var left=align==='center'?x-maxW/2:align==='right'?x-maxW:x;
@@ -195,7 +197,7 @@
         fontRuns(seg.text,seg.style).forEach(function (run) {
           ctx.font=run.font;ctx.textAlign='left';
           recordInk(ctx,run.text,cx,yy,lineRole,lineAlign);
-          drawTokenText(ctx,run.text,cx,yy,fontSize);
+          drawTokenText(ctx,run.text,cx,yy,lineFontSize);
           cx+=ctx.measureText(run.text).width;
         });
       }
@@ -206,6 +208,7 @@
     var yy = y + lineHeight;
     var lastBaseline = yy;
     var drew = false;
+    var previousLimit=false;
 
     for (var pi = 0; pi < paragraphs.length; pi++) {
       var p = paragraphs[pi];
@@ -216,6 +219,14 @@
       }
       if (p === '') continue;
       var limit=ctx.fsKind==='orders' && /^ОДИН РАЗ ЗА РАУНД[.!]?$/i.test(p.trim());
+      // The frequency label is smaller than its effect and needs its own
+      // clear space, including when another effect follows it in the source.
+      if(limit||previousLimit){
+        lineFontSize=limit?fontSize*ORDER_LIMIT.scale:fontSize;
+        baseFont=(ctx.fsBodyWeight?ctx.fsBodyWeight+' ':'')+lineFontSize+'px '+family;
+        if(limit)yy-=fontSize-lineFontSize;
+        if(drew)yy=Math.max(yy,lastBaseline+lineFontSize+fontSize*ORDER_LIMIT.gap);
+      }
       lineAlign=limit || p.trim()==='-или-'?'center':align;
       lineRole=limit?'limit':ctx.fsTextRole||'body';
       var words = [];
@@ -255,9 +266,11 @@
         });
         renderLine(line, yy);
         lastBaseline = yy;
-        yy += lineHeight + interline;
+        yy += lineFontSize + interline;
         drew = true;
       }
+      if(limit)yy+=fontSize-lineFontSize;
+      previousLimit=limit;
     }
 
     if (!drew) return 0;
