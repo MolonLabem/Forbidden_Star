@@ -66,35 +66,35 @@
     "combatText": [
         [
             {
-                "title": "СТОЙКА ДАКАТАРАЙ",
+                "title": "Стойка дакатарай",
                 "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 2 (S).",
                 "unit": "Кустодий/Крейсер: В этом раунде битвы, если противник должен распределить хотя бы 1 урон, он распределяет 2 дополнительных урона.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_1.jpg"
             },
             {
-                "title": "СТОЙКА РЕНДАКС",
+                "title": "Стойка рендакс",
                 "general": "Получите 1 [D] или 1 [M]. *newpara* Если у противника есть хотя бы 1 недеморализованный отряд с командным уровнем выше 0, получите 1 (B) и 1 (S).",
                 "unit": "Кустодий/Крейсер: В начале шага нанесения повреждений этого раунда битвы, если у вас есть 1 [B] или 1 (B), вынудите противника выбрать и деморализовать 1 его отряд.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_2.jpg"
             },
             {
-                "title": "СКВОЗЬ ОГОНЬ",
+                "title": "Сквозь огонь",
                 "general": "Противник выбирает и деморализует 1 свой отряд.",
                 "unit": "Кустодий/Крейсер: В начале следующего раунда битвы вы можете перевернуть 1 ваш [B] на [S], чтобы получить 2 (B).",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_3.jpg"
             },
             {
-                "title": "СТОЯТЬ НАСМЕРТЬ",
+                "title": "Стоять насмерть",
                 "general": "Получите 1 [D]. *newpara* Восстановите 1 ваш отряд.",
                 "unit": "Кустодий: Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть деморализован или отступить.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_4.jpg"
             },
             {
-                "title": "НЕУГАСИМАЯ УБЕЖДЁННОСТЬ",
+                "title": "Неугасимая убеждённость",
                 "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 1 (B), 1 (S) или 1 [M].",
                 "unit": "Кустодий/Чемпион/Крейсер: Получите 1 (B) или 1 (S). *newpara* Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть уничтожен способностями карт.",
                 "icons": "",
@@ -103,28 +103,28 @@
         ],
         [
             {
-                "title": "ОТВАЖНАЯ АТАКА",
+                "title": "Отважная атака",
                 "general": "Получите 1 [B]. *newpara* Переверните 1 ваш [M] на [B].",
                 "unit": "Чемпион: Получите по 1 (B) за каждый недеморализованный отряд противника сверх числа ваших недеморализованных отрядов.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_1.jpg"
             },
             {
-                "title": "ВДОХНОВЛЯЮЩИЙ ЛИДЕР",
+                "title": "Вдохновляющий лидер",
                 "general": "Получите 1 [D] или 1 [M]. *newpara* Получите 1 [M] или восстановите 1 ваш отряд.",
                 "unit": "Чемпион/Крейсер: Переверните до 2 ваших [M] на [B] или [S].",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_2.jpg"
             },
             {
-                "title": "ИСТРЕБИТЬ СЛАБЫХ",
+                "title": "Истребить слабых",
                 "general": "Получите по 1 (B) за каждый недеморализованный отряд противника с командным уровнем 0 и за каждый его деморализованный отряд, максимум 3 (B).",
                 "unit": "Чемпион/Крейсер: В этом раунде битвы при первой деморализации вражеского отряда этот отряд уничтожается, если противник не выберет и не деморализует 1 свой отряд.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_3.jpg"
             },
             {
-                "title": "ЗАЩИТИТЬ НАШУ ЧЕСТЬ",
+                "title": "Защитить нашу честь",
                 "general": "Выберите 1 ваш отряд и получите (B) или (S) в количестве, равном его показателю морали.",
                 "unit": "Чемпион/Крейсер: Выберите 1 Чемпиона Клинка или 1 Секретный Крейсер. В этом раунде битвы выбранный отряд не может быть деморализован.",
                 "icons": "",
@@ -133,21 +133,21 @@
         ],
         [
             {
-                "title": "ЗОЛОТАЯ СМЕРТЬ",
+                "title": "Золотая смерть",
                 "general": "Получите 1 [D]. *newpara* Потратьте 1 [B], чтобы получить 3 (B). Противник может потратить 1 [M], чтобы отступить 1 своим отрядом.",
                 "unit": "Дредноут «Галатус»: Выберите и деморализуйте 1 ваш отряд с командным уровнем 3, чтобы получить 3 (B).",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_1.jpg"
             },
             {
-                "title": "НЕПОКОЛЕБИМЫЙ СТРАЖ",
+                "title": "Непоколебимый страж",
                 "general": "Получите 1 [D] или 1 (S). *newpara* Получите 1 [D], если противник не отступит 1 своим отрядом.",
                 "unit": "Дредноут «Галатус»/Мойрайдейс: В этом раунде битвы ваши отряды с командным уровнем 3 не могут быть деморализованы, а все ваши отряды не могут быть уничтожены способностями карт.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_2.jpg"
             },
             {
-                "title": "ВЕДОМЫЕ ЧЕСТЬЮ",
+                "title": "Ведомые честью",
                 "general": "Получите 1 [D]. *newpara* Получите 1 (B) или 1 (S). *newpara* Восстановите 1 ваш отряд.",
                 "unit": "Дредноут «Галатус»/Мойрайдейс: Отступите 1 вашим отрядом. Если вы это сделали, получите 2 (B) и восстановите этот отряд.",
                 "icons": "",
@@ -156,14 +156,14 @@
         ],
         [
             {
-                "title": "ХВАЛА ИМПЕРАТОРУ!",
+                "title": "Хвала императору!",
                 "general": "Получите 3 [D].",
                 "unit": "Валорис: До конца этой битвы ваш лимит кубов равен 12. *newpara* Получите 1 [D].",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t3_1.jpg"
             },
             {
-                "title": "КОПЬЁ ИМПЕРАТОРА",
+                "title": "Копьё императора",
                 "general": "Восстановите 1 ваш отряд. Возьмите 1 боевую карту.",
                 "unit": "Валорис: Отступите всеми вашими отрядами, кроме Траянна Валориса, чтобы разыграть любую боевую карту с руки, кроме «Копья Императора».",
                 "icons": "",
@@ -173,37 +173,37 @@
     ],
     "ordersText": [
         {
-            "title": "ВОЛЯ ИМПЕРАТОРА",
+            "title": "Воля императора",
             "general": "Когда вы раскрываете этот жетон приказа, начиная со 2-го раунда игры, считайте все неконтролируемые миры без вашего жетона цели дружественными до конца игры. *newline* ОДИН РАЗ ЗА ИГРУ.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_1.jpg"
         },
         {
-            "title": "ЗОЛОТОЕ НАСТУПЛЕНИЕ",
+            "title": "Золотое наступление",
             "general": "Когда вы раскрываете этот жетон приказа, вы можете выполнить его как приказ Продвижения. Во время этого Продвижения вы можете переместить не более 2 ваших отрядов. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_2.jpg"
         },
         {
-            "title": "БЛАГОСЛОВЕНИЕ ИМПЕРАТОРА",
+            "title": "Благословение императора",
             "general": "Когда вы раскрываете этот жетон приказа, вы можете восстановить 1 ваш отряд в этой или любой соседней системе. Этот отряд нельзя перемещать во время выполнения данного приказа. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_3.jpg"
         },
         {
-            "title": "СОЛНЕЧНЫЙ АВАНГАРД",
+            "title": "Солнечный авангард",
             "general": "Во время выполнения этого приказа, если вы купили отряд, вы можете переместить 1 из купленных отрядов в дружественную область соседней системы, содержащую ваши отряды или постройки. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_4.jpg"
         },
         {
-            "title": "ШАГ ПРАВОСУДИЯ",
+            "title": "Шаг правосудия",
             "general": "После выполнения этого приказа вы можете выбрать и восстановить 1 ваш отряд в этой системе. Затем вы можете переместить его в соседнюю область. Это может начать битву. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_5.jpg"
         },
         {
-            "title": "ЗОВ ТРОНА",
+            "title": "Зов трона",
             "general": "Во время выполнения этого приказа, в начале шага нанесения повреждений битвы, вы можете отступить 1 вашим отрядом, а затем восстановить его. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_6.jpg"
@@ -211,56 +211,56 @@
     ],
     "eventsText": [
         {
-            "title": "ВНУТРЕННИЙ ДВОРЕЦ",
+            "title": "Внутренний дворец",
             "general": "Получите 1 материал или возьмите 1 дружественный отряд из любого мира и разместите его в дружественном мире с городом.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_1.jpg"
         },
         {
-            "title": "ЛЕКС УЛЬТИМА",
+            "title": "Лекс ультима",
             "general": "Выполните приказ Развертывания в 1 системе, содержащей вашу фабрику.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_2.jpg"
         },
         {
-            "title": "ГИКАНАТЫ",
+            "title": "Гиканаты",
             "general": "Получите 2 жетона подкрепления.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_3.jpg"
         },
         {
-            "title": "ХРАНИТЕЛИ ЧЕЛОВЕЧЕСТВА",
+            "title": "Хранители человечества",
             "general": "Купите 1 улучшение приказа с командным уровнем 2, даже если ваш командный уровень ниже. Снизьте его стоимость в материалах на 1 за каждый дружественный мир, приносящий жетон процветания.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_4.jpg"
         },
         {
-            "title": "ЗАЩИТА ИМПЕРАТОРА",
+            "title": "Защита императора",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (S) в начале каждого раунда этой битвы.",
             "type": "ПЛАН",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_5.jpg"
         },
         {
-            "title": "ВЛАСТЬ ЗОЛОТА",
+            "title": "Власть золота",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (B) в начале каждого раунда этой битвы.",
             "type": "ПЛАН",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_6.jpg"
         },
         {
-            "title": "ЩИТ ДОЛГА",
+            "title": "Щит долга",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Когда 1 ваш отряд уничтожен или отступает во время битвы, вы можете сбросить эту карту, чтобы вернуть его в эту область деморализованным. Получите 2 (S).",
             "type": "ПЛАН",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_7.jpg"
         },
         {
-            "title": "ДЕСЯТЬ ТЫСЯЧ",
+            "title": "Десять тысяч",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы взять 2 боевые карты.",
             "type": "ПЛАН",
             "raster": true,

@@ -69,35 +69,35 @@
     "combatText": [
         [
             {
-                "title": "ЗАЩИТНОЕ ПЛЕТЕНИЕ",
+                "title": "Защитное плетение",
                 "general": "Получите по 1 (S) за каждый ваш недеморализованный отряд. *newline* Потратьте 1 (S), чтобы получить 1 [S].",
                 "unit": "",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_1.jpg"
             },
             {
-                "title": "ЗАПАС МЕДПАКЕТОВ",
+                "title": "Запас медпакетов",
                 "general": "Получите 1 [S]. *newpara* В этом раунде битвы показатель здоровья ваших отрядов увеличен на 1.",
                 "unit": "Очажник/Крепость: Потратьте 1 [S], чтобы восстановить 1 ваш отряд и получить 1 (S).",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_2.jpg"
             },
             {
-                "title": "ВЫЗОВ ПОДКРЕПЛЕНИЯ",
+                "title": "Вызов подкрепления",
                 "general": "Потратьте 1 [S], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
                 "unit": "Очажник/Крепость: Получите 1 [M].",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_3.jpg"
             },
             {
-                "title": "ПОДАВЛЯЮЩИЙ ОГОНЬ",
+                "title": "Подавляющий огонь",
                 "general": "Получите 1 [B].",
                 "unit": "Очажник/Страж Очага/Крепость: Если у вас больше [B], чем у противника, переверните 1 ваш куб на [B].",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_4.jpg"
             },
             {
-                "title": "ПОИСК ВРАГОВ",
+                "title": "Поиск врагов",
                 "general": "Получите 2 (B) сейчас или 2 (B) в начале следующего раунда битвы.",
                 "unit": "Очажник/Крепость: Противник сбрасывает верхнюю карту своей боевой колоды. Получите 1 куб со значком, выбранным среди значков этой карты.",
                 "icons": "",
@@ -106,35 +106,35 @@
         ],
         [
             {
-                "title": "ПЛАМЯ ОЧАГА",
+                "title": "Пламя очага",
                 "general": "Получите 2 [M].",
                 "unit": "Очажник/Страж Очага/Крепость: Получите по 1 (B) или 1 (S) за каждый ваш [M] сверх количества [M] противника.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_1.jpg"
             },
             {
-                "title": "ВЫВЕРЕННЫЙ ВЫСТРЕЛ",
+                "title": "Выверенный выстрел",
                 "general": "Сбросьте 1 карту с руки, чтобы получить 2 (B).",
                 "unit": "Страж Очага/Крепость: Во время шага нанесения повреждений этого раунда битвы противник распределяет 1 дополнительный урон.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_2.jpg"
             },
             {
-                "title": "ЗА СВОИХ!",
+                "title": "За своих!",
                 "general": "Переверните 1 ваш [S] на [M] или 1 ваш [M] на [S].",
                 "unit": "Бастион/Очажник/Пионер/Крепость: Потратьте 1 [B], чтобы перевернуть 1 ваш [B] на [M]. *newline* Получите 1 [M].",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_3.jpg"
             },
             {
-                "title": "ПРАГМАТИЧНОЕ ОТСТУПЛЕНИЕ",
+                "title": "Прагматичное отступление",
                 "general": "Отступите 1 вашим отрядом.",
                 "unit": "Очажник/Страж Очага/Крепость: Потратьте 1 [B] или 1 [M], чтобы получить 3 (B).",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_4.jpg"
             },
             {
-                "title": "СОКРУШИТЕЛЬНЫЙ УДАР",
+                "title": "Сокрушительный удар",
                 "general": "Получите 1 [B], 1 [S] или 1 [M]. *newpara* Вынудите противника выбрать и сбросить 1 боевую карту с руки.",
                 "unit": "Страж Очага/Крепость: Вынудите противника потерять 1 [M] и 1 (S).",
                 "icons": "",
@@ -143,28 +143,28 @@
         ],
         [
             {
-                "title": "БРОНЯ КУЗНИЦЫ",
+                "title": "Броня кузницы",
                 "general": "Получите 1 [S]. *newpara* Потратьте до 2 [S]. За каждый потраченный [S] получите 1 (S).",
                 "unit": "Пионер/Твердыня: Получите 1 [S] или 1 [M].",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_1.jpg"
             },
             {
-                "title": "ТЕЛЕПОРТАЦИОННЫЙ МОДУЛЬ",
+                "title": "Телепортационный модуль",
                 "general": "Получите 1 [B] и 1 (B). *newpara* Перебросьте 1 ваш куб.",
                 "unit": "Пионер/Твердыня: Получите 2 (S). *newline* Верните 1 вашу открытую боевую карту в руку, чтобы разыграть 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_2.jpg"
             },
             {
-                "title": "СТРЕМИТЕЛЬНОЕ СБЛИЖЕНИЕ",
+                "title": "Стремительное сближение",
                 "general": "Получите 3 (B) или 3 (S), если противник не потратит 1 [M].",
                 "unit": "Пионер/Твердыня: Получите 2 (B) и 2 (S), если противник не потратит 1 [M].",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_3.jpg"
             },
             {
-                "title": "ПУСТОТА В НАШИХ ЖИЛАХ",
+                "title": "Пустота в наших жилах",
                 "general": "Восстановите 1 ваш отряд. *newline* Переверните 1 ваш [M] на [B] или [S].",
                 "unit": "Твердыня: Возьмите 1 ваш деморализованный или недеморализованный корабль из этой области и разместите его в дружественной области. Возьмите 1 недеморализованную Крепость из любой области и разместите её в этой области.",
                 "icons": "",
@@ -173,21 +173,21 @@
         ],
         [
             {
-                "title": "ПРЕДКИ НАБЛЮДАЮТ",
+                "title": "Предки наблюдают",
                 "general": "",
                 "unit": "Гекатон/Твердыня: Переместите 1 ваш отряд в эту область из этой или любой соседней системы, чтобы получить 3 (B) или 3 (S). *newpara* В начале фазы разрешения вы можете переместить любое количество ваших отрядов из этой области в любое количество дружественных или неконтролируемых областей этой или соседних систем.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_1.jpg"
             },
             {
-                "title": "ОКО ПРЕДКОВ",
+                "title": "Око предков",
                 "general": "Получите 1 [B], 1 [S] или 1 [M]. *newline* Возьмите 1 боевую карту.",
                 "unit": "Гекатон/Твердыня: Противник теряет 3 куба по вашему выбору.",
                 "icons": "",
                 "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_2.jpg"
             },
             {
-                "title": "ВОЗВРАЩЕНИЕ К ПРЕДКАМ",
+                "title": "Возвращение к предкам",
                 "general": "Переверните до 2 ваших [S] на [B] или до 2 ваших [M] на [B].",
                 "unit": "Гекатон/Твердыня: До конца этой битвы, когда уничтожен ваш отряд, получите материалы в количестве, равном стоимости этого отряда в материалах минус 1.",
                 "icons": "",
@@ -197,37 +197,37 @@
     ],
     "ordersText": [
         {
-            "title": "КУЗНЕЧНАЯ СТАНЦИЯ A.N–VYL",
+            "title": "Кузнечная станция A.N–VYL",
             "general": "Во время применения способности фракции, если вы купили боевую карту с командным уровнем не выше 2, вы можете потратить 1 жетон кузницы, чтобы взять вторую боевую карту того же или более низкого командного уровня и добавить её в вашу боевую колоду. Затем уберите 1 боевую карту из вашей боевой колоды в вашу колоду боевых улучшений. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_1.jpg"
         },
         {
-            "title": "ЖЕЛЕЗНОРОДНЫЙ ПРОВОДНИК",
+            "title": "Железнородный проводник",
             "general": "После выполнения этого приказа вы можете потратить 1 жетон кузницы, чтобы разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. При этом вы также можете переместить 1 ваш корабль из активной системы в любую дружественную или неконтролируемую пустоту активной или соседней системы. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_2.jpg"
         },
         {
-            "title": "ТОРГОВЦЫ ПУСТОТЫ",
+            "title": "Торговцы пустоты",
             "general": "Во время выполнения этого приказа, если у вас есть недеморализованный корабль в активной системе, получите 1 жетон кузницы. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_3.jpg"
         },
         {
-            "title": "МИРЫ-ОПЛОТЫ",
+            "title": "Миры-оплоты",
             "general": "Когда вы покупаете бастион во время выполнения этого приказа, вы можете потратить 1 жетон кузницы, чтобы разместить его в дружественном мире, уже содержащем ровно 1 бастион. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_4.jpg"
         },
         {
-            "title": "УДАР НЕБЕСНОГО МОЛОТА",
+            "title": "Удар небесного молота",
             "general": "Во время этого орбитального удара получите по 1 дополнительному [D] за каждый ваш участвующий корабль и игнорируйте лимит кубов. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_5.jpg"
         },
         {
-            "title": "ОТХОДЫ ПИТАЮТ ПУСТОТУ",
+            "title": "Отходы питают пустоту",
             "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время этого орбитального удара вы можете потратить 2 [S], чтобы выбрать и уничтожить 1 постройку в этом мире. *newline* ОДИН РАЗ ЗА РАУНД.",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_6.jpg"
@@ -235,56 +235,56 @@
     ],
     "eventsText": [
         {
-            "title": "ПРЕУСПЕВАЮЩИЕ ТОРГОВЦЫ",
+            "title": "Преуспевающие торговцы",
             "general": "Получите 2 разных ресурса по вашему выбору.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_1.jpg"
         },
         {
-            "title": "ПЛАНЕТАРНАЯ ДОБЫЧА",
+            "title": "Планетарная добыча",
             "general": "Выберите систему, содержащую ваши корабли, и 1 мир в ней. Получите материалы в количестве, равном показателю материалов этого мира.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_2.jpg"
         },
         {
-            "title": "ПУТЬ В ДАЛЬНИЙ КОСМОС",
+            "title": "Путь в дальний космос",
             "general": "Купите 1 улучшение приказа, игнорируя ограничения командного уровня. Снизьте его стоимость в материалах на 1 за каждую дружественную пустоту с вашими кораблями.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_3.jpg"
         },
         {
-            "title": "ТРУД ВОЗНАГРАЖДАЕТСЯ",
+            "title": "Труд вознаграждается",
             "general": "Получите 2 жетона кузницы и по 1 материалу за каждый жетон кузницы, который превысил бы ваш лимит ресурсов.",
             "type": "ТАКТИКА",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_4.jpg"
         },
         {
-            "title": "ПОДГОТОВИТЬ ВОИНСТВО РОДИЧЕЙ",
+            "title": "Подготовить воинство родичей",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы взять 1 ваш отряд с командным уровнем не выше 2 из любого мира и разместить его в этом мире.",
             "type": "ПЛАН",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_5.jpg"
         },
         {
-            "title": "ЯДРО ПРЕДКОВ",
+            "title": "Ядро предков",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту и 1 боевую карту с руки. Примените обе способности сброшенной боевой карты, даже если указанные на ней отряды не участвуют в битве.",
             "type": "ПЛАН",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_6.jpg"
         },
         {
-            "title": "СОСРЕДОТОЧЕННОЕ УСИЛИЕ",
+            "title": "Сосредоточенное усилие",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время выполнения орбитального удара вы можете сбросить эту карту, чтобы выбрать и деморализовать 1 вражеский отряд в выбранном мире перед нанесением повреждений.",
             "type": "ПЛАН",
             "raster": true,
             "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_7.jpg"
         },
         {
-            "title": "ПОДДЕРЖКА ЖЕЛЕЗНОРОДНЫХ",
+            "title": "Поддержка железнородных",
             "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале шага подкрепления битвы вы можете сбросить эту карту и потратить 1 жетон кузницы, чтобы разместить 2 бесплатных жетона подкрепления в этой области.",
             "type": "ПЛАН",
             "raster": true,

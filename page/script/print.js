@@ -28,7 +28,13 @@
     }).map(function (id) {if(!byId.has(id)) throw new Error('Карта недоступна для печати: '+id);return byId.get(id);});
   }
   function total(cards,quantities) {return selected(cards,quantities).reduce(function (sum,c) {return sum+quantities[c.id];},0);}
-  var api={cardsFrom:cardsFrom,dimensions:dimensions,selected:selected,total:total};
+  function qualityWarnings(card,quality) {
+    var warnings=[];
+    if(quality.dpi<300)warnings.push(card.title+': исходная иллюстрация '+Math.round(quality.dpi)+' DPI');
+    if(quality.minimumTextPt!==null && quality.minimumTextPt<6)warnings.push(card.title+': текст '+quality.minimumTextPt.toFixed(1)+' пт');
+    return warnings;
+  }
+  var api={cardsFrom:cardsFrom,dimensions:dimensions,selected:selected,total:total,qualityWarnings:qualityWarnings};
   if(typeof module!=='undefined' && module.exports) {module.exports=api;return;}
   root.FSPrint=api;
   var STORAGE='forbidden-stars.print-cart.v2',displayMode=root.FSModes.initial(location.hash),quantities={},warning='',version=0,mode=false,loaded,available;
@@ -66,6 +72,7 @@
   api.displayMode=function () {return displayMode;};
   api.setDisplayMode=function (value) {
     value=root.FSModes.normalize(value);if(displayMode===value)return;
+    var dialog=document.querySelector('.fs-print');if(dialog)dialog.close();
     displayMode=value;loaded=null;available=null;mode=false;version++;
     if(previews)previews.clear();
     try {quantities=validateCart(JSON.parse(localStorage.getItem(storageKey())||'{}'));warning='';}
@@ -199,13 +206,13 @@
     if(calibration) chosen=Object.fromEntries(catalog.calibrationIds.map(function (id) {return [id,1];}));
     var selection=selected(data.cards,chosen),count=total(data.cards,chosen);
     if(!count || count>200) throw new Error('Выберите от 1 до 200 экземпляров');
-    var grid=root.FSPaper.layout(catalog,settings),images=new Map(),items=[],warnings=[],bytes=0;
+    var grid=root.FSPaper.layout(catalog,settings),images=new Map(),items=[],warnings=[],quality=[],bytes=0;
     for(var i=0;i<selection.length;i++) {
       check();var card=selection[i];if(progress) progress('Карта '+(i+1)+' / '+selection.length+' · '+card.title);
       var rendered=await front(card,catalog,settings.tokenStyle);check();
       var jpg=await jpeg(rendered.png);images.set(card.id,jpg);bytes+=jpg.bytes.length;
-      if(rendered.dpi<300) warnings.push(card.title+': исходная иллюстрация '+Math.round(rendered.dpi)+' DPI');
-      if(rendered.minimumTextPt!==null && rendered.minimumTextPt<6) warnings.push(card.title+': текст '+rendered.minimumTextPt.toFixed(1)+' пт');
+      warnings.push.apply(warnings,qualityWarnings(card,rendered));
+      quality.push({id:card.id,dpi:rendered.dpi,minimumTextPt:rendered.minimumTextPt});
       if(settings.backs && !images.has(card.backSrc)) {var back=await jpeg(card.backSrc);images.set(card.backSrc,back);bytes+=back.bytes.length;}
       if(bytes>64*1024*1024) throw new Error('Набор слишком большой для браузера. Разделите его на несколько PDF.');
       for(var q=0;q<chosen[card.id];q++) items.push(card);
@@ -217,17 +224,29 @@
       pages.push({positions:root.FSPaper.placements(items,sheet,false,grid,settings.flip),calibration:calibration});
       if(settings.backs) pages.push({positions:root.FSPaper.placements(items,sheet,true,grid,settings.flip),calibration:calibration});
     }
-    return {blob:root.FSPaper.pdf(pages,images,grid),pages:pages.length,count:count,warnings:warnings,layout:grid,displayMode:catalog.displayMode};
+    return {blob:root.FSPaper.pdf(pages,images,grid),pages:pages.length,count:count,warnings:warnings,quality:quality,layout:grid,displayMode:catalog.displayMode};
   };
-  var previews=root.FSCache.create(24);
+  var previews=root.FSCache.create(24),previewQueue=[],previewRunning=0;
+  function queuePreview(work) {
+    return new Promise(function (resolve,reject) {previewQueue.push({work:work,resolve:resolve,reject:reject});drainPreviews();});
+  }
+  function drainPreviews() {
+    while(previewRunning<2 && previewQueue.length){
+      var task=previewQueue.shift();previewRunning++;
+      Promise.resolve().then(task.work).then(task.resolve,task.reject).finally(function () {previewRunning--;drainPreviews();});
+    }
+  }
+  function previewKey(card,style) {return card.id+'|'+card.displayMode+'|'+card.sourceVersion+'|'+style;}
   function previewImage(card,catalog,style) {
-    var key=card.id+'|'+card.displayMode+'|'+card.sourceVersion+'|'+style,cached=previews.get(key);if(cached) return cached;
+    var key=previewKey(card,style),cached=previews.get(key);if(cached) return cached;
     // Downsample the exact print render: rendering text in a differently shaped
     // thumbnail canvas can change line breaks compared with the exported PDF.
-    var pending=front(card,catalog,style).then(async function (r) {
-      var full=await image(r.png),canvas=document.createElement('canvas');canvas.width=300;canvas.height=Math.round(300*full.naturalHeight/full.naturalWidth);
-      canvas.getContext('2d').drawImage(full,0,0,canvas.width,canvas.height);return image(canvas.toDataURL('image/jpeg',.9));
-    }).catch(function (error) {previews.delete(key);throw error;});
+    var pending=queuePreview(async function () {
+      var r=await front(card,catalog,style),full=await image(r.png),canvas=document.createElement('canvas');canvas.width=300;canvas.height=Math.round(300*full.naturalHeight/full.naturalWidth);
+      canvas.getContext('2d').drawImage(full,0,0,canvas.width,canvas.height);
+      var preview=await image(canvas.toDataURL('image/jpeg',.9));
+      preview.fsQuality={dpi:r.dpi,minimumTextPt:r.minimumTextPt};return preview;
+    }).catch(function (error) {if(previews.get(key)===pending)previews.delete(key);throw error;});
     return previews.set(key,pending);
   }
   api.open=async function (options) {
@@ -236,10 +255,10 @@
     var returnFocus=document.activeElement,dialog=element('dialog','','','fs-print');dialog.setAttribute('aria-labelledby','fs-print-title');
     var heading=element('header','',dialog,'fs-print-heading');element('h2','Печать карт',heading).id='fs-print-title';
     element('span',root.FSModes.label(displayMode),heading,'fs-mode-badge');
-    var summary=element('p','Загрузка…',heading),closed=false,busy=false,pdfUrl=null,previewVersion=0,job=null,changed;
+    var summary=element('p','Загрузка…',heading),closed=false,busy=false,pdfUrl=null,previewVersion=0,job=null,changed,thumbObserver=null,qualityJob=null;
     button('×',heading,function () {dialog.close();},'fs-print-close').setAttribute('aria-label','Закрыть печать');
     dialog.addEventListener('close',function () {
-      closed=true;if(job) job.cancelled=true;previewVersion++;if(pdfUrl) URL.revokeObjectURL(pdfUrl);
+      closed=true;if(job) job.cancelled=true;if(qualityJob)qualityJob.cancelled=true;if(thumbObserver)thumbObserver.disconnect();previewVersion++;if(pdfUrl) URL.revokeObjectURL(pdfUrl);
       root.removeEventListener('fs-print-change',changed);dialog.remove();
       var focus=returnFocus?.isConnected?returnFocus:document.querySelector('.fs-print-launch');if(focus) focus.focus();
     });
@@ -251,6 +270,9 @@
       var cart=element('section','',content,'fs-print-selection'),cartHead=element('div','',cart,'fs-print-cart-head');element('h3','Карты',cartHead);
       var chooseCards=button('Выбрать карты',cartHead,async function () {await api.setMode(true);dialog.close();});
       var list=element('div','',cart,'fs-print-cart fs-scroll'),rows=new Map();
+      if(root.IntersectionObserver)thumbObserver=new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {if(entry.isIntersecting){thumbObserver.unobserve(entry.target);loadThumbnail(entry.target.querySelector('img'));}});
+      },{root:list,rootMargin:'120px'});
       var empty=element('div','',cart,'fs-print-empty');element('p','Набор пуст',empty);element('small','Выберите карты галочками в картотеке.',empty);
       var cartActions=element('div','',cart,'fs-print-cart-actions');
       var addFaction=button('Вся фракция',cartActions,async function () {
@@ -281,6 +303,7 @@
       var layoutLabel=element('p','',pane,'fs-print-layout-label');
       var duplexLabel=element('p','',pane,'fs-print-layout-label');
       var quality=element('details','',pane,'fs-print-quality');quality.hidden=true;
+      var qualityResults=new Map(),qualityError='',qualitySelection=null;
       var footer=element('footer','',dialog,'fs-print-footer');status=element('p',warning||'',footer);status.setAttribute('role','status');status.setAttribute('aria-live','polite');
       var generate=button('Скачать PDF',footer,function () {if(busy) {job.cancelled=true;status.textContent='Отмена…';} else run(false);},'fs-print-primary');
       function currentOptions() {return {paper:paper.value,backs:backs.checked,flip:flip.value,marginMm:Number(margin.value),tokenStyle:token.value,displayMode:displayMode};}
@@ -288,7 +311,48 @@
         var result=[];selected(cards,quantities).forEach(function (c) {for(var i=0;i<quantities[c.id];i++) result.push(c);});return result;
       }
       function valid() {return !!margin.value && margin.validity.valid && validOptions(currentOptions()) && Array.from(list.querySelectorAll('input')).every(function (i) {return !!i.value && i.validity.valid;});}
-      function invalidate() {if(pdfUrl) URL.revokeObjectURL(pdfUrl);pdfUrl=null;quality.hidden=true;quality.replaceChildren();}
+      function invalidate() {if(pdfUrl) URL.revokeObjectURL(pdfUrl);pdfUrl=null;}
+      function rememberQuality(card,preview,style) {
+        qualityResults.set(card.id,{style:style,value:preview.fsQuality});showQuality();
+      }
+      function showQuality() {
+        if(closed||busy)return;
+        var chosen,checked=0,unmeasured=0,warnings=[];
+        try{chosen=qualitySelection||selected(cards,quantities);}catch(error){quality.hidden=true;return;}
+        chosen.forEach(function (card) {var result=qualityResults.get(card.id);if(result?.style===token.value){checked++;if(result.value.minimumTextPt===null)unmeasured++;warnings.push.apply(warnings,qualityWarnings(card,result.value));}});
+        quality.hidden=!chosen.length;quality.replaceChildren();if(!chosen.length)return;
+        element('summary',(qualitySelection?'Качество контрольного листа':'Качество перед печатью')+' · '+checked+' / '+chosen.length,quality);
+        element('p','Проверяются текст и иллюстрации лиц. Совмещение сторон и читаемость подтвердите контрольной печатью в масштабе 100%.',quality);
+        if(warnings.length){var warningList=element('ul','',quality);warnings.forEach(function (text) {element('li',text,warningList);});}
+        else if(checked===chosen.length&&!unmeasured)element('p','Нет текста меньше 6 пт или иллюстраций ниже 300 DPI. Это не заменяет контрольную печать.',quality);
+        if(unmeasured)element('p','Размер печатного текста на исходных изображениях ('+unmeasured+') не измеряется автоматически. Проверьте его на контрольном отпечатке.',quality);
+        if(qualityError)element('p',qualityError,quality).setAttribute('role','alert');
+        if(checked<chosen.length||qualityJob)button(qualityJob?'Отменить проверку':'Проверить весь набор',quality,checkQuality,'fs-print-quiet');
+      }
+      async function checkQuality() {
+        if(qualityJob){qualityJob.cancelled=true;qualityJob=null;showQuality();return;}
+        if(busy||!valid())return;
+        var task={cancelled:false,style:token.value,ids:Object.keys(quantities).sort().join('|')};qualityJob=task;qualityError='';showQuality();
+        try{
+          for(var card of selected(cards,quantities)){
+            var cached=qualityResults.get(card.id);if(cached?.style===task.style)continue;
+            if(closed||task.cancelled)return;
+            var preview=await previewImage(card,catalog,task.style);
+            if(closed||task.cancelled)return;rememberQuality(card,preview,task.style);
+          }
+        }catch(error){if(!closed&&!task.cancelled)qualityError=error.message;}
+        finally{if(qualityJob===task){qualityJob=null;showQuality();if(!closed&&!task.cancelled&&!qualityError)refreshPreview();}}
+      }
+      async function loadThumbnail(thumb) {
+        var card=thumb.fsCard,style=token.value,key=previewKey(card,style);if(thumb.dataset.previewKey===key)return;
+        thumb.dataset.previewKey=key;thumb.hidden=true;thumb.parentElement.setAttribute('aria-busy','true');thumb.fsRetry.hidden=true;
+        try{
+          var preview=await previewImage(card,catalog,style);
+          if(closed||!thumb.isConnected||thumb.dataset.previewKey!==key||token.value!==style)return;
+          thumb.src=preview.src;thumb.hidden=false;rememberQuality(card,preview,style);return true;
+        }catch(error){if(!closed&&thumb.isConnected&&thumb.dataset.previewKey===key&&token.value===style){thumb.fsRetry.hidden=false;thumb.fsRetry.title=error.message;}}
+        finally{if(thumb.dataset.previewKey===key&&token.value===style)thumb.parentElement.setAttribute('aria-busy','false');}
+      }
       async function refreshPreview() {
         var revision=++previewVersion;invalidate();
         try {
@@ -307,6 +371,7 @@
           root.FSPaper.drawPreview(canvas,grid,positions,images,false);canvas.setAttribute('aria-busy','true');
           await Promise.all(positions.map(async function (p) {
             var card=available.get(p.id),img=back?await image(card.backSrc):await previewImage(card,catalog,opts.tokenStyle);images.set(p.key,img);
+            if(!back&&!closed&&revision===previewVersion)rememberQuality(card,img,opts.tokenStyle);
           }));
           if(closed || revision!==previewVersion) return;
           root.FSPaper.drawPreview(canvas,grid,positions,images,false);canvas.setAttribute('aria-busy','false');
@@ -314,13 +379,18 @@
         } catch(error) {if(!closed && revision===previewVersion) {status.textContent=error.message;canvas.setAttribute('aria-busy','false');}}
       }
       function updateCart() {
-        invalidate();var ids=Object.keys(quantities);
-        rows.forEach(function (row,id) {if(!ids.includes(id)) {row.remove();rows.delete(id);}});
+        invalidate();qualitySelection=null;var ids=Object.keys(quantities);
+        if(qualityJob&&(qualityJob.style!==token.value||qualityJob.ids!==ids.slice().sort().join('|'))){qualityJob.cancelled=true;qualityJob=null;}
+        qualityError='';
+        rows.forEach(function (row,id) {if(!ids.includes(id)) {var holder=row.querySelector('.fs-print-thumb');if(thumbObserver&&holder)thumbObserver.unobserve(holder);row.remove();rows.delete(id);}});
         ids.forEach(function (id) {
           var card=available.get(id),row=rows.get(id);
           if(!row) {
             row=element('div','',list,'fs-print-row');row.dataset.cartId=id;rows.set(id,row);
-            if(card) {var thumb=element('img','',row);thumb.alt='';thumb.src='thumbnails/'+card.src;thumb.onerror=function () {thumb.onerror=null;thumb.src=card.src;};}
+            if(card) {
+              var holder=element('span','',row,'fs-print-thumb'),thumb=element('img','',holder);thumb.alt='';thumb.decoding='async';thumb.fsCard=card;
+              var retry=button('↻',holder,async function () {thumb.dataset.previewKey='';if(await loadThumbnail(thumb))refreshPreview();},'fs-print-thumb-retry');retry.hidden=true;retry.setAttribute('aria-label','Повторить миниатюру: '+card.title);thumb.fsRetry=retry;
+            }
             var label=element('div','',row,'fs-print-row-name');element('strong',card?card.title:id,label);element('small',card?card.factionTitle+' · '+TYPES[card.category]:'Нет печатного источника',label);
             var stepper=element('div','',row,'fs-print-stepper');
             function adjust(delta) {try {api.setQuantity(id,quantities[id]+delta);} catch(error) {status.textContent=error.message;}}
@@ -335,6 +405,11 @@
           }
           var input=row.querySelector('input');if(input!==document.activeElement) input.value=quantities[id];
           row.querySelector('.fs-print-stepper button:last-child').disabled=busy||quantities[id]>=20;
+          var imageNode=row.querySelector('img');
+          if(imageNode&&imageNode.dataset.previewKey!==previewKey(card,token.value)){
+            imageNode.hidden=true;imageNode.removeAttribute('src');
+            if(thumbObserver)thumbObserver.observe(imageNode.parentElement);else loadThumbnail(imageNode);
+          }
         });
         empty.hidden=!!ids.length;list.hidden=!ids.length;clear.disabled=busy||!ids.length;
         chooseCards.textContent=ids.length?'Выбрать ещё':'Выбрать карты';
@@ -343,12 +418,13 @@
           summary.textContent=count+' экз. · '+ids.length+' разных карт'+(count?' · '+Math.ceil(count/grid.capacity)+' лист.':'');
           generate.disabled=!busy && (!count || count>200 || !valid());calibrate.disabled=busy||!valid();
         } catch(error) {summary.textContent='Проверьте набор';status.textContent=error.message;generate.disabled=true;}
-        refreshPreview();
+        showQuality();refreshPreview();
       }
       changed=updateCart;root.addEventListener('fs-print-change',changed);
       [paper,backs,flip,token].forEach(function (control) {control.onchange=updateCart;});margin.oninput=updateCart;
       async function run(calibration) {
         if(busy || !valid()) return;busy=true;invalidate();var snapshot=version;job={cancelled:false};var task=job;
+        if(qualityJob){qualityJob.cancelled=true;qualityJob=null;}
         dialog.querySelectorAll('button,input,select').forEach(function (control) {if(control!==generate && !control.classList.contains('fs-print-close')) control.disabled=true;});
         generate.disabled=false;generate.textContent='Отменить';
         try {
@@ -357,9 +433,9 @@
           },calibration);
           if(closed || task.cancelled) throw new Error('Создание PDF отменено');
           pdfUrl=URL.createObjectURL(result.blob);
-          var link=element('a','',dialog);link.href=pdfUrl;link.download='forbidden-stars-'+displayMode+(catalog.ruleVersion?'-'+catalog.ruleVersion:'')+'-'+(calibration?'control-':'')+paper.value+'.pdf';link.click();link.remove();
-          quality.hidden=!result.warnings.length;
-          if(result.warnings.length) {element('summary','Качество исходников · '+result.warnings.length,quality);var warningsList=element('ul','',quality);result.warnings.forEach(function (w) {element('li',w,warningsList);});}
+          var link=element('a','',dialog);link.href=pdfUrl;link.download='forbidden-stars-'+displayMode+(catalog.ruleVersion?'-'+catalog.ruleVersion:'')+'-'+(calibration?'control-':'')+paper.value+'-'+flip.value+'.pdf';link.click();link.remove();
+          result.quality.forEach(function (entry) {qualityResults.set(entry.id,{style:currentOptions().tokenStyle,value:entry});});
+          qualitySelection=calibration?catalog.calibrationIds.map(function (id) {return available.get(id);}):null;
           status.textContent='PDF готов · '+result.count+' экз. · '+result.pages+' стр. Масштаб 100%'+(backs.checked?' · переворот по '+(flip.value==='long'?'длинной':'короткой')+' стороне.':'.');
         } catch(error) {if(!closed) status.textContent=error.message;}
         finally {
@@ -369,6 +445,7 @@
             clear.disabled=!api.count();generate.disabled=!api.count()||!valid();previous.disabled=!sheet;
             try {next.disabled=sheet>=Math.ceil(items().length/root.FSPaper.layout(catalog,currentOptions()).capacity)-1;} catch(error) {generate.disabled=true;}
             rows.forEach(function (row,id) {row.querySelector('.fs-print-stepper button:last-child').disabled=quantities[id]>=20;});
+            showQuality();
           }
         }
       }

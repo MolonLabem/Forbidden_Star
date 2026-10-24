@@ -27,46 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/s1.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/s1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/s1.webp","box":[163,163,745,680],"sha256":"390533872f5042d92ae5bd26df673431ebdca76af8d8a0f125ffb71502fd186a"}
     },
     "combat/s2.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/s2.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/s2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/s2.webp","box":[163,163,745,794],"sha256":"f278b9f90d13a42b2b3473f71bd3a88f148e21e39e540189b706af7ec0abb603"}
     },
     "combat/s3.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/s3.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/s3.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/s3.webp","box":[163,163,745,625],"sha256":"bd27a1909e80905347971de355fbd88360d6cf281ad32c26de1139c06fdbe267"}
     },
     "combat/s4.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/s4.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/s4.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/s4.webp","box":[163,163,745,699],"sha256":"bb3f7509f33ea7e6f012546382e5a17320c23a090817f192f29e5ad11a650f82"}
     },
     "combat/s5.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/s5.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/s5.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/s5.webp","box":[163,163,745,794],"sha256":"e4ad0d0676ef1e558fdb9d8c5e4e81da8042bb29ebfaee5bab5d3242da558af7"}
     },
     "combat/t0_1.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t0_1.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t0_1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t0_1.webp","box":[163,163,745,625],"sha256":"39654bec598f217826be5f8b605b6dd671d5c8627ef63d675855b0f0d5020f54"}
     },
     "combat/t0_2.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t0_2.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t0_2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t0_2.webp","box":[163,163,745,680],"sha256":"5e7b7349943bf0d12c0b0cf3ee168eb12f83f8f0cf9e928fee311aa0b3f4f182"}
     },
     "combat/t0_3.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t0_3.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t0_3.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t0_3.webp","box":[163,163,745,628],"sha256":"de2be47e3690f7fcebc06dcd201b42ede34dd060243e306a19991dc8150fca1f"}
     },
     "combat/t0_4.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t0_4.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t0_4.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t0_4.webp","box":[163,163,745,625],"sha256":"f9b5631563e9e0b8dfe9c8b60da27bd67439ea8f4cc59df0702ad1f0c68be497"}
     },
     "combat/t2_1.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t2_1.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t2_1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t2_1.webp","box":[163,163,745,612],"sha256":"619203ec7f7a7b8a8e3abceb135ba2d5749908475756d824e23a80a45e4cf5f9"}
     },
     "combat/t2_2.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t2_2.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t2_2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t2_2.webp","box":[163,163,745,632],"sha256":"8cf9f688dfe612b99b5ed2fa8223cadfcfe510d1a0ee10bf5a5e481feaeef99f"}
     },
     "combat/t2_3.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t2_3.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t2_3.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t2_3.webp","box":[163,163,745,619],"sha256":"1cf2903c22f57f265a943e0351fc71992059b2321b38a86b9c61e8c9a513c2e2"}
     },
     "combat/t3_1.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t3_1.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t3_1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t3_1.webp","box":[163,163,745,614],"sha256":"c2f3b39501df57164b5dc75d717280c7a59e60b6fefc6137132c091d35c38ae1"}
     },
     "combat/t3_2.jpg": {
-      "picture": "pictures/templates/gif/tyranid/combat/t3_2.jpg"
+      "picture": "pictures/templates/gif/tyranid/combat/t3_2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tyranid/combat/t3_2.webp","box":[163,163,745,625],"sha256":"8be874f65a4b30355fdb9a002f847fd14e7bad1cd4d9f1985e272a98a87323ef"}
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",

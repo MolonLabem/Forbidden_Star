@@ -12,11 +12,12 @@
  *   text (combat):  { title, background, foreground, icons }
  *   text (orders):  { title, general }
  *   text (events):  { title, general, type }
- *   Optional template: { picture?, patches:[{role?,box:[x,y,w,h],texture:{src,crop:[x,y,w,h]}}] }
+ *   Optional template: { picture?, artwork?:{src,box:[x,y,w,h],sha256}, patches:[{role?,box:[x,y,w,h],texture:{src,crop:[x,y,w,h]}}] }
  *   Combat pictures contain the frame, native badges and illustration, with
  *   blank title, combat-symbol rail and effect areas, just like SoW templates.
- *   Template coordinates are fractions of native images/canvas. Clean patches
- *   describe artwork erasure only. Shared frame fields and explicit printed
+ *   Patch coordinates are fractions of native images/canvas; artwork.box uses
+ *   pixels of the original template. Its lossless alpha protects the frame.
+ *   Clean patches describe artwork erasure only. Shared frame fields and explicit printed
  *   regions determine placement; measured text determines wrapping. Without an explicit
  *   output height, composition retains the source image's native proportions.
  *   Sheet text adds crop?, side, sheet:{title,subtitle,abilities}, regions?.
@@ -425,6 +426,15 @@
   var _sourceAreas=window.FSCache.create(32);
   var _titleAreas=window.FSCache.create(32);
   var _artworkAreas=window.FSCache.create(32);
+  function drawEnhancedArtwork(ctx,source,target) {
+    var layer=ctx.fsArtwork;
+    if(!layer)return;
+    var box=layer.box,scaleX=target[2]/source[2],scaleY=target[3]/source[3];
+    ctx.save();
+    ctx.beginPath();ctx.rect(target[0],target[1],target[2],target[3]);ctx.clip();
+    ctx.drawImage(layer.image,target[0]+(box[0]-source[0])*scaleX,target[1]+(box[1]-source[1])*scaleY,box[2]*scaleX,box[3]*scaleY);
+    ctx.restore();
+  }
   function extendArtwork(ctx,picture,panelTop) {
     var end=_artworkAreas.get(picture.src);
     if(end===undefined){
@@ -446,7 +456,9 @@
     // measured artwork window; the original title, badge and left frame stay put.
     var left=.18,top=.13,sw=picture.width*(1-left),sh=picture.height*(end-top);
     var dw=cw*(1-left),dh=panelTop-ch*top,scale=Math.max(dw/sw,dh/sh),cropW=dw/scale,cropH=dh/scale;
-    ctx.drawImage(picture,picture.width*left+(sw-cropW)/2,picture.height*top, cropW,cropH,cw*left,ch*top,dw,dh);
+    var source=[picture.width*left+(sw-cropW)/2,picture.height*top,cropW,cropH],target=[cw*left,ch*top,dw,dh];
+    ctx.drawImage(picture,source[0],source[1],source[2],source[3],target[0],target[1],target[2],target[3]);
+    drawEnhancedArtwork(ctx,source,target);
     ctx.drawImage(picture,0,picture.height*(end-.04),picture.width*left,picture.height*.04,0,ch*end,cw*left,panelTop-ch*end);
     ctx.fsCombatArtwork.paintedBottomPx=panelTop;ctx.fsCombatArtwork.extended=true;
   }
@@ -741,17 +753,23 @@
     var iconSz = cw * COMBAT_LAYOUT.iconSizeRatio, iconSp = cw * COMBAT_LAYOUT.iconSpacingRatio;
     var iconXPos = cw * COMBAT_LAYOUT.iconX, iconStartYPos = ch * COMBAT_LAYOUT.iconStartY;
     var iconChars = String(data.icons || '').split('').map(function (c) { return iconMap[c.toUpperCase()]; }).filter(Boolean);
-    var nativeFrame=Promise.resolve(null);
-    if(data.template?.picture){
-      var frameSrc=data.thumbnail?'thumbnails/'+data.picture:data.picture;
-      nativeFrame=loadImage(frameSrc).catch(function(error){if(!data.thumbnail)throw error;return loadImage(data.picture);});
-    }
+    // Native frame measurements stay identical for viewing and printing.
+    var nativeFrame=data.template?.picture?loadImage(data.picture):Promise.resolve(null);
     var resources = await Promise.all([
       loadCardPicture(data), loadImage('pictures/background.png'),
       loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),nativeFrame,
+      data.artwork?loadImage(data.artwork.src):Promise.resolve(null),
     ].concat(iconChars.map(loadImage)));
-    var picture = resources[0], bottomImg = resources[3], iconImgs = resources.slice(5);
+    var picture = resources[0], bottomImg = resources[3], iconImgs = resources.slice(6);
+    if(data.artwork){
+      var box=data.artwork.box;
+      if(!Array.isArray(box)||box.length!==4||box.some(function(v){return !Number.isFinite(v)||v<0;})||
+        !box[2]||!box[3]||box[0]+box[2]>picture.width||box[1]+box[3]>picture.height)throw new Error('Некорректная область иллюстрации');
+      // Lossless masked artwork is separate from the original frame and fields.
+      ctx.fsArtwork={image:resources[5],box:box};
+    }
     ctx.drawImage(picture, 0, 0, cw, ch);
+    drawEnhancedArtwork(ctx,[0,0,picture.width,picture.height],[0,0,cw,ch]);
     drawLabel(ctx,data.title||'',{box:combatTitleField(picture)},'title');
     var bottomH = drawCombatEffects(data, ctx, resources.slice(1, 4), null,picture,resources[4]);
     // Five-symbol Base/GiF cards use the same rail and icon assets as SoW.
@@ -1114,7 +1132,8 @@
     var thumbnail = !strict && !!card.thumbnail;
     var cacheable=!strict && !options.onMetrics;
     var picture = card.artSrc || (strict ? card.src : (card.picture || card.src));
-    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, card.text, card.template]);
+    var artwork = card.kind==='combat' && !card.artSrc && card.template && card.template.artwork;
+    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, artwork, card.text, card.template]);
     var cached = cacheable && _composed.get(key);
     if (cached) return cached;
     var fn = card.text && card.text.raster ? drawRasterTranslation : DRAW[card.kind];
@@ -1145,6 +1164,7 @@
       var format = function (text) { return window.FSWord.format(text, wording); };
       var data = {
         template:   card.template,
+        artwork:    artwork,
         picture:    picture,
         hasText:    true,
         title:      card.text.title      || '',
@@ -1158,7 +1178,6 @@
         crop:       card.text.crop,
         sheet:      card.text.sheet,
         side:       card.text.side,
-        thumbnail:  thumbnail,
         wording:    wording,
       };
       if (wording === 'images') {

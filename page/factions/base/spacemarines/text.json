@@ -259,46 +259,60 @@
   },
   "templates": {
     "combat/s1.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/s1.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/s1.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/s1.webp","box":[163,163,745,625],"sha256":"b49d9d2186e8227cf54a68ddc0db39fb6e6463575c77050ce0ce141f7ef5b0f1"}
     },
     "combat/s2.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/s2.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/s2.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/s2.webp","box":[163,163,745,632],"sha256":"f3480fc863e988db456e1bdd68a4f03975a9868799c6ef17a52939626bdaee21"}
     },
     "combat/s3.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/s3.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/s3.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/s3.webp","box":[163,163,745,632],"sha256":"a04803792929f17230542b7860fbe090b8e74d98a390def3932573ca3105f695"}
     },
     "combat/s4.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/s4.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/s4.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/s4.webp","box":[163,163,745,727],"sha256":"3dfbe8ef6ebc32deada2e811f0fbfccf64c9a78957d96ff777a6331fe3f972b6"}
     },
     "combat/s5.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/s5.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/s5.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/s5.webp","box":[163,163,745,680],"sha256":"cc065b6b01b02c28684670e284324e3a7a6a5dbd426a0cd7a9bf41a71ce3a48c"}
     },
     "combat/t0_1.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t0_1.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t0_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t0_1.webp","box":[163,163,745,632],"sha256":"31c0853213e0ab82f3f9ee86417eaf40f49d0e6b371d9aa4a1c57edd3fef2aa4"}
     },
     "combat/t0_2.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t0_2.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t0_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t0_2.webp","box":[163,163,745,625],"sha256":"da23e6e1622cbd604df6e2fcf19d241721590763d7dbb362e129714d8cc250ed"}
     },
     "combat/t0_3.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t0_3.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t0_3.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t0_3.webp","box":[163,163,745,632],"sha256":"0899041b8dd9794c6db078e81320b732f889f22e8ec5a4d767f152bfbe2bf2f9"}
     },
     "combat/t0_4.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t0_4.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t0_4.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t0_4.webp","box":[163,163,745,680],"sha256":"0fcc57c2552d05d1666b483471d9755625f6c310c12c3d2a8eb01a943ba3b18e"}
     },
     "combat/t2_1.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t2_1.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t2_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t2_1.webp","box":[163,163,745,632],"sha256":"85b050c4c1b497310412636cac0ebda016507d54561a21bf014da620b99f5607"}
     },
     "combat/t2_2.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t2_2.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t2_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t2_2.webp","box":[163,163,745,632],"sha256":"9fc6348422feddf1c581a90c544048fd16e53a0679831aabd775a4abdfc41933"}
     },
     "combat/t2_3.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t2_3.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t2_3.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t2_3.webp","box":[163,163,745,680],"sha256":"030218af2c2467c448ff589e07ac1065717ec80a85a7da561c9d43f1509f7eab"}
     },
     "combat/t3_1.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t3_1.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t3_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t3_1.webp","box":[163,163,745,680],"sha256":"6a8566a5ced740cb2c148479f8f231c541a2433dc14967417a45862e198498d9"}
     },
     "combat/t3_2.jpg": {
-      "picture": "pictures/templates/base/spacemarines/combat/t3_2.jpg"
+      "picture": "pictures/templates/base/spacemarines/combat/t3_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/spacemarines/combat/t3_2.webp","box":[163,163,745,680],"sha256":"fbdbbc3386f7857ebd46440209b1a169c2668797ef349dee023ef431b59d7c73"}
     },
     "orders/o_1.jpg": {
       "status": "reconstructed-preview-not-clean-master",

@@ -61,7 +61,6 @@
     general:   null,
     expansions: [],
     categories: [],
-    defaults:  null,
     factions:  {},
     manifest:  {},
     text:      {},
@@ -209,17 +208,6 @@
     return DOT_FALLBACK;
   }
 
-  function tierLabel(ti) {
-    var tiers = (DATA.general && DATA.general.labels && DATA.general.labels.tiers) || [];
-    return tiers[ti] || ('Набор ' + (ti + 1));
-  }
-
-  function backLabel(file) {
-    var key = file.replace(/\.[a-z]+$/i, '');
-    var backs = (DATA.general && DATA.general.labels && DATA.general.labels.backs) || {};
-    return backs[key] || 'Задник';
-  }
-
   function expColor(key) {
     var e = findKey(DATA.expansions, key);
     return (e && e.color) || DOT_FALLBACK;
@@ -234,7 +222,6 @@
       });
       DATA.factions[exp] = list;
       DATA.loading['fac:' + exp] = false;
-      list.forEach(function (f) { ensureManifest(exp, f.key); });
       if (state.expansion === exp && !state.faction && list[0]) state.faction = list[0].key;
       render();
     }).catch(function (e) {
@@ -1040,6 +1027,7 @@
     var waitingFactions=new Set();
     records.forEach(function (row,index) {
       var parts=row.id.split('/'),id=parts.slice(0,2).join('/');
+      if(DATA.factions[parts[0]])ensureManifest(parts[0],parts[1]);
       var card=(DATA.cards[id] || []).find(function (card) {return card.id===row.id;});
       if(card) {main.appendChild(comparisonPair(decorateCard(card,'updated'),row.change,index));return;}
       if(waitingFactions.has(id))return;
@@ -1076,9 +1064,12 @@
     if (DATA.general && state.expansion && !findKey(DATA.expansions, state.expansion)) {
       state.expansion = null; state.faction = null; pendingCard = null;
     }
+    if (DATA.general && state.expansion) ensureFactions(state.expansion);
     if (state.expansion && DATA.factions[state.expansion] && !findKey(DATA.factions[state.expansion], state.faction)) {
       var firstFaction = DATA.factions[state.expansion][0]; state.faction = firstFaction ? firstFaction.key : null;
     }
+    // Navigation needs only faction names. Load card text when its view needs it.
+    if (state.expansion && state.faction && DATA.factions[state.expansion]) ensureManifest(state.expansion, state.faction);
     if (!FOLDER[state.category] && state.category !== 'material') state.category = 'combat';
     if (state.lb !== null) {
       pendingCard = flat[state.lb] ? flat[state.lb].src : null;
@@ -1232,6 +1223,7 @@
         var facBlocks = [];
         var expCount = 0;
         facs.forEach(function (f) {
+          ensureManifest(e.key, f.key);
           var id = e.key + '/' + f.key;
           if (DATA.errors['man:' + id]) failed.push({ exp: e.key, fac: f.key });
           if (DATA.loading['man:' + id]) pending = true;
@@ -1325,7 +1317,7 @@
 
     var facId = state.expansion + '/' + state.faction;
     var hasMaterials = !!(DATA.text[facId] && DATA.text[facId].materials && DATA.text[facId].materials.length);
-    if (cat === 'material' && !hasMaterials && DATA.categories.length) {
+    if (cat === 'material' && built.ready && !hasMaterials && DATA.categories.length) {
       setState({ category: DATA.categories[0].key });
       return;
     }
@@ -1528,7 +1520,6 @@
   function boot() {
     fetchJSON('factions/general.json').then(function (g) {
       DATA.general = g;
-      DATA.defaults = g.filenames;
       DATA.expansions = (g.expansion.folder || []).map(function (key, i) {
         return {
           key: key,

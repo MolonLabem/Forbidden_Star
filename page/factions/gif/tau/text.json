@@ -27,46 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s1.jpg"
+      "picture": "pictures/templates/gif/tau/combat/s1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/s1.webp","box":[163,163,745,632],"sha256":"150bd0d2e5da17d46cf3286f50e14368e14c5034b6cf4bbe9d767f81d25fcc5a"}
     },
     "combat/s2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s2.jpg"
+      "picture": "pictures/templates/gif/tau/combat/s2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/s2.webp","box":[163,163,745,632],"sha256":"9e4dcc231517dc31e7515d9a4ef70120e2534fd9bc6a7c35e8aff086f116e218"}
     },
     "combat/s3.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s3.jpg"
+      "picture": "pictures/templates/gif/tau/combat/s3.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/s3.webp","box":[163,163,745,680],"sha256":"2e1f431e4be1c350cd7df0d35032031840707e7e2ddb2fba819b61885cbfc107"}
     },
     "combat/s4.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s4.jpg"
+      "picture": "pictures/templates/gif/tau/combat/s4.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/s4.webp","box":[163,163,745,680],"sha256":"150ab01f61c705bea06df3b4654f607ff28af1070150f1e0481ea0b92e55a805"}
     },
     "combat/s5.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/s5.jpg"
+      "picture": "pictures/templates/gif/tau/combat/s5.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/s5.webp","box":[163,163,745,794],"sha256":"577f710529310156534826270ca1cec88cdfd02092f3d1769027a3dc071b4c3c"}
     },
     "combat/t0_1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_1.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t0_1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t0_1.webp","box":[163,163,745,619],"sha256":"75051aac3a7bc346acb601fecdf5b1fc016f81cbefb9d0df980540207545f9b7"}
     },
     "combat/t0_2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_2.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t0_2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t0_2.webp","box":[163,163,745,699],"sha256":"4a03489130b97e1cdcf63c26d4ae26f728475c6dccc046066ee6bcd1898620ae"}
     },
     "combat/t0_3.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_3.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t0_3.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t0_3.webp","box":[163,163,745,619],"sha256":"7139aea6b32e6ace94849a43eb96b22fd42c8184dbb749f329797545d1ecb1e4"}
     },
     "combat/t0_4.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t0_4.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t0_4.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t0_4.webp","box":[163,163,745,625],"sha256":"92068da8c7dfc068dd9c97fe690a3376449b6fc428fe225055a333f12f62d3d6"}
     },
     "combat/t2_1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t2_1.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t2_1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t2_1.webp","box":[163,163,745,632],"sha256":"adacd16c84a5f4b3171ad3f16b49404bcf2ec9559b3b5f18927f9ddb16ee91c9"}
     },
     "combat/t2_2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t2_2.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t2_2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t2_2.webp","box":[163,163,745,680],"sha256":"202f52f3a47829609a87c53f5fc0f8acf711de4a6fe81110692b7d107a9cef52"}
     },
     "combat/t2_3.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t2_3.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t2_3.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t2_3.webp","box":[163,163,745,625],"sha256":"5a50710aec9b973e0325c670ea3ca6ea225b64ad2ff51863f9ddfa48bebb2f37"}
     },
     "combat/t3_1.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t3_1.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t3_1.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t3_1.webp","box":[163,163,745,625],"sha256":"c55dddb221a4282df8cf05f56388484d6eded278e686dead462e0e5db1b8f798"}
     },
     "combat/t3_2.jpg": {
-      "picture": "pictures/templates/gif/tau/combat/t3_2.jpg"
+      "picture": "pictures/templates/gif/tau/combat/t3_2.jpg",
+      "artwork": {"src":"pictures/artwork/gif/tau/combat/t3_2.webp","box":[163,163,745,632],"sha256":"04c926cec55656e2c7abecfc47fe08cec5f8c1f04861dd092c56dc769f9603cd"}
     },
     "orders/o_1.jpg": {
       "status": "reconstructed-preview-not-clean-master",

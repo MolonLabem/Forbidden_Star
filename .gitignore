@@ -1,6 +1,7 @@
 # Local files and generated output do not belong in the website repository.
 .DS_Store
 Thumbs.db
+.vs/
 node_modules/
 __pycache__/
 *.pyc

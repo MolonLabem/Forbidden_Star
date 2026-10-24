@@ -750,6 +750,9 @@ body {
 .fs-print-cart { overflow: auto; flex: 1; min-height: 0; padding: 0 16px; }
 .fs-print-row { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; align-items: center; gap: 10px; padding: 13px 0; border-bottom: 1px solid #302a23; }
 .fs-print-row img { width: 42px; height: 59px; object-fit: cover; border-radius: 4px; grid-row: span 2; }
+.fs-print-thumb { grid-row: span 2; display: grid; place-items: center; width: 42px; height: 59px; border-radius: 4px; background: #302a23; }
+.fs-print .fs-print-thumb-retry { width: 36px; height: 40px; padding: 0; font-size: 22px; }
+.fs-print-thumb [hidden] { display: none; }
 .fs-print-row-name { min-width: 0; }
 .fs-print-row-name strong { display: block; font-size: 13px; font-weight: 500; line-height: 1.3; }
 .fs-print small { display: block; color: #9b9282; font-size: 11px; margin-top: 4px; }
@@ -778,6 +781,7 @@ body {
 .fs-print-paper canvas { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
 .fs-print .fs-print-layout-label { font-size: 11px; color: #a99d87; text-align: center; }
 .fs-print-quality { flex-shrink: 0; }
+.fs-print-quality p { font-size: 11px; line-height: 1.5; color: #ad9e83; margin: 8px 0; }
 .fs-print-quality ul { max-height: 100px; overflow: auto; font-size: 11px; color: #ad9e83; padding-left: 18px; }
 .fs-print-footer { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; background: #211d16; border-top: 1px solid #40372b; }
 .fs-print-footer p { font-size: 12px; line-height: 1.4; color: #b6a98e; }

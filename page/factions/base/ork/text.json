@@ -27,46 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s1.jpg"
+      "picture": "pictures/templates/base/ork/combat/s1.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/s1.webp","box":[163,163,745,625],"sha256":"06afa4722b2bae3f763a4af6e7bc3608d35a7fb52fa4c9b355b159c8c6dfc817"}
     },
     "combat/s2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s2.jpg"
+      "picture": "pictures/templates/base/ork/combat/s2.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/s2.webp","box":[163,163,745,632],"sha256":"d39f61e0a5f6baeab370a001b54bb6e90ca3aaf33704e8024430db553ab71e5a"}
     },
     "combat/s3.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s3.jpg"
+      "picture": "pictures/templates/base/ork/combat/s3.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/s3.webp","box":[163,163,745,727],"sha256":"28d2820763a8db33d61f0523000011161584c20157d45fa6d8c651bf5e7bb02f"}
     },
     "combat/s4.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s4.jpg"
+      "picture": "pictures/templates/base/ork/combat/s4.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/s4.webp","box":[163,163,745,727],"sha256":"d45a72bbf748eab848b547e8a3207948dd76aae4311e87e8ee5408410734fc5f"}
     },
     "combat/s5.jpg": {
-      "picture": "pictures/templates/base/ork/combat/s5.jpg"
+      "picture": "pictures/templates/base/ork/combat/s5.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/s5.webp","box":[163,163,745,727],"sha256":"cd185ce0d0c1bad0afcdf1678a1c918c18341cb04ac3ad82f07886e282d80f44"}
     },
     "combat/t0_1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_1.jpg"
+      "picture": "pictures/templates/base/ork/combat/t0_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t0_1.webp","box":[163,163,745,727],"sha256":"a06a9d6541ec45070e40ad1ef4296e2a88715e0a0e4bc39647fce6ecd587f68c"}
     },
     "combat/t0_2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_2.jpg"
+      "picture": "pictures/templates/base/ork/combat/t0_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t0_2.webp","box":[163,163,745,699],"sha256":"e88a39da6fb19900edcae98fddf86737feb1aceb931de132e44f303533a79d76"}
     },
     "combat/t0_3.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_3.jpg"
+      "picture": "pictures/templates/base/ork/combat/t0_3.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t0_3.webp","box":[163,163,745,775],"sha256":"23c306dffc1f3e5fc8c9f2c8fae5915b434c2fc9747524ec5c6b715905bfc73c"}
     },
     "combat/t0_4.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t0_4.jpg"
+      "picture": "pictures/templates/base/ork/combat/t0_4.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t0_4.webp","box":[163,163,745,775],"sha256":"9c3cece82701680fe6e4cb5f24cc7ed741daa11655dc2f4b5121084e08a99428"}
     },
     "combat/t2_1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t2_1.jpg"
+      "picture": "pictures/templates/base/ork/combat/t2_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t2_1.webp","box":[163,163,745,625],"sha256":"7696eedae238a32af68133ec405728229f94d4d3cd8ab0479d567d758ffef70c"}
     },
     "combat/t2_2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t2_2.jpg"
+      "picture": "pictures/templates/base/ork/combat/t2_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t2_2.webp","box":[163,163,745,632],"sha256":"acc8d124792adab7349f4c2f498f16fdeb6d72d45337e8a16708a63d2247292f"}
     },
     "combat/t2_3.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t2_3.jpg"
+      "picture": "pictures/templates/base/ork/combat/t2_3.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t2_3.webp","box":[163,163,745,842],"sha256":"e56de4acbbb71deb41ba58d1bd4a5cb23448b993f7af0de2d432a56c28e966fe"}
     },
     "combat/t3_1.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t3_1.jpg"
+      "picture": "pictures/templates/base/ork/combat/t3_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t3_1.webp","box":[163,163,745,842],"sha256":"d67867a67733dbe7269460e630061be3bbbc87a5a2edfd20f344c2a05f40ea12"}
     },
     "combat/t3_2.jpg": {
-      "picture": "pictures/templates/base/ork/combat/t3_2.jpg"
+      "picture": "pictures/templates/base/ork/combat/t3_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/ork/combat/t3_2.webp","box":[163,163,745,747],"sha256":"f2020527227731ab47ccbb73e0aa43da2086b5cd41f3558c7ccad3786c610b9a"}
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",

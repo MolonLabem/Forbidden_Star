@@ -29,7 +29,10 @@
     "gif/tau/orders/o_1",
     "sow/adeptasororitas/orders/o_3",
     "sow/adeptusmechanicus/events/e_7",
-    "sow/adeptasororitas/events/e_2"
+    "sow/adeptasororitas/events/e_2",
+    "gif/tyranid/orders/o_3",
+    "gif/tyranid/orders/o_5",
+    "sow/darkeldar/events/e_1"
   ],
   "expansions": [
     "base",

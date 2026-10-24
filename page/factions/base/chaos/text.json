@@ -27,46 +27,60 @@
   ],
   "templates": {
     "combat/s1.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/s1.jpg"
+      "picture": "pictures/templates/base/chaos/combat/s1.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/s1.webp","box":[163,163,745,625],"sha256":"847b80ae3742f3feb7304308952f458be31c55bab85d6ecbde43719f3b698786"}
     },
     "combat/s2.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/s2.jpg"
+      "picture": "pictures/templates/base/chaos/combat/s2.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/s2.webp","box":[163,163,745,625],"sha256":"1f624c5c265b0bd8c2de765debba89c981e6b50577f7fc287b67c8d34574f78a"}
     },
     "combat/s3.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/s3.jpg"
+      "picture": "pictures/templates/base/chaos/combat/s3.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/s3.webp","box":[163,163,745,612],"sha256":"feb1cecf3ada745c94731348e0c331def73a4ffee7dcae14978772086872ded5"}
     },
     "combat/s4.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/s4.jpg"
+      "picture": "pictures/templates/base/chaos/combat/s4.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/s4.webp","box":[163,163,745,625],"sha256":"c9ec25693ed2c9dc3add96454cc9e14e7186c6a08441f44a6db76c0f472d0a87"}
     },
     "combat/s5.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/s5.jpg"
+      "picture": "pictures/templates/base/chaos/combat/s5.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/s5.webp","box":[163,163,745,612],"sha256":"f5aa351c202946b47693a70467fe7e4f3e4de2095ab6c3ddf0ea9b847a8e2c0c"}
     },
     "combat/t0_1.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t0_1.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t0_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t0_1.webp","box":[163,163,745,658],"sha256":"87c9b4cd264bf323e95c8ad47e016771e612e25e0aec928014328aa17e6890ba"}
     },
     "combat/t0_2.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t0_2.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t0_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t0_2.webp","box":[163,163,745,625],"sha256":"9f165734b25a585f38e882bab40630b631f42faa8193fffee701940f4fcc6b5c"}
     },
     "combat/t0_3.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t0_3.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t0_3.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t0_3.webp","box":[163,163,745,619],"sha256":"0bcba7d2ccc188ee8de05c08db17efa26ef1f6445c8cad4a82680c6df2c17d16"}
     },
     "combat/t0_4.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t0_4.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t0_4.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t0_4.webp","box":[163,163,745,612],"sha256":"590551d0f7815c3e4ca3e3ad3fb4c367cda962306dff91659375590a2791d14a"}
     },
     "combat/t2_1.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t2_1.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t2_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t2_1.webp","box":[163,163,745,727],"sha256":"c775a75f990f2b79584d1c892ffc04922640047bbf4d61212c6f5406c4921ddb"}
     },
     "combat/t2_2.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t2_2.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t2_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t2_2.webp","box":[163,163,745,632],"sha256":"1c66ab0731b083e3d9362e124b2f7e4f1cba34f2f4407e26720ce4e73616faa2"}
     },
     "combat/t2_3.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t2_3.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t2_3.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t2_3.webp","box":[163,163,745,619],"sha256":"205ac13fe74d7ce0a5cb12b475c86201c09ffba9d69640d96fd48876f2eb3a74"}
     },
     "combat/t3_1.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t3_1.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t3_1.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t3_1.webp","box":[163,163,745,612],"sha256":"891d89fede7069052a53b54dee4ec03936cd478927c810aa238edeb66ab213cd"}
     },
     "combat/t3_2.jpg": {
-      "picture": "pictures/templates/base/chaos/combat/t3_2.jpg"
+      "picture": "pictures/templates/base/chaos/combat/t3_2.jpg",
+      "artwork": {"src":"pictures/artwork/base/chaos/combat/t3_2.webp","box":[163,163,745,625],"sha256":"bf0c8297ff104bbffd82e0503a38d30a3d17498b34ebd5478d82cf415059af94"}
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
