@@ -287,11 +287,21 @@
     return layoutStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align, true);
   }
 
+  function drawPrintedText(ctx,text,x,y) {
+    var paper=ctx.fsKind!=='overlay'&&ctx.fsTextRole!=='heading'&&
+      (ctx.fillStyle==='#000000'||ctx.fillStyle==='#15120c');
+    if(!paper){ctx.fillText(text,x,y);return;}
+    // Slightly translucent ink absorbs the existing paper grain and shading.
+    // Isolate the blend so token pictures and frame artwork stay untouched.
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=.92;
+    ctx.fillText(text,x,y);ctx.restore();
+  }
+
   // Image tokens occupy the same advance and baseline as their font glyphs, so
   // switching style cannot change wrapping or effect-panel geometry.
   function drawTokenText(ctx, text, x, y, fontSize) {
     if (!/[\uE100-\uE102]/.test(text)) {
-      ctx.fillText(text, x, y); return;
+      drawPrintedText(ctx,text,x,y); return;
     }
     text.split(/([\uE100-\uE102])/).forEach(function (part) {
       var token=window.FSWord.tokens.find(function(t){return t.glyph===part;});
@@ -306,8 +316,8 @@
       } else if(rotation){
         var ink=ctx.measureText(part),cx=x+(ink.actualBoundingBoxRight-ink.actualBoundingBoxLeft)/2;
         var cy=y+(ink.actualBoundingBoxDescent-ink.actualBoundingBoxAscent)/2;
-        ctx.save();ctx.translate(cx,cy);ctx.rotate(rotation*Math.PI/180);ctx.fillText(part,x-cx,y-cy);ctx.restore();
-      } else ctx.fillText(part, x, y);
+        ctx.save();ctx.translate(cx,cy);ctx.rotate(rotation*Math.PI/180);drawPrintedText(ctx,part,x-cx,y-cy);ctx.restore();
+      } else drawPrintedText(ctx,part,x,y);
       if(rotation && (ctx.fsStrict || ctx.fsCollectMetrics)){
         if(!ctx.fsTokenRotations)ctx.fsTokenRotations=[];
         ctx.fsTokenRotations.push({glyph:part,rotation:rotation});
