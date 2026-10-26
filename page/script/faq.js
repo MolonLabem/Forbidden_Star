@@ -22,6 +22,7 @@
       var DOTS = this.dots && this.dots.length ? this.dots : ['#d8a657'];
       var navTopics = [{ key: 'all', name: 'Все вопросы', kind: 'all', dot: DOTS[0] }];
       var cats = [];
+      var factions = [];
       var count = { all: 0 };
       (raw || []).forEach(function (cat, ci) {
         var ckey = 'c' + ci;
@@ -46,7 +47,13 @@
                 card: it.Card || '', cardSource: it.CardSource || '', ruleSource: it.RuleSource || '', relatedSources: it.RelatedSources || [], legacySource: it.LegacySource || '' });
               subCount++; count[ckey]++; count.all++;
             });
-            if (facObj.items.length) subObj.factions.push(facObj);
+            if (facObj.items.length) {
+              subObj.factions.push(facObj);
+              // In "Общие", Faction labels name rule topics rather than armies.
+              if (sub.SubCategory !== 'Общие' && facObj.faction && !factions.some(function (f) { return f.key === facObj.faction; })) {
+                factions.push({ key: facObj.faction, name: facObj.faction, parent: ckey });
+              }
+            }
           });
           if (subObj.factions.length) {
             count[skey] = subCount;
@@ -56,7 +63,7 @@
         });
         cats.push(catObj);
       });
-      return { navTopics: navTopics, cats: cats, count: count };
+      return { navTopics: navTopics, cats: cats, count: count, factions: factions };
     },
   };
 })();

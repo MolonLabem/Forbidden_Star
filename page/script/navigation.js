@@ -8,7 +8,7 @@
     return { view: ['faq','compare'].includes(p.get('view')) ? p.get('view') : 'codex', expansion: expansion(p.get('exp')) || null,
       faction: p.get('faction') || null, category: p.get('category') || 'combat', displayMode: window.FSModes.normalize(p.get('mode')),
       comparison: p.get('compare') === 'rnb' ? 'rnb' : 'visual', comparisonFaction:p.get('compareFaction') || 'all', comparisonSide:p.get('side') === 'before' ? 'before' : 'after',
-      cardQuery: p.get('q') || '', faqQuery: p.get('faqQ') || '', faqTopic: p.get('topic') || 'all',
+      cardQuery: p.get('q') || '', faqQuery: p.get('faqQ') || '', faqTopic: p.get('topic') || 'all', faqFaction: p.get('faqFaction') || 'all',
       card: cardPath(p.get('card')) || null, question: p.get('question') || null };
   }
   function write(state, card, question) {
@@ -22,6 +22,7 @@
     } else if (state.view === 'faq') {
       p.set('view', 'faq');
       if (state.faqTopic !== 'all') p.set('topic', state.faqTopic);
+      if (state.faqFaction && state.faqFaction !== 'all') p.set('faqFaction', state.faqFaction);
       if (state.faqQuery) p.set('faqQ', state.faqQuery);
       if (question) p.set('question', question);
     } else {

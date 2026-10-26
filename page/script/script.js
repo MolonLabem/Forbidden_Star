@@ -112,12 +112,12 @@
     expansion: null, faction: null, category: 'combat',
     lb: null, lbFull: false,
     view: 'codex',
-    faqTopic: 'all', faqQuery: '', faqOpen: {},
+    faqTopic: 'all', faqFaction: 'all', faqQuery: '', faqOpen: {},
     expOpen: null,
     cardQuery: '',
     faqQuestion: null, settingsOpen: false, navOpen: false, faqNavOpen: false,
   };
-  var routeKeys = ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic', 'displayMode', 'comparison', 'comparisonFaction', 'comparisonSide'];
+  var routeKeys = ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic', 'faqFaction', 'displayMode', 'comparison', 'comparisonFaction', 'comparisonSide'];
   routeKeys.forEach(function (key) { state[key] = initialRoute[key]; });
   state.expOpen = state.expansion;
   state.faqQuestion = initialRoute.question;
@@ -797,12 +797,27 @@
   function renderFaqView() {
     ensureFaq();
     var hero = (window.FS_FAQ && window.FS_FAQ.hero) || {};
-    var FAQ = DATA.faq || { navTopics: [], cats: [], count: {} };
+    var FAQ = DATA.faq || { navTopics: [], cats: [], count: {}, factions: [] };
     var ready = !!DATA.faq;
     var topic = state.faqTopic;
     if (ready && !findKey(FAQ.navTopics, topic)) topic = state.faqTopic = 'all';
+    var faction = state.faqFaction;
+    if (ready && faction !== 'all' && !findKey(FAQ.factions, faction)) faction = state.faqFaction = 'all';
     var q = window.FSWord.normalize(state.faqQuery);
     var matches = function (it) { return !q || window.FSWord.normalize(it.q + ' ' + it.a).indexOf(q) >= 0; };
+    var counts = { all: 0 };
+    var cats = FAQ.cats.map(function (cat) {
+      counts[cat.key] = 0;
+      return Object.assign({}, cat, { subs: cat.subs.map(function (sub) {
+        counts[sub.key] = 0;
+        var factions = sub.factions.filter(function (fac) { return faction === 'all' || fac.faction === faction; }).map(function (fac) {
+          var items = fac.items.filter(matches);
+          counts.all += items.length; counts[cat.key] += items.length; counts[sub.key] += items.length;
+          return Object.assign({}, fac, { items: items });
+        });
+        return Object.assign({}, sub, { factions: factions });
+      }) });
+    });
 
     var app = el('div', { class: 'fs-app', 'data-accent': ACCENT });
 
@@ -829,15 +844,20 @@
     ]);
 
     var topicsNav = el('nav', { class: 'fs-nav' },
-      FAQ.navTopics.map(function (t) {
+      FAQ.navTopics.filter(function (t) { return faction === 'all' || t.key === 'all' || t.key === topic || counts[t.key]; }).map(function (t) {
         var active = topic === t.key;
         var cls = (t.kind === 'sub') ? ('fs-faq-subnav' + (active ? ' is-active' : ''))
           : ('fs-fac' + (t.kind === 'cat' ? ' fs-faq-catnav' : '') + (active ? ' is-active' : ''));
         var kids = [];
         if (t.kind !== 'sub') kids.push(el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:' + (t.dot || 'var(--fs-accent)') + ';' }));
         kids.push(el('span', { class: 'fs-fac-name', text: t.name }));
-        kids.push(el('span', { class: 'fs-fac-count', text: String(FAQ.count[t.key] || 0) }));
-        return el('button', { class: cls, onclick: (function (key) { return function () { setState({ faqTopic: key, faqQuestion: null, faqNavOpen: false }); }; })(t.key) }, kids);
+        kids.push(el('span', { class: 'fs-fac-count', text: String(counts[t.key] || 0) }));
+        return el('button', { class: cls, id: 'faq-topic-' + t.key, 'aria-current': active ? 'page' : null,
+          onclick: (function (key) { return function () {
+            setState({ faqTopic: key, faqQuestion: null, faqNavOpen: false });
+            var toggle = document.querySelector('[aria-controls="faq-navigation"]');
+            if (toggle && toggle.getClientRects().length) toggle.focus({ preventScroll: true });
+          }; })(t.key) }, kids);
       })
     );
     var sidebar = el('aside', { class: 'fs-sidebar fs-scroll' }, [
@@ -855,7 +875,7 @@
     var showAll = topic === 'all';
     var sections = [];
     var shown = 0;
-    FAQ.cats.forEach(function (cat) {
+    cats.forEach(function (cat) {
       var catSelected = showAll || topic === cat.key || topic.indexOf(cat.key + '_') === 0;
       if (!catSelected) return;
       var subNodes = [];
@@ -863,7 +883,7 @@
         if (!showAll && topic !== cat.key && topic !== sub.key) return;
         var facNodes = [];
         sub.factions.forEach(function (fac) {
-          var its = fac.items.filter(matches);
+          var its = fac.items;
           if (!its.length) return;
           shown += its.length;
           facNodes.push(el('div', { class: 'fs-faq-facgroup' }, [
@@ -902,9 +922,23 @@
         el('div', { class: 'fs-faq-empty-glyph' }, [el('div', { class: 'ring' })]),
         el('p', { class: 'fs-note', text: q
           ? ('Нет вопросов по запросу «' + state.faqQuery + '». Попробуйте другой запрос или очистите строку поиска.')
-          : 'Нет вопросов в этом разделе.' }),
+          : 'Нет вопросов для выбранных фильтров.' }),
+        el('button', { type: 'button', class: 'fs-empty-btn', text: 'Сбросить фильтры', onclick: function () {
+          setState({ faqTopic: 'all', faqFaction: 'all', faqQuery: '', faqQuestion: null });
+        } }),
       ]);
     }
+
+    var factionSelect = el('select', { id: 'fs-faq-faction', disabled: ready ? null : '', onchange: function (e) {
+      setState({ faqFaction: e.target.value, faqTopic: 'all', faqQuestion: null, faqNavOpen: false });
+    } }, [el('option', { value: 'all', text: 'Все фракции' })]);
+    FAQ.cats.forEach(function (cat) {
+      var options = FAQ.factions.filter(function (f) { return f.parent === cat.key; });
+      if (options.length) factionSelect.appendChild(el('optgroup', { label: cat.name }, options.map(function (f) {
+        return el('option', { value: f.key, text: f.name });
+      })));
+    });
+    factionSelect.value = faction;
 
     var body = [
       el('div', { class: 'fs-faq-hero' }, [
@@ -913,6 +947,7 @@
         el('p', { class: 'fs-faq-blurb', text: hero.blurb || '' }),
       ]),
       el('div', { class: 'fs-faq-content' }, [
+        el('div', { class: 'fs-faq-filter' }, [el('label', { for: 'fs-faq-faction', text: 'Фракция' }), factionSelect]),
         el('div', { class: 'fs-faq-sectionrow' }, [
           el('span', { class: 'fs-faq-sectionlabel', text: faqTopicName(topic) }),
           el('span', { class: 'fs-faq-countlabel', text: shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') }),
