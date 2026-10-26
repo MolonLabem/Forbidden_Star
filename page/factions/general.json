@@ -24,17 +24,19 @@
             "Боевые",
             "Приказы",
             "События",
-            "Задники",
             "Фракция",
-            "Домашка"
+            "Фигурки",
+            "Домашка",
+            "Задники"
         ],
         "reference": [
             "combat",
             "orders",
             "events",
-            "backs",
             "faction_card",
-            "map"
+            "material",
+            "map",
+            "backs"
         ]
     },
     "labels": {

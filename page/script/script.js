@@ -1322,17 +1322,13 @@
       return;
     }
     var cattabs = el('div', { class: 'fs-cattabs fs-scroll' },
-      DATA.categories.map(function (c) {
+      DATA.categories.filter(function (c) { return c.key !== 'material' || hasMaterials; }).map(function (c) {
         return el('button', {
           class: 'fs-cat' + (cat === c.key ? ' is-active' : ''),
           onclick: (function (key) { return function () { setState({ category: key, lb: null, cardQuery: '' }); }; })(c.key),
           text: catName(c.key),
         });
-      }).concat(hasMaterials ? [el('button', {
-        class: 'fs-cat' + (cat === 'material' ? ' is-active' : ''),
-        onclick: function () { setState({ category: 'material', lb: null, cardQuery: '' }); },
-        text: catName('material'),
-      })] : [])
+      })
     );
     main.appendChild(el('div', { class: 'fs-cattabs-wrap' }, [cattabs]));
 
