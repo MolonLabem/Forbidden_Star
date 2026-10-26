@@ -29,6 +29,10 @@
 
   var DOT_FALLBACK = '#857f74';
   var ACCENT_FALLBACK = '#d8a657';
+  var PROJECT_NOTICE = 'Авторы: <a href="https://github.com/MolonLabem" rel="author">MolonLabem</a> &middot; ' +
+    '<a href="https://github.com/Frytkownica" rel="author">Frytkownica</a><br>' +
+    '<a href="https://github.com/MolonLabem/Forbidden_Star/blob/main/LICENSE" rel="license">PolyForm Noncommercial 1.0.0</a><br>' +
+    'FAN PROJECT &middot; NON&#8209;COMMERCIAL<br>Artwork &copy; Games Workshop';
 
   var ACC = {
     amber:   { a: 'oklch(0.80 0.12 80)',  fg: '#1c1810' },
@@ -844,7 +848,7 @@
       el('div', { class: 'fs-sidebar-foot' }, [
         el('button', { class: 'fs-faq-link fs-faq-back', html: '&larr; Назад в картотеку',
           onclick: function () { setState({ view: 'codex', cardQuery: '' }); } }),
-        el('p', { html: 'FAN PROJECT &middot; NON&#8209;COMMERCIAL<br>Artwork &copy; Games Workshop' }),
+        el('p', { html: PROJECT_NOTICE }),
       ]),
     ]);
 
@@ -1198,7 +1202,7 @@
         ]),
       ]),
       el('div', { class: 'fs-sidebar-foot' }, [
-        el('p', { html: 'FAN PROJECT &middot; NON&#8209;COMMERCIAL<br>Artwork &copy; Games Workshop' }),
+        el('p', { html: PROJECT_NOTICE }),
       ]),
     ]);
 

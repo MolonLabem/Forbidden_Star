@@ -180,6 +180,8 @@ body {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px; line-height: 1.7;
   color: #5c574f; margin: 0; letter-spacing: 0.05em;
 }
+.fs-sidebar-foot p a { color: #857f74; text-underline-offset: 2px; }
+.fs-sidebar-foot p a:hover { color: var(--fs-accent); }
 .fs-faq-link {
   display: inline-block; margin-bottom: 10px;
   font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
