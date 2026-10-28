@@ -10,12 +10,33 @@
 }
 @font-face {
   font-family: 'ForbiddenStars';
-  src: url('../fonts/ForbiddenStars.woff2?v=tokens-1') format('woff2');
+  src: url('../fonts/FSLazurski-Regular.woff2?v=game-1') format('woff2');
   font-display: swap;
 }
 @font-face {
   font-family: 'EventFont';
   src: url('../fonts/EventFont.woff2') format('woff2');
+  font-display: swap;
+}
+/* Lazurski with the existing game/token glyphs in every face. The historical
+   family name keeps canvas text and HTML descriptions on the same mapping. */
+@font-face {
+  font-family: 'ForbiddenStars';
+  src: url('../fonts/FSLazurski-Italic.woff2?v=game-1') format('woff2');
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ForbiddenStars';
+  src: url('../fonts/FSLazurski-Bold.woff2?v=game-1') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ForbiddenStars';
+  src: url('../fonts/FSLazurski-BoldItalic.woff2?v=game-1') format('woff2');
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -33,6 +54,11 @@ body {
 }
 
 ::selection { background: rgba(216, 166, 87, 0.28); }
+
+.fs-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
 
 /* ---- скроллбары ---- */
 .fs-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -169,7 +195,7 @@ body {
 }
 .fs-fac-name { flex: 1; }
 .fs-sidebar a.fs-fac { text-decoration: none; }
-.fs-fac-count { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f6a61; }
+.fs-fac-count { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9a948a; }
 
 .fs-sidebar-section { margin-top: 22px; }
 
@@ -177,10 +203,10 @@ body {
   margin-top: auto; padding: 14px 8px 2px; border-top: 1px solid #221f1a;
 }
 .fs-sidebar-foot p {
-  font-family: 'IBM Plex Mono', monospace; font-size: 9px; line-height: 1.7;
-  color: #5c574f; margin: 0; letter-spacing: 0.05em;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.7;
+  color: #9a948a; margin: 0; letter-spacing: 0.05em;
 }
-.fs-sidebar-foot p a { color: #857f74; text-underline-offset: 2px; }
+.fs-sidebar-foot p a { color: #b3ada3; text-underline-offset: 2px; }
 .fs-sidebar-foot p a:hover { color: var(--fs-accent); }
 .fs-faq-link {
   display: inline-block; margin-bottom: 10px;
@@ -338,7 +364,6 @@ body {
 }
 .fs-image-retry[hidden] { display: none; }
 @keyframes fs-image-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .fs-image-spinner { animation: none; } }
 
 /* ---- пустой экран приветствия ---- */
 .fs-empty {
@@ -487,7 +512,7 @@ body {
 /* ---- раздел справочника + ссылка на ЧаВо ---- */
 .fs-faq-entry { margin-top: 2px; }
 .fs-faq-dot { border-radius: 2px; transform: rotate(45deg); }
-.fs-faq-entry .fs-fac-count { font-size: 14px; color: #6f6a61; }
+.fs-faq-entry .fs-fac-count { font-size: 14px; color: #9a948a; }
 
 /* ---- вид ЧаВо ---- */
 .fs-header-spacer { flex: 1; }
@@ -593,7 +618,7 @@ body {
   box-shadow: inset 2px 0 0 var(--fs-accent);
 }
 .fs-faq-subnav .fs-fac-name { flex: 1; }
-.fs-faq-subnav .fs-fac-count { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6f6a61; }
+.fs-faq-subnav .fs-fac-count { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #9a948a; }
 
 /* ---- сгруппированный контент ЧаВо ---- */
 .fs-faq-sections { display: flex; flex-direction: column; gap: 28px; }
@@ -613,7 +638,7 @@ body {
 .fs-faq-facgroup { display: flex; flex-direction: column; gap: 8px; }
 .fs-faq-fachead { display: flex; align-items: center; gap: 12px; padding: 4px 2px 2px; }
 .fs-faq-facname { font-size: 13px; font-weight: 600; color: #d8d2c8; letter-spacing: 0.01em; flex: 1; }
-.fs-faq-faccount { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6f6a61; }
+.fs-faq-faccount { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #9a948a; }
 .fs-faq-facicon { width: 104px; height: 104px; object-fit: contain; flex-shrink: 0; margin-left: 4px; }
 .fs-faq-empty { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 60px 20px; text-align: center; }
 .fs-faq-empty-glyph { position: relative; width: 44px; height: 44px; opacity: 0.8; }
@@ -672,7 +697,12 @@ body {
   .fs-header .fs-print-tools button { min-height: 44px; font-size: 12px; }
   .fs-mobile-only { display: inline-flex; }
   .fs-cattabs-wrap { padding: 0 14px; }
-  .fs-breadcrumb { padding: 17px 16px 5px; }
+  .fs-breadcrumb { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px 12px; padding: 17px 16px 5px; }
+  .fs-bc-left { display: contents; }
+  .fs-bc-exp { grid-column: 1; grid-row: 1; white-space: normal; overflow-wrap: anywhere; line-height: 1.5; }
+  .fs-bc-sep { display: none; }
+  .fs-bc-title { grid-column: 1 / -1; grid-row: 2; white-space: normal; overflow-wrap: anywhere; line-height: 1.35; }
+  .fs-bc-total { grid-column: 2; grid-row: 1; align-self: start; }
   .fs-faq-content { padding: 22px 16px 40px; }
   .fs-faq-filter label { flex-basis: 100%; }
   .fs-faq-filter select { flex: 1; min-height: 44px; font-size: 16px; }
@@ -880,4 +910,13 @@ body {
   .fs-compare-tokens { padding: 16px; }
   .fs-compare-token-demo { font-size: 18px; }
   .fs-compare-texts { gap: 14px; font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .fs-card:hover { transform: none; }
 }

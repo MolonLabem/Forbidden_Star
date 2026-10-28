@@ -159,8 +159,19 @@
   window.addEventListener('popstate', restoreRoute);
   window.addEventListener('hashchange', restoreRoute);
 
+  var searchStatusTimer;
+  function announceSearch(message) {
+    clearTimeout(searchStatusTimer);
+    var status = document.getElementById('fs-search-status');
+    if (!status) return;
+    if (!message) { status.textContent = ''; return; }
+    if (status.textContent === message) return;
+    // The live region stays outside #app while results and focus are restored.
+    searchStatusTimer = setTimeout(function () { status.textContent = message; }, 350);
+  }
+
   // Монтирует дерево в #app, сохраняя фокус поля поиска при перерисовке
-  function mountApp(app) {
+  function mountApp(app, searchMessage) {
     var root = document.getElementById('app');
     var ae = document.activeElement, sel = null, focusId = ae && ae.id;
     if (ae && ae.classList && ae.classList.contains('fs-faq-search')) {
@@ -175,6 +186,7 @@
     imageQueue = [];
     root.innerHTML = '';
     root.appendChild(app);
+    announceSearch(searchMessage);
     observeCards(root);
     var modalImage = root.querySelector('.fs-lb-imgwrap > img');
     if (modalImage) loadCardImage(modalImage, false);
@@ -962,7 +974,9 @@
 
     app.appendChild(header);
     app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
-    mountApp(app);
+    var searchMessage = q ? (DATA.errors.faq ? 'Не удалось загрузить FAQ.' : !ready ? 'Поиск в FAQ…'
+      : 'По запросу «' + state.faqQuery.trim() + '»: ' + shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') + '.') : null;
+    mountApp(app, searchMessage);
   }
 
   /* ---- Главная отрисовка ---- */
@@ -1204,6 +1218,7 @@
             var facActive = expActive && state.faction === f.key;
             return el('button', {
               class: 'fs-faq-subnav fs-fac-sub' + (facActive ? ' is-active' : ''), id: 'faction-' + e.key + '-' + f.key,
+              'aria-current': facActive ? 'page' : null,
               onclick: (function (ek, fk) { return function () {
                 delete DATA.errors['man:' + ek + '/' + fk];
                 ensureManifest(ek, fk);
@@ -1335,7 +1350,10 @@
       main.appendChild(sres);
       app.appendChild(header);
       app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
-      mountApp(app);
+      var searchMessage = pending ? 'Поиск карточек…' : 'По запросу «' + state.cardQuery.trim() + '»: '
+        + flat.length + ' ' + ruPlural(flat.length, 'результат', 'результата', 'результатов') + '.'
+        + (failed.length ? ' Часть карточек не загружена.' : '');
+      mountApp(app, searchMessage);
       return;
     }
 
@@ -1369,6 +1387,7 @@
       DATA.categories.filter(function (c) { return c.key !== 'material' || hasMaterials; }).map(function (c) {
         return el('button', {
           class: 'fs-cat' + (cat === c.key ? ' is-active' : ''), id: 'category-' + c.key,
+          'aria-current': cat === c.key ? 'page' : null,
           onclick: (function (key) { return function () { setState({ category: key, lb: null, cardQuery: '' }); }; })(c.key),
           text: catName(c.key),
         });

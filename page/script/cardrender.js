@@ -1,7 +1,7 @@
 /* Forbidden Stars — card text compositor.
  *
  * Some expansions ship card art as TEMPLATES with blank title/text areas; the
- * wording lives in canonical cards.json (legacy text.json exports remain). This module draws that text onto the template
+ * wording lives in each faction's text.json. This module draws that text onto the template
  * via canvas — using the game's custom fonts and icon glyphs — and returns a
  * composited image as a data URL.
  *
@@ -48,7 +48,7 @@
     orders: {title:[.26,.18,.48,.067],body:[.145,.54,.71,.275]},
     // The event frame reserves space for its hanging emblem and paper edges.
     // Keep this content contract shared, independent of wording and image pixels.
-    events: {title:[.05,.025,.7,.065],body:[.065,.705,.87,.22],type:[.1,.533,.8,.055]},
+    events: {title:[.05,.025,.7,.065],body:[.065,.68,.87,.245],type:[.1,.533,.8,.055]},
     raster: {
       combat: {title:[.29,.08,.56,.05]},
       orders: {title:[.26,.205,.53,.052],body:[.155,.54,.69,.275]},
@@ -57,7 +57,7 @@
   };
   var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
-  var ORDER_LIMIT = {scale:.8,gap:.7};
+  var ORDER_LIMIT = {scale:.8,gap:.1};
 
   function recordInk(ctx, text, x, y, role, align) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
@@ -131,8 +131,10 @@
     var styledFont = function (style) { return style ? style+' '+lineFontSize+'px '+family : baseFont; };
     var fontRuns = function (text, style) {
       if(!ctx.fsSheetProse)return [{text:text,font:styledFont(style)}];
-      return text.split(/([\uE100-\uE102\uE200-\uE205])/).filter(Boolean).map(function (part) {
-        var symbol=part.length===1 && /[\uE100-\uE102\uE200-\uE205]/.test(part);
+      // Sheet prose can use another typeface; its symbols use the merged font.
+      var symbols=/([\uE100-\uE102\uE200-\uE205])/;
+      return text.split(symbols).filter(Boolean).map(function (part) {
+        var symbol=part.length===1 && symbols.test(part);
         var index=part.charCodeAt(0)-0xE200;
         return {text:index>=0&&index<window.FSWord.symbols.length?window.FSWord.symbols[index].glyph:part,
           font:symbol?lineFontSize+'px '+FONT.body:styledFont(style)};
@@ -255,7 +257,10 @@
           else if(last && start>0 && width<maxW*.3)cost+=1;
           if(!last && /[.!?;:]$/.test(words[end].segments.map(function(s){return s.text;}).join('')))cost-=.08;
           var candidate={lines:tail.lines+1,cost:cost,end:end+1};
-          if(!best || candidate.lines<best.lines || candidate.lines===best.lines && candidate.cost<best.cost)best=candidate;
+          // Printed order rules fill each line from the left. Other cards keep
+          // balanced wrapping, including their authored paragraph breaks.
+          if(!best || (ctx.fsKind==='orders' ? candidate.end>best.end :
+            candidate.lines<best.lines || candidate.lines===best.lines && candidate.cost<best.cost))best=candidate;
         }
         breaks[start]=best;
       }
@@ -593,8 +598,9 @@
   }
 
   function textField(data,kind) {
-    var align=kind==='orders'?'center':'left';
-    if(data.template?.body)return Object.assign({align:align},data.template.body);
+    var align='left';
+    var body=data.template?.body;
+    if(body)return Object.assign({},body,{align:kind==='orders'?align:body.align||align});
     var patch=(data.template?.patches||[]).find(function(p){return p.role==='body-erasure';});
     if(patch){
       var b=patch.box;
@@ -624,6 +630,7 @@
   function drawBodyTextBox(ctx, text, region) {
     var previousPrefixes=ctx.fsItalicPrefixes;
     var previousGap=ctx.fsParagraphGap;
+    var order=ctx.fsKind==='orders';
     if(region.italicPrefixes===false)ctx.fsItalicPrefixes=false;
     var b=region.box,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
     var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
@@ -632,20 +639,23 @@
       // caption before making the effect text smaller on dense cards.
       box.height+=Math.max(0,Math.min(ch*.025,ch*.835-box.y-box.height));
     }
-    var size=ch*.03,interline=size*.257,height;
-    ctx.fsParagraphGap=.743;
+    // Orders use the original compact leading; all rules share Lazurski with
+    // the existing game glyphs. Events keep the parchment's top inset.
+    var size=ch*(order ? .033 : .03),minimumSpacing=order ? -.1 : .18;
+    var interline=size*(order ? minimumSpacing : .257),height,clearance=order ? .35 : .25;
+    ctx.fsParagraphGap=order ? .35 : .743;
     for(var guard=0;guard<100;guard++){
       height=measureStyledWrappedText(ctx,text,box.width,interline,size);
-      if(height+size*.25<=box.height && ctx.fsMeasuredWidth<=box.width)break;
+      if(height+size*clearance<=box.height && ctx.fsMeasuredWidth<=box.width)break;
       if(ctx.fsMeasuredWidth<=box.width && ctx.fsParagraphGap>.25)ctx.fsParagraphGap=Math.max(.25,ctx.fsParagraphGap-.1);
-      else if(ctx.fsMeasuredWidth<=box.width && interline>size*.18+.01)interline=Math.max(size*.18,interline*.94);
-      else {size*=.96;interline=size*.18;}
+      else if(ctx.fsMeasuredWidth<=box.width && interline>size*minimumSpacing+.01)interline=Math.max(size*minimumSpacing,interline*.94);
+      else {size*=.96;interline=size*minimumSpacing;}
     }
-    if(height+size*.25>box.height || ctx.fsMeasuredWidth>box.width)throw new Error('Текст не помещается в область правил');
+    if(height+size*clearance>box.height || ctx.fsMeasuredWidth>box.width)throw new Error('Текст не помещается в область правил');
     var align=region.align||'left';
     drawStyledWrappedText(ctx,text,align==='center'?box.x+box.width/2:box.x,
       box.y,box.width,interline,size,align);
-    ctx.fsBodyTextBox={box:box,inkBottomPx:box.y+height+size*.25,fontSizePx:size};
+    ctx.fsBodyTextBox={box:box,inkBottomPx:box.y+height+size*clearance,fontSizePx:size};
     ctx.fsItalicPrefixes=previousPrefixes;
     ctx.fsParagraphGap=previousGap;
   }
@@ -1278,20 +1288,25 @@
 
   // Ensure the custom fonts are loaded before measuring/drawing text.
   var _fontsReady;
-  function loadFont(name) {
+  function loadFont(name, style) {
     return new Promise(function (resolve, reject) {
       if (!document.fonts) { reject(new Error('Браузер не поддерживает проверку шрифтов')); return; }
       var timer = setTimeout(function () { reject(new Error('Не завершена загрузка шрифта ' + name)); }, 15000);
-      document.fonts.load('16px ' + name).then(function (faces) {
+      var descriptor=(style?style+' ':'')+'16px '+name;
+      document.fonts.load(descriptor).then(function (faces) {
         clearTimeout(timer);
-        if (!faces.length || !document.fonts.check('16px ' + name)) reject(new Error('Не загружен шрифт ' + name));
+        if (!faces.length || !document.fonts.check(descriptor)) reject(new Error('Не загружен шрифт ' + name));
         else resolve();
       }, function (error) { clearTimeout(timer); reject(error); });
     });
   }
+  function loadFonts() {
+    return Promise.all(Array.from(new Set(Object.values(FONT))).map(function(name){return loadFont(name);})
+      .concat(['italic','bold','bold italic'].map(function(style){return loadFont(FONT.body,style);})));
+  }
   function fontsReady() {
     if (_fontsReady) return _fontsReady;
-    _fontsReady = Promise.all(Array.from(new Set(Object.values(FONT))).map(loadFont)).catch(function (error) {
+    _fontsReady = loadFonts().catch(function (error) {
       _fontsReady = null;
       throw error;
     });
@@ -1356,7 +1371,7 @@
     if(rejectOnError && ['combat','orders','events'].includes(card.kind) && !(card.text.background||card.text.foreground||card.text.general))return Promise.reject(new Error('Нет русского текста правил: '+card.src));
     if (!fn || !card.text) return Promise.resolve(card.src);
 
-    var fontReady = strict ? Promise.all(Array.from(new Set(Object.values(FONT))).map(loadFont)) : fontsReady();
+    var fontReady = strict ? loadFonts() : fontsReady();
     // Fetch the source while fonts load; neither depends on the other.
     var ready = Promise.all([fontReady,sourceInfo(Object.assign({},card,{src:picture}))]);
     var result = ready.then(async function (resources) {
