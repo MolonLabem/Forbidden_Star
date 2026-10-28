@@ -59,13 +59,14 @@
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
   var ORDER_LIMIT = {scale:.8,gap:.1};
 
-  function recordInk(ctx, text, x, y, role, align) {
+  function recordInk(ctx, text, x, y, role, align, strokeWidth) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
     var ink=ctx.measureText(text),matrix=ctx.getTransform();
-    var corners=[[x-ink.actualBoundingBoxLeft,y-ink.actualBoundingBoxAscent],
-      [x+ink.actualBoundingBoxRight,y-ink.actualBoundingBoxAscent],
-      [x-ink.actualBoundingBoxLeft,y+ink.actualBoundingBoxDescent],
-      [x+ink.actualBoundingBoxRight,y+ink.actualBoundingBoxDescent]].map(function(p){return matrix.transformPoint({x:p[0],y:p[1]});});
+    var pad=(strokeWidth||0)/2;
+    var corners=[[x-ink.actualBoundingBoxLeft-pad,y-ink.actualBoundingBoxAscent-pad],
+      [x+ink.actualBoundingBoxRight+pad,y-ink.actualBoundingBoxAscent-pad],
+      [x-ink.actualBoundingBoxLeft-pad,y+ink.actualBoundingBoxDescent+pad],
+      [x+ink.actualBoundingBoxRight+pad,y+ink.actualBoundingBoxDescent+pad]].map(function(p){return matrix.transformPoint({x:p[0],y:p[1]});});
     var box={left:Math.min.apply(Math,corners.map(function(p){return p.x;})),right:Math.max.apply(Math,corners.map(function(p){return p.x;})),
       top:Math.min.apply(Math,corners.map(function(p){return p.y;})),bottom:Math.max.apply(Math,corners.map(function(p){return p.y;}))};
     if(ctx.fsStrict && (box.left < -1 || box.top < -1 || box.right > ctx.canvas.width+1 || box.bottom > ctx.canvas.height+1)) throw new Error('Текст выходит за границы карты: '+text);
@@ -198,7 +199,7 @@
         var seg = segments[s];
         fontRuns(seg.text,seg.style).forEach(function (run) {
           ctx.font=run.font;ctx.textAlign='left';
-          recordInk(ctx,run.text,cx,yy,lineRole,lineAlign);
+          recordInk(ctx,run.text,cx,yy,lineRole,lineAlign,printedStrokeWidth(ctx,run.text));
           drawTokenText(ctx,run.text,cx,yy,lineFontSize);
           cx+=ctx.measureText(run.text).width;
         });
@@ -292,13 +293,31 @@
     return layoutStyledWrappedText(ctx, text, x, y, maxW, interline, fontSize, align, true);
   }
 
+  function printedStrokeWidth(ctx,text) {
+    if(ctx.fsKind==='overlay'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
+      !/[^}{<|#@\uE100-\uE102\uE200-\uE205\s]/.test(text)||
+      ctx.fillStyle!=='#000000'&&ctx.fillStyle!=='#15120c')return 0;
+    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*.02;
+  }
+
   function drawPrintedText(ctx,text,x,y) {
     var paper=ctx.fsKind!=='overlay'&&ctx.fsTextRole!=='heading'&&
       (ctx.fillStyle==='#000000'||ctx.fillStyle==='#15120c');
     if(!paper){ctx.fillText(text,x,y);return;}
     // Slightly translucent ink absorbs the existing paper grain and shading.
     // Isolate the blend so token pictures and frame artwork stay untouched.
-    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=.92;
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=.98;
+    var stroke=printedStrokeWidth(ctx,text);
+    if(stroke){
+      ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';
+      // Keep whole text runs shaped together. Game glyphs retain their original
+      // outlines and advances; only the surrounding letterforms gain ink.
+      var at=x;
+      text.split(/([}{<|#@\uE100-\uE102\uE200-\uE205])/).forEach(function(part){
+        if(part && !/[}{<|#@\uE100-\uE102\uE200-\uE205]/.test(part))ctx.strokeText(part,at,y);
+        at+=ctx.measureText(part).width;
+      });
+    }
     ctx.fillText(text,x,y);ctx.restore();
   }
 
@@ -383,6 +402,12 @@
     ctx.drawImage(picture, 0, 0);
     var titlePatch=data.kind==='orders' && data.template.patches.find(function(p){return !p.role;});
     for (var patch of data.template.patches || []) {
+      if(data.kind==='orders' && patch.role==='body-erasure'){
+        // Erase old wording in place; foreign repeating tiles flatten the
+        // source paper and lose its scan lines, grain and wear.
+        restoreOrderPaper(ctx,picture,patch.box,'order');
+        continue;
+      }
       if(patch.role==='event-type'){
         eraseNativeField(ctx,picture,patch.box,true);
         continue;
@@ -579,22 +604,33 @@
     var box = {x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
     var size = ch*(startSize||.05), ink;
     var family=region.font||FONT[role]||FONT.title;
+    var widthScale=role==='type'?.9:1;
     for (var guard=0; guard<160; guard++) {
       ctx.font = (role==='type'?'bold ':'') + size + 'px '+family;
       ink = ctx.measureText(label);
-      if (ink.width<=box.width*(1-2*LABEL_LAYOUT.paddingX) && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*(1-2*LABEL_LAYOUT.paddingY)) break;
+      if (ink.width*widthScale<=box.width*(1-2*LABEL_LAYOUT.paddingX) && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*(1-2*LABEL_LAYOUT.paddingY)) break;
       size *= .96;
     }
     ctx.textAlign = 'left';
     var x=region.align==='center' ? box.x+box.width/2+(ink.actualBoundingBoxLeft-ink.actualBoundingBoxRight)/2 : box.x+ink.actualBoundingBoxLeft;
     var y=box.y+box.height/2+(ink.actualBoundingBoxAscent-ink.actualBoundingBoxDescent)/2;
-    var bounds=recordInk(ctx,label,x,y,role,region.align);
-    ctx.fillText(label,x,y);
+    var bounds;
+    if(role==='type'){
+      x=box.x+box.width/2+(ink.actualBoundingBoxLeft-ink.actualBoundingBoxRight)*widthScale/2;
+      ctx.save();ctx.translate(x,y);ctx.scale(widthScale,1);
+      var stroke=size*.022;
+      bounds=recordInk(ctx,label,0,0,role,region.align,stroke);
+      ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';
+      ctx.strokeText(label,0,0);ctx.fillText(label,0,0);ctx.restore();
+    }else{
+      bounds=recordInk(ctx,label,x,y,role,region.align);
+      ctx.fillText(label,x,y);
+    }
     if(role==='type')ctx.fsEventType = {box:box,ink:bounds,font:family};
   }
 
   function drawEventType(ctx,label,region) {
-    drawLabel(ctx,label,Object.assign({},region,{align:'center'}),'type',.04);
+    drawLabel(ctx,label,Object.assign({},region,{align:'center'}),'type',.047);
   }
 
   function textField(data,kind) {
@@ -875,7 +911,7 @@
         }
         restoreNativeLabel(layer,picture,box);
       }
-      else if(data.kind==='orders' && role==='body')restoreOrderPaper(layer,picture,fields[role]);
+      else if(data.kind==='orders' && role==='body')restoreOrderPaper(layer,picture,fields[role],'order');
       else eraseNativeField(layer,picture,fields[role]);
     });
     return Object.assign({},data,{preparedPicture:prepared,template:{
@@ -1135,7 +1171,7 @@
     if(sheetStyle){
       // Retain the source's unprinted texture and stains. Only the old dark
       // lettering and its JPEG fringe receive nearby clean paper.
-      var mask=new Uint8Array(w*h);
+      var mask=new Uint8Array(w*h),ruledPaper=sheetStyle==='ruled'||sheetStyle==='order';
       var paperRows=[],paperColors=[],gutter=Math.max(1,Math.floor(w*.02));
       var inkGutter=sheetStyle==='paper'?0:gutter;
       for(var y=0;y<h;y++){
@@ -1149,7 +1185,7 @@
         var neutral=sheetStyle==='paper'||Math.max(pixels[i],pixels[i+1],pixels[i+2])-Math.min(pixels[i],pixels[i+1],pixels[i+2])<35;
         if(neutral&&light<Math.min(110,paperRows[Math.floor(at/w)]-35)&&at%w>=inkGutter&&at%w<w-inkGutter)mask[at]=1;
       }
-      if(sheetStyle==='ruled'){
+      if(ruledPaper){
         // Some source boxes include a thin dark side trim. Keep connected
         // edge strips; unlike the centered lettering, they reach the gutter.
         var visited=new Uint8Array(w*h);
@@ -1163,10 +1199,19 @@
         }
       }
       var expanded=new Uint8Array(w*h);
-      var fringe=sheetStyle==='ruled'?5:sheetStyle==='paper'?4:3;
+      var fringe=sheetStyle==='order'?Math.max(1,Math.round(picture.width/225)):sheetStyle==='ruled'?5:sheetStyle==='paper'?4:3;
       for(var y=0;y<h;y++)for(var x=0;x<w;x++){
         for(var yy=Math.max(0,y-fringe);!expanded[y*w+x]&&yy<=Math.min(h-1,y+fringe);yy++)
           for(var xx=Math.max(0,x-fringe);xx<=Math.min(w-1,x+fringe);xx++)if(mask[yy*w+xx]){expanded[y*w+x]=1;break;}
+      }
+      var donors=[],donorMeans=[];
+      if(sheetStyle==='order')for(var y=0;y<h;y++){
+        var samples=[],mean=[0,0,0];
+        for(var x=gutter;x<w-gutter;x++)if(!expanded[y*w+x]){
+          var at=(y*w+x)*4;samples.push(at);
+          for(var channel=0;channel<3;channel++)mean[channel]+=pixels[at+channel];
+        }
+        donors[y]=samples;donorMeans[y]=mean.map(function(value){return value/Math.max(1,samples.length);});
       }
       // Normalized convolution excludes the old ink instead of blurring it
       // into the replacement. Three box passes give smooth local shading;
@@ -1194,26 +1239,38 @@
       for(var y=0;y<h;y++)for(var x=0;x<w;x++)distance[y*w+x]=expanded[y*w+x]?0:Math.min(x?distance[y*w+x-1]+1:w+h,y?distance[(y-1)*w+x]+1:w+h);
       for(var y=h-1;y>=0;y--)for(var x=w-1;x>=0;x--)distance[y*w+x]=Math.min(distance[y*w+x],x+1<w?distance[y*w+x+1]+1:w+h,y+1<h?distance[(y+1)*w+x]+1:w+h);
       clean.data.set(pixels);
-      for(var at=0;at<w*h;at++)if(expanded[at]||sheetStyle!=='ruled'&&distance[at]<8){
+      for(var at=0;at<w*h;at++)if(expanded[at]||!ruledPaper&&distance[at]<8){
         var x=at%w,y=Math.floor(at/w),left=x-1,right=x+1;
-        if(sheetStyle==='ruled'){
+        if(ruledPaper){
           while(left>=0&&expanded[y*w+left])left--;
           while(right<w&&expanded[y*w+right])right++;
         }
-        var ruled=sheetStyle==='ruled'&&left>=gutter&&right<w-gutter;
+        var ruled=ruledPaper&&left>=gutter&&right<w-gutter;
         if(ruled){
           var leftLight=(pixels[(y*w+left)*4]+pixels[(y*w+left)*4+1]+pixels[(y*w+left)*4+2])/3;
           var rightLight=(pixels[(y*w+right)*4]+pixels[(y*w+right)*4+1]+pixels[(y*w+right)*4+2])/3;
           ruled=Math.min(leftLight,rightLight)>paperRows[y]-35;
         }
-        if(weighted[at*4+3]<.00001&&sheetStyle!=='ruled')throw new Error('Не найден чистый фон листа фракции');
+        if(weighted[at*4+3]<.00001&&!ruledPaper)throw new Error('Не найден чистый фон листа фракции');
         var noise=grain[at%grain.length];
+        if(sheetStyle==='order'){
+          // Copy fine grain from unprinted pixels of this same scan line.
+          // Interpolating colour alone leaves smooth horizontal letter bands.
+          var donorRow=y;
+          for(var step=1;!donors[donorRow].length&&step<h;step++){
+            if(y-step>=0&&donors[y-step].length)donorRow=y-step;
+            else if(y+step<h&&donors[y+step].length)donorRow=y+step;
+          }
+          var samples=donors[donorRow],seed=((x+1)*73856093^(y+1)*19349663)>>>0;
+          if(samples.length){var donor=samples[seed%samples.length];noise=[0,1,2].map(function(channel){return pixels[donor+channel]-donorMeans[donorRow][channel];});}
+        }
         for(var channel=0;channel<3;channel++){
           var shade=weighted[at*4+channel]/weighted[at*4+3];
           if(ruled)shade=(pixels[(y*w+left)*4+channel]*(right-x)+pixels[(y*w+right)*4+channel]*(x-left))/(right-left);
-          else if(sheetStyle==='ruled')shade=paperColors[y][channel];
+          else if(ruledPaper)shade=paperColors[y][channel];
           var alpha=expanded[at]?1:1-distance[at]/8;
-          clean.data[at*4+channel]=pixels[at*4+channel]*(1-alpha)+(shade+Math.max(-2,Math.min(2,noise[channel])))*alpha;
+          var grainLimit=sheetStyle==='order'?10:2;
+          clean.data[at*4+channel]=pixels[at*4+channel]*(1-alpha)+(shade+Math.max(-grainLimit,Math.min(grainLimit,noise[channel])))*alpha;
         }
       }
     }
