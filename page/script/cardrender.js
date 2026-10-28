@@ -57,7 +57,7 @@
   };
   var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
-  var ORDER_LIMIT = {scale:.8,gap:.1};
+  var ORDER_LIMIT = {scale:.8,gap:.1,fontRatio:.023,gapRatio:.016,bottom:.813,lineGap:.008};
 
   function recordInk(ctx, text, x, y, role, align, strokeWidth) {
     if(!ctx.fsStrict && !ctx.fsCollectMetrics)return;
@@ -160,7 +160,7 @@
       if (!p.trim() || p === PARA) return [];
       if (p.trim() === '-или-') return [{ text: '-или-', style:'italic' }];
       var ci = p.indexOf(':');
-      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'italic' : null);
+      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'bold italic' : null);
       if(prefixStyle==='bold') {
         // Ability titles are structured data. A colon inside a description or
         // a later paragraph must not turn ordinary rules text into a heading.
@@ -183,10 +183,14 @@
       return fontRuns(txt,style).reduce(function (width,run) {ctx.font=run.font;return width+ctx.measureText(run.text).width;},0);
     };
 
-    var lineAlign=align,lineRole=ctx.fsTextRole||'body';
+    var lineAlign=align,lineRole=ctx.fsTextRole||'body',lastInkBottom=y;
     var renderLine = function (segments, yy) {
-      var totalW = 0;
-      for (var s = 0; s < segments.length; s++) totalW += measure(segments[s].text, segments[s].style);
+      var totalW = 0,descent=0;
+      for (var s = 0; s < segments.length; s++)fontRuns(segments[s].text,segments[s].style).forEach(function(run){
+        ctx.font=run.font;var ink=ctx.measureText(run.text);
+        totalW+=ink.width;descent=Math.max(descent,ink.actualBoundingBoxDescent+printedStrokeWidth(ctx,run.text)/2);
+      });
+      lastInkBottom=yy+descent;
       ctx.fsMeasuredWidth=Math.max(ctx.fsMeasuredWidth||0,totalW);
       if (!paint) return;
       ctx.fsMinimumBodyPx = Math.min(ctx.fsMinimumBodyPx || Infinity, lineFontSize);
@@ -221,14 +225,17 @@
         continue;
       }
       if (p === '') continue;
-      var limit=ctx.fsKind==='orders' && /^ОДИН РАЗ ЗА РАУНД[.!]?$/i.test(p.trim());
+      var limit=ctx.fsKind==='orders' && /^ОДИН РАЗ ЗА (?:РАУНД|ИГРУ)[.!]?$/i.test(p.trim());
       // The frequency label is smaller than its effect and needs its own
       // clear space, including when another effect follows it in the source.
       if(limit||previousLimit){
-        lineFontSize=limit?fontSize*ORDER_LIMIT.scale:fontSize;
+        lineFontSize=limit?(ctx.fsOrderLimitSize||fontSize*ORDER_LIMIT.scale):fontSize;
         baseFont=(ctx.fsBodyWeight?ctx.fsBodyWeight+' ':'')+lineFontSize+'px '+family;
         if(limit)yy-=fontSize-lineFontSize;
-        if(drew)yy=Math.max(yy,lastBaseline+lineFontSize+fontSize*ORDER_LIMIT.gap);
+        if(drew){
+          if(ctx.fsOrderLimitGap){ctx.font=baseFont;yy=lastInkBottom+ctx.fsOrderLimitGap+ctx.measureText(p).actualBoundingBoxAscent+printedStrokeWidth(ctx,p)/2;}
+          else yy=Math.max(yy,lastBaseline+lineFontSize+fontSize*ORDER_LIMIT.gap);
+        }
       }
       lineAlign=limit || p.trim()==='-или-'?'center':align;
       lineRole=limit?'limit':ctx.fsTextRole||'body';
@@ -280,6 +287,7 @@
     }
 
     if (!drew) return 0;
+    ctx.fsLastTextInkBottom=lastInkBottom;
     // Ink box ends at the last baseline (first baseline was y+lineHeight).
     return lastBaseline - y;
   }
@@ -663,17 +671,41 @@
     return {box:box,align:kind==='orders'?'center':'left'};
   }
 
+  function orderFooter(ctx,text,box) {
+    var match=/(?:\s*\*(?:newline|newpara)\*\s*|\n)\s*(ОДИН РАЗ ЗА (?:РАУНД|ИГРУ)[.!]?)([\s\S]*)$/i.exec(text);
+    if(!match)return null;
+    var following=match[2].replace(/\s*\*(?:newline|newpara)\*\s*/g,'\n').trim();
+    // A frequency label before another effect must stay with that effect.
+    if(following && !/^ТРЕБУЕТ [^\n]+[.!]?$/i.test(following))return null;
+    var ch=canvasSize(ctx).height,size=ch*ORDER_LIMIT.fontRatio;
+    var labels=[match[1]].concat(following?[following]:[]),lines=[],bottom=ch*ORDER_LIMIT.bottom;
+    ctx.save();ctx.font=size+'px '+FONT.body;
+    for(var i=labels.length-1;i>=0;i--){
+      var ink=ctx.measureText(labels[i]),stroke=printedStrokeWidth(ctx,labels[i]);
+      var y=bottom-ink.actualBoundingBoxDescent-stroke/2;
+      var top=y-ink.actualBoundingBoxAscent-stroke/2;
+      lines.unshift({text:labels[i],x:box.x+box.width/2+(ink.actualBoundingBoxLeft-ink.actualBoundingBoxRight)/2,y:y,role:i?'requirement':'limit'});
+      bottom=top-ch*ORDER_LIMIT.lineGap;
+    }
+    ctx.restore();
+    return {body:text.slice(0,match.index).trim(),lines:lines,size:size,top:top,bottom:ch*ORDER_LIMIT.bottom};
+  }
+
   function drawBodyTextBox(ctx, text, region) {
     var previousPrefixes=ctx.fsItalicPrefixes;
     var previousGap=ctx.fsParagraphGap;
+    var previousLimitSize=ctx.fsOrderLimitSize,previousLimitGap=ctx.fsOrderLimitGap;
     var order=ctx.fsKind==='orders';
     if(region.italicPrefixes===false)ctx.fsItalicPrefixes=false;
     var b=region.box,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
     var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
-    if(ctx.fsKind==='orders'&&/ОДИН РАЗ ЗА РАУНД/i.test(text)){
-      // The order paper has an unprinted footer. Use it for the separated
-      // caption before making the effect text smaller on dense cards.
-      box.height+=Math.max(0,Math.min(ch*.025,ch*.835-box.y-box.height));
+    var footer=order?orderFooter(ctx,text,box):null;
+    if(order){
+      ctx.fsOrderLimitSize=ch*ORDER_LIMIT.fontRatio;ctx.fsOrderLimitGap=ch*ORDER_LIMIT.gapRatio;
+      if(footer){
+        text=footer.body;
+        box.height=Math.min(box.height,footer.top-ctx.fsOrderLimitGap-box.y);
+      }
     }
     // Orders use the original compact leading; all rules share Lazurski with
     // the existing game glyphs. Events keep the parchment's top inset.
@@ -692,8 +724,23 @@
     drawStyledWrappedText(ctx,text,align==='center'?box.x+box.width/2:box.x,
       box.y,box.width,interline,size,align);
     ctx.fsBodyTextBox={box:box,inkBottomPx:box.y+height+size*clearance,fontSizePx:size};
+    if(footer){
+      var inkBottom=ctx.fsLastTextInkBottom;
+      // A common gap after the actual ink, within a reserved safe paper area.
+      // Short effects keep the same inset instead of leaving a large void.
+      var offset=inkBottom+ctx.fsOrderLimitGap-footer.top;
+      if(!Number.isFinite(offset))offset=0;
+      ctx.save();ctx.font=footer.size+'px '+FONT.body;ctx.textAlign='left';
+      footer.lines.forEach(function(line){
+        recordInk(ctx,line.text,line.x,line.y+offset,line.role,'center',printedStrokeWidth(ctx,line.text));
+        drawPrintedText(ctx,line.text,line.x,line.y+offset);
+      });
+      ctx.restore();
+      ctx.fsOrderFooter={box:{x:box.x,y:footer.top+offset,width:box.width,height:footer.bottom-footer.top},gapPx:ctx.fsOrderLimitGap,fontSizePx:footer.size};
+    }
     ctx.fsItalicPrefixes=previousPrefixes;
     ctx.fsParagraphGap=previousGap;
+    ctx.fsOrderLimitSize=previousLimitSize;ctx.fsOrderLimitGap=previousLimitGap;
   }
 
   // ---- card draw functions ----
@@ -1121,11 +1168,71 @@
     ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
   }
 
+  // Rebuild the complete order field from its unprinted margins. Inpainting
+  // only dark letters leaves grey dice, JPEG fringes and scattered ink behind.
+  function restoreCleanOrderPaper(ctx,picture,box) {
+    var crop=document.createElement('canvas');crop.width=Math.round(box[2]*picture.width);crop.height=Math.round(box[3]*picture.height);
+    var c=crop.getContext('2d',{willReadFrequently:true}),w=crop.width,h=crop.height;
+    c.drawImage(picture,box[0]*picture.width,box[1]*picture.height,box[2]*picture.width,box[3]*picture.height,0,0,w,h);
+    var source=c.getImageData(0,0,w,h),pixels=source.data,clean=c.createImageData(w,h);
+    var gutter=Math.max(2,Math.round(w*.025)),bevel=Math.max(1,Math.round(Math.min(w,h)*.05)),palette=[];
+    function color(x,y){var at=(y*w+x)*4;return [pixels[at],pixels[at+1],pixels[at+2]];}
+    function light(rgb){return (rgb[0]+rgb[1]+rgb[2])/3;}
+    for(var y=0;y<h-bevel;y++)for(var x=0;x<gutter;x++){
+      [color(x,y),color(w-1-x,y)].forEach(function(rgb){if(light(rgb)>140)palette.push(rgb);});
+    }
+    if(!palette.length)throw new Error('Не найдена чистая бумага приказа');
+    function sample(values){
+      values=values.filter(function(rgb){return light(rgb)>140;});
+      if(!values.length)values=palette;
+      values.sort(function(a,b){return light(a)-light(b);});
+      return values[Math.floor(values.length*.75)];
+    }
+    var left=[],right=[],top=[],bottom=[],grain=[];
+    for(var y=0;y<h;y++){
+      var sy=Math.min(y,h-1-bevel),a=[],b=[];
+      for(var x=0;x<gutter;x++){a.push(color(x,sy));b.push(color(w-1-x,sy));}
+      left[y]=sample(a);right[y]=sample(b);
+      [a,b].forEach(function(values,side){var tone=side?right[y]:left[y];values.forEach(function(rgb){
+        if(light(rgb)>140)grain.push(rgb.map(function(value,channel){return Math.max(-5,Math.min(5,value-tone[channel]));}));
+      });});
+    }
+    for(var x=0;x<w;x++){
+      var a=[],b=[],sx=Math.max(bevel,Math.min(w-1-bevel,x));
+      for(var y=0;y<gutter;y++){a.push(color(x,y));b.push(color(sx,h-1-y));}
+      top[x]=sample(a);bottom[x]=sample(b);
+    }
+    function smooth(row,start,end){
+      var radius=Math.max(2,Math.round(w*.035)),result=[];
+      for(var x=0;x<w;x++){
+        var a=Math.max(0,x-radius),b=Math.min(w-1,x+radius),rgb=[0,0,0];
+        for(var at=a;at<=b;at++)for(var channel=0;channel<3;channel++)rgb[channel]+=row[at][channel]/(b-a+1);
+        result.push(rgb);
+      }
+      var first=result[0].slice(),last=result[w-1].slice();
+      return result.map(function(rgb,x){var u=x/(w-1);return rgb.map(function(value,channel){return value+(1-u)*(start[channel]-first[channel])+u*(end[channel]-last[channel]);});});
+    }
+    top=smooth(top,left[0],right[0]);bottom=smooth(bottom,left[h-1],right[h-1]);
+    for(var y=0;y<h;y++)for(var x=0;x<w;x++){
+      var u=x/(w-1),v=y/(h-1),at=(y*w+x)*4,seed=((x+1)*73856093^(y+1)*19349663)>>>0;
+      var noise=grain[seed%grain.length],corner=y>=h-bevel&&(x<y-h+bevel||w-1-x<y-h+bevel);
+      for(var channel=0;channel<3;channel++){
+        var corners=(1-u)*(1-v)*top[0][channel]+u*(1-v)*top[w-1][channel]+(1-u)*v*bottom[0][channel]+u*v*bottom[w-1][channel];
+        var shade=(1-v)*top[x][channel]+v*bottom[x][channel]+(1-u)*left[y][channel]+u*right[y][channel]-corners;
+        clean.data[at+channel]=corner?pixels[at+channel]:shade+noise[channel];
+      }
+      clean.data[at+3]=255;
+    }
+    c.putImageData(clean,0,0);
+    ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
+  }
+
   // The order frame leaves clean paper on the rules field's four edges.
   // Interpolate that shading and reuse its fine grain, rather than selecting a
   // bright tile from the wording. The field stays opaque over the old text;
   // matching its native edges avoids both a coloured rectangle and ink ghosts.
   function restoreOrderPaper(ctx,picture,box,sheetStyle) {
+    if(sheetStyle==='order'){restoreCleanOrderPaper(ctx,picture,box);return;}
     var crop=document.createElement('canvas');
     crop.width=Math.max(2,Math.round(box[2]*picture.width));crop.height=Math.max(2,Math.round(box[3]*picture.height));
     var c=crop.getContext('2d',{willReadFrequently:true}),w=crop.width,h=crop.height;
@@ -1171,7 +1278,7 @@
     if(sheetStyle){
       // Retain the source's unprinted texture and stains. Only the old dark
       // lettering and its JPEG fringe receive nearby clean paper.
-      var mask=new Uint8Array(w*h),ruledPaper=sheetStyle==='ruled'||sheetStyle==='order';
+      var mask=new Uint8Array(w*h),ruledPaper=sheetStyle==='ruled';
       var paperRows=[],paperColors=[],gutter=Math.max(1,Math.floor(w*.02));
       var inkGutter=sheetStyle==='paper'?0:gutter;
       for(var y=0;y<h;y++){
@@ -1199,19 +1306,10 @@
         }
       }
       var expanded=new Uint8Array(w*h);
-      var fringe=sheetStyle==='order'?Math.max(1,Math.round(picture.width/225)):sheetStyle==='ruled'?5:sheetStyle==='paper'?4:3;
+      var fringe=sheetStyle==='ruled'?5:sheetStyle==='paper'?4:3;
       for(var y=0;y<h;y++)for(var x=0;x<w;x++){
         for(var yy=Math.max(0,y-fringe);!expanded[y*w+x]&&yy<=Math.min(h-1,y+fringe);yy++)
           for(var xx=Math.max(0,x-fringe);xx<=Math.min(w-1,x+fringe);xx++)if(mask[yy*w+xx]){expanded[y*w+x]=1;break;}
-      }
-      var donors=[],donorMeans=[];
-      if(sheetStyle==='order')for(var y=0;y<h;y++){
-        var samples=[],mean=[0,0,0];
-        for(var x=gutter;x<w-gutter;x++)if(!expanded[y*w+x]){
-          var at=(y*w+x)*4;samples.push(at);
-          for(var channel=0;channel<3;channel++)mean[channel]+=pixels[at+channel];
-        }
-        donors[y]=samples;donorMeans[y]=mean.map(function(value){return value/Math.max(1,samples.length);});
       }
       // Normalized convolution excludes the old ink instead of blurring it
       // into the replacement. Three box passes give smooth local shading;
@@ -1253,24 +1351,12 @@
         }
         if(weighted[at*4+3]<.00001&&!ruledPaper)throw new Error('Не найден чистый фон листа фракции');
         var noise=grain[at%grain.length];
-        if(sheetStyle==='order'){
-          // Copy fine grain from unprinted pixels of this same scan line.
-          // Interpolating colour alone leaves smooth horizontal letter bands.
-          var donorRow=y;
-          for(var step=1;!donors[donorRow].length&&step<h;step++){
-            if(y-step>=0&&donors[y-step].length)donorRow=y-step;
-            else if(y+step<h&&donors[y+step].length)donorRow=y+step;
-          }
-          var samples=donors[donorRow],seed=((x+1)*73856093^(y+1)*19349663)>>>0;
-          if(samples.length){var donor=samples[seed%samples.length];noise=[0,1,2].map(function(channel){return pixels[donor+channel]-donorMeans[donorRow][channel];});}
-        }
         for(var channel=0;channel<3;channel++){
           var shade=weighted[at*4+channel]/weighted[at*4+3];
           if(ruled)shade=(pixels[(y*w+left)*4+channel]*(right-x)+pixels[(y*w+right)*4+channel]*(x-left))/(right-left);
           else if(ruledPaper)shade=paperColors[y][channel];
           var alpha=expanded[at]?1:1-distance[at]/8;
-          var grainLimit=sheetStyle==='order'?10:2;
-          clean.data[at*4+channel]=pixels[at*4+channel]*(1-alpha)+(shade+Math.max(-grainLimit,Math.min(grainLimit,noise[channel])))*alpha;
+          clean.data[at*4+channel]=pixels[at*4+channel]*(1-alpha)+(shade+Math.max(-2,Math.min(2,noise[channel])))*alpha;
         }
       }
     }
@@ -1397,6 +1483,7 @@
     if(ctx.fsCombatIcons)metrics.combatIcons=ctx.fsCombatIcons.map(function(icon){return {symbol:icon.symbol,x:icon.x*sx,y:icon.y*sy,size:icon.size*sx};});
     if(ctx.fsEventType)metrics.eventType=Object.assign({},ctx.fsEventType,{box:box(ctx.fsEventType.box)});
     if(ctx.fsBodyTextBox)metrics.bodyTextBox=Object.assign(scaled(ctx.fsBodyTextBox,sy),{box:box(ctx.fsBodyTextBox.box)});
+    if(ctx.fsOrderFooter)metrics.orderFooter=Object.assign(scaled(ctx.fsOrderFooter,sy),{box:box(ctx.fsOrderFooter.box)});
     if(ctx.fsTokenImageBounds)metrics.tokenImages=ctx.fsTokenImageBounds.map(box);
     if(ctx.fsTokenRotations)metrics.tokenRotations=ctx.fsTokenRotations;
     return metrics;
