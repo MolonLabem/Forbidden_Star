@@ -14,6 +14,11 @@
   font-display: swap;
 }
 @font-face {
+  font-family: 'CombatRules';
+  src: url('../fonts/ForbiddenStars.woff2?v=tokens-1') format('woff2');
+  font-display: swap;
+}
+@font-face {
   font-family: 'EventFont';
   src: url('../fonts/EventFont.woff2') format('woff2');
   font-display: swap;

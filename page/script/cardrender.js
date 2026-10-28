@@ -55,7 +55,7 @@
       events: {title:[.075,.057,.65,.041],body:[.08,.673,.84,.231],type:[.17,.525,.66,.047]},
     },
   };
-  var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
+  var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars',combatBody:'CombatRules'};
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
   var ORDER_LIMIT = {scale:.8,gap:.1,fontRatio:.023,gapRatio:.016,bottom:.813,lineGap:.008};
 
@@ -160,7 +160,7 @@
       if (!p.trim() || p === PARA) return [];
       if (p.trim() === '-или-') return [{ text: '-или-', style:'italic' }];
       var ci = p.indexOf(':');
-      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'bold italic' : null);
+      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? (ctx.fsKind==='combat'?'italic':'bold italic') : null);
       if(prefixStyle==='bold') {
         // Ability titles are structured data. A colon inside a description or
         // a later paragraph must not turn ordinary rules text into a heading.
@@ -302,7 +302,7 @@
   }
 
   function printedStrokeWidth(ctx,text) {
-    if(ctx.fsKind==='overlay'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
+    if(ctx.fsKind==='overlay'||ctx.fsKind==='combat'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
       !/[^}{<|#@\uE100-\uE102\uE200-\uE205\s]/.test(text)||
       ctx.fillStyle!=='#000000'&&ctx.fillStyle!=='#15120c')return 0;
     return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*.02;
@@ -314,7 +314,7 @@
     if(!paper){ctx.fillText(text,x,y);return;}
     // Slightly translucent ink absorbs the existing paper grain and shading.
     // Isolate the blend so token pictures and frame artwork stay untouched.
-    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=.98;
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=ctx.fsKind==='combat'?.92:.98;
     var stroke=printedStrokeWidth(ctx,text);
     if(stroke){
       ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';
@@ -414,6 +414,12 @@
         // Erase old wording in place; foreign repeating tiles flatten the
         // source paper and lose its scan lines, grain and wear.
         restoreOrderPaper(ctx,picture,patch.box,'order');
+        continue;
+      }
+      if(patch.role==='body-erasure' && patch.paper==='native'){
+        // Keep the event's own stains and shaded margins instead of laying a
+        // repeating donor rectangle over the parchment.
+        restoreOrderPaper(ctx,picture,patch.box,'event');
         continue;
       }
       if(patch.role==='event-type'){
@@ -707,8 +713,7 @@
         box.height=Math.min(box.height,footer.top-ctx.fsOrderLimitGap-box.y);
       }
     }
-    // Orders use the original compact leading; all rules share Lazurski with
-    // the existing game glyphs. Events keep the parchment's top inset.
+    // Orders use compact leading. Events keep the parchment's top inset.
     var size=ch*(order ? .033 : .03),minimumSpacing=order ? -.1 : .18;
     var interline=size*(order ? minimumSpacing : .257),height,clearance=order ? .35 : .25;
     ctx.fsParagraphGap=order ? .35 : .743;
@@ -726,8 +731,9 @@
     ctx.fsBodyTextBox={box:box,inkBottomPx:box.y+height+size*clearance,fontSizePx:size};
     if(footer){
       var inkBottom=ctx.fsLastTextInkBottom;
-      // A common gap after the actual ink, within a reserved safe paper area.
-      // Short effects keep the same inset instead of leaving a large void.
+      // Give short effects a full visual break without shrinking dense rules
+      // to make room for it. The footer remains inside its safe paper area.
+      ctx.fsOrderLimitGap=Math.max(ctx.fsOrderLimitGap,Math.min(ch*.028,footer.top-inkBottom));
       var offset=inkBottom+ctx.fsOrderLimitGap-footer.top;
       if(!Number.isFinite(offset))offset=0;
       ctx.save();ctx.font=footer.size+'px '+FONT.body;ctx.textAlign='left';
@@ -1292,17 +1298,17 @@
         var neutral=sheetStyle==='paper'||Math.max(pixels[i],pixels[i+1],pixels[i+2])-Math.min(pixels[i],pixels[i+1],pixels[i+2])<35;
         if(neutral&&light<Math.min(110,paperRows[Math.floor(at/w)]-35)&&at%w>=inkGutter&&at%w<w-inkGutter)mask[at]=1;
       }
-      if(ruledPaper){
-        // Some source boxes include a thin dark side trim. Keep connected
-        // edge strips; unlike the centered lettering, they reach the gutter.
+      if(ruledPaper||sheetStyle==='event'){
+        // Native trim and dark event-paper edges reach the field boundary.
+        // Keep those components while removing isolated printed letters.
         var visited=new Uint8Array(w*h);
         for(var start=0;start<w*h;start++)if(mask[start]&&!visited[start]){
           var component=[start],first=w,last=0,touches=false;visited[start]=1;
           for(var pos=0;pos<component.length;pos++){
-            var at=component[pos],x=at%w,y=Math.floor(at/w);first=Math.min(first,x);last=Math.max(last,x);touches=touches||x===gutter||x===w-1-gutter;
+            var at=component[pos],x=at%w,y=Math.floor(at/w);first=Math.min(first,x);last=Math.max(last,x);touches=touches||x===gutter||x===w-1-gutter||sheetStyle==='event'&&(y===0||y===h-1);
             [x?at-1:-1,x+1<w?at+1:-1,y?at-w:-1,y+1<h?at+w:-1].forEach(function(next){if(next>=0&&mask[next]&&!visited[next]){visited[next]=1;component.push(next);}});
           }
-          if(touches&&last-first<Math.max(2,gutter*2))component.forEach(function(at){mask[at]=0;});
+          if(touches&&(sheetStyle==='event'||last-first<Math.max(2,gutter*2)))component.forEach(function(at){mask[at]=0;});
         }
       }
       var expanded=new Uint8Array(w*h);
@@ -1539,6 +1545,7 @@
       ctx.fsStrict = strict;
       ctx.fsCollectMetrics=!!options.onMetrics;
       ctx.fsTextLines=[];ctx.fsKind=card.kind;
+      ctx.fsBodyFont=card.kind==='combat'?FONT.combatBody:FONT.body;
       var format = function (text) { return window.FSWord.format(text, wording); };
       var data = {
         template:   card.template,

@@ -7746,17 +7746,7 @@
               0.82,
               0.243
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3
+            "paper": "native"
           }
         ],
         "picture": "pictures/templates/tau/gif__tau__events__e_1.jpg"
@@ -7818,18 +7808,8 @@
               0.9,
               0.27
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3,
-            "role": "body-erasure"
+            "role": "body-erasure",
+            "paper": "native"
           }
         ]
       },
@@ -7890,18 +7870,8 @@
               0.9,
               0.27
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3,
-            "role": "body-erasure"
+            "role": "body-erasure",
+            "paper": "native"
           }
         ]
       },
@@ -7962,18 +7932,8 @@
               0.9,
               0.27
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3,
-            "role": "body-erasure"
+            "role": "body-erasure",
+            "paper": "native"
           }
         ]
       },
@@ -8034,17 +7994,7 @@
               0.82,
               0.243
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3
+            "paper": "native"
           }
         ],
         "picture": "pictures/templates/tau/gif__tau__events__e_5.jpg"
@@ -8106,18 +8056,8 @@
               0.9,
               0.27
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3,
-            "role": "body-erasure"
+            "role": "body-erasure",
+            "paper": "native"
           }
         ]
       },
@@ -8178,18 +8118,8 @@
               0.9,
               0.27
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3,
-            "role": "body-erasure"
+            "role": "body-erasure",
+            "paper": "native"
           }
         ]
       },
@@ -8250,18 +8180,8 @@
               0.9,
               0.27
             ],
-            "texture": {
-              "src": "pictures/templates/tau/gif__tau__events__e_5.jpg",
-              "crop": [
-                0.18,
-                0.8,
-                0.6,
-                0.08
-              ]
-            },
-            "tile": true,
-            "featherPx": 3,
-            "role": "body-erasure"
+            "role": "body-erasure",
+            "paper": "native"
           }
         ]
       },
