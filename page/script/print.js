@@ -37,7 +37,7 @@
   var api={cardsFrom:cardsFrom,dimensions:dimensions,selected:selected,total:total,qualityWarnings:qualityWarnings};
   if(typeof module!=='undefined' && module.exports) {module.exports=api;return;}
   root.FSPrint=api;
-  var STORAGE='forbidden-stars.print-cart.v2',displayMode=root.FSModes.initial(location.hash),quantities={},warning='',version=0,mode=false,loaded,available;
+  var STORAGE='forbidden-stars.print-cart.v2',displayMode=root.FSModes.initial(location.hash),quantities={},unsavedCarts={},warning='',version=0,mode=false,loaded,available;
   function storageKey() {return STORAGE+(displayMode==='updated'?'':'.'+displayMode);}
   var printOptions=Object.assign({},DEFAULTS),importRequested=false;
   try {quantities=validateCart(JSON.parse(localStorage.getItem(storageKey())||'{}'));}
@@ -53,7 +53,7 @@
       if(Object.values(incoming).reduce(function (sum,n) {return sum+n;},0)>200) throw new Error();
       displayMode=importMode;quantities=incoming;importRequested=true;
       if(payload.cards) Object.keys(DEFAULTS).forEach(function (key) {if(payload[key]!==undefined) printOptions[key]=payload[key];});
-      try {localStorage.setItem(storageKey(),JSON.stringify(quantities));} catch(error) {warning='Набор сохранится только до перезагрузки страницы.';}
+      try {localStorage.setItem(storageKey(),JSON.stringify(quantities));} catch(error) {unsavedCarts[displayMode]=quantities;warning='Набор сохранится только до перезагрузки страницы.';}
     }
   } catch(error) {warning='Ссылка на набор повреждена. Сохранённый набор доступен.';}
   function element(tag,text,parent,className) {
@@ -75,7 +75,9 @@
     var dialog=document.querySelector('.fs-print');if(dialog)dialog.close();
     displayMode=value;loaded=null;available=null;mode=false;version++;
     if(previews)previews.clear();
-    try {quantities=validateCart(JSON.parse(localStorage.getItem(storageKey())||'{}'));warning='';}
+    // Failed writes remain available for this version throughout the session.
+    if(unsavedCarts[displayMode]) {quantities=unsavedCarts[displayMode];warning='Набор сохранится только до перезагрузки страницы.';}
+    else try {quantities=validateCart(JSON.parse(localStorage.getItem(storageKey())||'{}'));warning='';}
     catch(error) {quantities={};warning='Сохранённый набор этой версии не прочитан.';}
     sync();
   };
@@ -83,7 +85,7 @@
   api.selection=function () {return Object.assign({},quantities);};
   function save(next) {
     quantities=validateCart(next);version++;
-    try {localStorage.setItem(storageKey(),JSON.stringify(quantities));} catch(error) {warning='Набор сохранится только до перезагрузки страницы.';}
+    try {localStorage.setItem(storageKey(),JSON.stringify(quantities));delete unsavedCarts[displayMode];warning='';} catch(error) {unsavedCarts[displayMode]=quantities;warning='Набор сохранится только до перезагрузки страницы.';}
     root.dispatchEvent(new Event('fs-print-change'));
   }
   api.setQuantity=function (id,n) {
@@ -450,7 +452,14 @@
         }
       }
       updateCart();
-    } catch(error) {status.textContent=error.message;button('Повторить',content,function () {dialog.close();api.open(options);});}
+    } catch(error) {
+      status.textContent=error.message;button('Повторить',content,function (event) {
+        event.currentTarget.disabled=true;
+        // The existing close handler removes the old dialog and restores focus.
+        dialog.addEventListener('close',function () {api.open(options);},{once:true});
+        dialog.close();
+      });
+    }
   };
   if(importRequested) {
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function () {api.open();},{once:true});else api.open();

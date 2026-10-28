@@ -387,7 +387,7 @@
     nav.id = id;
     nav.classList.add('fs-mobile-nav');
     nav.classList.toggle('is-mobile-open', state[key]);
-    return el('button', { type: 'button', class: 'fs-mobile-nav-toggle',
+    return el('button', { type: 'button', id: id + '-toggle', class: 'fs-mobile-nav-toggle',
       'aria-expanded': String(state[key]), 'aria-controls': id,
       onclick: function (e) {
         state[key] = !state[key];
@@ -1175,7 +1175,7 @@
 
         var chevron = el('span', { class: 'fs-exp-chevron' + (open ? ' open' : ''), html: '&rsaquo;' });
         var expHeader = el('button', {
-          class: 'fs-fac fs-faq-catnav fs-exp-head' + (expActive ? ' is-active' : ''),
+          class: 'fs-fac fs-faq-catnav fs-exp-head' + (expActive ? ' is-active' : ''), id: 'expansion-' + e.key,
           'aria-expanded': String(open), 'aria-controls': 'factions-' + e.key,
           onclick: (function (key) {
             return function (ev) {
@@ -1200,11 +1200,13 @@
             var cnt = manifestCount(DATA.manifest[e.key + '/' + f.key]);
             var facActive = expActive && state.faction === f.key;
             return el('button', {
-              class: 'fs-faq-subnav fs-fac-sub' + (facActive ? ' is-active' : ''),
+              class: 'fs-faq-subnav fs-fac-sub' + (facActive ? ' is-active' : ''), id: 'faction-' + e.key + '-' + f.key,
               onclick: (function (ek, fk) { return function () {
                 delete DATA.errors['man:' + ek + '/' + fk];
                 ensureManifest(ek, fk);
                 setState({ expansion: ek, faction: fk, lb: null, expOpen: ek, cardQuery: '', navOpen: false });
+                var toggle = document.getElementById('catalog-navigation-toggle');
+                if (toggle && toggle.getClientRects().length) toggle.focus({ preventScroll: true });
               }; })(e.key, f.key),
             }, [
               el('span', { class: 'fs-fac-dot fs-fac-subdot', style: 'background:' + f.dot + ';' }),
@@ -1363,7 +1365,7 @@
     var cattabs = el('div', { class: 'fs-cattabs fs-scroll' },
       DATA.categories.filter(function (c) { return c.key !== 'material' || hasMaterials; }).map(function (c) {
         return el('button', {
-          class: 'fs-cat' + (cat === c.key ? ' is-active' : ''),
+          class: 'fs-cat' + (cat === c.key ? ' is-active' : ''), id: 'category-' + c.key,
           onclick: (function (key) { return function () { setState({ category: key, lb: null, cardQuery: '' }); }; })(c.key),
           text: catName(c.key),
         });
