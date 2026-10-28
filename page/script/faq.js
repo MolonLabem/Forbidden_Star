@@ -35,7 +35,7 @@
         count[ckey] = 0;
         (cat.items || []).forEach(function (sub, si) {
           var skey = ckey + '_s' + si;
-          var subObj = { key: skey, name: sub.SubCategory || ('Группа ' + (si + 1)), factions: [] };
+          var subObj = { key: skey, name: sub.SubCategory || ('Группа ' + (si + 1)), common: sub.SubCategory === 'Общие', factions: [] };
           var subCount = 0;
           (sub.items || []).forEach(function (fac) {
             var facObj = { faction: fac.Faction || '', picture: fac.picture || '', items: [] };
@@ -50,7 +50,9 @@
               subObj.factions.push(facObj);
               // In "Общие", Faction labels name rule topics rather than armies.
               if (sub.SubCategory !== 'Общие' && facObj.faction && !factions.some(function (f) { return f.key === facObj.faction; })) {
-                factions.push({ key: facObj.faction, name: facObj.faction, parent: ckey });
+                var linked = facObj.items.find(function (item) { return item.card; });
+                factions.push({ key: facObj.faction, name: facObj.faction, parent: ckey,
+                  catalogId: linked ? linked.card.replace(/^tdl\//, 'dl/').split('/').slice(0, 2).join('/') : '' });
               }
             }
           });

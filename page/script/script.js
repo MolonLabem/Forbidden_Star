@@ -92,12 +92,13 @@
       }
       DATA.faq = window.FS_FAQ.flatten(raw);
       DATA.loading.faq = false;
-      render();
+      if (state.lb !== null) appendCardFaqLink(document.querySelector('.fs-card-text'), flat[state.lb]);
+      else render();
     }).catch(function (e) {
       console.error('Ошибка загрузки FAQ', e);
       DATA.loading.faq = false;
       DATA.errors.faq = true;
-      render();
+      if (state.lb === null) render();
     });
   }
 
@@ -114,10 +115,10 @@
     view: 'codex',
     faqTopic: 'all', faqFaction: 'all', faqQuery: '', faqOpen: {},
     expOpen: null,
-    cardQuery: '',
+    cardQuery: '', cardScope: 'faction', faqContext: null,
     faqQuestion: null, settingsOpen: false, navOpen: false, faqNavOpen: false,
   };
-  var routeKeys = ['view', 'expansion', 'faction', 'category', 'cardQuery', 'faqQuery', 'faqTopic', 'faqFaction', 'displayMode', 'comparison', 'comparisonFaction', 'comparisonSide'];
+  var routeKeys = ['view', 'expansion', 'faction', 'category', 'cardQuery', 'cardScope', 'faqQuery', 'faqTopic', 'faqFaction', 'displayMode', 'comparison', 'comparisonFaction', 'comparisonSide'];
   routeKeys.forEach(function (key) { state[key] = initialRoute[key]; });
   state.expOpen = state.expansion;
   state.faqQuestion = initialRoute.question;
@@ -146,7 +147,7 @@
     var route = window.FSNav.read(location.hash);
     releaseModal();
     routeKeys.forEach(function (key) { state[key] = route[key]; });
-    state.lb = null; state.lbFull = false;
+    state.lb = null; state.lbFull = false; state.faqContext = null;
     state.expOpen = route.expansion; state.faqQuestion = route.question;
     pendingCard = route.card; pendingQuestion = route.question;
     if (route.question) state.faqOpen[route.question] = true;
@@ -336,9 +337,29 @@
     ]);
   }
 
+  var catalogReturn = null;
+  function rememberCatalog() {
+    if (state.view !== 'codex') return;
+    catalogReturn = { expansion: state.expansion, faction: state.faction, category: state.category,
+      cardQuery: state.cardQuery, cardScope: state.cardScope, card: flat[state.lb]?.src || null };
+  }
+  function backToCatalog() {
+    var target = catalogReturn || { expansion: state.expansion, faction: state.faction, category: state.category, cardQuery: state.cardQuery, cardScope: state.cardScope };
+    pendingCard = target.card || null;
+    setState({ view: 'codex', expansion: target.expansion, faction: target.faction, category: target.category,
+      cardQuery: target.cardQuery || '', cardScope: target.cardScope || 'faction', faqContext: null });
+  }
+  function faqFactionFor(exp, fac) {
+    var linked = DATA.faq?.factions.find(function (f) { return f.catalogId === exp + '/' + fac; });
+    return linked ? linked.key : facNameOf(exp, fac);
+  }
   function openFaq() {
     delete DATA.errors.faq;
-    setState({ view: 'faq', cardQuery: '', lb: null });
+    if (state.view === 'faq') { render(); return; }
+    rememberCatalog();
+    pendingQuestion = null;
+    setState({ view: 'faq', faqQuery: '', faqTopic: 'all', faqQuestion: null, faqFaction: 'all',
+      faqContext: state.faction ? { exp: state.expansion, fac: state.faction } : null, lb: null });
   }
 
   function comparisonLink() {
@@ -347,14 +368,20 @@
 
   function openComparison(event) {
     if(event)event.preventDefault();
+    rememberCatalog();
     setState({view:'compare',comparison:'visual',comparisonFaction:'all',lb:null,settingsOpen:false});
   }
 
-  function renderSettings() {
+  function renderVersion() {
     var display = el('select', {id:'fs-display-mode','aria-label':'Версия карт',onchange:function (e) {
       setDisplayMode(e.target.value);
-    }}, window.FSModes.definitions.map(function (m) {return el('option',{value:m.id,text:m.label});}));
+    }}, window.FSModes.definitions.map(function (m) {return el('option',{value:m.id,text:m.label,title:m.description});}));
     display.value=state.displayMode;
+    display.title = window.FSModes.definitions.find(function (m) { return m.id === state.displayMode; }).description;
+    return el('div', { class: 'fs-version' }, [el('label', { for: 'fs-display-mode', text: 'Версия карт' }), display]);
+  }
+
+  function renderSettings() {
     var mode = el('select', { id: 'fs-wording', onchange: function (e) {
       setTokenStyle(e.target.value);
     } }, [el('option', { value: 'images', text: 'Цветные' }), el('option', { value: 'icons', text: 'Чёрно-белые' })]);
@@ -366,20 +393,14 @@
     }));
     return el('details', { class: 'fs-settings', open: state.settingsOpen ? '' : null,
       ontoggle: function (e) { if(e.target.isConnected)state.settingsOpen = e.target.open; } }, [
-      el('summary', { class:'fs-mode-badge', title:'Настройки карт', 'aria-label': 'Настройки карт: '+window.FSModes.label(state.displayMode),
+      el('summary', { class:'fs-mode-badge', title:'Вид карт', 'aria-label': 'Вид карт',
         // Native toggle events are queued; keep the state before an async redraw.
         onclick:function (e) {state.settingsOpen=!e.currentTarget.parentNode.open;}
       }, [
-        window.FSModes.label(state.displayMode),
+        'Вид',
         el('span', { class: 'fs-settings-chevron', text: '▾', 'aria-hidden': 'true' }),
       ]),
       el('div', { class: 'fs-settings-panel' }, [
-        el('div',{class:'fs-settings-group'},[
-          el('label', {for:'fs-display-mode',text:'Версия карт'}),display,
-          el('p',{class:'fs-mode-description',text:window.FSModes.definitions.find(function (m) {return m.id===state.displayMode;}).description+(state.displayMode==='rnb'&&DATA.rnb?' Версия '+DATA.rnb.version+'.':'')}),
-          el('a',{class:'fs-share',text:'Сравнить версии',href:comparisonLink(),onclick:openComparison}),
-          state.displayMode==='rnb'&&DATA.rnb?el('a',{class:'fs-share',text:'Изменения RNB',href:DATA.rnb.sources.changelog,target:'_blank',rel:'noopener noreferrer'}):null,
-        ]),
         el('div',{class:'fs-settings-group'},[
           el('label', { for: 'fs-wording', text: 'Жетоны' }), mode,
           el('details',{class:'fs-token-help'},[el('summary',{text:'Обозначения жетонов'}),legend]),
@@ -632,6 +653,50 @@
 
   function collectFaction(exp,fac) { return (DATA.cards[exp+'/'+fac] || []).map(decorateCard); }
 
+  function effectSnippet(card, query) {
+    if (!query) return null;
+    var fields = card.text || {}, found;
+    ['general', 'unit', 'background', 'foreground', 'notice'].some(function (key) {
+      if (typeof fields[key] !== 'string') return false;
+      var text = window.FSWord.plain(fields[key]), normalized = '', offsets = [];
+      // Keep source offsets while normalizing ё, dashes and whitespace for search.
+      for (var i = 0; i < text.length; i++) {
+        var ch = text[i].toLocaleLowerCase('ru').replace(/ё/g, 'е').replace(/[-\u2010-\u2015\s]/g, ' ');
+        if (ch === ' ' && (!normalized || normalized.endsWith(' '))) continue;
+        normalized += ch; offsets.push(i);
+      }
+      var at = normalized.indexOf(query);
+      if (at < 0) return false;
+      var start = offsets[at], end = offsets[at + query.length - 1] + 1;
+      var from = Math.max(0, start - 45), to = Math.min(text.length, end + 85);
+      if (from) { var space = text.indexOf(' ', from); if (space >= 0 && space < start) from = space + 1; }
+      if (to < text.length) { var stop = text.lastIndexOf(' ', to); if (stop > end) to = stop; }
+      found = el('p', { class: 'fs-search-excerpt' }, [
+        (from ? '…' : '') + text.slice(from, start), el('mark', { text: text.slice(start, end) }),
+        text.slice(end, to) + (to < text.length ? '…' : ''),
+      ]);
+      return true;
+    });
+    return found || null;
+  }
+
+  function appendCardFaqLink(panel, card) {
+    if (!panel || !card || !DATA.faq || panel.querySelector('.fs-card-faq')) return;
+    var path = card.src.replace(/^factions\//, ''), item;
+    DATA.faq.cats.some(function (cat) { return cat.subs.some(function (sub) { return sub.factions.some(function (fac) {
+      item = fac.items.find(function (it) { return it.card.replace(/^tdl\//, 'dl/') === path; });
+      return !!item;
+    }); }); });
+    if (!item) return;
+    var route = { view: 'faq', displayMode: state.displayMode, faqTopic: 'all', faqFaction: faqFactionFor(card.exp, card.fac) };
+    panel.appendChild(el('a', { class: 'fs-share fs-card-faq', text: 'Вопросы по этой карте',
+      href: window.FSNav.write(route, null, item.id), onclick: function (event) {
+        event.preventDefault(); rememberCatalog();
+        state.faqOpen[item.id] = true; pendingQuestion = item.id;
+        setState(Object.assign({}, route, { lb: null, faqQuery: '', faqQuestion: item.id, faqContext: null }));
+      } }));
+  }
+
   /* ---- Лайтбокс ---- */
 
   function viewerIsFullscreen() {
@@ -753,7 +818,7 @@
     if (state.lb === null || document.querySelector('.fs-print[open]')) return;
     if (e.key === 'Escape') {
       e.preventDefault();
-      if (document.querySelector('.fs-lb-imgwrap.is-zoomed')) toggleSheetZoom();
+      if (document.querySelector('.fs-lb-imgwrap.is-zoomed')) toggleCardZoom();
       else if (viewerIsFullscreen()) toggleViewerFullscreen();
       else closeLb();
     }
@@ -764,7 +829,12 @@
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     } else if (!/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) && !String(window.getSelection())) {
-      if (e.target.classList.contains('is-zoomed')) return; // Arrow keys pan the scrollable sheet.
+      if (['+', '=', '-', '0'].includes(e.key)) {
+        var wrap = document.querySelector('.fs-lb-imgwrap');
+        e.preventDefault(); setCardZoom(wrap, e.key === '0' ? 1 : (wrap._fsZoom || 1) + (e.key === '-' ? -.5 : .5));
+        return;
+      }
+      if (e.target.classList.contains('is-zoomed')) return; // Arrow keys pan the enlarged image.
       if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
       else if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
     }
@@ -832,10 +902,23 @@
     var hero = (window.FS_FAQ && window.FS_FAQ.hero) || {};
     var FAQ = DATA.faq || { navTopics: [], cats: [], count: {}, factions: [] };
     var ready = !!DATA.faq;
+    if (ready && state.faqContext) {
+      state.faqFaction = faqFactionFor(state.faqContext.exp, state.faqContext.fac);
+      state.faqContext = null;
+      updateURL(true);
+    }
+    var faqFactions = FAQ.factions.slice();
+    DATA.expansions.forEach(function (exp) {
+      (DATA.factions[exp.key] || []).forEach(function (fac) {
+        if (!faqFactions.some(function (f) { return f.catalogId === exp.key + '/' + fac.key; })) {
+          faqFactions.push({ key: fac.name, name: fac.name, catalogId: exp.key + '/' + fac.key, parent: 'exp-' + exp.key });
+        }
+      });
+    });
     var topic = state.faqTopic;
     if (ready && !findKey(FAQ.navTopics, topic)) topic = state.faqTopic = 'all';
     var faction = state.faqFaction;
-    if (ready && faction !== 'all' && !findKey(FAQ.factions, faction)) faction = state.faqFaction = 'all';
+    if (ready && faction !== 'all' && !findKey(faqFactions, faction) && DATA.expansions.every(function (e) { return DATA.factions[e.key]; })) faction = state.faqFaction = 'all';
     var q = window.FSWord.normalize(state.faqQuery);
     var matches = function (it) { return !q || window.FSWord.normalize(it.q + ' ' + it.a).indexOf(q) >= 0; };
     var counts = { all: 0 };
@@ -843,7 +926,7 @@
       counts[cat.key] = 0;
       return Object.assign({}, cat, { subs: cat.subs.map(function (sub) {
         counts[sub.key] = 0;
-        var factions = sub.factions.filter(function (fac) { return faction === 'all' || fac.faction === faction; }).map(function (fac) {
+        var factions = sub.factions.filter(function (fac) { return faction === 'all' || sub.common || fac.faction === faction; }).map(function (fac) {
           var items = fac.items.filter(matches);
           counts.all += items.length; counts[cat.key] += items.length; counts[sub.key] += items.length;
           return Object.assign({}, fac, { items: items });
@@ -873,7 +956,7 @@
         search,
       ]),
       el('div', { class: 'fs-header-spacer' }),
-      renderSettings(),
+      renderVersion(), renderSettings(),
     ]);
 
     var topicsNav = el('nav', { class: 'fs-nav' },
@@ -896,11 +979,11 @@
     var sidebar = el('aside', { class: 'fs-sidebar fs-scroll' }, [
       el('div', { class: 'fs-sidebar-label', text: 'Темы' }),
       mobileNavigation(topicsNav, 'Темы FAQ', 'faqNavOpen', 'faq-navigation'),
-      el('button', { class: 'fs-mobile-back', text: 'К картам', onclick: function () { setState({ view: 'codex', cardQuery: '' }); } }),
+      el('button', { class: 'fs-mobile-back', text: 'К картам', onclick: backToCatalog }),
       topicsNav,
       el('div', { class: 'fs-sidebar-foot' }, [
         el('button', { class: 'fs-faq-link fs-faq-back', html: '&larr; Назад в картотеку',
-          onclick: function () { setState({ view: 'codex', cardQuery: '' }); } }),
+          onclick: backToCatalog }),
         el('p', { html: PROJECT_NOTICE }),
       ]),
     ]);
@@ -965,9 +1048,9 @@
     var factionSelect = el('select', { id: 'fs-faq-faction', disabled: ready ? null : '', onchange: function (e) {
       setState({ faqFaction: e.target.value, faqTopic: 'all', faqQuestion: null, faqNavOpen: false });
     } }, [el('option', { value: 'all', text: 'Все фракции' })]);
-    FAQ.cats.forEach(function (cat) {
-      var options = FAQ.factions.filter(function (f) { return f.parent === cat.key; });
-      if (options.length) factionSelect.appendChild(el('optgroup', { label: cat.name }, options.map(function (f) {
+    DATA.expansions.forEach(function (exp) {
+      var options = faqFactions.filter(function (f) { return f.catalogId.startsWith(exp.key + '/'); });
+      if (options.length) factionSelect.appendChild(el('optgroup', { label: exp.name }, options.map(function (f) {
         return el('option', { value: f.key, text: f.name });
       })));
     });
@@ -979,7 +1062,8 @@
         el('p', { class: 'fs-faq-blurb', text: hero.blurb || '' }),
       ]),
       el('div', { class: 'fs-faq-content' }, [
-        el('div', { class: 'fs-faq-filter' }, [el('label', { for: 'fs-faq-faction', text: 'Фракция' }), factionSelect]),
+        el('div', { class: 'fs-faq-filter' }, [el('label', { for: 'fs-faq-faction', text: 'Фракция' }), factionSelect,
+          faction !== 'all' ? el('span', { class: 'fs-faq-common-note', text: 'Включая общие вопросы' }) : null]),
         el('div', { class: 'fs-faq-sectionrow' }, [
           el('span', { class: 'fs-faq-sectionlabel', text: faqTopicName(topic) }),
           el('span', { class: 'fs-faq-countlabel', text: shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') }),
@@ -1056,8 +1140,8 @@
     var app=el('div',{class:'fs-app fs-compare','data-accent':ACCENT});
     var main=el('main',{class:'fs-compare-main fs-scroll'});
     app.appendChild(el('header',{class:'fs-header fs-compare-header'},[
-      el('button',{type:'button',class:'fs-share',text:'← Картотека',onclick:goHome}),
-      el('span',{class:'fs-brand-title',text:'FORBIDDEN STARS'}),renderSettings(),
+      el('button',{type:'button',class:'fs-share',text:'К картам',onclick:backToCatalog}),
+      el('span',{class:'fs-brand-title',text:'FORBIDDEN STARS'}),renderVersion(),renderSettings(),
     ]));
     var tabs=el('nav',{class:'fs-compare-tabs','aria-label':'Сравнение версий'});
     [['visual','Классический → Обновлённый'],['rnb','Обновлённый → RNB']].forEach(function (tab) {
@@ -1069,13 +1153,13 @@
     });
     main.appendChild(el('div',{class:'fs-compare-intro'},[
       el('h1',{text:'Сравнение версий'}),tabs,
-      el('p',{text:isRnb ? 'Слева — обновлённые карты, справа — RNB '+DATA.rnb.version+'.' : 'Слева — оригинальные карты, справа — обновлённое оформление. Правила одинаковые.'}),
+      el('p',{text:isRnb ? 'Обновлённые карты и RNB '+DATA.rnb.version+'.' : 'Оригинальные карты и обновлённое оформление. Правила одинаковые.'}),
       el('p',{class:'fs-note',text:isRnb ? 'В списке — изменения правил, без переименований и разницы в переводе. Для The Dying Light используются обновлённые карты.' : 'Нажмите на карту, чтобы увеличить.'}),
     ]));
     if(!isRnb)main.appendChild(el('details',{class:'fs-compare-tokens'},[
       el('summary',{text:'Жетоны и кубы в тексте'}),
       window.FSWord.append(el('p',{class:'fs-compare-token-demo'}),'Потратьте 1 жетон кузницы, чтобы получить 1 [D]. Получите 2 (B) или 2 (S).',tokenStyle),
-      el('p',{class:'fs-note',text:'Цветные или чёрно-белые жетоны можно выбрать в настройках карт.'}),
+      el('p',{class:'fs-note',text:'Цветные или чёрно-белые жетоны можно выбрать в меню «Вид».'}),
     ]));
     flat=[];
     var records=isRnb ? Object.keys(DATA.rnb.changes).map(function (id) {return {id:id,change:DATA.rnb.changes[id]};}) : (DATA.comparison?.examples || []).map(function (id) {return {id:id};});
@@ -1185,20 +1269,25 @@
         ]),
       ]),
       el('div', { class: 'fs-header-spacer' }),
-      el('div', { class: 'fs-faq-searchwrap' }, [
+      el('div', { class: 'fs-faq-searchwrap' + (state.faction ? ' fs-card-search' : '') }, [
         el('span', { class: 'fs-faq-searchicon', html: '&#9906;' }),
         el('input', {
           class: 'fs-faq-search', type: 'search', value: state.cardQuery,
           placeholder: 'Найти карту…', spellcheck: 'false', 'aria-label': 'Поиск по названиям и тексту карточек',
           oninput: function (e) { setState({ cardQuery: e.target.value, lb: null }, true); },
         }),
+        state.faction ? el('button', { type: 'button', class: 'fs-search-scope', text: 'Везде',
+          'aria-label': 'Искать по всем фракциям', 'aria-pressed': String(state.cardScope === 'all'),
+          title: state.cardScope === 'all' ? 'Поиск по всем фракциям' : 'Поиск по фракции: ' + facName(state.faction),
+          onclick: function () { setState({ cardScope: state.cardScope === 'all' ? 'faction' : 'all', lb: null }); }
+        }) : null,
       ]),
       el('div', { class: 'fs-header-spacer' }),
     ]);
 
     /* ---- Боковая панель: навигация Игра › Дополнение › Фракция ---- */
     var displayTools=window.FSPrint?window.FSPrint.controls(state.faction && !state.cardQuery.trim() ? state.expansion + '/' + state.faction : null):el('div',{class:'fs-print-tools'});
-    header.appendChild(renderSettings());header.appendChild(displayTools);
+    header.appendChild(renderVersion());header.appendChild(renderSettings());header.appendChild(displayTools);
     if(state.displayMode==='rnb' && state.expansion==='dl')header.appendChild(el('span',{class:'fs-mode-fallback',role:'status',text:'Для The Dying Light показаны обновлённые карты.'}));
     var libNav = el('nav', { class: 'fs-nav' },
       DATA.expansions.map(function (e) {
@@ -1239,7 +1328,7 @@
               onclick: (function (ek, fk) { return function () {
                 delete DATA.errors['man:' + ek + '/' + fk];
                 ensureManifest(ek, fk);
-                setState({ expansion: ek, faction: fk, lb: null, expOpen: ek, cardQuery: '', navOpen: false });
+                setState({ expansion: ek, faction: fk, lb: null, expOpen: ek, cardQuery: '', cardScope: 'faction', navOpen: false });
                 var toggle = document.getElementById('catalog-navigation-toggle');
                 if (toggle && toggle.getClientRects().length) toggle.focus({ preventScroll: true });
               }; })(e.key, f.key),
@@ -1282,7 +1371,7 @@
     var main = el('main', { class: 'fs-main' });
     if (window.FSPrint) main.appendChild(window.FSPrint.factionBar(state.faction && !state.cardQuery.trim() ? state.expansion + '/' + state.faction : null));
 
-    // ---- Глобальный поиск по карточкам, сгруппированный по дополнению → фракции ----
+    // Search shares the canonical faction catalog; scope never changes its data.
     if (state.cardQuery.trim()) {
       var q = window.FSWord.normalize(state.cardQuery);
       flat = [];
@@ -1292,13 +1381,16 @@
       var sres = el('div', { class: 'fs-scrollarea fs-scroll' });
       var failed = [];
       var pending = false;
+      var scoped = state.faction && state.cardScope !== 'all';
       DATA.expansions.forEach(function (e) {
+        if (scoped && e.key !== state.expansion) return;
         if (DATA.loading['fac:' + e.key] && !DATA.factions[e.key]) pending = true;
         if (DATA.errors['fac:' + e.key]) failed.push({ exp: e.key, fac: null });
         var facs = DATA.factions[e.key] || [];
         var facBlocks = [];
         var expCount = 0;
         facs.forEach(function (f) {
+          if (scoped && f.key !== state.faction) return;
           ensureManifest(e.key, f.key);
           var id = e.key + '/' + f.key;
           if (DATA.errors['man:' + id]) failed.push({ exp: e.key, fac: f.key });
@@ -1325,6 +1417,7 @@
                 el('span', { class: 'fs-search-cat', text: card.catName+(card.modeFallback?' · Обновлённый':'') }),
                 el('span', { class: 'fs-search-name', text: card.label }),
               ]),
+              effectSnippet(card, q),
             ]);
           }));
           facBlocks.push(el('div', { class: 'fs-faq-subsection' }, [
@@ -1344,7 +1437,7 @@
       });
       main.appendChild(el('div', { class: 'fs-breadcrumb' }, [
         el('div', { class: 'fs-bc-left' }, [
-          el('span', { class: 'fs-bc-exp', text: 'Все карточки' }),
+          el('span', { class: 'fs-bc-exp', text: scoped ? facName(state.faction) : 'Все фракции' }),
           el('span', { class: 'fs-bc-sep', text: '/' }),
           el('h1', { class: 'fs-bc-title', text: 'Поиск: «' + state.cardQuery + '»' }),
         ]),
@@ -1470,7 +1563,7 @@
           var imgEl = btn.querySelector('img');
           prepareCard(imgEl, card);
           if (window.FSPrint) window.FSPrint.decorateCard(btn, card);
-          return btn;
+          return el('div', { class: 'fs-catalog-item' }, [btn, el('div', { class: 'fs-card-name', text: card.label })]);
         }));
         scrollarea.appendChild(grid);
       });
@@ -1482,36 +1575,86 @@
     mountApp(app);
   }
 
-  function toggleSheetZoom() {
-    var wrap = document.querySelector('.fs-lb--sheet .fs-lb-imgwrap');
-    if (!wrap) return;
-    var zoomed = wrap.classList.toggle('is-zoomed');
-    var button = document.querySelector('.fs-lb-zoom');
+  function setCardZoom(wrap, scale, point) {
+    if (!wrap || !wrap.classList.contains('is-ready')) return;
+    var previous = wrap._fsZoom || 1;
+    scale = Math.max(1, Math.min(4, scale));
+    if (scale < 1.05) scale = 1;
+    var x = point ? point.x : wrap.clientWidth / 2, y = point ? point.y : wrap.clientHeight / 2;
+    var left = (wrap.scrollLeft + x) * scale / previous - x, top = (wrap.scrollTop + y) * scale / previous - y;
+    wrap._fsZoom = scale;
+    wrap.style.setProperty('--fs-card-zoom', scale);
+    var zoomed = scale > 1;
+    wrap.classList.toggle('is-zoomed', zoomed);
+    wrap.scrollLeft = zoomed ? left : 0; wrap.scrollTop = zoomed ? top : 0;
+    var button = wrap.closest('.fs-lb').querySelector('.fs-lb-zoom');
     var label = zoomed ? 'Уменьшить' : 'Увеличить';
     button.setAttribute('aria-pressed',String(zoomed));
     button.setAttribute('aria-label',label);button.setAttribute('data-tip',label);
     button.querySelector('.fs-zoom-plus').style.display = zoomed ? 'none' : '';
-    if (zoomed) {
-      var scale = Math.max(2,Math.min(4,wrap.querySelector('img').naturalWidth/wrap.clientWidth));
-      wrap.style.setProperty('--fs-sheet-zoom',scale);
-      wrap.focus();wrap.scrollLeft=(wrap.scrollWidth-wrap.clientWidth)/2;wrap.scrollTop=(wrap.scrollHeight-wrap.clientHeight)/2;
-    }
-    else {wrap.scrollLeft=wrap.scrollTop=0;button.focus();}
   }
 
-  function enableSheetPan(wrap) {
-    var drag = null;
+  function toggleCardZoom(wrap) {
+    wrap = wrap || document.querySelector('.fs-lb-imgwrap');
+    if (!wrap) return;
+    setCardZoom(wrap, (wrap._fsZoom || 1) > 1 ? 1 : 2);
+    wrap.focus({ preventScroll: true });
+  }
+
+  function enableCardGestures(wrap) {
+    var pointers = new Map(), drag = null, pinch = null, pinched = false, lastTap = null, lastTouch = 0;
+    function point(event) { return { x: event.clientX, y: event.clientY }; }
+    function distance() { var p = Array.from(pointers.values()); return Math.hypot(p[1].x - p[0].x, p[1].y - p[0].y); }
     wrap.addEventListener('pointerdown',function (event) {
-      if (event.pointerType !== 'mouse' || event.button !== 0 || !wrap.classList.contains('is-zoomed')) return;
-      event.preventDefault();wrap.focus();wrap.setPointerCapture(event.pointerId);
-      drag={x:event.clientX,y:event.clientY,left:wrap.scrollLeft,top:wrap.scrollTop};
-      wrap.classList.add('is-panning');
+      if (!wrap.classList.contains('is-ready') || event.button !== 0 || event.pointerType === 'mouse' && !(wrap._fsZoom > 1)) return;
+      if (pointers.size >= 2) return;
+      if (event.pointerType === 'touch') lastTouch = performance.now();
+      if (event.pointerType === 'mouse') event.preventDefault();
+      pointers.set(event.pointerId, point(event)); wrap.setPointerCapture(event.pointerId);
+      if (pointers.size === 2) { pinch = { distance: distance(), scale: wrap._fsZoom || 1 }; pinched = true; lastTap = null; return; }
+      drag = { x: event.clientX, y: event.clientY, left: wrap.scrollLeft, top: wrap.scrollTop,
+        scroll: wrap.closest('.fs-lb-content').scrollTop, zoom: wrap._fsZoom || 1, time: performance.now() };
+      if (drag.zoom > 1) wrap.classList.add('is-panning');
     });
     wrap.addEventListener('pointermove',function (event) {
-      if (!drag) return;
-      wrap.scrollLeft=drag.left+drag.x-event.clientX;wrap.scrollTop=drag.top+drag.y-event.clientY;
+      if (!pointers.has(event.pointerId)) return;
+      pointers.set(event.pointerId, point(event));
+      if (pointers.size === 2 && pinch) {
+        var p = Array.from(pointers.values()), rect = wrap.getBoundingClientRect();
+        setCardZoom(wrap, pinch.scale * distance() / Math.max(1, pinch.distance),
+          { x: (p[0].x + p[1].x) / 2 - rect.left, y: (p[0].y + p[1].y) / 2 - rect.top });
+      } else if (drag) {
+        var dx = drag.x - event.clientX, dy = drag.y - event.clientY;
+        if (drag.zoom > 1) { wrap.scrollLeft = drag.left + dx; wrap.scrollTop = drag.top + dy; }
+        else if (Math.abs(dy) > Math.abs(dx)) wrap.closest('.fs-lb-content').scrollTop = drag.scroll + dy;
+      }
     });
-    wrap.addEventListener('lostpointercapture',function () {drag=null;wrap.classList.remove('is-panning');});
+    function finish(event, cancelled) {
+      if (!pointers.has(event.pointerId)) return;
+      pointers.delete(event.pointerId);
+      if (!cancelled && !pinched && drag && event.pointerType !== 'mouse') {
+        var dx = event.clientX - drag.x, dy = event.clientY - drag.y;
+        if (drag.zoom === 1 && Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.3) { lastTap = null; step(dx < 0 ? 1 : -1); }
+        else if (Math.abs(dx) < 10 && Math.abs(dy) < 10 && performance.now() - drag.time < 350) {
+          if (lastTap && performance.now() - lastTap.time < 320 && Math.hypot(event.clientX - lastTap.x, event.clientY - lastTap.y) < 30) { toggleCardZoom(wrap); lastTap = null; }
+          else lastTap = { time: performance.now(), x: event.clientX, y: event.clientY };
+        }
+      }
+      if (pointers.size === 1) {
+        var remaining = Array.from(pointers.values())[0];
+        drag = { x: remaining.x, y: remaining.y, left: wrap.scrollLeft, top: wrap.scrollTop, zoom: wrap._fsZoom || 1,
+          scroll: wrap.closest('.fs-lb-content').scrollTop, time: performance.now() };
+      } else { drag = null; pinch = null; pinched = false; wrap.classList.remove('is-panning'); }
+    }
+    wrap.addEventListener('pointerup', function (event) { finish(event, false); });
+    wrap.addEventListener('pointercancel', function (event) { finish(event, true); });
+    wrap.addEventListener('lostpointercapture', function (event) { finish(event, true); });
+    wrap.addEventListener('dblclick', function (event) {
+      event.preventDefault();
+      // Touch double taps are already handled above; ignore compatibility mouse events.
+      if (lastTouch && performance.now() - lastTouch < 500) return;
+      toggleCardZoom(wrap);
+    });
   }
 
   // Встраивает оверлей лайтбокса в `app` при открытой карточке
@@ -1522,14 +1665,14 @@
     var full = state.lbFull;
     var imgEl = el('img', { alt: c.label, decoding: 'async', draggable:'false' });
     var sheet = c.kind === 'sheet';
-    var imgWrap = el('div', { class: 'fs-lb-imgwrap', tabindex: sheet ? '0' : null,
-      'aria-label': sheet ? 'Лист фракции. После увеличения прокручивайте изображение.' : null }, [imgEl]);
-    if (sheet) enableSheetPan(imgWrap);
+    var imgWrap = el('div', { class: 'fs-lb-imgwrap', tabindex: '0',
+      'aria-label': 'Изображение карты. Увеличение кнопкой или двойным нажатием.' }, [imgEl]);
+    enableCardGestures(imgWrap);
     fitViewer(imgWrap, c);
     prepareCard(imgEl, c, true);
     var textPanel = null;
     if (c.text) {
-      textPanel = el('details', { class: 'fs-card-text', open: !sheet && window.innerWidth > 720 ? '' : null }, [
+      textPanel = el('details', { class: 'fs-card-text', open: !sheet ? '' : null }, [
         el('summary', { text: sheet ? 'Способности фракции' : 'Текст карточки' }),
         sheet ? null : el('h2', { text: c.text.title || c.label }),
       ]);
@@ -1539,6 +1682,7 @@
       });
       if(c.ruleSource)textPanel.appendChild(el('a',{class:'fs-share',text:'Источник RNB',href:c.ruleSource,target:'_blank',rel:'noopener noreferrer'}));
       if(c.modeFallback)textPanel.appendChild(el('p',{class:'fs-note',text:'RNB для этой карты не опубликован. Показана обновлённая версия.'}));
+      appendCardFaqLink(textPanel, c);
     }
 
     var children = [
@@ -1578,16 +1722,18 @@
         onclick: function (e) { e.stopPropagation(); copyCardLink(c); } }),
       el('div', { class: 'fs-lb-feedback', role: 'status', 'aria-live': 'polite', 'aria-atomic': 'true' }),
     ];
-    if (sheet) children.push(el('button', {class:'fs-lb-tool fs-lb-zoom', 'aria-label':'Увеличить',
+    children.push(el('button', {class:'fs-lb-tool fs-lb-zoom', 'aria-label':'Увеличить',
       'aria-pressed':'false','data-tip':'Увеличить',disabled:'',
       html:'<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 10h6"/><path class="fs-zoom-plus" d="M10 7v6"/></svg>',
-      onclick:function (e) {e.stopPropagation();toggleSheetZoom();} }));
+      onclick:function (e) {e.stopPropagation();toggleCardZoom();} }));
     app.appendChild(el('div', { class: 'fs-lb' + (sheet ? ' fs-lb--sheet' : '') + (full ? ' is-fullscreen' : ''), role: 'dialog', 'aria-modal': 'true', 'aria-label': c.label,
       onclick: function (e) { if (e.target === e.currentTarget) closeLb(); } }, children));
+    ensureFaq();
   }
 
   function goHome() {
-    setState({ view: 'codex', expansion: null, faction: null, category: 'combat', lb: null, expOpen: null, cardQuery: '' });
+    catalogReturn = null;
+    setState({ view: 'codex', expansion: null, faction: null, category: 'combat', lb: null, expOpen: null, cardQuery: '', cardScope: 'faction', faqContext: null });
   }
 
   // Перерисовка при изменении размера окна (дебаунс)

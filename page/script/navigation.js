@@ -5,10 +5,12 @@
   function cardPath(value) { return value && value.replace(/^((?:\.\/)?factions\/)?tdl\//, '$1dl/'); }
   function read(hash) {
     var p = new URLSearchParams((hash || '').replace(/^#/, ''));
+    // Shared search links made before scopes were introduced searched everywhere.
     return { view: ['faq','compare'].includes(p.get('view')) ? p.get('view') : 'codex', expansion: expansion(p.get('exp')) || null,
       faction: p.get('faction') || null, category: p.get('category') || 'combat', displayMode: window.FSModes.normalize(p.get('mode')),
       comparison: p.get('compare') === 'rnb' ? 'rnb' : 'visual', comparisonFaction:p.get('compareFaction') || 'all', comparisonSide:p.get('side') === 'before' ? 'before' : 'after',
-      cardQuery: p.get('q') || '', faqQuery: p.get('faqQ') || '', faqTopic: p.get('topic') || 'all', faqFaction: p.get('faqFaction') || 'all',
+      cardQuery: p.get('q') || '', cardScope: p.get('scope') === 'all' || p.has('q') && !p.has('scope') ? 'all' : 'faction',
+      faqQuery: p.get('faqQ') || '', faqTopic: p.get('topic') || 'all', faqFaction: p.get('faqFaction') || 'all',
       card: cardPath(p.get('card')) || null, question: p.get('question') || null };
   }
   function write(state, card, question) {
@@ -29,7 +31,7 @@
       if (state.expansion) p.set('exp', expansion(state.expansion));
       if (state.faction) p.set('faction', state.faction);
       if (state.category !== 'combat') p.set('category', state.category);
-      if (state.cardQuery) p.set('q', state.cardQuery);
+      if (state.cardQuery) { p.set('q', state.cardQuery); p.set('scope', state.cardScope === 'all' ? 'all' : 'faction'); }
       if (card) p.set('card', cardPath(card));
     }
     return p.size ? '#' + p.toString() : '';

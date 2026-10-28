@@ -103,7 +103,7 @@ body {
 .fs-header {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 18px;
   padding: 0 22px;
   height: 60px;
   border-bottom: 1px solid #2c2925;
@@ -270,6 +270,8 @@ body {
 }
 
 .fs-grid { display: grid; gap: 18px; margin-bottom: 30px; }
+.fs-catalog-item { width: 100%; min-width: 0; display: flex; flex-direction: column; gap: 9px; align-self: start; }
+.fs-card-name { color: #d8d2c8; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; padding: 0 2px; }
 /* Display size is independent of the HD text raster. */
 .fs-grid--events {
   justify-items: center;
@@ -279,6 +281,7 @@ body {
   max-width: 90%;
   margin-inline: auto;
 }
+.fs-grid--events .fs-card-name { width: 90%; margin-inline: auto; }
 
 .fs-note {
   font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em;
@@ -286,7 +289,7 @@ body {
 }
 
 /* ---- результаты поиска карточек ---- */
-.fs-search-item { display: flex; flex-direction: column; gap: 8px; }
+.fs-search-item { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 .fs-card--search { aspect-ratio: 450 / 650; }
 .fs-card--search img { object-fit: contain; background: #141310; }
 .fs-search-cap { display: flex; flex-direction: column; gap: 2px; padding: 0 2px; }
@@ -295,13 +298,17 @@ body {
   text-transform: uppercase; color: var(--fs-accent);
 }
 .fs-search-name {
-  font-size: 11.5px; color: #bdb7ac; line-height: 1.3; overflow: hidden;
+  font-size: 14px; color: #d8d2c8; line-height: 1.4; overflow: hidden;
   text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
 }
 .fs-search-expcount {
   font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
   color: #857f74; margin-left: auto; letter-spacing: 0.06em;
 }
+.fs-search-cat { font: 12px/1.4 'IBM Plex Sans', sans-serif; letter-spacing: normal; text-transform: none; }
+.fs-search-excerpt { margin: 0; color: #bdb7ac; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.fs-search-excerpt mark { color: #f3d296; background: #3c301c; border-radius: 2px; }
+.fs-faq-common-note { color: var(--fs-muted); font-size: 13px; }
 .fs-faq-cathead { width: 100%; }
 
 /* ---- таблица «Состав фракции» ---- */
@@ -335,8 +342,7 @@ body {
   transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
 .fs-card:hover {
-  border-color: var(--fs-accent); transform: translateY(-5px);
-  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, .78);
+  border-color: var(--fs-accent);
 }
 .fs-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -417,7 +423,6 @@ body {
 .fs-lb-fig {
   margin: 0; display: flex; flex-direction: column; align-items: center; gap: 16px;
   min-width: 0; flex: 0 1 auto; max-width: 100%;
-  animation: fspop .2s ease;
 }
 .fs-lb-fig img {
   width: 100%; height: 100%; object-fit: contain; border-radius: 14px;
@@ -426,8 +431,7 @@ body {
 .fs-lb-cap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .fs-lb-label { font-size: 15px; font-weight: 600; color: #f3efe8; }
 .fs-lb-meta {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--fs-accent);
+  font-size: 12px; line-height: 1.5; color: var(--fs-accent); text-align: center;
 }
 .fs-lb-tool {
   position: absolute; top: 22px; width: 38px; height: 38px;
@@ -454,6 +458,7 @@ body {
 .fs-card-text summary { cursor: pointer; color: var(--fs-accent); }
 .fs-card-text h2 { font-size: 17px; line-height: 1.4; }
 .fs-card-text p { white-space: pre-wrap; line-height: 1.7; font-size: 15px; user-select: text; }
+.fs-card-text .fs-card-faq { display: block; margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--fs-line); font-size: 14px; line-height: 1.5; }
 .fs-lb--sheet .fs-lb-content { flex-direction: column; max-width: calc(100% - 128px); max-height: calc(100dvh - 120px); overflow-y: auto; gap: 12px; }
 .fs-lb--sheet .fs-lb-fig { flex: none; }
 .fs-lb--sheet .fs-card-text { flex: none; width: min(760px, 100%); max-height: none; padding: 10px 16px; }
@@ -461,14 +466,17 @@ body {
 .fs-lb-zoom svg { fill: none; stroke: currentColor; stroke-width: 2; }
 .fs-lb-imgwrap.is-zoomed { overflow: auto; overscroll-behavior: contain; border-radius: 8px; cursor: grab; }
 .fs-lb-imgwrap.is-panning { cursor: grabbing; }
-.fs-lb-imgwrap.is-zoomed .fs-card-image { position: relative; display: block; width: calc(100% * var(--fs-sheet-zoom, 2)); height: calc(100% * var(--fs-sheet-zoom, 2)); max-width: none; max-height: none; border-radius: 0; }
+.fs-lb-imgwrap.is-zoomed .fs-card-image { position: relative; display: block; width: calc(100% * var(--fs-card-zoom, 2)); height: auto; max-width: none; max-height: none; border-radius: 0; }
 .fs-lb-imgwrap:focus-visible { outline: 2px solid var(--fs-accent); outline-offset: 3px; }
 .fs-token { font-family: 'ForbiddenStars'; font-style: normal; font-weight: normal; font-size: 1.15em; line-height: 1; vertical-align: -0.08em; }
 .fs-token--image { position: relative; display: inline-block; }
 .fs-token-image { position: absolute; width: .975em; height: .975em; max-width: none; left: 50%; top: 50%; transform: translate(-50%, -50%); visibility: hidden; }
 .fs-token--image.has-image .fs-token-image { visibility: visible; }
 .fs-token--image.has-image .fs-token-fallback { visibility: hidden; }
-.fs-settings { position: relative; font-size: 13px; margin-left: auto; }
+.fs-version { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; margin-left: auto; }
+.fs-version label { color: #bdb7ac; font-size: 11px; }
+.fs-version select { min-height: 30px; max-width: 150px; padding: 4px 8px; color: var(--fs-text); background: #221f1a; border: 1px solid #514b40; border-radius: 6px; font: 13px 'IBM Plex Sans', sans-serif; cursor: pointer; }
+.fs-settings { position: relative; flex-shrink: 0; font-size: 13px; }
 .fs-settings > summary { cursor: pointer; display: flex; align-items: center; gap: 8px; list-style: none; }
 .fs-settings > summary::-webkit-details-marker { display: none; }
 .fs-settings-chevron { transition: transform .15s; }
@@ -517,7 +525,7 @@ body {
 .fs-lb-imgwrap {
   position: relative; display: block; line-height: 0; flex-shrink: 0;
   width: var(--fs-lb-width); aspect-ratio: var(--fs-lb-ratio, 450 / 650);
-  max-width: 100%; border-radius: 14px;
+  max-width: 100%; border-radius: 14px; touch-action: none; user-select: none;
 }
 .fs-lb-imgwrap .fs-card-image { position: absolute; inset: 0; }
 
@@ -527,7 +535,7 @@ body {
 .fs-faq-entry .fs-fac-count { font-size: 14px; color: #9a948a; }
 
 /* ---- вид ЧаВо ---- */
-.fs-header-spacer { flex: 1; }
+.fs-header-spacer { display: none; }
 .fs-faq-searchwrap {
   position: relative; display: flex; align-items: center;
   width: 280px; max-width: 42vw; flex-shrink: 0;
@@ -552,7 +560,10 @@ body {
 .fs-faq-back:hover { color: var(--fs-accent); }
 
 .fs-faq-main { display: block; min-height: 0; overflow-y: auto; }
-.fs-faq-header .fs-faq-searchwrap { width: 360px; max-width: 46vw; }
+.fs-faq-header .fs-faq-searchwrap { flex: 1; min-width: 140px; width: auto; max-width: 440px; }
+.fs-card-search .fs-faq-search { padding-right: 78px; }
+.fs-search-scope { position: absolute; right: 4px; top: 2px; bottom: 2px; padding: 0 10px; border: 1px solid #514b40; border-radius: 6px; background: #221f1a; color: #bdb7ac; font: 13px 'IBM Plex Sans', sans-serif; cursor: pointer; }
+.fs-search-scope[aria-pressed=true] { color: var(--fs-accent-fg); background: var(--fs-accent); border-color: var(--fs-accent); }
 .fs-faq-hero {
   padding: 26px 40px 20px; border-bottom: 1px solid #221f1a;
 }
@@ -690,11 +701,16 @@ body {
   .fs-sidebar-section.fs-faq-section { display: flex; gap: 4px; margin-top: 0; order: 2; }
   .fs-faq-section > .fs-fac { width: auto; padding: 8px; gap: 7px; font-size: 13px; }
   .fs-scrollarea { overflow-y: visible; padding: 18px 16px 36px; }
-  .fs-header { position: relative; display: grid; grid-template-columns: minmax(0,1fr) auto; height: auto; gap: 10px; padding: 12px 14px; }
+  .fs-header { position: relative; display: grid; grid-template-columns: minmax(0,1fr) auto auto; height: auto; gap: 8px; padding: 12px; }
   .fs-brand { grid-column: 1; grid-row: 1; gap: 8px; min-height: 44px; }
-  .fs-brand-title { font-size: 14px; letter-spacing: .12em; }
-  .fs-settings { grid-column: 2; grid-row: 1; position: static; margin-left: 0; }
-  .fs-settings summary { min-height: 44px; padding: 12px 10px; }
+  .fs-brand { min-width: 0; flex-shrink: 1; }
+  .fs-brand-title, .fs-catalog-header .fs-brand-title { font-size: 12px; letter-spacing: .08em; line-height: 1.2; }
+  .fs-brand-sub { font-size: 9px; letter-spacing: .12em; }
+  .fs-version { grid-column: 2; grid-row: 1; margin-left: 0; }
+  .fs-version label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .fs-version select { min-height: 44px; width: 136px; max-width: 136px; font-size: 16px; padding: 6px; }
+  .fs-settings { grid-column: 3; grid-row: 1; position: static; margin-left: 0; }
+  .fs-settings summary { min-height: 44px; min-width: 44px; padding: 10px 6px; gap: 4px; justify-content: center; }
   .fs-settings-panel { left: 12px; right: 12px; top: calc(100% + 6px); width: auto; max-width: none; max-height: calc(100dvh - 190px); overflow-y: auto; }
   .fs-settings select { min-height: 44px; font-size: 16px; }
   .fs-header-spacer { display: none; }
@@ -704,11 +720,9 @@ body {
   .fs-header .fs-print-tools button { min-height: 44px; font-size: 12px; }
   .fs-catalog-header { grid-template-columns: minmax(0,1fr) auto auto; gap: 8px; }
   .fs-catalog-header .fs-brand { grid-column: 1; }
-  .fs-catalog-header .fs-brand-title { font-size: 13px; letter-spacing: .08em; }
   .fs-catalog-header .fs-print-tools { display: contents; }
-  .fs-catalog-header > .fs-settings { grid-column: 2 / -1; grid-row: 1; justify-self: end; margin: 0; }
-  .fs-catalog-header .fs-faq-searchwrap { grid-column: 1; grid-row: 2; }
-  .fs-catalog-header .fs-print-mode-toggle { grid-column: 2; grid-row: 2; }
+  .fs-catalog-header > .fs-settings { grid-column: 3; grid-row: 1; justify-self: end; margin: 0; }
+  .fs-catalog-header .fs-faq-searchwrap { grid-column: 1 / 3; grid-row: 2; }
   .fs-catalog-header .fs-print-launch { grid-column: 3; grid-row: 2; }
   .fs-catalog-header > .fs-mode-fallback { grid-column: 1 / -1; }
   .fs-mobile-only { display: inline-flex; }
@@ -742,9 +756,12 @@ body {
 }
 
 @media (max-width: 360px) {
-  .fs-catalog-header .fs-faq-searchwrap { grid-column: 1 / -1; }
-  .fs-catalog-header .fs-print-mode-toggle { grid-column: 1 / 3; grid-row: 3; justify-self: end; }
-  .fs-catalog-header .fs-print-launch { grid-row: 3; }
+  .fs-brand { gap: 6px; }
+  .fs-logo { width: 20px; height: 20px; }
+  .fs-brand-title, .fs-catalog-header .fs-brand-title { font-size: 11px; letter-spacing: .05em; }
+}
+@media (max-width: 340px) {
+  .fs-brand .fs-logo { display: none; }
 }
 
 /* ---- Resolution toggle switch ---- */
@@ -784,7 +801,7 @@ body {
   background: #29251e; color: #eee5d6; font: inherit; font-size: 13px; cursor: pointer;
 }
 .fs-print-tools button:hover, .fs-print-modebar button:hover, .fs-print button:hover { border-color: #cfaa68; }
-.fs-print-mode-toggle[aria-pressed=true], .fs-print button[aria-pressed=true] { background: #493c26; border-color: #d8b16b; }
+.fs-print button[aria-pressed=true] { background: #493c26; border-color: #d8b16b; }
 .fs-print-feedback { color: #dbb878; font-size: 12px; }
 .fs-print-feedback:empty { display: none; }
 .fs-print-modebar { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 12px 26px; background: #292217; border-bottom: 1px solid #51422c; font-size: 13px; }
@@ -890,7 +907,7 @@ body {
 .fs-app.fs-compare { height: 100dvh; min-height: 0; overflow: hidden; }
 .fs-compare-header { justify-content: space-between; }
 .fs-compare-header .fs-settings { margin-left: 0; }
-.fs-compare-header > button { cursor: pointer; background: none; border: 0; font: inherit; }
+.fs-compare-header > button { cursor: pointer; background: none; border: 0; font: inherit; margin: 0; padding: 0; min-height: 44px; flex-shrink: 0; }
 .fs-compare-main { flex: 1; min-height: 0; overflow-y: auto; padding: 28px max(20px, calc((100% - 960px) / 2)) 60px; }
 .fs-compare-intro h1 { font-size: 30px; margin: 0 0 18px; }
 .fs-compare-intro p { max-width: 780px; line-height: 1.6; }
@@ -926,13 +943,13 @@ body {
   .fs-compare-main { padding: 22px 12px 40px; }
   .fs-compare-intro h1 { font-size: 25px; }
   .fs-compare-row { padding: 16px 10px; margin-top: 18px; }
-  .fs-compare-pair { grid-template-columns: minmax(0,1fr) 18px minmax(0,1fr); gap: 5px; }
-  .fs-compare-arrow { font-size: 21px; }
-  .fs-compare-side h3 { font-size: 12px; }
+  .fs-compare-pair { grid-template-columns: minmax(0,1fr); gap: 18px; }
+  .fs-compare-arrow { font-size: 24px; transform: rotate(90deg); }
+  .fs-compare-side h3 { font-size: 14px; }
   .fs-compare-rowhead h2 { font-size: 19px; }
   .fs-compare-tokens { padding: 0; }
   .fs-compare-token-demo { font-size: 18px; }
-  .fs-compare-texts { gap: 14px; font-size: 14px; }
+  .fs-compare-texts { grid-template-columns: minmax(0,1fr); gap: 24px; font-size: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

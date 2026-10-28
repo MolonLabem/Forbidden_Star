@@ -116,7 +116,6 @@
       node.querySelector('.fs-print-check').textContent=n?(n>1?'✓ ×'+n:'✓'):'';
     });
     document.querySelectorAll('.fs-print-launch').forEach(function (node) {node.textContent='Печать'+(api.count()?' · '+api.count():'');});
-    document.querySelectorAll('.fs-print-mode-toggle').forEach(function (node) {node.textContent='Режим печати';node.setAttribute('aria-pressed',String(mode));});
     document.querySelectorAll('.fs-print-modebar').forEach(function (node) {node.hidden=!mode;});
     document.querySelectorAll('.fs-print-mode-count').forEach(function (node) {node.textContent='Выбрано: '+api.count();});
   }
@@ -142,15 +141,11 @@
     return node;
   };
   api.controls=function (factionId) {
-    var tools=element('div','','','fs-print-tools'),feedback=element('span','',tools,'fs-print-feedback');feedback.setAttribute('role','status');
-    var toggle=button('Режим печати',tools,async function () {
-      toggle.disabled=true;feedback.textContent='';
-      try {await api.setMode(!mode);} catch(error) {feedback.textContent=error.message;} finally {toggle.disabled=false;}
-    },'fs-print-mode-toggle');toggle.setAttribute('aria-pressed',String(mode));
+    var tools=element('div','','','fs-print-tools');
     button('Печать'+(api.count()?' · '+api.count():''),tools,function () {api.open({factionId:factionId});},'fs-print-launch');return tools;
   };
   api.factionBar=function (id) {
-    var bar=element('div','','','fs-print-modebar');bar.hidden=!mode;
+    var bar=element('div','','','fs-print-modebar');bar.hidden=!mode;bar.tabIndex=-1;bar.setAttribute('role','region');bar.setAttribute('aria-label','Выбор карт для печати');
     element('span','Отметьте нужные карты',bar);element('strong','Выбрано: '+api.count(),bar,'fs-print-mode-count');
     var feedback=element('span','',bar,'fs-print-feedback');feedback.setAttribute('role','status');
     var add=button('Добавить фракцию',bar,async function () {
@@ -158,6 +153,7 @@
       try {var n=await api.addFaction(id);feedback.textContent=n?'Добавлено: '+n:'Фракция уже выбрана';}
       catch(error) {feedback.textContent=error.message;} finally {add.disabled=false;}
     },'fs-print-faction');add.disabled=!id || id.startsWith('dl/');
+    button('Готово',bar,function () {api.setMode(false);document.querySelector('.fs-print-launch')?.focus();},'fs-print-done');
     if(id && id.startsWith('dl/')) feedback.textContent='Печатный формат TDL пока не подтверждён';return bar;
   };
   function image(src) {
@@ -270,7 +266,12 @@
       var data=await load(),catalog=data.catalog,cards=data.cards;if(closed) return;content.replaceChildren();
       heading.querySelector('.fs-mode-badge').textContent=root.FSModes.label(displayMode)+(catalog.ruleVersion?' · '+catalog.ruleVersion:'');
       var cart=element('section','',content,'fs-print-selection'),cartHead=element('div','',cart,'fs-print-cart-head');element('h3','Карты',cartHead);
-      var chooseCards=button('Выбрать карты',cartHead,async function () {await api.setMode(true);dialog.close();});
+      var chooseCards=button('Выбрать карты',cartHead,async function () {
+        chooseCards.disabled=true;
+        try {await api.setMode(true);returnFocus=document.querySelector('.fs-print-modebar')||returnFocus;dialog.close();returnFocus?.scrollIntoView({block:'nearest'});}
+        catch(error) {status.textContent=error.message;}
+        finally {chooseCards.disabled=false;}
+      });
       var list=element('div','',cart,'fs-print-cart fs-scroll'),rows=new Map();
       if(root.IntersectionObserver)thumbObserver=new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {if(entry.isIntersecting){thumbObserver.unobserve(entry.target);loadThumbnail(entry.target.querySelector('img'));}});
