@@ -251,7 +251,7 @@
       DATA.manifest[id] = window.FSCatalog.manifest(DATA.general,t);
       DATA.cards[id] = window.FSCatalog.factionCards(DATA.general,t,exp,fac,facNameOf(exp,fac));
       DATA.text[id] = {
-        materials: (t && t.materialsText) || null,
+        materials: (t && (t.materials || t.materialsText)) || null,
       };
       DATA.loading['man:' + id] = false;
       render();
@@ -1555,7 +1555,8 @@
   /* ---- Инициализация ---- */
 
   function boot() {
-    fetchJSON('factions/general.json').then(function (g) {
+    Promise.all([fetchJSON('factions/general.json'),window.FSCatalog.loadProfiles()]).then(function (resources) {
+      var g=resources[0];
       DATA.general = g;
       DATA.expansions = (g.expansion.folder || []).map(function (key, i) {
         return {

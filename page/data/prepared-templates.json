@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "description": "Verified outputs of the offline preparation pipeline. Repair recipes are retained outside runtime faction content.",
+  "assets": {}
+}

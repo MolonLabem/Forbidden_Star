@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "description": "Shared dispatch profiles. Typography and fitting stay shared in cardrender.js; measured source exceptions live with each asset.",
+  "profiles": {
+    "image": {"kind": null, "raster": false},
+    "combat": {"kind": "combat", "raster": false},
+    "orders": {"kind": "orders", "raster": false},
+    "events": {"kind": "events", "raster": false},
+    "baked-combat": {"kind": "combat", "raster": true},
+    "baked-orders": {"kind": "orders", "raster": true},
+    "baked-events": {"kind": "events", "raster": true},
+    "sheet": {"kind": "sheet", "raster": false},
+    "overlay": {"kind": "overlay", "raster": false}
+  }
+}
