@@ -1,10 +1,11 @@
-/* Generated compatibility views only. Edit cards.json, then export/check. */
+/* One editable text.json per faction. Only legacy compatibility fields are generated. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),page=path.join(root,'page');
 const catalog=require('../page/script/catalog.js');
 const clone=x=>JSON.parse(JSON.stringify(x));
 const stable=x=>Array.isArray(x)?x.map(stable):x&&typeof x==='object'?Object.fromEntries(Object.keys(x).sort().map(k=>[k,stable(x[k])])):x;
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+function legacyDocument(data){const result=clone(data);delete result.schemaVersion;delete result.cards;return result;}
 function legacyView(general,data,previous){
  const [exp,fac]=data.id.split('/'),cards=catalog.factionCards(general,data,exp,fac,fac),byId=new Map(data.cards.map(c=>[c.id,c]));
  const result=clone(previous),files=catalog.manifest(general,data);
@@ -13,7 +14,7 @@ function legacyView(general,data,previous){
  if(data.factionSheet)result.factionSheet=Object.assign(clone(data.factionSheet),data.renderDefaults?.sheetLayout?{layout:data.renderDefaults.sheetLayout}:{});
  if(data.renderDefaults?.combatFrame)result.combatFrame=clone(data.renderDefaults.combatFrame);
  for(const [key,value] of Object.entries(data.provenance||{}))if(key!=='originalDocument')result[key]=clone(value);
- const oldCards=catalog.factionCards(general,previous,exp,fac,fac),oldById=new Map(oldCards.map(c=>[c.id,c]));
+ const oldCards=catalog.factionCards(general,legacyDocument(previous),exp,fac,fac),oldById=new Map(oldCards.map(c=>[c.id,c]));
  for(const category of ['combat','orders','events']){
   const groups=category==='combat'?data.groups.map(()=>[]):[[]];
   cards.filter(c=>c.category===category).forEach(c=>{
@@ -45,10 +46,10 @@ function legacyView(general,data,previous){
 function run(write){
  const general=read(path.join(page,'factions/general.json'));let count=0;
  for(const exp of general.expansion.folder){const factions=read(path.join(page,'factions',exp,'faction.json'));for(const fac of factions.folder){
-  const folder=path.join(page,'factions',exp,fac),data=read(path.join(folder,'cards.json')),file=path.join(folder,'text.json'),previous=read(file),result=legacyView(general,data,previous);
+  const folder=path.join(page,'factions',exp,fac),file=path.join(folder,'text.json'),data=read(file),previous=data,result=legacyView(general,data,previous);
   if(write)fs.writeFileSync(file,JSON.stringify(result,null,2)+'\n');else assert.deepEqual(stable(previous),stable(result),data.id+': regenerate text.json with node tools/export-legacy.cjs --write');count++;
  }}
- console.log((write?'Generated':'Verified')+' '+count+' legacy text.json views');
+ console.log((write?'Generated':'Verified')+' '+count+' in-file legacy compatibility views');
 }
 if(require.main===module)run(process.argv.includes('--write'));
-module.exports={legacyView,run};
+module.exports={legacyView,legacyDocument,run};

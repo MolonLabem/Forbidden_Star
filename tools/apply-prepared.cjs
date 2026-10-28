@@ -18,7 +18,7 @@ for(const job of jobs){
  assert.equal(result.file,path.basename(result.output));const bytes=fs.readFileSync(path.join(stage,result.file));assert.equal(hash(bytes),result.sha256,'PNG hash: '+job.key);
  assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');assert.equal(bytes.readUInt32BE(16),result.width);assert.equal(bytes.readUInt32BE(20),result.height);
  const output=assetFile(result.output);if(fs.existsSync(output)){const digest=hash(fs.readFileSync(output));assert.equal(digest,previous.assets[job.key]?.sha256,'Prepared asset was changed locally: '+job.key);originals.set(output,digest);}else originals.set(output,null);writes.set(output,bytes);
- const id=job.recipe.cardId.split('/').slice(0,2).join('/'),file=path.join(page,'factions',id,'cards.json');
+ const id=job.recipe.cardId.split('/').slice(0,2).join('/'),file=path.join(page,'factions',id,'text.json');
  if(!docs.has(file)){const raw=fs.readFileSync(file);originals.set(file,hash(raw));docs.set(file,JSON.parse(raw));}
  const record=docs.get(file).cards.find(c=>c.id===job.recipe.cardId);assert.ok(record);
  const profile='prepared-'+(job.recipe.raster&&['orders','events'].includes(result.profile)?'native-':'')+result.profile;

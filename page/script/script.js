@@ -4,7 +4,7 @@
  * Структура данных (в page/factions/):
  *   general.json                       — дополнения (+color), категории, labels, filenames
  *   <expansion>/faction.json           — фракции (+color), имена
- *   <expansion>/<faction>/cards.json    — метаданные: необязательные filenames и текст карточек
+ *   <expansion>/<faction>/text.json    — метаданные: необязательные filenames и текст карточек
  *   <expansion>/<faction>/<folder>/<file>  — изображения карточек
  *
  * Загрузка и ошибки изображений показываются явно, с возможностью повторить.
@@ -247,7 +247,7 @@
     var id = exp + '/' + fac;
     if (DATA.manifest[id] || DATA.loading['man:' + id] || DATA.errors['man:' + id]) return;
     DATA.loading['man:' + id] = true;
-    fetchJSON('factions/' + exp + '/' + fac + '/cards.json').then(function (t) {
+    fetchJSON('factions/' + exp + '/' + fac + '/text.json').then(function (t) {
       DATA.manifest[id] = window.FSCatalog.manifest(DATA.general,t);
       DATA.cards[id] = window.FSCatalog.factionCards(DATA.general,t,exp,fac,facNameOf(exp,fac));
       DATA.text[id] = {

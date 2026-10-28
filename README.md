@@ -83,12 +83,24 @@ Required Notice: Original project by Frytkownica (https://github.com/Frytkownica
 
 ## Card data and local preparation
 
-All 16 factions use `page/factions/<expansion>/<faction>/cards.json` (schema version 2). A card owns its stable filename-derived ID, category/group, original asset, semantic Russian text and render profile. Sheet sides, crops and map order are explicit. `text.json` remains a generated legacy compatibility view; edit **cards.json**, then run:
+У каждой из 16 фракций один редактируемый источник: `page/factions/<expansion>/<faction>/text.json` (schemaVersion 2). В `cards` каждая карта содержит стабильный ID, категорию/группу, оригинальное изображение, русский текст и профиль оформления. Стороны планшетов, обрезка и порядок карт заданы явно. Отдельных `cards.json` больше нет.
+
+Примеры одинаковой структуры:
+
+```text
+page/factions/sow/inquisition/text.json
+page/factions/dl/leaguesofvotann/text.json
+page/data/faction.schema.json          # общая схема
+page/data/render-profiles.json         # общие профили и геометрия
+page/script/faction-data.js            # общий загрузчик/проверка
+```
+
+Редактируйте `cards`, `groups`, `factionSheet` и `materialsText`. В этом же файле временно сохранены старые массивы и шаблоны для уже кешированных скриптов и внешних потребителей: их нельзя удалить одновременно с переходом формата без нарушения старого контракта. `compatibility` перечисляет автоматически обновляемые и исторические поля; второго редактируемого файла фракции нет. После изменения текста обновите поля совместимости и проверьте данные:
 
 ```sh
 node tools/export-legacy.cjs --write
 node tools/validate-data.cjs
-node --test tests/faction-data.test.cjs
+node --test tests/*.test.cjs
 ```
 
 There are no production npm dependencies. Renderer fingerprints normalize line endings, and `.gitattributes` keeps shared text inputs in LF form across platforms. These tools use the optional Node LTS version pinned in `.node-version`; the website still runs as static HTML/CSS/JavaScript. `page/data/render-profiles.json` shares typography dispatch and usual measured geometry; individual cards retain only source-specific exceptions. Typography, text wrapping and font fitting remain shared renderer logic. Map annotations remain semantic overlays. DL remains excluded from PDF printing.
@@ -111,4 +123,4 @@ node tools/validate-data.cjs
 
 After applying, use `--verify-applied` on the preparation server with a fresh output folder to compare the actual canonical records/profile merge against the retained recipes. Stop the local server with Ctrl+C. Preparation is a developer action, never a page-load hook or a deployment requirement. Inspect backgrounds and final dense cards in the browser and representative PDFs after changing recipes/layouts. Exact comparison preserves the previous output; it does not certify the old retouching as an original clean master or replace physical printing acceptance.
 
-Coordinate units are explicit in the recipe manifest: patch boxes and donor crops are fractions of their respective native images; artwork windows and feather widths use native pixels; sheet crops refer to the complete source atlas; region boxes refer to the cropped side. Explicit `template.body` preserves text placement formerly inferred from `body-erasure`. Repair provenance stays separate from wording. New runtime input files participate in `FSCatalog.sourcePaths()`/print fingerprints; offline recipes are represented by their prepared input hashes. Cached older pages and external consumers can continue reading legacy `text.json`, including retained historical repair metadata.
+Coordinate units are explicit in the recipe manifest: patch boxes and donor crops are fractions of their respective native images; artwork windows and feather widths use native pixels; sheet crops refer to the complete source atlas; region boxes refer to the cropped side. Explicit `template.body` preserves text placement formerly inferred from `body-erasure`. Repair provenance stays separate from wording. New runtime input files participate in `FSCatalog.sourcePaths()`/print fingerprints; offline recipes are represented by their prepared input hashes. Старые кешированные страницы и внешние потребители продолжают читать совместимые поля того же `text.json`, включая необходимые исторические сведения о восстановлении. Новые скрипты используют записи `cards` и подготовленные изображения.

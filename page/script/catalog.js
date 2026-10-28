@@ -97,7 +97,7 @@
     return Object.assign({},spec,{factions:factions,cards:cards,displayMode:modes.normalize(displayMode),ruleVersion:modes.normalize(displayMode)==='rnb'?rnb.version:null});
   }
   function sourcePaths(expansion,faction,displayMode) {
-    var paths=['data/print-catalog.json','data/render-profiles.json','data/prepared-templates.json','factions/general.json','factions/'+expansion+'/faction.json','factions/'+expansion+'/'+faction+'/cards.json'];
+    var paths=['data/print-catalog.json','data/render-profiles.json','data/prepared-templates.json','factions/general.json','factions/'+expansion+'/faction.json','factions/'+expansion+'/'+faction+'/text.json'];
     if(modes.normalize(displayMode)==='rnb')paths.push('data/rnb.json');
     return paths.sort();
   }
@@ -107,7 +107,7 @@
   }
   async function loadFactionCards(expansion,faction,displayMode) {
     await loadProfiles();
-    var data = await Promise.all([root.FSCache.json('factions/general.json'),root.FSCache.json('factions/'+expansion+'/faction.json'),root.FSCache.json('factions/'+expansion+'/'+faction+'/cards.json')]);
+    var data = await Promise.all([root.FSCache.json('factions/general.json'),root.FSCache.json('factions/'+expansion+'/faction.json'),root.FSCache.json('factions/'+expansion+'/'+faction+'/text.json')]);
     var index = data[1].folder.indexOf(faction); if (index<0) throw new Error('Нет фракции: '+expansion+'/'+faction);
     var rnb=await modes.load(displayMode);
     return factionCards(data[0],data[2],expansion,faction,data[1].name[index]).map(function (c) {return modes.apply(c,displayMode,rnb);});
@@ -118,7 +118,7 @@
     var pair = await Promise.all([root.FSCache.json('data/print-catalog.json'),root.FSCache.json('factions/general.json')]), spec=pair[0],general=pair[1],docs={},texts={},versions={};
     await Promise.all(spec.expansions.map(async function (expansion) {
       var doc=docs[expansion]=await root.FSCache.json('factions/'+expansion+'/faction.json');
-      await Promise.all(doc.folder.map(async function (faction) { var id=expansion+'/'+faction;texts[id]=await root.FSCache.json('factions/'+id+'/cards.json');versions[id]=await root.FSCache.fingerprint(sourcePaths(expansion,faction,displayMode)); }));
+      await Promise.all(doc.folder.map(async function (faction) { var id=expansion+'/'+faction;texts[id]=await root.FSCache.json('factions/'+id+'/text.json');versions[id]=await root.FSCache.fingerprint(sourcePaths(expansion,faction,displayMode)); }));
     }));
     var catalog=printCatalog(spec,general,docs,texts,displayMode,rnb);catalog.cards.forEach(function (card) { card.sourceVersion=versions[card.factionId]; });
     return {catalog:catalog,cards:catalog.cards};

@@ -11,7 +11,7 @@ function sourceFiles(card){const files=new Set([card.artSrc||card.src]);if(card.
  return Object.fromEntries([...files].map(p=>[p.split('?')[0],hash(fs.readFileSync(assetFile(p)))]));}
 function inputs(){
  const general=read('factions/general.json'),rnb=read('data/rnb.json'),cards=new Map();
- for(const exp of general.expansion.folder){const f=read('factions/'+exp+'/faction.json');for(const fac of f.folder){const data=read('factions/'+exp+'/'+fac+'/cards.json');for(const card of catalog.factionCards(general,data,exp,fac,f.name[f.folder.indexOf(fac)]))cards.set(card.id,card);}}
+ for(const exp of general.expansion.folder){const f=read('factions/'+exp+'/faction.json');for(const fac of f.folder){const data=read('factions/'+exp+'/'+fac+'/text.json');for(const card of catalog.factionCards(general,data,exp,fac,f.name[f.folder.indexOf(fac)]))cards.set(card.id,card);}}
  const rendererHash=hash(fs.readFileSync(path.join(page,'script/cardrender.js'),'utf8').replace(/\r\n/g,'\n')),jobs=[];
  for(const [key,recipe] of Object.entries(recipes.jobs)){
   const base=cards.get(recipe.cardId);if(!base)throw new Error('Missing preparation card '+key);

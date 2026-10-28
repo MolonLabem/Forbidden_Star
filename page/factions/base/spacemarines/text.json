@@ -1269,5 +1269,1044 @@
     "Уровень 1",
     "Уровень 2",
     "Уровень 3"
-  ]
+  ],
+  "$schema": "../../../data/faction.schema.json",
+  "schemaVersion": 2,
+  "id": "base/spacemarines",
+  "groups": [
+    {
+      "id": "starter",
+      "label": "Стартовые"
+    },
+    {
+      "id": "upgrade-1",
+      "label": "Уровень 1"
+    },
+    {
+      "id": "upgrade-2",
+      "label": "Уровень 2"
+    },
+    {
+      "id": "upgrade-3",
+      "label": "Уровень 3"
+    }
+  ],
+  "cards": [
+    {
+      "id": "base/spacemarines/combat/s1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/s1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/s1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "b49d9d2186e8227cf54a68ddc0db39fb6e6463575c77050ce0ce141f7ef5b0f1"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Засада",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 (B).",
+        "unit": "Разведчик/Ударный Крейсер: Любой отряд противника, деморализованный в этом раунде битвы, - уничтожается. Ваш противник может избежать этого уничтожения, если потратит 1 [M]."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/s2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/s2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/s2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "f3480fc863e988db456e1bdd68a4f03975a9868799c6ef17a52939626bdaee21"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Разведка",
+        "icons": "S",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Если вы атакуете, то посмотрите выбранную боевую карту противника. *newline* Получите 2 (B) или 2 (S).",
+        "unit": "Разведчик/Ударный Крейсер: Потратьте 1 [M], чтобы отступить 1 вашим отрядом."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/s3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/s3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/s3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "a04803792929f17230542b7860fbe090b8e74d98a390def3932573ca3105f695"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Ярость Ультрамара",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник должен перебросить 1 [S]. Затем вы можете перебросить 1 [S].",
+        "unit": "Космодесантник/Ударный Крейсер: Вынудите вашего противника потерять 1 [S] или 2 (S)."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/s4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/s4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/s4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              727
+            ],
+            "sha256": "3dfbe8ef6ebc32deada2e811f0fbfccf64c9a78957d96ff777a6331fe3f972b6"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Благословенная Броня",
+        "icons": "S",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 (S).",
+        "unit": "Бастион/Космодесантник/Ударный Крейсер: Переверните до 2 ваших кубов на [S]."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/s5",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/s5.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/s5.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "cc065b6b01b02c28684670e284324e3a7a6a5dbd426a0cd7a9bf41a71ce3a48c"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Вера в Императора",
+        "icons": "M",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/s5.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [D].",
+        "unit": "Разведчик/Космодесантник/Ударный Крейсер: Восстановите 1 ваш отряд или получите 1 [M]."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t0_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t0_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t0_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "31c0853213e0ab82f3f9ee86417eaf40f49d0e6b371d9aa4a1c57edd3fef2aa4"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Держать Строй",
+        "icons": "SM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 (S). *newline* Если вы защищаетесь, то восстановите 1 ваш отряд.",
+        "unit": "Бастион/Космодесантник/Ударный Крейсер: Получите 1 [S] или 1 [M]."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t0_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t0_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t0_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "da23e6e1622cbd604df6e2fcf19d241721590763d7dbb362e129714d8cc250ed"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Слава и Смерть",
+        "icons": "BM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 (B). *newline* Если вы атакуете, то восстановите 1 ваш отряд.",
+        "unit": "Космодесантник/Ударный Крейсер: Вынудите вашего противника потерять 1 [S] или 1 [M]."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t0_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t0_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t0_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "0899041b8dd9794c6db078e81320b732f889f22e8ec5a4d767f152bfbe2bf2f9"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Сброс Десантной Капсулы",
+        "icons": "BS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [D].",
+        "unit": "Космодесантник: Потратьте 1 [M], чтобы забрать 1 Разведчика или 1 Космодесантника из любого мира и разместить в этом мире."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t0_4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t0_4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t0_4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "0fcc57c2552d05d1666b483471d9755625f6c310c12c3d2a8eb01a943ba3b18e"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Разведчики-Ветераны",
+        "icons": "BSM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t0_4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "За каждый ваш [M] получите 1 (B) или 1 (S).",
+        "unit": "Разведчик/Ударный Крейсер: Потратьте любое количество [M]. Отступите 1 вашим отрядом за каждый потраченный [M]."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t2_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t2_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t2_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "85b050c4c1b497310412636cac0ebda016507d54561a21bf014da620b99f5607"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Не Показывать Страха",
+        "icons": "SSM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "В этом раунде битвы ваши отряды не могут стать деморализованными.",
+        "unit": "Бастион/Космодесантник/Ударный Крейсер: Потратьте 1 [M], чтобы восстановить все ваши отряды."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t2_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t2_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t2_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "9fc6348422feddf1c581a90c544048fd16e53a0679831aabd775a4abdfc41933"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Прорвать Фронт",
+        "icons": "BSS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Потратьте до 3 [M]. За каждый потраченный [M] получите 1 [B] или 1 [S].",
+        "unit": "Ленд Рейдер/Боевая Баржа: Ваш противник должен выбрать и сбросить 1 свою открытую боевую карту."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t2_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t2_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t2_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "030218af2c2467c448ff589e07ac1065717ec80a85a7da561c9d43f1509f7eab"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Танковое Наступление",
+        "icons": "BBS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t2_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [D].",
+        "unit": "Ленд Рейдер/Боевая Баржа: Выполните 1 дополнительный шаг нанесения повреждений во время этого раунда битвы."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t3_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t3_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t3_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "6a8566a5ced740cb2c148479f8f231c541a2433dc14967417a45862e198498d9"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Мощь Императора",
+        "icons": "BBB",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t3_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 [D].",
+        "unit": "Титан Полководец/Боевая Баржа: Потратьте любое количество [B]. За каждый потраченный [B] получите 2 (B)."
+      }
+    },
+    {
+      "id": "base/spacemarines/combat/t3_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/base/spacemarines/combat/t3_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/base/spacemarines/combat/t3_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "fbdbbc3386f7857ebd46440209b1a169c2668797ef349dee023ef431b59d7c73"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Слава Императора",
+        "icons": "SSMM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/combat/t3_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 [D].",
+        "unit": "Титан Полководец/Боевая Баржа: Восстановите все ваши отряды. Затем переверните любые ваши кубы на [M]."
+      }
+    },
+    {
+      "id": "base/spacemarines/orders/o_1",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "body": {
+            "box": [
+              0.145,
+              0.545,
+              0.71,
+              0.26
+            ],
+            "align": "center"
+          },
+          "preparedId": "base/spacemarines/orders/o_1",
+          "picture": "pictures/prepared/base__spacemarines__orders__o_1.png"
+        }
+      },
+      "text": {
+        "title": "Крестовый Поход",
+        "general": "Если во время выполнения этого приказа вы начали битву в системе, где у вас нет дружественных миров, то получите 1 жетон подкрепления. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_1.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/orders/o_2",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "body": {
+            "box": [
+              0.145,
+              0.545,
+              0.71,
+              0.26
+            ],
+            "align": "center"
+          },
+          "preparedId": "base/spacemarines/orders/o_2",
+          "picture": "pictures/prepared/base__spacemarines__orders__o_2.png"
+        }
+      },
+      "text": {
+        "title": "Направлять Верующих",
+        "general": "После раскрытия этого приказа вы можете заменить 1 вашу постройку в этой системе на любую другую. *newline* ОДИН РАЗ ЗА РАУНД",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_2.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/orders/o_3",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "body": {
+            "box": [
+              0.145,
+              0.545,
+              0.71,
+              0.26
+            ],
+            "align": "center"
+          },
+          "preparedId": "base/spacemarines/orders/o_3",
+          "picture": "pictures/prepared/base__spacemarines__orders__o_3.png"
+        }
+      },
+      "text": {
+        "title": "Миры Вербовки",
+        "general": "Во время выполнения этого приказа вы можете считать все бастионы активной системы фабриками. Ваш лимит развертывания при этом уменьшается на 1 за каждый ваш бастион в активной системе. *newline* ОДИН РАЗ ЗА РАУНД",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_3.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/orders/o_4",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "body": {
+            "box": [
+              0.145,
+              0.545,
+              0.71,
+              0.26
+            ],
+            "align": "center"
+          },
+          "preparedId": "base/spacemarines/orders/o_4",
+          "picture": "pictures/prepared/base__spacemarines__orders__o_4.png"
+        }
+      },
+      "text": {
+        "title": "Огненный Дождь",
+        "general": "Во время выполнения этого орбитального удара получите 1 [D], и вы можете перевернуть 1 ваш [M] на 1 [B]. *newline* ОДИН РАЗ ЗА РАУНД",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_4.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/orders/o_5",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "base/spacemarines/orders/o_5",
+          "picture": "pictures/prepared/base__spacemarines__orders__o_5.png"
+        }
+      },
+      "text": {
+        "title": "Десантные Капсулы",
+        "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара вы можете потратить 2 [S], чтобы бесплатно разместить 1 отряд Космодесантника в этом мире, из-за чего по окончании этого орбитального удара может начаться битва. *newline* ОДИН РАЗ ЗА РАУНД",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/orders/o_5.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_1",
+      "category": "events",
+      "asset": {
+        "file": "events/e_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_1",
+          "picture": "pictures/prepared/base__spacemarines__events__e_1.png"
+        }
+      },
+      "text": {
+        "title": "Адептус Механикус",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время битвы в начале шага нанесения повреждений вы можете сбросить эту карту, чтобы получить 2 (S), а также получить по 1 (S) за каждый ваш жетон кузницы.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_1.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_2",
+      "category": "events",
+      "asset": {
+        "file": "events/e_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_2",
+          "picture": "pictures/prepared/base__spacemarines__events__e_2.png"
+        }
+      },
+      "text": {
+        "title": "Непоколебимость",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Вместо раскрытия одного из ваших приказов в Фазу Действий вы можете сбросить эту карту, чтобы восстановить все ваши отряды в 1 любой системе.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_2.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_3",
+      "category": "events",
+      "asset": {
+        "file": "events/e_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_3",
+          "picture": "pictures/prepared/base__spacemarines__events__e_3.png"
+        }
+      },
+      "text": {
+        "title": "Чемпион Императора",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время битвы в начале шага нанесения повреждений вы можете сбросить эту карту, чтобы восстановить 1 ваш отряд.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_3.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_4",
+      "category": "events",
+      "asset": {
+        "file": "events/e_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_4",
+          "picture": "pictures/prepared/base__spacemarines__events__e_4.png"
+        }
+      },
+      "text": {
+        "title": "Экстерминатус",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Перед выполнением орбитального удара вы можете сбросить эту карту, чтобы перевернуть все ваши кубы на [B] вместо броска.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_4.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_5",
+      "category": "events",
+      "asset": {
+        "file": "events/e_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_5",
+          "picture": "pictures/prepared/base__spacemarines__events__e_5.png"
+        }
+      },
+      "text": {
+        "title": "Церемония Перед Боем",
+        "general": "Купите 1 улучшение приказа. Уменьшите его стоимость на 1 за каждый дружественный мир, который содержит бастион.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_5.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_6",
+      "category": "events",
+      "asset": {
+        "file": "events/e_6.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_6",
+          "picture": "pictures/prepared/base__spacemarines__events__e_6.png"
+        }
+      },
+      "text": {
+        "title": "Героическое Вмешательство",
+        "general": "Либо бесплатно разместите 1 Космодесантника в дружественном мире, который содержит вашу постройку, либо бесплатно разместите 1 Разведчика в любом дружественном мире.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_6.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_7",
+      "category": "events",
+      "asset": {
+        "file": "events/e_7.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_7",
+          "picture": "pictures/prepared/base__spacemarines__events__e_7.png"
+        }
+      },
+      "text": {
+        "title": "Работа Праведных",
+        "general": "Выберите дружественный мир. Либо получите ценные ресурсы этого мира, либо получите материалы, равные производственному значению этого мира.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_7.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/events/e_8",
+      "category": "events",
+      "asset": {
+        "file": "events/e_8.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07,
+              0.681,
+              0.86,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "base/spacemarines/events/e_8",
+          "picture": "pictures/prepared/base__spacemarines__events__e_8.png"
+        }
+      },
+      "text": {
+        "title": "Защита Императора",
+        "general": "Либо бесплатно разместите 1 бастион в дружественном мире, который не содержит постройки, либо заплатите 2 материала, чтобы бесплатно разместить 1 бастион в дружественном мире, который не содержит бастион.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/28ab2c341b006842924d505c2ec2206f94a754f7/page/factions/base/spacemarines/events/e_8.jpg"
+      }
+    },
+    {
+      "id": "base/spacemarines/backs/combat",
+      "category": "backs",
+      "asset": {
+        "file": "backs/combat.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник боевой колоды"
+    },
+    {
+      "id": "base/spacemarines/backs/order",
+      "category": "backs",
+      "asset": {
+        "file": "backs/order.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды приказов"
+    },
+    {
+      "id": "base/spacemarines/backs/event",
+      "category": "backs",
+      "asset": {
+        "file": "backs/event.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды событий"
+    },
+    {
+      "id": "base/spacemarines/faction_card/card",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "side": "front",
+        "crop": [
+          0,
+          0,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "base/spacemarines/faction_card/card",
+          "picture": "pictures/prepared/base__spacemarines__faction_card__card.png"
+        }
+      },
+      "text": {
+        "title": "КОСМОДЕСАНТ · Способности и отряды"
+      }
+    },
+    {
+      "id": "base/spacemarines/faction_card/card/back",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "query": "?side=back",
+        "side": "back",
+        "crop": [
+          0,
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "base/spacemarines/faction_card/card/back",
+          "picture": "pictures/prepared/base__spacemarines__faction_card__card__back.png"
+        }
+      },
+      "text": {
+        "title": "КОСМОДЕСАНТ · Оборот"
+      }
+    },
+    {
+      "id": "base/spacemarines/maps/map_B",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_B.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта B"
+    },
+    {
+      "id": "base/spacemarines/maps/map_A",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_A.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта A"
+    }
+  ],
+  "renderDefaults": {
+    "combatFrame": {
+      "picture": "factions/base/spacemarines/combat/s4.jpg",
+      "box": [
+        0,
+        0.56,
+        0.18,
+        0.115
+      ]
+    }
+  },
+  "provenance": {
+    "originalDocument": {
+      "path": "text.json",
+      "revision": "a4d87da474079e4903816d1d0afa1c90657ed503",
+      "sha256": "c49082ca748d29d85883e48de6785b07e3561c3e8e8d88da5a675bb56cd5230b"
+    },
+    "wordingSource": {
+      "kind": "current-russian-raster",
+      "revision": "28ab2c341b006842924d505c2ec2206f94a754f7",
+      "imageSha256": {
+        "combat/s1.jpg": "f1d0fe72a90ef4cd9a9f83caae4b4a799bac20d1a0df9710aeed3aa45c4264f0",
+        "combat/s2.jpg": "0d87512e5cf5b70b528d71cb37e73ce6baffbd8d939352c336f873ad8eee67b8",
+        "combat/s3.jpg": "674cad475a2dbd1d64c8cac33151dce1b428a8437fca2b5580cd59a33c064cfc",
+        "combat/s4.jpg": "0707bb769115a977cfdbaa5be1b9d98f503454f935a0c7e377b11fdd2e3b559b",
+        "combat/s5.jpg": "90853102a716667db1d3df33b0c9e30193e3b7a5ffd6ccf2e29a241d634848f4",
+        "combat/t0_1.jpg": "e4d11d483eb9559a5ab883bd3c85b5eec7f8a52c1ab487f86bee7d62e2a09d51",
+        "combat/t0_2.jpg": "6500d7bc0bfcdc2409f22405ef23bf2bf2c45bdccd3fad470ff894d6f9bd2240",
+        "combat/t0_3.jpg": "bcfc066a8e253079a0af64c8ade95598ebd62aa993ec27db5637b9da9a416fd3",
+        "combat/t0_4.jpg": "313671abf2fea22ec3c3312fcdcb0125c9dc1bc7e313cb32b7eb83d0cf5dfd69",
+        "combat/t2_1.jpg": "28b18e6f31d8c5221e7d87c6be68d3b874e03408cfbbab25d82b8edb5fa81298",
+        "combat/t2_2.jpg": "5102a3ee5fd4b339c86b7344b90ac635a23c30b2d5f5bafc822101894acc1e16",
+        "combat/t2_3.jpg": "619265855b3e9531d8de72b337718a7122dd4a5d5e819af0a42b4b88f82cd9a0",
+        "combat/t3_1.jpg": "85c0c898cf53e7c6a1a8dadf6ebd9a129f7bf6034ae3dd6959c083d902e170d1",
+        "combat/t3_2.jpg": "c30cac308af657f6b71b5658689b806d06063346ac896aba02fa42141d222364",
+        "orders/o_1.jpg": "9bcd11f36097319b2d0300c447519ac5b562566d8c4292a0bf1c2c53cd24119c",
+        "orders/o_2.jpg": "93da9ea9d5e8828fd04e45b616b5a5594bc3c1049b71bccbbdfc13bed223f9ad",
+        "orders/o_3.jpg": "b597617d1148037362377a5bc53ead3276bce6e346464e6b6802109a9343833f",
+        "orders/o_4.jpg": "e9c94e20cff25bc5b602158e302114244bb63426c238b6d56158fe8ffb59faed",
+        "orders/o_5.jpg": "99a3f0e963e699f8a31fd9d8759e6b908ffe68f6188673c9db90ea203066b260",
+        "events/e_1.jpg": "37397075e46841693dca1351b6ead5a92417112a49b4a6e3a2df745520b42cd2",
+        "events/e_2.jpg": "1faab024b32021439cd39bf42f0669272062cf2906095aba363ab74c788580d1",
+        "events/e_3.jpg": "eab18660aa45c62f226e72ae3230d79538b5f799e43547d09fd85b10198f4d4d",
+        "events/e_4.jpg": "c83aff541150b25d986af977580e8cf210931c06de8c0b44f96d13fa050ff80f",
+        "events/e_5.jpg": "5f06788dafd2e1c2b5334ce9061281aa22b0722033fead2d3006b178e150b63d",
+        "events/e_6.jpg": "d9f71278eef6e7567d071e0d8e18742324969a265124f2d451b46f277bed2b36",
+        "events/e_7.jpg": "2d68223ec9fa15e751f54034d20fe37666000215ba05e4ce89b30644e893a70f",
+        "events/e_8.jpg": "55fdb019844733478d768f8cafdfb02b8c776d2c95dfbe2d586e33d94b4b6f26"
+      }
+    }
+  },
+  "compatibility": {
+    "generatedFields": [
+      "filenames",
+      "tierLabels",
+      "combatText",
+      "ordersText",
+      "eventsText",
+      "componentsText",
+      "combatFrame"
+    ],
+    "retainedFields": [
+      "templates",
+      "wordingSource"
+    ],
+    "note": "Edit cards, groups, factionSheet and materialsText. Run node tools/export-legacy.cjs --write to update generated compatibility fields. Retained fields preserve the cached pre-schema contract and source provenance."
+  }
 }

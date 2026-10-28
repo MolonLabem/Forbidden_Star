@@ -1601,5 +1601,1060 @@
     "Уровень 1",
     "Уровень 2",
     "Уровень 3"
-  ]
+  ],
+  "$schema": "../../../data/faction.schema.json",
+  "schemaVersion": 2,
+  "id": "gif/necron",
+  "groups": [
+    {
+      "id": "starter",
+      "label": "Стартовые"
+    },
+    {
+      "id": "upgrade-1",
+      "label": "Уровень 1"
+    },
+    {
+      "id": "upgrade-2",
+      "label": "Уровень 2"
+    },
+    {
+      "id": "upgrade-3",
+      "label": "Уровень 3"
+    }
+  ],
+  "cards": [
+    {
+      "id": "gif/necron/combat/s1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/s1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/s1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              937
+            ],
+            "sha256": "6588a82caa2afbd6a1aa1aeea167c8a56b342f9920db16202caa043d03a70772"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Прорвать Строй",
+        "icons": "BB",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "",
+        "unit": "Воин/Жнец: Получите 1 [M]."
+      }
+    },
+    {
+      "id": "gif/necron/combat/s2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/s2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/s2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              937
+            ],
+            "sha256": "95e6cb08da622b2ae02665c239d5e25d65a2647f9dac676cbe215e24985c2f0a"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Фаланга",
+        "icons": "SS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "",
+        "unit": "Воин/Жнец: Получите 1 [M]."
+      }
+    },
+    {
+      "id": "gif/necron/combat/s3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/s3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/s3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              628
+            ],
+            "sha256": "6f90e7b081ad115d09822f92742974b3f36d1861787478cc2f10c4abf40c4aa1"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Криптек",
+        "icons": "M",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [B], 1 [S] или 1 [M]. *newline* Потратьте 1 [M], чтобы выбрать: забрать 1 ваш отряд из этого мира и разместить его деморализованным в любом дружественном мире, который содержит постройку; забрать 1 ваш отряд с командным уровнем 0-1 из любого мира, который содержит постройку, и разместить его в этом мире.",
+        "unit": ""
+      }
+    },
+    {
+      "id": "gif/necron/combat/s4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/s4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/s4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "e9f21e9f975be51c0babdbc35d0f6eaf66372ab50ae8f86d4b6271b8e5b5eac1"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Освежеванные",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 (B).",
+        "unit": "Воин/Жнец: Если у вашего противника есть хотя бы 1 [M], то вынудите его потерять 1 [M], затем получите 1 [M]."
+      }
+    },
+    {
+      "id": "gif/necron/combat/s5",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/s5.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/s5.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "b66a50e47cfefdf5a892782f7180695bb8c777c4e072d8674352fd93b0570cf5"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Лорд",
+        "icons": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/s5.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [M]. *newline* Восстановите 1 ваш отряд.",
+        "unit": "Воин/Жнец/Бессмертный: Получите 1 [B] или 1 [S] за каждый ваш [M]."
+      }
+    },
+    {
+      "id": "gif/necron/combat/t0_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t0_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t0_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              889
+            ],
+            "sha256": "91a8b73459afa975f749e6f0cd3a681d16e08a1c7d461a635b76204d91b7bf54"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Рой Карноптеков",
+        "icons": "BM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [D]. *newline* Бесплатно разместите 1 жетон подкрепления в эту область.",
+        "unit": ""
+      }
+    },
+    {
+      "id": "gif/necron/combat/t0_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t0_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t0_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "f97f515df35294949c621475e80c575b88dc33399609cfe304abaf51c16fad56"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Разрушители",
+        "icons": "BBM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Потратьте 1 [S] или 1 [M], чтобы получить 2 (B).",
+        "unit": "Бессмертный/Жнец: Если у вашего противника есть хотя бы 1 деморализованный отряд, то получите 2 (B)."
+      }
+    },
+    {
+      "id": "gif/necron/combat/t0_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t0_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t0_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "58118e0c687d7e58cb51354f87bedaddb5527dfc03b99dbe8cb2b8b3ba463ca0"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Лич Страж",
+        "icons": "SSM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Деморализуйте 1 ваш отряд, затем ваш противник должен выбрать и деморализовать 1 свой отряд.",
+        "unit": "Бессмертный/Жнец: Если у вашего противника есть хотя бы 1 деморализованный отряд, то получите 2 (S)."
+      }
+    },
+    {
+      "id": "gif/necron/combat/t0_4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t0_4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t0_4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              889
+            ],
+            "sha256": "f80aa9b9e611e26528527d91fdfb7577662b38a7aed10b1e0991308a0463a781"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Владыка",
+        "icons": "MMM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t0_4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Восстановите 1 ваш отряд. *newline* Перебросьте до 2 ваших кубов.",
+        "unit": ""
+      }
+    },
+    {
+      "id": "gif/necron/combat/t2_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t2_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t2_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "0f67e06acc998f9b1bb3ce6a216e1816213cccc4ca2e8fdba0eb152e435e9803"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Фаланга Монолитов",
+        "icons": "BBS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t2_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Если вы не получили урон в этом раунде битвы, то противник должен выбрать и отступить одним из своих отрядов.",
+        "unit": "Монолит/Корабль-Гробница: Получите 3 (S)."
+      }
+    },
+    {
+      "id": "gif/necron/combat/t2_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t2_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t2_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              612
+            ],
+            "sha256": "5d52b78970cccf370cbba0652af383b57ca01558888f437535b23d69a9f34a4e"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Фаланга Судного Дня",
+        "icons": "BBB",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t2_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник теряет 1 [S].",
+        "unit": "Монолит/Корабль-Гробница: Любой отряд противника, деморализованный во время шага нанесения повреждений в этом раунде битвы, - уничтожается. Ваш противник может избежать этого эффекта, если потратит 1 [S]."
+      }
+    },
+    {
+      "id": "gif/necron/combat/t2_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t2_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t2_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              612
+            ],
+            "sha256": "1fae303bfe2301a39de4ffbcd2ec5b7b41742e191bb890b2f995cf2f2333a29d"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Триарх Преторианец",
+        "icons": "BSM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t2_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Восстановите 1 ваш деморализованный отряд или бесплатно разместите 1 жетон подкрепления в эту область.",
+        "unit": "Воин/Жнец: За каждого недеморализованного Воина или Жнеца вы можете потратить 1 куб, чтобы получить 1 [B], 1 [S] или 1 [M]."
+      }
+    },
+    {
+      "id": "gif/necron/combat/t3_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t3_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t3_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "953cf3a24e0b257935977438ded99989f1bd3b2c500c0d9ec22e98098363b35f"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Мистификатор",
+        "icons": "BSMM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t3_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Разыграйте верхнюю карту боевой колоды. Не применяйте её способности, но получите её боевые значки до конца этой битвы.",
+        "unit": "Ктан: Возьмите вашего Ктана и разместите его в любом дружественном мире."
+      }
+    },
+    {
+      "id": "gif/necron/combat/t3_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/necron/combat/t3_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/necron/combat/t3_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "6c32283a13300f931379e7d41d605315b9b37ae4f564cdaeabdb89ea7301c8a9"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Несущий Ночь",
+        "icons": "BBS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/combat/t3_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Выберите и уничтожьте 1 отряд с командным уровнем 0 или получите 3 (B).",
+        "unit": "Ктан/Корабль-Гробница: Выберите и уничтожьте 1 отряд с командным уровнем 0-1."
+      }
+    },
+    {
+      "id": "gif/necron/orders/o_1",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/necron/orders/o_1",
+          "picture": "pictures/prepared/gif__necron__orders__o_1.png"
+        }
+      },
+      "text": {
+        "title": "Врата Вечности",
+        "general": "После перемещения своих отрядов можете взять любое количество своих отрядов командного уровня 0-1 из 1 дружественного мира с постройкой и разместить их в любом мире активной системы, содержащем недеморализованный Монолит. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/orders/o_1.jpg",
+        "aspect": 0.7056910569105691
+      }
+    },
+    {
+      "id": "gif/necron/orders/o_2",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/necron/orders/o_2",
+          "picture": "pictures/prepared/gif__necron__orders__o_2.png"
+        }
+      },
+      "text": {
+        "title": "Загробные Миры",
+        "general": "После выполнения этого приказа, если вы купили хотя бы 1 отряд или постройку, то вы можете купить 1 бастион и разместить его в дружественном или неконтролируемом мире в активной системе или соседней системе. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/orders/o_2.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/orders/o_3",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/necron/orders/o_3",
+          "picture": "pictures/prepared/gif__necron__orders__o_3.png"
+        }
+      },
+      "text": {
+        "title": "Коронный Мир",
+        "general": "Во время выполнения этого приказа вы можете считать все ваши города в активной системе фабриками. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/orders/o_3.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/orders/o_4",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/necron/orders/o_4",
+          "picture": "pictures/prepared/gif__necron__orders__o_4.png"
+        }
+      },
+      "text": {
+        "title": "Протоколы Оживления",
+        "general": "После раскрытия этого приказа вы можете восстановить все ваши отряды в активной системе и все ваши наземные отряды во всех других системах. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/orders/o_4.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/orders/o_5",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/necron/orders/o_5",
+          "picture": "pictures/prepared/gif__necron__orders__o_5.png"
+        }
+      },
+      "text": {
+        "title": "Рейд Жнецов",
+        "general": "Во время выполнения этого орбитального удара получите 1 [D] и, вы можете выбрать 1 отряд вашего противника с командным уровнем 0. Во время этого орбитального удара этот отряд получает повреждения первым. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/orders/o_5.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_1",
+      "category": "events",
+      "asset": {
+        "file": "events/e_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_1",
+          "picture": "pictures/prepared/gif__necron__events__e_1.png"
+        }
+      },
+      "text": {
+        "title": "Косы Рока",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале любого раунда битвы вы можете сбросить эту карту, чтобы деморализовать до 2 ваших отрядов. За каждый деморализованный отряд ваш противник должен уничтожить 1 жетон подкрепления.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_1.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_2",
+      "category": "events",
+      "asset": {
+        "file": "events/e_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_2",
+          "picture": "pictures/prepared/gif__necron__events__e_2.png"
+        }
+      },
+      "text": {
+        "title": "Безжалостная Атака",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале любого раунда битвы вы можете сбросить эту карту, чтобы повторить шаг нанесения повреждений в этом раунде битвы.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_2.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_3",
+      "category": "events",
+      "asset": {
+        "file": "events/e_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_3",
+          "picture": "pictures/prepared/gif__necron__events__e_3.png"
+        }
+      },
+      "text": {
+        "title": "Смертоуказатели",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале любого раунда битвы вы можете сбросить эту карту, чтобы деморализовать 1 отряд вашего противника с командным уровнем 0-1.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_3.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_4",
+      "category": "events",
+      "asset": {
+        "file": "events/e_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_4",
+          "picture": "pictures/prepared/gif__necron__events__e_4.png"
+        }
+      },
+      "text": {
+        "title": "Орикан Предсказатель",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале любого раунда битвы вы можете сбросить эту карту, чтобы взять до 2 боевых карт, а затем сбросить такое же количество боевых карт из вашей руки.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_4.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_5",
+      "category": "events",
+      "asset": {
+        "file": "events/e_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_5",
+          "picture": "pictures/prepared/gif__necron__events__e_5.png"
+        }
+      },
+      "text": {
+        "title": "Пробуждение Ктана",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале любого раунда битвы вы можете сбросить эту карту, чтобы и вы, и ваш противник получили по 3 дополнительного урона во время шага нанесения повреждений.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_5.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_6",
+      "category": "events",
+      "asset": {
+        "file": "events/e_6.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_6",
+          "picture": "pictures/prepared/gif__necron__events__e_6.png"
+        }
+      },
+      "text": {
+        "title": "Сфера Воскрешения",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В любое время битвы, когда 1 ваш отряд с командным уровнем 0-1 был деморализован или уничтожен, вы можете сбросить эту карту, чтобы взять и вернуть этот отряд недеморализованным в эту область в конце шага нанесения повреждений.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_6.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_7",
+      "category": "events",
+      "asset": {
+        "file": "events/e_7.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_7",
+          "picture": "pictures/prepared/gif__necron__events__e_7.png"
+        }
+      },
+      "text": {
+        "title": "Раскрытие Катакомб",
+        "general": "Купите постройку и разместите ее в любом дружественном мире, если он еще не содержит постройку.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_7.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/events/e_8",
+      "category": "events",
+      "asset": {
+        "file": "events/e_8.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "preparedId": "gif/necron/events/e_8",
+          "picture": "pictures/prepared/gif__necron__events__e_8.png"
+        }
+      },
+      "text": {
+        "title": "Криптеки",
+        "general": "Купите 1 боевое улучшение.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/necron/events/e_8.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/necron/backs/combat",
+      "category": "backs",
+      "asset": {
+        "file": "backs/combat.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник боевой колоды"
+    },
+    {
+      "id": "gif/necron/backs/order",
+      "category": "backs",
+      "asset": {
+        "file": "backs/order.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды приказов"
+    },
+    {
+      "id": "gif/necron/backs/event",
+      "category": "backs",
+      "asset": {
+        "file": "backs/event.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды событий"
+    },
+    {
+      "id": "gif/necron/faction_card/card",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "side": "front",
+        "crop": [
+          0,
+          0,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "gif/necron/faction_card/card",
+          "picture": "pictures/prepared/gif__necron__faction_card__card.png"
+        }
+      },
+      "text": {
+        "title": "НЕКРОНЫ · Способности и отряды"
+      }
+    },
+    {
+      "id": "gif/necron/faction_card/card/back",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "query": "?side=back",
+        "side": "back",
+        "crop": [
+          0,
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "gif/necron/faction_card/card/back",
+          "picture": "pictures/prepared/gif__necron__faction_card__card__back.png"
+        }
+      },
+      "text": {
+        "title": "НЕКРОНЫ · Оборот"
+      }
+    },
+    {
+      "id": "gif/necron/maps/map_B",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_B.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта B"
+    },
+    {
+      "id": "gif/necron/maps/map_A",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_A.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта A"
+    }
+  ],
+  "renderDefaults": {
+    "combatFrame": {
+      "picture": "factions/gif/necron/combat/s2.jpg",
+      "box": [
+        0,
+        0.56,
+        0.18,
+        0.2824337
+      ]
+    }
+  },
+  "provenance": {
+    "originalDocument": {
+      "path": "text.json",
+      "revision": "a4d87da474079e4903816d1d0afa1c90657ed503",
+      "sha256": "83d26ab64fd68cc6f553fb95aafd8d11138ebce2ead8a587fb9c16f48769786e"
+    },
+    "wordingSource": {
+      "kind": "current-russian-raster",
+      "revision": "7a9a58bf2284863250f7d4284e292a7c18315a4e",
+      "imageSha256": {
+        "combat/s1.jpg": "cf03040ecae6665296b8a94cfad9db57e031cd31ac9be0361ad4cf1986fb32b5",
+        "combat/s2.jpg": "74c3a66280b064b6277425908e3e4c5473506c144a5103940b1a909ad2e004d3",
+        "combat/s3.jpg": "f284cf1f4e4f6895b775405effad8a60113c902616b270d68e124f2918b33975",
+        "combat/s4.jpg": "102a47a24efab1aee480e878bc97778d40c96a4550231f0e6c8d0ac897f49d5a",
+        "combat/s5.jpg": "96f0fecba121a20e2b3e07e6f224e08149ed0353d7e52e30f9d5c1139f07cf12",
+        "combat/t0_1.jpg": "1bd0a192f81df35a7e54697f9aeccfe25541a8a91cfda7028e84aa348503d2b9",
+        "combat/t0_2.jpg": "c577d1902ac8a4e9b4ebd310b09cf893bcf21a7c4cd8573071afe3cd301c3116",
+        "combat/t0_3.jpg": "96f0189ef8c9bf7835987a7603cc1d47f1b8d72c73d2aaa2333a719744c4106a",
+        "combat/t0_4.jpg": "23ae60d3f179c34e32fb9244cce2dee4162597d61dd892edeb00b205b942fd22",
+        "combat/t2_1.jpg": "8e96c6fc7ebb2784d7e9187d12eab846d6c97bdc47bd0dd021fb7d9e575b1da2",
+        "combat/t2_2.jpg": "891b4d2e21fb9a1ae089a83f0b90747d5c01ba43868e0fb99911143856939dad",
+        "combat/t2_3.jpg": "532b72fad1bb4a5e1dce658cab43b1fd7e2e66ad198c1ca9c81061f6450c49c3",
+        "combat/t3_1.jpg": "85ae84121737b67a3166d21de6cca7d57e5b9e86928a108ea4b447f2b5a59b3e",
+        "combat/t3_2.jpg": "a0d4d78783d9d8a1a658c4f869c1b89541bb2469e5b85bd24f68ac96daa83760",
+        "orders/o_1.jpg": "ed14f080478ccda420d07f93bdf434b1523cea37e1fb3141169c98033e530d26",
+        "orders/o_2.jpg": "44064dde3540fb53fc3045771127f18d5c8c5df05e6f27980cf5115d9e0bf265",
+        "orders/o_3.jpg": "e795eb61f58337183a181d903148d4b24b8eb9e9dafe9e004c9a6f82dbf494d0",
+        "orders/o_4.jpg": "d202f3b5df37ed55f0fde668a3edca566a8329f3a8ead0f8b5a6762e00221712",
+        "orders/o_5.jpg": "f7dab3bb7143c9722b2bd11dd87343bec60814f5ef00e6ff8d408cb3962772c4",
+        "events/e_1.jpg": "a37c1bb0ee098ec25495c538b85add1714010f34e8f19a00995536adcc68a65b",
+        "events/e_2.jpg": "7a0c327216be2f561b4fe34b2707c3f69f731abe7e6ca98dcba08eaa9dca7fdb",
+        "events/e_3.jpg": "b48bbd5ba7d46c4ef7ab39b724254fe266622368b4d82e075fdbb2528967ae22",
+        "events/e_4.jpg": "3354d0757acd5789d63190c541ceaa46de4682a46b6e5ed7724db11f69c7b888",
+        "events/e_5.jpg": "49e8b888e00e9cc8585c626b4f94efaf105ae35b1fab3f86a6a1d47110308166",
+        "events/e_6.jpg": "4c4b8bcd71570c59c0c7b1313391e932579b45e65cd91a33ada65c52ba322e69",
+        "events/e_7.jpg": "d06af408068b9e53b10f0fd1659fb1ea8e670da5bf771108148bf57d20c6ec30",
+        "events/e_8.jpg": "3b955b35bf566c5adcd5f0b52ee45bac9c0b1ac2a705307e2b603273b992e74a"
+      },
+      "imageDimensions": {
+        "combat/s1.jpg": [
+          452,
+          641
+        ],
+        "combat/s2.jpg": [
+          452,
+          641
+        ],
+        "combat/s3.jpg": [
+          452,
+          641
+        ],
+        "combat/s4.jpg": [
+          452,
+          641
+        ],
+        "combat/s5.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_1.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_2.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_3.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_4.jpg": [
+          452,
+          641
+        ],
+        "combat/t2_1.jpg": [
+          809,
+          1116
+        ],
+        "combat/t2_2.jpg": [
+          452,
+          641
+        ],
+        "combat/t2_3.jpg": [
+          452,
+          641
+        ],
+        "combat/t3_1.jpg": [
+          452,
+          641
+        ],
+        "combat/t3_2.jpg": [
+          809,
+          1116
+        ],
+        "orders/o_1.jpg": [
+          1302,
+          1845
+        ],
+        "orders/o_2.jpg": [
+          452,
+          641
+        ],
+        "orders/o_3.jpg": [
+          452,
+          641
+        ],
+        "orders/o_4.jpg": [
+          452,
+          641
+        ],
+        "orders/o_5.jpg": [
+          452,
+          641
+        ],
+        "events/e_1.jpg": [
+          452,
+          641
+        ],
+        "events/e_2.jpg": [
+          452,
+          641
+        ],
+        "events/e_3.jpg": [
+          452,
+          641
+        ],
+        "events/e_4.jpg": [
+          452,
+          641
+        ],
+        "events/e_5.jpg": [
+          452,
+          641
+        ],
+        "events/e_6.jpg": [
+          452,
+          641
+        ],
+        "events/e_7.jpg": [
+          452,
+          641
+        ],
+        "events/e_8.jpg": [
+          452,
+          641
+        ]
+      },
+      "policy": "Visual migration only; preserve current Russian wording and approved samples."
+    }
+  },
+  "compatibility": {
+    "generatedFields": [
+      "filenames",
+      "tierLabels",
+      "combatText",
+      "ordersText",
+      "eventsText",
+      "componentsText",
+      "combatFrame"
+    ],
+    "retainedFields": [
+      "templates",
+      "wordingSource"
+    ],
+    "note": "Edit cards, groups, factionSheet and materialsText. Run node tools/export-legacy.cjs --write to update generated compatibility fields. Retained fields preserve the cached pre-schema contract and source provenance."
+  }
 }

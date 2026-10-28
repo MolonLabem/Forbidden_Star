@@ -1562,5 +1562,1175 @@
     "Уровень 1",
     "Уровень 2",
     "Уровень 3"
-  ]
+  ],
+  "$schema": "../../../data/faction.schema.json",
+  "schemaVersion": 2,
+  "id": "gif/tau",
+  "groups": [
+    {
+      "id": "starter",
+      "label": "Стартовые"
+    },
+    {
+      "id": "upgrade-1",
+      "label": "Уровень 1"
+    },
+    {
+      "id": "upgrade-2",
+      "label": "Уровень 2"
+    },
+    {
+      "id": "upgrade-3",
+      "label": "Уровень 3"
+    }
+  ],
+  "cards": [
+    {
+      "id": "gif/tau/combat/s1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/s1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/s1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "150bd0d2e5da17d46cf3286f50e14368e14c5034b6cf4bbe9d767f81d25fcc5a"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "1000 Порезов",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Если у вас меньше отрядов, чем у вашего противника, то получите 1 (S), а он теряет 1 [B]. *newline* В противном случае получите 1 (B).",
+        "unit": "Воин Огня/Защитник: Получите 1 [D]."
+      }
+    },
+    {
+      "id": "gif/tau/combat/s2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/s2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/s2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "9e4dcc231517dc31e7515d9a4ef70120e2534fd9bc6a7c35e8aff086f116e218"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Стелс-Команды",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 (S).",
+        "unit": "Воин Огня/Защитник: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если сбросит 1 куб на ваш выбор."
+      }
+    },
+    {
+      "id": "gif/tau/combat/s3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/s3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/s3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "2e1f431e4be1c350cd7df0d35032031840707e7e2ddb2fba819b61885cbfc107"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Перекрестный Огонь",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник теряет 3 (B) в начале шага нанесения повреждений.",
+        "unit": "Воин Огня/Защитник/Бронекостюм: Получите 2 (B)."
+      }
+    },
+    {
+      "id": "gif/tau/combat/s4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/s4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/s4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "150ab01f61c705bea06df3b4654f607ff28af1070150f1e0481ea0b92e55a805"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Тактическое Отступление",
+        "icons": "S",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Отступите одним из ваших отрядов. Вы можете потратить 1 [M], чтобы восстановить этот отряд.",
+        "unit": "Воин Огня/Защитник: Получите 2 (S)."
+      }
+    },
+    {
+      "id": "gif/tau/combat/s5",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/s5.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/s5.webp",
+            "box": [
+              163,
+              163,
+              745,
+              794
+            ],
+            "sha256": "577f710529310156534826270ca1cec88cdfd02092f3d1769027a3dc071b4c3c"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Следопыты",
+        "icons": "",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/s5.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "",
+        "unit": "Воин Огня/Защитник: Ваш противник должен открыть выбранную боевую карту. Разыграйте новую боевую карту из вашей руки. Затем сбросьте эту карту."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t0_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t0_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t0_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              619
+            ],
+            "sha256": "75051aac3a7bc346acb601fecdf5b1fc016f81cbefb9d0df980540207545f9b7"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Монт'Ка",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 (B). Выберите 1 отряд вашего противника или бастион. В этом раунде боя ваш противник должен распределить весь полученный им урон только в этот отряд или бастион.",
+        "unit": "Бронекостюм/Защитник: Потратьте до 2 кубов. За каждый потраченный куб получите 2 (B)."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t0_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t0_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t0_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              699
+            ],
+            "sha256": "4a03489130b97e1cdcf63c26d4ae26f728475c6dccc046066ee6bcd1898620ae"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Кайон",
+        "icons": "SS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 (S). *newline* Если вы защищаетесь, вы можете передвинуть 1 ваш отряд из соседней области в эту область в конце этого раунда битвы. Получите [D] согласно боевой мощи этого отряда.",
+        "unit": ""
+      }
+    },
+    {
+      "id": "gif/tau/combat/t0_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t0_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t0_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              619
+            ],
+            "sha256": "7139aea6b32e6ace94849a43eb96b22fd42c8184dbb749f329797545d1ecb1e4"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Уклонение",
+        "icons": "SM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [D].",
+        "unit": "Воин Огня/Защитник: Если ваши недеморализованные отряды с командным уровнем 0 будут деморализованы или уничтожены в этом раунде битвы, то верните эти отряды недеморализованными в эту область в конце шага нанесения повреждений."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t0_4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t0_4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t0_4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "92068da8c7dfc068dd9c97fe690a3376449b6fc428fe225055a333f12f62d3d6"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Фальшивое Отступление",
+        "icons": "BS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник обязан перебросить все [S]. *newline* Вы обязаны перебросить 2 [S] или отступить одним из ваших отрядов.",
+        "unit": "Воин Огня/Бронекостюм/Защитник: Если ни один из ваших отрядов не отступил в этом раунде битвы, получите 2 (B)."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t2_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t2_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t2_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "adacd16c84a5f4b3171ad3f16b49404bcf2ec9559b3b5f18927f9ddb16ee91c9"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Перестрелка",
+        "icons": "BBS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник должен потерять 3 (B) в начале шага нанесения повреждений.",
+        "unit": "Бронекостюм/Рыба-Молот/Хранитель: Получите 1 (S). Ваш противник должен потерять 1 [B] или 1 [M]."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t2_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t2_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t2_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "202f52f3a47829609a87c53f5fc0f8acf711de4a6fe81110692b7d107a9cef52"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Перегруппировка",
+        "icons": "BBM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Потратьте любое количество кубов. *newline* За каждые 2 куба, которые вы потратили, восстановите 1 ваш отряд.",
+        "unit": "Рыба-Молот/Хранитель: Получите 2 [D]."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t2_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t2_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t2_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "5a50710aec9b973e0325c670ea3ca6ea225b64ad2ff51863f9ddfa48bebb2f37"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Стрельба в Движении",
+        "icons": "BSM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Перебросьте все ваши кубы одного типа.",
+        "unit": "Рыба-Молот/Хранитель: Во время шага нанесения повреждений выберите 1 ваш отряд, который должен быть уничтожен. Этот отряд может отступить вместо уничтожения."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t3_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t3_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t3_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "c55dddb221a4282df8cf05f56388484d6eded278e686dead462e0e5db1b8f798"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Верховенство",
+        "icons": "BBBS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t3_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 2 (B). *newline* Переверните до 2 ваших [M] на [B] или [S].",
+        "unit": "Превосходство/Хранитель: Значение здоровья всех отрядов вашего противника понижается до 3 на время этого раунда битвы."
+      }
+    },
+    {
+      "id": "gif/tau/combat/t3_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/tau/combat/t3_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/tau/combat/t3_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "04c926cec55656e2c7abecfc47fe08cec5f8c1f04861dd092c56dc769f9603cd"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Во Имя Высшего Блага",
+        "icons": "BBSMM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t3_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник обязан перебросить все [B].",
+        "unit": "Превосходство/Хранитель: Ваш противник должен потерять 3 [M]. За каждый [M], который он не может потерять, получите 2 (B)."
+      }
+    },
+    {
+      "id": "gif/tau/orders/o_1",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "body": {
+            "box": [
+              0.175,
+              0.543,
+              0.6499999999999999,
+              0.25
+            ],
+            "align": "center"
+          },
+          "preparedId": "gif/tau/orders/o_1",
+          "picture": "pictures/prepared/gif__tau__orders__o_1.png"
+        }
+      },
+      "text": {
+        "title": "Диверсия",
+        "general": "Перед выполнением этого приказа вы можете переместить 1 отряд с командным уровнем 0-1, который уже находится в активной системе. Любая битва, вызванная этим действием, длится 1 раунд и не влияет на количество битв, которые могут быть разыграны Приказом Продвижения. Этот отряд не может быть еще раз перемещен текущим приказом. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/orders/o_1.jpg",
+        "aspect": 0.7351351351351352
+      }
+    },
+    {
+      "id": "gif/tau/orders/o_2",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/tau/orders/o_2",
+          "picture": "pictures/prepared/gif__tau__orders__o_2.png"
+        }
+      },
+      "text": {
+        "title": "Союзники",
+        "general": "После раскрытия этого приказа вы можете заплатить 1 материал, чтобы бесплатно разместить 1 ваш отряд с командным уровнем 0 в любой дружественной или неконтролируемой области активной системы, в которой есть хотя бы 1 ваш отряд или постройка. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/orders/o_2.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/orders/o_3",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/tau/orders/o_3",
+          "picture": "pictures/prepared/gif__tau__orders__o_3.png"
+        }
+      },
+      "text": {
+        "title": "Адаптивные Стратегии",
+        "general": "После раскрытия этого приказа вы можете положить 3 жетона приказов из вашей игровой зоны на свою колоду событий. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/orders/o_3.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/orders/o_4",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/tau/orders/o_4",
+          "picture": "pictures/prepared/gif__tau__orders__o_4.png"
+        }
+      },
+      "text": {
+        "title": "Точечные Удары",
+        "general": "Во время выполнения этого орбитального удара получите 1 [D], и вы можете потратить любой куб, чтобы выбрать 1 отряд вашего противника. Во время этого орбитального удара этот отряд получает повреждения первым. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/orders/o_4.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/orders/o_5",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-orders",
+        "template": {
+          "preparedId": "gif/tau/orders/o_5",
+          "picture": "pictures/prepared/gif__tau__orders__o_5.png"
+        }
+      },
+      "text": {
+        "title": "Бомбардировка",
+        "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара получите 1 [D]. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/orders/o_5.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/events/e_1",
+      "category": "events",
+      "asset": {
+        "file": "events/e_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.11499999999999999,
+              0.681,
+              0.7699999999999999,
+              0.223
+            ],
+            "align": "left"
+          },
+          "titleRegion": {
+            "box": [
+              0.065,
+              0.057,
+              0.7,
+              0.05
+            ],
+            "align": "left"
+          },
+          "eventType": {
+            "box": [
+              0.3,
+              0.538,
+              0.4,
+              0.046
+            ]
+          },
+          "preparedId": "gif/tau/events/e_1",
+          "picture": "pictures/prepared/gif__tau__events__e_1.png"
+        }
+      },
+      "text": {
+        "title": "Критический Удар",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы, кроме 1. *newpara* Во время битвы, когда один из отрядов вашего противника получит урон, вы можете сбросить эту карту, чтобы уничтожить этот отряд.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_1.jpg",
+        "aspect": 0.7351351351351352
+      }
+    },
+    {
+      "id": "gif/tau/events/e_2",
+      "category": "events",
+      "asset": {
+        "file": "events/e_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07500000000000001,
+              0.681,
+              0.85,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "gif/tau/events/e_2",
+          "picture": "pictures/prepared/gif__tau__events__e_2.png"
+        }
+      },
+      "text": {
+        "title": "Адаптивная Тактика",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы, кроме 1. *newpara* Перед битвой вы можете сбросить эту карту, чтобы поменять любые пары карт из вашей боевой колоды на пары карт того же или меньшего уровня из колоды улучшений.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_2.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/events/e_3",
+      "category": "events",
+      "asset": {
+        "file": "events/e_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07500000000000001,
+              0.681,
+              0.85,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "gif/tau/events/e_3",
+          "picture": "pictures/prepared/gif__tau__events__e_3.png"
+        }
+      },
+      "text": {
+        "title": "Пополнение",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы, кроме 1. *newpara* Перед раскрытием одного из ваших приказов в Фазу Действий вы можете сбросить эту карту, чтобы восстановить все ваши отряды в любой одной системе.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_3.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/events/e_4",
+      "category": "events",
+      "asset": {
+        "file": "events/e_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07500000000000001,
+              0.681,
+              0.85,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "gif/tau/events/e_4",
+          "picture": "pictures/prepared/gif__tau__events__e_4.png"
+        }
+      },
+      "text": {
+        "title": "Отрезать Снабжение",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы, кроме 1. *newpara* В начале битвы вы можете сбросить эту карту. Ваш противник не может использовать жетоны подкреплений во время шага вызова подкреплений этой битвы.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_4.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/events/e_5",
+      "category": "events",
+      "asset": {
+        "file": "events/e_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.11499999999999999,
+              0.681,
+              0.7699999999999999,
+              0.223
+            ],
+            "align": "left"
+          },
+          "titleRegion": {
+            "box": [
+              0.065,
+              0.057,
+              0.7,
+              0.05
+            ],
+            "align": "left"
+          },
+          "eventType": {
+            "box": [
+              0.3,
+              0.538,
+              0.4,
+              0.046
+            ]
+          },
+          "preparedId": "gif/tau/events/e_5",
+          "picture": "pictures/prepared/gif__tau__events__e_5.png"
+        }
+      },
+      "text": {
+        "title": "Саботаж",
+        "general": "Выберите систему, содержащую ваши отряды. Уничтожьте 1 ваш недеморализованный отряд, чтобы уничтожить 1 постройку вашего противника в этой системе.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_5.jpg",
+        "aspect": 0.7351351351351352
+      }
+    },
+    {
+      "id": "gif/tau/events/e_6",
+      "category": "events",
+      "asset": {
+        "file": "events/e_6.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07500000000000001,
+              0.681,
+              0.85,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "gif/tau/events/e_6",
+          "picture": "pictures/prepared/gif__tau__events__e_6.png"
+        }
+      },
+      "text": {
+        "title": "Эвакуация",
+        "general": "Уничтожьте 1 постройку в любом дружественном мире и разместите новую постройку любого типа в другом дружественном мире, если он еще не содержит постройку, в той же самой или соседней системе.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_6.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/events/e_7",
+      "category": "events",
+      "asset": {
+        "file": "events/e_7.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07500000000000001,
+              0.681,
+              0.85,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "gif/tau/events/e_7",
+          "picture": "pictures/prepared/gif__tau__events__e_7.png"
+        }
+      },
+      "text": {
+        "title": "Проникновение",
+        "general": "Выберите и деморализуйте 1 отряд вашего противника с командным уровнем 0-2 в системе, в которой у вас есть хотя бы 1 отряд.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_7.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/events/e_8",
+      "category": "events",
+      "asset": {
+        "file": "events/e_8.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "prepared-events",
+        "template": {
+          "body": {
+            "box": [
+              0.07500000000000001,
+              0.681,
+              0.85,
+              0.25
+            ],
+            "align": "left"
+          },
+          "preparedId": "gif/tau/events/e_8",
+          "picture": "pictures/prepared/gif__tau__events__e_8.png"
+        }
+      },
+      "text": {
+        "title": "Быстрое Реагирование",
+        "general": "Выберите любую систему. Вы можете выполнить Приказ Продвижения внутри этой системы. В результате этого действия вы не можете начать битву или выполнить орбитальный удар.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/events/e_8.jpg",
+        "aspect": 0.7046875
+      }
+    },
+    {
+      "id": "gif/tau/backs/combat",
+      "category": "backs",
+      "asset": {
+        "file": "backs/combat.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник боевой колоды"
+    },
+    {
+      "id": "gif/tau/backs/order",
+      "category": "backs",
+      "asset": {
+        "file": "backs/order.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды приказов"
+    },
+    {
+      "id": "gif/tau/backs/event",
+      "category": "backs",
+      "asset": {
+        "file": "backs/event.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды событий"
+    },
+    {
+      "id": "gif/tau/faction_card/card",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "side": "front",
+        "crop": [
+          0,
+          0,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "gif/tau/faction_card/card",
+          "picture": "pictures/prepared/gif__tau__faction_card__card.png"
+        }
+      },
+      "text": {
+        "title": "ИМПЕРИЯ ТАУ · Способности и отряды"
+      }
+    },
+    {
+      "id": "gif/tau/faction_card/card/back",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "query": "?side=back",
+        "side": "back",
+        "crop": [
+          0,
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "gif/tau/faction_card/card/back",
+          "picture": "pictures/prepared/gif__tau__faction_card__card__back.png"
+        }
+      },
+      "text": {
+        "title": "ИМПЕРИЯ ТАУ · Оборот"
+      }
+    },
+    {
+      "id": "gif/tau/maps/map_B",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_B.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта B"
+    },
+    {
+      "id": "gif/tau/maps/map_A",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_A.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта A"
+    }
+  ],
+  "renderDefaults": {
+    "combatFrame": {
+      "picture": "factions/gif/tau/combat/s5.jpg",
+      "box": [
+        0,
+        0.56,
+        0.18,
+        0.1946875
+      ]
+    }
+  },
+  "provenance": {
+    "originalDocument": {
+      "path": "text.json",
+      "revision": "a4d87da474079e4903816d1d0afa1c90657ed503",
+      "sha256": "45b818b1d355d8c4da3a1d8b39930b02820b63fcd1861beb10ea2be21005084d"
+    },
+    "wordingSource": {
+      "kind": "current-russian-raster",
+      "revision": "7a9a58bf2284863250f7d4284e292a7c18315a4e",
+      "imageSha256": {
+        "combat/s1.jpg": "6581b10f68b73f8ffd28e6c4f2cb1ef8296976c67124b0f17c127114508b6024",
+        "combat/s2.jpg": "ca569274ccb6b85c0332d2168975074bdad861d72ae279fd50c256ce1e9b4f9e",
+        "combat/s3.jpg": "553d9758ad77d75cc1e8dc6a7424961e0e0787edf94d206f4ded6321102ce5bf",
+        "combat/s4.jpg": "7f1af6a74cc12d19aeffa193207e321f932bcbca1edf5369c3b08da22837449e",
+        "combat/s5.jpg": "cdbc605cb3834c249abf855fee9be7e06474c1c3e499c551e8adac5baa7aa657",
+        "combat/t0_1.jpg": "9bbda37807cac677d76170044de47d872319f5e4dc0b86adedb3e7f13ab13514",
+        "combat/t0_2.jpg": "5aa5e3db0b041f6230af6963485e1ae6cc5fc50090f798fa50aeb65e6e905bde",
+        "combat/t0_3.jpg": "8c460363d30625d85daec7fa8dd36cf9e79355636b1ba42476a37f7db5740ddd",
+        "combat/t0_4.jpg": "f93e654ebc61e46e9673ad81fe67e8049d61986665b5b5a90590aa5724333dfa",
+        "combat/t2_1.jpg": "9bb84a09d57a5d1096d2ee6f8710b58254cf12147c0eb1e20e91a83c704d0351",
+        "combat/t2_2.jpg": "b6c8fbb7d7b3c197797ba09904d00682554f4523fccf290214ec756672af3936",
+        "combat/t2_3.jpg": "04e8ef98001456456f3f49528a88a1d28b251a4777c8e67469b884926bc942f5",
+        "combat/t3_1.jpg": "dd06c576db4233457639934cb821b1a57e376c4099c68fbbd0382f60ce9daea8",
+        "combat/t3_2.jpg": "5686c5fbc0a9ad0fa82bf5da39ada093c4c77ad5bdc3d4e87ad8fb18cc332e6f",
+        "orders/o_1.jpg": "786acbdd857f435c32da4c00f4ea740be85a4b22ecc92f9ffc791a6752d617d2",
+        "orders/o_2.jpg": "9ec1850621eaf5c8c42834ecb063748cc031171341708c90362092ec9a1eb71a",
+        "orders/o_3.jpg": "9880e14f714b8244c4034224200bfe1a91afd3e3d951efa7d85ed398c757ecd7",
+        "orders/o_4.jpg": "5816d3fb130b9d73de93894c9f255bd2854971d235423a166df8b17c0c76789d",
+        "orders/o_5.jpg": "12c302ed324ce3b5950ff3c79897191b35c7191898f923132b29e543aecbb6ff",
+        "events/e_1.jpg": "9397f0654a5aa7d3409ed4bb9854a426d320e018cc6b9b16a2165b0fe0529301",
+        "events/e_2.jpg": "c1c82c244356faef7671955f8d333284a0b79cd3bd59e367030b407fb43366d5",
+        "events/e_3.jpg": "4cdf9807b2b6181c4985e24a5318f87f8f650649aadafedabf4766c749b2b409",
+        "events/e_4.jpg": "ae199b3060c6fdb264bc00888e60aeb93ff01544d837fada6b31c3a7a1caf13b",
+        "events/e_5.jpg": "fb82e2e86746903b81f6536444f02ceb158b21585461c3e71a1057e4a713b359",
+        "events/e_6.jpg": "3dd73c649a50f6441664196f1d7dbddb3fee7ef382d34039195586c4ef0988ce",
+        "events/e_7.jpg": "f5b90642c72f79cd70eb1d3897b22f0fb052a580cb6199d607cb88d0dea60850",
+        "events/e_8.jpg": "53a5ff26f41cc479078278786d50972a4254034d36d173464c4132368b44188b"
+      },
+      "imageDimensions": {
+        "combat/s1.jpg": [
+          451,
+          640
+        ],
+        "combat/s2.jpg": [
+          451,
+          640
+        ],
+        "combat/s3.jpg": [
+          451,
+          640
+        ],
+        "combat/s4.jpg": [
+          451,
+          640
+        ],
+        "combat/s5.jpg": [
+          451,
+          640
+        ],
+        "combat/t0_1.jpg": [
+          451,
+          640
+        ],
+        "combat/t0_2.jpg": [
+          451,
+          640
+        ],
+        "combat/t0_3.jpg": [
+          451,
+          640
+        ],
+        "combat/t0_4.jpg": [
+          451,
+          640
+        ],
+        "combat/t2_1.jpg": [
+          451,
+          640
+        ],
+        "combat/t2_2.jpg": [
+          451,
+          640
+        ],
+        "combat/t2_3.jpg": [
+          451,
+          640
+        ],
+        "combat/t3_1.jpg": [
+          451,
+          640
+        ],
+        "combat/t3_2.jpg": [
+          451,
+          640
+        ],
+        "orders/o_1.jpg": [
+          451,
+          640
+        ],
+        "orders/o_2.jpg": [
+          451,
+          640
+        ],
+        "orders/o_3.jpg": [
+          451,
+          640
+        ],
+        "orders/o_4.jpg": [
+          451,
+          640
+        ],
+        "orders/o_5.jpg": [
+          451,
+          640
+        ],
+        "events/e_1.jpg": [
+          451,
+          640
+        ],
+        "events/e_2.jpg": [
+          451,
+          640
+        ],
+        "events/e_3.jpg": [
+          451,
+          640
+        ],
+        "events/e_4.jpg": [
+          451,
+          640
+        ],
+        "events/e_5.jpg": [
+          451,
+          640
+        ],
+        "events/e_6.jpg": [
+          451,
+          640
+        ],
+        "events/e_7.jpg": [
+          451,
+          640
+        ],
+        "events/e_8.jpg": [
+          451,
+          640
+        ]
+      },
+      "policy": "Visual migration only; preserve current Russian wording and approved samples."
+    }
+  },
+  "compatibility": {
+    "generatedFields": [
+      "filenames",
+      "tierLabels",
+      "combatText",
+      "ordersText",
+      "eventsText",
+      "componentsText",
+      "combatFrame"
+    ],
+    "retainedFields": [
+      "templates",
+      "wordingSource"
+    ],
+    "note": "Edit cards, groups, factionSheet and materialsText. Run node tools/export-legacy.cjs --write to update generated compatibility fields. Retained fields preserve the cached pre-schema contract and source provenance."
+  }
 }
