@@ -30,6 +30,39 @@ python3 -m http.server 8000
 
 Откройте <http://localhost:8000/page/>.
 
+## Среда разработки и проверки
+
+Сайт работает на HTML, CSS и JavaScript в браузере. Node.js нужен только для служебных проверок JavaScript; для просмотра сайта и публикации на GitHub Pages он не требуется. Зависимостей npm и шага сборки в проекте нет, поэтому `npm install` запускать не нужно.
+
+Для проверок закреплён [Node.js 24.22.1 LTS](https://nodejs.org/en/blog/release/v24.22.1) в `.node-version`. Используйте эту версию через менеджер версий или отдельный официальный portable-дистрибутив. Portable-копию храните вне репозитория и запускайте её `node` по полному пути, если системная версия отличается. Версия проверяется командой `node --version`.
+
+Из корня репозитория проверьте синтаксис всех JavaScript-файлов.
+
+PowerShell:
+
+```powershell
+Get-ChildItem page/script -Filter *.js | ForEach-Object {
+    node --check $_.FullName
+    if ($LASTEXITCODE -ne 0) { throw "JavaScript syntax check failed: $($_.Name)" }
+}
+```
+
+macOS / Linux:
+
+```sh
+for file in page/script/*.js; do
+    node --check "$file" || exit 1
+done
+```
+
+Проверка всех JSON-файлов тем же Python 3, который используется для локального сервера (на Windows вместо `python3` можно вызвать `python`):
+
+```sh
+python3 -c "import json,pathlib; files=list(pathlib.Path('page').rglob('*.json')); [json.loads(p.read_text(encoding='utf-8')) for p in files]; print('JSON:',len(files))"
+```
+
+После изменений интерфейса, навигации или рендеринга проверьте сайт в браузере на компьютере и телефоне. После изменений печати создайте PDF и осмотрите обе стороны листа; проверки синтаксиса не заменяют эту проверку.
+
 ## Авторы и источники
 
 - [MolonLabem](https://github.com/MolonLabem) — русская версия и доработки.
