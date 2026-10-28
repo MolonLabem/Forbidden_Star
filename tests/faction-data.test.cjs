@@ -18,3 +18,14 @@ test('invalid crops and wrong faction paths fail',()=>{
  const data=document();data.cards[0].asset.crop=[.8,0,.3,1];assert.throws(()=>model.validate(data));delete data.cards[0].asset.crop;
  assert.throws(()=>model.cards({},data,'base','eldar','Эльдар'));
 });
+
+test('shared layout defaults merge without changing another card; prepared references are checked',()=>{
+ const profiles=require('../page/data/render-profiles.json'),assets=require('../page/data/prepared-templates.json');
+ model.setProfiles({schemaVersion:1,profiles:{sample:{kind:'combat',raster:false,template:{body:{box:[.1,.2,.7,.5]},sampling:'canvas'}}}});
+ model.setPrepared({schemaVersion:1,assets:{sample:{cardId:'base/chaos/combat/s1',output:'pictures/prepared/sample.png',sha256:'a'.repeat(64)}}});
+ try{
+  const data=document();data.cards[0].render={profile:'sample',template:{preparedId:'sample',titleLayer:'pictures/prepared/sample.png',nativeCombatArea:{top:.6,bottom:.9}}};
+  const card=model.cards({},data,'base','chaos','Chaos')[0];assert.equal(card.template.sampling,'canvas');assert.deepEqual(card.template.body.box,[.1,.2,.7,.5]);assert.equal(data.cards[0].render.template.body,undefined);
+  data.cards[0].render.template.titleLayer='pictures/prepared/missing.png';assert.throws(()=>model.validate(data));
+ }finally{model.setProfiles(profiles);model.setPrepared(assets);}
+});

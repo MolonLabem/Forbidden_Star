@@ -80,3 +80,35 @@ Required Notice: Original project by Frytkownica (https://github.com/Frytkownica
 ```
 
 Права на прежние версии под GPL-3.0 сохраняются. Лицензия касается только материалов, которые авторы вправе лицензировать. Права на сторонние иллюстрации, правила, шрифты и товарные знаки, включая материалы Games Workshop, она не меняет. Это неофициальный фанатский проект.
+
+## Card data and local preparation
+
+All 16 factions use `page/factions/<expansion>/<faction>/cards.json` (schema version 2). A card owns its stable filename-derived ID, category/group, original asset, semantic Russian text and render profile. Sheet sides, crops and map order are explicit. `text.json` remains a generated legacy compatibility view; edit **cards.json**, then run:
+
+```sh
+node tools/export-legacy.cjs --write
+node tools/validate-data.cjs
+node --test tests/faction-data.test.cjs
+```
+
+There are no production npm dependencies. Renderer fingerprints normalize line endings, and `.gitattributes` keeps shared text inputs in LF form across platforms. These tools use the optional Node LTS version pinned in `.node-version`; the website still runs as static HTML/CSS/JavaScript. `page/data/render-profiles.json` shares typography dispatch and usual measured geometry; individual cards retain only source-specific exceptions. Typography, text wrapping and font fitting remain shared renderer logic. Map annotations remain semantic overlays. DL remains excluded from PDF printing.
+
+`page/pictures/prepared/` contains locally reconstructed **backgrounds**, cropped sheet backgrounds and native combat title layers, not finished translated card images or original clean masters. Russian wording stays editable. Original JPEGs, artwork hashes and citations are preserved. Native DL combat keeps its original JPEG artwork with a prepared title layer and measured effect-panel bounds, avoiding artwork resampling. Feathering a prepared layer is generic compositing, not raster text reconstruction.
+
+Offline repair recipes and provenance live in `tools/preparation-manifest.json`; canonical runtime card records contain no repair patches. `page/data/prepared-templates.json` records output/input/source hashes, dimensions, quality and exact comparison evidence. For regenerated backgrounds:
+
+```sh
+node tools/prepare-templates.cjs --out-dir /absolute/path/outside-repository
+```
+
+Open the printed loopback URL, select **Подготовить и сравнить**, and inspect the results. The browser uses local images/fonts only. The server binds to `127.0.0.1`, checks the session token and request origin, and writes only to the requested staging folder. Optional `--baseline-renderer /path/to/original/cardrender.js` compares against a saved earlier renderer rather than the retained compatibility renderer. A complete set with zero pixel differences is required before applying:
+
+```sh
+node tools/apply-prepared.cjs --from /absolute/path/outside-repository
+node tools/apply-prepared.cjs --from /absolute/path/outside-repository --write
+node tools/validate-data.cjs
+```
+
+After applying, use `--verify-applied` on the preparation server with a fresh output folder to compare the actual canonical records/profile merge against the retained recipes. Stop the local server with Ctrl+C. Preparation is a developer action, never a page-load hook or a deployment requirement. Inspect backgrounds and final dense cards in the browser and representative PDFs after changing recipes/layouts. Exact comparison preserves the previous output; it does not certify the old retouching as an original clean master or replace physical printing acceptance.
+
+Coordinate units are explicit in the recipe manifest: patch boxes and donor crops are fractions of their respective native images; artwork windows and feather widths use native pixels; sheet crops refer to the complete source atlas; region boxes refer to the cropped side. Explicit `template.body` preserves text placement formerly inferred from `body-erasure`. Repair provenance stays separate from wording. New runtime input files participate in `FSCatalog.sourcePaths()`/print fingerprints; offline recipes are represented by their prepared input hashes. Cached older pages and external consumers can continue reading legacy `text.json`, including retained historical repair metadata.

@@ -1,2 +1,7 @@
 title: "Forbidden Star"
 description: "A online Library of Forbidden Stars boardgame cards"
+# Local preparation and regression tools are not website pages.
+exclude:
+  - tools
+  - tests
+  - .node-version

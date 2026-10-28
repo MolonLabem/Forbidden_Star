@@ -540,10 +540,13 @@
     lazyObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        lazyObserver.unobserve(entry.target); queue(entry.target);
+        lazyObserver.unobserve(entry.target);
+        var img=entry.target.querySelector('img');if(img)queue(img);
       });
     }, { rootMargin: '200px 0px' });
-    [].forEach.call(images, function (img) { lazyObserver.observe(img); });
+    // Natural sheet placeholders can be taller than the viewport; their image
+    // is centred below the clipped scroll area until loading supplies its size.
+    [].forEach.call(images, function (img) { lazyObserver.observe(img.parentNode); });
   }
 
   /* ---- Карточка «Состав фракции» (таблица) ---- */

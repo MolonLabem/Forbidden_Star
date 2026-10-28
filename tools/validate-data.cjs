@@ -28,7 +28,13 @@ function validate(){
   const manifest=catalog.manifest(general,data);if(id.startsWith('dl/'))assert.deepEqual(manifest.map,['map_A.jpg','map_B.jpg']);
   assert.equal(data.cards.filter(c=>c.category==='faction_card').length,2,id+' sheet sides');
  }
+ const prepared=read('data/prepared-templates.json'),jobs=require('./template-inputs.cjs').inputs();
+ assert.equal(Object.keys(prepared.assets).length,jobs.length,'Prepared asset cardinality');
+ for(const job of jobs){const asset=prepared.assets[job.key];assert.ok(asset,'Missing prepared asset '+job.key);assert.equal(asset.inputHash,job.inputHash,'Stale prepared input '+job.key);assert.equal(asset.rendererHash,job.rendererHash);assert.equal(asset.output,job.recipe.output);assert.equal(digest(localAsset(asset.output)),asset.sha256,'Prepared PNG hash '+job.key);assert.deepEqual(asset.sourceHashes,job.sourceHashes);assert.ok(asset.comparisons.every(c=>c.changedPixels===0&&!c.error));}
+ for(const data of Object.values(texts))for(const record of data.cards){assert.ok(!record.render.template?.patches,'Runtime repair recipe '+record.id);assert.ok(!record.render.profile.startsWith('baked-'),'Runtime raster cleanup '+record.id);}
+ for(const [id,patch] of Object.entries(rnb.cards))if(patch.artSrc&&jobs.some(j=>j.recipe.cardId===id)){const record=texts[id.split('/').slice(0,2).join('/')].cards.find(c=>c.id===id);assert.ok(record.render.template?.variants?.[patch.artSrc],'Missing prepared artwork variant '+id);}
  legacy.run(false);
+ console.log('Verified '+jobs.length+' prepared outputs, source hashes, recipe fingerprints and zero-difference evidence');
  console.log('Validated '+Object.keys(texts).length+' factions, '+total+' stable records, '+hashes+' source/artwork hashes and all 3 print modes');
  return {factions:Object.keys(texts).length,cards:total,hashes};
 }
