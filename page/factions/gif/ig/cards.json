@@ -491,90 +491,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "orders",
+        "profile": "prepared-orders",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.25,
-                0.181,
-                0.54,
-                0.066
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.181,
-                  0.025,
-                  0.066
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.12,
-                0.53,
-                0.76,
-                0.295
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.14,
-                  0.76,
-                  0.18,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 3,
-              "role": "body-erasure"
-            },
-            {
-              "box": [
-                0.78,
-                0.19,
-                0.045,
-                0.046
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            },
-            {
-              "box": [
-                0.823,
-                0.209,
-                0.025,
-                0.028
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            }
-          ]
+          "preparedId": "gif/ig/orders/o_1",
+          "picture": "pictures/prepared/gif__ig__orders__o_1.png"
         }
       },
       "text": {
@@ -592,90 +512,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "orders",
+        "profile": "prepared-orders",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.25,
-                0.181,
-                0.54,
-                0.066
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.181,
-                  0.025,
-                  0.066
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.12,
-                0.53,
-                0.76,
-                0.295
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.14,
-                  0.76,
-                  0.18,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 3,
-              "role": "body-erasure"
-            },
-            {
-              "box": [
-                0.78,
-                0.19,
-                0.045,
-                0.046
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            },
-            {
-              "box": [
-                0.823,
-                0.209,
-                0.025,
-                0.028
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            }
-          ]
+          "preparedId": "gif/ig/orders/o_2",
+          "picture": "pictures/prepared/gif__ig__orders__o_2.png"
         }
       },
       "text": {
@@ -693,90 +533,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "orders",
+        "profile": "prepared-orders",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.25,
-                0.181,
-                0.54,
-                0.066
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.181,
-                  0.025,
-                  0.066
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.12,
-                0.53,
-                0.76,
-                0.295
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.14,
-                  0.76,
-                  0.18,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 3,
-              "role": "body-erasure"
-            },
-            {
-              "box": [
-                0.78,
-                0.19,
-                0.045,
-                0.046
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            },
-            {
-              "box": [
-                0.823,
-                0.209,
-                0.025,
-                0.028
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            }
-          ]
+          "preparedId": "gif/ig/orders/o_3",
+          "picture": "pictures/prepared/gif__ig__orders__o_3.png"
         }
       },
       "text": {
@@ -794,90 +554,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "orders",
+        "profile": "prepared-orders",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.25,
-                0.181,
-                0.54,
-                0.066
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.181,
-                  0.025,
-                  0.066
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.12,
-                0.53,
-                0.76,
-                0.295
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.14,
-                  0.76,
-                  0.18,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 3,
-              "role": "body-erasure"
-            },
-            {
-              "box": [
-                0.78,
-                0.19,
-                0.045,
-                0.046
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            },
-            {
-              "box": [
-                0.823,
-                0.209,
-                0.025,
-                0.028
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            }
-          ]
+          "preparedId": "gif/ig/orders/o_4",
+          "picture": "pictures/prepared/gif__ig__orders__o_4.png"
         }
       },
       "text": {
@@ -895,90 +575,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "orders",
+        "profile": "prepared-orders",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.25,
-                0.181,
-                0.54,
-                0.066
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.181,
-                  0.025,
-                  0.066
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.12,
-                0.53,
-                0.76,
-                0.295
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.14,
-                  0.76,
-                  0.18,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 3,
-              "role": "body-erasure"
-            },
-            {
-              "box": [
-                0.78,
-                0.19,
-                0.045,
-                0.046
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            },
-            {
-              "box": [
-                0.823,
-                0.209,
-                0.025,
-                0.028
-              ],
-              "texture": {
-                "src": "factions/base/spacemarines/orders/o_1.jpg",
-                "crop": [
-                  0.74,
-                  0.192,
-                  0.025,
-                  0.04
-                ]
-              },
-              "tile": true,
-              "featherPx": 1,
-              "role": "title-tail"
-            }
-          ]
+          "preparedId": "gif/ig/orders/o_5",
+          "picture": "pictures/prepared/gif__ig__orders__o_5.png"
         }
       },
       "text": {
@@ -996,70 +596,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_1",
+          "picture": "pictures/prepared/gif__ig__events__e_1.png"
         }
       },
       "text": {
@@ -1078,70 +618,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_2.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_2",
+          "picture": "pictures/prepared/gif__ig__events__e_2.png"
         }
       },
       "text": {
@@ -1160,70 +640,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_3.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_3",
+          "picture": "pictures/prepared/gif__ig__events__e_3.png"
         }
       },
       "text": {
@@ -1242,70 +662,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_4.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_4",
+          "picture": "pictures/prepared/gif__ig__events__e_4.png"
         }
       },
       "text": {
@@ -1324,70 +684,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_5.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_5",
+          "picture": "pictures/prepared/gif__ig__events__e_5.png"
         }
       },
       "text": {
@@ -1406,70 +706,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_6.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_6",
+          "picture": "pictures/prepared/gif__ig__events__e_6.png"
         }
       },
       "text": {
@@ -1488,70 +728,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_7.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_7",
+          "picture": "pictures/prepared/gif__ig__events__e_7.png"
         }
       },
       "text": {
@@ -1570,70 +750,10 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "events",
+        "profile": "prepared-events",
         "template": {
-          "status": "current-russian-raster-template",
-          "patches": [
-            {
-              "box": [
-                0.065,
-                0.025,
-                0.7,
-                0.05
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_1.jpg",
-                "crop": [
-                  0.65,
-                  0.025,
-                  0.05,
-                  0.05
-                ]
-              },
-              "tile": true,
-              "featherPx": 2
-            },
-            {
-              "box": [
-                0.29,
-                0.538,
-                0.42,
-                0.047
-              ],
-              "texture": {
-                "src": "factions/gif/ig/events/e_8.jpg",
-                "crop": [
-                  0.12,
-                  0.538,
-                  0.18,
-                  0.047
-                ]
-              },
-              "tile": false,
-              "featherPx": 1.5,
-              "role": "event-type"
-            },
-            {
-              "box": [
-                0.04,
-                0.675,
-                0.92,
-                0.275
-              ],
-              "texture": {
-                "src": "pictures/templates/gif-ig-event-paper.png",
-                "crop": [
-                  0,
-                  0,
-                  1,
-                  1
-                ]
-              },
-              "tile": false,
-              "featherPx": 2,
-              "role": "body-erasure"
-            }
-          ]
+          "preparedId": "gif/ig/events/e_8",
+          "picture": "pictures/prepared/gif__ig__events__e_8.png"
         }
       },
       "text": {
@@ -1695,7 +815,11 @@
         ]
       },
       "render": {
-        "profile": "sheet"
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "gif/ig/faction_card/card",
+          "picture": "pictures/prepared/gif__ig__faction_card__card.png"
+        }
       },
       "text": {
         "title": "ИМПЕРСКАЯ ГВАРДИЯ · Способности и отряды"
@@ -1717,7 +841,11 @@
         ]
       },
       "render": {
-        "profile": "sheet"
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "gif/ig/faction_card/card/back",
+          "picture": "pictures/prepared/gif__ig__faction_card__card__back.png"
+        }
       },
       "text": {
         "title": "ИМПЕРСКАЯ ГВАРДИЯ · Оборот"

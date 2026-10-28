@@ -29,7 +29,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6197668711656442,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/s1",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__s1.png"
+        }
       },
       "group": "starter",
       "text": {
@@ -48,7 +56,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.641239263803681,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/s2",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__s2.png"
+        }
       },
       "group": "starter",
       "text": {
@@ -67,7 +83,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6013619631901841,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/s3",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__s3.png"
+        }
       },
       "group": "starter",
       "text": {
@@ -86,7 +110,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6841840490797546,
+            "bottom": 0.9416503067484663
+          },
+          "preparedId": "dl/thousandsons/combat/s4",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__s4.png"
+        }
       },
       "group": "starter",
       "text": {
@@ -105,7 +137,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6228343558282209,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/s5",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__s5.png"
+        }
       },
       "group": "starter",
       "text": {
@@ -124,7 +164,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.7424662576687117,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t0_1",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t0_1.png"
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -143,7 +191,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6105644171779141,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t0_2",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t0_2.png"
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -162,7 +218,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6841840490797546,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t0_3",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t0_3.png"
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -181,7 +245,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6013619631901841,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t0_4",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t0_4.png"
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -200,7 +272,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.5860245398773006,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t2_1",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t2_1.png"
+        }
       },
       "group": "upgrade-2",
       "text": {
@@ -219,7 +299,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6166993865030674,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t2_2",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t2_2.png"
+        }
       },
       "group": "upgrade-2",
       "text": {
@@ -238,7 +326,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6105644171779141,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t2_3",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t2_3.png"
+        }
       },
       "group": "upgrade-2",
       "text": {
@@ -257,7 +353,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6596441717791411,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t3_1",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t3_1.png"
+        }
       },
       "group": "upgrade-3",
       "text": {
@@ -276,7 +380,15 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-combat"
+        "profile": "prepared-native-combat",
+        "template": {
+          "nativeCombatArea": {
+            "top": 0.6535092024539877,
+            "bottom": 0.9385828220858896
+          },
+          "preparedId": "dl/thousandsons/combat/t3_2",
+          "titleLayer": "pictures/prepared/dl__thousandsons__combat__t3_2.png"
+        }
       },
       "group": "upgrade-3",
       "text": {
@@ -295,7 +407,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-orders"
+        "profile": "prepared-native-orders",
+        "template": {
+          "preparedId": "dl/thousandsons/orders/o_1",
+          "picture": "pictures/prepared/dl__thousandsons__orders__o_1.png"
+        }
       },
       "text": {
         "title": "Тысяча планов",
@@ -311,7 +427,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-orders"
+        "profile": "prepared-native-orders",
+        "template": {
+          "preparedId": "dl/thousandsons/orders/o_2",
+          "picture": "pictures/prepared/dl__thousandsons__orders__o_2.png"
+        }
       },
       "text": {
         "title": "Мастер обмана",
@@ -327,7 +447,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-orders"
+        "profile": "prepared-native-orders",
+        "template": {
+          "preparedId": "dl/thousandsons/orders/o_3",
+          "picture": "pictures/prepared/dl__thousandsons__orders__o_3.png"
+        }
       },
       "text": {
         "title": "Песочные часы маната",
@@ -343,7 +467,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-orders"
+        "profile": "prepared-native-orders",
+        "template": {
+          "preparedId": "dl/thousandsons/orders/o_4",
+          "picture": "pictures/prepared/dl__thousandsons__orders__o_4.png"
+        }
       },
       "text": {
         "title": "Удар из прошлого",
@@ -359,7 +487,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-orders"
+        "profile": "prepared-native-orders",
+        "template": {
+          "preparedId": "dl/thousandsons/orders/o_5",
+          "picture": "pictures/prepared/dl__thousandsons__orders__o_5.png"
+        }
       },
       "text": {
         "title": "Временной варп-удар",
@@ -375,7 +507,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_1",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_1.png"
+        }
       },
       "text": {
         "title": "Времена перемен",
@@ -392,7 +528,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_2",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_2.png"
+        }
       },
       "text": {
         "title": "Всего лишь бессмертие",
@@ -409,7 +549,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_3",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_3.png"
+        }
       },
       "text": {
         "title": "Стирание из бытия",
@@ -426,7 +570,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_4",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_4.png"
+        }
       },
       "text": {
         "title": "Изменяющий пути",
@@ -443,7 +591,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_5",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_5.png"
+        }
       },
       "text": {
         "title": "Временной стазис",
@@ -460,7 +612,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_6",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_6.png"
+        }
       },
       "text": {
         "title": "Портал перемен",
@@ -477,7 +633,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_7",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_7.png"
+        }
       },
       "text": {
         "title": "Переход к насилию",
@@ -494,7 +654,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_8",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_8.png"
+        }
       },
       "text": {
         "title": "Незаписанные истории",
@@ -511,7 +675,11 @@
         "sourceText": "printed"
       },
       "render": {
-        "profile": "baked-events"
+        "profile": "prepared-native-events",
+        "template": {
+          "preparedId": "dl/thousandsons/events/e_9",
+          "picture": "pictures/prepared/dl__thousandsons__events__e_9.png"
+        }
       },
       "text": {
         "title": "Девятикратный план",
@@ -565,7 +733,7 @@
         "side": "front"
       },
       "render": {
-        "profile": "sheet",
+        "profile": "prepared-sheet",
         "regions": [
           {
             "box": [
@@ -738,7 +906,11 @@
             "align": "center",
             "content": "region-10"
           }
-        ]
+        ],
+        "template": {
+          "preparedId": "dl/thousandsons/faction_card/sheet_front_1",
+          "picture": "pictures/prepared/dl__thousandsons__faction_card__sheet_front_1.png"
+        }
       },
       "text": {
         "title": "ТЫСЯЧА СЫНОВ · Способности и отряды",
@@ -766,7 +938,7 @@
         "side": "back"
       },
       "render": {
-        "profile": "sheet",
+        "profile": "prepared-sheet",
         "regions": [
           {
             "box": [
@@ -961,7 +1133,11 @@
             "role": "objective",
             "content": "region-12"
           }
-        ]
+        ],
+        "template": {
+          "preparedId": "dl/thousandsons/faction_card/sheet_back_1",
+          "picture": "pictures/prepared/dl__thousandsons__faction_card__sheet_back_1.png"
+        }
       },
       "text": {
         "title": "ТЫСЯЧА СЫНОВ · Оборот",

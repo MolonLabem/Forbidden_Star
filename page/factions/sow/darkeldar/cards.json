@@ -527,7 +527,11 @@
         ]
       },
       "render": {
-        "profile": "sheet"
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "sow/darkeldar/faction_card/card",
+          "picture": "pictures/prepared/sow__darkeldar__faction_card__card.png"
+        }
       },
       "text": {
         "title": "ТЕМНЫЕ ЭЛЬДАРЫ · Способности и отряды"
@@ -549,7 +553,11 @@
         ]
       },
       "render": {
-        "profile": "sheet"
+        "profile": "prepared-sheet",
+        "template": {
+          "preparedId": "sow/darkeldar/faction_card/card/back",
+          "picture": "pictures/prepared/sow__darkeldar__faction_card__card__back.png"
+        }
       },
       "text": {
         "title": "ТЕМНЫЕ ЭЛЬДАРЫ · Оборот"

@@ -3,42 +3,192 @@
   "$id": "https://molonlabem.github.io/Forbidden_Star/page/data/faction.schema.json",
   "title": "Forbidden Stars faction document",
   "type": "object",
-  "required": ["schemaVersion", "id", "groups", "cards"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "groups",
+    "cards"
+  ],
   "properties": {
-    "schemaVersion": {"const": 2},
-    "id": {"type": "string", "pattern": "^(base|gif|sow|dl)/[a-z]+$"},
-    "groups": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "label"], "properties": {"id": {"type": "string", "minLength": 1}, "label": {"type": "string", "minLength": 1}}}},
-    "materials": {"type": "array"},
-    "factionSheet": {"type": "object"},
-    "renderDefaults": {"type": "object"},
-    "provenance": {"type": "object"},
-    "cards": {"type": "array", "items": {
-      "type": "object", "required": ["id", "category", "asset", "render"],
-      "properties": {
-        "id": {"type": "string", "minLength": 1},
-        "category": {"enum": ["combat", "orders", "events", "backs", "faction_card", "map"]},
-        "group": {"type": "string"},
-        "label": {"type": "string"},
-        "asset": {"type": "object", "required": ["file", "sourceText"], "properties": {
-          "file": {"type": "string", "pattern": "^(combat|orders|events|backs|faction_card|maps)/[a-zA-Z0-9_.-]+\\.jpg$"},
-          "sourceText": {"enum": ["printed", "template"]},
-          "side": {"enum": ["front", "back"]},
-          "query": {"const": "?side=back"},
-          "crop": {"$ref": "#/$defs/fractionBox"},
-          "aspect": {"type": "number", "exclusiveMinimum": 0}
-        }},
-        "text": {"type": "object", "properties": {
-          "title": {"type": "string"}, "general": {"type": "string"}, "unit": {"type": "string"},
-          "icons": {"type": "string"}, "source": {"type": "string"},
-          "regionText": {"type": "object", "additionalProperties": {"type": "string"}}
-        }},
-        "render": {"type": "object", "required": ["profile"], "properties": {
-          "profile": {"enum": ["image", "combat", "orders", "events", "baked-combat", "baked-orders", "baked-events", "sheet", "overlay"]},
-          "template": {"type": "object"},
-          "regions": {"type": "array", "items": {"type": "object", "required": ["box"], "properties": {"box": {"$ref": "#/$defs/fractionBox"}, "content": {"type": "string"}}}}
-        }}
+    "schemaVersion": {
+      "const": 2
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^(base|gif|sow|dl)/[a-z]+$"
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
-    }}
+    },
+    "materials": {
+      "type": "array"
+    },
+    "factionSheet": {
+      "type": "object"
+    },
+    "renderDefaults": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "category",
+          "asset",
+          "render"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "enum": [
+              "combat",
+              "orders",
+              "events",
+              "backs",
+              "faction_card",
+              "map"
+            ]
+          },
+          "group": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "asset": {
+            "type": "object",
+            "required": [
+              "file",
+              "sourceText"
+            ],
+            "properties": {
+              "file": {
+                "type": "string",
+                "pattern": "^(combat|orders|events|backs|faction_card|maps)/[a-zA-Z0-9_.-]+\\.jpg$"
+              },
+              "sourceText": {
+                "enum": [
+                  "printed",
+                  "template"
+                ]
+              },
+              "side": {
+                "enum": [
+                  "front",
+                  "back"
+                ]
+              },
+              "query": {
+                "const": "?side=back"
+              },
+              "crop": {
+                "$ref": "#/$defs/fractionBox"
+              },
+              "aspect": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "text": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "general": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "icons": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "regionText": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "render": {
+            "type": "object",
+            "required": [
+              "profile"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Key in render-profiles.json; checked by the shared loader."
+              },
+              "template": {
+                "type": "object"
+              },
+              "regions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "box"
+                  ],
+                  "properties": {
+                    "box": {
+                      "$ref": "#/$defs/fractionBox"
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   },
-  "$defs": {"fractionBox": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number", "minimum": 0, "maximum": 1}}}
+  "$defs": {
+    "fractionBox": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    }
+  }
 }

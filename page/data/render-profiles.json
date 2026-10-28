@@ -2,14 +2,192 @@
   "schemaVersion": 1,
   "description": "Shared dispatch profiles. Typography and fitting stay shared in cardrender.js; measured source exceptions live with each asset.",
   "profiles": {
-    "image": {"kind": null, "raster": false},
-    "combat": {"kind": "combat", "raster": false},
-    "orders": {"kind": "orders", "raster": false},
-    "events": {"kind": "events", "raster": false},
-    "baked-combat": {"kind": "combat", "raster": true},
-    "baked-orders": {"kind": "orders", "raster": true},
-    "baked-events": {"kind": "events", "raster": true},
-    "sheet": {"kind": "sheet", "raster": false},
-    "overlay": {"kind": "overlay", "raster": false}
+    "image": {
+      "kind": null,
+      "raster": false
+    },
+    "combat": {
+      "kind": "combat",
+      "raster": false
+    },
+    "orders": {
+      "kind": "orders",
+      "raster": false
+    },
+    "events": {
+      "kind": "events",
+      "raster": false
+    },
+    "baked-combat": {
+      "kind": "combat",
+      "raster": true
+    },
+    "baked-orders": {
+      "kind": "orders",
+      "raster": true
+    },
+    "baked-events": {
+      "kind": "events",
+      "raster": true
+    },
+    "sheet": {
+      "kind": "sheet",
+      "raster": false
+    },
+    "overlay": {
+      "kind": "overlay",
+      "raster": false
+    },
+    "prepared-orders": {
+      "kind": "orders",
+      "raster": false,
+      "template": {
+        "body": {
+          "box": [
+            0.145,
+            0.535,
+            0.71,
+            0.27499999999999997
+          ],
+          "align": "center"
+        },
+        "titleRegion": {
+          "box": [
+            0.26,
+            0.18,
+            0.48,
+            0.067
+          ],
+          "align": "center"
+        },
+        "sampling": "canvas"
+      }
+    },
+    "prepared-events": {
+      "kind": "events",
+      "raster": false,
+      "template": {
+        "body": {
+          "box": [
+            0.065,
+            0.68,
+            0.87,
+            0.255
+          ],
+          "align": "left"
+        },
+        "titleRegion": {
+          "box": [
+            0.065,
+            0.025,
+            0.7,
+            0.05
+          ],
+          "align": "left"
+        },
+        "eventType": {
+          "box": [
+            0.29,
+            0.538,
+            0.42,
+            0.047
+          ]
+        },
+        "sampling": "canvas"
+      }
+    },
+    "prepared-sheet": {
+      "kind": "sheet",
+      "raster": false,
+      "template": {
+        "crop": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "preparedSheet": true,
+        "sampling": "canvas"
+      }
+    },
+    "prepared-native-combat": {
+      "kind": "combat",
+      "raster": false,
+      "template": {
+        "titleRegion": {
+          "box": [
+            0.3124,
+            0.08,
+            0.5152000000000001,
+            0.05
+          ],
+          "align": "left"
+        },
+        "titleLayerBox": [
+          0.29,
+          0.08,
+          0.56,
+          0.05
+        ],
+        "titleLayerFeatherPx": 2.7750000000000004
+      }
+    },
+    "prepared-native-orders": {
+      "kind": "orders",
+      "raster": false,
+      "template": {
+        "titleRegion": {
+          "box": [
+            0.26,
+            0.205,
+            0.48,
+            0.052
+          ],
+          "align": "center"
+        },
+        "body": {
+          "box": [
+            0.155,
+            0.54,
+            0.69,
+            0.275
+          ]
+        },
+        "eventType": null,
+        "sampling": "canvas"
+      }
+    },
+    "prepared-native-events": {
+      "kind": "events",
+      "raster": false,
+      "template": {
+        "titleRegion": {
+          "box": [
+            0.101,
+            0.057,
+            0.598,
+            0.041
+          ],
+          "align": "left"
+        },
+        "body": {
+          "box": [
+            0.08,
+            0.673,
+            0.84,
+            0.231
+          ]
+        },
+        "eventType": {
+          "box": [
+            0.17,
+            0.525,
+            0.66,
+            0.047
+          ]
+        },
+        "sampling": "canvas"
+      }
+    }
   }
 }

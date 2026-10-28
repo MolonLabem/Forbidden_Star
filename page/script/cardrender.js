@@ -1,7 +1,7 @@
 /* Forbidden Stars — card text compositor.
  *
  * Some expansions ship card art as TEMPLATES with blank title/text areas; the
- * wording lives in text.json. This module draws that text onto the template
+ * wording lives in canonical cards.json (legacy text.json exports remain). This module draws that text onto the template
  * via canvas — using the game's custom fonts and icon glyphs — and returns a
  * composited image as a data URL.
  *
@@ -17,7 +17,7 @@
  *   blank title, combat-symbol rail and effect areas, just like SoW templates.
  *   Patch coordinates are fractions of native images/canvas; artwork.box uses
  *   pixels of the original template. Its lossless alpha protects the frame.
- *   Clean patches describe artwork erasure only. Shared frame fields and explicit printed
+ *   Offline/legacy patches describe artwork erasure only. Shared frame fields and explicit printed
  *   regions determine placement; measured text determines wrapping. Without an explicit
  *   output height, composition retains the source image's native proportions.
  *   Sheet text adds crop?, side, sheet:{title,subtitle,abilities}, regions?.
@@ -360,10 +360,18 @@
     ctx.restore();
   }
 
+  var _preparedPictures=window.FSCache.create(8);
+  function canvasPicture(picture,feather) {
+    var key=picture.src+'|'+(feather||0),cached=key&&_preparedPictures.get(key);if(cached)return cached;
+    var canvas=document.createElement('canvas');canvas.width=picture.width;canvas.height=picture.height;canvas.getContext('2d',feather?{willReadFrequently:true}:undefined).drawImage(picture,0,0);
+    if(feather)featherEdges(canvas,feather);
+    if(key)_preparedPictures.set(key,canvas);return canvas;
+  }
+
   async function loadCardPicture(data) {
     if(data.preparedPicture)return data.preparedPicture;
     var picture = await loadImage(data.template?.picture || data.picture);
-    if (!data.template?.patches?.length) return picture;
+    if (!data.template?.patches?.length) return data.template?.sampling==='canvas'?canvasPicture(picture):picture;
     var canvas = document.createElement('canvas');
     canvas.width = picture.width; canvas.height = picture.height;
     var ctx = canvas.getContext('2d');
@@ -412,13 +420,13 @@
 
   async function sourceInfo(card) {
     var url=card.artSrc || (card.renderMode==='raster'?card.src:card.template?.picture || card.picture || card.src);
-    if (card.text?.crop) {
+    if (card.text?.crop || card.template?.crop) {
       // A virtual side is route state, not a second bitmap. Both crops share
       // one decoded source (especially useful for large sheets on phones).
       var asset=new URL(url,document.baseURI);asset.searchParams.delete('side');url=asset.href;
     }
     var picture = await loadImage(url);
-    var crop = card.text?.crop || [0,0,1,1];
+    var crop = (card.renderMode==='raster'?null:card.template?.crop) || card.text?.crop || [0,0,1,1];
     if (!Array.isArray(crop) || crop.length !== 4 || crop.some(function (v) { return !Number.isFinite(v) || v < 0; }) ||
         !crop[2] || !crop[3] || crop[0]+crop[2]>1 || crop[1]+crop[3]>1) throw new Error('Некорректная область листа');
     // Round shared edges, rather than independently rounding half-heights.
@@ -776,6 +784,7 @@
   }
 
   async function drawCombatCard(data, ctx) {
+    if(data.template?.nativeCombatArea)return drawPreparedCombat(data,ctx);
     var cw = canvasSize(ctx).width, ch = canvasSize(ctx).height;
     var iconSz = cw * COMBAT_LAYOUT.iconSizeRatio, iconSp = cw * COMBAT_LAYOUT.iconSpacingRatio;
     var iconXPos = cw * COMBAT_LAYOUT.iconX, iconStartYPos = ch * COMBAT_LAYOUT.iconStartY;
@@ -840,6 +849,31 @@
     if(general)drawBodyTextBox(ctx,general,textField(data,'events'));
   }
 
+  async function prepareBakedPicture(data) {
+    var picture=await loadImage(data.picture);
+    var fields=FIELDS.raster[data.kind];
+    if(!fields)throw new Error('Нет разметки исходной карты');
+    var prepared=document.createElement('canvas');prepared.width=picture.width;prepared.height=picture.height;
+    var layer=prepared.getContext('2d');layer.drawImage(picture,0,0);
+    Object.keys(fields).forEach(function(role){
+      if(role==='title'||role==='type'){
+        var box=fields[role].slice();
+        if(data.kind==='orders' && role==='title'){
+          // Keep the old accents inside the opaque cleanup and sample above
+          // them. The title's measured placement remains independent.
+          var gutter=box[3]*LABEL_LAYOUT.paddingY*2;box[1]-=gutter;box[3]+=gutter;
+        }
+        restoreNativeLabel(layer,picture,box);
+      }
+      else if(data.kind==='orders' && role==='body')restoreOrderPaper(layer,picture,fields[role]);
+      else eraseNativeField(layer,picture,fields[role]);
+    });
+    return Object.assign({},data,{preparedPicture:prepared,template:{
+      titleRegion:rasterTitleField(data.kind),
+      body:{box:fields.body},eventType:fields.type?{box:fields.type}:null,
+    }});
+  }
+
   // Baked English TDL sources remain intact. Cover their wording before drawing
   // Russian text; merely adding JSON must never leave two languages superposed.
   // The same wrapping/font measurement is used by templates and these regions.
@@ -900,7 +934,7 @@
   // Existing Russian raster lettering remains intact where it already uses the
   // game's fonts. New translations are drawn from the same ability data as HTML.
   var _sheetBackgrounds=window.FSCache.create(2);
-  async function drawFactionSheet(data, ctx) {
+  async function prepareSheetBackground(data) {
     var source = await sourceInfo({src:data.picture,text:{crop:data.crop}});
     var regions=sheetRegions(data),key=JSON.stringify([data.picture,data.crop,regions.map(function(r){return [r.paperBox||r.box,r.role];})]);
     var picture=_sheetBackgrounds.get(key);
@@ -916,6 +950,12 @@
       });
       _sheetBackgrounds.set(key,picture);
     }
+    return picture;
+  }
+
+  async function drawFactionSheet(data, ctx) {
+    var regions=sheetRegions(data);
+    var picture=data.template?.preparedSheet?canvasPicture((await sourceInfo({src:data.picture,text:{crop:data.crop}})).picture):await prepareSheetBackground(data);
     ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
     ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
     regions.forEach(function (region) {
@@ -951,7 +991,7 @@
   // The shared nameplate layout reserves unprinted top and side gutters. Their
   // broad shading and paper grain reconstruct the background independently of
   // the old wording, without detecting ink or stretching a row into stripes.
-  function restoreNativeLabel(ctx,picture,box) {
+  function restoreNativeLabel(ctx,picture,box,layerOnly) {
     var x=box[0]*picture.width,y=box[1]*picture.height,w=box[2]*picture.width,h=box[3]*picture.height;
     var layer=document.createElement('canvas');layer.width=Math.ceil(w);layer.height=Math.ceil(h);
     var c=layer.getContext('2d',{willReadFrequently:true}),width=layer.width,height=layer.height;
@@ -986,6 +1026,7 @@
     }
     c.putImageData(clean,0,0);
     var feather=Math.max(1,Math.min(w*LABEL_LAYOUT.paddingX,h*LABEL_LAYOUT.paddingY));
+    if(layerOnly)return {picture:layer,featherPx:feather};
     featherEdges(layer,feather);
     ctx.drawImage(layer,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
   }
@@ -1186,29 +1227,51 @@
       return;
     }
     if(data.regions){data.regions.forEach(function(region){drawTextRegion(ctx,region,data.wording);});return;}
-    var fields=FIELDS.raster[data.kind];
-    if(!fields)throw new Error('Нет разметки исходной карты');
-    var prepared=document.createElement('canvas');prepared.width=picture.width;prepared.height=picture.height;
-    var layer=prepared.getContext('2d');layer.drawImage(picture,0,0);
-    Object.keys(fields).forEach(function(role){
-      if(role==='title'||role==='type'){
-        var box=fields[role].slice();
-        if(data.kind==='orders' && role==='title'){
-          // Keep the old accents inside the opaque cleanup and sample above
-          // them. The title's measured placement remains independent.
-          var gutter=box[3]*LABEL_LAYOUT.paddingY*2;box[1]-=gutter;box[3]+=gutter;
-        }
-        restoreNativeLabel(layer,picture,box);
-      }
-      else if(data.kind==='orders' && role==='body')restoreOrderPaper(layer,picture,fields[role]);
-      else eraseNativeField(layer,picture,fields[role]);
-    });
-    var clean=Object.assign({},data,{preparedPicture:prepared,template:{
-      titleRegion:rasterTitleField(data.kind),
-      body:{box:fields.body},eventType:fields.type?{box:fields.type}:null,
-    }});
+    var clean=await prepareBakedPicture(data);
     if(data.kind==='orders')return drawOrderCard(clean,ctx);
     return drawEventCard(clean,ctx);
+  }
+
+  // Prepared native combat keeps its baked symbols and measured source area.
+  // Wording remains editable and the shared effect panels still fit it at runtime.
+  async function drawPreparedCombat(data,ctx) {
+    var picture=await loadCardPicture(data),cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
+    ctx.drawImage(picture,0,0,cw,ch);
+    if(data.template.titleLayer){
+      var label=canvasPicture(await loadImage(data.template.titleLayer),data.template.titleLayerFeatherPx),box=data.template.titleLayerBox;
+      ctx.drawImage(label,box[0]*cw,box[1]*ch,box[2]*cw,box[3]*ch);
+    }
+    drawLabel(ctx,data.title,data.template.titleRegion,'title');
+    var panels=await Promise.all([loadImage('pictures/background.png'),loadImage('pictures/foreground.png'),loadImage('pictures/bottom.png')]);
+    var bottomH=drawCombatEffects(data,ctx,panels,data.template.nativeCombatArea);
+    ctx.drawImage(panels[2],0,0,panels[2].width,panels[2].height,0,ctx.fsCombatBottom-bottomH,cw,bottomH);
+  }
+
+  // Offline preparation entry point. Canonical runtime records never carry the
+  // patch recipes; legacy callers retain the old compatibility path above.
+  async function prepareBackground(card) {
+    var data={picture:card.artSrc||card.src,kind:card.kind,template:card.template,
+      crop:card.text?.crop,regions:card.text?.regions,sheet:card.text?.sheet,side:card.text?.side};
+    var picture,template={},profile=card.kind,assetKind='background';
+    if(card.kind==='sheet') {
+      picture=await prepareSheetBackground(data);template={crop:[0,0,1,1],preparedSheet:true};
+    } else if(card.template?.patches?.length) {
+      picture=await loadCardPicture(data);
+      template.body=textField(data,card.kind);template.titleRegion=labelField(data,card.kind);
+      if(card.kind==='events') {
+        var type=card.template.patches.find(function(p){return p.role==='event-type';});
+        template.eventType=card.template.eventType||{box:type?type.box:FIELDS.events.type};
+      }
+    } else if(card.text?.raster&&card.kind==='combat') {
+      var original=await loadImage(data.picture),area=combatSourceArea(original);
+      var label=restoreNativeLabel(null,original,FIELDS.raster.combat.title,true);picture=label.picture;
+      template={titleRegion:rasterTitleField('combat'),titleLayerBox:FIELDS.raster.combat.title,titleLayerFeatherPx:label.featherPx,nativeCombatArea:area};
+      profile='native-combat';assetKind='label-layer';
+    } else if(card.text?.raster&&['orders','events'].includes(card.kind)) {
+      var clean=await prepareBakedPicture(data);picture=clean.preparedPicture;template=clean.template;
+    } else throw new Error('No offline preparation required: '+card.id);
+    if(card.kind==='sheet'||card.template?.patches?.length||card.text?.raster&&['orders','events'].includes(card.kind))template.sampling='canvas';
+    return {png:picture.toDataURL('image/png'),width:picture.width,height:picture.height,template:template,profile:profile,assetKind:assetKind};
   }
 
   var DRAW = { combat: drawCombatCard, orders: drawOrderCard, events: drawEventCard, overlay: drawRasterTranslation, sheet: drawFactionSheet };
@@ -1283,7 +1346,7 @@
     var wording = card.wording || 'images';
     var thumbnail = !strict && !!card.thumbnail;
     var cacheable=!strict && !options.onMetrics;
-    var picture = card.artSrc || (strict ? card.src : (card.picture || card.src));
+    var picture = card.artSrc || card.template?.picture || (strict ? card.src : (card.picture || card.src));
     var artwork = card.kind==='combat' && !card.artSrc && card.template && card.template.artwork;
     var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, artwork, card.text, card.template]);
     var cached = cacheable && _composed.get(key);
@@ -1331,7 +1394,7 @@
         type:       card.text.type       || '',
         kind:       card.kind,
         regions:    card.text.regions,
-        crop:       card.text.crop,
+        crop:       card.template?.crop || card.text.crop,
         sheet:      card.text.sheet,
         side:       card.text.side,
         wording:    wording,
@@ -1371,5 +1434,5 @@
     _composed.clear();
   }
 
-  window.FSCardRender = { compose: compose, sourceInfo: sourceInfo, fontsReady: fontsReady, setResolution: setResolution };
+  window.FSCardRender = { compose: compose, sourceInfo: sourceInfo, fontsReady: fontsReady, prepareBackground:prepareBackground, releasePreparationResources:function(){_imgCache.clear();_preparedPictures.clear();_sheetBackgrounds.clear();_sourceAreas.clear();_titleAreas.clear();_artworkAreas.clear();_composed.clear();}, setResolution: setResolution };
 })();

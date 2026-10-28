@@ -37,7 +37,10 @@
       result.title=result.label=result.text.title;
       if(result.title!==card.title)result.originalTitle=card.title;
       result.ruleSource=patch.source;
-      if(patch.artSrc)result.artSrc=patch.artSrc;
+      if(patch.artSrc) {
+        result.artSrc=patch.artSrc;
+        if(card.template?.variants?.[patch.artSrc])result.template=card.template.variants[patch.artSrc];
+      }
     }
     if(card.kind==='sheet')result.ruleSource=faction.source;
     return result;

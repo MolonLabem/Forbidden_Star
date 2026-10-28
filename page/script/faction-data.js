@@ -39,10 +39,12 @@
       if(c.category==='combat'&&!groups.has(c.group))fail('группа карты '+c.id);
       var p=c.render&&definitions.profiles[c.render.profile];
       if(!p)fail('профиль карты '+c.id);
-      if(c.render.template?.preparedId){
-        var asset=prepared?.assets[c.render.template.preparedId];
-        if(!asset||asset.output!==c.render.template.picture||!/^[a-f0-9]{64}$/.test(asset.sha256))fail('готовый шаблон '+c.id);
+      function checkPrepared(t){
+        if(!t)return;
+        if(t.preparedId){var asset=prepared?.assets[t.preparedId];if(!asset||asset.cardId!==c.id||asset.output!==(t.picture||t.titleLayer)||!/^[a-f0-9]{64}$/.test(asset.sha256))fail('Prepared asset '+c.id);}
+        Object.values(t.variants||{}).forEach(checkPrepared);
       }
+      checkPrepared(c.render.template);
       if(p.kind&&(!c.text||typeof c.text.title!=='string'||!c.text.title))fail('текст карты '+c.id);
       if(c.asset.crop)box(c.asset.crop,'область исходного листа '+c.id);
       if(c.asset.side&&!['front','back'].includes(c.asset.side))fail('сторона '+c.id);
@@ -80,7 +82,7 @@
           text.general=text.sheet.abilities.map(function(a){return a.title+': '+a.text;}).join(' *newpara* ');
         }
       }
-      var template=c.render.template||null;
+      var template=p.template?Object.assign({},p.template,c.render.template):c.render.template||null;
       if(c.category==='combat'&&data.renderDefaults?.combatFrame)template=Object.assign({},template,{frame:data.renderDefaults.combatFrame});
       var label=text&&text.title||c.label;
       if(!label)fail('название '+c.id);

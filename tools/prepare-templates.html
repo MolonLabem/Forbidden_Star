@@ -1,0 +1,8 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="/page/">
+<title>Подготовка фонов Forbidden Stars</title><link rel="stylesheet" href="style/styles.css">
+<style>body{color-scheme:dark;font:16px system-ui;max-width:1050px;margin:30px auto;padding:16px}button{padding:12px;font:inherit}progress{width:100%;margin:16px 0}#examples{display:flex;gap:16px;flex-wrap:wrap}figure{margin:0}img{max-width:320px;max-height:460px}pre{white-space:pre-wrap}h1{font-size:26px}button:focus-visible{outline:3px solid #e9c67a}</style>
+<h1>Подготовка фонов карт</h1><p>Исходные изображения сохраняются. Фоны готовятся локально; текст остаётся в cards.json. Каждый результат сравнивается с прежним рендером до переноса в репозиторий.</p>
+<button id="start">Подготовить и сравнить</button> <button id="cancel" disabled>Отменить</button>
+<progress id="progress" value="0" max="1"></progress><p id="status" role="status">Загрузка…</p><pre id="log"></pre><div id="examples"></div>
+<script>window.preparationToken='__TOKEN__';</script><script src="script/cache.js"></script><script src="script/wording.js"></script><script src="/baseline-renderer.js"></script><script>window.FSBaselineCardRender=window.FSCardRender;</script><script src="script/cardrender.js"></script><script src="/prepare-client.js"></script>
+</html>

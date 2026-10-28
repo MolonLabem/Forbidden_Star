@@ -86,7 +86,7 @@
         factionCards(general,data,expansion,faction,name).filter(function (c) { return playable.includes(c.category); }).forEach(function (card) {
           if (ids.has(card.id)) throw new Error('Повторяющийся ID: ' + card.id); ids.add(card.id);
           if (!card.text || !/[А-Яа-яЁё]/.test(card.title) || !(card.text.background || card.text.foreground || card.text.general) || data.rasterText || card.text.raster) throw new Error('Нет подтверждённого русского шаблона: ' + card.id);
-          if (/^(base|gif)$/.test(expansion) && (!card.template || (card.category==='combat' ? !card.template.picture : !card.template.patches?.length))) throw new Error('Нет чистого шаблона: ' + card.id);
+          if (/^(base|gif)$/.test(expansion) && (!card.template || (card.category==='combat' ? !card.template.picture : !(card.template.patches?.length || card.template.preparedId && card.template.picture)))) throw new Error('Нет чистого шаблона: ' + card.id);
           var back = spec.backTypes[card.category];
           if (!/^[a-z0-9_]+\.jpg$/.test(back || '') || !files.backs.includes(back)) throw new Error('Нет рубашки нужного типа: ' + card.id);
           cards.push(Object.assign(modes.apply(card,displayMode,rnb),{back:back,backSrc:'factions/'+id+'/backs/'+back}));
