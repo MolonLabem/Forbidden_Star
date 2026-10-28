@@ -55,7 +55,7 @@
       events: {title:[.075,.057,.65,.041],body:[.08,.673,.84,.231],type:[.17,.525,.66,.047]},
     },
   };
-  var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars',combatBody:'CombatRules'};
+  var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
   var ORDER_LIMIT = {scale:.8,gap:.1,fontRatio:.023,gapRatio:.016,bottom:.813,lineGap:.008};
 
@@ -160,7 +160,7 @@
       if (!p.trim() || p === PARA) return [];
       if (p.trim() === '-или-') return [{ text: '-или-', style:'italic' }];
       var ci = p.indexOf(':');
-      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? (ctx.fsKind==='combat'?'italic':'bold italic') : null);
+      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'bold italic' : null);
       if(prefixStyle==='bold') {
         // Ability titles are structured data. A colon inside a description or
         // a later paragraph must not turn ordinary rules text into a heading.
@@ -302,7 +302,7 @@
   }
 
   function printedStrokeWidth(ctx,text) {
-    if(ctx.fsKind==='overlay'||ctx.fsKind==='combat'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
+    if(ctx.fsKind==='overlay'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
       !/[^}{<|#@\uE100-\uE102\uE200-\uE205\s]/.test(text)||
       ctx.fillStyle!=='#000000'&&ctx.fillStyle!=='#15120c')return 0;
     return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*.02;
@@ -314,7 +314,7 @@
     if(!paper){ctx.fillText(text,x,y);return;}
     // Slightly translucent ink absorbs the existing paper grain and shading.
     // Isolate the blend so token pictures and frame artwork stay untouched.
-    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=ctx.fsKind==='combat'?.92:.98;
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=.98;
     var stroke=printedStrokeWidth(ctx,text);
     if(stroke){
       ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';
@@ -1545,7 +1545,6 @@
       ctx.fsStrict = strict;
       ctx.fsCollectMetrics=!!options.onMetrics;
       ctx.fsTextLines=[];ctx.fsKind=card.kind;
-      ctx.fsBodyFont=card.kind==='combat'?FONT.combatBody:FONT.body;
       var format = function (text) { return window.FSWord.format(text, wording); };
       var data = {
         template:   card.template,
