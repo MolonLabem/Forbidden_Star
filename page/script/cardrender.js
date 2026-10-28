@@ -160,7 +160,7 @@
       if (!p.trim() || p === PARA) return [];
       if (p.trim() === '-или-') return [{ text: '-или-', style:'italic' }];
       var ci = p.indexOf(':');
-      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'bold italic' : null);
+      var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'italic' : null);
       if(prefixStyle==='bold') {
         // Ability titles are structured data. A colon inside a description or
         // a later paragraph must not turn ordinary rules text into a heading.
@@ -305,7 +305,7 @@
     if(ctx.fsKind==='overlay'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
       !/[^}{<|#@\uE100-\uE102\uE200-\uE205\s]/.test(text)||
       ctx.fillStyle!=='#000000'&&ctx.fillStyle!=='#15120c')return 0;
-    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*.02;
+    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*(ctx.fsKind==='combat'?.01:.02);
   }
 
   function drawPrintedText(ctx,text,x,y) {
@@ -314,7 +314,7 @@
     if(!paper){ctx.fillText(text,x,y);return;}
     // Slightly translucent ink absorbs the existing paper grain and shading.
     // Isolate the blend so token pictures and frame artwork stay untouched.
-    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=.98;
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=ctx.fsKind==='combat'?.95:.98;
     var stroke=printedStrokeWidth(ctx,text);
     if(stroke){
       ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';

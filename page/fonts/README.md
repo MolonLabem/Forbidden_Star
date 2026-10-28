@@ -4,8 +4,8 @@ The four `FSLazurski-*.woff2` faces contain Lazurski text outlines and the site'
 existing Forbidden Stars game symbols. The CSS family remains `ForbiddenStars`
 for compatibility with canvas rendering and HTML descriptions. The original
 `ForbiddenStars.woff2` is retained as the symbol source. Combat rules, events
-and orders use Lazurski, including its italic and bold faces. Headline titles
-and EventFont labels keep their own typefaces.
+and orders use Lazurski. Combat unit names use italic without bold. Headline
+titles and EventFont labels keep their own typefaces.
 
 ## Sources and preparation
 
