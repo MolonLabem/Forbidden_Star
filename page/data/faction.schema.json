@@ -154,7 +154,13 @@
                 "description": "Key in render-profiles.json; checked by the shared loader."
               },
               "template": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "artworkWindow": {
+                    "$ref": "#/$defs/fractionBox",
+                    "description": "Measured illustration window in source-image fractions; excludes the frame and placeholder paint."
+                  }
+                }
               },
               "regions": {
                 "type": "array",

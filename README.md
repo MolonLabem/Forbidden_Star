@@ -2,6 +2,8 @@
 
 Русский справочник по Forbidden Stars и фанатским дополнениям: карты, составы фракций и ответы на вопросы о правилах.
 
+Названия игровых материалов и представлений карт описаны в [глоссарии](GLOSSARY.md).
+
 **[Открыть справочник](https://molonlabem.github.io/Forbidden_Star/page/)**
 
 ## Что есть на сайте
@@ -126,4 +128,4 @@ node tools/validate-data.cjs
 
 After applying, use `--verify-applied` on the preparation server with a fresh output folder to compare the actual canonical records/profile merge against the retained recipes. Stop the local server with Ctrl+C. Preparation is a developer action, never a page-load hook or a deployment requirement. Inspect backgrounds and final dense cards in the browser and representative PDFs after changing recipes/layouts. Exact comparison preserves the previous output; it does not certify the old retouching as an original clean master or replace physical printing acceptance.
 
-Coordinate units are explicit in the recipe manifest: patch boxes and donor crops are fractions of their respective native images; artwork windows and feather widths use native pixels; sheet crops refer to the complete source atlas; region boxes refer to the cropped side. Explicit `template.body` preserves text placement formerly inferred from `body-erasure`. Repair provenance stays separate from wording. New runtime input files participate in `FSCatalog.sourcePaths()`/print fingerprints; offline recipes are represented by their prepared input hashes. Старые кешированные страницы и внешние потребители продолжают читать совместимые поля того же `text.json`, включая необходимые исторические сведения о восстановлении. Новые скрипты используют записи `cards` и подготовленные изображения.
+Coordinate units are explicit in the recipe manifest: patch boxes and donor crops are fractions of their respective native images; enhanced artwork masks and feather widths use native pixels; sheet crops refer to the complete source atlas; region boxes refer to the cropped side. `template.artworkWindow` is a measured source-image rectangle in fractions: illustration only, excluding its frame and placeholder paint. It lets the illustration cover space freed by shorter combat text without exposing the template's white or colored filler. Explicit `template.body` preserves text placement formerly inferred from `body-erasure`. Repair provenance stays separate from wording. New runtime input files participate in `FSCatalog.sourcePaths()`/print fingerprints; offline recipes are represented by their prepared input hashes. Старые кешированные страницы и внешние потребители продолжают читать совместимые поля того же `text.json`, включая необходимые исторические сведения о восстановлении. Новые скрипты используют записи `cards` и подготовленные изображения.

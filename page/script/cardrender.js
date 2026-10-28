@@ -305,7 +305,7 @@
     if(ctx.fsKind==='overlay'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
       !/[^}{<|#@\uE100-\uE102\uE200-\uE205\s]/.test(text)||
       ctx.fillStyle!=='#000000'&&ctx.fillStyle!=='#15120c')return 0;
-    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*(ctx.fsKind==='combat'?.01:.02);
+    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*((ctx.fsKind==='combat'||ctx.fsKind==='orders')?.01:.02);
   }
 
   function drawPrintedText(ctx,text,x,y) {
@@ -314,7 +314,7 @@
     if(!paper){ctx.fillText(text,x,y);return;}
     // Slightly translucent ink absorbs the existing paper grain and shading.
     // Isolate the blend so token pictures and frame artwork stay untouched.
-    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=ctx.fsKind==='combat'?.95:.98;
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=(ctx.fsKind==='combat'||ctx.fsKind==='orders')?.95:.98;
     var stroke=printedStrokeWidth(ctx,text);
     if(stroke){
       ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';
@@ -521,8 +521,8 @@
     ctx.drawImage(layer.image,target[0]+(box[0]-source[0])*scaleX,target[1]+(box[1]-source[1])*scaleY,box[2]*scaleX,box[3]*scaleY);
     ctx.restore();
   }
-  function extendArtwork(ctx,picture,panelTop) {
-    var end=_artworkAreas.get(picture.src);
+  function extendArtwork(ctx,picture,panelTop,windowBox) {
+    var end=windowBox ? windowBox[1]+windowBox[3] : _artworkAreas.get(picture.src);
     if(end===undefined){
       var sample=document.createElement('canvas');sample.width=120;sample.height=picture.height;
       var c=sample.getContext('2d',{willReadFrequently:true});c.drawImage(picture,0,0,sample.width,sample.height);
@@ -540,10 +540,21 @@
     if(end===null || panelTop<=end*ch+1)return;
     // Blank templates may contain only a cropped illustration. Cover the larger
     // measured artwork window; the original title, badge and left frame stay put.
-    var left=.18,top=.13,sw=picture.width*(1-left),sh=picture.height*(end-top);
-    var dw=cw*(1-left),dh=panelTop-ch*top,scale=Math.max(dw/sw,dh/sh),cropW=dw/scale,cropH=dh/scale;
+    var left=windowBox?windowBox[0]:.18,top=windowBox?windowBox[1]:.13,width=windowBox?windowBox[2]:1-left;
+    var sw=picture.width*width,sh=picture.height*(end-top);
+    var dw=cw*width,dh=panelTop-ch*top,scale=Math.max(dw/sw,dh/sh),cropW=dw/scale,cropH=dh/scale;
     var source=[picture.width*left+(sw-cropW)/2,picture.height*top,cropW,cropH],target=[cw*left,ch*top,dw,dh];
-    ctx.drawImage(picture,source[0],source[1],source[2],source[3],target[0],target[1],target[2],target[3]);
+    // Measured windows exclude the frame and solid placeholder paint. Blend the
+    // top edge into the retained illustration when its crop needs to grow.
+    var feather=windowBox?Math.min(ch*.008,dh/3):0;
+    ctx.save();
+    for(var edge=0;edge<feather;edge++){
+      var rowH=Math.min(1,feather-edge);ctx.globalAlpha=(edge+rowH/2)/feather;
+      ctx.drawImage(picture,source[0],source[1]+edge/scale,cropW,rowH/scale,target[0],target[1]+edge,dw,rowH);
+    }
+    ctx.globalAlpha=1;
+    ctx.drawImage(picture,source[0],source[1]+feather/scale,cropW,cropH-feather/scale,target[0],target[1]+feather,dw,dh-feather);
+    ctx.restore();
     drawEnhancedArtwork(ctx,source,target);
     ctx.fsCombatArtwork.paintedBottomPx=panelTop;ctx.fsCombatArtwork.extended=true;
   }
@@ -847,10 +858,12 @@
 
       // Unit-only separators have transparent tips. Continue the illustration
       // beneath their header so the blank template cannot show a white seam.
-      var artworkBottom=(bgPanel||fgPanel).y+(bgPanel?0:fgDecoH);
-      if(!sourceArea && picture)extendArtwork(ctx,picture,artworkBottom);
+      var artworkWindow=data.template?.artworkWindow;
+      // Cover the header's translucent edge as well as the visible gap.
+      var artworkBottom=(bgPanel||fgPanel).y+(bgPanel?(artworkWindow?bgDecoH:0):fgDecoH);
+      if(!sourceArea && picture)extendArtwork(ctx,picture,artworkBottom,artworkWindow);
       if(nativeFrame)restoreNativeFrame(ctx,nativeFrame,artworkBottom,data.template.frame.box);
-      else if(picture&&ctx.fsCombatArtwork?.extended)restoreNativeFrame(ctx,picture,artworkBottom);
+      else if(picture&&ctx.fsCombatArtwork?.extended&&!artworkWindow)restoreNativeFrame(ctx,picture,artworkBottom);
 
       if (bgPanel) drawStretchPanel(ctx, backgroundImg, bgPanel.y, bgPanel.drawH, COMBAT_LAYOUT.backgroundDecoSrcPx);
       if (fgPanel) drawStretchPanel(ctx, foregroundImg, fgPanel.y, fgPanel.h,     COMBAT_LAYOUT.foregroundDecoSrcPx);

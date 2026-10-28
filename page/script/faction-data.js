@@ -41,6 +41,7 @@
       if(!p)fail('профиль карты '+c.id);
       function checkPrepared(t){
         if(!t)return;
+        if(Object.hasOwn(t,'artworkWindow'))box(t.artworkWindow,'область иллюстрации '+c.id);
         if(t.preparedId){var asset=prepared?.assets[t.preparedId];if(!asset||asset.cardId!==c.id||asset.output!==(t.picture||t.titleLayer)||!/^[a-f0-9]{64}$/.test(asset.sha256))fail('Prepared asset '+c.id);}
         Object.values(t.variants||{}).forEach(checkPrepared);
       }

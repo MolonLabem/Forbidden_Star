@@ -24,6 +24,10 @@
     return DENSITY + 1;
   }
 
+  function balancedColumns(count, maximum) {
+    return count ? Math.ceil(count / Math.ceil(count / maximum)) : maximum;
+  }
+
   // ключ категории → папка на диске
   var FOLDER = window.FSCatalog.folders;
 
@@ -1249,7 +1253,7 @@
     } else if (cat === 'events') {
       gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     } else if (cat === 'orders') {
-      gridCols = 'repeat(' + Math.min(4, cols) + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
+      gridCols = 'repeat(' + balancedColumns(flat.length, Math.min(4, cols)) + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     } else {
       gridCols = 'repeat(' + cols + ', minmax(0, 280px))'; gridJustify = 'start'; cardAspect = '450 / 650';
     }

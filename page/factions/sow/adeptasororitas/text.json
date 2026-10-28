@@ -340,7 +340,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.1828193832599119,
+            0.14,
+            0.8171806167400881,
+            0.5715689381933439
+          ]
+        }
       },
       "group": "starter",
       "text": {
@@ -358,7 +366,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.20044052863436124,
+            0.14,
+            0.7995594713656388,
+            0.6064342313787638
+          ]
+        }
       },
       "group": "starter",
       "text": {
@@ -376,7 +392,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.1828193832599119,
+            0.14,
+            0.8171806167400881,
+            0.6444690966719493
+          ]
+        }
       },
       "group": "starter",
       "text": {
@@ -394,7 +418,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.20044052863436124,
+            0.14,
+            0.7995594713656388,
+            0.5050079239302694
+          ]
+        }
       },
       "group": "starter",
       "text": {
@@ -412,7 +444,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.1828193832599119,
+            0.14,
+            0.8171806167400881,
+            0.6888431061806656
+          ]
+        }
       },
       "group": "starter",
       "text": {
@@ -430,7 +470,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.1828193832599119,
+            0.14,
+            0.8171806167400881,
+            0.5668145800316957
+          ]
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -448,7 +496,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.20044052863436124,
+            0.14,
+            0.7995594713656388,
+            0.5113470681458003
+          ]
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -466,7 +522,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.19823788546255505,
+            0.14,
+            0.801762114537445,
+            0.6302060221870047
+          ]
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -484,7 +548,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.1828193832599119,
+            0.14,
+            0.8171806167400881,
+            0.5715689381933439
+          ]
+        }
       },
       "group": "upgrade-1",
       "text": {
@@ -502,7 +574,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.1828193832599119,
+            0.14,
+            0.8171806167400881,
+            0.5462123613312203
+          ]
+        }
       },
       "group": "upgrade-2",
       "text": {
@@ -520,7 +600,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.20044052863436124,
+            0.14,
+            0.7995594713656388,
+            0.5161014263074485
+          ]
+        }
       },
       "group": "upgrade-2",
       "text": {
@@ -538,7 +626,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.18061674008810572,
+            0.14,
+            0.8193832599118943,
+            0.7237083993660856
+          ]
+        }
       },
       "group": "upgrade-2",
       "text": {
@@ -556,7 +652,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.1828193832599119,
+            0.14,
+            0.8171806167400881,
+            0.6397147385103011
+          ]
+        }
       },
       "group": "upgrade-3",
       "text": {
@@ -574,7 +678,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "combat"
+        "profile": "combat",
+        "template": {
+          "artworkWindow": [
+            0.20484581497797358,
+            0.14,
+            0.7951541850220264,
+            0.5367036450079239
+          ]
+        }
       },
       "group": "upgrade-3",
       "text": {
@@ -920,5 +1032,119 @@
       "sourceText"
     ],
     "note": "Edit cards, groups, factionSheet and materialsText. Run node tools/export-legacy.cjs --write to update generated compatibility fields. Retained fields preserve the cached pre-schema contract and source provenance."
+  },
+  "templates": {
+    "combat/s1.jpg": {
+      "artworkWindow": [
+        0.1828193832599119,
+        0.14,
+        0.8171806167400881,
+        0.5715689381933439
+      ]
+    },
+    "combat/s2.jpg": {
+      "artworkWindow": [
+        0.20044052863436124,
+        0.14,
+        0.7995594713656388,
+        0.6064342313787638
+      ]
+    },
+    "combat/s3.jpg": {
+      "artworkWindow": [
+        0.1828193832599119,
+        0.14,
+        0.8171806167400881,
+        0.6444690966719493
+      ]
+    },
+    "combat/s4.jpg": {
+      "artworkWindow": [
+        0.20044052863436124,
+        0.14,
+        0.7995594713656388,
+        0.5050079239302694
+      ]
+    },
+    "combat/s5.jpg": {
+      "artworkWindow": [
+        0.1828193832599119,
+        0.14,
+        0.8171806167400881,
+        0.6888431061806656
+      ]
+    },
+    "combat/t0_1.jpg": {
+      "artworkWindow": [
+        0.1828193832599119,
+        0.14,
+        0.8171806167400881,
+        0.5668145800316957
+      ]
+    },
+    "combat/t0_2.jpg": {
+      "artworkWindow": [
+        0.20044052863436124,
+        0.14,
+        0.7995594713656388,
+        0.5113470681458003
+      ]
+    },
+    "combat/t0_3.jpg": {
+      "artworkWindow": [
+        0.19823788546255505,
+        0.14,
+        0.801762114537445,
+        0.6302060221870047
+      ]
+    },
+    "combat/t0_4.jpg": {
+      "artworkWindow": [
+        0.1828193832599119,
+        0.14,
+        0.8171806167400881,
+        0.5715689381933439
+      ]
+    },
+    "combat/t2_1.jpg": {
+      "artworkWindow": [
+        0.1828193832599119,
+        0.14,
+        0.8171806167400881,
+        0.5462123613312203
+      ]
+    },
+    "combat/t2_2.jpg": {
+      "artworkWindow": [
+        0.20044052863436124,
+        0.14,
+        0.7995594713656388,
+        0.5161014263074485
+      ]
+    },
+    "combat/t2_3.jpg": {
+      "artworkWindow": [
+        0.18061674008810572,
+        0.14,
+        0.8193832599118943,
+        0.7237083993660856
+      ]
+    },
+    "combat/t3_1.jpg": {
+      "artworkWindow": [
+        0.1828193832599119,
+        0.14,
+        0.8171806167400881,
+        0.6397147385103011
+      ]
+    },
+    "combat/t3_2.jpg": {
+      "artworkWindow": [
+        0.20484581497797358,
+        0.14,
+        0.7951541850220264,
+        0.5367036450079239
+      ]
+    }
   }
 }
