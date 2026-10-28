@@ -1,761 +1,761 @@
 {
-    "filenames": {
-        "combat": [
-            [
-                "s1.jpg",
-                "s2.jpg",
-                "s3.jpg",
-                "s4.jpg",
-                "s5.jpg"
-            ],
-            [
-                "t0_1.jpg",
-                "t0_2.jpg",
-                "t0_3.jpg",
-                "t0_4.jpg"
-            ],
-            [
-                "t2_1.jpg",
-                "t2_2.jpg",
-                "t2_3.jpg"
-            ],
-            [
-                "t3_1.jpg",
-                "t3_2.jpg"
-            ]
-        ],
-        "orders": [
-            "o_1.jpg",
-            "o_2.jpg",
-            "o_3.jpg",
-            "o_4.jpg",
-            "o_5.jpg",
-            "o_6.jpg"
-        ],
-        "events": [
-            "e_1.jpg",
-            "e_2.jpg",
-            "e_3.jpg",
-            "e_4.jpg",
-            "e_5.jpg",
-            "e_6.jpg",
-            "e_7.jpg",
-            "e_8.jpg"
-        ],
-        "faction_card": [
-            "sheet_front_1.jpg",
-            "sheet_back_1.jpg"
-        ],
-        "backs": [
-            "combat.jpg",
-            "order.jpg",
-            "event.jpg"
-        ],
-        "map": [
-            "map_A.jpg",
-            "map_B.jpg"
-        ]
+  "filenames": {
+    "combat": [
+      [
+        "s1.jpg",
+        "s2.jpg",
+        "s3.jpg",
+        "s4.jpg",
+        "s5.jpg"
+      ],
+      [
+        "t0_1.jpg",
+        "t0_2.jpg",
+        "t0_3.jpg",
+        "t0_4.jpg"
+      ],
+      [
+        "t2_1.jpg",
+        "t2_2.jpg",
+        "t2_3.jpg"
+      ],
+      [
+        "t3_1.jpg",
+        "t3_2.jpg"
+      ]
+    ],
+    "orders": [
+      "o_1.jpg",
+      "o_2.jpg",
+      "o_3.jpg",
+      "o_4.jpg",
+      "o_5.jpg",
+      "o_6.jpg"
+    ],
+    "events": [
+      "e_1.jpg",
+      "e_2.jpg",
+      "e_3.jpg",
+      "e_4.jpg",
+      "e_5.jpg",
+      "e_6.jpg",
+      "e_7.jpg",
+      "e_8.jpg"
+    ],
+    "backs": [
+      "combat.jpg",
+      "order.jpg",
+      "event.jpg"
+    ],
+    "faction_card": [
+      "sheet_front_1.jpg",
+      "sheet_back_1.jpg"
+    ],
+    "map": [
+      "map_A.jpg",
+      "map_B.jpg"
+    ]
+  },
+  "rasterText": true,
+  "tierLabels": [
+    "Стартовые",
+    "Командный уровень 0",
+    "Командный уровень 3",
+    "Командный уровень 4"
+  ],
+  "combatText": [
+    [
+      {
+        "title": "Стойка дакатарай",
+        "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 2 (S).",
+        "unit": "Кустодий/Крейсер: В этом раунде битвы, если противник должен распределить хотя бы 1 урон, он распределяет 2 дополнительных урона.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_1.jpg"
+      },
+      {
+        "title": "Стойка рендакс",
+        "general": "Получите 1 [D] или 1 [M]. *newpara* Если у противника есть хотя бы 1 недеморализованный отряд с командным уровнем выше 0, получите 1 (B) и 1 (S).",
+        "unit": "Кустодий/Крейсер: В начале шага нанесения повреждений этого раунда битвы, если у вас есть 1 [B] или 1 (B), вынудите противника выбрать и деморализовать 1 его отряд.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_2.jpg"
+      },
+      {
+        "title": "Сквозь огонь",
+        "general": "Противник выбирает и деморализует 1 свой отряд.",
+        "unit": "Кустодий/Крейсер: В начале следующего раунда битвы вы можете перевернуть 1 ваш [B] на [S], чтобы получить 2 (B).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_3.jpg"
+      },
+      {
+        "title": "Стоять насмерть",
+        "general": "Получите 1 [D]. *newpara* Восстановите 1 ваш отряд.",
+        "unit": "Кустодий: Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть деморализован или отступить.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_4.jpg"
+      },
+      {
+        "title": "Неугасимая убеждённость",
+        "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 1 (B), 1 (S) или 1 [M].",
+        "unit": "Кустодий/Чемпион/Крейсер: Получите 1 (B) или 1 (S). *newpara* Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть уничтожен способностями карт.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_5.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Отважная атака",
+        "general": "Получите 1 [B]. *newpara* Переверните 1 ваш [M] на [B].",
+        "unit": "Чемпион: Получите по 1 (B) за каждый недеморализованный отряд противника сверх числа ваших недеморализованных отрядов.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_1.jpg"
+      },
+      {
+        "title": "Вдохновляющий лидер",
+        "general": "Получите 1 [D] или 1 [M]. *newpara* Получите 1 [M] или восстановите 1 ваш отряд.",
+        "unit": "Чемпион/Крейсер: Переверните до 2 ваших [M] на [B] или [S].",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_2.jpg"
+      },
+      {
+        "title": "Истребить слабых",
+        "general": "Получите по 1 (B) за каждый недеморализованный отряд противника с командным уровнем 0 и за каждый его деморализованный отряд, максимум 3 (B).",
+        "unit": "Чемпион/Крейсер: В этом раунде битвы при первой деморализации вражеского отряда этот отряд уничтожается, если противник не выберет и не деморализует 1 свой отряд.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_3.jpg"
+      },
+      {
+        "title": "Защитить нашу честь",
+        "general": "Выберите 1 ваш отряд и получите (B) или (S) в количестве, равном его показателю морали.",
+        "unit": "Чемпион/Крейсер: Выберите 1 Чемпиона Клинка или 1 Секретный Крейсер. В этом раунде битвы выбранный отряд не может быть деморализован.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_4.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Золотая смерть",
+        "general": "Получите 1 [D]. *newpara* Потратьте 1 [B], чтобы получить 3 (B). Противник может потратить 1 [M], чтобы отступить 1 своим отрядом.",
+        "unit": "Дредноут «Галатус»: Выберите и деморализуйте 1 ваш отряд с командным уровнем 3, чтобы получить 3 (B).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_1.jpg"
+      },
+      {
+        "title": "Непоколебимый страж",
+        "general": "Получите 1 [D] или 1 (S). *newpara* Получите 1 [D], если противник не отступит 1 своим отрядом.",
+        "unit": "Дредноут «Галатус»/Мойрайдейс: В этом раунде битвы ваши отряды с командным уровнем 3 не могут быть деморализованы, а все ваши отряды не могут быть уничтожены способностями карт.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_2.jpg"
+      },
+      {
+        "title": "Ведомые честью",
+        "general": "Получите 1 [D]. *newpara* Получите 1 (B) или 1 (S). *newpara* Восстановите 1 ваш отряд.",
+        "unit": "Дредноут «Галатус»/Мойрайдейс: Отступите 1 вашим отрядом. Если вы это сделали, получите 2 (B) и восстановите этот отряд.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_3.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Хвала императору!",
+        "general": "Получите 3 [D].",
+        "unit": "Валорис: До конца этой битвы ваш лимит кубов равен 12. *newpara* Получите 1 [D].",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t3_1.jpg"
+      },
+      {
+        "title": "Копьё императора",
+        "general": "Восстановите 1 ваш отряд. Возьмите 1 боевую карту.",
+        "unit": "Валорис: Отступите всеми вашими отрядами, кроме Траянна Валориса, чтобы разыграть любую боевую карту с руки, кроме «Копья Императора».",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t3_2.jpg"
+      }
+    ]
+  ],
+  "ordersText": [
+    {
+      "title": "Воля императора",
+      "general": "Когда вы раскрываете этот жетон приказа, начиная со 2-го раунда игры, считайте все неконтролируемые миры без вашего жетона цели дружественными до конца игры. *newline* ОДИН РАЗ ЗА ИГРУ.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_1.jpg"
     },
-    "rasterText": true,
-    "tierLabels": [
-        "Стартовые",
-        "Командный уровень 0",
-        "Командный уровень 3",
-        "Командный уровень 4"
-    ],
-    "combatText": [
-        [
-            {
-                "title": "Стойка дакатарай",
-                "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 2 (S).",
-                "unit": "Кустодий/Крейсер: В этом раунде битвы, если противник должен распределить хотя бы 1 урон, он распределяет 2 дополнительных урона.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_1.jpg"
-            },
-            {
-                "title": "Стойка рендакс",
-                "general": "Получите 1 [D] или 1 [M]. *newpara* Если у противника есть хотя бы 1 недеморализованный отряд с командным уровнем выше 0, получите 1 (B) и 1 (S).",
-                "unit": "Кустодий/Крейсер: В начале шага нанесения повреждений этого раунда битвы, если у вас есть 1 [B] или 1 (B), вынудите противника выбрать и деморализовать 1 его отряд.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_2.jpg"
-            },
-            {
-                "title": "Сквозь огонь",
-                "general": "Противник выбирает и деморализует 1 свой отряд.",
-                "unit": "Кустодий/Крейсер: В начале следующего раунда битвы вы можете перевернуть 1 ваш [B] на [S], чтобы получить 2 (B).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_3.jpg"
-            },
-            {
-                "title": "Стоять насмерть",
-                "general": "Получите 1 [D]. *newpara* Восстановите 1 ваш отряд.",
-                "unit": "Кустодий: Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть деморализован или отступить.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_4.jpg"
-            },
-            {
-                "title": "Неугасимая убеждённость",
-                "general": "Получите 1 [D]. *newpara* Если у противника больше недеморализованных отрядов, чем у вас, получите 1 (B), 1 (S) или 1 [M].",
-                "unit": "Кустодий/Чемпион/Крейсер: Получите 1 (B) или 1 (S). *newpara* Потратьте 1 [M], чтобы выбрать 1 ваш отряд. В этом раунде битвы выбранный отряд не может быть уничтожен способностями карт.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/s_5.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Отважная атака",
-                "general": "Получите 1 [B]. *newpara* Переверните 1 ваш [M] на [B].",
-                "unit": "Чемпион: Получите по 1 (B) за каждый недеморализованный отряд противника сверх числа ваших недеморализованных отрядов.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_1.jpg"
-            },
-            {
-                "title": "Вдохновляющий лидер",
-                "general": "Получите 1 [D] или 1 [M]. *newpara* Получите 1 [M] или восстановите 1 ваш отряд.",
-                "unit": "Чемпион/Крейсер: Переверните до 2 ваших [M] на [B] или [S].",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_2.jpg"
-            },
-            {
-                "title": "Истребить слабых",
-                "general": "Получите по 1 (B) за каждый недеморализованный отряд противника с командным уровнем 0 и за каждый его деморализованный отряд, максимум 3 (B).",
-                "unit": "Чемпион/Крейсер: В этом раунде битвы при первой деморализации вражеского отряда этот отряд уничтожается, если противник не выберет и не деморализует 1 свой отряд.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_3.jpg"
-            },
-            {
-                "title": "Защитить нашу честь",
-                "general": "Выберите 1 ваш отряд и получите (B) или (S) в количестве, равном его показателю морали.",
-                "unit": "Чемпион/Крейсер: Выберите 1 Чемпиона Клинка или 1 Секретный Крейсер. В этом раунде битвы выбранный отряд не может быть деморализован.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t0_4.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Золотая смерть",
-                "general": "Получите 1 [D]. *newpara* Потратьте 1 [B], чтобы получить 3 (B). Противник может потратить 1 [M], чтобы отступить 1 своим отрядом.",
-                "unit": "Дредноут «Галатус»: Выберите и деморализуйте 1 ваш отряд с командным уровнем 3, чтобы получить 3 (B).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_1.jpg"
-            },
-            {
-                "title": "Непоколебимый страж",
-                "general": "Получите 1 [D] или 1 (S). *newpara* Получите 1 [D], если противник не отступит 1 своим отрядом.",
-                "unit": "Дредноут «Галатус»/Мойрайдейс: В этом раунде битвы ваши отряды с командным уровнем 3 не могут быть деморализованы, а все ваши отряды не могут быть уничтожены способностями карт.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_2.jpg"
-            },
-            {
-                "title": "Ведомые честью",
-                "general": "Получите 1 [D]. *newpara* Получите 1 (B) или 1 (S). *newpara* Восстановите 1 ваш отряд.",
-                "unit": "Дредноут «Галатус»/Мойрайдейс: Отступите 1 вашим отрядом. Если вы это сделали, получите 2 (B) и восстановите этот отряд.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t2_3.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Хвала императору!",
-                "general": "Получите 3 [D].",
-                "unit": "Валорис: До конца этой битвы ваш лимит кубов равен 12. *newpara* Получите 1 [D].",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t3_1.jpg"
-            },
-            {
-                "title": "Копьё императора",
-                "general": "Восстановите 1 ваш отряд. Возьмите 1 боевую карту.",
-                "unit": "Валорис: Отступите всеми вашими отрядами, кроме Траянна Валориса, чтобы разыграть любую боевую карту с руки, кроме «Копья Императора».",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/combat/t3_2.jpg"
-            }
-        ]
-    ],
-    "ordersText": [
-        {
-            "title": "Воля императора",
-            "general": "Когда вы раскрываете этот жетон приказа, начиная со 2-го раунда игры, считайте все неконтролируемые миры без вашего жетона цели дружественными до конца игры. *newline* ОДИН РАЗ ЗА ИГРУ.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_1.jpg"
-        },
-        {
-            "title": "Золотое наступление",
-            "general": "Когда вы раскрываете этот жетон приказа, вы можете выполнить его как Приказ Продвижения. Во время этого Продвижения вы можете переместить не более 2 ваших отрядов. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_2.jpg"
-        },
-        {
-            "title": "Благословение императора",
-            "general": "Когда вы раскрываете этот жетон приказа, вы можете восстановить 1 ваш отряд в этой или любой соседней системе. Этот отряд нельзя перемещать во время выполнения данного приказа. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_3.jpg"
-        },
-        {
-            "title": "Солнечный авангард",
-            "general": "Во время выполнения этого приказа, если вы купили отряд, вы можете переместить 1 из купленных отрядов в дружественную область соседней системы, содержащую ваши отряды или постройки. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_4.jpg"
-        },
-        {
-            "title": "Шаг правосудия",
-            "general": "После выполнения этого приказа вы можете выбрать и восстановить 1 ваш отряд в этой системе. Затем вы можете переместить его в соседнюю область. Это может начать битву. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_5.jpg"
-        },
-        {
-            "title": "Зов трона",
-            "general": "Во время выполнения этого приказа, в начале шага нанесения повреждений битвы, вы можете отступить 1 вашим отрядом, а затем восстановить его. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_6.jpg"
-        }
-    ],
-    "eventsText": [
-        {
-            "title": "Внутренний дворец",
-            "general": "Получите 1 материал или возьмите 1 дружественный отряд из любого мира и разместите его в дружественном мире с городом.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_1.jpg"
-        },
-        {
-            "title": "Лекс ультима",
-            "general": "Выполните Приказ Развёртывания в 1 системе, содержащей вашу фабрику.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_2.jpg"
-        },
-        {
-            "title": "Гиканаты",
-            "general": "Получите 2 жетона подкрепления.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_3.jpg"
-        },
-        {
-            "title": "Хранители человечества",
-            "general": "Купите 1 улучшение приказа с командным уровнем 2, даже если ваш командный уровень ниже. Снизьте его стоимость в материалах на 1 за каждый дружественный мир, приносящий жетон процветания.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_4.jpg"
-        },
-        {
-            "title": "Защита императора",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (S) в начале каждого раунда этой битвы.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_5.jpg"
-        },
-        {
-            "title": "Власть золота",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (B) в начале каждого раунда этой битвы.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_6.jpg"
-        },
-        {
-            "title": "Щит долга",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Когда 1 ваш отряд уничтожен или отступает во время битвы, вы можете сбросить эту карту, чтобы вернуть его в эту область деморализованным. Получите 2 (S).",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_7.jpg"
-        },
-        {
-            "title": "Десять тысяч",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы взять 2 боевые карты.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_8.jpg"
-        }
-    ],
-    "componentsText": {
-        "faction_card/sheet_front_1.jpg": {
-            "title": "АДЕПТУС КУСТОДЕС · Лист фракции: способности и отряды",
-            "regions": [
-                {
-                    "box": [
-                        0.416,
-                        0.303,
-                        0.218,
-                        0.24
-                    ],
-                    "role": "ability"
-                },
-                {
-                    "box": [
-                        0.432,
-                        0.604,
-                        0.185,
-                        0.031
-                    ],
-                    "value": "ЖЕТОНЫ ЦЕЛЕЙ",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.772,
-                        0.102,
-                        0.037,
-                        0.021
-                    ],
-                    "value": "ГОРОД",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.9,
-                        0.102,
-                        0.041,
-                        0.021
-                    ],
-                    "value": "ФАБРИКА",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.2,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "БАСТИОН",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.301,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "КУСТОДИЙ-СТРАЖ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.402,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "СЕКРЕТНЫЙ КРЕЙСЕР",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.503,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ЧЕМПИОН КЛИНКА",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.6040000000000001,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ДРЕДНОУТ «КОНТЕМПТОР-ГАЛАТУС»",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.7050000000000001,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "МОЙРАЙДЕЙ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.806,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ТРАЯНН ВАЛОРИС",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                }
-            ],
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg",
-            "side": "front"
-        },
-        "faction_card/sheet_back_1.jpg": {
-            "title": "АДЕПТУС КУСТОДЕС · Начальные силы и история",
-            "regions": [
-                {
-                    "box": [
-                        0.109,
-                        0.294,
-                        0.211,
-                        0.041
-                    ],
-                    "value": "НАЧАЛЬНЫЕ СИЛЫ",
-                    "font": "Headline",
-                    "size": 0.031,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.344,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Кустодии Стражи",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.41300000000000003,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Секретный Крейсер",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.482,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Город",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.5509999999999999,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Фабрика",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.62,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Жетон кузницы",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.6890000000000001,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Улучшение приказа «Воля Императора»",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.758,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Материалы",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.442,
-                        0.231,
-                        0.309,
-                        0.313
-                    ],
-                    "value": "«Если мы вторгнемся, мы разграбим ваши города, испепелим ваши миры, поработим ваш народ…» *newpara* [+++ ВОКС-ПЕРЕДАЧА +++] [+++ ОТ: [+++ УДАЛЕНО +++] ФЛОТА КСЕНОСОВ +++] *newpara* Ответ после снятия осады мира [+++ УДАЛЕНО +++]: *newpara* «Если…» *newpara* Траянн Валорис, Генерал-Капитан Адептус Кустодес",
-                    "font": "EventFont",
-                    "size": 0.023,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "lore"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.572,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Дозор за пределами: Наш дозор начинается у Его Трона и простирается к далёким мирам. Вечный, непрерывный, бдительный. Слава Императору!",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.6679999999999999,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Сопроводить инквизитора: Кустодес назначены не стражами, а последними судьями. Обеспечьте им проход. Безжалостно очистите это место от еретиков!",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.764,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Нам нужен лишь один: Клинок одного Кустодия может изменить судьбы миров. Стойте непоколебимо: его удар — воплощённая воля Императора!",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.572,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Печать Императора: Несокрушимый символ власти Императора. В буре войны Его решимость непоколебима. Свет Императора не угасает!",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.6679999999999999,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Эгида капитана: Там, где он стоит, Империум не отступит. Одно его присутствие делает поражение невозможным, а отступление… немыслимым.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.764,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Истребить еретика: Правосудие Императора быстро и беспощадно. Ни одна тень ереси не устоит перед золотыми клинками. Останется лишь воля Императора!",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#f5d64e",
-                    "ink": "#15120c",
-                    "role": "objective"
-                }
-            ],
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_back_1.jpg",
-            "side": "back"
-        },
-        "maps/map_A.jpg": {
-            "title": "АДЕПТУС КУСТОДЕС · Домашняя система А",
-            "regions": [],
-            "general": "Titus — Титус *newpara* Luna — Луна *newpara* Terra — Терра *newpara* Sol Asteroid Belt — Пояс астероидов Солнца",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/maps/system_tile_front_1.jpg",
-            "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
-            "names": [
-                {
-                    "originalName": "Titus",
-                    "ruDraft": "Титус"
-                },
-                {
-                    "originalName": "Luna",
-                    "ruDraft": "Луна"
-                },
-                {
-                    "originalName": "Terra",
-                    "ruDraft": "Терра"
-                },
-                {
-                    "originalName": "Sol Asteroid Belt",
-                    "ruDraft": "Пояс астероидов Солнца"
-                }
-            ]
-        },
-        "maps/map_B.jpg": {
-            "title": "АДЕПТУС КУСТОДЕС · Домашняя система Б",
-            "regions": [],
-            "general": "The Inner Watch — Внутренний дозор *newpara* Luna — Луна *newpara* Terra — Терра *newpara* Titus — Титус",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/maps/system_tile_back_1.jpg",
-            "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
-            "names": [
-                {
-                    "originalName": "The Inner Watch",
-                    "ruDraft": "Внутренний дозор"
-                },
-                {
-                    "originalName": "Luna",
-                    "ruDraft": "Луна"
-                },
-                {
-                    "originalName": "Terra",
-                    "ruDraft": "Терра"
-                },
-                {
-                    "originalName": "Titus",
-                    "ruDraft": "Титус"
-                }
-            ]
-        }
+    {
+      "title": "Золотое наступление",
+      "general": "Когда вы раскрываете этот жетон приказа, вы можете выполнить его как Приказ Продвижения. Во время этого Продвижения вы можете переместить не более 2 ваших отрядов. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_2.jpg"
     },
-    "materialsText": [
-        {
-            "label": "Кустодий-страж",
-            "value": "3"
-        },
-        {
-            "label": "Секретный Крейсер",
-            "value": "2"
-        },
-        {
-            "label": "Чемпион Клинка",
-            "value": "2"
-        },
-        {
-            "label": "Дредноут «Контемптор-Галатус»",
-            "value": "2"
-        },
-        {
-            "label": "Мойрайдейс",
-            "value": "3"
-        },
-        {
-            "label": "Траянн Валорис",
-            "value": "1"
-        }
-    ],
-    "factionSheet": {
-        "title": "АДЕПТУС КУСТОДЕС",
-        "subtitle": "Солнечный Дозор",
-        "abilities": [
-            {
-                "title": "Указанный путь",
-                "text": "Когда вы выполняете Приказ Доминирования, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий."
-            },
-            {
-                "title": "Десять тысяч",
-                "text": "Пассивная способность. Во время шага подкрепления битвы получите по 1 [D] за каждый размещённый вами жетон подкрепления, затем сбросьте эти жетоны."
-            }
-        ],
-        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg"
+    {
+      "title": "Благословение императора",
+      "general": "Когда вы раскрываете этот жетон приказа, вы можете восстановить 1 ваш отряд в этой или любой соседней системе. Этот отряд нельзя перемещать во время выполнения данного приказа. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_3.jpg"
+    },
+    {
+      "title": "Солнечный авангард",
+      "general": "Во время выполнения этого приказа, если вы купили отряд, вы можете переместить 1 из купленных отрядов в дружественную область соседней системы, содержащую ваши отряды или постройки. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_4.jpg"
+    },
+    {
+      "title": "Шаг правосудия",
+      "general": "После выполнения этого приказа вы можете выбрать и восстановить 1 ваш отряд в этой системе. Затем вы можете переместить его в соседнюю область. Это может начать битву. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_5.jpg"
+    },
+    {
+      "title": "Зов трона",
+      "general": "Во время выполнения этого приказа, в начале шага нанесения повреждений битвы, вы можете отступить 1 вашим отрядом, а затем восстановить его. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/orders/o_6.jpg"
     }
+  ],
+  "eventsText": [
+    {
+      "title": "Внутренний дворец",
+      "general": "Получите 1 материал или возьмите 1 дружественный отряд из любого мира и разместите его в дружественном мире с городом.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_1.jpg"
+    },
+    {
+      "title": "Лекс ультима",
+      "general": "Выполните Приказ Развёртывания в 1 системе, содержащей вашу фабрику.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_2.jpg"
+    },
+    {
+      "title": "Гиканаты",
+      "general": "Получите 2 жетона подкрепления.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_3.jpg"
+    },
+    {
+      "title": "Хранители человечества",
+      "general": "Купите 1 улучшение приказа с командным уровнем 2, даже если ваш командный уровень ниже. Снизьте его стоимость в материалах на 1 за каждый дружественный мир, приносящий жетон процветания.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_4.jpg"
+    },
+    {
+      "title": "Защита императора",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (S) в начале каждого раунда этой битвы.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_5.jpg"
+    },
+    {
+      "title": "Власть золота",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце шага подкрепления битвы вы можете сбросить эту карту, чтобы получать 1 (B) в начале каждого раунда этой битвы.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_6.jpg"
+    },
+    {
+      "title": "Щит долга",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Когда 1 ваш отряд уничтожен или отступает во время битвы, вы можете сбросить эту карту, чтобы вернуть его в эту область деморализованным. Получите 2 (S).",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_7.jpg"
+    },
+    {
+      "title": "Десять тысяч",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы взять 2 боевые карты.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/events/e_8.jpg"
+    }
+  ],
+  "componentsText": {
+    "faction_card/sheet_front_1.jpg": {
+      "title": "АДЕПТУС КУСТОДЕС · Лист фракции: способности и отряды",
+      "regions": [
+        {
+          "box": [
+            0.416,
+            0.303,
+            0.218,
+            0.24
+          ],
+          "role": "ability"
+        },
+        {
+          "box": [
+            0.432,
+            0.604,
+            0.185,
+            0.031
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ЖЕТОНЫ ЦЕЛЕЙ"
+        },
+        {
+          "box": [
+            0.772,
+            0.102,
+            0.037,
+            0.021
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ГОРОД"
+        },
+        {
+          "box": [
+            0.9,
+            0.102,
+            0.041,
+            0.021
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ФАБРИКА"
+        },
+        {
+          "box": [
+            0.782,
+            0.2,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "БАСТИОН"
+        },
+        {
+          "box": [
+            0.782,
+            0.301,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "КУСТОДИЙ-СТРАЖ"
+        },
+        {
+          "box": [
+            0.782,
+            0.402,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "СЕКРЕТНЫЙ КРЕЙСЕР"
+        },
+        {
+          "box": [
+            0.782,
+            0.503,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ЧЕМПИОН КЛИНКА"
+        },
+        {
+          "box": [
+            0.782,
+            0.6040000000000001,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ДРЕДНОУТ «КОНТЕМПТОР-ГАЛАТУС»"
+        },
+        {
+          "box": [
+            0.782,
+            0.7050000000000001,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "МОЙРАЙДЕЙ"
+        },
+        {
+          "box": [
+            0.782,
+            0.806,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ТРАЯНН ВАЛОРИС"
+        }
+      ],
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg",
+      "side": "front"
+    },
+    "faction_card/sheet_back_1.jpg": {
+      "title": "АДЕПТУС КУСТОДЕС · Начальные силы и история",
+      "regions": [
+        {
+          "box": [
+            0.109,
+            0.294,
+            0.211,
+            0.041
+          ],
+          "font": "Headline",
+          "size": 0.031,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "НАЧАЛЬНЫЕ СИЛЫ"
+        },
+        {
+          "box": [
+            0.195,
+            0.344,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Кустодии Стражи"
+        },
+        {
+          "box": [
+            0.195,
+            0.41300000000000003,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Секретный Крейсер"
+        },
+        {
+          "box": [
+            0.195,
+            0.482,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Город"
+        },
+        {
+          "box": [
+            0.195,
+            0.5509999999999999,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Фабрика"
+        },
+        {
+          "box": [
+            0.195,
+            0.62,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Жетон кузницы"
+        },
+        {
+          "box": [
+            0.195,
+            0.6890000000000001,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Улучшение приказа «Воля Императора»"
+        },
+        {
+          "box": [
+            0.195,
+            0.758,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Материалы"
+        },
+        {
+          "box": [
+            0.442,
+            0.231,
+            0.309,
+            0.313
+          ],
+          "font": "EventFont",
+          "size": 0.023,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "lore",
+          "value": "«Если мы вторгнемся, мы разграбим ваши города, испепелим ваши миры, поработим ваш народ…» *newpara* [+++ ВОКС-ПЕРЕДАЧА +++] [+++ ОТ: [+++ УДАЛЕНО +++] ФЛОТА КСЕНОСОВ +++] *newpara* Ответ после снятия осады мира [+++ УДАЛЕНО +++]: *newpara* «Если…» *newpara* Траянн Валорис, Генерал-Капитан Адептус Кустодес"
+        },
+        {
+          "box": [
+            0.499,
+            0.572,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Дозор за пределами: Наш дозор начинается у Его Трона и простирается к далёким мирам. Вечный, непрерывный, бдительный. Слава Императору!"
+        },
+        {
+          "box": [
+            0.499,
+            0.6679999999999999,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Сопроводить инквизитора: Кустодес назначены не стражами, а последними судьями. Обеспечьте им проход. Безжалостно очистите это место от еретиков!"
+        },
+        {
+          "box": [
+            0.499,
+            0.764,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Нам нужен лишь один: Клинок одного Кустодия может изменить судьбы миров. Стойте непоколебимо: его удар — воплощённая воля Императора!"
+        },
+        {
+          "box": [
+            0.77,
+            0.572,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Печать Императора: Несокрушимый символ власти Императора. В буре войны Его решимость непоколебима. Свет Императора не угасает!"
+        },
+        {
+          "box": [
+            0.77,
+            0.6679999999999999,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Эгида капитана: Там, где он стоит, Империум не отступит. Одно его присутствие делает поражение невозможным, а отступление… немыслимым."
+        },
+        {
+          "box": [
+            0.77,
+            0.764,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#f5d64e",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Истребить еретика: Правосудие Императора быстро и беспощадно. Ни одна тень ереси не устоит перед золотыми клинками. Останется лишь воля Императора!"
+        }
+      ],
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_back_1.jpg",
+      "side": "back"
+    },
+    "maps/map_A.jpg": {
+      "title": "АДЕПТУС КУСТОДЕС · Домашняя система А",
+      "regions": [],
+      "general": "Titus — Титус *newpara* Luna — Луна *newpara* Terra — Терра *newpara* Sol Asteroid Belt — Пояс астероидов Солнца",
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/maps/system_tile_front_1.jpg",
+      "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+      "names": [
+        {
+          "originalName": "Titus",
+          "ruDraft": "Титус"
+        },
+        {
+          "originalName": "Luna",
+          "ruDraft": "Луна"
+        },
+        {
+          "originalName": "Terra",
+          "ruDraft": "Терра"
+        },
+        {
+          "originalName": "Sol Asteroid Belt",
+          "ruDraft": "Пояс астероидов Солнца"
+        }
+      ]
+    },
+    "maps/map_B.jpg": {
+      "title": "АДЕПТУС КУСТОДЕС · Домашняя система Б",
+      "regions": [],
+      "general": "The Inner Watch — Внутренний дозор *newpara* Luna — Луна *newpara* Terra — Терра *newpara* Titus — Титус",
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/maps/system_tile_back_1.jpg",
+      "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+      "names": [
+        {
+          "originalName": "The Inner Watch",
+          "ruDraft": "Внутренний дозор"
+        },
+        {
+          "originalName": "Luna",
+          "ruDraft": "Луна"
+        },
+        {
+          "originalName": "Terra",
+          "ruDraft": "Терра"
+        },
+        {
+          "originalName": "Titus",
+          "ruDraft": "Титус"
+        }
+      ]
+    }
+  },
+  "materialsText": [
+    {
+      "label": "Кустодий-страж",
+      "value": "3"
+    },
+    {
+      "label": "Секретный Крейсер",
+      "value": "2"
+    },
+    {
+      "label": "Чемпион Клинка",
+      "value": "2"
+    },
+    {
+      "label": "Дредноут «Контемптор-Галатус»",
+      "value": "2"
+    },
+    {
+      "label": "Мойрайдейс",
+      "value": "3"
+    },
+    {
+      "label": "Траянн Валорис",
+      "value": "1"
+    }
+  ],
+  "factionSheet": {
+    "title": "АДЕПТУС КУСТОДЕС",
+    "subtitle": "Солнечный Дозор",
+    "abilities": [
+      {
+        "title": "Указанный путь",
+        "text": "Когда вы выполняете Приказ Доминирования, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий."
+      },
+      {
+        "title": "Десять тысяч",
+        "text": "Пассивная способность. Во время шага подкрепления битвы получите по 1 [D] за каждый размещённый вами жетон подкрепления, затем сбросьте эти жетоны."
+      }
+    ],
+    "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/adeptuscustodes/faction_card/sheet_front_1.jpg"
+  }
 }

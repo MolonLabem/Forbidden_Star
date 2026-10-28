@@ -1,0 +1,1950 @@
+{
+  "$schema": "../../../data/faction.schema.json",
+  "schemaVersion": 2,
+  "id": "gif/ig",
+  "groups": [
+    {
+      "id": "starter",
+      "label": "Стартовые"
+    },
+    {
+      "id": "upgrade-1",
+      "label": "Уровень 1"
+    },
+    {
+      "id": "upgrade-2",
+      "label": "Уровень 2"
+    },
+    {
+      "id": "upgrade-3",
+      "label": "Уровень 3"
+    }
+  ],
+  "cards": [
+    {
+      "id": "gif/ig/combat/s1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/s1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/s1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "9c3f9d9c796b41584cb98cce853d4e46767f530629697538ebac0019e731a3d3"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Тяжелые Расчеты",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Если вы атакуете, то ваш противник должен потерять 2 (S) в начале шага нанесения повреждений. *newline* Если вы защищаетесь, то получите 2 (S).",
+        "unit": "Гвардеец/Крейсер: Перебросьте 1 ваш [S]."
+      }
+    },
+    {
+      "id": "gif/ig/combat/s2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/s2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/s2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "b9ad2a0c9b2d6388b4b5130b216272c480e2c83343bae3e85753c0ce0a603fac"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "За Императора!",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Перебросьте 1 ваш куб.",
+        "unit": "Гвардеец/Крейсер: Получите 1 (B) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3."
+      }
+    },
+    {
+      "id": "gif/ig/combat/s3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/s3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/s3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "8bc76382745f4aa4ebfbb9f2454b60559075e2d4ee3e8662ab6e6d838a1c1608"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Вторжение",
+        "icons": "S",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [D].",
+        "unit": "Гвардеец/Крейсер: Получите 1 (S) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3."
+      }
+    },
+    {
+      "id": "gif/ig/combat/s4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/s4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/s4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              680
+            ],
+            "sha256": "2503638323bec386e83438de5f65bd244cc9a47813132e0f16be60f4bf231639"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Комиссар",
+        "icons": "M",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Получите 1 [D] за каждый тип ваших недеморализованных отрядов.",
+        "unit": "Гвардеец/Крейсер: Восстановите 1 ваш отряд."
+      }
+    },
+    {
+      "id": "gif/ig/combat/s5",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/s5.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/s5.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "943937285b5ca938a04bdce281b972564cfb476ac1f6f472d4b932e4bf3e1f59"
+          }
+        }
+      },
+      "group": "starter",
+      "text": {
+        "title": "Ратлинги",
+        "icons": "B",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/s5.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник теряет 2 (B) в начале шага нанесения повреждений.",
+        "unit": "Гвардеец/Крейсер: Ваш противник должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 куб на свой выбор."
+      }
+    },
+    {
+      "id": "gif/ig/combat/t0_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t0_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t0_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              619
+            ],
+            "sha256": "27f4653f8c209d449b7c8fc058aab74f3bcdd94f6e7a9253a99919a9b6404d6b"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Страж",
+        "icons": "S",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Если у вас больше недеморализованных отрядов, чем у противника, то он должен выбрать и деморализовать 1 свой отряд. Он может избежать этого эффекта, если потратит 1 [M].",
+        "unit": "Огрин/Крейсер: Посмотрите выбранную боевую карту противника. Получите 2 [B] или 2 [S]."
+      }
+    },
+    {
+      "id": "gif/ig/combat/t0_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t0_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t0_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "5f6188faf8418bc83911cf0e9e26ebc43793a6c27657f683a6c64b71e3f03315"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Огрин",
+        "icons": "BB",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Вы обязаны перебросить 2 ваших [S] или [M] в любой комбинации.",
+        "unit": "Огрин/Крейсер: Получите 1 (S) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3."
+      }
+    },
+    {
+      "id": "gif/ig/combat/t0_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t0_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t0_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              632
+            ],
+            "sha256": "7117c498350e116db4f4918f4489f40834e2d866c64708497726a1dec98b0212"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Булгрин",
+        "icons": "SS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Вы обязаны перебросить 2 ваших [B] или [M] в любой комбинации.",
+        "unit": "Огрин/Крейсер: Получите 1 (B) за каждый ваш недеморализованный отряд с командным уровнем 0, но не более 3."
+      }
+    },
+    {
+      "id": "gif/ig/combat/t0_4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t0_4.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t0_4.webp",
+            "box": [
+              163,
+              163,
+              745,
+              794
+            ],
+            "sha256": "5bf2d83e0a55941ee3b640ad3113f6335076dc3689baa74cfb8873fedad558f5"
+          }
+        }
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Химера",
+        "icons": "BSM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t0_4.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "За каждую недеморализованную пару: Гвардеец+Огрин или Крейсер+Линкор ваш противник должен потерять 3 (B) или 3 (S) в начале шага нанесения повреждений.",
+        "unit": ""
+      }
+    },
+    {
+      "id": "gif/ig/combat/t2_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t2_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t2_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              619
+            ],
+            "sha256": "1ed5d2e3fddf08f2374a678072d7c4d1a41579d89624769eabf3acfc057deec7"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Виверна",
+        "icons": "BSS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Если у вас больше недеморализованных отрядов с командным уровнем 0, чем у вашего противника, то он должен выбрать и деморализовать 1 свой отряд.",
+        "unit": "Леманн Русс/Линкор: Ваш противник должен выбрать и уничтожить 1 свой деморализованный отряд с командным уровнем 0-1."
+      }
+    },
+    {
+      "id": "gif/ig/combat/t2_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t2_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t2_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              613
+            ],
+            "sha256": "062cc126340cecc241203d6ba047e43ec48a5b80aaf5534d9ee590b1240d9dc5"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Василиск",
+        "icons": "BBB",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Уничтожьте 1 Крейсер, чтобы вынудить противника сбросить 3 куба на свой выбор, либо уничтожьте до 2 Гвардейцев, чтобы вынудить противника сбросить 2 куба на свой выбор за каждый уничтоженный отряд.",
+        "unit": "Леманн Русс/Линкор: Выберите 1 отряд противника с командным уровнем 2-3 или бастион. Этот отряд или бастион получает повреждения первым во время этого шага нанесения повреждений."
+      }
+    },
+    {
+      "id": "gif/ig/combat/t2_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t2_3.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t2_3.webp",
+            "box": [
+              163,
+              163,
+              745,
+              699
+            ],
+            "sha256": "0fb8855683e8a019b12e68ebd75a80cb86657da082ec6cf27a7140d5515115c4"
+          }
+        }
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Полк",
+        "icons": "BS",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t2_3.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "За каждый тип ваших недеморализованных наземных отрядов получите 1 (B) или 1 (S). За каждый тип ваших недеморализованных кораблей получите 2 (B) или 2 (S). Восстановите 1 деморализованный отряд и получите 1 [D].",
+        "unit": ""
+      }
+    },
+    {
+      "id": "gif/ig/combat/t3_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t3_1.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t3_1.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "f175803e77572f22f11463c492070f53fe716d3198171805b944f9a6f7de38b3"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Наступление Титана",
+        "icons": "BBBM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t3_1.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник должен потерять 1 [S].",
+        "unit": "Титан: Получите 2 (B) за каждый тип ваших недеморализованных наземных отрядов, но не более 6. *newline* Линкор: Получите 3 (B) за каждый тип ваших недеморализованных кораблей."
+      }
+    },
+    {
+      "id": "gif/ig/combat/t3_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "combat",
+        "template": {
+          "picture": "pictures/templates/gif/ig/combat/t3_2.jpg",
+          "artwork": {
+            "src": "pictures/artwork/gif/ig/combat/t3_2.webp",
+            "box": [
+              163,
+              163,
+              745,
+              625
+            ],
+            "sha256": "9841015850798ed575f350a865f90dd0c7ad19238ef282d5b19caa8693786427"
+          }
+        }
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Поддержка Титана",
+        "icons": "BSSMM",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/combat/t3_2.jpg",
+        "aspect": 0.7194928684627575,
+        "general": "Ваш противник обязан перебросить 1 [B] за каждый тип ваших недеморализованных отрядов в этой битве.",
+        "unit": "Титан/Линкор: В этом раунде битвы ваши отряды с командным уровнем 0-2 не могут стать деморализованными."
+      }
+    },
+    {
+      "id": "gif/ig/orders/o_1",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "orders",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.25,
+                0.181,
+                0.54,
+                0.066
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.181,
+                  0.025,
+                  0.066
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.12,
+                0.53,
+                0.76,
+                0.295
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.14,
+                  0.76,
+                  0.18,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 3,
+              "role": "body-erasure"
+            },
+            {
+              "box": [
+                0.78,
+                0.19,
+                0.045,
+                0.046
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            },
+            {
+              "box": [
+                0.823,
+                0.209,
+                0.025,
+                0.028
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Адептус Астрономика",
+        "general": "Во время выполнения этого приказа вы можете переместить до 6 отрядов в мир активной системы, при условии наличия среди них Гвардейца. После выполнения этого приказа вы можете отступить отрядами Гвардейцев, которые превышают вместимость этого мира. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_1.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/orders/o_2",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "orders",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.25,
+                0.181,
+                0.54,
+                0.066
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.181,
+                  0.025,
+                  0.066
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.12,
+                0.53,
+                0.76,
+                0.295
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.14,
+                  0.76,
+                  0.18,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 3,
+              "role": "body-erasure"
+            },
+            {
+              "box": [
+                0.78,
+                0.19,
+                0.045,
+                0.046
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            },
+            {
+              "box": [
+                0.823,
+                0.209,
+                0.025,
+                0.028
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Миры-Ульи",
+        "general": "Во время выполнения этого приказа любые ваши города считаются фабриками для производства Гвардейцев. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость отрядов дружественных миров, которые содержат города, увеличивается на 2 (максимум 4). Этот бонус вместимости отрядов может быть использован только для Гвардейцев.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_2.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/orders/o_3",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "orders",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.25,
+                0.181,
+                0.54,
+                0.066
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.181,
+                  0.025,
+                  0.066
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.12,
+                0.53,
+                0.76,
+                0.295
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.14,
+                  0.76,
+                  0.18,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 3,
+              "role": "body-erasure"
+            },
+            {
+              "box": [
+                0.78,
+                0.19,
+                0.045,
+                0.046
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            },
+            {
+              "box": [
+                0.823,
+                0.209,
+                0.025,
+                0.028
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Департамент Муниторум",
+        "general": "После раскрытия этого приказа вы можете купить только 1 улучшение. Затем выполните ограниченный приказ в активной системе на свой выбор: *newline* Развертывание в одной области; *newline* Продвижение из одной области; *newline* Доминирование в одном из миров (способность фракции может быть использована только в этом мире). *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_3.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/orders/o_4",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "orders",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.25,
+                0.181,
+                0.54,
+                0.066
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.181,
+                  0.025,
+                  0.066
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.12,
+                0.53,
+                0.76,
+                0.295
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.14,
+                  0.76,
+                  0.18,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 3,
+              "role": "body-erasure"
+            },
+            {
+              "box": [
+                0.78,
+                0.19,
+                0.045,
+                0.046
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            },
+            {
+              "box": [
+                0.823,
+                0.209,
+                0.025,
+                0.028
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Ковровая Бомбардировка",
+        "general": "Во время выполнения этого орбитального удара получите 1 [D], и вы можете перевернуть 1 [M] на 1 [B]. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_4.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/orders/o_5",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "orders",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.25,
+                0.181,
+                0.54,
+                0.066
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.181,
+                  0.025,
+                  0.066
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.12,
+                0.53,
+                0.76,
+                0.295
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.14,
+                  0.76,
+                  0.18,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 3,
+              "role": "body-erasure"
+            },
+            {
+              "box": [
+                0.78,
+                0.19,
+                0.045,
+                0.046
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            },
+            {
+              "box": [
+                0.823,
+                0.209,
+                0.025,
+                0.028
+              ],
+              "texture": {
+                "src": "factions/base/spacemarines/orders/o_1.jpg",
+                "crop": [
+                  0.74,
+                  0.192,
+                  0.025,
+                  0.04
+                ]
+              },
+              "tile": true,
+              "featherPx": 1,
+              "role": "title-tail"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Вирусная Бомбардировка",
+        "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара понизьте показатели здоровья всех отрядов вашего противника до 3. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/orders/o_5.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_1",
+      "category": "events",
+      "asset": {
+        "file": "events/e_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Зов Астропатов",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Если вы защищаетесь, вы можете сбросить эту карту, чтобы бесплатно разместить 2 жетона подкрепления в эту область в конце шага вызова подкреплений.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_1.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_2",
+      "category": "events",
+      "asset": {
+        "file": "events/e_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_2.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Орбитальные Лазеры",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Перед началом выполнения орбитального удара вы можете сбросить эту карту. Во время этого орбитального удара добавьте 2 урона.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_2.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_3",
+      "category": "events",
+      "asset": {
+        "file": "events/e_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_3.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Ракетный Удар",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Перед началом битвы на любом мире вы можете сбросить эту карту, чтобы уничтожить 1 отряд с командным уровнем 0-1 или деморализовать 1 отряд с командным уровнем 2 в конце шага нанесения повреждений первого раунда битвы.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_3.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_4",
+      "category": "events",
+      "asset": {
+        "file": "events/e_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_4.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Тактический Гений",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Сбросьте эту карту во время выбора боевой карты в битве, чтобы выбрать любую, еще не разыгранную в этой битве карту из вашей боевой колоды или колоды улучшений.",
+        "type": "ПЛАН",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_4.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_5",
+      "category": "events",
+      "asset": {
+        "file": "events/e_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_5.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Высшее Командование",
+        "general": "Купите 1 боевое улучшение. Его стоимость в материалах уменьшается на 1 за каждый дружественный мир, который содержит фабрику.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_5.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_6",
+      "category": "events",
+      "asset": {
+        "file": "events/e_6.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_6.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Мир Кузница",
+        "general": "Выберите дружественный мир. Получите ценные ресурсы и материалы, равные производственному значению этого мира.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_6.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_7",
+      "category": "events",
+      "asset": {
+        "file": "events/e_7.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_7.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Темпестус Сционы",
+        "general": "Выберите и деморализуйте 1 отряд вашего противника с командным уровнем 0-1 в системе, которая содержит хотя бы 1 ваш отряд, или в любой соседней с ней.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_7.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/events/e_8",
+      "category": "events",
+      "asset": {
+        "file": "events/e_8.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "events",
+        "template": {
+          "status": "current-russian-raster-template",
+          "patches": [
+            {
+              "box": [
+                0.065,
+                0.025,
+                0.7,
+                0.05
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_1.jpg",
+                "crop": [
+                  0.65,
+                  0.025,
+                  0.05,
+                  0.05
+                ]
+              },
+              "tile": true,
+              "featherPx": 2
+            },
+            {
+              "box": [
+                0.29,
+                0.538,
+                0.42,
+                0.047
+              ],
+              "texture": {
+                "src": "factions/gif/ig/events/e_8.jpg",
+                "crop": [
+                  0.12,
+                  0.538,
+                  0.18,
+                  0.047
+                ]
+              },
+              "tile": false,
+              "featherPx": 1.5,
+              "role": "event-type"
+            },
+            {
+              "box": [
+                0.04,
+                0.675,
+                0.92,
+                0.275
+              ],
+              "texture": {
+                "src": "pictures/templates/gif-ig-event-paper.png",
+                "crop": [
+                  0,
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "tile": false,
+              "featherPx": 2,
+              "role": "body-erasure"
+            }
+          ]
+        }
+      },
+      "text": {
+        "title": "Имперская Десятина",
+        "general": "Либо бесплатно разместите до 2 Гвардейцев в любом дружественном мире в системе, которая содержит фабрику, либо бесплатно разместите 1 Гвардейца в любом дружественном мире.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/ig/events/e_8.jpg",
+        "aspect": 0.7051482059282371
+      }
+    },
+    {
+      "id": "gif/ig/backs/combat",
+      "category": "backs",
+      "asset": {
+        "file": "backs/combat.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник боевой колоды"
+    },
+    {
+      "id": "gif/ig/backs/order",
+      "category": "backs",
+      "asset": {
+        "file": "backs/order.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды приказов"
+    },
+    {
+      "id": "gif/ig/backs/event",
+      "category": "backs",
+      "asset": {
+        "file": "backs/event.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды событий"
+    },
+    {
+      "id": "gif/ig/faction_card/card",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "side": "front",
+        "crop": [
+          0,
+          0,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "sheet"
+      },
+      "text": {
+        "title": "ИМПЕРСКАЯ ГВАРДИЯ · Способности и отряды"
+      }
+    },
+    {
+      "id": "gif/ig/faction_card/card/back",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "query": "?side=back",
+        "side": "back",
+        "crop": [
+          0,
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "sheet"
+      },
+      "text": {
+        "title": "ИМПЕРСКАЯ ГВАРДИЯ · Оборот"
+      }
+    },
+    {
+      "id": "gif/ig/maps/map_B",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_B.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта B"
+    },
+    {
+      "id": "gif/ig/maps/map_A",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_A.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта A"
+    }
+  ],
+  "materials": [
+    {
+      "label": "Гвардейцы",
+      "value": "12"
+    },
+    {
+      "label": "Крейсеры",
+      "value": "3"
+    },
+    {
+      "label": "Огрины",
+      "value": "6"
+    },
+    {
+      "label": "Танки Леман Русс",
+      "value": "6"
+    },
+    {
+      "label": "Линкоры",
+      "value": "3"
+    },
+    {
+      "label": "Титаны",
+      "value": "3"
+    }
+  ],
+  "factionSheet": {
+    "title": "ИМПЕРСКАЯ ГВАРДИЯ",
+    "subtitle": "Легион Тиранов",
+    "abilities": [
+      {
+        "title": "Массовое Производство",
+        "text": "Во время выполнения Приказа Доминирования вы можете выполнить Приказ Развёртывания, но только чтобы купить 2 или более одинаковых отрядов и разместить их либо в одном дружественном мире с постройкой, либо в одной дружественной или неконтролируемой пустоте в активной системе. Уменьшите стоимость каждого отряда на 1. Вы можете использовать жетоны запасов, чтобы уменьшить стоимость двух отрядов с командным уровнем 0 на 1 каждый."
+      }
+    ],
+    "source": "factions/gif/ig/faction_card/card.jpg"
+  },
+  "renderDefaults": {
+    "combatFrame": {
+      "picture": "factions/gif/ig/combat/t0_4.jpg",
+      "box": [
+        0,
+        0.56,
+        0.18,
+        0.1950702
+      ]
+    }
+  },
+  "provenance": {
+    "originalDocument": {
+      "path": "text.json",
+      "revision": "a4d87da474079e4903816d1d0afa1c90657ed503",
+      "sha256": "3a3ccc97ca565d77268ffeca675182cc84223183b55212a032b94dcb4a3f4c65"
+    },
+    "wordingSource": {
+      "kind": "current-russian-raster",
+      "revision": "7a9a58bf2284863250f7d4284e292a7c18315a4e",
+      "imageSha256": {
+        "combat/s1.jpg": "7be5e9661bc175fe4b66ffb37f07f0316af102ef94bdb24376e5edde6a59f48f",
+        "combat/s2.jpg": "56c92aee5c01b07157b37b9c23d750436bdae616bbd6a8c1ca916211b7704695",
+        "combat/s3.jpg": "4e4b115154f83eee2a50ce5ca3db0a549977f3d0bf51199df76536a59877813a",
+        "combat/s4.jpg": "a17d59cad58e766df56d813480332153034a565eb1c7317b95a14fc2c431ccb2",
+        "combat/s5.jpg": "b7fd745ac6eb9e6ccca7f0cf4011948832e7913415970bef29389dc356b77d9e",
+        "combat/t0_1.jpg": "2a6b9309510bfd390d290c68d74685662c492e62daf8ee442a06f139d83ba98c",
+        "combat/t0_2.jpg": "e05d2cf8e0ce9d8062d6b361079f0041bf16bfb4d73a6ac827053fbf101d0c4a",
+        "combat/t0_3.jpg": "96b1a6688f05d2ddfacdbbe75295d17c2554c3497f5e22d4e69f96c0ae629886",
+        "combat/t0_4.jpg": "11e5fa50fdd1878355a540c10ae909cc4a1cc97279b0a66662ee72612fcc8ac4",
+        "combat/t2_1.jpg": "c20a7845bc2ad1bb9ba5ea262288e4c3d4d5f5f46b57467b370854b0f86952e8",
+        "combat/t2_2.jpg": "5d7418f358adc39add09093c30b15e2232eaa85552c5e001f593cffa21d14c13",
+        "combat/t2_3.jpg": "2fe7cb90e9c1124897492ac470e55edfeb3723ff690da398835320c665a0cfb2",
+        "combat/t3_1.jpg": "dfcbf2408cf605e1e6aab355c54438d1d81e5f2fe67fd3d28cb3f76cecb75573",
+        "combat/t3_2.jpg": "8b86db6329c883eaa0df116396cac87deeed8a139321e501b591606dfc9df13a",
+        "orders/o_1.jpg": "50719fe9c5fafb938a7dc8a8601784da1d0fee32889bfee84485bf45f21213c0",
+        "orders/o_2.jpg": "f15361c3baa8eefd0f84f038797db0e6bd14896135bb5050b3d19f87fe07d0c7",
+        "orders/o_3.jpg": "148a780aa1fa77da93ed55a6338a27b9126d4d25c3bbda9d65dac27b2b0bb2bb",
+        "orders/o_4.jpg": "cc898b57e0eb973cc23694b60ffcc6d98f5793090a71b161d0fdb8292afa8de6",
+        "orders/o_5.jpg": "cfeb2e3b16ca3393ed94a7bb142f2956b195978a13836ef02c91a728a194d0e3",
+        "events/e_1.jpg": "c70eeb3409744399c1900b180abcc038d221b086cb4e9e9db38482d5315b0011",
+        "events/e_2.jpg": "9d01ef1dd296886455b9687da75605a0ca745dcdfe2f12269cec72272948c0f8",
+        "events/e_3.jpg": "ee644d880c9b299385ea44ef5ae3851ed4da4c77a21f18ecfb06e277c17d76de",
+        "events/e_4.jpg": "4caf048fb23cd10dc114ec460623dad2819b37402b6859f432f4300392fc9ee1",
+        "events/e_5.jpg": "177cd00068e60699f3b58d530c07d49e94b7007fe92eba9d9a5e9074193db0d0",
+        "events/e_6.jpg": "71a9e68617315459e899a8f7f5fb1b6d3e3ad6386441250e8ca4a7483e4acaf0",
+        "events/e_7.jpg": "d197cdbe5ad6bc58ee639817945b68a64857fc7c1550750a25d59c6c2abce3eb",
+        "events/e_8.jpg": "d485c05a59c7281351f5212c3afc3675b5d0762efca9d0b9547baaf80090e84b"
+      },
+      "imageDimensions": {
+        "combat/s1.jpg": [
+          809,
+          1116
+        ],
+        "combat/s2.jpg": [
+          452,
+          641
+        ],
+        "combat/s3.jpg": [
+          452,
+          641
+        ],
+        "combat/s4.jpg": [
+          452,
+          641
+        ],
+        "combat/s5.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_1.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_2.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_3.jpg": [
+          452,
+          641
+        ],
+        "combat/t0_4.jpg": [
+          452,
+          641
+        ],
+        "combat/t2_1.jpg": [
+          452,
+          641
+        ],
+        "combat/t2_2.jpg": [
+          452,
+          641
+        ],
+        "combat/t2_3.jpg": [
+          452,
+          641
+        ],
+        "combat/t3_1.jpg": [
+          452,
+          641
+        ],
+        "combat/t3_2.jpg": [
+          452,
+          641
+        ],
+        "orders/o_1.jpg": [
+          452,
+          641
+        ],
+        "orders/o_2.jpg": [
+          452,
+          641
+        ],
+        "orders/o_3.jpg": [
+          452,
+          641
+        ],
+        "orders/o_4.jpg": [
+          452,
+          641
+        ],
+        "orders/o_5.jpg": [
+          452,
+          641
+        ],
+        "events/e_1.jpg": [
+          452,
+          641
+        ],
+        "events/e_2.jpg": [
+          452,
+          641
+        ],
+        "events/e_3.jpg": [
+          452,
+          641
+        ],
+        "events/e_4.jpg": [
+          452,
+          641
+        ],
+        "events/e_5.jpg": [
+          452,
+          641
+        ],
+        "events/e_6.jpg": [
+          452,
+          641
+        ],
+        "events/e_7.jpg": [
+          452,
+          641
+        ],
+        "events/e_8.jpg": [
+          452,
+          641
+        ]
+      },
+      "policy": "Visual migration only; preserve current Russian wording and approved samples."
+    }
+  }
+}

@@ -1,757 +1,757 @@
 {
-    "filenames": {
-        "combat": [
-            [
-                "s1.jpg",
-                "s2.jpg",
-                "s3.jpg",
-                "s4.jpg",
-                "s5.jpg"
-            ],
-            [
-                "t0_1.jpg",
-                "t0_2.jpg",
-                "t0_3.jpg",
-                "t0_4.jpg"
-            ],
-            [
-                "t2_1.jpg",
-                "t2_2.jpg",
-                "t2_3.jpg"
-            ],
-            [
-                "t3_1.jpg",
-                "t3_2.jpg"
-            ]
-        ],
-        "orders": [
-            "o_1.jpg",
-            "o_2.jpg",
-            "o_3.jpg",
-            "o_4.jpg",
-            "o_5.jpg",
-            "o_6.jpg"
-        ],
-        "events": [
-            "e_1.jpg",
-            "e_2.jpg",
-            "e_3.jpg",
-            "e_4.jpg",
-            "e_5.jpg",
-            "e_6.jpg",
-            "e_7.jpg",
-            "e_8.jpg"
-        ],
-        "faction_card": [
-            "sheet_front_1.jpg",
-            "sheet_back_1.jpg"
-        ],
-        "backs": [
-            "combat.jpg",
-            "order.jpg",
-            "event.jpg"
-        ],
-        "map": [
-            "map_A.jpg",
-            "map_B.jpg"
-        ]
+  "filenames": {
+    "combat": [
+      [
+        "s1.jpg",
+        "s2.jpg",
+        "s3.jpg",
+        "s4.jpg",
+        "s5.jpg"
+      ],
+      [
+        "t0_1.jpg",
+        "t0_2.jpg",
+        "t0_3.jpg",
+        "t0_4.jpg"
+      ],
+      [
+        "t2_1.jpg",
+        "t2_2.jpg",
+        "t2_3.jpg"
+      ],
+      [
+        "t3_1.jpg",
+        "t3_2.jpg"
+      ]
+    ],
+    "orders": [
+      "o_1.jpg",
+      "o_2.jpg",
+      "o_3.jpg",
+      "o_4.jpg",
+      "o_5.jpg",
+      "o_6.jpg"
+    ],
+    "events": [
+      "e_1.jpg",
+      "e_2.jpg",
+      "e_3.jpg",
+      "e_4.jpg",
+      "e_5.jpg",
+      "e_6.jpg",
+      "e_7.jpg",
+      "e_8.jpg"
+    ],
+    "backs": [
+      "combat.jpg",
+      "order.jpg",
+      "event.jpg"
+    ],
+    "faction_card": [
+      "sheet_front_1.jpg",
+      "sheet_back_1.jpg"
+    ],
+    "map": [
+      "map_A.jpg",
+      "map_B.jpg"
+    ]
+  },
+  "rasterText": true,
+  "tierLabels": [
+    "Стартовые",
+    "Командный уровень 0",
+    "Командный уровень 2",
+    "Командный уровень 3"
+  ],
+  "combatText": [
+    [
+      {
+        "title": "Культисты, восстаньте",
+        "general": "Переверните 1 ваш куб на [M]. *newpara* Если у вас больше [M], чем у противника, получите 1 [M].",
+        "unit": "Неофит: Получите по 1 (B) или 1 (S) за каждый ваш [M], максимум 3 жетона. Можно получить сочетание (B) и (S).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_1.jpg"
+      },
+      {
+        "title": "Аберрантное поведение",
+        "general": "Получите 1 (S). *newpara* Противник теряет 1 [B].",
+        "unit": "Неофит: Получите 1 (S) или переверните 1 ваш куб на [M].",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_2.jpg"
+      },
+      {
+        "title": "Засада культа",
+        "general": "Получите 1 (B) или 1 (S). *newline* Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области, если противник не потратит 1 [M].",
+        "unit": "Неофит: Если у вас больше недеморализованных отрядов, чем у противника, получите 1 [M]. *newline* Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд, если он не потратит 1 [M].",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_3.jpg"
+      },
+      {
+        "title": "Телохранитель локус",
+        "general": "",
+        "unit": "Неофит: Разместите 1 бесплатный жетон подкрепления в этой области.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_4.jpg"
+      },
+      {
+        "title": "Восстать множеством",
+        "general": "Восстановите до 2 Гибридов-Неофитов. *newpara* Переверните 1 ваш куб на [M].",
+        "unit": "Неофит: Получите по 1 [M] за каждого недеморализованного Гибрида-Неофита, максимум 2 [M].",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_5.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Безраздельная преданность",
+        "general": "Получите 1 [M]. *newpara* Потратьте до 2 [M]: получите 2 (B) за первый потраченный [M], затем 2 (S) за второй.",
+        "unit": "Метаморф: Восстановите 1 ваш отряд.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_1.jpg"
+      },
+      {
+        "title": "Неутомимое рвение",
+        "general": "Получите 1 [M]. *newpara* Потратьте 1 [M], чтобы получить 2 (B). *newpara* Деморализуйте 1 ваш отряд, чтобы восстановить 1 ваш отряд.",
+        "unit": "Метаморф: Деморализуйте 1 ваш отряд, чтобы получить 3 (B).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_2.jpg"
+      },
+      {
+        "title": "Восстание чистокровных",
+        "general": "Переверните 1 ваш куб на [M]. *newpara* Восстановите 1 ваш отряд.",
+        "unit": "Метаморф: Потратьте 1 [M], чтобы получить 2 (S).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_3.jpg"
+      },
+      {
+        "title": "Культ уже здесь",
+        "general": "Получите 1 [M] или переверните 1 ваш куб на [M]. *newpara* Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Метаморф: Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_4.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Чистокровный охотник",
+        "general": "Получите 2 (B). *newpara* Когда в этом раунде битвы вражеский отряд деморализован, вы можете потратить 1 [M], чтобы уничтожить этот отряд.",
+        "unit": "Чистокровный: Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_1.jpg"
+      },
+      {
+        "title": "Шёпот магуса",
+        "general": "В конце этого раунда битвы вы можете перевернуть 1 ваш куб на [M]. *newline* Потратьте 1 [M], чтобы деморализовать 1 вражеский отряд с командным уровнем 0 или 1.",
+        "unit": "Чистокровный: Получите 1 [D]. *newline* Потратьте 1 [M], чтобы вынудить противника выбрать и отступить 1 его недеморализованным отрядом с командным уровнем 0.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_2.jpg"
+      },
+      {
+        "title": "Директива примуса",
+        "general": "Переверните 1 ваш [M] на [B]. *newpara* Потратьте 1 [B], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Чистокровный: Получите 1 [M]. *newline* Потратьте любое количество [M]. За каждый потраченный [M] противник теряет 1 [B].",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_3.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Величие патриарха",
+        "general": "Получите 4 [M] или переверните до 4 ваших кубов на [M].",
+        "unit": "Патриарх: В этом раунде битвы, в начале шага нанесения повреждений получите по 1 (S) за каждый ваш [M].",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t3_1.jpg"
+      },
+      {
+        "title": "Чистокровный выводок",
+        "general": "В этом раунде битвы каждый раз, когда уничтожен 1 ваш наземный отряд с командным уровнем 1 или выше, размещайте 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Патриарх: Разместите 2 бесплатных жетона подкрепления в этой области. Получите по 1 (B) за каждый ваш недеморализованный отряд сверх числа недеморализованных отрядов противника.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t3_2.jpg"
+      }
+    ]
+  ],
+  "ordersText": [
+    {
+      "title": "Культ растёт",
+      "general": "Когда вы раскрываете этот жетон приказа, вы можете потратить 1 материал, чтобы разместить 1 бесплатного Гибрида-Неофита в любом мире, где есть ваш Гибрид-Неофит. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_1.jpg"
     },
-    "rasterText": true,
-    "tierLabels": [
-        "Стартовые",
-        "Командный уровень 0",
-        "Командный уровень 2",
-        "Командный уровень 3"
-    ],
-    "combatText": [
-        [
-            {
-                "title": "Культисты, восстаньте",
-                "general": "Переверните 1 ваш куб на [M]. *newpara* Если у вас больше [M], чем у противника, получите 1 [M].",
-                "unit": "Неофит: Получите по 1 (B) или 1 (S) за каждый ваш [M], максимум 3 жетона. Можно получить сочетание (B) и (S).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_1.jpg"
-            },
-            {
-                "title": "Аберрантное поведение",
-                "general": "Получите 1 (S). *newpara* Противник теряет 1 [B].",
-                "unit": "Неофит: Получите 1 (S) или переверните 1 ваш куб на [M].",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_2.jpg"
-            },
-            {
-                "title": "Засада культа",
-                "general": "Получите 1 (B) или 1 (S). *newline* Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области, если противник не потратит 1 [M].",
-                "unit": "Неофит: Если у вас больше недеморализованных отрядов, чем у противника, получите 1 [M]. *newline* Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд, если он не потратит 1 [M].",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_3.jpg"
-            },
-            {
-                "title": "Телохранитель локус",
-                "general": "",
-                "unit": "Неофит: Разместите 1 бесплатный жетон подкрепления в этой области.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_4.jpg"
-            },
-            {
-                "title": "Восстать множеством",
-                "general": "Восстановите до 2 Гибридов-Неофитов. *newpara* Переверните 1 ваш куб на [M].",
-                "unit": "Неофит: Получите по 1 [M] за каждого недеморализованного Гибрида-Неофита, максимум 2 [M].",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/s_5.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Безраздельная преданность",
-                "general": "Получите 1 [M]. *newpara* Потратьте до 2 [M]: получите 2 (B) за первый потраченный [M], затем 2 (S) за второй.",
-                "unit": "Метаморф: Восстановите 1 ваш отряд.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_1.jpg"
-            },
-            {
-                "title": "Неутомимое рвение",
-                "general": "Получите 1 [M]. *newpara* Потратьте 1 [M], чтобы получить 2 (B). *newpara* Деморализуйте 1 ваш отряд, чтобы восстановить 1 ваш отряд.",
-                "unit": "Метаморф: Деморализуйте 1 ваш отряд, чтобы получить 3 (B).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_2.jpg"
-            },
-            {
-                "title": "Восстание чистокровных",
-                "general": "Переверните 1 ваш куб на [M]. *newpara* Восстановите 1 ваш отряд.",
-                "unit": "Метаморф: Потратьте 1 [M], чтобы получить 2 (S).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_3.jpg"
-            },
-            {
-                "title": "Культ уже здесь",
-                "general": "Получите 1 [M] или переверните 1 ваш куб на [M]. *newpara* Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
-                "unit": "Метаморф: Потратьте 1 [M], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t0_4.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Чистокровный охотник",
-                "general": "Получите 2 (B). *newpara* Когда в этом раунде битвы вражеский отряд деморализован, вы можете потратить 1 [M], чтобы уничтожить этот отряд.",
-                "unit": "Чистокровный: Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_1.jpg"
-            },
-            {
-                "title": "Шёпот магуса",
-                "general": "В конце этого раунда битвы вы можете перевернуть 1 ваш куб на [M]. *newline* Потратьте 1 [M], чтобы деморализовать 1 вражеский отряд с командным уровнем 0 или 1.",
-                "unit": "Чистокровный: Получите 1 [D]. *newline* Потратьте 1 [M], чтобы вынудить противника выбрать и отступить 1 его недеморализованным отрядом с командным уровнем 0.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_2.jpg"
-            },
-            {
-                "title": "Директива примуса",
-                "general": "Переверните 1 ваш [M] на [B]. *newpara* Потратьте 1 [B], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
-                "unit": "Чистокровный: Получите 1 [M]. *newline* Потратьте любое количество [M]. За каждый потраченный [M] противник теряет 1 [B].",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t2_3.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Величие патриарха",
-                "general": "Получите 4 [M] или переверните до 4 ваших кубов на [M].",
-                "unit": "Патриарх: В этом раунде битвы, в начале шага нанесения повреждений получите по 1 (S) за каждый ваш [M].",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t3_1.jpg"
-            },
-            {
-                "title": "Чистокровный выводок",
-                "general": "В этом раунде битвы каждый раз, когда уничтожен 1 ваш наземный отряд с командным уровнем 1 или выше, размещайте 1 бесплатный жетон подкрепления в этой области.",
-                "unit": "Патриарх: Разместите 2 бесплатных жетона подкрепления в этой области. Получите по 1 (B) за каждый ваш недеморализованный отряд сверх числа недеморализованных отрядов противника.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/combat/t3_2.jpg"
-            }
-        ]
-    ],
-    "ordersText": [
-        {
-            "title": "Культ растёт",
-            "general": "Когда вы раскрываете этот жетон приказа, вы можете потратить 1 материал, чтобы разместить 1 бесплатного Гибрида-Неофита в любом мире, где есть ваш Гибрид-Неофит. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_1.jpg"
-        },
-        {
-            "title": "Культ распространяется",
-            "general": "Когда вы раскрываете этот жетон приказа, вы можете взять 1 вашего Гибрида-Неофита из этой системы и разместить его в соседней системе в мире без вашего жетона цели. Затем деморализуйте этот отряд. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_2.jpg"
-        },
-        {
-            "title": "Влияние культа",
-            "general": "Во время выполнения этого приказа вы можете получить ресурсы в этой системе с любых враждебных миров, где есть ваш Гибрид-Неофит. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость миров для ваших отрядов увеличена на 1, максимум до 5. Это также влияет на способность вашей фракции.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_3.jpg"
-        },
-        {
-            "title": "Разложение культуры",
-            "general": "Когда вы раскрываете этот жетон приказа, вы можете уничтожить 1 вашу постройку в этой системе, чтобы получить 3 материала. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость миров для ваших отрядов увеличена на 1, максимум до 5. Это также влияет на способность вашей фракции.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_4.jpg"
-        },
-        {
-            "title": "Тайные пассажиры",
-            "general": "Во время выполнения этого приказа вы можете считать все вражеские пустоты дружественными для Гибридов-Неофитов, перемещающихся через них. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_5.jpg"
-        },
-        {
-            "title": "Сеть туннелей",
-            "general": "После выполнения этого приказа вы можете потратить 2 материала, чтобы заменить 1 недеморализованного Гибрида-Неофита в этой системе на 1 бесплатного Гибрида-Метаморфа, или потратить 3 материала, чтобы заменить его на 1 бесплатного Чистокровного Генокрада. Это может начать битву. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_6.jpg"
-        }
-    ],
-    "eventsText": [
-        {
-            "title": "Скрытые туннели",
-            "general": "Разместите 1 бесплатную фабрику в дружественном мире без построек или потратьте 2 материала, чтобы разместить 1 бесплатную фабрику в дружественном мире без фабрики.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_1.jpg"
-        },
-        {
-            "title": "Новая порода",
-            "general": "Замените 1 Гибрида-Неофита в дружественном мире на 1 бесплатного Чистокровного Генокрада.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_2.jpg"
-        },
-        {
-            "title": "Желанная икона",
-            "general": "Купите 1 улучшение боевой колоды. Снизьте его стоимость в материалах на 1 за каждый отдельный враждебный мир, содержащий Гибрида-Неофита.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_3.jpg"
-        },
-        {
-            "title": "День вознесения",
-            "general": "Получите 1 материал или выберите враждебный мир, содержащий Гибрида-Неофита, и получите ресурсы с этого мира.",
-            "type": "ТАКТИКА",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_4.jpg"
-        },
-        {
-            "title": "Пробуждённый инстинкт",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы, если у вас есть хотя бы 2 недеморализованных Гибрида-Неофита, вы можете сбросить эту карту, чтобы деморализовать 1 вражеский отряд с командным уровнем 2 или ниже.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_5.jpg"
-        },
-        {
-            "title": "Зов чистокровных",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале шага броска кубов битвы вы можете сбросить эту карту, чтобы 1 отряд противника с командным уровнем 0 бросал кубы за вас, а не за противника, в количестве, равном своему боевому показателю.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_6.jpg"
-        },
-        {
-            "title": "Чтение мыслей магуса",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы вынудить противника показать карту, которую он разыграет. Получите 1 [B], 1 [S] или 1 [M].",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_7.jpg"
-        },
-        {
-            "title": "Аталанские шакалы",
-            "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы получить 2 [M].",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_8.jpg"
-        }
-    ],
-    "componentsText": {
-        "faction_card/sheet_front_1.jpg": {
-            "title": "КУЛЬТ ГЕНОКРАДОВ · Лист фракции: способности и отряды",
-            "regions": [
-                {
-                    "box": [
-                        0.416,
-                        0.303,
-                        0.218,
-                        0.24
-                    ],
-                    "role": "ability"
-                },
-                {
-                    "box": [
-                        0.432,
-                        0.604,
-                        0.185,
-                        0.031
-                    ],
-                    "value": "ЖЕТОНЫ ЦЕЛЕЙ",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.772,
-                        0.102,
-                        0.037,
-                        0.021
-                    ],
-                    "value": "ГОРОД",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.9,
-                        0.102,
-                        0.041,
-                        0.021
-                    ],
-                    "value": "ФАБРИКА",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.2,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "БАСТИОН",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.301,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ГИБРИД-НЕОФИТ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.402,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "УКРАДЕННЫЙ ГРУЗОВОЙ КОРАБЛЬ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.503,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ГИБРИД-МЕТАМОРФ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.6040000000000001,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ЧИСТОКРОВНЫЙ ГЕНОКРАД",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.7050000000000001,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "УКРАДЕННЫЙ ЛИНКОР",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.806,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ПАТРИАРХ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                }
-            ],
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_front_1.jpg",
-            "side": "front"
-        },
-        "faction_card/sheet_back_1.jpg": {
-            "title": "КУЛЬТ ГЕНОКРАДОВ · Начальные силы и история",
-            "regions": [
-                {
-                    "box": [
-                        0.109,
-                        0.294,
-                        0.211,
-                        0.041
-                    ],
-                    "value": "НАЧАЛЬНЫЕ СИЛЫ",
-                    "font": "Headline",
-                    "size": 0.031,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.344,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Гибриды-Неофиты",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.41300000000000003,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Гибрид-Метаморф",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.482,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Украденный Грузовой Корабль",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.5509999999999999,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Бастион",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.62,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Фабрика",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.6890000000000001,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Улучшение приказа «Культ растёт»",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.758,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Материалы",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.442,
-                        0.231,
-                        0.309,
-                        0.313
-                    ],
-                    "value": "Братья, сёстры! Мы должны разорвать оковы, освободиться от запретов и свергнуть угнетателей. Нас ждут труд, испытания и муки. Но радуйтесь! Все верующие возвысятся, даже если погибнут в борьбе. В великих небесных чертогах Звёздные Дети спят… ждут… слушают… *newpara* Наша грядущая победа пробудит их, и с их пробуждением мы восстанем, чтобы встать рядом с ними… *newpara* [+++ ПОСЛЕДНЕЕ АСТРОПАТИЧЕСКОЕ СООБЩЕНИЕ: НОВЫЙ ГИДЛАМ, СКОПЛЕНИЕ ГЕРАКОН +++] [+++ ГОВОРЯЩИЙ: ВЕКСХАТРИД, ГУБЕРНАТОР НОВОГО ГИДЛАМА +++] [+++ СТАТУС: МИР ПРЕДПОЛОЖИТЕЛЬНО ПОТЕРЯН +++] [+++ ПРИГОВОР: ЭКСТЕРМИНАТУС +++] *newpara* Утверждено Грегором Эйзенхорном, инквизитором Ордо Ксенос, императорским указом.",
-                    "font": "EventFont",
-                    "size": 0.023,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "lore"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.572,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Объединяющее знамя: Под сенью знамени верные, преданные и ревностные становятся единым живым оружием, вместе разрывающим цепи невежества.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.6679999999999999,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Внутренний круг: Тени сгущаются, когда верные собираются вместе. Здесь, во внутреннем круге, все становятся единым сосудом грядущего рассвета.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.764,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Машины верных: Эти дороги принадлежат не тиранам, а тем, кто едет ради благородной цели. Рёв наших машин — гимн вознесения.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.572,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Пробудить Патриарха: Безмолвно и незримо мы ждём: пробуждение Патриарха рассеет тени и свяжет верных нерушимой преданностью.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.6679999999999999,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Приказы Примуса: В его голосе звучит воля Звёздных Детей. По его приказу мы становимся единой целью, единым клинком, единой живой истиной веры.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.764,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Храм избранных: Услышьте и соберитесь, верные! Отриньте сомнения развращённых и восстаньте избранными сосудами, возвещающими великий день!",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#b694ce",
-                    "ink": "#15120c",
-                    "role": "objective"
-                }
-            ],
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_back_1.jpg",
-            "side": "back"
-        },
-        "maps/map_A.jpg": {
-            "title": "КУЛЬТ ГЕНОКРАДОВ · Домашняя система А",
-            "regions": [],
-            "general": "Ichar IV — Ичар IV *newpara* Gatavita — Гатавита *newpara* New Gidlam — Новый Гидлам *newpara* Savlar — Савлар",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/maps/system_tile_front_1.jpg",
-            "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
-            "names": [
-                {
-                    "originalName": "Ichar IV",
-                    "ruDraft": "Ичар IV"
-                },
-                {
-                    "originalName": "Gatavita",
-                    "ruDraft": "Гатавита"
-                },
-                {
-                    "originalName": "New Gidlam",
-                    "ruDraft": "Новый Гидлам"
-                },
-                {
-                    "originalName": "Savlar",
-                    "ruDraft": "Савлар"
-                }
-            ]
-        },
-        "maps/map_B.jpg": {
-            "title": "КУЛЬТ ГЕНОКРАДОВ · Домашняя система Б",
-            "regions": [],
-            "general": "Ghosar Quintus — Госар Квинтус *newpara* Gatavita — Гатавита *newpara* New Gidlam — Новый Гидлам *newpara* Savlar — Савлар",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/maps/system_tile_back_1.jpg",
-            "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
-            "names": [
-                {
-                    "originalName": "Ghosar Quintus",
-                    "ruDraft": "Госар Квинтус"
-                },
-                {
-                    "originalName": "Gatavita",
-                    "ruDraft": "Гатавита"
-                },
-                {
-                    "originalName": "New Gidlam",
-                    "ruDraft": "Новый Гидлам"
-                },
-                {
-                    "originalName": "Savlar",
-                    "ruDraft": "Савлар"
-                }
-            ]
-        }
+    {
+      "title": "Культ распространяется",
+      "general": "Когда вы раскрываете этот жетон приказа, вы можете взять 1 вашего Гибрида-Неофита из этой системы и разместить его в соседней системе в мире без вашего жетона цели. Затем деморализуйте этот отряд. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_2.jpg"
     },
-    "materialsText": [
-        {
-            "label": "Гибрид-Неофит",
-            "value": "10"
-        },
-        {
-            "label": "Украденный Грузовой Корабль",
-            "value": "3"
-        },
-        {
-            "label": "Гибрид-Метаморф",
-            "value": "6"
-        },
-        {
-            "label": "Чистокровный Генокрад",
-            "value": "5"
-        },
-        {
-            "label": "Украденный Линкор",
-            "value": "2"
-        },
-        {
-            "label": "Патриарх",
-            "value": "1"
-        }
-    ],
-    "factionSheet": {
-        "title": "КУЛЬТ ГЕНОКРАДОВ",
-        "subtitle": "Культ Улья",
-        "abilities": [
-            {
-                "title": "Скрываясь среди них",
-                "text": "Пассивная способность. Если враждебный мир содержит вражеские отряды или постройки, не содержит вашего жетона цели, а из ваших отрядов в нём находятся только Гибриды-Неофиты, не начинайте битву. Этот мир считается враждебным для вас и дружественным для противника. Если в него входит любой другой ваш отряд, начните битву с участием всех ваших отрядов в этом мире. Вместимость враждебного мира для ваших Гибридов-Неофитов равна 2. Ваши отряды в этом мире не влияют на вместимость мира для противника."
-            }
-        ],
-        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_front_1.jpg"
+    {
+      "title": "Влияние культа",
+      "general": "Во время выполнения этого приказа вы можете получить ресурсы в этой системе с любых враждебных миров, где есть ваш Гибрид-Неофит. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость миров для ваших отрядов увеличена на 1, максимум до 5. Это также влияет на способность вашей фракции.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_3.jpg"
+    },
+    {
+      "title": "Разложение культуры",
+      "general": "Когда вы раскрываете этот жетон приказа, вы можете уничтожить 1 вашу постройку в этой системе, чтобы получить 3 материала. *newline* ОДИН РАЗ ЗА РАУНД. *newpara* Вместимость миров для ваших отрядов увеличена на 1, максимум до 5. Это также влияет на способность вашей фракции.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_4.jpg"
+    },
+    {
+      "title": "Тайные пассажиры",
+      "general": "Во время выполнения этого приказа вы можете считать все вражеские пустоты дружественными для Гибридов-Неофитов, перемещающихся через них. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_5.jpg"
+    },
+    {
+      "title": "Сеть туннелей",
+      "general": "После выполнения этого приказа вы можете потратить 2 материала, чтобы заменить 1 недеморализованного Гибрида-Неофита в этой системе на 1 бесплатного Гибрида-Метаморфа, или потратить 3 материала, чтобы заменить его на 1 бесплатного Чистокровного Генокрада. Это может начать битву. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/orders/o_6.jpg"
     }
+  ],
+  "eventsText": [
+    {
+      "title": "Скрытые туннели",
+      "general": "Разместите 1 бесплатную фабрику в дружественном мире без построек или потратьте 2 материала, чтобы разместить 1 бесплатную фабрику в дружественном мире без фабрики.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_1.jpg"
+    },
+    {
+      "title": "Новая порода",
+      "general": "Замените 1 Гибрида-Неофита в дружественном мире на 1 бесплатного Чистокровного Генокрада.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_2.jpg"
+    },
+    {
+      "title": "Желанная икона",
+      "general": "Купите 1 улучшение боевой колоды. Снизьте его стоимость в материалах на 1 за каждый отдельный враждебный мир, содержащий Гибрида-Неофита.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_3.jpg"
+    },
+    {
+      "title": "День вознесения",
+      "general": "Получите 1 материал или выберите враждебный мир, содержащий Гибрида-Неофита, и получите ресурсы с этого мира.",
+      "type": "ТАКТИКА",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_4.jpg"
+    },
+    {
+      "title": "Пробуждённый инстинкт",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы, если у вас есть хотя бы 2 недеморализованных Гибрида-Неофита, вы можете сбросить эту карту, чтобы деморализовать 1 вражеский отряд с командным уровнем 2 или ниже.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_5.jpg"
+    },
+    {
+      "title": "Зов чистокровных",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале шага броска кубов битвы вы можете сбросить эту карту, чтобы 1 отряд противника с командным уровнем 0 бросал кубы за вас, а не за противника, в количестве, равном своему боевому показателю.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_6.jpg"
+    },
+    {
+      "title": "Чтение мыслей магуса",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы вынудить противника показать карту, которую он разыграет. Получите 1 [B], 1 [S] или 1 [M].",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_7.jpg"
+    },
+    {
+      "title": "Аталанские шакалы",
+      "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы получить 2 [M].",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/events/e_8.jpg"
+    }
+  ],
+  "componentsText": {
+    "faction_card/sheet_front_1.jpg": {
+      "title": "КУЛЬТ ГЕНОКРАДОВ · Лист фракции: способности и отряды",
+      "regions": [
+        {
+          "box": [
+            0.416,
+            0.303,
+            0.218,
+            0.24
+          ],
+          "role": "ability"
+        },
+        {
+          "box": [
+            0.432,
+            0.604,
+            0.185,
+            0.031
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ЖЕТОНЫ ЦЕЛЕЙ"
+        },
+        {
+          "box": [
+            0.772,
+            0.102,
+            0.037,
+            0.021
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ГОРОД"
+        },
+        {
+          "box": [
+            0.9,
+            0.102,
+            0.041,
+            0.021
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ФАБРИКА"
+        },
+        {
+          "box": [
+            0.782,
+            0.2,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "БАСТИОН"
+        },
+        {
+          "box": [
+            0.782,
+            0.301,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ГИБРИД-НЕОФИТ"
+        },
+        {
+          "box": [
+            0.782,
+            0.402,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "УКРАДЕННЫЙ ГРУЗОВОЙ КОРАБЛЬ"
+        },
+        {
+          "box": [
+            0.782,
+            0.503,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ГИБРИД-МЕТАМОРФ"
+        },
+        {
+          "box": [
+            0.782,
+            0.6040000000000001,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ЧИСТОКРОВНЫЙ ГЕНОКРАД"
+        },
+        {
+          "box": [
+            0.782,
+            0.7050000000000001,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "УКРАДЕННЫЙ ЛИНКОР"
+        },
+        {
+          "box": [
+            0.782,
+            0.806,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ПАТРИАРХ"
+        }
+      ],
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_front_1.jpg",
+      "side": "front"
+    },
+    "faction_card/sheet_back_1.jpg": {
+      "title": "КУЛЬТ ГЕНОКРАДОВ · Начальные силы и история",
+      "regions": [
+        {
+          "box": [
+            0.109,
+            0.294,
+            0.211,
+            0.041
+          ],
+          "font": "Headline",
+          "size": 0.031,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "НАЧАЛЬНЫЕ СИЛЫ"
+        },
+        {
+          "box": [
+            0.195,
+            0.344,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Гибриды-Неофиты"
+        },
+        {
+          "box": [
+            0.195,
+            0.41300000000000003,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Гибрид-Метаморф"
+        },
+        {
+          "box": [
+            0.195,
+            0.482,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Украденный Грузовой Корабль"
+        },
+        {
+          "box": [
+            0.195,
+            0.5509999999999999,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Бастион"
+        },
+        {
+          "box": [
+            0.195,
+            0.62,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Фабрика"
+        },
+        {
+          "box": [
+            0.195,
+            0.6890000000000001,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Улучшение приказа «Культ растёт»"
+        },
+        {
+          "box": [
+            0.195,
+            0.758,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Материалы"
+        },
+        {
+          "box": [
+            0.442,
+            0.231,
+            0.309,
+            0.313
+          ],
+          "font": "EventFont",
+          "size": 0.023,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "lore",
+          "value": "Братья, сёстры! Мы должны разорвать оковы, освободиться от запретов и свергнуть угнетателей. Нас ждут труд, испытания и муки. Но радуйтесь! Все верующие возвысятся, даже если погибнут в борьбе. В великих небесных чертогах Звёздные Дети спят… ждут… слушают… *newpara* Наша грядущая победа пробудит их, и с их пробуждением мы восстанем, чтобы встать рядом с ними… *newpara* [+++ ПОСЛЕДНЕЕ АСТРОПАТИЧЕСКОЕ СООБЩЕНИЕ: НОВЫЙ ГИДЛАМ, СКОПЛЕНИЕ ГЕРАКОН +++] [+++ ГОВОРЯЩИЙ: ВЕКСХАТРИД, ГУБЕРНАТОР НОВОГО ГИДЛАМА +++] [+++ СТАТУС: МИР ПРЕДПОЛОЖИТЕЛЬНО ПОТЕРЯН +++] [+++ ПРИГОВОР: ЭКСТЕРМИНАТУС +++] *newpara* Утверждено Грегором Эйзенхорном, инквизитором Ордо Ксенос, императорским указом."
+        },
+        {
+          "box": [
+            0.499,
+            0.572,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Объединяющее знамя: Под сенью знамени верные, преданные и ревностные становятся единым живым оружием, вместе разрывающим цепи невежества."
+        },
+        {
+          "box": [
+            0.499,
+            0.6679999999999999,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Внутренний круг: Тени сгущаются, когда верные собираются вместе. Здесь, во внутреннем круге, все становятся единым сосудом грядущего рассвета."
+        },
+        {
+          "box": [
+            0.499,
+            0.764,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Машины верных: Эти дороги принадлежат не тиранам, а тем, кто едет ради благородной цели. Рёв наших машин — гимн вознесения."
+        },
+        {
+          "box": [
+            0.77,
+            0.572,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Пробудить Патриарха: Безмолвно и незримо мы ждём: пробуждение Патриарха рассеет тени и свяжет верных нерушимой преданностью."
+        },
+        {
+          "box": [
+            0.77,
+            0.6679999999999999,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Приказы Примуса: В его голосе звучит воля Звёздных Детей. По его приказу мы становимся единой целью, единым клинком, единой живой истиной веры."
+        },
+        {
+          "box": [
+            0.77,
+            0.764,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#b694ce",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Храм избранных: Услышьте и соберитесь, верные! Отриньте сомнения развращённых и восстаньте избранными сосудами, возвещающими великий день!"
+        }
+      ],
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_back_1.jpg",
+      "side": "back"
+    },
+    "maps/map_A.jpg": {
+      "title": "КУЛЬТ ГЕНОКРАДОВ · Домашняя система А",
+      "regions": [],
+      "general": "Ichar IV — Ичар IV *newpara* Gatavita — Гатавита *newpara* New Gidlam — Новый Гидлам *newpara* Savlar — Савлар",
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/maps/system_tile_front_1.jpg",
+      "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+      "names": [
+        {
+          "originalName": "Ichar IV",
+          "ruDraft": "Ичар IV"
+        },
+        {
+          "originalName": "Gatavita",
+          "ruDraft": "Гатавита"
+        },
+        {
+          "originalName": "New Gidlam",
+          "ruDraft": "Новый Гидлам"
+        },
+        {
+          "originalName": "Savlar",
+          "ruDraft": "Савлар"
+        }
+      ]
+    },
+    "maps/map_B.jpg": {
+      "title": "КУЛЬТ ГЕНОКРАДОВ · Домашняя система Б",
+      "regions": [],
+      "general": "Ghosar Quintus — Госар Квинтус *newpara* Gatavita — Гатавита *newpara* New Gidlam — Новый Гидлам *newpara* Savlar — Савлар",
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/maps/system_tile_back_1.jpg",
+      "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+      "names": [
+        {
+          "originalName": "Ghosar Quintus",
+          "ruDraft": "Госар Квинтус"
+        },
+        {
+          "originalName": "Gatavita",
+          "ruDraft": "Гатавита"
+        },
+        {
+          "originalName": "New Gidlam",
+          "ruDraft": "Новый Гидлам"
+        },
+        {
+          "originalName": "Savlar",
+          "ruDraft": "Савлар"
+        }
+      ]
+    }
+  },
+  "materialsText": [
+    {
+      "label": "Гибрид-Неофит",
+      "value": "10"
+    },
+    {
+      "label": "Украденный Грузовой Корабль",
+      "value": "3"
+    },
+    {
+      "label": "Гибрид-Метаморф",
+      "value": "6"
+    },
+    {
+      "label": "Чистокровный Генокрад",
+      "value": "5"
+    },
+    {
+      "label": "Украденный Линкор",
+      "value": "2"
+    },
+    {
+      "label": "Патриарх",
+      "value": "1"
+    }
+  ],
+  "factionSheet": {
+    "title": "КУЛЬТ ГЕНОКРАДОВ",
+    "subtitle": "Культ Улья",
+    "abilities": [
+      {
+        "title": "Скрываясь среди них",
+        "text": "Пассивная способность. Если враждебный мир содержит вражеские отряды или постройки, не содержит вашего жетона цели, а из ваших отрядов в нём находятся только Гибриды-Неофиты, не начинайте битву. Этот мир считается враждебным для вас и дружественным для противника. Если в него входит любой другой ваш отряд, начните битву с участием всех ваших отрядов в этом мире. Вместимость враждебного мира для ваших Гибридов-Неофитов равна 2. Ваши отряды в этом мире не влияют на вместимость мира для противника."
+      }
+    ],
+    "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/genestealercult/faction_card/sheet_front_1.jpg"
+  }
 }

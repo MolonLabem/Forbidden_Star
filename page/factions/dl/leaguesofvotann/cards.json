@@ -1,0 +1,1143 @@
+{
+  "$schema": "../../../data/faction.schema.json",
+  "schemaVersion": 2,
+  "id": "dl/leaguesofvotann",
+  "groups": [
+    {
+      "id": "starter",
+      "label": "Стартовые"
+    },
+    {
+      "id": "upgrade-1",
+      "label": "Командный уровень 0"
+    },
+    {
+      "id": "upgrade-2",
+      "label": "Командный уровень 2"
+    },
+    {
+      "id": "upgrade-3",
+      "label": "Командный уровень 3"
+    }
+  ],
+  "cards": [
+    {
+      "id": "dl/leaguesofvotann/combat/s1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Защитное плетение",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_1.jpg",
+        "general": "Получите по 1 (S) за каждый ваш недеморализованный отряд. *newline* Потратьте 1 (S), чтобы получить 1 [S].",
+        "unit": ""
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/s2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Запас медпакетов",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_2.jpg",
+        "general": "Получите 1 [S]. *newpara* В этом раунде битвы показатель здоровья ваших отрядов увеличен на 1.",
+        "unit": "Очажник/Крепость: Потратьте 1 [S], чтобы восстановить 1 ваш отряд и получить 1 (S)."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/s3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Вызов подкрепления",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_3.jpg",
+        "general": "Потратьте 1 [S], чтобы разместить 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Очажник/Крепость: Получите 1 [M]."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/s4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Подавляющий огонь",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_4.jpg",
+        "general": "Получите 1 [B].",
+        "unit": "Очажник/Страж Очага/Крепость: Если у вас больше [B], чем у противника, переверните 1 ваш куб на [B]."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/s5",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Поиск врагов",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/s_5.jpg",
+        "general": "Получите 2 (B) сейчас или 2 (B) в начале следующего раунда битвы.",
+        "unit": "Очажник/Крепость: Противник сбрасывает верхнюю карту своей боевой колоды. Получите 1 куб со значком, выбранным среди значков этой карты."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t0_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Пламя очага",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_1.jpg",
+        "general": "Получите 2 [M].",
+        "unit": "Очажник/Страж Очага/Крепость: Получите по 1 (B) или 1 (S) за каждый ваш [M] сверх количества [M] противника."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t0_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Выверенный выстрел",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_2.jpg",
+        "general": "Сбросьте 1 карту с руки, чтобы получить 2 (B).",
+        "unit": "Страж Очага/Крепость: Во время шага нанесения повреждений этого раунда битвы противник распределяет 1 дополнительный урон."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t0_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "За своих!",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_3.jpg",
+        "general": "Переверните 1 ваш [S] на [M] или 1 ваш [M] на [S].",
+        "unit": "Бастион/Очажник/Пионер/Крепость: Потратьте 1 [B], чтобы перевернуть 1 ваш [B] на [M]. *newline* Получите 1 [M]."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t0_4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Прагматичное отступление",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_4.jpg",
+        "general": "Отступите 1 вашим отрядом.",
+        "unit": "Очажник/Страж Очага/Крепость: Потратьте 1 [B] или 1 [M], чтобы получить 3 (B)."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t0_5",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Сокрушительный удар",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t0_5.jpg",
+        "general": "Получите 1 [B], 1 [S] или 1 [M]. *newpara* Вынудите противника выбрать и сбросить 1 боевую карту с руки.",
+        "unit": "Страж Очага/Крепость: Вынудите противника потерять 1 [M] и 1 (S)."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t2_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Броня кузницы",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_1.jpg",
+        "general": "Получите 1 [S]. *newpara* Потратьте до 2 [S]. За каждый потраченный [S] получите 1 (S).",
+        "unit": "Пионер/Твердыня: Получите 1 [S] или 1 [M]."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t2_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Телепортационный модуль",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_2.jpg",
+        "general": "Получите 1 [B] и 1 (B). *newpara* Перебросьте 1 ваш куб.",
+        "unit": "Пионер/Твердыня: Получите 2 (S). *newline* Верните 1 вашу открытую боевую карту в руку, чтобы разыграть 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t2_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Стремительное сближение",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_3.jpg",
+        "general": "Получите 3 (B) или 3 (S), если противник не потратит 1 [M].",
+        "unit": "Пионер/Твердыня: Получите 2 (B) и 2 (S), если противник не потратит 1 [M]."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t2_4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Пустота в наших жилах",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t2_4.jpg",
+        "general": "Восстановите 1 ваш отряд. *newline* Переверните 1 ваш [M] на [B] или [S].",
+        "unit": "Твердыня: Возьмите 1 ваш деморализованный или недеморализованный корабль из этой области и разместите его в дружественной области. Возьмите 1 недеморализованную Крепость из любой области и разместите её в этой области."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t3_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Предки наблюдают",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_1.jpg",
+        "general": "",
+        "unit": "Гекатон/Твердыня: Переместите 1 ваш отряд в эту область из этой или любой соседней системы, чтобы получить 3 (B) или 3 (S). *newpara* В начале фазы разрешения вы можете переместить любое количество ваших отрядов из этой области в любое количество дружественных или неконтролируемых областей этой или соседних систем."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t3_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Око предков",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_2.jpg",
+        "general": "Получите 1 [B], 1 [S] или 1 [M]. *newline* Возьмите 1 боевую карту.",
+        "unit": "Гекатон/Твердыня: Противник теряет 3 куба по вашему выбору."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/combat/t3_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-combat"
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Возвращение к предкам",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/combat/t3_3.jpg",
+        "general": "Переверните до 2 ваших [S] на [B] или до 2 ваших [M] на [B].",
+        "unit": "Гекатон/Твердыня: До конца этой битвы, когда уничтожен ваш отряд, получите материалы в количестве, равном стоимости этого отряда в материалах минус 1."
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/orders/o_1",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-orders"
+      },
+      "text": {
+        "title": "Кузнечная станция A.N–VYL",
+        "general": "Во время применения способности фракции, если вы купили боевую карту с командным уровнем не выше 2, вы можете потратить 1 жетон кузницы, чтобы взять вторую боевую карту того же или более низкого командного уровня и добавить её в вашу боевую колоду. Затем уберите 1 боевую карту из вашей боевой колоды в вашу колоду боевых улучшений. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_1.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/orders/o_2",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-orders"
+      },
+      "text": {
+        "title": "Железнородный проводник",
+        "general": "После выполнения этого приказа вы можете потратить 1 жетон кузницы, чтобы разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. При этом вы также можете переместить 1 ваш корабль из активной системы в любую дружественную или неконтролируемую пустоту активной или соседней системы. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_2.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/orders/o_3",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-orders"
+      },
+      "text": {
+        "title": "Торговцы пустоты",
+        "general": "Во время выполнения этого приказа, если у вас есть недеморализованный корабль в активной системе, получите 1 жетон кузницы. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_3.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/orders/o_4",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-orders"
+      },
+      "text": {
+        "title": "Миры-оплоты",
+        "general": "Когда вы покупаете бастион во время выполнения этого приказа, вы можете потратить 1 жетон кузницы, чтобы разместить его в дружественном мире, уже содержащем ровно 1 бастион. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_4.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/orders/o_5",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-orders"
+      },
+      "text": {
+        "title": "Удар небесного молота",
+        "general": "Во время этого орбитального удара получите по 1 дополнительному [D] за каждый ваш участвующий корабль и игнорируйте лимит кубов. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_5.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/orders/o_6",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_6.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-orders"
+      },
+      "text": {
+        "title": "Отходы питают пустоту",
+        "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время этого орбитального удара вы можете потратить 2 [S], чтобы выбрать и уничтожить 1 постройку в этом мире. *newline* ОДИН РАЗ ЗА РАУНД.",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/orders/o_6.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_1",
+      "category": "events",
+      "asset": {
+        "file": "events/e_1.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Преуспевающие торговцы",
+        "general": "Получите 2 разных ресурса по вашему выбору.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_1.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_2",
+      "category": "events",
+      "asset": {
+        "file": "events/e_2.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Планетарная добыча",
+        "general": "Выберите систему, содержащую ваши корабли, и 1 мир в ней. Получите материалы в количестве, равном показателю материалов этого мира.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_2.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_3",
+      "category": "events",
+      "asset": {
+        "file": "events/e_3.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Путь в дальний космос",
+        "general": "Купите 1 улучшение приказа, игнорируя ограничения командного уровня. Снизьте его стоимость в материалах на 1 за каждую дружественную пустоту с вашими кораблями.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_3.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_4",
+      "category": "events",
+      "asset": {
+        "file": "events/e_4.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Труд вознаграждается",
+        "general": "Получите 2 жетона кузницы и по 1 материалу за каждый жетон кузницы, который превысил бы ваш лимит ресурсов.",
+        "type": "ТАКТИКА",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_4.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_5",
+      "category": "events",
+      "asset": {
+        "file": "events/e_5.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Подготовить воинство родичей",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту, чтобы взять 1 ваш отряд с командным уровнем не выше 2 из любого мира и разместить его в этом мире.",
+        "type": "ПЛАН",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_5.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_6",
+      "category": "events",
+      "asset": {
+        "file": "events/e_6.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Ядро предков",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале раунда битвы вы можете сбросить эту карту и 1 боевую карту с руки. Примените обе способности сброшенной боевой карты, даже если указанные на ней отряды не участвуют в битве.",
+        "type": "ПЛАН",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_6.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_7",
+      "category": "events",
+      "asset": {
+        "file": "events/e_7.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Сосредоточенное усилие",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время выполнения орбитального удара вы можете сбросить эту карту, чтобы выбрать и деморализовать 1 вражеский отряд в выбранном мире перед нанесением повреждений.",
+        "type": "ПЛАН",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_7.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/events/e_8",
+      "category": "events",
+      "asset": {
+        "file": "events/e_8.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "baked-events"
+      },
+      "text": {
+        "title": "Поддержка железнородных",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В начале шага подкрепления битвы вы можете сбросить эту карту и потратить 1 жетон кузницы, чтобы разместить 2 бесплатных жетона подкрепления в этой области.",
+        "type": "ПЛАН",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/events/e_8.jpg"
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/backs/combat",
+      "category": "backs",
+      "asset": {
+        "file": "backs/combat.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник боевой колоды"
+    },
+    {
+      "id": "dl/leaguesofvotann/backs/order",
+      "category": "backs",
+      "asset": {
+        "file": "backs/order.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды приказов"
+    },
+    {
+      "id": "dl/leaguesofvotann/backs/event",
+      "category": "backs",
+      "asset": {
+        "file": "backs/event.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды событий"
+    },
+    {
+      "id": "dl/leaguesofvotann/faction_card/sheet_front_1",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/sheet_front_1.jpg",
+        "sourceText": "printed",
+        "side": "front"
+      },
+      "render": {
+        "profile": "sheet",
+        "regions": [
+          {
+            "box": [
+              0.416,
+              0.303,
+              0.218,
+              0.24
+            ],
+            "role": "ability"
+          },
+          {
+            "box": [
+              0.432,
+              0.604,
+              0.185,
+              0.031
+            ],
+            "font": "Headline",
+            "size": 0.026,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-1"
+          },
+          {
+            "box": [
+              0.772,
+              0.102,
+              0.037,
+              0.021
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-2"
+          },
+          {
+            "box": [
+              0.9,
+              0.102,
+              0.041,
+              0.021
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-3"
+          },
+          {
+            "box": [
+              0.782,
+              0.2,
+              0.149,
+              0.026
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-4"
+          },
+          {
+            "box": [
+              0.782,
+              0.301,
+              0.149,
+              0.026
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-5"
+          },
+          {
+            "box": [
+              0.782,
+              0.402,
+              0.149,
+              0.026
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-6"
+          },
+          {
+            "box": [
+              0.782,
+              0.503,
+              0.149,
+              0.026
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-7"
+          },
+          {
+            "box": [
+              0.782,
+              0.6040000000000001,
+              0.149,
+              0.026
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-8"
+          },
+          {
+            "box": [
+              0.782,
+              0.7050000000000001,
+              0.149,
+              0.026
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-9"
+          },
+          {
+            "box": [
+              0.782,
+              0.806,
+              0.149,
+              0.026
+            ],
+            "font": "Headline",
+            "size": 0.017,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-10"
+          }
+        ]
+      },
+      "text": {
+        "title": "ЛИГИ ВОТАННА · Способности и отряды",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/faction_card/sheet_front_1.jpg",
+        "regionText": {
+          "region-1": "ЖЕТОНЫ ЦЕЛЕЙ",
+          "region-2": "ГОРОД",
+          "region-3": "ФАБРИКА",
+          "region-4": "БАСТИОН",
+          "region-5": "ВОИН-ОЧАЖНИК",
+          "region-6": "КРЕПОСТЬ",
+          "region-7": "СТРАЖ ОЧАГА ЭЙНХИР",
+          "region-8": "ПИОНЕР ХЕРНКИН",
+          "region-9": "ТВЕРДЫНЯ",
+          "region-10": "СУХОПУТНАЯ КРЕПОСТЬ «ГЕКАТОН»"
+        }
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/faction_card/sheet_back_1",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/sheet_back_1.jpg",
+        "sourceText": "printed",
+        "side": "back"
+      },
+      "render": {
+        "profile": "sheet",
+        "regions": [
+          {
+            "box": [
+              0.109,
+              0.294,
+              0.211,
+              0.041
+            ],
+            "font": "Headline",
+            "size": 0.031,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "content": "region-0"
+          },
+          {
+            "box": [
+              0.195,
+              0.355,
+              0.123,
+              0.058
+            ],
+            "font": "Headline",
+            "size": 0.026,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "wrap": true,
+            "content": "region-1"
+          },
+          {
+            "box": [
+              0.195,
+              0.45999999999999996,
+              0.123,
+              0.058
+            ],
+            "font": "Headline",
+            "size": 0.026,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "wrap": true,
+            "content": "region-2"
+          },
+          {
+            "box": [
+              0.195,
+              0.55,
+              0.123,
+              0.08
+            ],
+            "font": "Headline",
+            "size": 0.026,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "wrap": true,
+            "content": "region-3"
+          },
+          {
+            "box": [
+              0.195,
+              0.6699999999999999,
+              0.123,
+              0.058
+            ],
+            "font": "Headline",
+            "size": 0.026,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "wrap": true,
+            "content": "region-4"
+          },
+          {
+            "box": [
+              0.195,
+              0.7749999999999999,
+              0.123,
+              0.058
+            ],
+            "font": "Headline",
+            "size": 0.026,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "heading",
+            "align": "center",
+            "wrap": true,
+            "content": "region-5"
+          },
+          {
+            "box": [
+              0.442,
+              0.231,
+              0.309,
+              0.313
+            ],
+            "font": "EventFont",
+            "size": 0.023,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "lore",
+            "content": "region-6"
+          },
+          {
+            "box": [
+              0.499,
+              0.572,
+              0.144,
+              0.065
+            ],
+            "font": "EventFont",
+            "size": 0.013,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "objective",
+            "content": "region-7"
+          },
+          {
+            "box": [
+              0.499,
+              0.6679999999999999,
+              0.144,
+              0.065
+            ],
+            "font": "EventFont",
+            "size": 0.013,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "objective",
+            "content": "region-8"
+          },
+          {
+            "box": [
+              0.499,
+              0.764,
+              0.144,
+              0.065
+            ],
+            "font": "EventFont",
+            "size": 0.013,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "objective",
+            "content": "region-9"
+          },
+          {
+            "box": [
+              0.77,
+              0.572,
+              0.144,
+              0.065
+            ],
+            "font": "EventFont",
+            "size": 0.013,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "objective",
+            "content": "region-10"
+          },
+          {
+            "box": [
+              0.77,
+              0.6679999999999999,
+              0.144,
+              0.065
+            ],
+            "font": "EventFont",
+            "size": 0.013,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "objective",
+            "content": "region-11"
+          },
+          {
+            "box": [
+              0.77,
+              0.764,
+              0.144,
+              0.065
+            ],
+            "font": "EventFont",
+            "size": 0.013,
+            "fill": "#fb805b",
+            "ink": "#15120c",
+            "role": "objective",
+            "content": "region-12"
+          }
+        ]
+      },
+      "text": {
+        "title": "ЛИГИ ВОТАННА · Оборот",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/faction_card/sheet_back_1.jpg",
+        "regionText": {
+          "region-0": "НАЧАЛЬНЫЕ СИЛЫ",
+          "region-1": "Воины-Очажники",
+          "region-2": "Страж Очага Эйнхир",
+          "region-3": "Крепости",
+          "region-4": "Фабрика",
+          "region-5": "Материалы",
+          "region-6": "…повторяю: мы в сорока днях гал… тического пути строго к западу от станции пустоты Триекс, приближаемся к подсектору… ядру скопления Геракон. Нас… захватило какое-то иск… искажённое гравитационное поле и… Запрашиваю: что… это? Клянусь Омниссией… это излучение исходит… от того корабля. *newpara* Обратите внимание на знаки… на его корпусе. Это… невозможно. Офици… архивные догмы… объявили вымершими!… доказательства… нельзя отрицать, сколь бы… еретичной ни была правда. Тот… корабль принадлежит… *newpara* скватам… *newpara* Архимагос-эксплоратор Гоханнус. Исследовательский флот Дельта-Омега. Последнее полученное астропатическое донесение.",
+          "region-7": "Спасение по зову Очага: Отрезанного и окружённого Кала, голос Предков, нужно спасти, пока вражеские клинки или богохульства не заставили его умолкнуть!",
+          "region-8": "Вернуть святилище Предков: В этом древнем храме Гримниры общаются с ядром Вотанна, черпая знания из бесконечной памяти Предков…",
+          "region-9": "Исполнить долг Братства Клятвы: Родичи готовят оружие и разум, скреплённые клятвой и сталью. Удача даёт, нужда хранит. Братство Клятвы склонит чашу весов пустоты.",
+          "region-10": "Завладеть арсеналом: Здесь горит обещание Очага. Оружие, выкованное в огне Предков, ждёт достойных рук.",
+          "region-11": "Клятва в пустоте: Его клятва была выкована в сердце кузницы не для того, чтобы нарушить её в пустоте. Клятва древнее самой пустоты. Предки помнят.",
+          "region-12": "Сохранить ядро Очага: Их шаги звучат в согласии с волей Предков. Каждый удар молота заслужен, каждый удар — клятва сохранить ядро Очага."
+        }
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/maps/map_A",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_A.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "overlay",
+        "regions": []
+      },
+      "text": {
+        "title": "ЛИГИ ВОТАННА · Домашняя система А",
+        "general": "Cynder Span — Синдерский простор *newpara* The Galactic Core — Ядро Галактики *newpara* Töra — Тёра *newpara* Tamaikh — Тамайх",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/maps/system_tile_front_1.jpg",
+        "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+        "names": [
+          {
+            "originalName": "Cynder Span",
+            "ruDraft": "Синдерский простор"
+          },
+          {
+            "originalName": "The Galactic Core",
+            "ruDraft": "Ядро Галактики"
+          },
+          {
+            "originalName": "Töra",
+            "ruDraft": "Тёра"
+          },
+          {
+            "originalName": "Tamaikh",
+            "ruDraft": "Тамайх"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dl/leaguesofvotann/maps/map_B",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_B.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "overlay",
+        "regions": []
+      },
+      "text": {
+        "title": "ЛИГИ ВОТАННА · Домашняя система Б",
+        "general": "The Galactic Core — Ядро Галактики *newpara* Cynder Span — Синдерский простор *newpara* Tamaikh — Тамайх",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/maps/system_tile_back_1.jpg",
+        "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+        "names": [
+          {
+            "originalName": "The Galactic Core",
+            "ruDraft": "Ядро Галактики"
+          },
+          {
+            "originalName": "Cynder Span",
+            "ruDraft": "Синдерский простор"
+          },
+          {
+            "originalName": "Tamaikh",
+            "ruDraft": "Тамайх"
+          }
+        ]
+      }
+    }
+  ],
+  "materials": [
+    {
+      "label": "Воин-Очажник",
+      "value": "6"
+    },
+    {
+      "label": "Крепость",
+      "value": "5"
+    },
+    {
+      "label": "Страж Очага Эйнхир",
+      "value": "6"
+    },
+    {
+      "label": "Пионер Хернкин",
+      "value": "3"
+    },
+    {
+      "label": "Твердыня",
+      "value": "3"
+    },
+    {
+      "label": "Сухопутная Крепость «Гекатон»",
+      "value": "3"
+    }
+  ],
+  "factionSheet": {
+    "title": "ЛИГИ ВОТАННА",
+    "subtitle": "Конгломерат Имир",
+    "abilities": [
+      {
+        "title": "Очаг кузницы",
+        "text": "Когда вы выполняете Приказ Доминирования, вы можете купить 1 улучшение приказа, снизив его стоимость в материалах на 1, или купить 1 улучшение боевой колоды за половину указанной на карте стоимости в материалах. Добавьте в вашу боевую колоду только 1 экземпляр купленной боевой карты. Затем уберите 1 боевую карту из вашей боевой колоды в вашу колоду боевых улучшений. Парный экземпляр можно купить только этой способностью, а не Приказом Планирования."
+      }
+    ],
+    "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/leaguesofvotann/faction_card/sheet_front_1.jpg"
+  },
+  "provenance": {
+    "originalDocument": {
+      "path": "text.json",
+      "revision": "a4d87da474079e4903816d1d0afa1c90657ed503",
+      "sha256": "c128f6c11c5fd46fb366f031c3fcc5b308ec7cdbb0610c616cbd35cfb869bdce"
+    }
+  }
+}

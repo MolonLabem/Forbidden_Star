@@ -37,59 +37,185 @@
   "templates": {
     "combat/s1.jpg": {
       "picture": "pictures/templates/base/eldar/combat/s1.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/s1.webp","box":[163,163,745,632],"sha256":"3f123dd9b4062e1dbf5bbe923e1e4f15739f514d851be5f142cf22de95665571"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/s1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "3f123dd9b4062e1dbf5bbe923e1e4f15739f514d851be5f142cf22de95665571"
+      }
     },
     "combat/s2.jpg": {
       "picture": "pictures/templates/base/eldar/combat/s2.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/s2.webp","box":[163,163,745,680],"sha256":"9563a6fd0b152371e05cd3b0483b19cc9fd07a7f2de40a8fab95ad1084af2c13"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/s2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "9563a6fd0b152371e05cd3b0483b19cc9fd07a7f2de40a8fab95ad1084af2c13"
+      }
     },
     "combat/s3.jpg": {
       "picture": "pictures/templates/base/eldar/combat/s3.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/s3.webp","box":[163,163,745,727],"sha256":"b9bb599514386e0f0a9945d19fa287b10e5160023282707f9d5c4f4f09fa354f"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/s3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          727
+        ],
+        "sha256": "b9bb599514386e0f0a9945d19fa287b10e5160023282707f9d5c4f4f09fa354f"
+      }
     },
     "combat/s4.jpg": {
       "picture": "pictures/templates/base/eldar/combat/s4.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/s4.webp","box":[163,163,745,842],"sha256":"04f9b709a80343400ec8c96b0c4c254dddbae4f112befdd76ea2a9c22108e6d4"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/s4.webp",
+        "box": [
+          163,
+          163,
+          745,
+          842
+        ],
+        "sha256": "04f9b709a80343400ec8c96b0c4c254dddbae4f112befdd76ea2a9c22108e6d4"
+      }
     },
     "combat/s5.jpg": {
       "picture": "pictures/templates/base/eldar/combat/s5.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/s5.webp","box":[163,163,745,747],"sha256":"714e25af3ddb36b6590ecb82b6a93182e83fa2c2606afaa2b59e983e4f0e7e1f"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/s5.webp",
+        "box": [
+          163,
+          163,
+          745,
+          747
+        ],
+        "sha256": "714e25af3ddb36b6590ecb82b6a93182e83fa2c2606afaa2b59e983e4f0e7e1f"
+      }
     },
     "combat/t0_1.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t0_1.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t0_1.webp","box":[163,163,745,680],"sha256":"3c0f30c48533e4b5733b72b228f9ccbca61a83f29bf1ed5e85b49fe27d7567d3"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t0_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "3c0f30c48533e4b5733b72b228f9ccbca61a83f29bf1ed5e85b49fe27d7567d3"
+      }
     },
     "combat/t0_2.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t0_2.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t0_2.webp","box":[163,163,745,680],"sha256":"64ae6e62d639b7be6bb2eddd26823a24d38f2b5bf3ee1dc485b071aea211250c"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t0_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "64ae6e62d639b7be6bb2eddd26823a24d38f2b5bf3ee1dc485b071aea211250c"
+      }
     },
     "combat/t0_3.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t0_3.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t0_3.webp","box":[163,163,745,658],"sha256":"7f4c4af06cc920e115e111867a68432a5931fbacf7a380cf8dd69bc095d03084"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t0_3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          658
+        ],
+        "sha256": "7f4c4af06cc920e115e111867a68432a5931fbacf7a380cf8dd69bc095d03084"
+      }
     },
     "combat/t0_4.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t0_4.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t0_4.webp","box":[163,163,745,632],"sha256":"81ef3772d2a8fc4fa37176c83eb5c486548da5cc62de46c5db71ea0f1018954a"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t0_4.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "81ef3772d2a8fc4fa37176c83eb5c486548da5cc62de46c5db71ea0f1018954a"
+      }
     },
     "combat/t2_1.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t2_1.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t2_1.webp","box":[163,163,745,632],"sha256":"0fce3a99870c18a8a3b90d154a5918f56ac9c16faa5d2ad1ac2960e4b967f3e6"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t2_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "0fce3a99870c18a8a3b90d154a5918f56ac9c16faa5d2ad1ac2960e4b967f3e6"
+      }
     },
     "combat/t2_2.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t2_2.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t2_2.webp","box":[163,163,745,619],"sha256":"476f8a783e56cfbbf2738b19b0c54b3c2599db6e1f073a824d76715fbcdf66f5"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t2_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          619
+        ],
+        "sha256": "476f8a783e56cfbbf2738b19b0c54b3c2599db6e1f073a824d76715fbcdf66f5"
+      }
     },
     "combat/t2_3.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t2_3.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t2_3.webp","box":[163,163,745,747],"sha256":"61a7ddf5300ad26ddcc93225a9d2ed864688200f568743a87f0d48491f33ca78"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t2_3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          747
+        ],
+        "sha256": "61a7ddf5300ad26ddcc93225a9d2ed864688200f568743a87f0d48491f33ca78"
+      }
     },
     "combat/t3_1.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t3_1.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t3_1.webp","box":[163,163,745,625],"sha256":"d18a6c7684a62185f06df0d120b6855c9b0baee18a3ae59a9b01bff102617715"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t3_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          625
+        ],
+        "sha256": "d18a6c7684a62185f06df0d120b6855c9b0baee18a3ae59a9b01bff102617715"
+      }
     },
     "combat/t3_2.jpg": {
       "picture": "pictures/templates/base/eldar/combat/t3_2.jpg",
-      "artwork": {"src":"pictures/artwork/base/eldar/combat/t3_2.webp","box":[163,163,745,640],"sha256":"32694033a4eff1f1d26ca39af9c5efb6c87b71714ae627fc15d3ad4e9b8051ed"}
+      "artwork": {
+        "src": "pictures/artwork/base/eldar/combat/t3_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          640
+        ],
+        "sha256": "32694033a4eff1f1d26ca39af9c5efb6c87b71714ae627fc15d3ad4e9b8051ed"
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1380,39 +1506,100 @@
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
   },
-    "factionSheet": {
-        "title": "ЭЛЬДАРЫ",
-        "subtitle": "Искусственный мир Ийанден",
-        "abilities": [
-            {
-                "title": "Портал в Паутину",
-                "text": "Во время выполнения Приказа Доминирования вы можете забрать 1 ваш отряд из любого мира в активной системе и разместить его в любом дружественном мире в любой системе."
-            }
-        ],
-        "source": "factions/base/eldar/faction_card/card.jpg"
-    },
-    "componentsText": {
-        "faction_card/card.jpg": {
-            "views": [
-                {
-                    "side": "front",
-                    "crop": [
-                        0,
-                        0,
-                        1,
-                        0.5
-                    ]
-                },
-                {
-                    "side": "back",
-                    "crop": [
-                        0,
-                        0.5,
-                        1,
-                        0.5
-                    ]
-                }
-            ]
+  "factionSheet": {
+    "title": "ЭЛЬДАРЫ",
+    "subtitle": "Искусственный мир Ийанден",
+    "abilities": [
+      {
+        "title": "Портал в Паутину",
+        "text": "Во время выполнения Приказа Доминирования вы можете забрать 1 ваш отряд из любого мира в активной системе и разместить его в любом дружественном мире в любой системе."
+      }
+    ],
+    "source": "factions/base/eldar/faction_card/card.jpg"
+  },
+  "componentsText": {
+    "faction_card/card.jpg": {
+      "views": [
+        {
+          "side": "front",
+          "crop": [
+            0,
+            0,
+            1,
+            0.5
+          ]
+        },
+        {
+          "side": "back",
+          "crop": [
+            0,
+            0.5,
+            1,
+            0.5
+          ]
         }
+      ]
     }
+  },
+  "filenames": {
+    "combat": [
+      [
+        "s1.jpg",
+        "s2.jpg",
+        "s3.jpg",
+        "s4.jpg",
+        "s5.jpg"
+      ],
+      [
+        "t0_1.jpg",
+        "t0_2.jpg",
+        "t0_3.jpg",
+        "t0_4.jpg"
+      ],
+      [
+        "t2_1.jpg",
+        "t2_2.jpg",
+        "t2_3.jpg"
+      ],
+      [
+        "t3_1.jpg",
+        "t3_2.jpg"
+      ]
+    ],
+    "orders": [
+      "o_1.jpg",
+      "o_2.jpg",
+      "o_3.jpg",
+      "o_4.jpg",
+      "o_5.jpg"
+    ],
+    "events": [
+      "e_1.jpg",
+      "e_2.jpg",
+      "e_3.jpg",
+      "e_4.jpg",
+      "e_5.jpg",
+      "e_6.jpg",
+      "e_7.jpg",
+      "e_8.jpg"
+    ],
+    "backs": [
+      "combat.jpg",
+      "order.jpg",
+      "event.jpg"
+    ],
+    "faction_card": [
+      "card.jpg"
+    ],
+    "map": [
+      "map_B.jpg",
+      "map_A.jpg"
+    ]
+  },
+  "tierLabels": [
+    "Стартовые",
+    "Уровень 1",
+    "Уровень 2",
+    "Уровень 3"
+  ]
 }

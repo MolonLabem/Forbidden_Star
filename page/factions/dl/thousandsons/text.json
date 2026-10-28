@@ -1,728 +1,738 @@
 {
-    "filenames": {
-        "combat": [
-            [
-                "s1.jpg",
-                "s2.jpg",
-                "s3.jpg",
-                "s4.jpg",
-                "s5.jpg"
-            ],
-            [
-                "t0_1.jpg",
-                "t0_2.jpg",
-                "t0_3.jpg",
-                "t0_4.jpg"
-            ],
-            [
-                "t2_1.jpg",
-                "t2_2.jpg",
-                "t2_3.jpg"
-            ],
-            [
-                "t3_1.jpg",
-                "t3_2.jpg"
-            ]
-        ],
-        "orders": [
-            "o_1.jpg",
-            "o_2.jpg",
-            "o_3.jpg",
-            "o_4.jpg",
-            "o_5.jpg"
-        ],
-        "events": [
-            "e_1.jpg",
-            "e_2.jpg",
-            "e_3.jpg",
-            "e_4.jpg",
-            "e_5.jpg",
-            "e_6.jpg",
-            "e_7.jpg",
-            "e_8.jpg",
-            "e_9.jpg"
-        ],
-        "faction_card": [
-            "sheet_front_1.jpg",
-            "sheet_back_1.jpg"
-        ],
-        "backs": [
-            "combat.jpg",
-            "order.jpg",
-            "event.jpg"
-        ],
-        "map": [
-            "map_A.jpg",
-            "map_B.jpg"
-        ]
+  "filenames": {
+    "combat": [
+      [
+        "s1.jpg",
+        "s2.jpg",
+        "s3.jpg",
+        "s4.jpg",
+        "s5.jpg"
+      ],
+      [
+        "t0_1.jpg",
+        "t0_2.jpg",
+        "t0_3.jpg",
+        "t0_4.jpg"
+      ],
+      [
+        "t2_1.jpg",
+        "t2_2.jpg",
+        "t2_3.jpg"
+      ],
+      [
+        "t3_1.jpg",
+        "t3_2.jpg"
+      ]
+    ],
+    "orders": [
+      "o_1.jpg",
+      "o_2.jpg",
+      "o_3.jpg",
+      "o_4.jpg",
+      "o_5.jpg"
+    ],
+    "events": [
+      "e_1.jpg",
+      "e_2.jpg",
+      "e_3.jpg",
+      "e_4.jpg",
+      "e_5.jpg",
+      "e_6.jpg",
+      "e_7.jpg",
+      "e_8.jpg",
+      "e_9.jpg"
+    ],
+    "backs": [
+      "combat.jpg",
+      "order.jpg",
+      "event.jpg"
+    ],
+    "faction_card": [
+      "sheet_front_1.jpg",
+      "sheet_back_1.jpg"
+    ],
+    "map": [
+      "map_A.jpg",
+      "map_B.jpg"
+    ]
+  },
+  "rasterText": true,
+  "tierLabels": [
+    "Стартовые",
+    "Командный уровень 0",
+    "Командный уровень 2",
+    "Командный уровень 3"
+  ],
+  "combatText": [
+    [
+      {
+        "title": "Посох перемен",
+        "general": "Получите 1 (B) или 1 (S). *newpara* Если вы атакуете, противник сбрасывает свою закрытую боевую карту и выбирает другую боевую карту, чтобы разыграть её закрытой. В конце этого раунда битвы он может вернуть сброшенную карту в руку.",
+        "unit": "Тзаангор/Фрегат: Получите 1 [D] или 2 (S).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_1.jpg"
+      },
+      {
+        "title": "Смена планов",
+        "general": "Если вы атакуете, получите 1 [D] или вынудите противника потерять 1 [M]. *newpara* Если вы защищаетесь, вы можете разыграть любую другую карту с руки. Если вы это сделали, не применяйте способность отряда этой карты.",
+        "unit": "Тзаангор/Фрегат: Получите 1 [D] и 2 (S).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_2.jpg"
+      },
+      {
+        "title": "Принять хаос",
+        "general": "Получите 1 [D]. *newpara* Перебросьте до 2 кубов.",
+        "unit": "Тзаангор/Фрегат: Получите 1 [D] и отступите 1 вашим отрядом. *newpara* Противник может выбрать и отступить 1 своим отрядом, чтобы получить 1 [D]. Если он этого не делает, он теряет 1 куб по своему выбору.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_3.jpg"
+      },
+      {
+        "title": "Восполнение потерь",
+        "general": "Переверните 1 ваш [B] на [M].",
+        "unit": "Тзаангор/Фрегат: Если в этом раунде битвы уничтожен хотя бы 1 ваш отряд, в конце шага нанесения повреждений разместите 1 бесплатный отряд с командным уровнем 0 в этой области.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_4.jpg"
+      },
+      {
+        "title": "Пронизанные прахом",
+        "general": "Вынудите противника выбрать и раскрыть 1 боевую карту с руки. Во время следующего шага выбора боевых карт он обязан разыграть эту карту вместо любой другой. Получите боевые значки этой карты на время текущего раунда битвы.",
+        "unit": "Тзаангор/Рубрикатор/Фрегат: Получите 2 (B).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_5.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Стая тзаангоров",
+        "general": "Разместите 1 бесплатный жетон подкрепления в этой области.",
+        "unit": "Тзаангор: Получите по 1 (B) за каждого вашего недеморализованного Тзаангора.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_1.jpg"
+      },
+      {
+        "title": "Ужасающая иллюзия",
+        "general": "Получите 1 [B], 1 [S] или 1 [M]. *newpara* Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд.",
+        "unit": "Тзаангор/Рубрикатор/Фрегат: Если у противника есть хотя бы 2 отряда, вынудите его выбрать и отступить 1 его деморализованным отрядом.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_2.jpg"
+      },
+      {
+        "title": "Всё есть прах",
+        "general": "В этом раунде битвы, когда уничтожен 1 ваш Рубрикатор, вы можете вернуть его в эту область деморализованным.",
+        "unit": "Рубрикатор/Фрегат: Получите 1 [D] или 2 (B).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_3.jpg"
+      },
+      {
+        "title": "Тёмный портал",
+        "general": "Возьмите 1 Тзаангора или 1 Рубрикатора из любого мира и разместите его в этом мире. *newpara* Возьмите 1 ваш отряд и разместите его в дружественном мире.",
+        "unit": "Тзаангор/Рубрикатор/Фрегат: Переверните 1 ваш [B] на [M]. *newpara* Потратьте 1 [S], чтобы получить 2 (S).",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_4.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Возрождение из праха",
+        "general": "Получите 2 (B). *newline* Если в этом раунде битвы уничтожены ваши отряды, в конце шага нанесения повреждений вы можете разместить их все в неоспариваемом дружественном мире с городом.",
+        "unit": "Колдун: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Уничтожьте 1 ваш отряд, чтобы разместить 2 бесплатных жетона подкрепления в этом мире.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_1.jpg"
+      },
+      {
+        "title": "Возвращение в прах",
+        "general": "Получите 2 (B) или в следующем раунде битвы получите по 1 (B) за каждый урон, понесённый вами в текущем раунде, максимум 4 (B).",
+        "unit": "Колдун/Серебряная Башня: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Когда в этом раунде битвы уничтожен 1 ваш отряд, вы можете потратить 1 ваш куб, чтобы вернуть этот отряд в эту область деморализованным.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_2.jpg"
+      },
+      {
+        "title": "Тёмное влияние",
+        "general": "Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд. *newline* Переверните 1 куб противника на [M].",
+        "unit": "Колдун/Серебряная Башня: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Потратьте 1 [M] противника, чтобы вынудить его выбрать и уничтожить 1 его отряд с командным уровнем 0.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_3.jpg"
+      }
+    ],
+    [
+      {
+        "title": "Последнее проклятие",
+        "general": "Получите 1 [D]. *newpara* Перебросьте до 3 кубов.",
+        "unit": "Владыка Перемен/Серебряная Башня: Получите 2 (B). *newpara* В этом раунде битвы, если уничтожен Владыка Перемен, уничтожьте 1 вражеский отряд.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t3_1.jpg"
+      },
+      {
+        "title": "Хаотичное будущее",
+        "general": "Получите 2 (S).",
+        "unit": "Владыка Перемен/Серебряная Башня: Перебросьте все ваши кубы. Получите по 1 (B) за каждый выпавший [B] и по 1 (S) за каждый выпавший [S]. Каждый из ваших кубов вы можете перебросить ещё 1 раз, но за этот переброс дополнительные жетоны не получаете.",
+        "icons": "",
+        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t3_2.jpg"
+      }
+    ]
+  ],
+  "ordersText": [
+    {
+      "title": "Тысяча планов",
+      "general": "Когда вы раскрываете этот жетон приказа, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_1.jpg"
     },
-    "rasterText": true,
-    "tierLabels": [
-        "Стартовые",
-        "Командный уровень 0",
-        "Командный уровень 2",
-        "Командный уровень 3"
-    ],
-    "combatText": [
-        [
-            {
-                "title": "Посох перемен",
-                "general": "Получите 1 (B) или 1 (S). *newpara* Если вы атакуете, противник сбрасывает свою закрытую боевую карту и выбирает другую боевую карту, чтобы разыграть её закрытой. В конце этого раунда битвы он может вернуть сброшенную карту в руку.",
-                "unit": "Тзаангор/Фрегат: Получите 1 [D] или 2 (S).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_1.jpg"
-            },
-            {
-                "title": "Смена планов",
-                "general": "Если вы атакуете, получите 1 [D] или вынудите противника потерять 1 [M]. *newpara* Если вы защищаетесь, вы можете разыграть любую другую карту с руки. Если вы это сделали, не применяйте способность отряда этой карты.",
-                "unit": "Тзаангор/Фрегат: Получите 1 [D] и 2 (S).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_2.jpg"
-            },
-            {
-                "title": "Принять хаос",
-                "general": "Получите 1 [D]. *newpara* Перебросьте до 2 кубов.",
-                "unit": "Тзаангор/Фрегат: Получите 1 [D] и отступите 1 вашим отрядом. *newpara* Противник может выбрать и отступить 1 своим отрядом, чтобы получить 1 [D]. Если он этого не делает, он теряет 1 куб по своему выбору.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_3.jpg"
-            },
-            {
-                "title": "Восполнение потерь",
-                "general": "Переверните 1 ваш [B] на [M].",
-                "unit": "Тзаангор/Фрегат: Если в этом раунде битвы уничтожен хотя бы 1 ваш отряд, в конце шага нанесения повреждений разместите 1 бесплатный отряд с командным уровнем 0 в этой области.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_4.jpg"
-            },
-            {
-                "title": "Пронизанные прахом",
-                "general": "Вынудите противника выбрать и раскрыть 1 боевую карту с руки. Во время следующего шага выбора боевых карт он обязан разыграть эту карту вместо любой другой. Получите боевые значки этой карты на время текущего раунда битвы.",
-                "unit": "Тзаангор/Рубрикатор/Фрегат: Получите 2 (B).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/s_5.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Стая тзаангоров",
-                "general": "Разместите 1 бесплатный жетон подкрепления в этой области.",
-                "unit": "Тзаангор: Получите по 1 (B) за каждого вашего недеморализованного Тзаангора.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_1.jpg"
-            },
-            {
-                "title": "Ужасающая иллюзия",
-                "general": "Получите 1 [B], 1 [S] или 1 [M]. *newpara* Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд.",
-                "unit": "Тзаангор/Рубрикатор/Фрегат: Если у противника есть хотя бы 2 отряда, вынудите его выбрать и отступить 1 его деморализованным отрядом.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_2.jpg"
-            },
-            {
-                "title": "Всё есть прах",
-                "general": "В этом раунде битвы, когда уничтожен 1 ваш Рубрикатор, вы можете вернуть его в эту область деморализованным.",
-                "unit": "Рубрикатор/Фрегат: Получите 1 [D] или 2 (B).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_3.jpg"
-            },
-            {
-                "title": "Тёмный портал",
-                "general": "Возьмите 1 Тзаангора или 1 Рубрикатора из любого мира и разместите его в этом мире. *newpara* Возьмите 1 ваш отряд и разместите его в дружественном мире.",
-                "unit": "Тзаангор/Рубрикатор/Фрегат: Переверните 1 ваш [B] на [M]. *newpara* Потратьте 1 [S], чтобы получить 2 (S).",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t0_4.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Возрождение из праха",
-                "general": "Получите 2 (B). *newline* Если в этом раунде битвы уничтожены ваши отряды, в конце шага нанесения повреждений вы можете разместить их все в неоспариваемом дружественном мире с городом.",
-                "unit": "Колдун: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Уничтожьте 1 ваш отряд, чтобы разместить 2 бесплатных жетона подкрепления в этом мире.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_1.jpg"
-            },
-            {
-                "title": "Возвращение в прах",
-                "general": "Получите 2 (B) или в следующем раунде битвы получите по 1 (B) за каждый урон, понесённый вами в текущем раунде, максимум 4 (B).",
-                "unit": "Колдун/Серебряная Башня: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Когда в этом раунде битвы уничтожен 1 ваш отряд, вы можете потратить 1 ваш куб, чтобы вернуть этот отряд в эту область деморализованным.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_2.jpg"
-            },
-            {
-                "title": "Тёмное влияние",
-                "general": "Потратьте 1 [M], чтобы вынудить противника выбрать и деморализовать 1 его отряд. *newline* Переверните 1 куб противника на [M].",
-                "unit": "Колдун/Серебряная Башня: В этом раунде битвы показатель здоровья Рубрикаторов увеличен на 1. *newline* Потратьте 1 [M] противника, чтобы вынудить его выбрать и уничтожить 1 его отряд с командным уровнем 0.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t2_3.jpg"
-            }
-        ],
-        [
-            {
-                "title": "Последнее проклятие",
-                "general": "Получите 1 [D]. *newpara* Перебросьте до 3 кубов.",
-                "unit": "Владыка Перемен/Серебряная Башня: Получите 2 (B). *newpara* В этом раунде битвы, если уничтожен Владыка Перемен, уничтожьте 1 вражеский отряд.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t3_1.jpg"
-            },
-            {
-                "title": "Хаотичное будущее",
-                "general": "Получите 2 (S).",
-                "unit": "Владыка Перемен/Серебряная Башня: Перебросьте все ваши кубы. Получите по 1 (B) за каждый выпавший [B] и по 1 (S) за каждый выпавший [S]. Каждый из ваших кубов вы можете перебросить ещё 1 раз, но за этот переброс дополнительные жетоны не получаете.",
-                "icons": "",
-                "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/combat/t3_2.jpg"
-            }
-        ]
-    ],
-    "ordersText": [
-        {
-            "title": "Тысяча планов",
-            "general": "Когда вы раскрываете этот жетон приказа, вы можете разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_1.jpg"
-        },
-        {
-            "title": "Мастер обмана",
-            "general": "После выполнения этого приказа вы можете взять 1 ваш жетон приказа с верха стека и разместить его в любой соседней с ним системе без жетонов приказов. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_2.jpg"
-        },
-        {
-            "title": "Песочные часы маната",
-            "general": "Во время выполнения этого приказа, один раз за битву, когда уничтожен 1 ваш отряд, вы можете вернуть этот отряд в ту же область деморализованным. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_3.jpg"
-        },
-        {
-            "title": "Удар из прошлого",
-            "general": "После выполнения этого орбитального удара вы можете применить способность своей фракции и разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_4.jpg"
-        },
-        {
-            "title": "Временной варп-удар",
-            "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время этого орбитального удара вы можете вместо обычного броска бросить столько кубов, каков суммарный боевой показатель всех дружественных деморализованных и недеморализованных кораблей в этой системе. *newline* ОДИН РАЗ ЗА РАУНД.",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_5.jpg"
-        }
-    ],
-    "eventsText": [
-        {
-            "title": "Времена перемен",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* Перед размещением приказа в Фазу Планирования вы можете сбросить эту карту, чтобы раскрыть 1 ваш Приказ Планирования из игровой зоны и разместить его закрытым поверх любого стека приказов.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_1.jpg"
-        },
-        {
-            "title": "Всего лишь бессмертие",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* Когда во время битвы уничтожен Рубрикатор, вы можете сбросить эту карту, чтобы разместить 1 бесплатного Рубрикатора в том же мире.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_2.jpg"
-        },
-        {
-            "title": "Стирание из бытия",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* После применения любой вашей боевой карты вы можете сбросить эту карту, чтобы вынудить противника немедленно понести урон. Пропустите шаг нанесения повреждений для противника в этом раунде битвы.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_3.jpg"
-        },
-        {
-            "title": "Изменяющий пути",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* В конце раунда игры вы можете сбросить эту карту, чтобы выбрать игрока. В начале следующего раунда игры этот игрок получает жетон первого игрока.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_4.jpg"
-        },
-        {
-            "title": "Временной стазис",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* В начале шага нанесения повреждений битвы вы можете сбросить эту карту, чтобы выбрать 1 открытую боевую карту противника. Противник возвращает эту карту в руку.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_5.jpg"
-        },
-        {
-            "title": "Портал перемен",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* Во время выполнения Приказа Продвижения, после перемещения отрядов вы можете взять до 2 отрядов из 1 дружественного мира и разместить их в 1 мире, из которого переместились ваши отряды.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_6.jpg"
-        },
-        {
-            "title": "Переход к насилию",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* Вместо раскрытия приказа в Фазу Действий вы можете сбросить эту карту и убрать 1 ваш жетон приказа с верха стека, чтобы разместить 1 ваш жетон приказа из игровой зоны в любой системе без жетонов приказов.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_7.jpg"
-        },
-        {
-            "title": "Незаписанные истории",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* После шага броска кубов битвы вы можете сбросить эту карту, чтобы заменить 1 пару боевых карт в боевой колоде противника на 1 пару боевых карт того же командного уровня из его колоды улучшений.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_8.jpg"
-        },
-        {
-            "title": "Девятикратный план",
-            "general": "Разместите эту карту в своей игровой зоне. *newpara* Вместо раскрытия приказа в Фазу Действий вы можете сбросить эту карту, чтобы взять 2 верхние карты вашей колоды событий. Примените способность 1 из них, а другую сбросьте.",
-            "type": "ПЛАН",
-            "raster": true,
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_9.jpg"
-        }
-    ],
-    "componentsText": {
-        "faction_card/sheet_front_1.jpg": {
-            "title": "ТЫСЯЧА СЫНОВ · Лист фракции: способности и отряды",
-            "regions": [
-                {
-                    "box": [
-                        0.416,
-                        0.303,
-                        0.218,
-                        0.24
-                    ],
-                    "role": "ability",
-                    "paperBox": [0.416, 0.303, 0.218, 0.177],
-                    "bodyBox": [0.426, 0.385, 0.198, 0.093]
-                },
-                {
-                    "box": [
-                        0.432,
-                        0.604,
-                        0.185,
-                        0.031
-                    ],
-                    "value": "ЖЕТОНЫ ЦЕЛЕЙ",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.772,
-                        0.102,
-                        0.037,
-                        0.021
-                    ],
-                    "value": "ГОРОД",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.9,
-                        0.102,
-                        0.041,
-                        0.021
-                    ],
-                    "value": "ФАБРИКА",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.2,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "БАСТИОН",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.301,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ТЗААНГОР",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.402,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "РУБРИКАНСКИЙ ФРЕГАТ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.503,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "РУБРИКАТОР",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.6040000000000001,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ВОЗВЫШЕННЫЙ КОЛДУН",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.7050000000000001,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "СЕРЕБРЯНАЯ БАШНЯ",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.782,
-                        0.806,
-                        0.149,
-                        0.026
-                    ],
-                    "value": "ВЛАДЫКА ПЕРЕМЕН",
-                    "font": "Headline",
-                    "size": 0.017,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                }
-            ],
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg",
-            "side": "front"
-        },
-        "faction_card/sheet_back_1.jpg": {
-            "title": "ТЫСЯЧА СЫНОВ · Начальные силы и история",
-            "regions": [
-                {
-                    "box": [
-                        0.109,
-                        0.294,
-                        0.211,
-                        0.041
-                    ],
-                    "value": "НАЧАЛЬНЫЕ СИЛЫ",
-                    "font": "Headline",
-                    "size": 0.031,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center"
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.355,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Тзаангоры",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.45999999999999996,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Рубриканский Фрегат",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.565,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Рубрикатор",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.6699999999999999,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Фабрика",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.195,
-                        0.7749999999999999,
-                        0.123,
-                        0.058
-                    ],
-                    "value": "Материалы",
-                    "font": "Headline",
-                    "size": 0.026,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "heading",
-                    "align": "center",
-                    "wrap": true
-                },
-                {
-                    "box": [
-                        0.442,
-                        0.231,
-                        0.309,
-                        0.313
-                    ],
-                    "value": "Девять перемен, рождённых огнём. *newline* Девять лживых имён, что звучат шепотком. *newline* Девять слов, переплетённых во фразах. *newline* Девять путей в лабиринтах рассказа. *newline* Девять масок — и каждая лик-ловушка. *newline* Девять загадок, дарованных в молитве. *newline* Девять видений в зеркальном стекле. *newline* Девять грядущих, не сбыться ни одному. *newpara* Девять… *newpara* Тсатик Вхор, Возвышенный Колдун Культа Времени",
-                    "font": "EventFont",
-                    "size": 0.023,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "lore"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.572,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Афанейские свитки: Свитки переписывают себя каждую секунду. Завладейте ими, пока их пророчества не канули в забвение!",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.6679999999999999,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Эхо Просперо: Пусть имя Просперо не отзовётся на этой земле, иначе прошлое поглотит её огнём и пеплом.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.499,
-                        0.764,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Пирамида Изменяющего: В Пирамиде ткань времени становится хрупкой и нестабильной. Сохраните её пламя, иначе рискуете кануть в небытие.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.572,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Сфера Рубрики: В бурлящих глубинах сферы заточены отголоски душ, поглощённых Рубрикой. Их ярость готова сжечь цепи реальности.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.6679999999999999,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Диски Тзинча: Диски гудят отголосками грядущего, в них сталкиваются прошлое и будущее. Верните их, пока не разбились песочные часы.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "objective"
-                },
-                {
-                    "box": [
-                        0.77,
-                        0.764,
-                        0.144,
-                        0.065
-                    ],
-                    "value": "Связать тень Варпа: Подчините прилив тени, прежде чем враг осквернит её вневременной пульс и разрушит то, чего никогда не должно было быть.",
-                    "font": "EventFont",
-                    "size": 0.013,
-                    "fill": "#88b0c4",
-                    "ink": "#15120c",
-                    "role": "objective"
-                }
-            ],
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_back_1.jpg",
-            "side": "back"
-        },
-        "maps/map_A.jpg": {
-            "title": "ТЫСЯЧА СЫНОВ · Домашняя система А",
-            "regions": [],
-            "general": "The Screaming Vortex — Кричащий Вихрь *newpara* Dianixis — Дианиксис *newpara* Dessimar — Дессимар *newpara* Q'Sal — К’Сал",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/maps/system_tile_front_1.jpg",
-            "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
-            "names": [
-                {
-                    "originalName": "The Screaming Vortex",
-                    "ruDraft": "Кричащий Вихрь"
-                },
-                {
-                    "originalName": "Dianixis",
-                    "ruDraft": "Дианиксис"
-                },
-                {
-                    "originalName": "Dessimar",
-                    "ruDraft": "Дессимар"
-                },
-                {
-                    "originalName": "Q'Sal",
-                    "ruDraft": "К’Сал"
-                }
-            ]
-        },
-        "maps/map_B.jpg": {
-            "title": "ТЫСЯЧА СЫНОВ · Домашняя система Б",
-            "regions": [],
-            "general": "Ultimatus — Ультиматус *newpara* Immaterial Rift — Разлом Имматериума *newpara* Dessimar — Дессимар *newpara* Sortiarius — Сортиариус",
-            "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/maps/system_tile_back_1.jpg",
-            "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
-            "names": [
-                {
-                    "originalName": "Ultimatus",
-                    "ruDraft": "Ультиматус"
-                },
-                {
-                    "originalName": "Immaterial Rift",
-                    "ruDraft": "Разлом Имматериума"
-                },
-                {
-                    "originalName": "Dessimar",
-                    "ruDraft": "Дессимар"
-                },
-                {
-                    "originalName": "Sortiarius",
-                    "ruDraft": "Сортиариус"
-                }
-            ]
-        }
+    {
+      "title": "Мастер обмана",
+      "general": "После выполнения этого приказа вы можете взять 1 ваш жетон приказа с верха стека и разместить его в любой соседней с ним системе без жетонов приказов. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_2.jpg"
     },
-    "materialsText": [
-        {
-            "label": "Тзаангор",
-            "value": "9"
-        },
-        {
-            "label": "Рубриканский Фрегат",
-            "value": "3"
-        },
-        {
-            "label": "Рубрикатор",
-            "value": "6"
-        },
-        {
-            "label": "Возвышенный Колдун",
-            "value": "2"
-        },
-        {
-            "label": "Серебряная Башня",
-            "value": "2"
-        },
-        {
-            "label": "Владыка Перемен",
-            "value": "3"
-        }
-    ],
-    "factionSheet": {
-        "title": "ТЫСЯЧА СЫНОВ",
-        "subtitle": "Культ Времени",
-        "abilities": [
-            {
-                "title": "Сдвиг времени",
-                "text": "Когда вы выполняете Приказ Доминирования, вы можете взять 1 ваш нераскрытый жетон приказа с верха стека и разместить его на одну позицию ниже в том же стеке. Это может быть стек, из которого раскрыт текущий приказ."
-            }
-        ],
-        "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg"
+    {
+      "title": "Песочные часы маната",
+      "general": "Во время выполнения этого приказа, один раз за битву, когда уничтожен 1 ваш отряд, вы можете вернуть этот отряд в ту же область деморализованным. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_3.jpg"
+    },
+    {
+      "title": "Удар из прошлого",
+      "general": "После выполнения этого орбитального удара вы можете применить способность своей фракции и разместить 1 ваш жетон приказа из игровой зоны поверх вашей колоды событий. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_4.jpg"
+    },
+    {
+      "title": "Временной варп-удар",
+      "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время этого орбитального удара вы можете вместо обычного броска бросить столько кубов, каков суммарный боевой показатель всех дружественных деморализованных и недеморализованных кораблей в этой системе. *newline* ОДИН РАЗ ЗА РАУНД.",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/orders/o_5.jpg"
     }
+  ],
+  "eventsText": [
+    {
+      "title": "Времена перемен",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* Перед размещением приказа в Фазу Планирования вы можете сбросить эту карту, чтобы раскрыть 1 ваш Приказ Планирования из игровой зоны и разместить его закрытым поверх любого стека приказов.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_1.jpg"
+    },
+    {
+      "title": "Всего лишь бессмертие",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* Когда во время битвы уничтожен Рубрикатор, вы можете сбросить эту карту, чтобы разместить 1 бесплатного Рубрикатора в том же мире.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_2.jpg"
+    },
+    {
+      "title": "Стирание из бытия",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* После применения любой вашей боевой карты вы можете сбросить эту карту, чтобы вынудить противника немедленно понести урон. Пропустите шаг нанесения повреждений для противника в этом раунде битвы.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_3.jpg"
+    },
+    {
+      "title": "Изменяющий пути",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* В конце раунда игры вы можете сбросить эту карту, чтобы выбрать игрока. В начале следующего раунда игры этот игрок получает жетон первого игрока.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_4.jpg"
+    },
+    {
+      "title": "Временной стазис",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* В начале шага нанесения повреждений битвы вы можете сбросить эту карту, чтобы выбрать 1 открытую боевую карту противника. Противник возвращает эту карту в руку.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_5.jpg"
+    },
+    {
+      "title": "Портал перемен",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* Во время выполнения Приказа Продвижения, после перемещения отрядов вы можете взять до 2 отрядов из 1 дружественного мира и разместить их в 1 мире, из которого переместились ваши отряды.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_6.jpg"
+    },
+    {
+      "title": "Переход к насилию",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* Вместо раскрытия приказа в Фазу Действий вы можете сбросить эту карту и убрать 1 ваш жетон приказа с верха стека, чтобы разместить 1 ваш жетон приказа из игровой зоны в любой системе без жетонов приказов.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_7.jpg"
+    },
+    {
+      "title": "Незаписанные истории",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* После шага броска кубов битвы вы можете сбросить эту карту, чтобы заменить 1 пару боевых карт в боевой колоде противника на 1 пару боевых карт того же командного уровня из его колоды улучшений.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_8.jpg"
+    },
+    {
+      "title": "Девятикратный план",
+      "general": "Разместите эту карту в своей игровой зоне. *newpara* Вместо раскрытия приказа в Фазу Действий вы можете сбросить эту карту, чтобы взять 2 верхние карты вашей колоды событий. Примените способность 1 из них, а другую сбросьте.",
+      "type": "ПЛАН",
+      "raster": true,
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/events/e_9.jpg"
+    }
+  ],
+  "componentsText": {
+    "faction_card/sheet_front_1.jpg": {
+      "title": "ТЫСЯЧА СЫНОВ · Лист фракции: способности и отряды",
+      "regions": [
+        {
+          "box": [
+            0.416,
+            0.303,
+            0.218,
+            0.24
+          ],
+          "role": "ability",
+          "paperBox": [
+            0.416,
+            0.303,
+            0.218,
+            0.177
+          ],
+          "bodyBox": [
+            0.426,
+            0.385,
+            0.198,
+            0.093
+          ]
+        },
+        {
+          "box": [
+            0.432,
+            0.604,
+            0.185,
+            0.031
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ЖЕТОНЫ ЦЕЛЕЙ"
+        },
+        {
+          "box": [
+            0.772,
+            0.102,
+            0.037,
+            0.021
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ГОРОД"
+        },
+        {
+          "box": [
+            0.9,
+            0.102,
+            0.041,
+            0.021
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ФАБРИКА"
+        },
+        {
+          "box": [
+            0.782,
+            0.2,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "БАСТИОН"
+        },
+        {
+          "box": [
+            0.782,
+            0.301,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ТЗААНГОР"
+        },
+        {
+          "box": [
+            0.782,
+            0.402,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "РУБРИКАНСКИЙ ФРЕГАТ"
+        },
+        {
+          "box": [
+            0.782,
+            0.503,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "РУБРИКАТОР"
+        },
+        {
+          "box": [
+            0.782,
+            0.6040000000000001,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ВОЗВЫШЕННЫЙ КОЛДУН"
+        },
+        {
+          "box": [
+            0.782,
+            0.7050000000000001,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "СЕРЕБРЯНАЯ БАШНЯ"
+        },
+        {
+          "box": [
+            0.782,
+            0.806,
+            0.149,
+            0.026
+          ],
+          "font": "Headline",
+          "size": 0.017,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "ВЛАДЫКА ПЕРЕМЕН"
+        }
+      ],
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg",
+      "side": "front"
+    },
+    "faction_card/sheet_back_1.jpg": {
+      "title": "ТЫСЯЧА СЫНОВ · Начальные силы и история",
+      "regions": [
+        {
+          "box": [
+            0.109,
+            0.294,
+            0.211,
+            0.041
+          ],
+          "font": "Headline",
+          "size": 0.031,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "value": "НАЧАЛЬНЫЕ СИЛЫ"
+        },
+        {
+          "box": [
+            0.195,
+            0.355,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Тзаангоры"
+        },
+        {
+          "box": [
+            0.195,
+            0.45999999999999996,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Рубриканский Фрегат"
+        },
+        {
+          "box": [
+            0.195,
+            0.565,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Рубрикатор"
+        },
+        {
+          "box": [
+            0.195,
+            0.6699999999999999,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Фабрика"
+        },
+        {
+          "box": [
+            0.195,
+            0.7749999999999999,
+            0.123,
+            0.058
+          ],
+          "font": "Headline",
+          "size": 0.026,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "heading",
+          "align": "center",
+          "wrap": true,
+          "value": "Материалы"
+        },
+        {
+          "box": [
+            0.442,
+            0.231,
+            0.309,
+            0.313
+          ],
+          "font": "EventFont",
+          "size": 0.023,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "lore",
+          "value": "Девять перемен, рождённых огнём. *newline* Девять лживых имён, что звучат шепотком. *newline* Девять слов, переплетённых во фразах. *newline* Девять путей в лабиринтах рассказа. *newline* Девять масок — и каждая лик-ловушка. *newline* Девять загадок, дарованных в молитве. *newline* Девять видений в зеркальном стекле. *newline* Девять грядущих, не сбыться ни одному. *newpara* Девять… *newpara* Тсатик Вхор, Возвышенный Колдун Культа Времени"
+        },
+        {
+          "box": [
+            0.499,
+            0.572,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Афанейские свитки: Свитки переписывают себя каждую секунду. Завладейте ими, пока их пророчества не канули в забвение!"
+        },
+        {
+          "box": [
+            0.499,
+            0.6679999999999999,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Эхо Просперо: Пусть имя Просперо не отзовётся на этой земле, иначе прошлое поглотит её огнём и пеплом."
+        },
+        {
+          "box": [
+            0.499,
+            0.764,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Пирамида Изменяющего: В Пирамиде ткань времени становится хрупкой и нестабильной. Сохраните её пламя, иначе рискуете кануть в небытие."
+        },
+        {
+          "box": [
+            0.77,
+            0.572,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Сфера Рубрики: В бурлящих глубинах сферы заточены отголоски душ, поглощённых Рубрикой. Их ярость готова сжечь цепи реальности."
+        },
+        {
+          "box": [
+            0.77,
+            0.6679999999999999,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Диски Тзинча: Диски гудят отголосками грядущего, в них сталкиваются прошлое и будущее. Верните их, пока не разбились песочные часы."
+        },
+        {
+          "box": [
+            0.77,
+            0.764,
+            0.144,
+            0.065
+          ],
+          "font": "EventFont",
+          "size": 0.013,
+          "fill": "#88b0c4",
+          "ink": "#15120c",
+          "role": "objective",
+          "value": "Связать тень Варпа: Подчините прилив тени, прежде чем враг осквернит её вневременной пульс и разрушит то, чего никогда не должно было быть."
+        }
+      ],
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_back_1.jpg",
+      "side": "back"
+    },
+    "maps/map_A.jpg": {
+      "title": "ТЫСЯЧА СЫНОВ · Домашняя система А",
+      "regions": [],
+      "general": "The Screaming Vortex — Кричащий Вихрь *newpara* Dianixis — Дианиксис *newpara* Dessimar — Дессимар *newpara* Q'Sal — К’Сал",
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/maps/system_tile_front_1.jpg",
+      "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+      "names": [
+        {
+          "originalName": "The Screaming Vortex",
+          "ruDraft": "Кричащий Вихрь"
+        },
+        {
+          "originalName": "Dianixis",
+          "ruDraft": "Дианиксис"
+        },
+        {
+          "originalName": "Dessimar",
+          "ruDraft": "Дессимар"
+        },
+        {
+          "originalName": "Q'Sal",
+          "ruDraft": "К’Сал"
+        }
+      ]
+    },
+    "maps/map_B.jpg": {
+      "title": "ТЫСЯЧА СЫНОВ · Домашняя система Б",
+      "regions": [],
+      "general": "Ultimatus — Ультиматус *newpara* Immaterial Rift — Разлом Имматериума *newpara* Dessimar — Дессимар *newpara* Sortiarius — Сортиариус",
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/maps/system_tile_back_1.jpg",
+      "notice": "Русские названия приведены в тексте ниже. На растровом тайле сохранены английские подписи: для аккуратной замены нужен исходник без текста.",
+      "names": [
+        {
+          "originalName": "Ultimatus",
+          "ruDraft": "Ультиматус"
+        },
+        {
+          "originalName": "Immaterial Rift",
+          "ruDraft": "Разлом Имматериума"
+        },
+        {
+          "originalName": "Dessimar",
+          "ruDraft": "Дессимар"
+        },
+        {
+          "originalName": "Sortiarius",
+          "ruDraft": "Сортиариус"
+        }
+      ]
+    }
+  },
+  "materialsText": [
+    {
+      "label": "Тзаангор",
+      "value": "9"
+    },
+    {
+      "label": "Рубриканский Фрегат",
+      "value": "3"
+    },
+    {
+      "label": "Рубрикатор",
+      "value": "6"
+    },
+    {
+      "label": "Возвышенный Колдун",
+      "value": "2"
+    },
+    {
+      "label": "Серебряная Башня",
+      "value": "2"
+    },
+    {
+      "label": "Владыка Перемен",
+      "value": "3"
+    }
+  ],
+  "factionSheet": {
+    "title": "ТЫСЯЧА СЫНОВ",
+    "subtitle": "Культ Времени",
+    "abilities": [
+      {
+        "title": "Сдвиг времени",
+        "text": "Когда вы выполняете Приказ Доминирования, вы можете взять 1 ваш нераскрытый жетон приказа с верха стека и разместить его на одну позицию ниже в том же стеке. Это может быть стек, из которого раскрыт текущий приказ."
+      }
+    ],
+    "source": "https://github.com/Frytkownica/Forbidden_Star/blob/a31d0e9dd83d82691389341c7f412d9ff787fdc2/page/factions/dl/thousandsons/faction_card/sheet_front_1.jpg"
+  }
 }

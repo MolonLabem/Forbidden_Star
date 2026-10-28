@@ -37,59 +37,185 @@
   "templates": {
     "combat/s1.jpg": {
       "picture": "pictures/templates/gif/ig/combat/s1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/s1.webp","box":[163,163,745,632],"sha256":"9c3f9d9c796b41584cb98cce853d4e46767f530629697538ebac0019e731a3d3"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/s1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "9c3f9d9c796b41584cb98cce853d4e46767f530629697538ebac0019e731a3d3"
+      }
     },
     "combat/s2.jpg": {
       "picture": "pictures/templates/gif/ig/combat/s2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/s2.webp","box":[163,163,745,680],"sha256":"b9ad2a0c9b2d6388b4b5130b216272c480e2c83343bae3e85753c0ce0a603fac"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/s2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "b9ad2a0c9b2d6388b4b5130b216272c480e2c83343bae3e85753c0ce0a603fac"
+      }
     },
     "combat/s3.jpg": {
       "picture": "pictures/templates/gif/ig/combat/s3.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/s3.webp","box":[163,163,745,680],"sha256":"8bc76382745f4aa4ebfbb9f2454b60559075e2d4ee3e8662ab6e6d838a1c1608"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/s3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "8bc76382745f4aa4ebfbb9f2454b60559075e2d4ee3e8662ab6e6d838a1c1608"
+      }
     },
     "combat/s4.jpg": {
       "picture": "pictures/templates/gif/ig/combat/s4.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/s4.webp","box":[163,163,745,680],"sha256":"2503638323bec386e83438de5f65bd244cc9a47813132e0f16be60f4bf231639"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/s4.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "2503638323bec386e83438de5f65bd244cc9a47813132e0f16be60f4bf231639"
+      }
     },
     "combat/s5.jpg": {
       "picture": "pictures/templates/gif/ig/combat/s5.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/s5.webp","box":[163,163,745,625],"sha256":"943937285b5ca938a04bdce281b972564cfb476ac1f6f472d4b932e4bf3e1f59"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/s5.webp",
+        "box": [
+          163,
+          163,
+          745,
+          625
+        ],
+        "sha256": "943937285b5ca938a04bdce281b972564cfb476ac1f6f472d4b932e4bf3e1f59"
+      }
     },
     "combat/t0_1.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t0_1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t0_1.webp","box":[163,163,745,619],"sha256":"27f4653f8c209d449b7c8fc058aab74f3bcdd94f6e7a9253a99919a9b6404d6b"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t0_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          619
+        ],
+        "sha256": "27f4653f8c209d449b7c8fc058aab74f3bcdd94f6e7a9253a99919a9b6404d6b"
+      }
     },
     "combat/t0_2.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t0_2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t0_2.webp","box":[163,163,745,632],"sha256":"5f6188faf8418bc83911cf0e9e26ebc43793a6c27657f683a6c64b71e3f03315"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t0_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "5f6188faf8418bc83911cf0e9e26ebc43793a6c27657f683a6c64b71e3f03315"
+      }
     },
     "combat/t0_3.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t0_3.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t0_3.webp","box":[163,163,745,632],"sha256":"7117c498350e116db4f4918f4489f40834e2d866c64708497726a1dec98b0212"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t0_3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "7117c498350e116db4f4918f4489f40834e2d866c64708497726a1dec98b0212"
+      }
     },
     "combat/t0_4.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t0_4.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t0_4.webp","box":[163,163,745,794],"sha256":"5bf2d83e0a55941ee3b640ad3113f6335076dc3689baa74cfb8873fedad558f5"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t0_4.webp",
+        "box": [
+          163,
+          163,
+          745,
+          794
+        ],
+        "sha256": "5bf2d83e0a55941ee3b640ad3113f6335076dc3689baa74cfb8873fedad558f5"
+      }
     },
     "combat/t2_1.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t2_1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t2_1.webp","box":[163,163,745,619],"sha256":"1ed5d2e3fddf08f2374a678072d7c4d1a41579d89624769eabf3acfc057deec7"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t2_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          619
+        ],
+        "sha256": "1ed5d2e3fddf08f2374a678072d7c4d1a41579d89624769eabf3acfc057deec7"
+      }
     },
     "combat/t2_2.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t2_2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t2_2.webp","box":[163,163,745,613],"sha256":"062cc126340cecc241203d6ba047e43ec48a5b80aaf5534d9ee590b1240d9dc5"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t2_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          613
+        ],
+        "sha256": "062cc126340cecc241203d6ba047e43ec48a5b80aaf5534d9ee590b1240d9dc5"
+      }
     },
     "combat/t2_3.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t2_3.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t2_3.webp","box":[163,163,745,699],"sha256":"0fb8855683e8a019b12e68ebd75a80cb86657da082ec6cf27a7140d5515115c4"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t2_3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          699
+        ],
+        "sha256": "0fb8855683e8a019b12e68ebd75a80cb86657da082ec6cf27a7140d5515115c4"
+      }
     },
     "combat/t3_1.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t3_1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t3_1.webp","box":[163,163,745,625],"sha256":"f175803e77572f22f11463c492070f53fe716d3198171805b944f9a6f7de38b3"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t3_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          625
+        ],
+        "sha256": "f175803e77572f22f11463c492070f53fe716d3198171805b944f9a6f7de38b3"
+      }
     },
     "combat/t3_2.jpg": {
       "picture": "pictures/templates/gif/ig/combat/t3_2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/ig/combat/t3_2.webp","box":[163,163,745,625],"sha256":"9841015850798ed575f350a865f90dd0c7ad19238ef282d5b19caa8693786427"}
+      "artwork": {
+        "src": "pictures/artwork/gif/ig/combat/t3_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          625
+        ],
+        "sha256": "9841015850798ed575f350a865f90dd0c7ad19238ef282d5b19caa8693786427"
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1380,39 +1506,100 @@
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
   },
-    "factionSheet": {
-        "title": "ИМПЕРСКАЯ ГВАРДИЯ",
-        "subtitle": "Легион Тиранов",
-        "abilities": [
-            {
-                "title": "Массовое Производство",
-                "text": "Во время выполнения Приказа Доминирования вы можете выполнить Приказ Развёртывания, но только чтобы купить 2 или более одинаковых отрядов и разместить их либо в одном дружественном мире с постройкой, либо в одной дружественной или неконтролируемой пустоте в активной системе. Уменьшите стоимость каждого отряда на 1. Вы можете использовать жетоны запасов, чтобы уменьшить стоимость двух отрядов с командным уровнем 0 на 1 каждый."
-            }
-        ],
-        "source": "factions/gif/ig/faction_card/card.jpg"
-    },
-    "componentsText": {
-        "faction_card/card.jpg": {
-            "views": [
-                {
-                    "side": "front",
-                    "crop": [
-                        0,
-                        0,
-                        1,
-                        0.5
-                    ]
-                },
-                {
-                    "side": "back",
-                    "crop": [
-                        0,
-                        0.5,
-                        1,
-                        0.5
-                    ]
-                }
-            ]
+  "factionSheet": {
+    "title": "ИМПЕРСКАЯ ГВАРДИЯ",
+    "subtitle": "Легион Тиранов",
+    "abilities": [
+      {
+        "title": "Массовое Производство",
+        "text": "Во время выполнения Приказа Доминирования вы можете выполнить Приказ Развёртывания, но только чтобы купить 2 или более одинаковых отрядов и разместить их либо в одном дружественном мире с постройкой, либо в одной дружественной или неконтролируемой пустоте в активной системе. Уменьшите стоимость каждого отряда на 1. Вы можете использовать жетоны запасов, чтобы уменьшить стоимость двух отрядов с командным уровнем 0 на 1 каждый."
+      }
+    ],
+    "source": "factions/gif/ig/faction_card/card.jpg"
+  },
+  "componentsText": {
+    "faction_card/card.jpg": {
+      "views": [
+        {
+          "side": "front",
+          "crop": [
+            0,
+            0,
+            1,
+            0.5
+          ]
+        },
+        {
+          "side": "back",
+          "crop": [
+            0,
+            0.5,
+            1,
+            0.5
+          ]
         }
+      ]
     }
+  },
+  "filenames": {
+    "combat": [
+      [
+        "s1.jpg",
+        "s2.jpg",
+        "s3.jpg",
+        "s4.jpg",
+        "s5.jpg"
+      ],
+      [
+        "t0_1.jpg",
+        "t0_2.jpg",
+        "t0_3.jpg",
+        "t0_4.jpg"
+      ],
+      [
+        "t2_1.jpg",
+        "t2_2.jpg",
+        "t2_3.jpg"
+      ],
+      [
+        "t3_1.jpg",
+        "t3_2.jpg"
+      ]
+    ],
+    "orders": [
+      "o_1.jpg",
+      "o_2.jpg",
+      "o_3.jpg",
+      "o_4.jpg",
+      "o_5.jpg"
+    ],
+    "events": [
+      "e_1.jpg",
+      "e_2.jpg",
+      "e_3.jpg",
+      "e_4.jpg",
+      "e_5.jpg",
+      "e_6.jpg",
+      "e_7.jpg",
+      "e_8.jpg"
+    ],
+    "backs": [
+      "combat.jpg",
+      "order.jpg",
+      "event.jpg"
+    ],
+    "faction_card": [
+      "card.jpg"
+    ],
+    "map": [
+      "map_B.jpg",
+      "map_A.jpg"
+    ]
+  },
+  "tierLabels": [
+    "Стартовые",
+    "Уровень 1",
+    "Уровень 2",
+    "Уровень 3"
+  ]
 }

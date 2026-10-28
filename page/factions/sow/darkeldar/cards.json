@@ -1,0 +1,623 @@
+{
+  "$schema": "../../../data/faction.schema.json",
+  "schemaVersion": 2,
+  "id": "sow/darkeldar",
+  "groups": [
+    {
+      "id": "starter",
+      "label": "Стартовые"
+    },
+    {
+      "id": "upgrade-1",
+      "label": "Уровень 1"
+    },
+    {
+      "id": "upgrade-2",
+      "label": "Уровень 2"
+    },
+    {
+      "id": "upgrade-3",
+      "label": "Уровень 3"
+    }
+  ],
+  "cards": [
+    {
+      "id": "sow/darkeldar/combat/s1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s1.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Охота на Слабых",
+        "icons": "B",
+        "general": "Получите 1 [B] или потратьте 1 куб, чтобы восстановить 1 ваш отряд.",
+        "unit": "Кабалит Воин/Крейсер: Получите 1 [D]."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/s2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s2.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Посланники Векта",
+        "icons": "S",
+        "general": "Получите 1 [S]. *newpara* Если у вас есть хотя бы 1 недеморализованный корабль в активной системе, получите 1 жетон подкрепления и вынудите вашего противника сбросить 1 свой жетон подкрепления.",
+        "unit": "Кабалит Воин: Потратьте 1 ваш жетон подкрепления, чтобы бесплатно разместить 1 жетон подкрепления в эту область."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/s3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s3.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Нападение из тени",
+        "icons": "B",
+        "general": "",
+        "unit": "Кабалит Воин/Крейсер: Ваш противник может отступить 1 отрядом. Если он этого не сделал, получите 1 (B) за каждого недеморализованного Кабалита Воина или Крейсер. *newpara* Сбросьте эту карту, чтобы отступить 1 отрядом."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/s4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s4.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Скрытное убийство",
+        "icons": "B",
+        "general": "Получите 1 (B). *newpara* Переверните 1 ваш [M] на [B].",
+        "unit": "Кабалит Воин/Ведьма/Крейсер: Получите 1 (S). *newpara* Вынудите вашего противника перебросить 1 куб на ваш выбор."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/s5",
+      "category": "combat",
+      "asset": {
+        "file": "combat/s5.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "starter",
+      "text": {
+        "title": "Крылатый Удар",
+        "icons": "M",
+        "general": "Получите 1 (B) или возьмите 1 боевую карту.",
+        "unit": "Ведьма/Крейсер: Получите 2 (S) или разыграйте 1 боевую карту с руки. Не применяйте её способности, но получите её боевые значки до конца этой битвы."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t0_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_1.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Упоение резней",
+        "icons": "BB",
+        "general": "Получите 2 (B). Ваш противник может избежать этого эффекта, если потратит 1 [S].",
+        "unit": "Ведьма/Крейсер: Потратьте 1 свой куб, чтобы получить 1 [B] и 1 (S) или 1 [S] и 1 (B)."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t0_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_2.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Тактика рейдеров",
+        "icons": "BS",
+        "general": "Если вы атакуете, получите 2 (B). В первый раз, когда один из ваших отрядов должен быть уничтожен во время шага нанесения повреждений в этом раунде битвы, вы можете вместо этого отступить этим отрядом. *newpara* Если вы защищаетесь, получите 2 (S). Любой отряд противника, деморализованный в этом раунде битвы, уничтожается, если ваш противник не потратит 1 [M].",
+        "unit": ""
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t0_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_3.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Выстрелить и исчезнуть",
+        "icons": "BM",
+        "general": "Получите 1 [B] или 1 [S].",
+        "unit": "Кабалит Воин/Крейсер: Ваш противник может отступить 1 своим отрядом. Затем вы можете переместить 1 свой отряд в соседнюю дружественную или неконтролируемую область. Если вы это сделали, получите 1 [M] или 2 (B)."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t0_4",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t0_4.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-1",
+      "text": {
+        "title": "Всегда в движении",
+        "icons": "SS",
+        "general": "Если вы атакуете, ваш противник не может получать (B) в этом раунде битвы. *newpara* Если вы защищаетесь, получите 1 [S], а ваш противник теряет 2 (B).",
+        "unit": "Ведьма/Крейсер: Потратьте 1 [M], чтобы бесплатно разместить 1 жетон подкрепления в этой области."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t2_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_1.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Познание агонии",
+        "icons": "BBS",
+        "general": "Вынудите вашего противника потерять 1 [M]. *newpara* До конца этой битвы ваш противник не может получать или тратить [M].",
+        "unit": ""
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t2_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_2.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Мучительные объятия",
+        "icons": "SSM",
+        "general": "Ваш противник может выбрать и отступить 1 своим отрядом. Если он этого не сделал, вынудите его потерять 1 [B] или 1 [M].",
+        "unit": "Опустошитель/Гаснущее Солнце: Если у вас меньше [M], чем у вашего противника, ваш противник теряет 1 [M]. В противном случае получите 2 (B) и 1 (S)."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t2_3",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t2_3.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-2",
+      "text": {
+        "title": "Добить поодиночке",
+        "icons": "BBM",
+        "general": "Ваш противник может выбрать и отступить 1 своим отрядом. Если он этого не сделал, вынудите его потерять 1 [S] или 1 [M].",
+        "unit": "Опустошитель/Гаснущее Солнце: Получите 1 (B) и 2 (S). Ваш противник может избежать этого эффекта, если уничтожит 1 свой отряд."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t3_1",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_1.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Шквал жестокости",
+        "icons": "BBSM",
+        "general": "Переместите 1 Опустошителя или 1 свой корабль из области активной или соседней системы в эту область. Если вы это сделали, получите 2 [D].",
+        "unit": "Опустошитель: Бесплатно разместите 1 жетон подкрепления в эту область. *newline* Вынудите вашего противника потерять 1 [S]. *newpara* Гаснущее Солнце: Получите 2 (B)."
+      }
+    },
+    {
+      "id": "sow/darkeldar/combat/t3_2",
+      "category": "combat",
+      "asset": {
+        "file": "combat/t3_2.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "combat"
+      },
+      "group": "upgrade-3",
+      "text": {
+        "title": "Движимые ненавистью",
+        "icons": "BSM",
+        "general": "Получите 2 (B), 2 (S) или потратьте 1 из своих кубов, чтобы получить 2 (B) и 2 (S).",
+        "unit": "Опустошитель/Гаснущее Солнце: Вынудите вашего противника потерять 1 [B], 1 [S] и 1 [M]."
+      }
+    },
+    {
+      "id": "sow/darkeldar/orders/o_1",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_1.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "orders"
+      },
+      "text": {
+        "title": "Охота за рабами",
+        "general": "Если вы выбросили хотя бы 2 [B] во время выполнения этого орбитального удара, получите 1 жетон подкрепления. *newline* ОДИН РАЗ ЗА РАУНД."
+      }
+    },
+    {
+      "id": "sow/darkeldar/orders/o_2",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_2.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "orders"
+      },
+      "text": {
+        "title": "Воплощенная злоба",
+        "general": "После выполнения этого приказа вы можете потратить 1 жетон подкрепления, чтобы бесплатно разместить 1 Кабалита Воина в любом дружественном мире, или бесплатно заменить 1 Кабалита Воина на 1 Ведьму в активной системе. *newline* ОДИН РАЗ ЗА РАУНД."
+      }
+    },
+    {
+      "id": "sow/darkeldar/orders/o_3",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_3.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "orders"
+      },
+      "text": {
+        "title": "Паутина страданий",
+        "general": "Во время выполнения этого приказа вы можете переместить отряды в активную систему из любого количества систем, соседних с активной системой. *newline* ОДИН РАЗ ЗА РАУНД."
+      }
+    },
+    {
+      "id": "sow/darkeldar/orders/o_4",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_4.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "orders"
+      },
+      "text": {
+        "title": "Сила в боли",
+        "general": "Во время выполнения этого приказа ваш командный уровень увеличивается на 1. *newline* ОДИН РАЗ ЗА РАУНД."
+      }
+    },
+    {
+      "id": "sow/darkeldar/orders/o_5",
+      "category": "orders",
+      "asset": {
+        "file": "orders/o_5.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "orders"
+      },
+      "text": {
+        "title": "Затмевающий спуск",
+        "general": "Бастионы противника не могут предотвратить этот орбитальный удар. Во время выполнения этого орбитального удара вы можете потратить 1 [B], чтобы переместить 1 из ваших кораблей в активной системе в другую пустоту в активной системе. Это может привести к новой битве по завершении текущего орбитального удара. *newline* ОДИН РАЗ ЗА РАУНД."
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_1",
+      "category": "events",
+      "asset": {
+        "file": "events/e_1.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Рейд из паутины",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Вместо раскрытия одного из ваших приказов в Фазу Действий вы можете сбросить эту карту, чтобы выбрать неконтролируемый мир. Получите ценные ресурсы этого мира и материалы, равные производственному значению этого мира.",
+        "type": "ПЛАН"
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_2",
+      "category": "events",
+      "asset": {
+        "file": "events/e_2.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Генератор теневого поля",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Во время выполнения Приказа Продвижения вы можете сбросить эту карту, чтобы выполнить его шаги в любом порядке. Вы не можете создать оспариваемую область после разрешения битвы.",
+        "type": "ПЛАН"
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_3",
+      "category": "events",
+      "asset": {
+        "file": "events/e_3.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Праздник кровопролития",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* В конце раунда битвы вы можете сбросить эту карту и уничтожить 1 ваш отряд командного уровня 1 или 2, чтобы переместить любое количество ваших отрядов в соседнюю область. Это может начать новую битву после разрешения текущей битвы.",
+        "type": "ПЛАН"
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_4",
+      "category": "events",
+      "asset": {
+        "file": "events/e_4.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Видения Комморы",
+        "general": "Разместите эту карту в своей игровой зоне и сбросьте все ваши прочие планы. *newpara* Вместо размещения жетона приказа во время Фазы Планирования вы можете сбросить эту карту.",
+        "type": "ПЛАН"
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_5",
+      "category": "events",
+      "asset": {
+        "file": "events/e_5.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Торговля рабами",
+        "general": "Потратьте до 2 материалов, чтобы получить 1 ценный ресурс на ваш выбор за каждый потраченный материал, или потратьте до 2 ценных ресурсов, чтобы получить по 2 материала за каждый потраченный ценный ресурс.",
+        "type": "ТАКТИКА"
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_6",
+      "category": "events",
+      "asset": {
+        "file": "events/e_6.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Жуткие Трофеи",
+        "general": "Уничтожьте 1 ваш отряд в любом мире. Получите материалы, равные его материальной стоимости, и жетоны подкрепления, равные значению его боевого духа.",
+        "type": "ТАКТИКА"
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_7",
+      "category": "events",
+      "asset": {
+        "file": "events/e_7.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Убийственное представление",
+        "general": "Купите 1 боевое улучшение. Вы можете тратить жетоны подкрепления, чтобы уменьшить его стоимость на 2 за каждый жетон.",
+        "type": "ТАКТИКА"
+      }
+    },
+    {
+      "id": "sow/darkeldar/events/e_8",
+      "category": "events",
+      "asset": {
+        "file": "events/e_8.jpg",
+        "sourceText": "template"
+      },
+      "render": {
+        "profile": "events"
+      },
+      "text": {
+        "title": "Поддержка Черного Сердца",
+        "general": "Бесплатно разместите 1 Крейсер в любой дружественной пустоте, или потратьте 2 материала и 1 жетон кузницы, чтобы бесплатно заменить 1 Крейсер на 1 Гаснущее Солнце.",
+        "type": "ТАКТИКА"
+      }
+    },
+    {
+      "id": "sow/darkeldar/backs/combat",
+      "category": "backs",
+      "asset": {
+        "file": "backs/combat.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник боевой колоды"
+    },
+    {
+      "id": "sow/darkeldar/backs/order",
+      "category": "backs",
+      "asset": {
+        "file": "backs/order.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды приказов"
+    },
+    {
+      "id": "sow/darkeldar/backs/event",
+      "category": "backs",
+      "asset": {
+        "file": "backs/event.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Задник колоды событий"
+    },
+    {
+      "id": "sow/darkeldar/faction_card/card",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "side": "front",
+        "crop": [
+          0,
+          0,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "sheet"
+      },
+      "text": {
+        "title": "ТЕМНЫЕ ЭЛЬДАРЫ · Способности и отряды"
+      }
+    },
+    {
+      "id": "sow/darkeldar/faction_card/card/back",
+      "category": "faction_card",
+      "asset": {
+        "file": "faction_card/card.jpg",
+        "sourceText": "printed",
+        "query": "?side=back",
+        "side": "back",
+        "crop": [
+          0,
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "render": {
+        "profile": "sheet"
+      },
+      "text": {
+        "title": "ТЕМНЫЕ ЭЛЬДАРЫ · Оборот"
+      }
+    },
+    {
+      "id": "sow/darkeldar/maps/map_B",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_B.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта B"
+    },
+    {
+      "id": "sow/darkeldar/maps/map_A",
+      "category": "map",
+      "asset": {
+        "file": "maps/map_A.jpg",
+        "sourceText": "printed"
+      },
+      "render": {
+        "profile": "image"
+      },
+      "label": "Карта A"
+    }
+  ],
+  "materials": [
+    {
+      "label": "Кабалиты Воины",
+      "value": "6"
+    },
+    {
+      "label": "Крейсеры",
+      "value": "6"
+    },
+    {
+      "label": "Ведьмы",
+      "value": "4"
+    },
+    {
+      "label": "Опустошители",
+      "value": "4"
+    },
+    {
+      "label": "Гаснущие Солнца",
+      "value": "3"
+    }
+  ],
+  "factionSheet": {
+    "title": "ТЕМНЫЕ ЭЛЬДАРЫ",
+    "subtitle": "Кабал Чёрного Сердца",
+    "abilities": [
+      {
+        "title": "Неутолимая Жажда",
+        "text": "Во время выполнения Приказа Доминирования в системе, которая содержит хотя бы один из ваших недеморализованных кораблей, вы можете получить 1 жетон подкрепления за каждый неконтролируемый или вражеский мир в активной системе. Затем вы можете взять один из ваших кораблей из любой пустоты и разместить его в дружественной пустоте в активной системе."
+      }
+    ],
+    "source": "factions/sow/darkeldar/faction_card/card.jpg"
+  },
+  "provenance": {
+    "originalDocument": {
+      "path": "text.json",
+      "revision": "a4d87da474079e4903816d1d0afa1c90657ed503",
+      "sha256": "ceb9b614857284dbdf9aa98140b79361da5900a1ad9c707258771a6dca5910c5"
+    }
+  }
+}

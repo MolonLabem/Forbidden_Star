@@ -37,59 +37,185 @@
   "templates": {
     "combat/s1.jpg": {
       "picture": "pictures/templates/gif/necron/combat/s1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/s1.webp","box":[163,163,745,937],"sha256":"6588a82caa2afbd6a1aa1aeea167c8a56b342f9920db16202caa043d03a70772"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/s1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          937
+        ],
+        "sha256": "6588a82caa2afbd6a1aa1aeea167c8a56b342f9920db16202caa043d03a70772"
+      }
     },
     "combat/s2.jpg": {
       "picture": "pictures/templates/gif/necron/combat/s2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/s2.webp","box":[163,163,745,937],"sha256":"95e6cb08da622b2ae02665c239d5e25d65a2647f9dac676cbe215e24985c2f0a"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/s2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          937
+        ],
+        "sha256": "95e6cb08da622b2ae02665c239d5e25d65a2647f9dac676cbe215e24985c2f0a"
+      }
     },
     "combat/s3.jpg": {
       "picture": "pictures/templates/gif/necron/combat/s3.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/s3.webp","box":[163,163,745,628],"sha256":"6f90e7b081ad115d09822f92742974b3f36d1861787478cc2f10c4abf40c4aa1"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/s3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          628
+        ],
+        "sha256": "6f90e7b081ad115d09822f92742974b3f36d1861787478cc2f10c4abf40c4aa1"
+      }
     },
     "combat/s4.jpg": {
       "picture": "pictures/templates/gif/necron/combat/s4.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/s4.webp","box":[163,163,745,680],"sha256":"e9f21e9f975be51c0babdbc35d0f6eaf66372ab50ae8f86d4b6271b8e5b5eac1"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/s4.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "e9f21e9f975be51c0babdbc35d0f6eaf66372ab50ae8f86d4b6271b8e5b5eac1"
+      }
     },
     "combat/s5.jpg": {
       "picture": "pictures/templates/gif/necron/combat/s5.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/s5.webp","box":[163,163,745,680],"sha256":"b66a50e47cfefdf5a892782f7180695bb8c777c4e072d8674352fd93b0570cf5"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/s5.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "b66a50e47cfefdf5a892782f7180695bb8c777c4e072d8674352fd93b0570cf5"
+      }
     },
     "combat/t0_1.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t0_1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t0_1.webp","box":[163,163,745,889],"sha256":"91a8b73459afa975f749e6f0cd3a681d16e08a1c7d461a635b76204d91b7bf54"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t0_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          889
+        ],
+        "sha256": "91a8b73459afa975f749e6f0cd3a681d16e08a1c7d461a635b76204d91b7bf54"
+      }
     },
     "combat/t0_2.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t0_2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t0_2.webp","box":[163,163,745,632],"sha256":"f97f515df35294949c621475e80c575b88dc33399609cfe304abaf51c16fad56"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t0_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "f97f515df35294949c621475e80c575b88dc33399609cfe304abaf51c16fad56"
+      }
     },
     "combat/t0_3.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t0_3.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t0_3.webp","box":[163,163,745,625],"sha256":"58118e0c687d7e58cb51354f87bedaddb5527dfc03b99dbe8cb2b8b3ba463ca0"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t0_3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          625
+        ],
+        "sha256": "58118e0c687d7e58cb51354f87bedaddb5527dfc03b99dbe8cb2b8b3ba463ca0"
+      }
     },
     "combat/t0_4.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t0_4.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t0_4.webp","box":[163,163,745,889],"sha256":"f80aa9b9e611e26528527d91fdfb7577662b38a7aed10b1e0991308a0463a781"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t0_4.webp",
+        "box": [
+          163,
+          163,
+          745,
+          889
+        ],
+        "sha256": "f80aa9b9e611e26528527d91fdfb7577662b38a7aed10b1e0991308a0463a781"
+      }
     },
     "combat/t2_1.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t2_1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t2_1.webp","box":[163,163,745,680],"sha256":"0f67e06acc998f9b1bb3ce6a216e1816213cccc4ca2e8fdba0eb152e435e9803"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t2_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          680
+        ],
+        "sha256": "0f67e06acc998f9b1bb3ce6a216e1816213cccc4ca2e8fdba0eb152e435e9803"
+      }
     },
     "combat/t2_2.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t2_2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t2_2.webp","box":[163,163,745,612],"sha256":"5d52b78970cccf370cbba0652af383b57ca01558888f437535b23d69a9f34a4e"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t2_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          612
+        ],
+        "sha256": "5d52b78970cccf370cbba0652af383b57ca01558888f437535b23d69a9f34a4e"
+      }
     },
     "combat/t2_3.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t2_3.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t2_3.webp","box":[163,163,745,612],"sha256":"1fae303bfe2301a39de4ffbcd2ec5b7b41742e191bb890b2f995cf2f2333a29d"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t2_3.webp",
+        "box": [
+          163,
+          163,
+          745,
+          612
+        ],
+        "sha256": "1fae303bfe2301a39de4ffbcd2ec5b7b41742e191bb890b2f995cf2f2333a29d"
+      }
     },
     "combat/t3_1.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t3_1.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t3_1.webp","box":[163,163,745,625],"sha256":"953cf3a24e0b257935977438ded99989f1bd3b2c500c0d9ec22e98098363b35f"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t3_1.webp",
+        "box": [
+          163,
+          163,
+          745,
+          625
+        ],
+        "sha256": "953cf3a24e0b257935977438ded99989f1bd3b2c500c0d9ec22e98098363b35f"
+      }
     },
     "combat/t3_2.jpg": {
       "picture": "pictures/templates/gif/necron/combat/t3_2.jpg",
-      "artwork": {"src":"pictures/artwork/gif/necron/combat/t3_2.webp","box":[163,163,745,632],"sha256":"6c32283a13300f931379e7d41d605315b9b37ae4f564cdaeabdb89ea7301c8a9"}
+      "artwork": {
+        "src": "pictures/artwork/gif/necron/combat/t3_2.webp",
+        "box": [
+          163,
+          163,
+          745,
+          632
+        ],
+        "sha256": "6c32283a13300f931379e7d41d605315b9b37ae4f564cdaeabdb89ea7301c8a9"
+      }
     },
     "orders/o_1.jpg": {
       "status": "current-russian-raster-template",
@@ -1380,39 +1506,100 @@
     },
     "policy": "Visual migration only; preserve current Russian wording and approved samples."
   },
-    "factionSheet": {
-        "title": "НЕКРОНЫ",
-        "subtitle": "Династия Саутех",
-        "abilities": [
-            {
-                "title": "Тёмный Портал",
-                "text": "Во время выполнения Приказа Доминирования вы можете забрать любое количество ваших отрядов из одного мира и разместить их в любом дружественном мире активной системы, который содержит постройку."
-            }
-        ],
-        "source": "factions/gif/necron/faction_card/card.jpg"
-    },
-    "componentsText": {
-        "faction_card/card.jpg": {
-            "views": [
-                {
-                    "side": "front",
-                    "crop": [
-                        0,
-                        0,
-                        1,
-                        0.5
-                    ]
-                },
-                {
-                    "side": "back",
-                    "crop": [
-                        0,
-                        0.5,
-                        1,
-                        0.5
-                    ]
-                }
-            ]
+  "factionSheet": {
+    "title": "НЕКРОНЫ",
+    "subtitle": "Династия Саутех",
+    "abilities": [
+      {
+        "title": "Тёмный Портал",
+        "text": "Во время выполнения Приказа Доминирования вы можете забрать любое количество ваших отрядов из одного мира и разместить их в любом дружественном мире активной системы, который содержит постройку."
+      }
+    ],
+    "source": "factions/gif/necron/faction_card/card.jpg"
+  },
+  "componentsText": {
+    "faction_card/card.jpg": {
+      "views": [
+        {
+          "side": "front",
+          "crop": [
+            0,
+            0,
+            1,
+            0.5
+          ]
+        },
+        {
+          "side": "back",
+          "crop": [
+            0,
+            0.5,
+            1,
+            0.5
+          ]
         }
+      ]
     }
+  },
+  "filenames": {
+    "combat": [
+      [
+        "s1.jpg",
+        "s2.jpg",
+        "s3.jpg",
+        "s4.jpg",
+        "s5.jpg"
+      ],
+      [
+        "t0_1.jpg",
+        "t0_2.jpg",
+        "t0_3.jpg",
+        "t0_4.jpg"
+      ],
+      [
+        "t2_1.jpg",
+        "t2_2.jpg",
+        "t2_3.jpg"
+      ],
+      [
+        "t3_1.jpg",
+        "t3_2.jpg"
+      ]
+    ],
+    "orders": [
+      "o_1.jpg",
+      "o_2.jpg",
+      "o_3.jpg",
+      "o_4.jpg",
+      "o_5.jpg"
+    ],
+    "events": [
+      "e_1.jpg",
+      "e_2.jpg",
+      "e_3.jpg",
+      "e_4.jpg",
+      "e_5.jpg",
+      "e_6.jpg",
+      "e_7.jpg",
+      "e_8.jpg"
+    ],
+    "backs": [
+      "combat.jpg",
+      "order.jpg",
+      "event.jpg"
+    ],
+    "faction_card": [
+      "card.jpg"
+    ],
+    "map": [
+      "map_B.jpg",
+      "map_A.jpg"
+    ]
+  },
+  "tierLabels": [
+    "Стартовые",
+    "Уровень 1",
+    "Уровень 2",
+    "Уровень 3"
+  ]
 }
