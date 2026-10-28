@@ -153,7 +153,7 @@
     var bar=element('div','','','fs-print-modebar');bar.hidden=!mode;
     element('span','Отметьте нужные карты',bar);element('strong','Выбрано: '+api.count(),bar,'fs-print-mode-count');
     var feedback=element('span','',bar,'fs-print-feedback');feedback.setAttribute('role','status');
-    var add=button('Вся фракция',bar,async function () {
+    var add=button('Добавить фракцию',bar,async function () {
       add.disabled=true;
       try {var n=await api.addFaction(id);feedback.textContent=n?'Добавлено: '+n:'Фракция уже выбрана';}
       catch(error) {feedback.textContent=error.message;} finally {add.disabled=false;}
@@ -275,9 +275,9 @@
       if(root.IntersectionObserver)thumbObserver=new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {if(entry.isIntersecting){thumbObserver.unobserve(entry.target);loadThumbnail(entry.target.querySelector('img'));}});
       },{root:list,rootMargin:'120px'});
-      var empty=element('div','',cart,'fs-print-empty');element('p','Набор пуст',empty);element('small','Выберите карты галочками в картотеке.',empty);
+      var empty=element('div','',cart,'fs-print-empty');element('p','Карты ещё не выбраны',empty);element('small','Отметьте карты в картотеке или добавьте всю фракцию.',empty);
       var cartActions=element('div','',cart,'fs-print-cart-actions');
-      var addFaction=button('Вся фракция',cartActions,async function () {
+      var addFaction=button('Добавить фракцию',cartActions,async function () {
         try {await api.addFaction(options.factionId);} catch(error) {status.textContent=error.message;}
       });addFaction.hidden=!catalog.factions.some(function (f) {return f.id===options.factionId;});addFaction.title='Боевые карты, приказы и события — по одному экземпляру';
       var clear=button('Очистить',cartActions,api.clear,'fs-print-quiet');
@@ -292,7 +292,7 @@
       var fields=element('div','',advanced,'fs-print-settings');
       var flip=select('Двусторонняя печать',[['long','Переворот по длинной стороне'],['short','Переворот по короткой стороне']],printOptions.flip,fields);
       var margin=element('input','',element('label','Поля, мм',fields));margin.type='number';margin.min='5';margin.max='20';margin.step='.5';margin.value=printOptions.marginMm;margin.setAttribute('aria-label','Поля, мм');
-      var token=select('Жетоны',[['images','Изображения'],['icons','Чёрно-белые символы']],printOptions.tokenStyle,fields);
+      var token=select('Жетоны',[['images','Цветные'],['icons','Чёрно-белые']],printOptions.tokenStyle,fields);
       element('p','Печатайте в масштабе 100%, без подгонки. Размер карты — 63 × 88 мм. Сначала проверьте совмещение сторон на контрольном листе.',advanced);
       var calibrate=button('Скачать контрольный лист',advanced,function () {run(true);},'fs-print-quiet');
       var sides=element('div','',pane,'fs-print-preview-sides'),sheet=0,back=false;
@@ -360,6 +360,8 @@
         try {
           if(!valid()) throw new Error('Укажите целое количество от 1 до 20 и поля от 5 до 20 мм');
           var opts=currentOptions();printOptions=opts;var grid=root.FSPaper.layout(catalog,opts),chosen=items();
+          [sides,stage,navigation,layoutLabel,duplexLabel].forEach(function (node) {node.hidden=!chosen.length;});
+          if(!chosen.length){canvas.setAttribute('aria-busy','false');if(!busy)status.textContent=warning||'';return;}
           var sheets=Math.max(1,Math.ceil(chosen.length/grid.capacity));sheet=Math.max(0,Math.min(sheet,sheets-1));if(!opts.backs) back=false;
           previous.disabled=busy||!sheet;next.disabled=busy||sheet>=sheets-1;
           reverse.hidden=!opts.backs;face.setAttribute('aria-pressed',String(!back));reverse.setAttribute('aria-pressed',String(back));
@@ -382,6 +384,8 @@
       }
       function updateCart() {
         invalidate();qualitySelection=null;var ids=Object.keys(quantities);
+        var focusedRow=document.activeElement&&document.activeElement.closest('.fs-print-row');
+        dialog.classList.toggle('is-empty',!ids.length);
         if(qualityJob&&(qualityJob.style!==token.value||qualityJob.ids!==ids.slice().sort().join('|'))){qualityJob.cancelled=true;qualityJob=null;}
         qualityError='';
         rows.forEach(function (row,id) {if(!ids.includes(id)) {var holder=row.querySelector('.fs-print-thumb');if(thumbObserver&&holder)thumbObserver.unobserve(holder);row.remove();rows.delete(id);}});
@@ -415,9 +419,10 @@
         });
         empty.hidden=!!ids.length;list.hidden=!ids.length;clear.disabled=busy||!ids.length;
         chooseCards.textContent=ids.length?'Выбрать ещё':'Выбрать карты';
+        if(!ids.length&&focusedRow)chooseCards.focus();
         try {
           var count=total(cards,quantities),grid=root.FSPaper.layout(catalog,currentOptions());
-          summary.textContent=count+' экз. · '+ids.length+' разных карт'+(count?' · '+Math.ceil(count/grid.capacity)+' лист.':'');
+          summary.textContent=count?count+' экз. · '+ids.length+' разных карт · '+Math.ceil(count/grid.capacity)+' лист.':'Выберите карты для печати';
           generate.disabled=!busy && (!count || count>200 || !valid());calibrate.disabled=busy||!valid();
         } catch(error) {summary.textContent='Проверьте набор';status.textContent=error.message;generate.disabled=true;}
         showQuality();refreshPreview();

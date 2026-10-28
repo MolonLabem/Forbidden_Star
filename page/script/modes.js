@@ -2,9 +2,9 @@
 (function (root) {
   'use strict';
   var definitions=[
-    {id:'classic',label:'Классический',description:'Исходные изображения карт. На пустых шаблонах SoW текст остаётся динамическим.'},
-    {id:'updated',label:'Обновлённый',description:'Текущие русские тексты и динамическая вёрстка.'},
-    {id:'rnb',label:'RNB',description:'Правила модификации RNB из FS League. Для TDL используется обновлённая версия.'},
+    {id:'classic',label:'Классический',description:'Оригинальные карты. Часть карт — на английском; карты SoW — с русским текстом.'},
+    {id:'updated',label:'Обновлённый',description:'Карты на русском с обновлённым оформлением.'},
+    {id:'rnb',label:'RNB',description:'Карты с правилами RNB из FS League. Для The Dying Light — обновлённые карты.'},
   ];
   function normalize(value) {return definitions.some(function (m) {return m.id===value;})?value:'updated';}
   function label(value) {return definitions.find(function (m) {return m.id===normalize(value);}).label;}
