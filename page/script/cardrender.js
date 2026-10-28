@@ -56,7 +56,8 @@
     },
   };
   var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
-  var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,nativeInsetX:.04};
+  var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,inkPaddingY:.08,typeFaceHeight:.88,nativeInsetX:.04};
+  var RULES_LAYOUT = {fontSize:.03,lineSpacing:.18,minimumSpacing:.12,paragraphGap:.45,insetX:.01,insetY:.004};
   var ORDER_LIMIT = {scale:.8,gap:.1,fontRatio:.023,gapRatio:.016,bottom:.813,lineGap:.008};
 
   function recordInk(ctx, text, x, y, role, align, strokeWidth) {
@@ -79,8 +80,8 @@
   var COMBAT_LAYOUT = {
     maxTextAreaHeight:       0.4,
     readingArea:             {marginX:0.0578,marginY:0.05,lineSpacing:0.0077},
-    textMarginX:             0.045,
-    marginY:                 0.028,  // of width; keep the original-sized type
+    textMarginX:             0.05,
+    marginY:                 0.032,  // of width; keep the original-sized type
     lineSpacing:             0.006,
     fontSize:                0.03,
     marginShrinkFactor:      0.8,
@@ -305,7 +306,7 @@
     if(ctx.fsKind==='overlay'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
       !/[^}{<|#@\uE100-\uE102\uE200-\uE205\s]/.test(text)||
       ctx.fillStyle!=='#000000'&&ctx.fillStyle!=='#15120c')return 0;
-    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*((ctx.fsKind==='combat'||ctx.fsKind==='orders')?.01:.02);
+    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*.01;
   }
 
   function drawPrintedText(ctx,text,x,y) {
@@ -314,7 +315,7 @@
     if(!paper){ctx.fillText(text,x,y);return;}
     // Slightly translucent ink absorbs the existing paper grain and shading.
     // Isolate the blend so token pictures and frame artwork stay untouched.
-    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=(ctx.fsKind==='combat'||ctx.fsKind==='orders')?.95:.98;
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.globalAlpha*=.95;
     var stroke=printedStrokeWidth(ctx,text);
     if(stroke){
       ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';
@@ -629,33 +630,25 @@
     var box = {x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
     var size = ch*(startSize||.05), ink;
     var family=region.font||FONT[role]||FONT.title;
-    var widthScale=role==='type'?.9:1;
     for (var guard=0; guard<160; guard++) {
       ctx.font = (role==='type'?'bold ':'') + size + 'px '+family;
       ink = ctx.measureText(label);
-      if (ink.width*widthScale<=box.width*(1-2*LABEL_LAYOUT.paddingX) && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*(1-2*LABEL_LAYOUT.paddingY)) break;
+      if (ink.width<=box.width*(1-2*LABEL_LAYOUT.paddingX) && ink.actualBoundingBoxAscent+ink.actualBoundingBoxDescent<=box.height*(1-2*LABEL_LAYOUT.inkPaddingY)) break;
       size *= .96;
     }
     ctx.textAlign = 'left';
     var x=region.align==='center' ? box.x+box.width/2+(ink.actualBoundingBoxLeft-ink.actualBoundingBoxRight)/2 : box.x+ink.actualBoundingBoxLeft;
     var y=box.y+box.height/2+(ink.actualBoundingBoxAscent-ink.actualBoundingBoxDescent)/2;
     var bounds;
-    if(role==='type'){
-      x=box.x+box.width/2+(ink.actualBoundingBoxLeft-ink.actualBoundingBoxRight)*widthScale/2;
-      ctx.save();ctx.translate(x,y);ctx.scale(widthScale,1);
-      var stroke=size*.022;
-      bounds=recordInk(ctx,label,0,0,role,region.align,stroke);
-      ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=stroke;ctx.lineJoin='round';
-      ctx.strokeText(label,0,0);ctx.fillText(label,0,0);ctx.restore();
-    }else{
-      bounds=recordInk(ctx,label,x,y,role,region.align);
-      ctx.fillText(label,x,y);
-    }
+    bounds=recordInk(ctx,label,x,y,role,region.align);
+    ctx.fillText(label,x,y);
     if(role==='type')ctx.fsEventType = {box:box,ink:bounds,font:family};
   }
 
   function drawEventType(ctx,label,region) {
-    drawLabel(ctx,label,Object.assign({},region,{align:'center'}),'type',.047);
+    // Center on the lit face of the plate; its lower lip belongs to the shadow.
+    var box=region.box.slice();box[3]*=LABEL_LAYOUT.typeFaceHeight;
+    drawLabel(ctx,label,Object.assign({},region,{box:box,align:'center'}),'type',.04);
   }
 
   function textField(data,kind) {
@@ -716,6 +709,9 @@
     if(region.italicPrefixes===false)ctx.fsItalicPrefixes=false;
     var b=region.box,cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
     var box={x:b[0]*cw,y:b[1]*ch,width:b[2]*cw,height:b[3]*ch};
+    // Keep the translated ink inside the native paper, away from its shadow.
+    box.x+=cw*RULES_LAYOUT.insetX;box.width-=2*cw*RULES_LAYOUT.insetX;
+    box.y+=ch*RULES_LAYOUT.insetY;box.height-=2*ch*RULES_LAYOUT.insetY;
     var footer=order?orderFooter(ctx,text,box):null;
     if(order){
       ctx.fsOrderLimitSize=ch*ORDER_LIMIT.fontRatio;ctx.fsOrderLimitGap=ch*ORDER_LIMIT.gapRatio;
@@ -724,10 +720,9 @@
         box.height=Math.min(box.height,footer.top-ctx.fsOrderLimitGap-box.y);
       }
     }
-    // Orders use compact leading. Events keep the parchment's top inset.
-    var size=ch*(order ? .033 : .03),minimumSpacing=order ? -.1 : .18;
-    var interline=size*(order ? minimumSpacing : .257),height,clearance=order ? .35 : .25;
-    ctx.fsParagraphGap=order ? .35 : .743;
+    var size=ch*RULES_LAYOUT.fontSize,minimumSpacing=RULES_LAYOUT.minimumSpacing;
+    var interline=size*RULES_LAYOUT.lineSpacing,height,clearance=order ? .35 : .25;
+    ctx.fsParagraphGap=RULES_LAYOUT.paragraphGap;
     for(var guard=0;guard<100;guard++){
       height=measureStyledWrappedText(ctx,text,box.width,interline,size);
       if(height+size*clearance<=box.height && ctx.fsMeasuredWidth<=box.width)break;
