@@ -58,6 +58,7 @@
   var FONT = {title:'Headline',type:'EventFont',body:'ForbiddenStars'};
   var LABEL_LAYOUT = {paddingX:.02,paddingY:.05,inkPaddingY:.08,typeFaceHeight:.88,nativeInsetX:.04};
   var RULES_LAYOUT = {fontSize:.03,lineSpacing:.18,minimumSpacing:.12,paragraphGap:.45,insetX:.01,insetY:.004};
+  var SHEET_SIZE = Object.freeze({width:1280,height:770});
   var ORDER_LIMIT = {scale:.8,gap:.1,fontRatio:.023,gapRatio:.016,bottom:.813,lineGap:.008};
 
   function recordInk(ctx, text, x, y, role, align, strokeWidth) {
@@ -162,7 +163,7 @@
       if (p.trim() === '-или-') return [{ text: '-или-', style:'italic' }];
       var ci = p.indexOf(':');
       var prefixStyle=ctx.fsPrefixStyle || (ctx.fsItalicPrefixes === true ? 'italic' : null);
-      if(prefixStyle==='bold') {
+      if(prefixStyle==='bold' || ctx.fsPrefixTitles?.length) {
         // Ability titles are structured data. A colon inside a description or
         // a later paragraph must not turn ordinary rules text into a heading.
         var title=(ctx.fsPrefixTitles||[]).find(function(title){return p.startsWith(title+':');});
@@ -492,7 +493,7 @@
         align:heading?'center':'left'});
     };
     if (text.side === 'front') {
-      regions.push({box:[.404,.328,.218,.214],role:'ability'});
+      regions.push({box:[.404,.328,.218,.214],paperBox:[.404,.328,.226,.214],role:'ability'});
       add([.421,.601,.187,.028],'Жетоны целей',true,.027);
       add([.775,.087,.034,.019],'Город',true,.018);
       add([.906,.087,.037,.019],'Фабрика',true,.018);
@@ -997,7 +998,7 @@
     ctx.fillStyle = region.ink || '#15120c';
     ctx.fsBodyFont = region.role === 'heading' ? FONT.title : region.font || FONT.body;
     ctx.fsBodyWeight = region.weight || (region.role === 'subheading' ? 'bold' : null);
-    ctx.fsPrefixStyle = ['ability','objective'].includes(region.role) ? 'bold' : null;
+    ctx.fsPrefixStyle = ['ability','objective'].includes(region.role) ? (ctx.fsKind==='sheet'?'italic':'bold') : null;
     ctx.fsSheetProse=!!region.prose;
     ctx.fsParagraphGap=region.paragraphGap;
     ctx.fsPrefixTitles = (region.abilities|| (region.role==='objective'?[{title:region.value.split(':')[0]}]:[])).map(function(ability){
@@ -1011,12 +1012,15 @@
     else text=window.FSWord.symbolize(text);
     var size = ch * (region.size || 0.03), margin = Math.min(w, h) * 0.06;
     var maxW = w - margin * 2, maxH = h - margin * 2;
-    var interline = size * 0.12;
+    var leading=ctx.fsKind==='sheet' ? .18 : .12;
+    var interline = size * leading;
     var height = measureStyledWrappedText(ctx, text, maxW, interline, size);
+    if(ctx.fsKind==='sheet')height=Math.max(height,ctx.fsLastTextInkBottom||0);
     var guard = 0;
     while ((height > maxH || ctx.fsMeasuredWidth > maxW) && guard++ < 180) {
-      size *= 0.97; interline = size * 0.12;
+      size *= 0.97; interline = size * leading;
       height = measureStyledWrappedText(ctx, text, maxW, interline, size);
+      if(ctx.fsKind==='sheet')height=Math.max(height,ctx.fsLastTextInkBottom||0);
     }
     if (height > maxH || ctx.fsMeasuredWidth>maxW) throw new Error('Перевод не помещается в текстовую область');
     var top=-h/2+margin;
@@ -1067,14 +1071,14 @@
     ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
     regions.forEach(function (region) {
       if (region.role === 'ability') {
-        var b=region.box,inset=b[2]*.045;
+        var b=region.box,inset=b[2]*.035;
         // Some source illustrations intrude into the panel; their explicit
         // paper/body boxes keep both erasure and translated ink above the art.
         var field=function (y,h) {return [b[0]+inset,b[1]+b[3]*y,b[2]-inset*2,b[3]*h];};
-        drawLabel(ctx,data.sheet.title,{box:field(.07,.13),align:'center'},'heading');
-        var body=drawTextRegion(ctx,{box:region.bodyBox||field(.34,.63),value:data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
-          role:'ability',abilities:data.sheet.abilities,font:FONT.type,prose:true,transparent:true,size:.019,paragraphGap:.35},data.wording);
-        drawTextRegion(ctx,{box:field(.23,.075),value:data.sheet.subtitle,role:'subheading',font:FONT.type,prose:true,
+        drawLabel(ctx,data.sheet.title,{box:field(.065,.14),align:'center'},'heading');
+        var body=drawTextRegion(ctx,{box:region.bodyBox||field(.32,.65),value:data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
+          role:'ability',abilities:data.sheet.abilities,font:FONT.body,prose:true,transparent:true,size:.019,paragraphGap:.4},data.wording);
+        drawTextRegion(ctx,{box:field(.215,.09),value:data.sheet.subtitle,role:'subheading',font:FONT.body,prose:true,weight:'normal',
           transparent:true,align:'center',valign:'center',size:Math.min(.018,body.fontSize/canvasSize(ctx).height)},data.wording);
       } else if(region.role==='heading'){
         if(region.wrap)drawTextRegion(ctx,Object.assign({},region,{transparent:true,valign:'center'}),data.wording);
@@ -1085,11 +1089,11 @@
       } else if(region.role==='lore'){
         var parts=region.value.split(/\s*\*newpara\*\s*/),signature=parts.pop(),box=region.box;
         drawTextRegion(ctx,Object.assign({},region,{box:[box[0],box[1],box[2],box[3]*.75],value:parts.join(' *newpara* '),
-          font:FONT.type,prose:true,weight:'italic',transparent:true,paragraphGap:.4}),data.wording);
+          font:FONT.body,prose:true,weight:'italic',transparent:true,paragraphGap:.4}),data.wording);
         drawTextRegion(ctx,{box:[box[0],box[1]+box[3]*.78,box[2],box[3]*.22],value:signature,role:'signature',align:'right',valign:'center',
-          font:FONT.type,prose:true,weight:'italic',transparent:true,size:region.size},data.wording);
+          font:FONT.body,prose:true,weight:'italic',transparent:true,size:region.size},data.wording);
       } else {
-        drawTextRegion(ctx,Object.assign({},region,{transparent:true,font:FONT.type,prose:true,weight:'italic',paragraphGap:.3}),data.wording);
+        drawTextRegion(ctx,Object.assign({},region,{transparent:true,font:FONT.body,prose:true,weight:'italic',paragraphGap:.3}),data.wording);
       }
     });
   }
@@ -1505,15 +1509,24 @@
 
   function compose(card, options) {
     options = options || {};
+    var sheet=card.kind==='sheet';
+    var width = options.width || card.width || (sheet?SHEET_SIZE.width:maxWidth), height = options.height || card.height;
+    if(sheet){
+      // Correct the source's proportions before drawing translated glyphs.
+      // Explicit dimensions are bounds; a sheet always keeps its common shape.
+      var ratio=SHEET_SIZE.width/SHEET_SIZE.height;
+      if(height)width=options.width||card.width?Math.min(width,height*ratio):height*ratio;
+      width=Math.round(width);height=Math.round(width/ratio);
+    }
     if(card.renderMode==='raster')return sourceInfo(card).then(function (source) {
-      if(!card.text?.crop)return card.artSrc || card.src;
-      var canvas=document.createElement('canvas');canvas.width=source.width;canvas.height=source.height;
-      canvas.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,source.width,source.height);
+      if(!sheet&&!card.text?.crop)return card.artSrc || card.src;
+      if(sheet&&(!Number.isFinite(width)||!Number.isFinite(height)||width<1||height<1||width>16384||height>16384))throw new Error('Некорректный размер изображения листа');
+      var canvas=document.createElement('canvas');canvas.width=sheet?width:source.width;canvas.height=sheet?height:source.height;
+      canvas.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,canvas.width,canvas.height);
       return canvas.toDataURL('image/png');
     });
     // Capture dimensions before asynchronous work. Printing never changes view resolution.
-    var width = options.width || card.width || maxWidth, height = options.height || card.height;
-    var bounded=!options.width && !card.width;
+    var bounded=!sheet && !options.width && !card.width;
     var strict = !!options.strict;
     var rejectOnError = strict || !!options.rejectOnError;
     var wording = card.wording || 'images';
@@ -1546,8 +1559,8 @@
       // Sheet labels can be only a few pixels high in the card-sized layout.
       // Native logical coordinates avoid rounding their measured ink down by
       // a whole font size, while remaining independent of output resolution.
-      var logicalWidth=card.kind==='sheet'&&source.regions.length?source.width:layoutWidth;
-      ctx.fsLayout={width:logicalWidth,height:logicalWidth*source.height/source.width};
+      var logicalWidth=sheet?Math.max(SHEET_SIZE.width,source.width):layoutWidth;
+      ctx.fsLayout={width:logicalWidth,height:sheet?logicalWidth*SHEET_SIZE.height/SHEET_SIZE.width:logicalWidth*source.height/source.width};
       ctx.scale(canvas.width/ctx.fsLayout.width,canvas.height/ctx.fsLayout.height);
       ctx.imageSmoothingQuality='high';
       ctx.fsStrict = strict;
@@ -1607,5 +1620,5 @@
     _composed.clear();
   }
 
-  window.FSCardRender = { compose: compose, sourceInfo: sourceInfo, fontsReady: fontsReady, prepareBackground:prepareBackground, releasePreparationResources:function(){_imgCache.clear();_preparedPictures.clear();_sheetBackgrounds.clear();_sourceAreas.clear();_titleAreas.clear();_artworkAreas.clear();_composed.clear();}, setResolution: setResolution };
+  window.FSCardRender = { compose: compose, sourceInfo: sourceInfo, sheetSize:SHEET_SIZE, fontsReady: fontsReady, prepareBackground:prepareBackground, releasePreparationResources:function(){_imgCache.clear();_preparedPictures.clear();_sheetBackgrounds.clear();_sourceAreas.clear();_titleAreas.clear();_artworkAreas.clear();_composed.clear();}, setResolution: setResolution };
 })();

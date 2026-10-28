@@ -454,6 +454,7 @@
   /* ---- Композитинг / растрирование карточек ---- */
 
   function cardRatio(card) {
+    if(card.kind==='sheet')return window.FSCardRender.sheetSize.width/window.FSCardRender.sheetSize.height;
     return card.aspect || card.text && card.text.aspect || 450 / 650;
   }
 
@@ -491,11 +492,10 @@
 
   async function cardImageURL(imgEl, card, thumbnail) {
     var source = thumbnail || card.kind === 'sheet' ? await window.FSCardRender.sourceInfo(card) : null;
-    var pixels = displayPixels(imgEl, thumbnail, source?.width);
+    var pixels = displayPixels(imgEl, thumbnail, card.kind==='sheet'?window.FSCardRender.sheetSize.width:source?.width);
     if (card.kind === 'sheet' && !thumbnail) {
-      // Conservative resampling for the art; all translated glyphs are redrawn.
-      var scale = card.exp === 'sow' ? 1.4 : card.exp === 'dl' ? 1 : 1.15;
-      pixels.w = Math.round(source.width * scale);
+      // One base format for every sheet; redraw text at the available detail.
+      pixels.w = Math.max(window.FSCardRender.sheetSize.width,Math.min(source.width,pixels.w));
     }
     if (card.text && card.kind && window.FSCardRender) {
       // Render the text directly at display resolution, losslessly, from the full
