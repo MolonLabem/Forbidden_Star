@@ -494,7 +494,7 @@
     };
     if (text.side === 'front') {
       regions.push({box:[.404,.328,.218,.214],paperBox:[.404,.328,.226,.214],role:'ability'});
-      add([.421,.601,.187,.028],'Жетоны целей',true,.027);
+      regions.push({box:[.421,.598,.187,.034],paperBox:[.421,.601,.187,.028],value:'Жетоны целей',role:'heading',size:.027,align:'center'});
       add([.775,.087,.034,.019],'Город',true,.018);
       add([.906,.087,.037,.019],'Фабрика',true,.018);
       add([.777,.188,.155,.024],'Бастион',true,.021);
@@ -998,7 +998,7 @@
     ctx.fillStyle = region.ink || '#15120c';
     ctx.fsBodyFont = region.role === 'heading' ? FONT.title : region.font || FONT.body;
     ctx.fsBodyWeight = region.weight || (region.role === 'subheading' ? 'bold' : null);
-    ctx.fsPrefixStyle = ['ability','objective'].includes(region.role) ? (ctx.fsKind==='sheet'?'italic':'bold') : null;
+    ctx.fsPrefixStyle = region.role==='ability'?'bold':region.role==='objective'?(ctx.fsKind==='sheet'?'italic':'bold'):null;
     ctx.fsSheetProse=!!region.prose;
     ctx.fsParagraphGap=region.paragraphGap;
     ctx.fsPrefixTitles = (region.abilities|| (region.role==='objective'?[{title:region.value.split(':')[0]}]:[])).map(function(ability){
@@ -1071,20 +1071,20 @@
     ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
     regions.forEach(function (region) {
       if (region.role === 'ability') {
-        var b=region.box,inset=b[2]*.035;
+        var b=region.box,inset=b[2]*.055;
         // Some source illustrations intrude into the panel; their explicit
         // paper/body boxes keep both erasure and translated ink above the art.
         var field=function (y,h) {return [b[0]+inset,b[1]+b[3]*y,b[2]-inset*2,b[3]*h];};
-        drawLabel(ctx,data.sheet.title,{box:field(.065,.14),align:'center'},'heading');
-        var body=drawTextRegion(ctx,{box:region.bodyBox||field(.32,.65),value:data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
+        drawLabel(ctx,data.sheet.title,{box:field(.055,.19),align:'center'},'heading');
+        var body=drawTextRegion(ctx,{box:region.bodyBox||field(.37,.60),value:data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
           role:'ability',abilities:data.sheet.abilities,font:FONT.body,prose:true,transparent:true,size:.019,paragraphGap:.4},data.wording);
-        drawTextRegion(ctx,{box:field(.215,.09),value:data.sheet.subtitle,role:'subheading',font:FONT.body,prose:true,weight:'normal',
-          transparent:true,align:'center',valign:'center',size:Math.min(.018,body.fontSize/canvasSize(ctx).height)},data.wording);
+        drawTextRegion(ctx,{box:field(.25,.105),value:data.sheet.subtitle,role:'subheading',font:'Arial, sans-serif',prose:true,weight:'bold',
+          transparent:true,align:'center',valign:'center',size:.018},data.wording);
       } else if(region.role==='heading'){
-        if(region.wrap)drawTextRegion(ctx,Object.assign({},region,{transparent:true,valign:'center'}),data.wording);
+        var label=region.value.toUpperCase();
+        if(region.wrap)drawTextRegion(ctx,Object.assign({},region,{value:label,transparent:true,valign:'center'}),data.wording);
         else {
-          var box=region.box.slice();box[1]+=box[3]*.16;box[3]*=.68;
-          drawLabel(ctx,region.value,{box:box,align:'center'},'heading');
+          drawLabel(ctx,label,{box:region.box,align:'center'},'heading');
         }
       } else if(region.role==='lore'){
         var parts=region.value.split(/\s*\*newpara\*\s*/),signature=parts.pop(),box=region.box;
@@ -1355,7 +1355,8 @@
       for(var y=0;y<h;y++)for(var x=0;x<w;x++)distance[y*w+x]=expanded[y*w+x]?0:Math.min(x?distance[y*w+x-1]+1:w+h,y?distance[(y-1)*w+x]+1:w+h);
       for(var y=h-1;y>=0;y--)for(var x=w-1;x>=0;x--)distance[y*w+x]=Math.min(distance[y*w+x],x+1<w?distance[y*w+x+1]+1:w+h,y+1<h?distance[(y+1)*w+x]+1:w+h);
       clean.data.set(pixels);
-      for(var at=0;at<w*h;at++)if(expanded[at]||!ruledPaper&&distance[at]<8){
+      var halo=sheetStyle==='parchment'?3:8;
+      for(var at=0;at<w*h;at++)if(expanded[at]||!ruledPaper&&distance[at]<halo){
         var x=at%w,y=Math.floor(at/w),left=x-1,right=x+1;
         if(ruledPaper){
           while(left>=0&&expanded[y*w+left])left--;
@@ -1373,7 +1374,7 @@
           var shade=weighted[at*4+channel]/weighted[at*4+3];
           if(ruled)shade=(pixels[(y*w+left)*4+channel]*(right-x)+pixels[(y*w+right)*4+channel]*(x-left))/(right-left);
           else if(ruledPaper)shade=paperColors[y][channel];
-          var alpha=expanded[at]?1:1-distance[at]/8;
+          var alpha=expanded[at]?1:1-distance[at]/halo;
           clean.data[at*4+channel]=pixels[at*4+channel]*(1-alpha)+(shade+Math.max(-2,Math.min(2,noise[channel])))*alpha;
         }
       }
