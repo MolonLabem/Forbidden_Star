@@ -930,7 +930,7 @@
       counts[cat.key] = 0;
       return Object.assign({}, cat, { subs: cat.subs.map(function (sub) {
         counts[sub.key] = 0;
-        var factions = sub.factions.filter(function (fac) { return faction === 'all' || sub.common || fac.faction === faction; }).map(function (fac) {
+        var factions = sub.factions.filter(function (fac) { return faction === 'all' || fac.faction === faction; }).map(function (fac) {
           var items = fac.items.filter(matches);
           counts.all += items.length; counts[cat.key] += items.length; counts[sub.key] += items.length;
           return Object.assign({}, fac, { items: items });
@@ -1066,8 +1066,7 @@
         el('p', { class: 'fs-faq-blurb', text: hero.blurb || '' }),
       ]),
       el('div', { class: 'fs-faq-content' }, [
-        el('div', { class: 'fs-faq-filter' }, [el('label', { for: 'fs-faq-faction', text: 'Фракция' }), factionSelect,
-          faction !== 'all' ? el('span', { class: 'fs-faq-common-note', text: 'Включая общие вопросы' }) : null]),
+        el('div', { class: 'fs-faq-filter' }, [el('label', { for: 'fs-faq-faction', text: 'Фракция' }), factionSelect]),
         el('div', { class: 'fs-faq-sectionrow' }, [
           el('span', { class: 'fs-faq-sectionlabel', text: faqTopicName(topic) }),
           el('span', { class: 'fs-faq-countlabel', text: shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') }),
