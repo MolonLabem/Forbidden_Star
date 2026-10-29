@@ -129,6 +129,8 @@
     if (!align) align = 'left';
     if (!text) return 0;
     var family = ctx.fsBodyFont || FONT.body;
+    var sheetRules=ctx.fsKind==='sheet' && ctx.fsTextRole==='ability';
+    var printedRules=ctx.fsKind==='orders' || sheetRules;
     var lineFontSize=fontSize;
     var baseFont = (ctx.fsBodyWeight ? ctx.fsBodyWeight+' ' : '') + fontSize + 'px ' + family;
     var styledFont = function (style) { return style ? style+' '+lineFontSize+'px '+family : baseFont; };
@@ -146,13 +148,18 @@
     var PARA = '\u0001';
 
     var normalizeText = function (s) {
-      return String(s)
+      var value=String(s)
         .replace(/\s*\*newpara\*\s*/g, '\n' + PARA + '\n')
         .replace(/\s*\*newline\*\s*/g, '\n')
         .replace(/(\d[\d.,]*)[ \t]+(?=[}{<|#@\uE100-\uE102\uE200-\uE205])/g, '$1\u00a0')
         .replace(/[ \t]+/g, ' ')
         .replace(/ *\n */g, '\n')
         .trim();
+      // Printed Russian rules keep counts and short prepositions with the
+      // following word, without changing the canonical wording.
+      return sheetRules ? value
+        .replace(/(\d[\d.,]*)[ \t]+(?=[А-Яа-яЁё])/g, '$1\u00a0')
+        .replace(/(^|\s)(в|во|и|а|с|со|к|ко|у|о|об|от|до|из|на|по|за|не|но|без|при)[ \t]+(?=\S)/gi, '$1$2\u00a0') : value;
     };
 
     var paragraphs = normalizeText(text).split('\n');
@@ -166,7 +173,7 @@
       if(prefixStyle==='bold' || ctx.fsPrefixTitles?.length) {
         // Ability titles are structured data. A colon inside a description or
         // a later paragraph must not turn ordinary rules text into a heading.
-        var title=(ctx.fsPrefixTitles||[]).find(function(title){return p.startsWith(title+':');});
+        var title=(ctx.fsPrefixTitles||[]).find(function(title){return p.replace(/\u00a0/g,' ').startsWith(title+':');});
         ci=title===undefined?-1:title.length;
       }
       if (ci !== -1 && prefixStyle) {
@@ -267,9 +274,9 @@
           else if(last && start>0 && width<maxW*.3)cost+=1;
           if(!last && /[.!?;:]$/.test(words[end].segments.map(function(s){return s.text;}).join('')))cost-=.08;
           var candidate={lines:tail.lines+1,cost:cost,end:end+1};
-          // Printed order rules fill each line from the left. Other cards keep
-          // balanced wrapping, including their authored paragraph breaks.
-          if(!best || (ctx.fsKind==='orders' ? candidate.end>best.end :
+          // Printed order and faction rules fill each line from the left.
+          // Other fields retain balanced wrapping and authored paragraphs.
+          if(!best || (printedRules ? candidate.end>best.end :
             candidate.lines<best.lines || candidate.lines===best.lines && candidate.cost<best.cost))best=candidate;
         }
         breaks[start]=best;
@@ -497,7 +504,7 @@
         align:heading?'center':'left'});
     };
     if (text.side === 'front') {
-      regions.push({box:[.404,.328,.218,.214],headingBox:[.411,.328,.218,.214],paperBox:[.404,.328,.226,.214],role:'ability'});
+      regions.push({box:[.404,.328,.218,.214],headingBox:[.411,.328,.218,.214],paperBox:[.411,.328,.218,.214],role:'ability'});
       regions.push({box:[.421,.598,.187,.034],paperBox:[.421,.601,.187,.028],value:'Жетоны целей',role:'heading',size:.027,align:'center'});
       add([.775,.087,.034,.019],'Город',true,.018);
       add([.906,.087,.037,.019],'Фабрика',true,.018);
@@ -1253,8 +1260,29 @@
   // Interpolate that shading and reuse its fine grain, rather than selecting a
   // bright tile from the wording. The field stays opaque over the old text;
   // matching its native edges avoids both a coloured rectangle and ink ghosts.
+  function nativeSheetPaperBox(picture,box) {
+    // SoW sheets share a text layout, but their printed frames differ in width
+    // and position. Find the inner rails in the actual source, not the text box.
+    var left=Math.max(0,Math.floor((box[0]-.03)*picture.width));
+    var right=Math.min(picture.width,Math.ceil((box[0]+box[2]+.03)*picture.width));
+    var sample=document.createElement('canvas');sample.width=right-left;sample.height=13;
+    var c=sample.getContext('2d',{willReadFrequently:true});
+    for(var y=0;y<13;y++)c.drawImage(picture,left,(box[1]+box[3]*(.1+.8*y/12))*picture.height,right-left,1,0,y,right-left,1);
+    var pixels=c.getImageData(0,0,sample.width,13).data,columns=[];
+    for(var x=0;x<sample.width;x++){
+      var values=[];for(var y=0;y<13;y++){var at=(y*sample.width+x)*4;values.push((pixels[at]+pixels[at+1]+pixels[at+2])/3);}
+      values.sort(function(a,b){return a-b;});columns[x]=values[8];
+    }
+    var middle=Math.round((box[0]+box[2]/2)*picture.width)-left,a=middle,b=middle;
+    while(a>0&&columns[a]>=100)a--;
+    while(b<columns.length-1&&columns[b]>=100)b++;
+    if(!a||b===columns.length-1||b-a<box[2]*picture.width*.7)return box;
+    return [(left+a+1)/picture.width,box[1],(b-a-1)/picture.width,box[3]];
+  }
+
   function restoreOrderPaper(ctx,picture,box,sheetStyle) {
     if(sheetStyle==='order'){restoreCleanOrderPaper(ctx,picture,box);return;}
+    if(sheetStyle==='parchment')box=nativeSheetPaperBox(picture,box);
     var crop=document.createElement('canvas');
     crop.width=Math.max(2,Math.round(box[2]*picture.width));crop.height=Math.max(2,Math.round(box[3]*picture.height));
     var c=crop.getContext('2d',{willReadFrequently:true}),w=crop.width,h=crop.height;
@@ -1309,22 +1337,61 @@
         row.sort(function(a,b){return a.light-b.light;});var sample=row[Math.floor(row.length*.85)];
         paperRows[y]=sample.light;paperColors[y]=[pixels[sample.at],pixels[sample.at+1],pixels[sample.at+2]];
       }
+      var localPaper=null;
+      if(sheetStyle==='parchment'){
+        // A local paper reference separates thin lettering from the source's
+        // broad edge stains and shadows, which must not become an erasure.
+        var lightness=new Uint8Array(w*h),horizontal=new Uint8Array(w*h),reach=6;
+        localPaper=new Uint8Array(w*h);
+        for(var at=0;at<w*h;at++)lightness[at]=(pixels[at*4]+pixels[at*4+1]+pixels[at*4+2])/3;
+        for(var y=0;y<h;y++)for(var x=0;x<w;x++){
+          var light=0;for(var xx=Math.max(0,x-reach);xx<=Math.min(w-1,x+reach);xx++)light=Math.max(light,lightness[y*w+xx]);
+          horizontal[y*w+x]=light;
+        }
+        for(var y=0;y<h;y++)for(var x=0;x<w;x++){
+          var light=0;for(var yy=Math.max(0,y-reach);yy<=Math.min(h-1,y+reach);yy++)light=Math.max(light,horizontal[yy*w+x]);
+          localPaper[y*w+x]=light;
+        }
+      }
       for(var at=0;at<w*h;at++){
         var i=at*4,light=(pixels[i]+pixels[i+1]+pixels[i+2])/3;
         var neutral=sheetStyle==='paper'||Math.max(pixels[i],pixels[i+1],pixels[i+2])-Math.min(pixels[i],pixels[i+1],pixels[i+2])<35;
-        if(neutral&&light<Math.min(110,paperRows[Math.floor(at/w)]-35)&&at%w>=inkGutter&&at%w<w-inkGutter)mask[at]=1;
+        if(neutral&&light<Math.min(110,(localPaper?localPaper[at]:paperRows[Math.floor(at/w)])-35)&&at%w>=inkGutter&&at%w<w-inkGutter)mask[at]=1;
       }
-      if(ruledPaper||sheetStyle==='event'){
-        // Native trim and dark event-paper edges reach the field boundary.
-        // Keep those components while removing isolated printed letters.
+      var nativeTrim=null;
+      if(ruledPaper||sheetStyle==='event'||sheetStyle==='parchment'){
+        // Keep native trim connected to the edge while erasing isolated ink.
+        var boundaryInk=mask;
+        var sourceLines=null,sourceLeft=Math.floor(w*.03);
+        if(sheetStyle==='parchment'){
+          boundaryInk=new Uint8Array(w*h);nativeTrim=new Uint8Array(w*h);sourceLines=new Uint8Array(h);
+          // Text rows cross the middle of the paper; border stains and the
+          // overlapping ornament stay at its edges. Do not preserve letters
+          // merely because a dark stain joins them to the frame.
+          for(var y=0;y<h;y++){
+            var count=0;for(var x=Math.floor(w*.12);x<Math.floor(w*.88);x++)count+=mask[y*w+x];
+            if(count>=Math.max(3,w*.01))for(var yy=Math.max(0,y-3);yy<=Math.min(h-1,y+3);yy++)sourceLines[yy]=1;
+          }
+          for(var at=0;at<w*h;at++){
+            var light=(pixels[at*4]+pixels[at*4+1]+pixels[at*4+2])/3;
+            if(light<Math.min(170,localPaper[at]-35))boundaryInk[at]=1;
+          }
+        }
         var visited=new Uint8Array(w*h);
-        for(var start=0;start<w*h;start++)if(mask[start]&&!visited[start]){
+        for(var start=0;start<w*h;start++)if(boundaryInk[start]&&!visited[start]){
           var component=[start],first=w,last=0,touches=false;visited[start]=1;
           for(var pos=0;pos<component.length;pos++){
-            var at=component[pos],x=at%w,y=Math.floor(at/w);first=Math.min(first,x);last=Math.max(last,x);touches=touches||x===gutter||x===w-1-gutter||sheetStyle==='event'&&(y===0||y===h-1);
-            [x?at-1:-1,x+1<w?at+1:-1,y?at-w:-1,y+1<h?at+w:-1].forEach(function(next){if(next>=0&&mask[next]&&!visited[next]){visited[next]=1;component.push(next);}});
+            var at=component[pos],x=at%w,y=Math.floor(at/w);first=Math.min(first,x);last=Math.max(last,x);touches=touches||x===gutter||x===w-1-gutter||(sheetStyle==='event'||sheetStyle==='parchment')&&(y===0||y===h-1);
+            var neighbours=[x?at-1:-1,x+1<w?at+1:-1,y?at-w:-1,y+1<h?at+w:-1];
+            if(nativeTrim)neighbours.push(x&&y?at-w-1:-1,x+1<w&&y?at-w+1:-1,x&&y+1<h?at+w-1:-1,x+1<w&&y+1<h?at+w+1:-1);
+            neighbours.forEach(function(next){if(next>=0&&boundaryInk[next]&&!visited[next]){visited[next]=1;component.push(next);}});
           }
-          if(touches&&(sheetStyle==='event'||last-first<Math.max(2,gutter*2)))component.forEach(function(at){mask[at]=0;});
+          if(touches&&(sheetStyle==='event'||sheetStyle==='parchment'||last-first<Math.max(2,gutter*2)))component.forEach(function(at){
+            if(sourceLines&&sourceLines[Math.floor(at/w)]&&at%w>=sourceLeft&&at%w<w-gutter)return;
+            mask[at]=0;
+            if(nativeTrim)for(var yy=Math.max(0,Math.floor(at/w)-2);yy<=Math.min(h-1,Math.floor(at/w)+2);yy++)
+              for(var xx=Math.max(0,at%w-2);xx<=Math.min(w-1,at%w+2);xx++)if(!sourceLines[yy]||xx<sourceLeft||xx>=w-gutter)nativeTrim[yy*w+xx]=1;
+          });
         }
       }
       var expanded=new Uint8Array(w*h);
@@ -1337,7 +1404,7 @@
       // into the replacement. Three box passes give smooth local shading;
       // unmasked paper and stains retain their exact native pixels.
       var weighted=new Float32Array(w*h*4),scratch=new Float32Array(w*h*4);
-      for(var at=0;at<w*h;at++)if(!expanded[at]&&at%w>=gutter&&at%w<w-gutter){
+      for(var at=0;at<w*h;at++)if(!expanded[at]&&!(nativeTrim&&nativeTrim[at])&&at%w>=gutter&&at%w<w-gutter){
         for(var channel=0;channel<3;channel++)weighted[at*4+channel]=pixels[at*4+channel];weighted[at*4+3]=1;
       }
       function blur(from,to,horizontal){
@@ -1360,7 +1427,7 @@
       for(var y=h-1;y>=0;y--)for(var x=w-1;x>=0;x--)distance[y*w+x]=Math.min(distance[y*w+x],x+1<w?distance[y*w+x+1]+1:w+h,y+1<h?distance[(y+1)*w+x]+1:w+h);
       clean.data.set(pixels);
       var halo=sheetStyle==='parchment'?3:8;
-      for(var at=0;at<w*h;at++)if(expanded[at]||!ruledPaper&&distance[at]<halo){
+      for(var at=0;at<w*h;at++)if(!(nativeTrim&&nativeTrim[at])&&(expanded[at]||!ruledPaper&&distance[at]<halo)){
         var x=at%w,y=Math.floor(at/w),left=x-1,right=x+1;
         if(ruledPaper){
           while(left>=0&&expanded[y*w+left])left--;
@@ -1388,7 +1455,7 @@
     if(sheetStyle==='parchment'){
       // The erasure includes old letter fringes near the edge. Keep a native
       // inset untouched so the repaired paper cannot paint over the frame.
-      var guard=Math.max(2,Math.round(Math.min(w,h)*.025)),cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
+      var guard=Math.max(1,Math.round(Math.min(w,h)*.005)),cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
       ctx.beginPath();ctx.rect((box[0]+box[2]*guard/w)*cw,(box[1]+box[3]*guard/h)*ch,box[2]*(1-2*guard/w)*cw,box[3]*(1-2*guard/h)*ch);ctx.clip();
     }
     ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
