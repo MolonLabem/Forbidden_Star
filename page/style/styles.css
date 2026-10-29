@@ -128,7 +128,7 @@ body {
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
 }
 .fs-brand-sub {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.34em;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.34em;
   color: #857f74; text-transform: uppercase; margin-top: 2px;
 }
 
@@ -209,7 +209,7 @@ body {
   margin-top: auto; padding: 14px 8px 2px; border-top: 1px solid #221f1a;
 }
 .fs-sidebar-foot p {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.7;
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.7;
   color: #9a948a; margin: 0; letter-spacing: 0.05em;
 }
 .fs-sidebar-foot p a { color: #b3ada3; text-underline-offset: 2px; }
@@ -285,7 +285,7 @@ body {
 
 .fs-note {
   font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em;
-  color: #7a746a; padding: 30px 4px;
+  color: var(--fs-muted); padding: 30px 4px;
 }
 
 /* ---- результаты поиска карточек ---- */
@@ -393,7 +393,7 @@ body {
   font-size: 19px; font-weight: 600; margin: 0; color: #e6e1d8; letter-spacing: 0.01em;
 }
 .fs-empty p {
-  font-size: 14px; line-height: 1.6;
+  font-size: 14px; line-height: 1.6; text-wrap: pretty;
   color: var(--fs-muted); margin: 0; max-width: 380px;
 }
 .fs-empty-btn {
@@ -507,7 +507,7 @@ body {
 .fs-lb-tool[data-tip]::after {
   content: attr(data-tip); position: absolute; top: calc(100% + 9px); right: 0;
   background: rgba(20, 18, 16, .96); border: 1px solid #38332c; color: #e6e1d8;
-  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.04em;
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em;
   white-space: nowrap; padding: 6px 10px; border-radius: 7px; box-shadow: 0 6px 18px rgba(0, 0, 0, .5);
   opacity: 0; transform: translateY(-3px); pointer-events: none;
   transition: opacity .12s ease, transform .12s ease; z-index: 10;
@@ -551,6 +551,7 @@ body {
 }
 .fs-faq-search:focus { border-color: var(--fs-accent); }
 .fs-faq-search:focus-visible { outline: 2px solid var(--fs-accent); outline-offset: 2px; }
+.fs-faq-search::placeholder { color: var(--fs-muted); opacity: 1; }
 
 .fs-faq-back {
   display: inline-flex; align-items: center; gap: 7px; appearance: none;
@@ -570,7 +571,7 @@ body {
 .fs-faq-title {
   font-size: 28px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; color: #f3efe8;
 }
-.fs-faq-blurb { font-size: 14px; line-height: 1.6; color: var(--fs-muted); margin: 0; max-width: 68ch; }
+.fs-faq-blurb { font-size: 14px; line-height: 1.6; color: var(--fs-muted); margin: 0; max-width: 68ch; text-wrap: pretty; }
 
 .fs-faq-content { padding: 22px 40px 60px; max-width: 840px; }
 .fs-faq-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
@@ -633,7 +634,7 @@ body {
   box-shadow: inset 2px 0 0 var(--fs-accent);
 }
 .fs-faq-subnav .fs-fac-name { flex: 1; }
-.fs-faq-subnav .fs-fac-count { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #9a948a; }
+.fs-faq-subnav .fs-fac-count { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #9a948a; }
 
 /* ---- сгруппированный контент ЧаВо ---- */
 .fs-faq-sections { display: flex; flex-direction: column; gap: 28px; }
@@ -652,7 +653,7 @@ body {
 .fs-faq-facgroup { display: flex; flex-direction: column; gap: 8px; }
 .fs-faq-fachead { display: flex; align-items: center; gap: 12px; padding: 4px 2px 2px; }
 .fs-faq-facname { font-size: 13px; font-weight: 600; color: #d8d2c8; letter-spacing: 0.01em; flex: 1; }
-.fs-faq-faccount { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #9a948a; }
+.fs-faq-faccount { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #9a948a; }
 .fs-faq-facicon { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; margin-left: 4px; }
 .fs-search-empty { max-width: 480px; padding: 30px 0; }
 .fs-search-empty h2 { margin: 0 0 10px; font-size: 22px; }
@@ -705,7 +706,7 @@ body {
   .fs-brand { grid-column: 1; grid-row: 1; gap: 8px; min-height: 44px; }
   .fs-brand { min-width: 0; flex-shrink: 1; }
   .fs-brand-title, .fs-catalog-header .fs-brand-title { font-size: 12px; letter-spacing: .08em; line-height: 1.2; }
-  .fs-brand-sub { font-size: 9px; letter-spacing: .12em; }
+  .fs-brand-sub { letter-spacing: .06em; }
   .fs-version { grid-column: 2; grid-row: 1; margin-left: 0; }
   .fs-version label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .fs-version select { min-height: 44px; width: 136px; max-width: 136px; font-size: 16px; padding: 6px; }
@@ -759,6 +760,7 @@ body {
   .fs-brand { gap: 6px; }
   .fs-logo { width: 20px; height: 20px; }
   .fs-brand-title, .fs-catalog-header .fs-brand-title { font-size: 11px; letter-spacing: .05em; }
+  .fs-version select { width: 124px; max-width: 124px; }
 }
 @media (max-width: 340px) {
   .fs-brand .fs-logo { display: none; }
