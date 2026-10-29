@@ -493,7 +493,7 @@
         align:heading?'center':'left'});
     };
     if (text.side === 'front') {
-      regions.push({box:[.404,.328,.218,.214],paperBox:[.404,.328,.226,.214],role:'ability'});
+      regions.push({box:[.404,.328,.218,.214],headingBox:[.411,.328,.218,.214],paperBox:[.404,.328,.226,.214],role:'ability'});
       regions.push({box:[.421,.598,.187,.034],paperBox:[.421,.601,.187,.028],value:'Жетоны целей',role:'heading',size:.027,align:'center'});
       add([.775,.087,.034,.019],'Город',true,.018);
       add([.906,.087,.037,.019],'Фабрика',true,.018);
@@ -1071,14 +1071,14 @@
     ctx.drawImage(picture,0,0,canvasSize(ctx).width,canvasSize(ctx).height);
     regions.forEach(function (region) {
       if (region.role === 'ability') {
-        var b=region.box,inset=b[2]*.055;
+        var b=region.box;
         // Some source illustrations intrude into the panel; their explicit
         // paper/body boxes keep both erasure and translated ink above the art.
-        var field=function (y,h) {return [b[0]+inset,b[1]+b[3]*y,b[2]-inset*2,b[3]*h];};
-        drawLabel(ctx,data.sheet.title,{box:field(.055,.19),align:'center'},'heading');
+        var field=function (y,h,heading) {var area=heading?(region.headingBox||b):b,inset=area[2]*.055;return [area[0]+inset,area[1]+area[3]*y,area[2]-inset*2,area[3]*h];};
+        drawLabel(ctx,data.sheet.title,{box:field(.055,.19,true),align:'center'},'heading');
         var body=drawTextRegion(ctx,{box:region.bodyBox||field(.37,.60),value:data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
           role:'ability',abilities:data.sheet.abilities,font:FONT.body,prose:true,transparent:true,size:.019,paragraphGap:.4},data.wording);
-        drawTextRegion(ctx,{box:field(.25,.105),value:data.sheet.subtitle,role:'subheading',font:'Arial, sans-serif',prose:true,weight:'bold',
+        drawTextRegion(ctx,{box:field(.25,.105,true),value:data.sheet.subtitle,role:'subheading',font:'Arial, sans-serif',prose:true,weight:'bold',
           transparent:true,align:'center',valign:'center',size:.018},data.wording);
       } else if(region.role==='heading'){
         var label=region.value.toUpperCase();
@@ -1380,7 +1380,15 @@
       }
     }
     c.putImageData(clean,0,0);
+    ctx.save();
+    if(sheetStyle==='parchment'){
+      // The erasure includes old letter fringes near the edge. Keep a native
+      // inset untouched so the repaired paper cannot paint over the frame.
+      var guard=Math.max(2,Math.round(Math.min(w,h)*.025)),cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
+      ctx.beginPath();ctx.rect((box[0]+box[2]*guard/w)*cw,(box[1]+box[3]*guard/h)*ch,box[2]*(1-2*guard/w)*cw,box[3]*(1-2*guard/h)*ch);ctx.clip();
+    }
     ctx.drawImage(crop,box[0]*canvasSize(ctx).width,box[1]*canvasSize(ctx).height,box[2]*canvasSize(ctx).width,box[3]*canvasSize(ctx).height);
+    ctx.restore();
   }
 
   async function drawRasterTranslation(data, ctx) {
