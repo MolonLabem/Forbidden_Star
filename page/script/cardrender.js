@@ -307,7 +307,11 @@
     if(ctx.fsKind==='overlay'||ctx.fsTextRole==='heading'||!ctx.font.includes(FONT.body)||
       !/[^}{<|#@\uE100-\uE102\uE200-\uE205\s]/.test(text)||
       ctx.fillStyle!=='#000000'&&ctx.fillStyle!=='#15120c')return 0;
-    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*.01;
+    // Faction subtitles and ability names need a clearer weight step than
+    // ordinary rules; retain the lighter ink for their descriptions.
+    var sheetEmphasis=ctx.fsKind==='sheet' &&
+      (ctx.fsTextRole==='subheading'||ctx.fsTextRole==='ability') && /\bbold\b/.test(ctx.font);
+    return parseFloat(ctx.font.match(/([\d.]+)px/)[1])*(sheetEmphasis?.03:.01);
   }
 
   function drawPrintedText(ctx,text,x,y) {
@@ -1078,7 +1082,7 @@
         drawLabel(ctx,data.sheet.title,{box:field(.055,.19,true),align:'center'},'heading');
         var body=drawTextRegion(ctx,{box:region.bodyBox||field(.37,.60),value:data.sheet.abilities.map(function (a) {return a.title+': '+a.text;}).join(' *newpara* '),
           role:'ability',abilities:data.sheet.abilities,font:FONT.body,prose:true,transparent:true,size:.019,paragraphGap:.4},data.wording);
-        drawTextRegion(ctx,{box:field(.25,.105,true),value:data.sheet.subtitle,role:'subheading',font:'Arial, sans-serif',prose:true,weight:'bold',
+        drawTextRegion(ctx,{box:field(.25,.105,true),value:data.sheet.subtitle,role:'subheading',font:FONT.body,prose:true,weight:'bold',
           transparent:true,align:'center',valign:'center',size:.018},data.wording);
       } else if(region.role==='heading'){
         var label=region.value.toUpperCase();
