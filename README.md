@@ -112,6 +112,8 @@ There are no production npm dependencies. Renderer fingerprints normalize line e
 
 Фракционные листы во всех версиях используют базовый формат 1280×770. Просмотрщик и увеличение сохраняют эти пропорции; русский текст рисуется после приведения фона к нужной форме. Оригинальные изображения, обрезки сторон и размеры подготовленных фонов сохраняются. `FSCardRender.sourceInfo()` возвращает размеры исходника, а `FSCardRender.sheetSize` — базовый размер отображения листа.
 
+Если иллюстрация перекрывает поле текста, `render.regions[].inkOutline` задаёт границу очистки старых букв в долях обрезанной стороны исходника. Оформление вне этого контура сохраняется. Ссылки на подготовленные PNG включают их SHA-256 из общего манифеста, чтобы новая вёрстка не использовала прежний фон из кеша браузера.
+
 `page/pictures/prepared/` contains locally reconstructed **backgrounds**, cropped sheet backgrounds and native combat title layers, not finished translated card images or original clean masters. Russian wording stays editable. Original JPEGs, artwork hashes and citations are preserved. Native DL combat keeps its original JPEG artwork with a prepared title layer and measured effect-panel bounds, avoiding artwork resampling. Feathering a prepared layer is generic compositing, not raster text reconstruction.
 
 Offline repair recipes and provenance live in `tools/preparation-manifest.json`; canonical runtime card records contain no repair patches. `page/data/prepared-templates.json` records output/input/source hashes, dimensions, quality and exact comparison evidence. For regenerated backgrounds:

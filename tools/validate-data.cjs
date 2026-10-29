@@ -3,7 +3,7 @@ const root=path.resolve(__dirname,'..'),page=path.join(root,'page');
 const catalog=require('../page/script/catalog.js'),model=require('../page/script/faction-data.js'),legacy=require('./export-legacy.cjs');
 const read=p=>JSON.parse(fs.readFileSync(path.join(page,p),'utf8'));
 const digest=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
-function localAsset(relative){const file=path.resolve(page,relative);assert.ok(file.startsWith(page+path.sep),'Asset escapes page: '+relative);assert.ok(fs.statSync(file).isFile(),'Missing asset: '+relative);return file;}
+function localAsset(relative){const file=path.resolve(page,relative.split('?')[0]);assert.ok(file.startsWith(page+path.sep),'Asset escapes page: '+relative);assert.ok(fs.statSync(file).isFile(),'Missing asset: '+relative);return file;}
 function validate(){
  const general=read('factions/general.json'),docs={},texts={},allIds=new Set();let total=0,hashes=0;
  for(const exp of general.expansion.folder){const doc=docs[exp]=read('factions/'+exp+'/faction.json');for(const fac of doc.folder){

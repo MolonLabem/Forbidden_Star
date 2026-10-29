@@ -20,6 +20,18 @@
     prepared=value;return value;
   }
   if(prepared)setPrepared(prepared);
+  function preparedTemplate(template) {
+    if(!template||!template.preparedId&&!template.variants)return template;
+    var result=Object.assign({},template);
+    if(template.preparedId){
+      var asset=prepared.assets[template.preparedId],field=template.picture?'picture':'titleLayer';
+      // A changed text layout must load its matching background, even when
+      // the browser still has an older PNG at the same canonical path.
+      result[field]=template[field]+'?v='+asset.sha256;
+    }
+    if(template.variants)result.variants=Object.fromEntries(Object.entries(template.variants).map(function(entry){return [entry[0],preparedTemplate(entry[1])];}));
+    return result;
+  }
   function box(value,name) {
     if(!Array.isArray(value)||value.length!==4||value.some(function(n){return !Number.isFinite(n)||n<0;})||!value[2]||!value[3]||value[0]+value[2]>1.00000001||value[1]+value[3]>1.00000001)fail(name);
   }
@@ -51,7 +63,11 @@
       if(c.asset.side&&!['front','back'].includes(c.asset.side))fail('сторона '+c.id);
       if(c.render.regions){
         if(!Array.isArray(c.render.regions))fail('области '+c.id);
-        c.render.regions.forEach(function(r){box(r.box,'область '+c.id);if(r.content&&(!c.text.regionText||typeof c.text.regionText[r.content]!=='string'))fail('текст области '+c.id);});
+        c.render.regions.forEach(function(r){
+          box(r.box,'область '+c.id);
+          if(r.inkOutline&&(!Array.isArray(r.inkOutline)||r.inkOutline.length<3||r.inkOutline.some(function(point){return !Array.isArray(point)||point.length!==2||point.some(function(v){return !Number.isFinite(v)||v<0||v>1;});})))fail('контур очистки '+c.id);
+          if(r.content&&(!c.text.regionText||typeof c.text.regionText[r.content]!=='string'))fail('текст области '+c.id);
+        });
       }
       if(p.kind==='sheet'&&(!data.factionSheet||!data.factionSheet.abilities?.length))fail('лист фракции '+c.id);
     });
@@ -85,6 +101,7 @@
       }
       var template=p.template?Object.assign({},p.template,c.render.template):c.render.template||null;
       if(c.category==='combat'&&data.renderDefaults?.combatFrame)template=Object.assign({},template,{frame:data.renderDefaults.combatFrame});
+      template=preparedTemplate(template);
       var label=text&&text.title||c.label;
       if(!label)fail('название '+c.id);
       return {id:c.id,factionId:data.id,exp:exp,fac:fac,category:c.category,file:c.asset.file.split('/').pop(),tier:tier,index:physicalIndices[physical],

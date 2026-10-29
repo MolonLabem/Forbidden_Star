@@ -1058,7 +1058,7 @@
   var _sheetBackgrounds=window.FSCache.create(2);
   async function prepareSheetBackground(data) {
     var source = await sourceInfo({src:data.picture,text:{crop:data.crop}});
-    var regions=sheetRegions(data),key=JSON.stringify([data.picture,data.crop,regions.map(function(r){return [r.paperBox||r.box,r.role];})]);
+    var regions=sheetRegions(data),key=JSON.stringify([data.picture,data.crop,regions.map(function(r){return [r.paperBox||r.box,r.role,r.inkOutline||null];})]);
     var picture=_sheetBackgrounds.get(key);
     if(!picture){
       var original=document.createElement('canvas');original.width=source.width;original.height=source.height;
@@ -1068,7 +1068,7 @@
       regions.forEach(function (region) {
         var box=(region.paperBox||region.box).slice();
         if(region.role==='heading'){box[0]-=4/source.width;box[2]+=8/source.width;}
-        restoreOrderPaper(background,original,box,region.role==='heading'?'ruled':region.role==='ability'?'parchment':'paper');
+        restoreOrderPaper(background,original,box,region.role==='heading'?'ruled':region.role==='ability'?'parchment':'paper',region.inkOutline);
       });
       _sheetBackgrounds.set(key,picture);
     }
@@ -1280,14 +1280,27 @@
     return [(left+a+1)/picture.width,box[1],(b-a-1)/picture.width,box[3]];
   }
 
-  function restoreOrderPaper(ctx,picture,box,sheetStyle) {
+  function restoreOrderPaper(ctx,picture,box,sheetStyle,inkOutline) {
     if(sheetStyle==='order'){restoreCleanOrderPaper(ctx,picture,box);return;}
-    if(sheetStyle==='parchment')box=nativeSheetPaperBox(picture,box);
+    if(inkOutline){
+      var xs=inkOutline.map(function(p){return p[0];}),ys=inkOutline.map(function(p){return p[1];});
+      var left=Math.min.apply(Math,xs),top=Math.min.apply(Math,ys);
+      box=[left,top,Math.max.apply(Math,xs)-left,Math.max.apply(Math,ys)-top];
+    } else if(sheetStyle==='parchment')box=nativeSheetPaperBox(picture,box);
     var crop=document.createElement('canvas');
     crop.width=Math.max(2,Math.round(box[2]*picture.width));crop.height=Math.max(2,Math.round(box[3]*picture.height));
     var c=crop.getContext('2d',{willReadFrequently:true}),w=crop.width,h=crop.height;
     c.drawImage(picture,box[0]*picture.width,box[1]*picture.height,box[2]*picture.width,box[3]*picture.height,0,0,w,h);
     var source=c.getImageData(0,0,w,h),pixels=source.data,clean=c.createImageData(w,h);
+    var inkArea=null;
+    if(inkOutline){
+      // This source-specific outline follows the unprinted gap between the
+      // illustration and its lettering. The original artwork stays outside it.
+      var stencil=document.createElement('canvas');stencil.width=w;stencil.height=h;
+      var maskContext=stencil.getContext('2d');maskContext.beginPath();
+      inkOutline.forEach(function(point,index){var x=(point[0]-box[0])/box[2]*w,y=(point[1]-box[1])/box[3]*h;if(index)maskContext.lineTo(x,y);else maskContext.moveTo(x,y);});
+      maskContext.closePath();maskContext.fill();inkArea=maskContext.getImageData(0,0,w,h).data;
+    }
     var radius=Math.max(1,Math.round(Math.min(w,h)*.05)),grain=[];
     function edge(length,index) {
       var raw=new Float32Array(length*3),smooth=new Float32Array(length*3);
@@ -1330,7 +1343,7 @@
       // lettering and its JPEG fringe receive nearby clean paper.
       var mask=new Uint8Array(w*h),ruledPaper=sheetStyle==='ruled';
       var paperRows=[],paperColors=[],gutter=Math.max(1,Math.floor(w*.02));
-      var inkGutter=sheetStyle==='paper'?0:gutter;
+      var inkGutter=sheetStyle==='paper'||inkOutline?0:gutter;
       for(var y=0;y<h;y++){
         var row=[];
         for(var x=gutter;x<w-gutter;x++)row.push({at:(y*w+x)*4,light:(pixels[(y*w+x)*4]+pixels[(y*w+x)*4+1]+pixels[(y*w+x)*4+2])/3});
@@ -1356,7 +1369,7 @@
       for(var at=0;at<w*h;at++){
         var i=at*4,light=(pixels[i]+pixels[i+1]+pixels[i+2])/3;
         var neutral=sheetStyle==='paper'||Math.max(pixels[i],pixels[i+1],pixels[i+2])-Math.min(pixels[i],pixels[i+1],pixels[i+2])<35;
-        if(neutral&&light<Math.min(110,(localPaper?localPaper[at]:paperRows[Math.floor(at/w)])-35)&&at%w>=inkGutter&&at%w<w-inkGutter)mask[at]=1;
+        if((!inkArea||inkArea[at*4+3])&&neutral&&light<Math.min(110,(localPaper?localPaper[at]:paperRows[Math.floor(at/w)])-35)&&at%w>=inkGutter&&at%w<w-inkGutter)mask[at]=1;
       }
       var nativeTrim=null;
       if(ruledPaper||sheetStyle==='event'||sheetStyle==='parchment'){
@@ -1374,7 +1387,7 @@
           }
           for(var at=0;at<w*h;at++){
             var light=(pixels[at*4]+pixels[at*4+1]+pixels[at*4+2])/3;
-            if(light<Math.min(170,localPaper[at]-35))boundaryInk[at]=1;
+            if((!inkArea||inkArea[at*4+3])&&light<Math.min(170,localPaper[at]-35))boundaryInk[at]=1;
           }
         }
         var visited=new Uint8Array(w*h);
@@ -1404,7 +1417,7 @@
       // into the replacement. Three box passes give smooth local shading;
       // unmasked paper and stains retain their exact native pixels.
       var weighted=new Float32Array(w*h*4),scratch=new Float32Array(w*h*4);
-      for(var at=0;at<w*h;at++)if(!expanded[at]&&!(nativeTrim&&nativeTrim[at])&&at%w>=gutter&&at%w<w-gutter){
+      for(var at=0;at<w*h;at++)if(!expanded[at]&&!(nativeTrim&&nativeTrim[at])&&(!inkArea||inkArea[at*4+3])&&at%w>=gutter&&at%w<w-gutter){
         for(var channel=0;channel<3;channel++)weighted[at*4+channel]=pixels[at*4+channel];weighted[at*4+3]=1;
       }
       function blur(from,to,horizontal){
@@ -1427,7 +1440,7 @@
       for(var y=h-1;y>=0;y--)for(var x=w-1;x>=0;x--)distance[y*w+x]=Math.min(distance[y*w+x],x+1<w?distance[y*w+x+1]+1:w+h,y+1<h?distance[(y+1)*w+x]+1:w+h);
       clean.data.set(pixels);
       var halo=sheetStyle==='parchment'?3:8;
-      for(var at=0;at<w*h;at++)if(!(nativeTrim&&nativeTrim[at])&&(expanded[at]||!ruledPaper&&distance[at]<halo)){
+      for(var at=0;at<w*h;at++)if((!inkArea||inkArea[at*4+3])&&!(nativeTrim&&nativeTrim[at])&&(expanded[at]||!ruledPaper&&distance[at]<halo)){
         var x=at%w,y=Math.floor(at/w),left=x-1,right=x+1;
         if(ruledPaper){
           while(left>=0&&expanded[y*w+left])left--;
@@ -1452,6 +1465,9 @@
     }
     c.putImageData(clean,0,0);
     ctx.save();
+    if(inkOutline){
+      ctx.beginPath();inkOutline.forEach(function(point,index){var x=point[0]*canvasSize(ctx).width,y=point[1]*canvasSize(ctx).height;if(index)ctx.lineTo(x,y);else ctx.moveTo(x,y);});ctx.closePath();ctx.clip();
+    }
     if(sheetStyle==='parchment'){
       // The erasure includes old letter fringes near the edge. Keep a native
       // inset untouched so the repaired paper cannot paint over the frame.
