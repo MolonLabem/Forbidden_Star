@@ -1242,7 +1242,7 @@
         "unit": "Сокол/Пустотный Охотник: Потратьте 1 [M], чтобы переместить любое количество ваших отрядов с командным уровнем 0-1 в соседнюю область. Это может привести к новому сражению по завершении текущего.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_2.jpg",
         "aspect": 0.7194928684627575,
-        "icons": "BSSM"
+        "icons": "BSS"
       },
       {
         "title": "Наставления Видящих",
@@ -1980,7 +1980,7 @@
       "group": "upgrade-2",
       "text": {
         "title": "Волновая Змея",
-        "icons": "BSSM",
+        "icons": "BSS",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/base/eldar/combat/t2_2.jpg",
         "aspect": 0.7194928684627575,
         "general": "Получите 1 [D]. *newline* Получите 3 (S). Ваш противник может избежать этого эффекта, если потратит 1 [M].",

@@ -1185,7 +1185,7 @@
         "unit": "Воин Огня/Бронекостюм/Защитник: Если ни один из ваших отрядов не отступил в этом раунде битвы, получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_4.jpg",
         "aspect": 0.7194928684627575,
-        "icons": "BS"
+        "icons": "SS"
       }
     ],
     [
@@ -1195,7 +1195,7 @@
         "unit": "Бронекостюм/Рыба-Молот/Хранитель: Получите 1 (S). Ваш противник должен потерять 1 [B] или 1 [M].",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_1.jpg",
         "aspect": 0.7194928684627575,
-        "icons": "BBS"
+        "icons": "BBB"
       },
       {
         "title": "Перегруппировка",
@@ -1211,7 +1211,7 @@
         "unit": "Рыба-Молот/Хранитель: Во время шага нанесения повреждений выберите 1 ваш отряд, который должен быть уничтожен. Этот отряд может отступить вместо уничтожения.",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_3.jpg",
         "aspect": 0.7194928684627575,
-        "icons": "BSM"
+        "icons": "BBS"
       }
     ],
     [
@@ -1229,7 +1229,7 @@
         "unit": "Превосходство/Хранитель: Ваш противник должен потерять 3 [M]. За каждый [M], который он не может потерять, получите 2 (B).",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t3_2.jpg",
         "aspect": 0.7194928684627575,
-        "icons": "BBSMM"
+        "icons": "BBMMM"
       }
     ]
   ],
@@ -1875,7 +1875,7 @@
       "group": "upgrade-1",
       "text": {
         "title": "Фальшивое Отступление",
-        "icons": "BS",
+        "icons": "SS",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t0_4.jpg",
         "aspect": 0.7194928684627575,
         "general": "Ваш противник обязан перебросить все [S]. *newline* Вы обязаны перебросить 2 [S] или отступить одним из ваших отрядов.",
@@ -1908,7 +1908,7 @@
       "group": "upgrade-2",
       "text": {
         "title": "Перестрелка",
-        "icons": "BBS",
+        "icons": "BBB",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_1.jpg",
         "aspect": 0.7194928684627575,
         "general": "Ваш противник должен потерять 3 (B) в начале шага нанесения повреждений.",
@@ -1974,7 +1974,7 @@
       "group": "upgrade-2",
       "text": {
         "title": "Стрельба в Движении",
-        "icons": "BSM",
+        "icons": "BBS",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t2_3.jpg",
         "aspect": 0.7194928684627575,
         "general": "Перебросьте все ваши кубы одного типа.",
@@ -2040,7 +2040,7 @@
       "group": "upgrade-3",
       "text": {
         "title": "Во Имя Высшего Блага",
-        "icons": "BBSMM",
+        "icons": "BBMMM",
         "source": "https://github.com/MolonLabem/Forbidden_Star/blob/7a9a58bf2284863250f7d4284e292a7c18315a4e/page/factions/gif/tau/combat/t3_2.jpg",
         "aspect": 0.7194928684627575,
         "general": "Ваш противник обязан перебросить все [B].",

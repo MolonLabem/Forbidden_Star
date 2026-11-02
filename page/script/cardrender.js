@@ -972,6 +972,8 @@
     var picture=await loadImage(data.picture);
     var fields=FIELDS.raster[data.kind];
     if(!fields)throw new Error('Нет разметки исходной карты');
+    // Dense source text may reach below the usual paper field.
+    if(data.template?.body)fields=Object.assign({},fields,{body:data.template.body.box});
     var prepared=document.createElement('canvas');prepared.width=picture.width;prepared.height=picture.height;
     var layer=prepared.getContext('2d');layer.drawImage(picture,0,0);
     Object.keys(fields).forEach(function(role){

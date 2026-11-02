@@ -9048,7 +9048,11 @@
       "mode": "updated",
       "kind": "events",
       "raster": true,
-      "template": null,
+      "template": {
+        "body": {
+          "box": [0.08, 0.673, 0.84, 0.25]
+        }
+      },
       "artSrc": null,
       "output": "pictures/prepared/dl__thousandsons__events__e_7.png"
     },

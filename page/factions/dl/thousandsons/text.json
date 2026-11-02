@@ -1371,6 +1371,14 @@
       "render": {
         "profile": "prepared-native-events",
         "template": {
+          "body": {
+            "box": [
+              0.08,
+              0.673,
+              0.84,
+              0.25
+            ]
+          },
           "preparedId": "dl/thousandsons/events/e_7",
           "picture": "pictures/prepared/dl__thousandsons__events__e_7.png"
         }
