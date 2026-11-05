@@ -1064,6 +1064,13 @@
       el('div', { class: 'fs-faq-hero' }, [
         el('h1', { class: 'fs-faq-title', text: hero.title || '' }),
         el('p', { class: 'fs-faq-blurb', text: hero.blurb || '' }),
+        el('div', { class: 'fs-faq-documents', role: 'group', 'aria-label': 'Справочник на русском языке' }, [
+          el('a', { class: 'fs-faq-document', href: 'documents/forbidden-stars-rules-reference-ru.pdf',
+            target: '_blank', rel: 'noopener noreferrer', text: 'Открыть справочник',
+            'aria-label': 'Открыть справочник на русском языке (PDF, новая вкладка)' }),
+          el('a', { class: 'fs-faq-document', href: 'documents/forbidden-stars-rules-reference-ru.pdf',
+            download: 'Forbidden Stars - Справочник.pdf', text: 'Скачать PDF · 61,3 МБ' }),
+        ]),
       ]),
       el('div', { class: 'fs-faq-content' }, [
         el('div', { class: 'fs-faq-filter' }, [el('label', { for: 'fs-faq-faction', text: 'Фракция' }), factionSelect]),
