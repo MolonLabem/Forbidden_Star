@@ -7,7 +7,7 @@
   "ordersText": [
     {
       "title": "Кибернетическая принадлежность",
-      "general": "Когда вы раскрываете этот жетон приказа, вы можете заменить 1 Скитария в активной системе на 1 бесплатного Катафрона или уничтожить 1 свой отряд в активной системе, чтобы купить 1 дополнительное улучшение приказа или боевой колоды. Стоимость улучшения в материалах уменьшается на стоимость уничтоженного отряда. *newline* ОДИН РАЗ ЗА РАУНД."
+      "general": "Раскрыв этот жетон приказа, можете в активной системе заменить 1 Скитария на 1 бесплатного Катафрона или выбрать 1 свой недеморализованный отряд и купить 1 дополнительное улучшение приказа или боевой колоды, снизив его стоимость в материалах на стоимость отряда. Уничтожьте выбранный отряд после выполнения приказа. *newline* ОДИН РАЗ ЗА РАУНД."
     },
     {
       "title": "Повелитель машин",
@@ -72,7 +72,7 @@
     [
       {
         "title": "Скитарии-рейнджеры",
-        "general": "Получите 1 [D] или примените общие способности вашей открытой боевой карты, разыгранной в предыдущем раунде битвы.",
+        "general": "Получите 1 [D] или примените любые общие способности вашей открытой боевой карты, разыгранной в предыдущем раунде битвы.",
         "unit": "Скитарий/Легкий Крейсер: Получите 1 (S).",
         "icons": "S"
       },
@@ -122,7 +122,7 @@
       },
       {
         "title": "Перераспределение энергии",
-        "general": "Переверните 1 ваш куб на [M]. *newpara* Получите 1 [D] или примените способности отрядов своей открытой боевой карты, разыгранной в предыдущем раунде битвы.",
+        "general": "Переверните 1 ваш куб на [M] или потратьте 1 жетон кузницы, чтобы восстановить 1 ваш отряд. *newpara* Получите 1 [D] или примените любые способности отрядов своей открытой боевой карты командного уровня 2 или ниже, разыгранной в предыдущем раунде битвы, игнорируя все требования.",
         "unit": "",
         "icons": "BS"
       }
@@ -354,7 +354,7 @@
       "text": {
         "title": "Скитарии-рейнджеры",
         "icons": "S",
-        "general": "Получите 1 [D] или примените общие способности вашей открытой боевой карты, разыгранной в предыдущем раунде битвы.",
+        "general": "Получите 1 [D] или примените любые общие способности вашей открытой боевой карты, разыгранной в предыдущем раунде битвы.",
         "unit": "Скитарий/Легкий Крейсер: Получите 1 (S)."
       }
     },
@@ -554,7 +554,7 @@
       "text": {
         "title": "Перераспределение энергии",
         "icons": "BS",
-        "general": "Переверните 1 ваш куб на [M]. *newpara* Получите 1 [D] или примените способности отрядов своей открытой боевой карты, разыгранной в предыдущем раунде битвы.",
+        "general": "Переверните 1 ваш куб на [M] или потратьте 1 жетон кузницы, чтобы восстановить 1 ваш отряд. *newpara* Получите 1 [D] или примените любые способности отрядов своей открытой боевой карты командного уровня 2 или ниже, разыгранной в предыдущем раунде битвы, игнорируя все требования.",
         "unit": ""
       }
     },
@@ -696,11 +696,19 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "orders"
+        "profile": "orders",
+        "template": {
+          "picture": "pictures/upstream/adeptusmechanicus-o_1-c43af1a.jpg",
+          "variants": {
+            "factions/sow/adeptusmechanicus/orders/o_1.jpg": {
+              "picture": "factions/sow/adeptusmechanicus/orders/o_1.jpg"
+            }
+          }
+        }
       },
       "text": {
         "title": "Кибернетическая принадлежность",
-        "general": "Когда вы раскрываете этот жетон приказа, вы можете заменить 1 Скитария в активной системе на 1 бесплатного Катафрона или уничтожить 1 свой отряд в активной системе, чтобы купить 1 дополнительное улучшение приказа или боевой колоды. Стоимость улучшения в материалах уменьшается на стоимость уничтоженного отряда. *newline* ОДИН РАЗ ЗА РАУНД."
+        "general": "Раскрыв этот жетон приказа, можете в активной системе заменить 1 Скитария на 1 бесплатного Катафрона или выбрать 1 свой недеморализованный отряд и купить 1 дополнительное улучшение приказа или боевой колоды, снизив его стоимость в материалах на стоимость отряда. Уничтожьте выбранный отряд после выполнения приказа. *newline* ОДИН РАЗ ЗА РАУНД."
       }
     },
     {
@@ -711,7 +719,15 @@
         "sourceText": "template"
       },
       "render": {
-        "profile": "orders"
+        "profile": "orders",
+        "template": {
+          "picture": "pictures/upstream/adeptusmechanicus-o_2-c43af1a.jpg",
+          "variants": {
+            "factions/sow/adeptusmechanicus/orders/o_2.jpg": {
+              "picture": "factions/sow/adeptusmechanicus/orders/o_2.jpg"
+            }
+          }
+        }
       },
       "text": {
         "title": "Повелитель машин",
@@ -1009,6 +1025,23 @@
       "path": "text.json",
       "revision": "a4d87da474079e4903816d1d0afa1c90657ed503",
       "sha256": "4ebc0a3e4d402635788343af6a4e4eeff4ea3ca87f98cf4b3845c5a10dcd4917"
+    },
+    "assetSources": {
+      "pictures/upstream/adeptusmechanicus-o_1-c43af1a.jpg": {
+        "url": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/c43af1acdaa6b489ae3315b2acf17b6cc20b1020/page/factions/sow/adeptus_mechanicus/orders/o_1.jpg",
+        "revision": "c43af1acdaa6b489ae3315b2acf17b6cc20b1020",
+        "sha256": "8dbf4905d700d389d3b448010d3e50410f9f66d0b3a78093944c196048aa848f"
+      },
+      "pictures/upstream/adeptusmechanicus-o_2-c43af1a.jpg": {
+        "url": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/c43af1acdaa6b489ae3315b2acf17b6cc20b1020/page/factions/sow/adeptus_mechanicus/orders/o_2.jpg",
+        "revision": "c43af1acdaa6b489ae3315b2acf17b6cc20b1020",
+        "sha256": "3f046b6d5ad688037921448a913a59889ad9a1e3b13a6307867fdc102f1e428f"
+      }
+    },
+    "reviewedUpstream": {
+      "repository": "Frytkownica/Forbidden_Star",
+      "revision": "c43af1acdaa6b489ae3315b2acf17b6cc20b1020",
+      "source": "https://github.com/Frytkownica/Forbidden_Star/blob/c43af1acdaa6b489ae3315b2acf17b6cc20b1020/page/factions/sow/adeptus_mechanicus/text.json"
     }
   },
   "compatibility": {
@@ -1129,6 +1162,39 @@
         0.8039647577092511,
         0.6508082408874801
       ]
+    },
+    "orders/o_1.jpg": {
+      "picture": "pictures/upstream/adeptusmechanicus-o_1-c43af1a.jpg",
+      "variants": {
+        "factions/sow/adeptusmechanicus/orders/o_1.jpg": {
+          "picture": "factions/sow/adeptusmechanicus/orders/o_1.jpg"
+        }
+      }
+    },
+    "orders/o_2.jpg": {
+      "picture": "pictures/upstream/adeptusmechanicus-o_2-c43af1a.jpg",
+      "variants": {
+        "factions/sow/adeptusmechanicus/orders/o_2.jpg": {
+          "picture": "factions/sow/adeptusmechanicus/orders/o_2.jpg"
+        }
+      }
     }
+  },
+  "assetSources": {
+    "pictures/upstream/adeptusmechanicus-o_1-c43af1a.jpg": {
+      "url": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/c43af1acdaa6b489ae3315b2acf17b6cc20b1020/page/factions/sow/adeptus_mechanicus/orders/o_1.jpg",
+      "revision": "c43af1acdaa6b489ae3315b2acf17b6cc20b1020",
+      "sha256": "8dbf4905d700d389d3b448010d3e50410f9f66d0b3a78093944c196048aa848f"
+    },
+    "pictures/upstream/adeptusmechanicus-o_2-c43af1a.jpg": {
+      "url": "https://raw.githubusercontent.com/Frytkownica/Forbidden_Star/c43af1acdaa6b489ae3315b2acf17b6cc20b1020/page/factions/sow/adeptus_mechanicus/orders/o_2.jpg",
+      "revision": "c43af1acdaa6b489ae3315b2acf17b6cc20b1020",
+      "sha256": "3f046b6d5ad688037921448a913a59889ad9a1e3b13a6307867fdc102f1e428f"
+    }
+  },
+  "reviewedUpstream": {
+    "repository": "Frytkownica/Forbidden_Star",
+    "revision": "c43af1acdaa6b489ae3315b2acf17b6cc20b1020",
+    "source": "https://github.com/Frytkownica/Forbidden_Star/blob/c43af1acdaa6b489ae3315b2acf17b6cc20b1020/page/factions/sow/adeptus_mechanicus/text.json"
   }
 }
