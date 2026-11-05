@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Официальный справочник — Forbidden Stars</title>
+  <meta name="description" content="Официальный справочник Forbidden Stars на русском языке: просмотр и скачивание PDF.">
+  <link rel="stylesheet" href="style/styles.css?v=feedback-1">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body class="fs-reference">
+  <header class="fs-reference-header">
+    <a href="index.html#view=faq" class="fs-faq-document">К вопросам по правилам</a>
+    <a id="reference-download" class="fs-faq-document" href="documents/forbidden-stars-rules-reference-ru.pdf" download="Forbidden Stars - Справочник.pdf">Скачать PDF · 61,3 МБ</a>
+  </header>
+  <main class="fs-reference-main">
+    <div class="fs-reference-intro">
+      <h1>Официальный справочник</h1>
+      <p>Forbidden Stars · на русском языке · PDF, 20 страниц</p>
+    </div>
+    <section id="reference-state" class="fs-reference-state" aria-labelledby="reference-status">
+      <p id="reference-status" role="status" aria-live="polite" aria-atomic="true">Подготовка к загрузке справочника…</p>
+      <p id="reference-detail" class="fs-reference-detail">Размер файла — 61,3 МБ. На медленном соединении загрузка займёт некоторое время.</p>
+      <progress id="reference-progress" aria-label="Загрузка справочника" aria-describedby="reference-detail" hidden></progress>
+      <div class="fs-reference-actions">
+        <button id="reference-cancel" type="button" class="fs-faq-document" hidden>Отменить загрузку</button>
+        <button id="reference-retry" type="button" class="fs-faq-document" hidden>Повторить загрузку</button>
+      </div>
+      <noscript><p>Для просмотра на этой странице включите JavaScript или скачайте PDF по ссылке выше.</p></noscript>
+    </section>
+    <div id="reference-viewer" class="fs-reference-viewer" hidden></div>
+  </main>
+  <script src="script/reference.js?v=feedback-1"></script>
+</body>
+</html>

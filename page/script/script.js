@@ -176,9 +176,12 @@
   }
 
   // Монтирует дерево в #app, сохраняя фокус поля поиска при перерисовке
+  var pendingFocusId = null;
+  var documentFeedbackText = '';
   function mountApp(app, searchMessage) {
     var root = document.getElementById('app');
-    var ae = document.activeElement, sel = null, focusId = ae && ae.id;
+    var ae = document.activeElement, sel = null, focusId = ae && ae.id || (ae === document.body ? pendingFocusId : null);
+    pendingFocusId = focusId;
     if (ae && ae.classList && ae.classList.contains('fs-faq-search')) {
       sel = { s: ae.selectionStart, e: ae.selectionEnd };
     }
@@ -191,6 +194,7 @@
     imageQueue = [];
     root.innerHTML = '';
     root.appendChild(app);
+    root.setAttribute('aria-busy', 'false');
     announceSearch(searchMessage);
     observeCards(root);
     var modalImage = root.querySelector('.fs-lb-imgwrap > img');
@@ -199,7 +203,8 @@
       var inp = root.querySelector('.fs-faq-search');
       if (inp) { inp.focus(); try { inp.setSelectionRange(sel.s, sel.e); } catch (e) {} }
     } else if (focusId) {
-      var target = document.getElementById(focusId); if (target) target.focus({ preventScroll: true });
+      var target = document.getElementById(focusId);
+      if (target) { target.focus({ preventScroll: true }); pendingFocusId = null; }
     }
     if (state.lb !== null) focusModal();
     else releaseModal();
@@ -338,6 +343,13 @@
     return el('div', { class: 'fs-load-error', role: 'alert' }, [
       el('p', { class: 'fs-note', text: message }),
       el('button', { class: 'fs-empty-btn', text: 'Повторить загрузку', onclick: retry }),
+    ]);
+  }
+
+  function loadingState(message) {
+    return el('div', { class: 'fs-loading-state', role: 'status' }, [
+      el('span', { class: 'fs-image-spinner', 'aria-hidden': 'true' }),
+      el('span', { text: message }),
     ]);
   }
 
@@ -971,7 +983,7 @@
         var kids = [];
         if (t.kind !== 'sub') kids.push(el('span', { class: 'fs-fac-dot fs-faq-dot', style: 'background:' + (t.dot || 'var(--fs-accent)') + ';' }));
         kids.push(el('span', { class: 'fs-fac-name', text: t.name }));
-        kids.push(el('span', { class: 'fs-fac-count', text: String(counts[t.key] || 0) }));
+        kids.push(el('span', { class: 'fs-fac-count', text: ready ? String(counts[t.key] || 0) : DATA.errors.faq ? '' : '…' }));
         return el('button', { class: cls, id: 'faq-topic-' + t.key, 'aria-current': active ? 'page' : null,
           onclick: (function (key) { return function () {
             setState({ faqTopic: key, faqQuestion: null, faqNavOpen: false });
@@ -1034,7 +1046,7 @@
     if (DATA.errors.faq) {
       contentInner = loadError('Не удалось загрузить FAQ. Проверьте соединение и попробуйте снова.', openFaq);
     } else if (!ready) {
-      contentInner = el('div', { class: 'fs-note', text: 'Загрузка…' });
+      contentInner = loadingState('Загрузка вопросов и ответов…');
     } else if (shown) {
       contentInner = el('div', { class: 'fs-faq-sections' }, sections);
     } else {
@@ -1060,33 +1072,39 @@
     });
     factionSelect.value = faction;
 
+    var documentFeedback = el('p', { class: 'fs-document-feedback', role: 'status', text: documentFeedbackText });
     var body = [
       el('div', { class: 'fs-faq-hero' }, [
         el('h1', { class: 'fs-faq-title', text: hero.title || '' }),
         el('p', { class: 'fs-faq-blurb', text: hero.blurb || '' }),
         el('div', { class: 'fs-faq-documents', role: 'group', 'aria-label': 'Официальный справочник на русском языке' }, [
-          el('a', { class: 'fs-faq-document', href: 'documents/forbidden-stars-rules-reference-ru.pdf',
+          el('a', { class: 'fs-faq-document', href: 'rules-reference.html',
             target: '_blank', rel: 'noopener noreferrer', text: 'Открыть официальный справочник',
             'aria-label': 'Открыть официальный справочник на русском языке (PDF, новая вкладка)' }),
           el('a', { class: 'fs-faq-document', href: 'documents/forbidden-stars-rules-reference-ru.pdf',
-            download: 'Forbidden Stars - Справочник.pdf', text: 'Скачать официальный справочник · PDF, 61,3 МБ' }),
+            download: 'Forbidden Stars - Справочник.pdf', text: 'Скачать официальный справочник · PDF, 61,3 МБ',
+            onclick: function () {
+              documentFeedbackText = 'Скачивание передано браузеру. Прогресс доступен в загрузках браузера.';
+              documentFeedback.textContent = documentFeedbackText;
+            } }),
         ]),
+        documentFeedback,
       ]),
       el('div', { class: 'fs-faq-content' }, [
         el('div', { class: 'fs-faq-filter' }, [el('label', { for: 'fs-faq-faction', text: 'Фракция' }), factionSelect]),
         el('div', { class: 'fs-faq-sectionrow' }, [
           el('span', { class: 'fs-faq-sectionlabel', text: faqTopicName(topic) }),
-          el('span', { class: 'fs-faq-countlabel', text: shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') }),
+          el('span', { class: 'fs-faq-countlabel', text: ready ? shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') : DATA.errors.faq ? 'Данные не загружены' : 'Загрузка…' }),
         ]),
         contentInner,
       ]),
     ];
-    var main = el('main', { class: 'fs-main fs-scroll fs-faq-main' }, body);
+    var main = el('main', { class: 'fs-main fs-scroll fs-faq-main', 'aria-busy': String(!ready && !DATA.errors.faq) }, body);
 
     app.appendChild(header);
     app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
     var searchMessage = q ? (DATA.errors.faq ? 'Не удалось загрузить FAQ.' : !ready ? 'Поиск в FAQ…'
-      : 'По запросу «' + state.faqQuery.trim() + '»: ' + shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') + '.') : null;
+      : 'По запросу «' + state.faqQuery.trim() + '»: ' + shown + ' ' + ruPlural(shown, 'вопрос', 'вопроса', 'вопросов') + '.') : !ready && !DATA.errors.faq ? 'Загрузка вопросов и ответов…' : null;
     mountApp(app, searchMessage);
   }
 
@@ -1217,7 +1235,7 @@
       }
       var loading=el('main',{class:'fs-mode-loading'},[
         el('h1',{text:'RNB'}),
-        DATA.errors.rnb?loadError('Не удалось загрузить правила RNB.',function () {delete DATA.errors.rnb;render();}):el('p',{text:'Загрузка правил RNB…',role:'status'}),
+        DATA.errors.rnb?loadError('Не удалось загрузить правила RNB.',function () {delete DATA.errors.rnb;render();}):loadingState('Загрузка правил RNB…'),
         el('button',{text:'К обновлённым картам',onclick:function () {setState({view:'codex',displayMode:'updated',lb:null});}}),
       ]);
       mountApp(loading);return;
@@ -1350,6 +1368,7 @@
           })
         );
         if (DATA.errors['fac:' + e.key]) subs.appendChild(loadError('Не удалось загрузить список фракций.', function () { retryFactions(e.key); }));
+        else if (!DATA.factions[e.key]) subs.appendChild(loadingState('Загрузка фракций…'));
 
         return el('div', { class: 'fs-nav-group', 'data-exp': e.key }, [expHeader, subs]);
       })
@@ -1451,8 +1470,10 @@
           el('span', { class: 'fs-bc-sep', text: '/' }),
           el('h1', { class: 'fs-bc-title', text: 'Поиск: «' + state.cardQuery + '»' }),
         ]),
-        el('span', { class: 'fs-bc-total', text: flat.length + ' ' + ruPlural(flat.length, 'результат', 'результата', 'результатов') }),
+        el('span', { class: 'fs-bc-total', text: pending ? (flat.length ? 'Найдено ' + flat.length + ' · поиск продолжается…' : 'Идёт поиск…') : flat.length + ' ' + ruPlural(flat.length, 'результат', 'результата', 'результатов') }),
       ]));
+      main.setAttribute('aria-busy', String(pending));
+      if (pending) main.appendChild(loadingState('Поиск карточек…'));
       if (failed.length) {
         sres.appendChild(loadError('Не все данные карточек загружены. Результаты поиска могут быть неполными.', function () {
           failed.forEach(function (f) {
@@ -1463,7 +1484,6 @@
           render();
         }));
       }
-      if (pending) sres.appendChild(el('div', { class: 'fs-note', text: 'Загрузка карточек…' }));
       if (!flat.length && !failed.length && !pending) {
         sres.appendChild(el('div', { class: 'fs-search-empty' }, [
           el('h2',{text:'Карты не найдены'}),
@@ -1485,6 +1505,10 @@
 
     if (!state.expansion || !state.faction) {
       if (DATA.errors['fac:' + state.expansion]) main.appendChild(loadError('Не удалось загрузить список фракций. Проверьте соединение и попробуйте снова.', function () { retryFactions(state.expansion); }));
+      else if (state.expansion && !DATA.factions[state.expansion]) {
+        main.setAttribute('aria-busy', 'true');
+        main.appendChild(loadingState('Загрузка фракций…'));
+      }
       else main.appendChild(el('div', { class: 'fs-empty' }, [
         el('div', { class: 'fs-empty-glyph' }, [el('div', { class: 'ring' }), el('div', { class: 'core' })]),
         el('div', { class: 'fs-empty-stack' }, [
@@ -1499,7 +1523,7 @@
       ]));
       app.appendChild(header);
       app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
-      mountApp(app);
+      mountApp(app, main.getAttribute('aria-busy') === 'true' ? 'Загрузка фракций…' : null);
       return;
     }
 
@@ -1531,11 +1555,12 @@
         class: 'fs-bc-total',
         text: cat === 'material'
           ? (built.material && built.material.length ? built.material.length + ' ' + ruPlural(built.material.length, 'единица', 'единицы', 'единиц') : '')
-          : (flat.length + ' ' + ruPlural(flat.length, 'карточка', 'карточки', 'карточек')),
+          : (!built.ready ? DATA.errors['man:' + facId] ? 'Данные не загружены' : 'Загрузка…' : flat.length + ' ' + ruPlural(flat.length, 'карточка', 'карточки', 'карточек')),
       }),
     ]));
 
     var scrollarea = el('div', { class: 'fs-scrollarea fs-scroll' });
+    main.setAttribute('aria-busy', String(!built.ready && !DATA.errors['man:' + facId]));
     if (DATA.errors['man:' + facId]) {
       scrollarea.appendChild(loadError('Не удалось загрузить данные карточек. Проверьте соединение и попробуйте снова.', function () {
         delete DATA.errors['man:' + facId];
@@ -1543,7 +1568,7 @@
         render();
       }));
     } else if (!built.ready) {
-      scrollarea.appendChild(el('div', { class: 'fs-note', text: 'Загрузка…' }));
+      scrollarea.appendChild(loadingState('Загрузка карточек…'));
     } else if (cat === 'material') {
       scrollarea.appendChild(renderMaterial(built.material));
     } else if (!groups.length) {
@@ -1582,7 +1607,7 @@
 
     app.appendChild(header);
     app.appendChild(el('div', { class: 'fs-body' }, [sidebar, main]));
-    mountApp(app);
+    mountApp(app, !built.ready && !DATA.errors['man:' + facId] ? 'Загрузка карточек…' : null);
   }
 
   function setCardZoom(wrap, scale, point) {
@@ -1756,6 +1781,12 @@
   /* ---- Инициализация ---- */
 
   function boot() {
+    announceSearch('Загрузка картотеки…');
+    var root = document.getElementById('app');
+    if (root) {
+      root.setAttribute('aria-busy', 'true');
+      root.replaceChildren(el('main', { class: 'fs-boot' }, [loadingState('Загрузка картотеки…')]));
+    }
     Promise.all([fetchJSON('factions/general.json'),window.FSCatalog.loadProfiles()]).then(function (resources) {
       var g=resources[0];
       DATA.general = g;
@@ -1779,7 +1810,11 @@
     }).catch(function (e) {
       console.error(e);
       var root = document.getElementById('app');
-      if (root) root.replaceChildren(loadError('Не удалось загрузить данные справочника. Проверьте соединение и попробуйте снова.', boot));
+      if (root) {
+        root.setAttribute('aria-busy', 'false');
+        announceSearch(null);
+        root.replaceChildren(el('main', { class: 'fs-boot' }, [loadError('Не удалось загрузить данные картотеки. Проверьте соединение и попробуйте снова.', boot)]));
+      }
     });
   }
 

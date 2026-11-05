@@ -288,6 +288,33 @@ body {
   color: var(--fs-muted); padding: 30px 4px;
 }
 
+.fs-loading-state { display: flex; align-items: center; gap: 12px; padding: 24px 4px; color: #bdb7ac; font-size: 14px; line-height: 1.5; }
+.fs-loading-state .fs-image-spinner { width: 20px; height: 20px; border-width: 2px; }
+.fs-nav-subs .fs-loading-state { padding: 12px; font-size: 12px; }
+.fs-main > .fs-loading-state { padding-inline: 40px; }
+.fs-boot { max-width: 640px; margin: 10vh auto; padding: 24px; --fs-muted: #b0a89b; }
+.fs-document-feedback { margin: 12px 0 0; color: var(--fs-muted); font-size: 13px; line-height: 1.5; }
+.fs-document-feedback:empty { display: none; }
+
+/* The document page remains visible while its large PDF is downloaded. */
+.fs-reference { --fs-accent: #d8a657; --fs-muted: #b0a89b; min-height: 100vh; }
+.fs-reference-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 16px 24px; border-bottom: 1px solid #38332c; }
+.fs-reference-main { padding: 24px; max-width: 1400px; margin: 0 auto; }
+.fs-reference-intro h1 { margin: 0 0 8px; font-size: clamp(24px, 4vw, 32px); }
+.fs-reference-intro p, .fs-reference-detail { color: var(--fs-muted); line-height: 1.6; margin: 0; }
+.fs-reference-state { padding: 24px 0; max-width: 72ch; }
+#reference-status { margin: 0 0 8px; font-size: 16px; line-height: 1.5; font-weight: 600; }
+#reference-status[role=alert] { color: #edb29e; }
+#reference-progress { display: block; width: 100%; height: 12px; margin: 18px 0; accent-color: var(--fs-accent); }
+#reference-progress[hidden], .fs-reference [hidden] { display: none; }
+.fs-reference-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.fs-reference button { font-family: inherit; cursor: pointer; }
+.fs-reference-viewer iframe { display: block; width: 100%; height: max(65vh, 520px); border: 1px solid #514b40; border-radius: 6px; background: #282725; }
+@media (max-width: 720px) {
+  .fs-main > .fs-loading-state { padding-inline: 16px; }
+  .fs-reference-header, .fs-reference-main { padding: 16px; }
+}
+
 /* ---- результаты поиска карточек ---- */
 .fs-search-item { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 .fs-card--search { aspect-ratio: 450 / 650; }
@@ -876,6 +903,7 @@ body {
 .fs-print-footer { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; background: #211d16; border-top: 1px solid #40372b; }
 .fs-print-footer p { font-size: 12px; line-height: 1.4; color: #b6a98e; }
 .fs-print .fs-print-primary { flex-shrink: 0; color: #211a0f; background: #dfb56d; border-color: #dfb56d; padding: 11px 22px; font-weight: 600; }
+.fs-print .fs-print-download { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid #dfb56d; border-radius: 7px; font-size: 13px; text-decoration: none; }
 .fs-print button:disabled, .fs-print-tools button:disabled, .fs-print-modebar button:disabled { opacity: .4; cursor: default; }
 .fs-print :focus-visible, .fs-print-tools :focus-visible, .fs-print-modebar :focus-visible { outline: 2px solid #e9c67a; outline-offset: 3px; }
 @media (max-width: 1050px) {
