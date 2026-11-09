@@ -180,6 +180,26 @@
   var documentFeedbackText = '';
   function mountApp(app, searchMessage) {
     var root = document.getElementById('app');
+    var scrollKey = JSON.stringify(routeKeys.map(function (key) { return state[key]; }));
+    var keepScroll = root._fsScrollKey === scrollKey;
+    var pageScroll = { x: window.scrollX, y: window.scrollY };
+    var scrollPositions = keepScroll ? Array.from(root.querySelectorAll('.fs-scroll'), function (node) {
+      return { x: node.scrollLeft, y: node.scrollTop };
+    }) : [];
+    var readyImages = new Map();
+    root.querySelectorAll('.fs-card.is-ready > img').forEach(function (img) { readyImages.set(img._fsImageKey, img); });
+    app.querySelectorAll('.fs-card > img').forEach(function (img) {
+      var ready = readyImages.get(img._fsImageKey);
+      if (!ready) return;
+      readyImages.delete(img._fsImageKey);
+      var wrap = img.parentNode;
+      ready._fsCard = img._fsCard;
+      ready.alt = img.alt;
+      wrap.classList.replace('is-loading', 'is-ready');
+      wrap.setAttribute('aria-busy', 'false');
+      if (isCardShaped(ready._fsCard)) wrap.style.aspectRatio = String(ready.naturalWidth / ready.naturalHeight);
+      img.replaceWith(ready);
+    });
     var ae = document.activeElement, sel = null, focusId = ae && ae.id || (ae === document.body ? pendingFocusId : null);
     pendingFocusId = focusId;
     if (ae && ae.classList && ae.classList.contains('fs-faq-search')) {
@@ -192,8 +212,16 @@
     if (state.lb !== null && ['codex','compare'].includes(state.view)) appendLightbox(app);
     if (lazyObserver) lazyObserver.disconnect();
     imageQueue = [];
-    root.innerHTML = '';
-    root.appendChild(app);
+    root.querySelectorAll('.fs-card-image').forEach(function (img) { if (img._fsCancel) img._fsCancel(); });
+    root.replaceChildren(app);
+    root._fsScrollKey = scrollKey;
+    if (keepScroll) {
+      root.querySelectorAll('.fs-scroll').forEach(function (node, index) {
+        var position = scrollPositions[index];
+        if (position) { node.scrollLeft = position.x; node.scrollTop = position.y; }
+      });
+      window.scrollTo(pageScroll.x, pageScroll.y);
+    }
     root.setAttribute('aria-busy', 'false');
     announceSearch(searchMessage);
     observeCards(root);
@@ -503,7 +531,12 @@
   }
 
   async function cardImageURL(imgEl, card, thumbnail) {
-    var source = thumbnail || card.kind === 'sheet' ? await window.FSCardRender.sourceInfo(card) : null;
+    // Start shared fonts alongside the first preview's source, not after it.
+    var resources = await Promise.all([
+      thumbnail || card.kind === 'sheet' ? window.FSCardRender.sourceInfo(card) : null,
+      card.text && card.kind && card.renderMode !== 'raster' ? window.FSCardRender.fontsReady() : null,
+    ]);
+    var source = resources[0];
     var pixels = displayPixels(imgEl, thumbnail, card.kind==='sheet'?window.FSCardRender.sheetSize.width:source?.width);
     if (card.kind === 'sheet' && !thumbnail) {
       // One base format for every sheet; redraw text at the available detail.
@@ -519,12 +552,13 @@
 
   function prepareCard(img, card, modal) {
     img._fsCard = card;
+    img._fsImageKey = JSON.stringify([card.src, card.kind, card.renderMode, card.artSrc, card.text, card.template, tokenStyle, useHighRes]);
     img.className = 'fs-card-image';
     var wrap = img.parentNode;
     wrap.classList.add('is-loading');
     wrap.setAttribute('aria-busy', 'true');
     if (!modal) wrap.setAttribute('aria-label', card.label);
-    if (!modal && (card.aspect || card.text && card.text.aspect)) wrap.style.aspectRatio = String(cardRatio(card));
+    if (!modal && isCardShaped(card)) wrap.style.aspectRatio = String(cardRatio(card));
     var status = el('span', { class: 'fs-image-status', role: modal ? 'status' : null }, [
       el('span', { class: 'fs-image-spinner', 'aria-hidden': 'true' }),
       el('span', { class: 'fs-image-label', text: 'Загрузка карточки…' }),
@@ -534,12 +568,13 @@
     else wrap.addEventListener('click', function (event) {
       if (!wrap.classList.contains('is-error')) return;
       event.preventDefault(); event.stopImmediatePropagation();
-      loadCardImage(img, true);
+      loadCardImage(wrap.querySelector('.fs-card-image'), true);
     }, true);
     wrap.appendChild(status);
   }
 
   async function loadCardImage(img, thumbnail) {
+    if (img._fsCancel) img._fsCancel();
     var wrap = img.parentNode, status = wrap.querySelector('.fs-image-status');
     var label = status.querySelector('.fs-image-label'), retry = status.querySelector('button');
     var zoom = wrap.closest('.fs-lb')?.querySelector('.fs-lb-zoom');
@@ -549,7 +584,11 @@
     wrap.setAttribute('aria-busy', 'true');
     label.textContent = 'Загрузка карточки…';
     if (retry) retry.hidden = true;
-    var timer;
+    var timer, cancel;
+    var cancelled = new Promise(function (_, reject) {
+      cancel = function () { var error = new Error('Card view replaced'); error.name = 'AbortError'; reject(error); };
+    });
+    img._fsCancel = cancel;
     try {
       await Promise.race([
         (async function () {
@@ -558,7 +597,9 @@
           img.src = url;
           await img.decode();
         })(),
-        new Promise(function (_, reject) { timer = setTimeout(function () { reject(new Error('Image loading timed out')); }, 20000); }),
+        // Allow the shared font retry and the following artwork/decode stage.
+        new Promise(function (_, reject) { timer = setTimeout(function () { reject(new Error('Image loading timed out')); }, 45000); }),
+        cancelled,
       ]);
       if (!img.isConnected || img._fsAttempt !== attempt) return;
       var nativeRatio=img.naturalWidth/img.naturalHeight;
@@ -572,6 +613,7 @@
       if (retry && document.activeElement === retry) document.querySelector('.fs-lb-close').focus();
       if (retry) retry.hidden = true;
     } catch (error) {
+      if (error.name === 'AbortError') return;
       if (!img.isConnected || img._fsAttempt !== attempt) return;
       img._fsAttempt++; // Ignore a source that completes after the timeout.
       img.removeAttribute('src');
@@ -579,7 +621,7 @@
       wrap.setAttribute('aria-busy', 'false');
       label.textContent = thumbnail ? 'Не удалось загрузить. Нажмите, чтобы повторить.' : 'Не удалось загрузить карточку.';
       if (retry) retry.hidden = false;
-    } finally { clearTimeout(timer); }
+    } finally { clearTimeout(timer); if (img._fsCancel === cancel) delete img._fsCancel; }
   }
 
   function drainImages() {
@@ -600,7 +642,7 @@
   }
 
   function observeCards(root) {
-    var images = root.querySelectorAll('.fs-card img');
+    var images = root.querySelectorAll('.fs-card:not(.is-ready) img');
     function queue(img) { imageQueue.push(img); scheduleImages(); }
     if (!window.IntersectionObserver) { [].forEach.call(images, queue); return; }
     lazyObserver = new IntersectionObserver(function (entries) {
@@ -1227,6 +1269,7 @@
   }
 
   function render() {
+    if (!DATA.general) return; // A viewport event may arrive before boot data/profiles.
     if((state.displayMode==='rnb' || state.view==='compare' && state.comparison==='rnb') && !DATA.rnb) {
       if(!DATA.loading.rnb && !DATA.errors.rnb) {
         DATA.loading.rnb=true;
@@ -1771,11 +1814,20 @@
     setState({ view: 'codex', expansion: null, faction: null, category: 'combat', lb: null, expOpen: null, cardQuery: '', cardScope: 'faction', faqContext: null });
   }
 
-  // Перерисовка при изменении размера окна (дебаунс)
-  var _rt;
+  // Mobile browser chrome and the keyboard change height during scrolling.
+  // Keep the grid and decoded images intact; only width changes affect columns.
+  var _rt, viewportWidth = window.innerWidth;
   window.addEventListener('resize', function () {
     clearTimeout(_rt);
-    _rt = setTimeout(render, 120);
+    _rt = setTimeout(function () {
+      if (window.innerWidth !== viewportWidth) {
+        viewportWidth = window.innerWidth;
+        render();
+      } else {
+        var img = document.querySelector('.fs-lb-imgwrap > img');
+        if (img && !(img.parentNode._fsZoom > 1)) fitViewer(img.parentNode, img._fsCard, img.naturalWidth ? img.naturalWidth / img.naturalHeight : null);
+      }
+    }, 120);
   });
 
   /* ---- Инициализация ---- */

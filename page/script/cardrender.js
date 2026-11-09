@@ -1547,6 +1547,33 @@
 
   // Ensure the custom fonts are loaded before measuring/drawing text.
   var _fontsReady;
+  var fontRetry = 0;
+  function resetFailedFonts() {
+    if (!document.fonts) return;
+    var failed = Array.from(document.fonts).filter(function (face) {
+      return face.status === 'error' && Object.values(FONT).includes(face.family.replace(/["']/g, ''));
+    });
+    if (!failed.length) return;
+    // A rejected CSS FontFace stays rejected: fonts.load() alone never retries it.
+    // Refresh only failed local faces, keeping CSS the source of font URLs/styles.
+    fontRetry++;
+    Array.from(document.styleSheets).forEach(function (sheet) {
+      var rules;
+      try { rules = Array.from(sheet.cssRules); } catch (error) { return; }
+      rules.forEach(function (rule) {
+        if (rule.type !== CSSRule.FONT_FACE_RULE) return;
+        var style = rule.style, family = style.getPropertyValue('font-family').replace(/["']/g, '').trim();
+        if (!failed.some(function (face) {
+          return face.family.replace(/["']/g, '') === family && face.style === (style.fontStyle || 'normal') && face.weight === (style.fontWeight || 'normal');
+        })) return;
+        style.setProperty('src', style.getPropertyValue('src').replace(/url\(["']?([^"')]+)["']?\)/g, function (_, src) {
+          var url = new URL(src, sheet.href || document.baseURI);
+          url.searchParams.set('fs-font-retry', String(fontRetry));
+          return 'url("' + url.href + '")';
+        }));
+      });
+    });
+  }
   function loadFont(name, style) {
     return new Promise(function (resolve, reject) {
       if (!document.fonts) { reject(new Error('Браузер не поддерживает проверку шрифтов')); return; }
@@ -1560,12 +1587,13 @@
     });
   }
   function loadFonts() {
+    resetFailedFonts();
     return Promise.all(Array.from(new Set(Object.values(FONT))).map(function(name){return loadFont(name);})
       .concat(['italic','bold','bold italic'].map(function(style){return loadFont(FONT.body,style);})));
   }
   function fontsReady() {
     if (_fontsReady) return _fontsReady;
-    _fontsReady = loadFonts().catch(function (error) {
+    _fontsReady = loadFonts().catch(function () { return loadFonts(); }).catch(function (error) {
       _fontsReady = null;
       throw error;
     });
