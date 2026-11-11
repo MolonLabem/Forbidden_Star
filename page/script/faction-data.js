@@ -35,6 +35,16 @@
     if(template.variants)result.variants=Object.fromEntries(Object.entries(template.variants).map(function(entry){return [entry[0],preparedTemplate(entry[1])];}));
     return result;
   }
+  function combatPreview(template) {
+    var assets=prepared.combatPreviews;
+    if(!assets)return template;
+    var preview={maxWidth:assets.maxWidth,panels:assets.panels.map(function(asset){return asset.output+'?v='+asset.sha256;})};
+    var artwork=template?.artwork,asset=artwork&&assets.artwork[artwork.src];
+    if(asset && asset.sourceSha256===artwork.sha256)preview.artwork=asset.output+'?v='+asset.sha256;
+    var result=Object.assign({},template,{preview:preview});
+    if(template?.variants)result.variants=Object.fromEntries(Object.entries(template.variants).map(function(entry){return [entry[0],combatPreview(entry[1])];}));
+    return result;
+  }
   function box(value,name) {
     if(!Array.isArray(value)||value.length!==4||value.some(function(n){return !Number.isFinite(n)||n<0;})||!value[2]||!value[3]||value[0]+value[2]>1.00000001||value[1]+value[3]>1.00000001)fail(name);
   }
@@ -105,6 +115,7 @@
       var template=p.template?Object.assign({},p.template,c.render.template):c.render.template||null;
       if(c.category==='combat'&&data.renderDefaults?.combatFrame)template=Object.assign({},template,{frame:data.renderDefaults.combatFrame});
       template=preparedTemplate(template);
+      if(p.kind==='combat')template=combatPreview(template);
       var label=text&&text.title||c.label;
       if(!label)fail('название '+c.id);
       return {id:c.id,factionId:data.id,exp:exp,fac:fac,category:c.category,file:c.asset.file.split('/').pop(),tier:tier,index:physicalIndices[physical],

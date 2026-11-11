@@ -7638,5 +7638,1846 @@
         "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
       }
     }
+  },
+  "combatPreviews": {
+    "maxWidth": 640,
+    "panels": [
+      {
+        "source": "pictures/background.png",
+        "output": "pictures/previews/combat/background.webp",
+        "sourceSha256": "4772a98d633b829da015387bab16663f28b036c5fa653c9f9ca1cb9fc616c2ac",
+        "sha256": "b0e2c837b767f16673621b364a3995982e4bb60b4ebde20f70157c7f8e97340c",
+        "width": 759,
+        "height": 379,
+        "encoding": {
+          "format": "webp",
+          "quality": 95,
+          "alphaQuality": 100,
+          "effort": 4
+        }
+      },
+      {
+        "source": "pictures/foreground.png",
+        "output": "pictures/previews/combat/foreground.webp",
+        "sourceSha256": "218b4f478c05875cd3357a0c30f313dcf7f634d6a51d09b6b8855a504f6f778e",
+        "sha256": "bb634e1465372f0eaf92e49c052186ef2eb2c30d6b45484bbe90a04eab3d6219",
+        "width": 759,
+        "height": 300,
+        "encoding": {
+          "format": "webp",
+          "quality": 95,
+          "alphaQuality": 100,
+          "effort": 4
+        }
+      },
+      {
+        "source": "pictures/bottom.png",
+        "output": "pictures/previews/combat/bottom.webp",
+        "sourceSha256": "6f1e5e42a076a7f7b2e7b41bd530e3d3b42197a3c4196e1213e85895b9028080",
+        "sha256": "2efe92fce75c2362e4251d7065e0a6e77d0f87e0e8a3ba409333a0b71bf902ed",
+        "width": 454,
+        "height": 18,
+        "encoding": {
+          "format": "webp",
+          "quality": 95,
+          "alphaQuality": 100,
+          "effort": 4
+        }
+      }
+    ],
+    "artwork": {
+      "pictures/artwork/base/chaos/combat/s1.webp": {
+        "source": "pictures/artwork/base/chaos/combat/s1.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/s1.webp",
+        "sourceSha256": "847b80ae3742f3feb7304308952f458be31c55bab85d6ecbde43719f3b698786",
+        "sha256": "6a91ca39e886379da151c6ede1d8a97951ab544a91adf0fc6d3712733bf3e3a3",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/s2.webp": {
+        "source": "pictures/artwork/base/chaos/combat/s2.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/s2.webp",
+        "sourceSha256": "1f624c5c265b0bd8c2de765debba89c981e6b50577f7fc287b67c8d34574f78a",
+        "sha256": "2bcb31a1b773249f3482be3a3c9dc5dee720432009b1f59a98593b4216313756",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/s3.webp": {
+        "source": "pictures/artwork/base/chaos/combat/s3.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/s3.webp",
+        "sourceSha256": "feb1cecf3ada745c94731348e0c331def73a4ffee7dcae14978772086872ded5",
+        "sha256": "7d0c22296ac9ffbd42bbb674bd6dedb359b7813fb1e7d90fc16b6d62c4a2b651",
+        "width": 640,
+        "height": 526,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/s4.webp": {
+        "source": "pictures/artwork/base/chaos/combat/s4.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/s4.webp",
+        "sourceSha256": "c9ec25693ed2c9dc3add96454cc9e14e7186c6a08441f44a6db76c0f472d0a87",
+        "sha256": "4213db124eb8202b1236388905d9512bf6fcaf9a167510d580da9a9ef0011d7d",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/s5.webp": {
+        "source": "pictures/artwork/base/chaos/combat/s5.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/s5.webp",
+        "sourceSha256": "f5aa351c202946b47693a70467fe7e4f3e4de2095ab6c3ddf0ea9b847a8e2c0c",
+        "sha256": "d02531a4310cb57fea6ea53a55b33689c2c18c126c0f5b64cfac02c444e7db9d",
+        "width": 640,
+        "height": 526,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t0_1.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t0_1.webp",
+        "sourceSha256": "87c9b4cd264bf323e95c8ad47e016771e612e25e0aec928014328aa17e6890ba",
+        "sha256": "9734dd5b9fb58b0ef2059bb0d57f32233a4e58cf788af0830e4d6ecc1b77072e",
+        "width": 640,
+        "height": 565,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t0_2.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t0_2.webp",
+        "sourceSha256": "9f165734b25a585f38e882bab40630b631f42faa8193fffee701940f4fcc6b5c",
+        "sha256": "9b64ca0f602ec1b71d302c400f0ff36fa66b12440e1788dfb231c3e6cf17b04b",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t0_3.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t0_3.webp",
+        "sourceSha256": "0bcba7d2ccc188ee8de05c08db17efa26ef1f6445c8cad4a82680c6df2c17d16",
+        "sha256": "ecbed63a5873c2c5f83308c2b2056b3d19b0135ef43031a033a8f025e17b23d4",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t0_4.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t0_4.webp",
+        "sourceSha256": "590551d0f7815c3e4ca3e3ad3fb4c367cda962306dff91659375590a2791d14a",
+        "sha256": "6fd3be008f85220945af2b7b62e87bc0f237ccdacc5ba6495531f5f7dac699e1",
+        "width": 640,
+        "height": 526,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t2_1.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t2_1.webp",
+        "sourceSha256": "c775a75f990f2b79584d1c892ffc04922640047bbf4d61212c6f5406c4921ddb",
+        "sha256": "addda50dd4b18e1829ba2d11befc1cc8b2430ea1796b93407736bb81bab89259",
+        "width": 640,
+        "height": 625,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t2_2.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t2_2.webp",
+        "sourceSha256": "1c66ab0731b083e3d9362e124b2f7e4f1cba34f2f4407e26720ce4e73616faa2",
+        "sha256": "a6769e3b3c41128951a0bdfd1df479a30b30591bd09581908eb2c05d31b02393",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t2_3.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t2_3.webp",
+        "sourceSha256": "205ac13fe74d7ce0a5cb12b475c86201c09ffba9d69640d96fd48876f2eb3a74",
+        "sha256": "115f665afada9af4eec330c8411cf34bb36641fe3b2287b2bd858d1290b3203e",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t3_1.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t3_1.webp",
+        "sourceSha256": "891d89fede7069052a53b54dee4ec03936cd478927c810aa238edeb66ab213cd",
+        "sha256": "f3eae072dcee4c2c3eac8f4a2c6b8ace465884888800f47a1840f1f6f091ef8e",
+        "width": 640,
+        "height": 526,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/chaos/combat/t3_2.webp": {
+        "source": "pictures/artwork/base/chaos/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/base/chaos/combat/t3_2.webp",
+        "sourceSha256": "bf0c8297ff104bbffd82e0503a38d30a3d17498b34ebd5478d82cf415059af94",
+        "sha256": "2b3d68279d5edc7fa21465e10bf76139f2b2e36f4d143b2a3ac703ec06032bdf",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/s1.webp": {
+        "source": "pictures/artwork/base/eldar/combat/s1.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/s1.webp",
+        "sourceSha256": "3f123dd9b4062e1dbf5bbe923e1e4f15739f514d851be5f142cf22de95665571",
+        "sha256": "9a0d30fa774d33073fb43ba7b6263831adba7243812745f82d812b623dec9397",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/s2.webp": {
+        "source": "pictures/artwork/base/eldar/combat/s2.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/s2.webp",
+        "sourceSha256": "9563a6fd0b152371e05cd3b0483b19cc9fd07a7f2de40a8fab95ad1084af2c13",
+        "sha256": "7b68da5c3d380270eb64e0fac1c2e26bab19397a0a35270dddd5c52f2b841c7c",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/s3.webp": {
+        "source": "pictures/artwork/base/eldar/combat/s3.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/s3.webp",
+        "sourceSha256": "b9bb599514386e0f0a9945d19fa287b10e5160023282707f9d5c4f4f09fa354f",
+        "sha256": "6ca5f76c04df53a29173b80f442c5c3457662ea011ac3e9dc1f03abc07d8bddd",
+        "width": 640,
+        "height": 625,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/s4.webp": {
+        "source": "pictures/artwork/base/eldar/combat/s4.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/s4.webp",
+        "sourceSha256": "04f9b709a80343400ec8c96b0c4c254dddbae4f112befdd76ea2a9c22108e6d4",
+        "sha256": "f02fbfd0d8c773c9c2ce134a0e29aa7732dd796b335cdeab66f7193b43f6d623",
+        "width": 640,
+        "height": 723,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/s5.webp": {
+        "source": "pictures/artwork/base/eldar/combat/s5.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/s5.webp",
+        "sourceSha256": "714e25af3ddb36b6590ecb82b6a93182e83fa2c2606afaa2b59e983e4f0e7e1f",
+        "sha256": "fe2dc53948a8413d42afaddd56721cb1d44f9070322d5e059e25de00c6ca36d2",
+        "width": 640,
+        "height": 642,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t0_1.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t0_1.webp",
+        "sourceSha256": "3c0f30c48533e4b5733b72b228f9ccbca61a83f29bf1ed5e85b49fe27d7567d3",
+        "sha256": "c0cf0ba961b269f1cf3a17b55da891db17de7dc5ac8e782d3a94a44593e54821",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t0_2.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t0_2.webp",
+        "sourceSha256": "64ae6e62d639b7be6bb2eddd26823a24d38f2b5bf3ee1dc485b071aea211250c",
+        "sha256": "610ff67a6568830654b7270ab378f400b51c7d9e43f75f1762d6a070490084cf",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t0_3.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t0_3.webp",
+        "sourceSha256": "7f4c4af06cc920e115e111867a68432a5931fbacf7a380cf8dd69bc095d03084",
+        "sha256": "bd5e28dd2ee25acdb66f710ff8734b839566afd381ddd81d849e4580d737415a",
+        "width": 640,
+        "height": 565,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t0_4.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t0_4.webp",
+        "sourceSha256": "81ef3772d2a8fc4fa37176c83eb5c486548da5cc62de46c5db71ea0f1018954a",
+        "sha256": "8e42c7e57699937489d83b5945b9490a33d77dc1ca2139a0e25e40a6d91d9e90",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t2_1.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t2_1.webp",
+        "sourceSha256": "0fce3a99870c18a8a3b90d154a5918f56ac9c16faa5d2ad1ac2960e4b967f3e6",
+        "sha256": "eebb6646d4e6632b2343f72252efcf7f476dd2ded41d820c1106dd326e22be2f",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t2_2.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t2_2.webp",
+        "sourceSha256": "476f8a783e56cfbbf2738b19b0c54b3c2599db6e1f073a824d76715fbcdf66f5",
+        "sha256": "269a833e757271d4e90fdf34db7014f270e1893c8e6652a827bfb6358861b1de",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t2_3.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t2_3.webp",
+        "sourceSha256": "61a7ddf5300ad26ddcc93225a9d2ed864688200f568743a87f0d48491f33ca78",
+        "sha256": "16182c3abf0ce84589c63ad0cb141f37e81a77d47a2be0d8539e59d225fb4a1c",
+        "width": 640,
+        "height": 642,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t3_1.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t3_1.webp",
+        "sourceSha256": "d18a6c7684a62185f06df0d120b6855c9b0baee18a3ae59a9b01bff102617715",
+        "sha256": "d18d11e4c451a9d5836aaf3a019379db52b5406a70c42943ff923c0a3a5db331",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/eldar/combat/t3_2.webp": {
+        "source": "pictures/artwork/base/eldar/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/base/eldar/combat/t3_2.webp",
+        "sourceSha256": "32694033a4eff1f1d26ca39af9c5efb6c87b71714ae627fc15d3ad4e9b8051ed",
+        "sha256": "f169b9083c59e66a55cdca0a12a441371a66f7cb5157aae1211389fe0ca1d410",
+        "width": 640,
+        "height": 550,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/s1.webp": {
+        "source": "pictures/artwork/base/ork/combat/s1.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/s1.webp",
+        "sourceSha256": "06afa4722b2bae3f763a4af6e7bc3608d35a7fb52fa4c9b355b159c8c6dfc817",
+        "sha256": "af12fa816aac28102c5a99e0d93532c6a39d8022e0fb5622513f057d28220809",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/s2.webp": {
+        "source": "pictures/artwork/base/ork/combat/s2.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/s2.webp",
+        "sourceSha256": "d39f61e0a5f6baeab370a001b54bb6e90ca3aaf33704e8024430db553ab71e5a",
+        "sha256": "9462153385281cca6cee689765681b7723fc3f0d3eb471284c844b5e31cf17c3",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/s3.webp": {
+        "source": "pictures/artwork/base/ork/combat/s3.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/s3.webp",
+        "sourceSha256": "28d2820763a8db33d61f0523000011161584c20157d45fa6d8c651bf5e7bb02f",
+        "sha256": "5fb7f98a284e496d0ab28f7fd882c0b23b932212c90cfc58c7ada37e8d14c9d1",
+        "width": 640,
+        "height": 625,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/s4.webp": {
+        "source": "pictures/artwork/base/ork/combat/s4.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/s4.webp",
+        "sourceSha256": "d45a72bbf748eab848b547e8a3207948dd76aae4311e87e8ee5408410734fc5f",
+        "sha256": "526572f08923fc20720ee72ca53e580f9ed4fa9afa9c7595cb1a628484fbfb50",
+        "width": 640,
+        "height": 625,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/s5.webp": {
+        "source": "pictures/artwork/base/ork/combat/s5.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/s5.webp",
+        "sourceSha256": "cd185ce0d0c1bad0afcdf1678a1c918c18341cb04ac3ad82f07886e282d80f44",
+        "sha256": "57a9a8de294df658296994c7a24064ae8c8a3caa277f2275b6ee44d95b36b5ef",
+        "width": 640,
+        "height": 625,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t0_1.webp": {
+        "source": "pictures/artwork/base/ork/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t0_1.webp",
+        "sourceSha256": "a06a9d6541ec45070e40ad1ef4296e2a88715e0a0e4bc39647fce6ecd587f68c",
+        "sha256": "313b7f752e03395223634f7b03a4c05008c9a265a7c7e0dea879e5693fa768ae",
+        "width": 640,
+        "height": 625,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t0_2.webp": {
+        "source": "pictures/artwork/base/ork/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t0_2.webp",
+        "sourceSha256": "e88a39da6fb19900edcae98fddf86737feb1aceb931de132e44f303533a79d76",
+        "sha256": "023b6ee54a76fdc02bd7388957ddb652fa5dd1d675c0d0794ea55535a9b3de0b",
+        "width": 640,
+        "height": 600,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t0_3.webp": {
+        "source": "pictures/artwork/base/ork/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t0_3.webp",
+        "sourceSha256": "23c306dffc1f3e5fc8c9f2c8fae5915b434c2fc9747524ec5c6b715905bfc73c",
+        "sha256": "0ba51ecf7a89b3ca3ddd85fe2a9140c81deb711d1746cc6eafc50bf5ce14edf9",
+        "width": 640,
+        "height": 666,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t0_4.webp": {
+        "source": "pictures/artwork/base/ork/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t0_4.webp",
+        "sourceSha256": "9c3cece82701680fe6e4cb5f24cc7ed741daa11655dc2f4b5121084e08a99428",
+        "sha256": "a6df4132400cddc6f04b400326dbaa4bc404fadd5a9a5d13b85207aa79bd477f",
+        "width": 640,
+        "height": 666,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t2_1.webp": {
+        "source": "pictures/artwork/base/ork/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t2_1.webp",
+        "sourceSha256": "7696eedae238a32af68133ec405728229f94d4d3cd8ab0479d567d758ffef70c",
+        "sha256": "58143520ba9ef9b0df68383da4c407cdcc316e668e49ddbe52a6307c2488972d",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t2_2.webp": {
+        "source": "pictures/artwork/base/ork/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t2_2.webp",
+        "sourceSha256": "acc8d124792adab7349f4c2f498f16fdeb6d72d45337e8a16708a63d2247292f",
+        "sha256": "f581f7346a64a4fe12ebde6bf36765f05202fe8c4f5d3dc7d3f2817c15ff6b6a",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t2_3.webp": {
+        "source": "pictures/artwork/base/ork/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t2_3.webp",
+        "sourceSha256": "e56de4acbbb71deb41ba58d1bd4a5cb23448b993f7af0de2d432a56c28e966fe",
+        "sha256": "c552fadadfe4e7ff4996f70d4cf75dc50c4c99577921cca6acf45264c2594713",
+        "width": 640,
+        "height": 723,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t3_1.webp": {
+        "source": "pictures/artwork/base/ork/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t3_1.webp",
+        "sourceSha256": "d67867a67733dbe7269460e630061be3bbbc87a5a2edfd20f344c2a05f40ea12",
+        "sha256": "0b9ed2c63ff306a603a0a78d73360f3d600de286ed2234b35da2e2300d03788d",
+        "width": 640,
+        "height": 723,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/ork/combat/t3_2.webp": {
+        "source": "pictures/artwork/base/ork/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/base/ork/combat/t3_2.webp",
+        "sourceSha256": "f2020527227731ab47ccbb73e0aa43da2086b5cd41f3558c7ccad3786c610b9a",
+        "sha256": "b41200d92c798de7efdafb365eb40227b966c7d11cb58fbf723a1bb6df3815e1",
+        "width": 640,
+        "height": 642,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/s1.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/s1.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/s1.webp",
+        "sourceSha256": "b49d9d2186e8227cf54a68ddc0db39fb6e6463575c77050ce0ce141f7ef5b0f1",
+        "sha256": "dd5cf710e0730a9e30eb684e1087082f85e416e9477f7a5b9fdc13caf160e08f",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/s2.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/s2.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/s2.webp",
+        "sourceSha256": "f3480fc863e988db456e1bdd68a4f03975a9868799c6ef17a52939626bdaee21",
+        "sha256": "08e5c952ca5135624fad4875bd592d6e27c6e4df700320cb64f69dd9f202e4a0",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/s3.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/s3.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/s3.webp",
+        "sourceSha256": "a04803792929f17230542b7860fbe090b8e74d98a390def3932573ca3105f695",
+        "sha256": "16b7128b85107961b26bbf6afa357eb240052a1a47b7e486748f25e0f1c73470",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/s4.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/s4.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/s4.webp",
+        "sourceSha256": "3dfbe8ef6ebc32deada2e811f0fbfccf64c9a78957d96ff777a6331fe3f972b6",
+        "sha256": "1d23b47df0fdaefba064468f1624a891362f9fa243315585f8c13bcf4651937f",
+        "width": 640,
+        "height": 625,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/s5.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/s5.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/s5.webp",
+        "sourceSha256": "cc065b6b01b02c28684670e284324e3a7a6a5dbd426a0cd7a9bf41a71ce3a48c",
+        "sha256": "90bb4a6bcdfc7adb8d05feb702f22d27d07848dd32af49b0b04bc466a93ee264",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t0_1.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t0_1.webp",
+        "sourceSha256": "31c0853213e0ab82f3f9ee86417eaf40f49d0e6b371d9aa4a1c57edd3fef2aa4",
+        "sha256": "6b25ab5a6e23e532c8044eeb2e8df5eccaf42a3e0ae90042d01642c3ff88bc31",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t0_2.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t0_2.webp",
+        "sourceSha256": "da23e6e1622cbd604df6e2fcf19d241721590763d7dbb362e129714d8cc250ed",
+        "sha256": "75b11bda4ac50efc6db6ac74f2a6681341029c55ec8fc08c0b096fdc22a334c7",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t0_3.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t0_3.webp",
+        "sourceSha256": "0899041b8dd9794c6db078e81320b732f889f22e8ec5a4d767f152bfbe2bf2f9",
+        "sha256": "92de34a1b21f2b59ea09cc1bc8e84f4ca9d2b618cad9d8f888d3e31337190183",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t0_4.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t0_4.webp",
+        "sourceSha256": "0fcc57c2552d05d1666b483471d9755625f6c310c12c3d2a8eb01a943ba3b18e",
+        "sha256": "915207e12b371c819b4fa1d7e2d58b293b8ba878332481afe7152e48fac56807",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t2_1.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t2_1.webp",
+        "sourceSha256": "85b050c4c1b497310412636cac0ebda016507d54561a21bf014da620b99f5607",
+        "sha256": "f430a33e7b50649120433bf5d6a61702fe24f894b2649cc43f46b1e9bc861c5d",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t2_2.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t2_2.webp",
+        "sourceSha256": "9fc6348422feddf1c581a90c544048fd16e53a0679831aabd775a4abdfc41933",
+        "sha256": "cefc147e434346eab66babebdf0fe52576b3b2b76a009468bf183726257d2d29",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t2_3.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t2_3.webp",
+        "sourceSha256": "030218af2c2467c448ff589e07ac1065717ec80a85a7da561c9d43f1509f7eab",
+        "sha256": "62c82cd65b74023771703bcf37690e80c81e0cbfeb701b9e4e57b295ec8d62a5",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t3_1.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t3_1.webp",
+        "sourceSha256": "6a8566a5ced740cb2c148479f8f231c541a2433dc14967417a45862e198498d9",
+        "sha256": "2b95311bd46356044e043f6e5179d6fa452865bfacf6e8fe3b45f537c1aed73a",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/base/spacemarines/combat/t3_2.webp": {
+        "source": "pictures/artwork/base/spacemarines/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/base/spacemarines/combat/t3_2.webp",
+        "sourceSha256": "fbdbbc3386f7857ebd46440209b1a169c2668797ef349dee023ef431b59d7c73",
+        "sha256": "93f21254fce95c98048d6d536f63121ed503f282fe33fe38e567c6fd65815939",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/s1.webp": {
+        "source": "pictures/artwork/gif/ig/combat/s1.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/s1.webp",
+        "sourceSha256": "9c3f9d9c796b41584cb98cce853d4e46767f530629697538ebac0019e731a3d3",
+        "sha256": "5e5c48d7e8b8d006038265d5893ddbdb31c9b998906e3fdd49a47a2a984004fb",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/s2.webp": {
+        "source": "pictures/artwork/gif/ig/combat/s2.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/s2.webp",
+        "sourceSha256": "b9ad2a0c9b2d6388b4b5130b216272c480e2c83343bae3e85753c0ce0a603fac",
+        "sha256": "79d8fe78f64ed2e4b70e0bb27c6286c1267591202726faa02c0b6c754810407a",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/s3.webp": {
+        "source": "pictures/artwork/gif/ig/combat/s3.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/s3.webp",
+        "sourceSha256": "8bc76382745f4aa4ebfbb9f2454b60559075e2d4ee3e8662ab6e6d838a1c1608",
+        "sha256": "c9942996b6589223cf33b239e5fa58e1b10776ac1d3b1091e311b5282ce6e96a",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/s4.webp": {
+        "source": "pictures/artwork/gif/ig/combat/s4.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/s4.webp",
+        "sourceSha256": "2503638323bec386e83438de5f65bd244cc9a47813132e0f16be60f4bf231639",
+        "sha256": "bf940cc3d8dc000b067a0dca24c5fc207749181e3c572341c89700ce01b47436",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/s5.webp": {
+        "source": "pictures/artwork/gif/ig/combat/s5.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/s5.webp",
+        "sourceSha256": "943937285b5ca938a04bdce281b972564cfb476ac1f6f472d4b932e4bf3e1f59",
+        "sha256": "e8491f8194f87fa767013d0d2d466af3c3887bd218d50e4bede5ab946d01c6da",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t0_1.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t0_1.webp",
+        "sourceSha256": "27f4653f8c209d449b7c8fc058aab74f3bcdd94f6e7a9253a99919a9b6404d6b",
+        "sha256": "4211475f3806e8f2a853cb35254fa3b0a52cce012ea16b83f0564475371b54c6",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t0_2.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t0_2.webp",
+        "sourceSha256": "5f6188faf8418bc83911cf0e9e26ebc43793a6c27657f683a6c64b71e3f03315",
+        "sha256": "ee11c46e65c30b9cbeacfea6084a74959247f0884b8eb84c94c9dc79ee3e228d",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t0_3.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t0_3.webp",
+        "sourceSha256": "7117c498350e116db4f4918f4489f40834e2d866c64708497726a1dec98b0212",
+        "sha256": "5291fb5a984a45b8709fddd752cac8b28187512a2d12f846cab1b5e7f0efb576",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t0_4.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t0_4.webp",
+        "sourceSha256": "5bf2d83e0a55941ee3b640ad3113f6335076dc3689baa74cfb8873fedad558f5",
+        "sha256": "66c82216b559d320433a923a5c0a33836cb001d4c32dc935f07ec8926f390581",
+        "width": 640,
+        "height": 682,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t2_1.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t2_1.webp",
+        "sourceSha256": "1ed5d2e3fddf08f2374a678072d7c4d1a41579d89624769eabf3acfc057deec7",
+        "sha256": "c5829d478d100df7e7a3ace4f1f15363121e0ab7b7f9ceadc000056cac2a025a",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t2_2.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t2_2.webp",
+        "sourceSha256": "062cc126340cecc241203d6ba047e43ec48a5b80aaf5534d9ee590b1240d9dc5",
+        "sha256": "09775e77fdf79f86bb99ee1951db513dd489a1840e8439e035a71b10bc81580f",
+        "width": 640,
+        "height": 527,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t2_3.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t2_3.webp",
+        "sourceSha256": "0fb8855683e8a019b12e68ebd75a80cb86657da082ec6cf27a7140d5515115c4",
+        "sha256": "f7f1dd1bf2a68517731759f1acd466e1eb139db18dd17d18369f9dd67871dd16",
+        "width": 640,
+        "height": 600,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t3_1.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t3_1.webp",
+        "sourceSha256": "f175803e77572f22f11463c492070f53fe716d3198171805b944f9a6f7de38b3",
+        "sha256": "9ee718a68d76b3eb2412c651937410b38e559483f870c59bfc9e51f52bd9e436",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/ig/combat/t3_2.webp": {
+        "source": "pictures/artwork/gif/ig/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/gif/ig/combat/t3_2.webp",
+        "sourceSha256": "9841015850798ed575f350a865f90dd0c7ad19238ef282d5b19caa8693786427",
+        "sha256": "1c73272eefa6f2efd1c5f7c0de97dce62c6a1364c9315b0216fbc8a326c46e98",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/s1.webp": {
+        "source": "pictures/artwork/gif/necron/combat/s1.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/s1.webp",
+        "sourceSha256": "6588a82caa2afbd6a1aa1aeea167c8a56b342f9920db16202caa043d03a70772",
+        "sha256": "6834b348429e6f35586efc1de0baf94505c18cdc9b133cae4ed0071f0c6115a0",
+        "width": 640,
+        "height": 805,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/s2.webp": {
+        "source": "pictures/artwork/gif/necron/combat/s2.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/s2.webp",
+        "sourceSha256": "95e6cb08da622b2ae02665c239d5e25d65a2647f9dac676cbe215e24985c2f0a",
+        "sha256": "b80140326f254cb33bbfb4baf8f89d154a08e0e751ffd3160c1fb1ccb2877300",
+        "width": 640,
+        "height": 805,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/s3.webp": {
+        "source": "pictures/artwork/gif/necron/combat/s3.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/s3.webp",
+        "sourceSha256": "6f90e7b081ad115d09822f92742974b3f36d1861787478cc2f10c4abf40c4aa1",
+        "sha256": "16cc0511f12d0a1a782fa933ec9d7d5ab053b1199b342431abbd226175eb47b3",
+        "width": 640,
+        "height": 539,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/s4.webp": {
+        "source": "pictures/artwork/gif/necron/combat/s4.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/s4.webp",
+        "sourceSha256": "e9f21e9f975be51c0babdbc35d0f6eaf66372ab50ae8f86d4b6271b8e5b5eac1",
+        "sha256": "6d256f76b94db4a7a1d55a048b259d480eb4c4fd39aa12368a12ecc670f4a272",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/s5.webp": {
+        "source": "pictures/artwork/gif/necron/combat/s5.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/s5.webp",
+        "sourceSha256": "b66a50e47cfefdf5a892782f7180695bb8c777c4e072d8674352fd93b0570cf5",
+        "sha256": "b629cc45d2f0914aa4e0839eb7be8d2396e63bfefd26d0fa69269eb646d31e10",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t0_1.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t0_1.webp",
+        "sourceSha256": "91a8b73459afa975f749e6f0cd3a681d16e08a1c7d461a635b76204d91b7bf54",
+        "sha256": "39556c48158b12f51a161fc2f8e66b7b4833d412838a34dcb36d4a263c40dcce",
+        "width": 640,
+        "height": 764,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t0_2.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t0_2.webp",
+        "sourceSha256": "f97f515df35294949c621475e80c575b88dc33399609cfe304abaf51c16fad56",
+        "sha256": "66974b5f38aac3ae4c8298d3a21a3c288d595ce822b89aa4f11c2b3485e2baad",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t0_3.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t0_3.webp",
+        "sourceSha256": "58118e0c687d7e58cb51354f87bedaddb5527dfc03b99dbe8cb2b8b3ba463ca0",
+        "sha256": "8e8a132a68b2d602e90e86b5e40124b9088b256b36f8faadb29d67ca7d8fc8b1",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t0_4.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t0_4.webp",
+        "sourceSha256": "f80aa9b9e611e26528527d91fdfb7577662b38a7aed10b1e0991308a0463a781",
+        "sha256": "c8aed4fe8002e0ce3ec0443adc18095738e6d830932aa3a74e88908c91135029",
+        "width": 640,
+        "height": 764,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t2_1.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t2_1.webp",
+        "sourceSha256": "0f67e06acc998f9b1bb3ce6a216e1816213cccc4ca2e8fdba0eb152e435e9803",
+        "sha256": "19d69c0ab891ee96974964f756ece0a1f72188f84cd4a68ff8acffdb6e4acb4f",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t2_2.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t2_2.webp",
+        "sourceSha256": "5d52b78970cccf370cbba0652af383b57ca01558888f437535b23d69a9f34a4e",
+        "sha256": "03404ae4e56243f6e7b73e03449a48f532d889b826a1e8fb02de268d399c9971",
+        "width": 640,
+        "height": 526,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t2_3.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t2_3.webp",
+        "sourceSha256": "1fae303bfe2301a39de4ffbcd2ec5b7b41742e191bb890b2f995cf2f2333a29d",
+        "sha256": "87812ddb7c919681f36e7298cb3d515053d6d98e59dd1f1108b18d9dd81ba595",
+        "width": 640,
+        "height": 526,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t3_1.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t3_1.webp",
+        "sourceSha256": "953cf3a24e0b257935977438ded99989f1bd3b2c500c0d9ec22e98098363b35f",
+        "sha256": "b8794f3b6fa1d229009b60f9f552481f45494ee3bdd280419308b55ac278ddf0",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/necron/combat/t3_2.webp": {
+        "source": "pictures/artwork/gif/necron/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/gif/necron/combat/t3_2.webp",
+        "sourceSha256": "6c32283a13300f931379e7d41d605315b9b37ae4f564cdaeabdb89ea7301c8a9",
+        "sha256": "c8c7dfb7ec53aea3f101c5a949688e001395f37c12098e631c4ea3c96f4717df",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/s1.webp": {
+        "source": "pictures/artwork/gif/tau/combat/s1.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/s1.webp",
+        "sourceSha256": "150bd0d2e5da17d46cf3286f50e14368e14c5034b6cf4bbe9d767f81d25fcc5a",
+        "sha256": "70fb1357a24f462df183841c8a37ae2732ea741caeed16aa59c433400abcd1e3",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/s2.webp": {
+        "source": "pictures/artwork/gif/tau/combat/s2.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/s2.webp",
+        "sourceSha256": "9e4dcc231517dc31e7515d9a4ef70120e2534fd9bc6a7c35e8aff086f116e218",
+        "sha256": "99ad2df94ee52218272fe7802d65deb68471baea884fde0b79483062eb8e5c30",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/s3.webp": {
+        "source": "pictures/artwork/gif/tau/combat/s3.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/s3.webp",
+        "sourceSha256": "2e1f431e4be1c350cd7df0d35032031840707e7e2ddb2fba819b61885cbfc107",
+        "sha256": "61d352568ec1ffc232c8e9ecff270e20caa411668d6ba18f7244d2505e483648",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/s4.webp": {
+        "source": "pictures/artwork/gif/tau/combat/s4.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/s4.webp",
+        "sourceSha256": "150ab01f61c705bea06df3b4654f607ff28af1070150f1e0481ea0b92e55a805",
+        "sha256": "46f3540c23561ae684e37d9a3d14f50191f67b60816b8fb9c1063e9a596dbd37",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/s5.webp": {
+        "source": "pictures/artwork/gif/tau/combat/s5.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/s5.webp",
+        "sourceSha256": "577f710529310156534826270ca1cec88cdfd02092f3d1769027a3dc071b4c3c",
+        "sha256": "a8218a313a1640598ab81299cab7e96751e650c067e8dddaf851be63559d5922",
+        "width": 640,
+        "height": 682,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t0_1.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t0_1.webp",
+        "sourceSha256": "75051aac3a7bc346acb601fecdf5b1fc016f81cbefb9d0df980540207545f9b7",
+        "sha256": "14f0e74b4203f5a5e1455c8196855d12e7f7637d9e13f6547d45e93b1005e8a8",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t0_2.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t0_2.webp",
+        "sourceSha256": "4a03489130b97e1cdcf63c26d4ae26f728475c6dccc046066ee6bcd1898620ae",
+        "sha256": "6a60cd7e23cbad7fd4b4de5d02f5b06bfdf7229dc501c91808f2b608d31e4587",
+        "width": 640,
+        "height": 600,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t0_3.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t0_3.webp",
+        "sourceSha256": "7139aea6b32e6ace94849a43eb96b22fd42c8184dbb749f329797545d1ecb1e4",
+        "sha256": "f768af2f0a7db9d8f136b44d85b1c69f88ee4836baecef9d1a33fc7c181d3d04",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t0_4.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t0_4.webp",
+        "sourceSha256": "92068da8c7dfc068dd9c97fe690a3376449b6fc428fe225055a333f12f62d3d6",
+        "sha256": "29f9016fade5d968cdb6d6dfba448694a8eddcf065d2949f0f3205aeb6385023",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t2_1.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t2_1.webp",
+        "sourceSha256": "adacd16c84a5f4b3171ad3f16b49404bcf2ec9559b3b5f18927f9ddb16ee91c9",
+        "sha256": "b7e09a7fe1eedd26ec52c86027235afeb3d2837b6de67447652daa5e19e96e91",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t2_2.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t2_2.webp",
+        "sourceSha256": "202f52f3a47829609a87c53f5fc0f8acf711de4a6fe81110692b7d107a9cef52",
+        "sha256": "dd04cf822633cd4de4e4825a128e926c69fe418e21dcbd1c26e3da2694add017",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t2_3.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t2_3.webp",
+        "sourceSha256": "5a50710aec9b973e0325c670ea3ca6ea225b64ad2ff51863f9ddfa48bebb2f37",
+        "sha256": "99b8738d272447a374e7a5cdd819a9b0c897fd733a964ae05601e87dfe9ad3e4",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t3_1.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t3_1.webp",
+        "sourceSha256": "c55dddb221a4282df8cf05f56388484d6eded278e686dead462e0e5db1b8f798",
+        "sha256": "6bd558dbda050a67d3827b7362a8e049bda741b868b16338f2c00002318ce59e",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tau/combat/t3_2.webp": {
+        "source": "pictures/artwork/gif/tau/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/gif/tau/combat/t3_2.webp",
+        "sourceSha256": "04c926cec55656e2c7abecfc47fe08cec5f8c1f04861dd092c56dc769f9603cd",
+        "sha256": "bb6f81c53b009255e309459716fa261c3c1e7f26a2c1c653626f1fac7c01b508",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/s1.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/s1.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/s1.webp",
+        "sourceSha256": "390533872f5042d92ae5bd26df673431ebdca76af8d8a0f125ffb71502fd186a",
+        "sha256": "3e0bdbf8689e725843db085c273a290bf438454c2e996fafddd189728cc91128",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/s2.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/s2.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/s2.webp",
+        "sourceSha256": "f278b9f90d13a42b2b3473f71bd3a88f148e21e39e540189b706af7ec0abb603",
+        "sha256": "17bd4c8a61a3bf6e260cfc2f742e4b41efa904a192b629435c57f28c345d306b",
+        "width": 640,
+        "height": 682,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/s3.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/s3.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/s3.webp",
+        "sourceSha256": "bd27a1909e80905347971de355fbd88360d6cf281ad32c26de1139c06fdbe267",
+        "sha256": "e668b3dacec4e5312afdf77a6a4afa4da0ff190fd764ebf68362497ec8e837be",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/s4.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/s4.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/s4.webp",
+        "sourceSha256": "bb3f7509f33ea7e6f012546382e5a17320c23a090817f192f29e5ad11a650f82",
+        "sha256": "bf6dd6294670b1f83120313e8d74feb5f40de219e739d5040da066eb428d9598",
+        "width": 640,
+        "height": 600,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/s5.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/s5.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/s5.webp",
+        "sourceSha256": "e4ad0d0676ef1e558fdb9d8c5e4e81da8042bb29ebfaee5bab5d3242da558af7",
+        "sha256": "4c08e9c543e6dab7cb38aa3904804952dd85180aa27316ac019f5450d600f488",
+        "width": 640,
+        "height": 682,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t0_1.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t0_1.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t0_1.webp",
+        "sourceSha256": "39654bec598f217826be5f8b605b6dd671d5c8627ef63d675855b0f0d5020f54",
+        "sha256": "12b0df6b4701a09283416dd9fe7718d522c72eff663d7fdc1e516398c8fb7008",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t0_2.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t0_2.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t0_2.webp",
+        "sourceSha256": "5e7b7349943bf0d12c0b0cf3ee168eb12f83f8f0cf9e928fee311aa0b3f4f182",
+        "sha256": "91287dd5aaf5c3da2f1e351f7562fb705bddbb28a85c7229bf060f073f73ca44",
+        "width": 640,
+        "height": 584,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t0_3.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t0_3.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t0_3.webp",
+        "sourceSha256": "de2be47e3690f7fcebc06dcd201b42ede34dd060243e306a19991dc8150fca1f",
+        "sha256": "679b8e430e1b7f150eff9117e87ac2e46a82e7e878d66c1d9f690f8df7528051",
+        "width": 640,
+        "height": 539,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t0_4.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t0_4.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t0_4.webp",
+        "sourceSha256": "f9b5631563e9e0b8dfe9c8b60da27bd67439ea8f4cc59df0702ad1f0c68be497",
+        "sha256": "1ef16158147d603c057b92e1d18ccbc88d2abd3362f7d2d13195aaeb44ad8774",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t2_1.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t2_1.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t2_1.webp",
+        "sourceSha256": "619203ec7f7a7b8a8e3abceb135ba2d5749908475756d824e23a80a45e4cf5f9",
+        "sha256": "e15d1452dcd1675eba12e335e9f668a01409d98912511135fc6ba9b1dd8d952c",
+        "width": 640,
+        "height": 526,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t2_2.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t2_2.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t2_2.webp",
+        "sourceSha256": "8cf9f688dfe612b99b5ed2fa8223cadfcfe510d1a0ee10bf5a5e481feaeef99f",
+        "sha256": "dac0947903f15fd3fff335dbe506984a0622036741f1c4513e567157482ce04c",
+        "width": 640,
+        "height": 543,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t2_3.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t2_3.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t2_3.webp",
+        "sourceSha256": "1cf2903c22f57f265a943e0351fc71992059b2321b38a86b9c61e8c9a513c2e2",
+        "sha256": "0e81f703e7e7b00ad4b575e29f8c6ade80f24136d2f42e76785d164cd0d4ecbb",
+        "width": 640,
+        "height": 532,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t3_1.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t3_1.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t3_1.webp",
+        "sourceSha256": "c2f3b39501df57164b5dc75d717280c7a59e60b6fefc6137132c091d35c38ae1",
+        "sha256": "b99613274df0b5800d5cb2c793cd04b201c496f64112087af03a448ff6d02bf0",
+        "width": 640,
+        "height": 527,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      },
+      "pictures/artwork/gif/tyranid/combat/t3_2.webp": {
+        "source": "pictures/artwork/gif/tyranid/combat/t3_2.webp",
+        "output": "pictures/previews/artwork/gif/tyranid/combat/t3_2.webp",
+        "sourceSha256": "8be874f65a4b30355fdb9a002f847fd14e7bad1cd4d9f1985e272a98a87323ef",
+        "sha256": "95a5accbb66710428e64b25d78968fef2827cf834ccdbf050579393f09528593",
+        "width": 640,
+        "height": 537,
+        "encoding": {
+          "format": "webp",
+          "quality": 90,
+          "alphaQuality": 100,
+          "effort": 4,
+          "maxWidth": 640,
+          "kernel": "lanczos3"
+        }
+      }
+    }
   }
 }

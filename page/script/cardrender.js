@@ -902,6 +902,10 @@
     return bottomH;
   }
 
+  function loadCombatPanels(data) {
+    return (data.template?.panelPictures || ['pictures/background.png','pictures/foreground.png','pictures/bottom.png']).map(loadImage);
+  }
+
   async function drawCombatCard(data, ctx) {
     if(data.template?.nativeCombatArea)return drawPreparedCombat(data,ctx);
     var cw = canvasSize(ctx).width, ch = canvasSize(ctx).height;
@@ -914,8 +918,7 @@
       !frame.box[2]||!frame.box[3]||frame.box[0]+frame.box[2]>1||frame.box[1]+frame.box[3]>1))throw new Error('Некорректная область рамки');
     var nativeFrame=frame?loadImage(frame.picture):Promise.resolve(null);
     var resources = await Promise.all([
-      loadCardPicture(data), loadImage('pictures/background.png'),
-      loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),nativeFrame,
+      loadCardPicture(data), ...loadCombatPanels(data), nativeFrame,
       data.artwork?loadImage(data.artwork.src):Promise.resolve(null),
     ].concat(iconChars.map(loadImage)));
     var picture = resources[0], bottomImg = resources[3], iconImgs = resources.slice(6);
@@ -1487,9 +1490,7 @@
       var titleBox=FIELDS.raster.combat.title;
       restoreNativeLabel(ctx,picture,titleBox);
       drawLabel(ctx,data.title,rasterTitleField('combat'),'title');
-      var panels = await Promise.all([
-        loadImage('pictures/background.png'), loadImage('pictures/foreground.png'), loadImage('pictures/bottom.png'),
-      ]);
+      var panels = await Promise.all(loadCombatPanels(data));
       var bottomH = drawCombatEffects(data, ctx, panels, combatSourceArea(picture));
       ctx.drawImage(panels[2], 0, 0, panels[2].width, panels[2].height,
         0, ctx.fsCombatBottom - bottomH, canvasSize(ctx).width, bottomH);
@@ -1511,7 +1512,7 @@
       ctx.drawImage(label,box[0]*cw,box[1]*ch,box[2]*cw,box[3]*ch);
     }
     drawLabel(ctx,data.title,data.template.titleRegion,'title');
-    var panels=await Promise.all([loadImage('pictures/background.png'),loadImage('pictures/foreground.png'),loadImage('pictures/bottom.png')]);
+    var panels=await Promise.all(loadCombatPanels(data));
     var bottomH=drawCombatEffects(data,ctx,panels,data.template.nativeCombatArea);
     ctx.drawImage(panels[2],0,0,panels[2].width,panels[2].height,0,ctx.fsCombatBottom-bottomH,cw,bottomH);
   }
@@ -1651,6 +1652,14 @@
     // A smaller background must not change native logical coordinates or text wrapping.
     if(preview)card=Object.assign({},card,{template:Object.assign({},card.template,{picture:preview.picture})});
     var width = options.width || card.width || (sheet?SHEET_SIZE.width:maxWidth), height = options.height || card.height;
+    var combatPreview=options.preview && !options.strict && card.kind==='combat' && card.renderMode!=='raster' && card.template?.preview;
+    if(combatPreview && width<=combatPreview.maxWidth){
+      // Only replace decorative inputs. Native template geometry and fresh text
+      // stay unchanged; the viewer and print never select these grid resources.
+      var template=Object.assign({},card.template,{panelPictures:combatPreview.panels});
+      if(combatPreview.artwork && !card.artSrc)template.artwork=Object.assign({},template.artwork,{src:combatPreview.artwork});
+      card=Object.assign({},card,{template:template});
+    }
     if(sheet){
       // Correct the source's proportions before drawing translated glyphs.
       // Explicit dimensions are bounds; a sheet always keeps its common shape.
