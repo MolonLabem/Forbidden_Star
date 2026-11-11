@@ -5,7 +5,8 @@
  * via canvas — using the game's custom fonts and icon glyphs — and returns a
  * composited image as a data URL, or a Blob for the view.
  *
- * Public API:  window.FSCardRender.compose({ src, kind, text, template? }, { width?, height?, strict?, preview?, blob? }) -> Promise<string | Blob>
+ * Public API:  window.FSCardRender.compose({ src, kind, text, template? }, { width?, height?, strict?, preview?, blob?, nativeSheetWidth?, onProgress?, signal? }) -> Promise<string | Blob>
+ *              window.FSCardRender.imageBlob(src, { onProgress?, signal? }) -> Promise<Blob>
  *              window.FSCardRender.setResolution(w, h)               -> void  (clears cache)
  *              window.FSCardRender.sourceInfo(card)                 -> native source/crop dimensions
  *   kind: 'combat' | 'orders' | 'events' | 'overlay' | 'sheet'
@@ -371,24 +372,95 @@
     });
   }
 
-  // image cache — shared chrome loads once per session
+  // Shared requests expose byte progress without downloading a second copy.
+  // Pending entries also survive LRU eviction until their decode settles.
   var _imgCache = window.FSCache.create(24);
-  function loadImage(url) {
-    var cached = _imgCache.get(url);
-    if (cached) return cached;
-    var pending = new Promise(function (resolve, reject) {
-      var img = new Image(), timer = setTimeout(function () {
-        img.onload = img.onerror = null; img.removeAttribute('src');
-        reject(new Error('Не завершена загрузка ' + url));
-      }, 40000); // Leave time for decode inside the view's 45-second deadline.
-      img.onload  = function () { clearTimeout(timer); resolve(img); };
-      img.onerror = function () { clearTimeout(timer); reject(new Error('Failed to load image ' + url)); };
-      img.src = url;
-    }).catch(function (error) {
-      if (_imgCache.get(url) === pending) _imgCache.delete(url);
+  var _pendingImages = new Map();
+  function imageURL(url) { return new URL(url,document.baseURI).href; }
+  function imageSource(image) { return image.fsSource || image.src; }
+  function imageRequest(url) {
+    url=imageURL(url);
+    var cached=_pendingImages.get(url) || _imgCache.get(url);
+    if(cached)return cached;
+    var entry={loaded:0,total:0,downloaded:false,listeners:new Set()};
+    function notify() { entry.listeners.forEach(function(listener){listener();}); }
+    entry.promise=new Promise(function(resolve,reject){
+      var request=new XMLHttpRequest(),img=new Image(),objectURL,timer,settled=false;
+      function finish(error) {
+        if(settled)return;settled=true;clearTimeout(timer);
+        request.onload=request.onerror=request.onabort=request.onprogress=request.onreadystatechange=null;
+        img.onload=img.onerror=null;
+        if(objectURL)URL.revokeObjectURL(objectURL);
+        if(error){request.abort();img.removeAttribute('src');reject(error);}else resolve(img);
+      }
+      timer=setTimeout(function(){finish(new Error('Не завершена загрузка '+url));},40000);
+      try {request.open('GET',url);request.responseType='blob';}
+      catch(error){finish(error);return;}
+      request.onreadystatechange=function(){
+        if(request.readyState===2){
+          // Compressed responses may report a different byte unit; onprogress
+          // supplies the authoritative total once the body starts arriving.
+          if(!request.getResponseHeader('Content-Encoding'))entry.total=Number(request.getResponseHeader('Content-Length'))||0;
+          notify();
+        }
+      };
+      request.onprogress=function(event){
+        entry.loaded=event.loaded;entry.total=event.lengthComputable?event.total:0;notify();
+      };
+      request.onerror=request.onabort=function(){finish(new Error('Не удалось загрузить '+url));};
+      request.onload=function(){
+        if(request.status<200||request.status>=300){finish(new Error('HTTP '+request.status+' — '+url));return;}
+        var blob=request.response;
+        entry.loaded=entry.total=blob.size;entry.downloaded=true;notify();
+        img.fsSource=url;img.fsBlob=blob;
+        img.onload=function(){finish();};
+        img.onerror=function(){finish(new Error('Не удалось прочитать изображение '+url));};
+        objectURL=URL.createObjectURL(blob);img.src=objectURL;
+      };
+      try {request.send();}catch(error){finish(error);}
+    }).catch(function(error){
+      if(_imgCache.get(url)===entry)_imgCache.delete(url);
       throw error;
-    });
-    return _imgCache.set(url, pending);
+    }).finally(function(){_pendingImages.delete(url);entry.listeners.clear();});
+    _pendingImages.set(url,entry);_imgCache.set(url,entry);
+    return entry;
+  }
+  function loadImage(url) { return imageRequest(url).promise; }
+
+  function withImageProgress(result,urls,options) {
+    if(!options?.onProgress)return result;
+    var entries=Array.from(new Set(urls.map(imageURL))).map(function(url){return _pendingImages.get(url)||_imgCache.get(url);});
+    var signal=options.signal,timer,stopped=false,lastValue;
+    function stop(){
+      if(stopped)return;stopped=true;clearTimeout(timer);
+      entries.forEach(function(entry){if(entry)entry.listeners.delete(schedule);});
+      if(signal)signal.removeEventListener('abort',stop);
+    }
+    function publish(){
+      timer=null;if(stopped)return;
+      var complete=entries.every(function(entry){return entry&&entry.downloaded;});
+      var known=entries.every(function(entry){return entry&&entry.total>0;});
+      var total=known?entries.reduce(function(sum,entry){return sum+entry.total;},0):0;
+      var loaded=entries.reduce(function(sum,entry){return sum+(entry?entry.loaded:0);},0);
+      var percent=complete?100:known?Math.min(100,Math.floor(loaded/total*100)):loaded?null:0;
+      var phase=complete?'preparing':'download',key=phase+':'+percent;
+      if(key!==lastValue){lastValue=key;options.onProgress({phase:phase,percent:percent});}
+    }
+    function schedule(){if(!stopped&&!timer)timer=setTimeout(publish,200);}
+    if(signal?.aborted)stop();
+    else {
+      entries.forEach(function(entry){if(entry)entry.listeners.add(schedule);});
+      if(signal)signal.addEventListener('abort',stop,{once:true});
+      publish();
+    }
+    return result.then(function(value){
+      if(!stopped&&lastValue!=='preparing:100')options.onProgress({phase:'preparing',percent:100});
+      return value;
+    }).finally(stop);
+  }
+
+  function imageBlob(url,options) {
+    return withImageProgress(loadImage(url).then(function(image){return image.fsBlob;}),[url],options);
   }
 
   // Optional reconstructed template. Patches take clean texture from a real
@@ -407,7 +479,7 @@
 
   var _preparedPictures=window.FSCache.create(8);
   function canvasPicture(picture,feather) {
-    var key=picture.src+'|'+(feather||0),cached=key&&_preparedPictures.get(key);if(cached)return cached;
+    var key=imageSource(picture)+'|'+(feather||0),cached=key&&_preparedPictures.get(key);if(cached)return cached;
     var canvas=document.createElement('canvas');canvas.width=picture.width;canvas.height=picture.height;canvas.getContext('2d',feather?{willReadFrequently:true}:undefined).drawImage(picture,0,0);
     if(feather)featherEdges(canvas,feather);
     if(key)_preparedPictures.set(key,canvas);return canvas;
@@ -475,14 +547,17 @@
     return canvas;
   }
 
-  async function sourceInfo(card) {
+  function sourceURL(card) {
     var url=card.artSrc || (card.renderMode==='raster'?card.src:card.template?.picture || card.picture || card.src);
     if (card.text?.crop || card.template?.crop) {
       // A virtual side is route state, not a second bitmap. Both crops share
       // one decoded source (especially useful for large sheets on phones).
       var asset=new URL(url,document.baseURI);asset.searchParams.delete('side');url=asset.href;
     }
-    var picture = await loadImage(url);
+    return url;
+  }
+  async function sourceInfo(card) {
+    var picture = await loadImage(sourceURL(card));
     var crop = (card.renderMode==='raster'?null:card.template?.crop) || card.text?.crop || [0,0,1,1];
     if (!Array.isArray(crop) || crop.length !== 4 || crop.some(function (v) { return !Number.isFinite(v) || v < 0; }) ||
         !crop[2] || !crop[3] || crop[0]+crop[2]>1 || crop[1]+crop[3]>1) throw new Error('Некорректная область листа');
@@ -535,7 +610,7 @@
     ctx.restore();
   }
   function extendArtwork(ctx,picture,panelTop,windowBox) {
-    var end=windowBox ? windowBox[1]+windowBox[3] : _artworkAreas.get(picture.src);
+    var end=windowBox ? windowBox[1]+windowBox[3] : _artworkAreas.get(imageSource(picture));
     if(end===undefined){
       var sample=document.createElement('canvas');sample.width=120;sample.height=picture.height;
       var c=sample.getContext('2d',{willReadFrequently:true});c.drawImage(picture,0,0,sample.width,sample.height);
@@ -546,7 +621,7 @@
         else start=null;
         if(start!==null && y-start>sample.height*.06){end=start/sample.height;break;}
       }
-      _artworkAreas.set(picture.src,end);
+      _artworkAreas.set(imageSource(picture),end);
     }
     var cw=canvasSize(ctx).width,ch=canvasSize(ctx).height;
     ctx.fsCombatArtwork={nativeBottomPx:end===null?ch:end*ch,paintedBottomPx:end===null?ch:end*ch,extended:false};
@@ -592,10 +667,10 @@
     }
     ctx.restore();
     ctx.drawImage(source,sx,sy+feather*ratio,sw,(height-feather)*ratio,0,y+feather,cw*left,height-feather);
-    ctx.fsCombatArtwork.nativeFrame={source:source.src,topPx:y,bottomPx:panelTop,sourceTop:sourceTop,sourceBottom:sourceTop+sourceH/source.height,continuous:true};
+    ctx.fsCombatArtwork.nativeFrame={source:imageSource(source),topPx:y,bottomPx:panelTop,sourceTop:sourceTop,sourceBottom:sourceTop+sourceH/source.height,continuous:true};
   }
   function combatTitleField(picture) {
-    var cached=_titleAreas.get(picture.src);if(cached)return cached;
+    var cached=_titleAreas.get(imageSource(picture));if(cached)return cached;
     var b=FIELDS.combat.title.slice(),sample=document.createElement('canvas');sample.width=240;sample.height=1;
     sample.getContext('2d').drawImage(picture,0,picture.height*.05,picture.width,1,0,0,240,1);
     var pixels=sample.getContext('2d').getImageData(0,0,240,1).data,right=Math.round((b[0]+b[2])*240),dark=0;
@@ -605,10 +680,10 @@
       if(dark>=3){right=x-2;break;}
     }
     if(right/240>b[0]+.3)b[2]=Math.min(b[2],right/240-b[0]-.01);
-    return _titleAreas.set(picture.src,b);
+    return _titleAreas.set(imageSource(picture),b);
   }
   function combatSourceArea(picture) {
-    var key=picture.src,cached=_sourceAreas.get(key);
+    var key=imageSource(picture),cached=_sourceAreas.get(key);
     if(cached)return cached;
     var sample=document.createElement('canvas');sample.width=240;sample.height=Math.round(240*picture.height/picture.width);
     var context=sample.getContext('2d',{willReadFrequently:true});context.drawImage(picture,0,0,sample.width,sample.height);
@@ -902,9 +977,8 @@
     return bottomH;
   }
 
-  function loadCombatPanels(data) {
-    return (data.template?.panelPictures || ['pictures/background.png','pictures/foreground.png','pictures/bottom.png']).map(loadImage);
-  }
+  function combatPanelURLs(template) { return template?.panelPictures || ['pictures/background.png','pictures/foreground.png','pictures/bottom.png']; }
+  function loadCombatPanels(data) { return combatPanelURLs(data.template).map(loadImage); }
 
   async function drawCombatCard(data, ctx) {
     if(data.template?.nativeCombatArea)return drawPreparedCombat(data,ctx);
@@ -1644,6 +1718,38 @@
     });
   }
 
+  function cardTokens(card,wording) {
+    if(wording!=='images')return [];
+    var formatted=window.FSWord.format(JSON.stringify(card.text),wording);
+    return window.FSWord.tokens.filter(function(token){return formatted.indexOf(token.glyph)!==-1;});
+  }
+
+  // Resolve the complete image set before downloading, so progress has one
+  // denominator. The draw functions reuse these same cached requests.
+  function cardImageURLs(card,wording) {
+    var urls=[sourceURL(card)],template=card.template;
+    if(card.renderMode==='raster'||!card.text||!DRAW[card.kind])return urls;
+    if(card.kind!=='sheet'&&!card.text.raster){
+      if(template?.picture)urls.push(template.picture);
+      var titlePatch=card.kind==='orders' && template?.patches?.find(function(patch){return !patch.role;});
+      (template?.patches||[]).forEach(function(patch){
+        if(patch.role==='event-type'||patch.role==='body-erasure'&&(card.kind==='orders'||patch.paper==='native'))return;
+        var recipe=titlePatch&&(!patch.role||patch.role==='title-tail')?titlePatch:patch;
+        if(recipe.texture?.src)urls.push(recipe.texture.src);
+      });
+    }
+    if(card.kind==='combat'){
+      if(!card.text.raster||!card.text.regions)urls=urls.concat(combatPanelURLs(template));
+      if(template?.nativeCombatArea){if(template.titleLayer)urls.push(template.titleLayer);}
+      else if(!card.text.raster){
+        if(template?.frame)urls.push(template.frame.picture);
+        if(template?.artwork&&!card.artSrc)urls.push(template.artwork.src);
+        urls=urls.concat(String(card.text.icons||'').split('').map(function(c){return iconMap[c.toUpperCase()];}).filter(Boolean));
+      }
+    }
+    return Array.from(new Set(urls.concat(cardTokens(card,wording).map(function(token){return token.image;})).map(imageURL)));
+  }
+
   function compose(card, options) {
     options = options || {};
     var sheet=card.kind==='sheet';
@@ -1667,13 +1773,18 @@
       if(height)width=options.width||card.width?Math.min(width,height*ratio):height*ratio;
       width=Math.round(width);height=Math.round(width/ratio);
     }
-    if(card.renderMode==='raster')return sourceInfo(card).then(function (source) {
-      if(!sheet&&!card.text?.crop)return card.artSrc || card.src;
+    var nativeSheetWidth=sheet && !options.strict && !!options.nativeSheetWidth;
+    function fitSheet(source){
+      if(nativeSheetWidth){width=Math.max(SHEET_SIZE.width,Math.min(source.width,width));height=Math.round(width*SHEET_SIZE.height/SHEET_SIZE.width);}
+    }
+    if(card.renderMode==='raster')return withImageProgress(sourceInfo(card).then(function (source) {
+      if(!sheet&&!card.text?.crop)return blobOutput?source.picture.fsBlob:card.artSrc || card.src;
+      fitSheet(source);
       if(sheet&&(!Number.isFinite(width)||!Number.isFinite(height)||width<1||height<1||width>16384||height>16384))throw new Error('Некорректный размер изображения листа');
       var canvas=document.createElement('canvas');canvas.width=sheet?width:source.width;canvas.height=sheet?height:source.height;
       canvas.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,canvas.width,canvas.height);
       return exportCanvas(canvas,'image/png',blobOutput);
-    });
+    }),[sourceURL(card)],options);
     // Capture dimensions before asynchronous work. Printing never changes view resolution.
     var bounded=!sheet && !options.width && !card.width;
     var strict = !!options.strict;
@@ -1683,19 +1794,22 @@
     var cacheable=!strict && !options.onMetrics;
     var picture = card.artSrc || card.template?.picture || (strict ? card.src : (card.picture || card.src));
     var artwork = card.kind==='combat' && !card.artSrc && card.template && card.template.artwork;
-    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, blobOutput, rejectOnError, artwork, card.text, card.template]);
+    var urls=cardImageURLs(card,wording);
+    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, blobOutput, rejectOnError, nativeSheetWidth, artwork, card.text, card.template]);
     var cached = cacheable && _composed.get(key);
-    if (cached) return cached;
+    if (cached) return withImageProgress(cached,urls,options);
     var fn = card.text && card.text.raster ? drawRasterTranslation : DRAW[card.kind];
     if (rejectOnError && (!fn || !card.text || !card.text.title)) return Promise.reject(new Error('Нет русского текста: ' + card.src));
     if(rejectOnError && ['combat','orders','events'].includes(card.kind) && !(card.text.background||card.text.foreground||card.text.general))return Promise.reject(new Error('Нет русского текста правил: '+card.src));
-    if (!fn || !card.text) return Promise.resolve(card.src);
+    if (!fn || !card.text) return blobOutput?imageBlob(card.src,options):Promise.resolve(card.src);
 
     var fontReady = strict ? loadFonts() : fontsReady();
-    // Fetch the source while fonts load; neither depends on the other.
-    var ready = Promise.all([fontReady,sourceInfo(Object.assign({},card,{src:picture}))]);
+    // Fonts, the source and decorative inputs are independent. Start them
+    // together, preserving a single request for shared panels and artwork.
+    var ready = Promise.all([fontReady,sourceInfo(Object.assign({},card,{src:picture})),Promise.all(urls.map(loadImage))]);
     var result = ready.then(async function (resources) {
       var source=resources[1];
+      fitSheet(source);
       if(!height){
         height=Math.round(width*source.height/source.width);
         if(bounded && height>maxHeight){width=Math.round(width*maxHeight/height);height=maxHeight;}
@@ -1735,8 +1849,7 @@
         wording:    wording,
       };
       if (wording === 'images') {
-        var formatted = format(JSON.stringify(card.text));
-        var used = window.FSWord.tokens.filter(function (token) { return formatted.indexOf(token.glyph) !== -1; });
+        var used = cardTokens(card,wording);
         ctx.fsTokenImages = {}; ctx.fsTokenImageBounds = [];
         await Promise.all(used.map(async function (token) {
           ctx.fsTokenImages[token.glyph] = await loadImage(token.image);
@@ -1753,8 +1866,8 @@
       return card.src;
     });
     // Large print rasters have a job lifetime; do not retain them in the view cache.
-    if(cacheable)return _composed.set(key,result);
-    if(!strict)return result;
+    if(cacheable)_composed.set(key,result);
+    if(!strict)return withImageProgress(result,urls,options);
     return new Promise(function (resolve, reject) {
       var timer = setTimeout(function () { reject(new Error('Рендер не завершён: ' + card.src)); }, 20000);
       result.then(function (value) { clearTimeout(timer); resolve(value); }, function (error) { clearTimeout(timer); reject(error); });
@@ -1769,5 +1882,5 @@
     _composed.clear();
   }
 
-  window.FSCardRender = { compose: compose, sourceInfo: sourceInfo, sheetSize:SHEET_SIZE, fontsReady: fontsReady, prepareBackground:prepareBackground, releasePreparationResources:function(){_imgCache.clear();_preparedPictures.clear();_sheetBackgrounds.clear();_sourceAreas.clear();_titleAreas.clear();_artworkAreas.clear();_composed.clear();}, setResolution: setResolution };
+  window.FSCardRender = { compose: compose, imageBlob:imageBlob, sourceInfo: sourceInfo, sheetSize:SHEET_SIZE, fontsReady: fontsReady, prepareBackground:prepareBackground, releasePreparationResources:function(){_imgCache.clear();_preparedPictures.clear();_sheetBackgrounds.clear();_sourceAreas.clear();_titleAreas.clear();_artworkAreas.clear();_composed.clear();}, setResolution: setResolution };
 })();

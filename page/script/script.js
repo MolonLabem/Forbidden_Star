@@ -530,24 +530,18 @@
     return /\/(combat|orders|events|backs)\//.test(card.src || '');
   }
 
-  async function cardImageURL(imgEl, card, thumbnail) {
-    // Only the sheet viewer needs native dimensions here. For previews, compose()
-    // starts fonts and the selected background together without fetching the master.
-    var source = !thumbnail && card.kind==='sheet' ? (await Promise.all([
-      window.FSCardRender.sourceInfo(card),
-      card.renderMode!=='raster' ? window.FSCardRender.fontsReady() : null,
-    ]))[0] : null;
+  async function cardImageURL(imgEl, card, thumbnail, onProgress, signal) {
     var pixels = displayPixels(imgEl, thumbnail);
-    if (card.kind === 'sheet' && !thumbnail) {
-      // One base format for every sheet; redraw text at the available detail.
-      pixels.w = Math.max(window.FSCardRender.sheetSize.width,Math.min(source.width,pixels.w));
-    }
+    if(card.kind==='sheet'&&!thumbnail)pixels.w=Math.max(window.FSCardRender.sheetSize.width,pixels.w);
     if (card.text && card.kind && window.FSCardRender) {
       // Render the text directly at display resolution, losslessly, from the full
       // template. Enlarging the precomposed 270px JPEG loses the small letterforms.
-      return window.FSCardRender.compose(Object.assign({},card,{wording:tokenStyle,width:pixels.w}), { rejectOnError: true, preview: thumbnail, blob: true });
+      return window.FSCardRender.compose(Object.assign({},card,{wording:tokenStyle,width:pixels.w}), {
+        rejectOnError:true,preview:thumbnail,blob:true,nativeSheetWidth:!thumbnail,
+        onProgress:onProgress,signal:signal,
+      });
     }
-    return card.src;
+    return window.FSCardRender.imageBlob(card.src,{onProgress:onProgress,signal:signal});
   }
 
   function prepareCard(img, card, modal) {
@@ -560,8 +554,11 @@
     if (!modal) wrap.setAttribute('aria-label', card.label);
     if (!modal && isCardShaped(card)) wrap.style.aspectRatio = String(cardRatio(card));
     var status = el('span', { class: 'fs-image-status', role: modal ? 'status' : null }, [
-      el('span', { class: 'fs-image-spinner', 'aria-hidden': 'true' }),
-      el('span', { class: 'fs-image-label', text: 'Загрузка карточки…' }),
+      el('span', { class:'fs-image-progress',role:'progressbar','aria-label':'Загрузка карточки','aria-valuemin':'0','aria-valuemax':'100','aria-valuenow':'0' }, [
+        el('span', { class:'fs-image-spinner','aria-hidden':'true' }),
+        el('span', { class:'fs-image-percent',text:'0%','aria-hidden':'true' }),
+      ]),
+      el('span', { class:'fs-image-label',hidden:'' }),
     ]);
     if (modal) status.appendChild(el('button', { class: 'fs-image-retry', text: 'Повторить загрузку', hidden: '',
       onclick: function () { loadCardImage(img, false); } }));
@@ -582,22 +579,33 @@
     releaseCardImage(img);
     var wrap = img.parentNode, status = wrap.querySelector('.fs-image-status');
     var label = status.querySelector('.fs-image-label'), retry = status.querySelector('button');
+    var progress=status.querySelector('.fs-image-progress'),percent=status.querySelector('.fs-image-percent');
+    var controller=new AbortController();
     var zoom = wrap.closest('.fs-lb')?.querySelector('.fs-lb-zoom');
     if (zoom) zoom.disabled = true;
     var attempt = img._fsAttempt = (img._fsAttempt || 0) + 1;
     wrap.classList.remove('is-ready', 'is-error'); wrap.classList.add('is-loading');
     wrap.setAttribute('aria-busy', 'true');
-    label.textContent = 'Загрузка карточки…';
+    function showProgress(value){
+      if(controller.signal.aborted||!img.isConnected||img._fsAttempt!==attempt)return;
+      var preparing=value.phase==='preparing';
+      label.hidden=!preparing;label.textContent=preparing?'Подготовка карточки…':'';
+      percent.textContent=!preparing&&value.percent!==null?value.percent+'%':'';
+      progress.setAttribute('aria-label',preparing?'Подготовка карточки':'Загрузка карточки');
+      if(preparing||value.percent===null)progress.removeAttribute('aria-valuenow');
+      else progress.setAttribute('aria-valuenow',String(value.percent));
+    }
+    showProgress({phase:'download',percent:0});
     if (retry) retry.hidden = true;
     var timer, cancel;
     var cancelled = new Promise(function (_, reject) {
-      cancel = function () { var error = new Error('Card view replaced'); error.name = 'AbortError'; reject(error); };
+      cancel = function () { controller.abort();var error = new Error('Card view replaced'); error.name = 'AbortError'; reject(error); };
     });
     img._fsCancel = cancel;
     try {
       await Promise.race([
         (async function () {
-          var image = await cardImageURL(img, img._fsCard, thumbnail);
+          var image = await cardImageURL(img, img._fsCard, thumbnail, showProgress, controller.signal);
           if (!img.isConnected || img._fsAttempt !== attempt) return;
           img.src = image instanceof Blob ? (img._fsObjectURL = URL.createObjectURL(image)) : image;
           await img.decode();
@@ -625,9 +633,10 @@
       img.removeAttribute('src');
       wrap.classList.remove('is-loading'); wrap.classList.add('is-error');
       wrap.setAttribute('aria-busy', 'false');
+      label.hidden=false;
       label.textContent = thumbnail ? 'Не удалось загрузить. Нажмите, чтобы повторить.' : 'Не удалось загрузить карточку.';
       if (retry) retry.hidden = false;
-    } finally { clearTimeout(timer); if (img._fsCancel === cancel) delete img._fsCancel; }
+    } finally { controller.abort();clearTimeout(timer); if (img._fsCancel === cancel) delete img._fsCancel; }
   }
 
   function drainImages() {
