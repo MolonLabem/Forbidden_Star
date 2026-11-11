@@ -3,9 +3,9 @@
  * Some expansions ship card art as TEMPLATES with blank title/text areas; the
  * wording lives in each faction's text.json. This module draws that text onto the template
  * via canvas — using the game's custom fonts and icon glyphs — and returns a
- * composited image as a data URL.
+ * composited image as a data URL, or a Blob for the view.
  *
- * Public API:  window.FSCardRender.compose({ src, kind, text, template? }, { width?, height?, strict? }) -> Promise<string dataURL>
+ * Public API:  window.FSCardRender.compose({ src, kind, text, template? }, { width?, height?, strict?, preview?, blob? }) -> Promise<string | Blob>
  *              window.FSCardRender.setResolution(w, h)               -> void  (clears cache)
  *              window.FSCardRender.sourceInfo(card)                 -> native source/crop dimensions
  *   kind: 'combat' | 'orders' | 'events' | 'overlay' | 'sheet'
@@ -380,7 +380,7 @@
       var img = new Image(), timer = setTimeout(function () {
         img.onload = img.onerror = null; img.removeAttribute('src');
         reject(new Error('Не завершена загрузка ' + url));
-      }, 15000);
+      }, 40000); // Leave time for decode inside the view's 45-second deadline.
       img.onload  = function () { clearTimeout(timer); resolve(img); };
       img.onerror = function () { clearTimeout(timer); reject(new Error('Failed to load image ' + url)); };
       img.src = url;
@@ -1633,9 +1633,23 @@
     return metrics;
   }
 
+  function exportCanvas(canvas, type, blob) {
+    if (!blob) return canvas.toDataURL(type, type==='image/jpeg'?0.84:undefined);
+    // View images are encoded asynchronously; print/tooling keep their data URL contract.
+    return new Promise(function (resolve,reject) {
+      canvas.toBlob(function (value) {
+        if(value)resolve(value);else reject(new Error('Не удалось подготовить изображение'));
+      },type,type==='image/jpeg'?0.84:undefined);
+    });
+  }
+
   function compose(card, options) {
     options = options || {};
     var sheet=card.kind==='sheet';
+    var blobOutput=!!options.blob && !options.strict;
+    var preview=options.preview && !options.strict && sheet && card.renderMode!=='raster' && card.template?.preview;
+    // A smaller background must not change native logical coordinates or text wrapping.
+    if(preview)card=Object.assign({},card,{template:Object.assign({},card.template,{picture:preview.picture})});
     var width = options.width || card.width || (sheet?SHEET_SIZE.width:maxWidth), height = options.height || card.height;
     if(sheet){
       // Correct the source's proportions before drawing translated glyphs.
@@ -1649,7 +1663,7 @@
       if(sheet&&(!Number.isFinite(width)||!Number.isFinite(height)||width<1||height<1||width>16384||height>16384))throw new Error('Некорректный размер изображения листа');
       var canvas=document.createElement('canvas');canvas.width=sheet?width:source.width;canvas.height=sheet?height:source.height;
       canvas.getContext('2d').drawImage(source.picture,source.x,source.y,source.width,source.height,0,0,canvas.width,canvas.height);
-      return canvas.toDataURL('image/png');
+      return exportCanvas(canvas,'image/png',blobOutput);
     });
     // Capture dimensions before asynchronous work. Printing never changes view resolution.
     var bounded=!sheet && !options.width && !card.width;
@@ -1660,7 +1674,7 @@
     var cacheable=!strict && !options.onMetrics;
     var picture = card.artSrc || card.template?.picture || (strict ? card.src : (card.picture || card.src));
     var artwork = card.kind==='combat' && !card.artSrc && card.template && card.template.artwork;
-    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, rejectOnError, artwork, card.text, card.template]);
+    var key = JSON.stringify([card.src, picture, width, height, wording, thumbnail, blobOutput, rejectOnError, artwork, card.text, card.template]);
     var cached = cacheable && _composed.get(key);
     if (cached) return cached;
     var fn = card.text && card.text.raster ? drawRasterTranslation : DRAW[card.kind];
@@ -1685,7 +1699,7 @@
       // Sheet labels can be only a few pixels high in the card-sized layout.
       // Native logical coordinates avoid rounding their measured ink down by
       // a whole font size, while remaining independent of output resolution.
-      var logicalWidth=sheet?Math.max(SHEET_SIZE.width,source.width):layoutWidth;
+      var logicalWidth=sheet?Math.max(SHEET_SIZE.width,preview?preview.sourceWidth:source.width):layoutWidth;
       ctx.fsLayout={width:logicalWidth,height:sheet?logicalWidth*SHEET_SIZE.height/SHEET_SIZE.width:logicalWidth*source.height/source.width};
       ctx.scale(canvas.width/ctx.fsLayout.width,canvas.height/ctx.fsLayout.height);
       ctx.imageSmoothingQuality='high';
@@ -1721,7 +1735,7 @@
       }
       return fn(data, ctx).then(function () {
         if (options.onMetrics) options.onMetrics(outputMetrics(ctx));
-        return thumbnail ? canvas.toDataURL('image/jpeg', 0.84) : canvas.toDataURL('image/png');
+        return exportCanvas(canvas,thumbnail?'image/jpeg':'image/png',blobOutput);
       });
     }).catch(function (e) {
       if(cacheable && _composed.get(key)===result)_composed.delete(key);

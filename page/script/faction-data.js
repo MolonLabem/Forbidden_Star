@@ -28,6 +28,9 @@
       // A changed text layout must load its matching background, even when
       // the browser still has an older PNG at the same canonical path.
       result[field]=template[field]+'?v='+asset.sha256;
+      if(template.preparedSheet && asset.preview && asset.preview.sourceSha256===asset.sha256){
+        result.preview={picture:asset.preview.output+'?v='+asset.preview.sha256,sourceWidth:asset.width};
+      }
     }
     if(template.variants)result.variants=Object.fromEntries(Object.entries(template.variants).map(function(entry){return [entry[0],preparedTemplate(entry[1])];}));
     return result;

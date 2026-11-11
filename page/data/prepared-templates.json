@@ -459,7 +459,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__spacemarines__faction_card__card.webp",
+        "sha256": "8375556a689c1e24d61a613f7d54c4ce82dfedea278d002981e191f049d5eaaa",
+        "sourceSha256": "78f3824abf6c8a6ae654ccb829f4c546df46ddc8fa8cec2774055f416f420365",
+        "width": 1280,
+        "height": 758,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "base/spacemarines/faction_card/card/back": {
       "cardId": "base/spacemarines/faction_card/card/back",
@@ -485,7 +493,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__spacemarines__faction_card__card__back.webp",
+        "sha256": "1f2808416df97e469e892717a7d4d3a524fa93fa9b1780a0f383e3bded10ba26",
+        "sourceSha256": "da5d9810a1ca09323f01d69e5a7041928af9a718d36322e73af32cdd6f0837f1",
+        "width": 1280,
+        "height": 757,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "base/chaos/orders/o_1": {
       "cardId": "base/chaos/orders/o_1",
@@ -947,7 +963,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__chaos__faction_card__card.webp",
+        "sha256": "c5bf225a6208c38858c3adef1e5198607a63421a0a398670f127fe639c559d16",
+        "sourceSha256": "41ebff7381334cc194e8708ffa0ca4ed52fa06eb67d8bdf1e7f69cdaaa5fe47b",
+        "width": 1280,
+        "height": 758,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "base/chaos/faction_card/card/back": {
       "cardId": "base/chaos/faction_card/card/back",
@@ -973,7 +997,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__chaos__faction_card__card__back.webp",
+        "sha256": "32fa0ef1ced0afc2cb1b83a60cb5d2764e9866b63b84fc5e0d0fad29f67e0a98",
+        "sourceSha256": "12a791438120952eec4ad87a1cfe1001543dcda47a47e5d4a637097afcf5a9d9",
+        "width": 1280,
+        "height": 757,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "base/ork/orders/o_1": {
       "cardId": "base/ork/orders/o_1",
@@ -1456,7 +1488,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__ork__faction_card__card.webp",
+        "sha256": "6c7f0188dde60a6b6b3b63e745ed7c5a136d5723b27231ff2d7e3c89a29a0d39",
+        "sourceSha256": "5e09158e3efd5a1b16927ad80ac632cadf37d05e44fd62915c7bd0a5bef502d2",
+        "width": 1280,
+        "height": 758,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "base/ork/faction_card/card/back": {
       "cardId": "base/ork/faction_card/card/back",
@@ -1482,7 +1522,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__ork__faction_card__card__back.webp",
+        "sha256": "f7082f1d6ac0c4001ec7f15bc6d36fdd32359a32e06f905d061cabd58a5e77f4",
+        "sourceSha256": "497c23e565955a2f6afaffb1a2f355139e0865c131079e0c43f59e863f7b9365",
+        "width": 1280,
+        "height": 757,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "base/eldar/orders/o_1": {
       "cardId": "base/eldar/orders/o_1",
@@ -1944,7 +1992,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__eldar__faction_card__card.webp",
+        "sha256": "eaf64557546eb715c4e0771395dfb9e07812c02dc2f839b264e38578f696e07a",
+        "sourceSha256": "1ceb1167c6b98a5665d13b272a31f171f76637c7b0913e4ce637df947a3779db",
+        "width": 1280,
+        "height": 758,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "base/eldar/faction_card/card/back": {
       "cardId": "base/eldar/faction_card/card/back",
@@ -1970,7 +2026,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/base__eldar__faction_card__card__back.webp",
+        "sha256": "354cba608a590d40a637ffc0212aef453c155c3bb0b1cca2bd0b8e34aef17b7f",
+        "sourceSha256": "fa82e2f4069cc9f6ca5104152ff119bc9549555ccca4a93e99cdd61fb962e109",
+        "width": 1280,
+        "height": 757,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/ig/orders/o_1": {
       "cardId": "gif/ig/orders/o_1",
@@ -2432,7 +2496,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__ig__faction_card__card.webp",
+        "sha256": "66b51cc9ea95634c9265315b4c45b7f77c6a8c87154e247047314388d438d3b5",
+        "sourceSha256": "3525a948cc803591dbea48c6fb42f319c64e3b10fe41c0ab3b119cf9095bdd4f",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/ig/faction_card/card/back": {
       "cardId": "gif/ig/faction_card/card/back",
@@ -2458,7 +2530,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__ig__faction_card__card__back.webp",
+        "sha256": "c757fe846db3d086e0dbeabc2317c81aad38b3cb91bfc2d15ae173d720cc2301",
+        "sourceSha256": "f3bb79b1f60b1443214849c60384935402c309dfa7d7f8fa85291ca3f4811340",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/tyranid/orders/o_1": {
       "cardId": "gif/tyranid/orders/o_1",
@@ -2920,7 +3000,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__tyranid__faction_card__card.webp",
+        "sha256": "c95f2043d997b5866e8a9d250975146f6e60417655ab75268f5dc58becb51c42",
+        "sourceSha256": "3e84b9826005d6b6379ae8f65adff9e60de3123190a9bed8aec301cdc4662083",
+        "width": 1280,
+        "height": 758,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/tyranid/faction_card/card/back": {
       "cardId": "gif/tyranid/faction_card/card/back",
@@ -2946,7 +3034,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__tyranid__faction_card__card__back.webp",
+        "sha256": "f8ee11cd01530ef5c7afa39137869d9fb86dfce99ff7dfc43dbd36e62366c64e",
+        "sourceSha256": "fdcf073d5de203c27a8b986c6bd2cf468146d1f804ae0509c659544489e67a89",
+        "width": 1280,
+        "height": 757,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/necron/orders/o_1": {
       "cardId": "gif/necron/orders/o_1",
@@ -3408,7 +3504,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__necron__faction_card__card.webp",
+        "sha256": "0eac8d716a0429a025fedadb16dbb1642c71e24760163c0d1b5e0f508f45fd8f",
+        "sourceSha256": "62e8a1f6383a8c5b88c5ed956fdfab52807a00d8bb67ef95ae89ac753cc89cf4",
+        "width": 1280,
+        "height": 765,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/necron/faction_card/card/back": {
       "cardId": "gif/necron/faction_card/card/back",
@@ -3434,7 +3538,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__necron__faction_card__card__back.webp",
+        "sha256": "3cc9541f444cf421a20efe1e88888c35e04e109838ec1a89622f487b752a1c6e",
+        "sourceSha256": "2a2035bbd671997bddc7e8bdffdd6b7c45393a7f81da6b3bd7e8bc5bb46ab0c1",
+        "width": 1280,
+        "height": 765,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/tau/orders/o_1": {
       "cardId": "gif/tau/orders/o_1",
@@ -3889,7 +4001,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__tau__faction_card__card.webp",
+        "sha256": "1a92cd85d0b42ab60f58068755c84d0221334fac03aff07ca568b115f1c3617b",
+        "sourceSha256": "e00e3fb0bc5c50154add7e75d095b75cf756f0ea5595a8570511d13e1770ff4d",
+        "width": 1280,
+        "height": 758,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "gif/tau/faction_card/card/back": {
       "cardId": "gif/tau/faction_card/card/back",
@@ -3915,7 +4035,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/gif__tau__faction_card__card__back.webp",
+        "sha256": "e12e30f83298d59b4bcd8b0ef5719499bfa83a67f75c3d23121b3161535128f1",
+        "sourceSha256": "d6d6a39942aec1b02957e2b9901e28857acd7f06be00872a29ba615d7e87ed03",
+        "width": 1280,
+        "height": 757,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/adeptasororitas/faction_card/card": {
       "cardId": "sow/adeptasororitas/faction_card/card",
@@ -3941,7 +4069,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__adeptasororitas__faction_card__card.webp",
+        "sha256": "eb1b6b47c02050ba0748ec14ff41fe79b4bd20bc7b3bc324c09e9f5a5d8ea723",
+        "sourceSha256": "23d41601ae4542f915eae3a7d012661318e93f82e41bf6666d43eea2f78cbdaf",
+        "width": 1280,
+        "height": 640,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/adeptasororitas/faction_card/card/back": {
       "cardId": "sow/adeptasororitas/faction_card/card/back",
@@ -3967,7 +4103,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__adeptasororitas__faction_card__card__back.webp",
+        "sha256": "6db92b6e3e3f698c00798d6415c4430ceec6a64b6c34f087fcedabfe4fcf68f5",
+        "sourceSha256": "752b554c0f9dce0bf6e1dc4cb4bd631bbee94ebc049b907b61e4fcc67522aa7c",
+        "width": 1280,
+        "height": 640,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/adeptusmechanicus/faction_card/card": {
       "cardId": "sow/adeptusmechanicus/faction_card/card",
@@ -3993,7 +4137,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__adeptusmechanicus__faction_card__card.webp",
+        "sha256": "7aa5638d8e15c8111857501c3cc5eef485b17d848f8a0f14139b3b358c600eab",
+        "sourceSha256": "47b06a52cab784edf0c30b64ca91247b0ee4fde8ad3656a28379ca997a42e88d",
+        "width": 1280,
+        "height": 640,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/adeptusmechanicus/faction_card/card/back": {
       "cardId": "sow/adeptusmechanicus/faction_card/card/back",
@@ -4019,7 +4171,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__adeptusmechanicus__faction_card__card__back.webp",
+        "sha256": "bea5c92baf9e4d6575cb3330d6d6e6a1771d9f959bbafdba8284f78f01a6c980",
+        "sourceSha256": "cec2ce617f8d4556243db32875bf088a0129af3d0788c3c08aa0a3c82010a306",
+        "width": 1280,
+        "height": 640,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/darkeldar/faction_card/card": {
       "cardId": "sow/darkeldar/faction_card/card",
@@ -4045,7 +4205,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__darkeldar__faction_card__card.webp",
+        "sha256": "ddbf403475059ff96d3924cbd6462610a7616fc0cd8b87a93c1e3d1725a97311",
+        "sourceSha256": "ff51bf8618a7b56d1ff90f60554e5d81edda36c046e1b1cb4d6c7e556fd59958",
+        "width": 1280,
+        "height": 758,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/darkeldar/faction_card/card/back": {
       "cardId": "sow/darkeldar/faction_card/card/back",
@@ -4071,7 +4239,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__darkeldar__faction_card__card__back.webp",
+        "sha256": "80623e82c0d49a9fa5c1df1d1fc8fdf624c431ea8a645db5e65c4715ff3b16a1",
+        "sourceSha256": "a2ea9c96087363fcecb684471b6264f3e1b3d2db7743f53265a74e6a4288691a",
+        "width": 1280,
+        "height": 757,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/inquisition/faction_card/card": {
       "cardId": "sow/inquisition/faction_card/card",
@@ -4097,7 +4273,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__inquisition__faction_card__card.webp",
+        "sha256": "249b522e3bcb4f9497245d35a87ada7c2e484ab1b15e9854eab76175edee046a",
+        "sourceSha256": "5af15eb122cfddf2fbbac6b26fea6b2421a4578fcab31488d6a5c2404e37bc38",
+        "width": 1280,
+        "height": 640,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "sow/inquisition/faction_card/card/back": {
       "cardId": "sow/inquisition/faction_card/card/back",
@@ -4123,7 +4307,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/sow__inquisition__faction_card__card__back.webp",
+        "sha256": "a62d890f43882f8e020bde25d3c73f7d9322b489de41ec8c1176cbbacee65a75",
+        "sourceSha256": "7a16cd97512219f4988b8eb0f786d9ae6c3aee2f88736be3c0b4b9a26dc781a7",
+        "width": 1280,
+        "height": 640,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/adeptuscustodes/combat/s1": {
       "cardId": "dl/adeptuscustodes/combat/s1",
@@ -4891,7 +5083,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__adeptuscustodes__faction_card__sheet_front_1.webp",
+        "sha256": "ceee337c010b8d42b7f2b64de9b742d292b36888fa31b72f2d83954dfe764be7",
+        "sourceSha256": "737b065fa1cdf263577ff9f71b71824df0aea86a08ebb05d235d930ab878ea29",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/adeptuscustodes/faction_card/sheet_back_1": {
       "cardId": "dl/adeptuscustodes/faction_card/sheet_back_1",
@@ -4917,7 +5117,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__adeptuscustodes__faction_card__sheet_back_1.webp",
+        "sha256": "3f31e752b83e471a67c86cdf8465ceefff1ed800259b8f6e3831950bb3ce1117",
+        "sourceSha256": "58c85a6a96ebf068cabc025c8f26595ea136f90728c6c02193d63207130fe742",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/genestealercult/combat/s1": {
       "cardId": "dl/genestealercult/combat/s1",
@@ -5685,7 +5893,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__genestealercult__faction_card__sheet_front_1.webp",
+        "sha256": "22f3870b3ee7d0e2b0fb586ab82f3920db47f1268fac2cc87e9e1f5273f6532a",
+        "sourceSha256": "02fb324cde989bb9ed8b11790d84f40d44a4cd8b5607e9626d7378d597a2dc41",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/genestealercult/faction_card/sheet_back_1": {
       "cardId": "dl/genestealercult/faction_card/sheet_back_1",
@@ -5711,7 +5927,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__genestealercult__faction_card__sheet_back_1.webp",
+        "sha256": "dfddc9591652b25e1b79019dea82aebad92b89e496d9a03310e1211393d9e34a",
+        "sourceSha256": "4ac907fca3cb869892e6acbe298308e6af21fb605ec50f6472b6ce5a4c9106b7",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/thousandsons/combat/s1": {
       "cardId": "dl/thousandsons/combat/s1",
@@ -6479,7 +6703,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__thousandsons__faction_card__sheet_front_1.webp",
+        "sha256": "da1939b13b0e069717069200e056feea618e0619373f3202a1effc2eed65da08",
+        "sourceSha256": "c20c8751741ca36c9f7b484f7a9024a9b6c83e8dca139e12a4cd452b4d7aca28",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/thousandsons/faction_card/sheet_back_1": {
       "cardId": "dl/thousandsons/faction_card/sheet_back_1",
@@ -6505,7 +6737,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__thousandsons__faction_card__sheet_back_1.webp",
+        "sha256": "31fb6105558a7d89fbcb99c8aa216e227b466a304bb918fbf0eb11238fc4c328",
+        "sourceSha256": "805463c80e9092f0a6d54d39f5aa603aa673652507ca04b3bdaa8f6895db4f77",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/leaguesofvotann/combat/s1": {
       "cardId": "dl/leaguesofvotann/combat/s1",
@@ -7354,7 +7594,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__leaguesofvotann__faction_card__sheet_front_1.webp",
+        "sha256": "b0ee6b1ec78ad5deba5777523b9102747b72bd50bc2418a68542e3d642144461",
+        "sourceSha256": "4136ab324f431cd34dfe2d5755195bced3be690b4dd52e90c7d953b8293992cb",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     },
     "dl/leaguesofvotann/faction_card/sheet_back_1": {
       "cardId": "dl/leaguesofvotann/faction_card/sheet_back_1",
@@ -7380,7 +7628,15 @@
       "baselineRendererHash": "772778e3f8a25cde7a587a95514351110b25fa13e6c19e52b22dbf1240913f06",
       "comparisonSource": "saved-original-renderer",
       "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
-      "quality": "reconstructed-background; not an original clean master"
+      "quality": "reconstructed-background; not an original clean master",
+      "preview": {
+        "output": "pictures/previews/dl__leaguesofvotann__faction_card__sheet_back_1.webp",
+        "sha256": "e30192e8682626454992cd6ae5c1a4295b45fb814fa78823907625bf36d30350",
+        "sourceSha256": "f33aa26d469006f9f5155d9c1702e4518f562bbd23ac019ad53183da2657e0ae",
+        "width": 1280,
+        "height": 771,
+        "encoding": "WebP quality 95; Lanczos3; max width 1280; sharp 0.35.5"
+      }
     }
   }
 }

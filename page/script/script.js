@@ -212,7 +212,7 @@
     if (state.lb !== null && ['codex','compare'].includes(state.view)) appendLightbox(app);
     if (lazyObserver) lazyObserver.disconnect();
     imageQueue = [];
-    root.querySelectorAll('.fs-card-image').forEach(function (img) { if (img._fsCancel) img._fsCancel(); });
+    root.querySelectorAll('.fs-card-image').forEach(releaseCardImage);
     root.replaceChildren(app);
     root._fsScrollKey = scrollKey;
     if (keepScroll) {
@@ -510,12 +510,12 @@
     wrap.style.setProperty('--fs-lb-ratio', ratio);
   }
 
-  function displayPixels(img, thumbnail, nativeWidth) {
+  function displayPixels(img, thumbnail) {
     // Layout pixels exclude the viewer's entrance/hover transforms.
     var width = img.parentNode.offsetWidth;
-    // Keep native detail and enough pixels for the display; never enlarge a JPEG preview.
+    // Supersample grid text without encoding every thumbnail at the source's full size.
     if (thumbnail) {
-      return {w:Math.max(nativeWidth,Math.ceil(width*Math.max(1,window.devicePixelRatio||1)/32)*32)};
+      return {w:Math.max(32,Math.ceil(width*Math.max(2,window.devicePixelRatio||1)/32)*32)};
     }
     // Supersample text even on a 1× screen. Buckets keep the bounded cache useful
     // across small viewport changes; the optional setting adds rendering detail.
@@ -531,13 +531,13 @@
   }
 
   async function cardImageURL(imgEl, card, thumbnail) {
-    // Start shared fonts alongside the first preview's source, not after it.
-    var resources = await Promise.all([
-      thumbnail || card.kind === 'sheet' ? window.FSCardRender.sourceInfo(card) : null,
-      card.text && card.kind && card.renderMode !== 'raster' ? window.FSCardRender.fontsReady() : null,
-    ]);
-    var source = resources[0];
-    var pixels = displayPixels(imgEl, thumbnail, card.kind==='sheet'?window.FSCardRender.sheetSize.width:source?.width);
+    // Only the sheet viewer needs native dimensions here. For previews, compose()
+    // starts fonts and the selected background together without fetching the master.
+    var source = !thumbnail && card.kind==='sheet' ? (await Promise.all([
+      window.FSCardRender.sourceInfo(card),
+      card.renderMode!=='raster' ? window.FSCardRender.fontsReady() : null,
+    ]))[0] : null;
+    var pixels = displayPixels(imgEl, thumbnail);
     if (card.kind === 'sheet' && !thumbnail) {
       // One base format for every sheet; redraw text at the available detail.
       pixels.w = Math.max(window.FSCardRender.sheetSize.width,Math.min(source.width,pixels.w));
@@ -545,7 +545,7 @@
     if (card.text && card.kind && window.FSCardRender) {
       // Render the text directly at display resolution, losslessly, from the full
       // template. Enlarging the precomposed 270px JPEG loses the small letterforms.
-      return window.FSCardRender.compose(Object.assign({},card,{wording:tokenStyle,width:pixels.w}), { rejectOnError: true });
+      return window.FSCardRender.compose(Object.assign({},card,{wording:tokenStyle,width:pixels.w}), { rejectOnError: true, preview: thumbnail, blob: true });
     }
     return card.src;
   }
@@ -573,8 +573,13 @@
     wrap.appendChild(status);
   }
 
-  async function loadCardImage(img, thumbnail) {
+  function releaseCardImage(img) {
     if (img._fsCancel) img._fsCancel();
+    if (img._fsObjectURL) { URL.revokeObjectURL(img._fsObjectURL); delete img._fsObjectURL; }
+  }
+
+  async function loadCardImage(img, thumbnail) {
+    releaseCardImage(img);
     var wrap = img.parentNode, status = wrap.querySelector('.fs-image-status');
     var label = status.querySelector('.fs-image-label'), retry = status.querySelector('button');
     var zoom = wrap.closest('.fs-lb')?.querySelector('.fs-lb-zoom');
@@ -592,9 +597,9 @@
     try {
       await Promise.race([
         (async function () {
-          var url = await cardImageURL(img, img._fsCard, thumbnail);
+          var image = await cardImageURL(img, img._fsCard, thumbnail);
           if (!img.isConnected || img._fsAttempt !== attempt) return;
-          img.src = url;
+          img.src = image instanceof Blob ? (img._fsObjectURL = URL.createObjectURL(image)) : image;
           await img.decode();
         })(),
         // Allow the shared font retry and the following artwork/decode stage.
@@ -616,6 +621,7 @@
       if (error.name === 'AbortError') return;
       if (!img.isConnected || img._fsAttempt !== attempt) return;
       img._fsAttempt++; // Ignore a source that completes after the timeout.
+      if(img._fsObjectURL){URL.revokeObjectURL(img._fsObjectURL);delete img._fsObjectURL;}
       img.removeAttribute('src');
       wrap.classList.remove('is-loading'); wrap.classList.add('is-error');
       wrap.setAttribute('aria-busy', 'false');
@@ -642,6 +648,15 @@
   }
 
   function observeCards(root) {
+    // A wider viewport may need a sharper preview. Height-only mobile resizes
+    // never remount the grid, and already sufficient images stay decoded.
+    root.querySelectorAll('.fs-card.is-ready img').forEach(function (img) {
+      var card=img._fsCard;
+      if(card.text && card.kind && card.renderMode!=='raster' && img.naturalWidth<displayPixels(img,true).w){
+        img.parentNode.classList.replace('is-ready','is-loading');
+        img.parentNode.setAttribute('aria-busy','true');
+      }
+    });
     var images = root.querySelectorAll('.fs-card:not(.is-ready) img');
     function queue(img) { imageQueue.push(img); scheduleImages(); }
     if (!window.IntersectionObserver) { [].forEach.call(images, queue); return; }
@@ -830,13 +845,16 @@
   function showLightbox() {
     var appEl = document.querySelector('.fs-app');
     if (!appEl) { render(); return; }
-    var old = appEl.querySelector('.fs-lb'); if (old) old.remove();
+    hideLightbox();
     appendLightbox(appEl);
     var img = appEl.querySelector('.fs-lb-imgwrap > img');
     if (img) loadCardImage(img, false);
     focusModal();
   }
-  function hideLightbox() { var lb = document.querySelector('.fs-lb'); if (lb) lb.remove(); }
+  function hideLightbox() {
+    var lb = document.querySelector('.fs-lb');
+    if(lb){lb.querySelectorAll('.fs-card-image').forEach(releaseCardImage);lb.remove();}
+  }
 
   function focusModal() {
     var app = document.querySelector('.fs-app');
