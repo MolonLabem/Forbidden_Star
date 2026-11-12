@@ -162,17 +162,28 @@
       img.onload=function () {clearTimeout(timer);resolve(img);};img.onerror=function () {clearTimeout(timer);reject(new Error('Не удалось загрузить '+src));};img.src=src;
     });
   }
-  async function front(card,catalog,style) {
-    var native=await image(card.artSrc||card.src),source=await image(card.renderMode==='raster'?card.src:card.artSrc||card.template?.picture||card.src);
+  // Stop this export's wait without aborting work shared with previews or other consumers.
+  function waitForExport(pending,signal) {
+    if(!signal) return pending;
+    return new Promise(function (resolve,reject) {
+      function finish(callback,value) {signal.removeEventListener('abort',cancel);callback(value);}
+      function cancel() {finish(reject,new Error('Создание PDF отменено'));}
+      signal.addEventListener('abort',cancel,{once:true});
+      Promise.resolve(pending).then(function (value) {finish(resolve,value);},function (error) {finish(reject,error);});
+      if(signal.aborted) cancel();
+    });
+  }
+  async function front(card,catalog,style,signal) {
+    var native=await waitForExport(image(card.artSrc||card.src),signal),source=await waitForExport(image(card.renderMode==='raster'?card.src:card.artSrc||card.template?.picture||card.src),signal);
     var size=dimensions(catalog.widthMm,catalog.heightMm,catalog.dpi,source.naturalWidth,source.naturalHeight);
     if(card.renderMode==='raster') {
       var canvas=document.createElement('canvas');canvas.width=size.width;canvas.height=size.height;
       canvas.getContext('2d').drawImage(native,0,0,canvas.width,canvas.height);
       return {png:canvas.toDataURL('image/png'),minimumTextPt:null,dpi:Math.min(native.naturalWidth/catalog.widthMm,native.naturalHeight/catalog.heightMm)*25.4};
     }
-    var minimum=0,png=await root.FSCardRender.compose(Object.assign({},card,{wording:style}),{strict:true,width:size.width,height:size.height,onMetrics:function (m) {
+    var minimum=0,png=await waitForExport(root.FSCardRender.compose(Object.assign({},card,{wording:style}),{strict:true,width:size.width,height:size.height,onMetrics:function (m) {
       minimum=m.minimumBodyPx*Math.min(catalog.widthMm/size.width,catalog.heightMm/size.height)*72/25.4;
-    }});
+    }}),signal);
     if(!Number.isFinite(minimum) || minimum<=0 || !png.startsWith('data:image/png;base64,')) throw new Error('Не завершён рендер: '+card.title);
     return {png:png,minimumTextPt:minimum,dpi:Math.min(native.naturalWidth/catalog.widthMm,native.naturalHeight/catalog.heightMm)*25.4};
   }
@@ -189,33 +200,36 @@
     }
     return {catalogId:catalog.id,displayMode:catalog.displayMode||'updated',ruleVersion:catalog.ruleVersion||null,flip:flip,calibration:calibration,marginMm:settings.marginMm,cards:rendered};
   };
-  async function jpeg(src) {
-    var img=await image(src),canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
-    var ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0);
-    var blob=await new Promise(function (resolve) {canvas.toBlob(resolve,'image/jpeg',.96);});
-    if(!blob) throw new Error('Браузер не смог подготовить изображение');
-    var result={width:canvas.width,height:canvas.height,bytes:new Uint8Array(await blob.arrayBuffer())};canvas.width=canvas.height=0;return result;
+  async function jpeg(src,signal) {
+    var img=await waitForExport(image(src),signal),canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+    try {
+      var ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0);
+      var blob=await waitForExport(new Promise(function (resolve) {canvas.toBlob(resolve,'image/jpeg',.96);}),signal);
+      if(!blob) throw new Error('Браузер не смог подготовить изображение');
+      return {width:canvas.width,height:canvas.height,bytes:new Uint8Array(await waitForExport(blob.arrayBuffer(),signal))};
+    } finally {canvas.width=canvas.height=0;}
   }
-  api.exportPdf=async function (chosen,settings,progress,check,calibration) {
+  api.exportPdf=async function (chosen,settings,progress,check,calibration,signal) {
+    if(signal?.aborted) throw new Error('Создание PDF отменено');
     if(!validOptions(settings)) throw new Error('Проверьте настройки печати');
     settings=Object.assign({},DEFAULTS,settings);check=check||function () {};
     if(settings.displayMode && settings.displayMode!==displayMode)throw new Error('Версия набора не совпадает с выбранной версией карт');
-    var data=await load(),catalog=data.catalog;
+    var data=await waitForExport(load(),signal),catalog=data.catalog;
     if(calibration) chosen=Object.fromEntries(catalog.calibrationIds.map(function (id) {return [id,1];}));
     var selection=selected(data.cards,chosen),count=total(data.cards,chosen);
     if(!count || count>200) throw new Error('Выберите от 1 до 200 экземпляров');
     var grid=root.FSPaper.layout(catalog,settings),images=new Map(),items=[],warnings=[],quality=[],bytes=0;
     for(var i=0;i<selection.length;i++) {
       check();var card=selection[i];if(progress) progress('Карта '+(i+1)+' / '+selection.length+' · '+card.title);
-      var rendered=await front(card,catalog,settings.tokenStyle);check();
-      var jpg=await jpeg(rendered.png);images.set(card.id,jpg);bytes+=jpg.bytes.length;
+      var rendered=await front(card,catalog,settings.tokenStyle,signal);check();
+      var jpg=await jpeg(rendered.png,signal);images.set(card.id,jpg);bytes+=jpg.bytes.length;
       warnings.push.apply(warnings,qualityWarnings(card,rendered));
       quality.push({id:card.id,dpi:rendered.dpi,minimumTextPt:rendered.minimumTextPt});
-      if(settings.backs && !images.has(card.backSrc)) {var back=await jpeg(card.backSrc);images.set(card.backSrc,back);bytes+=back.bytes.length;}
+      if(settings.backs && !images.has(card.backSrc)) {var back=await jpeg(card.backSrc,signal);images.set(card.backSrc,back);bytes+=back.bytes.length;}
       if(bytes>64*1024*1024) throw new Error('Набор слишком большой для браузера. Разделите его на несколько PDF.');
       for(var q=0;q<chosen[card.id];q++) items.push(card);
       // Let input events run between cards so cancellation stays responsive.
-      await new Promise(function (resolve) {setTimeout(resolve,0);});
+      await waitForExport(new Promise(function (resolve) {setTimeout(resolve,0);}),signal);
     }
     check();var pages=[];
     for(var sheet=0;sheet<Math.ceil(items.length/grid.capacity);sheet++) {
@@ -256,7 +270,7 @@
     var summary=element('p','Загрузка…',heading),closed=false,busy=false,pdfUrl=null,previewVersion=0,job=null,changed,thumbObserver=null,qualityJob=null;
     button('×',heading,function () {dialog.close();},'fs-print-close').setAttribute('aria-label','Закрыть печать');
     dialog.addEventListener('close',function () {
-      closed=true;if(job) job.cancelled=true;if(qualityJob)qualityJob.cancelled=true;if(thumbObserver)thumbObserver.disconnect();previewVersion++;if(pdfUrl) URL.revokeObjectURL(pdfUrl);
+      closed=true;if(job) job.abort();if(qualityJob)qualityJob.cancelled=true;if(thumbObserver)thumbObserver.disconnect();previewVersion++;if(pdfUrl) URL.revokeObjectURL(pdfUrl);
       root.removeEventListener('fs-print-change',changed);dialog.remove();
       var focus=returnFocus?.isConnected?returnFocus:document.querySelector('.fs-print-launch');if(focus) focus.focus();
     });
@@ -315,7 +329,7 @@
       var quality=element('details','',pane,'fs-print-quality');quality.hidden=true;
       var qualityResults=new Map(),qualityError='',qualitySelection=null;
       var footer=element('footer','',dialog,'fs-print-footer');status=element('p',warning||'',footer);status.setAttribute('role','status');status.setAttribute('aria-live','polite');
-      var generate=button('Скачать PDF',footer,function () {if(busy) {job.cancelled=true;status.textContent='Отмена…';} else run(false);},'fs-print-primary');
+      var generate=button('Скачать PDF',footer,function () {if(busy) {status.textContent='Отмена…';job.abort();} else run(false);},'fs-print-primary');
       var download=element('a','Скачать PDF',footer,'fs-print-primary fs-print-download');download.hidden=true;
       function currentOptions() {return {paper:paper.value,backs:backs.checked,flip:flip.value,marginMm:Number(margin.value),tokenStyle:token.value,displayMode:displayMode};}
       function items() {
@@ -443,15 +457,15 @@
       changed=updateCart;root.addEventListener('fs-print-change',changed);
       [paper,backs,flip,token].forEach(function (control) {control.onchange=updateCart;});margin.oninput=updateCart;
       async function run(calibration) {
-        if(busy || !valid()) return;busy=true;invalidate();var snapshot=version,origin=document.activeElement;job={cancelled:false};var task=job;
+        if(busy || !valid()) return;busy=true;invalidate();var snapshot=version,origin=document.activeElement;job=new AbortController();var task=job;
         if(qualityJob){qualityJob.cancelled=true;qualityJob=null;}
         dialog.querySelectorAll('button,input,select').forEach(function (control) {if(control!==generate && !control.classList.contains('fs-print-close')) control.disabled=true;});
         generate.disabled=false;generate.textContent='Отменить';
         try {
-          var result=await api.exportPdf(api.selection(),currentOptions(),function (text) {if(!closed) status.textContent=text;},function () {
-            if(closed || task.cancelled) throw new Error('Создание PDF отменено');if(snapshot!==version) throw new Error('Набор изменился. Подготовьте PDF заново.');
-          },calibration);
-          if(closed || task.cancelled) throw new Error('Создание PDF отменено');
+          var result=await api.exportPdf(api.selection(),currentOptions(),function (text) {if(!closed && !task.signal.aborted) status.textContent=text;},function () {
+            if(closed || task.signal.aborted) throw new Error('Создание PDF отменено');if(snapshot!==version) throw new Error('Набор изменился. Подготовьте PDF заново.');
+          },calibration,task.signal);
+          if(closed || task.signal.aborted) throw new Error('Создание PDF отменено');
           pdfUrl=URL.createObjectURL(result.blob);
           download.href=pdfUrl;download.download='forbidden-stars-'+displayMode+(catalog.ruleVersion?'-'+catalog.ruleVersion:'')+'-'+(calibration?'control-':'')+paper.value+'-'+flip.value+'.pdf';
           download.textContent=calibration?'Скачать контрольный лист':'Скачать PDF';download.hidden=false;generate.hidden=true;
